@@ -92,30 +92,6 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if _name != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _name, fieldNumber: 1)
-      }
-      if !_methods.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _methods, fieldNumber: 2)
-      }
-      if !_options.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _options, fieldNumber: 3)
-      }
-      if _version != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _version, fieldNumber: 4)
-      }
-      if let v = _sourceContext {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }
-      if !_mixins.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _mixins, fieldNumber: 6)
-      }
-      if _syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularEnumField(value: _syntax, fieldNumber: 7)
-      }
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _methods != other._methods {return false}
@@ -223,7 +199,29 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if storage._name != "" {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._name, fieldNumber: 1)
+      }
+      if !storage._methods.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._methods, fieldNumber: 2)
+      }
+      if !storage._options.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._options, fieldNumber: 3)
+      }
+      if storage._version != "" {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._version, fieldNumber: 4)
+      }
+      if let v = storage._sourceContext {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      }
+      if !storage._mixins.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._mixins, fieldNumber: 6)
+      }
+      if storage._syntax != Google_Protobuf_Syntax.proto2 {
+        try visitor.visitSingularEnumField(value: storage._syntax, fieldNumber: 7)
+      }
+    }
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {

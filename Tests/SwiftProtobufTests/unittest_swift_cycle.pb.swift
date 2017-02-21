@@ -88,19 +88,6 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _aFoo != other._aFoo {return false}
       if _aBar != other._aBar {return false}
@@ -170,7 +157,18 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._aFoo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = storage._aBar {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if let v = storage._aBaz {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
@@ -217,19 +215,6 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _aBar != other._aBar {return false}
       if _aBaz != other._aBaz {return false}
@@ -299,7 +284,18 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._aBar {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = storage._aBaz {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if let v = storage._aFoo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
@@ -346,19 +342,6 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _aBaz {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _aFoo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _aBar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _aBaz != other._aBaz {return false}
       if _aFoo != other._aFoo {return false}
@@ -428,7 +411,18 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._aBaz {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = storage._aFoo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if let v = storage._aBar {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {

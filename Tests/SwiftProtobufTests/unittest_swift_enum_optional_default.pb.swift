@@ -71,16 +71,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         }
       }
 
-      func traverse(visitor: SwiftProtobuf.Visitor) throws {
-        if let v = _message {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-        }
-        if let v = _optionalEnum {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-        }
-        unknownFields.traverse(visitor: visitor)
-      }
-
       func isEqualTo(other: _StorageClass) -> Bool {
         if _message != other._message {return false}
         if _optionalEnum != other._optionalEnum {return false}
@@ -186,7 +176,15 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
     }
 
     func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _storage.traverse(visitor: visitor)
+      try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+        if let v = storage._message {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        }
+        if let v = storage._optionalEnum {
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+        }
+        storage.unknownFields.traverse(visitor: visitor)
+      }
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {

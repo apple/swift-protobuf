@@ -856,23 +856,6 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _bar {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _baz {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
-      }
-      if let v = _fred {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if !_barney.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _barney, fieldNumber: 4)
-      }
-      try visitor.visitExtensionFields(fields: extensionFieldValues, start: 100, end: 536870912)
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _bar != other._bar {return false}
       if _baz != other._baz {return false}
@@ -1014,7 +997,22 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._bar {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = storage._baz {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+      }
+      if let v = storage._fred {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if !storage._barney.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._barney, fieldNumber: 4)
+      }
+      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 100, end: 536870912)
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2) -> Bool {
@@ -1075,16 +1073,6 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
       case 2: try decoder.decodeSingularGroupField(value: &_complexOptionType5)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _qux {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
-      }
-      if let v = _complexOptionType5 {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1193,7 +1181,15 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._qux {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._complexOptionType5 {
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3) -> Bool {
@@ -1458,25 +1454,6 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _i {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
-      }
-      if let v = _s {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
-      }
-      if let v = _sub {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if let v = _file {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      }
-      if let v = _mset {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _i != other._i {return false}
       if _s != other._s {return false}
@@ -1588,7 +1565,24 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._i {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._s {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+      }
+      if let v = storage._sub {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if let v = storage._file {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
+      if let v = storage._mset {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Aggregate) -> Bool {

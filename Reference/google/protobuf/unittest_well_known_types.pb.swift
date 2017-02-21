@@ -101,66 +101,6 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _anyField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _apiField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if let v = _durationField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if let v = _emptyField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      }
-      if let v = _fieldMaskField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }
-      if let v = _sourceContextField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      }
-      if let v = _structField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
-      if let v = _timestampField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _typeField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }
-      if let v = _doubleField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-      }
-      if let v = _floatField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      }
-      if let v = _int64Field {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-      }
-      if let v = _uint64Field {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-      }
-      if let v = _int32Field {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-      }
-      if let v = _uint32Field {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-      }
-      if let v = _boolField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-      }
-      if let v = _stringField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-      }
-      if let v = _bytesField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      }
-      if let v = _valueField {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      }
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _anyField != other._anyField {return false}
       if _apiField != other._apiField {return false}
@@ -433,7 +373,65 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._anyField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = storage._apiField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if let v = storage._durationField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if let v = storage._emptyField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
+      if let v = storage._fieldMaskField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      }
+      if let v = storage._sourceContextField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      }
+      if let v = storage._structField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      }
+      if let v = storage._timestampField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      }
+      if let v = storage._typeField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      }
+      if let v = storage._doubleField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+      }
+      if let v = storage._floatField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      }
+      if let v = storage._int64Field {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      }
+      if let v = storage._uint64Field {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+      }
+      if let v = storage._int32Field {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+      }
+      if let v = storage._uint32Field {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+      }
+      if let v = storage._boolField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+      }
+      if let v = storage._stringField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
+      }
+      if let v = storage._bytesField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
+      }
+      if let v = storage._valueField {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
+      }
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
@@ -522,63 +520,6 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
       case 17: try decoder.decodeRepeatedMessageField(value: &_stringField)
       case 18: try decoder.decodeRepeatedMessageField(value: &_bytesField)
       default: break
-      }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if !_anyField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _anyField, fieldNumber: 1)
-      }
-      if !_apiField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _apiField, fieldNumber: 2)
-      }
-      if !_durationField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _durationField, fieldNumber: 3)
-      }
-      if !_emptyField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _emptyField, fieldNumber: 4)
-      }
-      if !_fieldMaskField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _fieldMaskField, fieldNumber: 5)
-      }
-      if !_sourceContextField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _sourceContextField, fieldNumber: 6)
-      }
-      if !_structField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _structField, fieldNumber: 7)
-      }
-      if !_timestampField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _timestampField, fieldNumber: 8)
-      }
-      if !_typeField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _typeField, fieldNumber: 9)
-      }
-      if !_doubleField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _doubleField, fieldNumber: 10)
-      }
-      if !_floatField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _floatField, fieldNumber: 11)
-      }
-      if !_int64Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _int64Field, fieldNumber: 12)
-      }
-      if !_uint64Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _uint64Field, fieldNumber: 13)
-      }
-      if !_int32Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _int32Field, fieldNumber: 14)
-      }
-      if !_uint32Field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _uint32Field, fieldNumber: 15)
-      }
-      if !_boolField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _boolField, fieldNumber: 16)
-      }
-      if !_stringField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _stringField, fieldNumber: 17)
-      }
-      if !_bytesField.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _bytesField, fieldNumber: 18)
       }
     }
 
@@ -733,7 +674,62 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if !storage._anyField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._anyField, fieldNumber: 1)
+      }
+      if !storage._apiField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._apiField, fieldNumber: 2)
+      }
+      if !storage._durationField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._durationField, fieldNumber: 3)
+      }
+      if !storage._emptyField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._emptyField, fieldNumber: 4)
+      }
+      if !storage._fieldMaskField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._fieldMaskField, fieldNumber: 5)
+      }
+      if !storage._sourceContextField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._sourceContextField, fieldNumber: 6)
+      }
+      if !storage._structField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._structField, fieldNumber: 7)
+      }
+      if !storage._timestampField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._timestampField, fieldNumber: 8)
+      }
+      if !storage._typeField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._typeField, fieldNumber: 9)
+      }
+      if !storage._doubleField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._doubleField, fieldNumber: 10)
+      }
+      if !storage._floatField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._floatField, fieldNumber: 11)
+      }
+      if !storage._int64Field.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._int64Field, fieldNumber: 12)
+      }
+      if !storage._uint64Field.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._uint64Field, fieldNumber: 13)
+      }
+      if !storage._int32Field.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._int32Field, fieldNumber: 14)
+      }
+      if !storage._uint32Field.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._uint32Field, fieldNumber: 15)
+      }
+      if !storage._boolField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._boolField, fieldNumber: 16)
+      }
+      if !storage._stringField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._stringField, fieldNumber: 17)
+      }
+      if !storage._bytesField.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._bytesField, fieldNumber: 18)
+      }
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
@@ -792,10 +788,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
         _oneofField = try ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _oneofField?.traverse(visitor: visitor, start: 1, end: 19)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1303,7 +1295,9 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      try storage._oneofField?.traverse(visitor: visitor, start: 1, end: 19)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
@@ -1394,63 +1388,6 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
       case 17: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_stringField)
       case 18: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_bytesField)
       default: break
-      }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if !_anyField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Any>.self, value: _anyField, fieldNumber: 1)
-      }
-      if !_apiField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Api>.self, value: _apiField, fieldNumber: 2)
-      }
-      if !_durationField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Duration>.self, value: _durationField, fieldNumber: 3)
-      }
-      if !_emptyField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Empty>.self, value: _emptyField, fieldNumber: 4)
-      }
-      if !_fieldMaskField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FieldMask>.self, value: _fieldMaskField, fieldNumber: 5)
-      }
-      if !_sourceContextField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_SourceContext>.self, value: _sourceContextField, fieldNumber: 6)
-      }
-      if !_structField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Struct>.self, value: _structField, fieldNumber: 7)
-      }
-      if !_timestampField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Timestamp>.self, value: _timestampField, fieldNumber: 8)
-      }
-      if !_typeField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Type>.self, value: _typeField, fieldNumber: 9)
-      }
-      if !_doubleField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: _doubleField, fieldNumber: 10)
-      }
-      if !_floatField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FloatValue>.self, value: _floatField, fieldNumber: 11)
-      }
-      if !_int64Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int64Value>.self, value: _int64Field, fieldNumber: 12)
-      }
-      if !_uint64Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: _uint64Field, fieldNumber: 13)
-      }
-      if !_int32Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int32Value>.self, value: _int32Field, fieldNumber: 14)
-      }
-      if !_uint32Field.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: _uint32Field, fieldNumber: 15)
-      }
-      if !_boolField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BoolValue>.self, value: _boolField, fieldNumber: 16)
-      }
-      if !_stringField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: _stringField, fieldNumber: 17)
-      }
-      if !_bytesField.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _bytesField, fieldNumber: 18)
       }
     }
 
@@ -1604,7 +1541,62 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if !storage._anyField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Any>.self, value: storage._anyField, fieldNumber: 1)
+      }
+      if !storage._apiField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Api>.self, value: storage._apiField, fieldNumber: 2)
+      }
+      if !storage._durationField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Duration>.self, value: storage._durationField, fieldNumber: 3)
+      }
+      if !storage._emptyField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Empty>.self, value: storage._emptyField, fieldNumber: 4)
+      }
+      if !storage._fieldMaskField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FieldMask>.self, value: storage._fieldMaskField, fieldNumber: 5)
+      }
+      if !storage._sourceContextField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_SourceContext>.self, value: storage._sourceContextField, fieldNumber: 6)
+      }
+      if !storage._structField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Struct>.self, value: storage._structField, fieldNumber: 7)
+      }
+      if !storage._timestampField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Timestamp>.self, value: storage._timestampField, fieldNumber: 8)
+      }
+      if !storage._typeField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Type>.self, value: storage._typeField, fieldNumber: 9)
+      }
+      if !storage._doubleField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: storage._doubleField, fieldNumber: 10)
+      }
+      if !storage._floatField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FloatValue>.self, value: storage._floatField, fieldNumber: 11)
+      }
+      if !storage._int64Field.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int64Value>.self, value: storage._int64Field, fieldNumber: 12)
+      }
+      if !storage._uint64Field.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: storage._uint64Field, fieldNumber: 13)
+      }
+      if !storage._int32Field.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int32Value>.self, value: storage._int32Field, fieldNumber: 14)
+      }
+      if !storage._uint32Field.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: storage._uint32Field, fieldNumber: 15)
+      }
+      if !storage._boolField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BoolValue>.self, value: storage._boolField, fieldNumber: 16)
+      }
+      if !storage._stringField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: storage._stringField, fieldNumber: 17)
+      }
+      if !storage._bytesField.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: storage._bytesField, fieldNumber: 18)
+      }
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {

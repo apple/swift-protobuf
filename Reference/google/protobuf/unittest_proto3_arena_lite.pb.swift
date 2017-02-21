@@ -292,151 +292,6 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if _optionalInt32 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _optionalInt32, fieldNumber: 1)
-      }
-      if _optionalInt64 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: _optionalInt64, fieldNumber: 2)
-      }
-      if _optionalUint32 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: _optionalUint32, fieldNumber: 3)
-      }
-      if _optionalUint64 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: _optionalUint64, fieldNumber: 4)
-      }
-      if _optionalSint32 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: _optionalSint32, fieldNumber: 5)
-      }
-      if _optionalSint64 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: _optionalSint64, fieldNumber: 6)
-      }
-      if _optionalFixed32 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: _optionalFixed32, fieldNumber: 7)
-      }
-      if _optionalFixed64 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: _optionalFixed64, fieldNumber: 8)
-      }
-      if _optionalSfixed32 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: _optionalSfixed32, fieldNumber: 9)
-      }
-      if _optionalSfixed64 != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: _optionalSfixed64, fieldNumber: 10)
-      }
-      if _optionalFloat != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _optionalFloat, fieldNumber: 11)
-      }
-      if _optionalDouble != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _optionalDouble, fieldNumber: 12)
-      }
-      if _optionalBool != false {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _optionalBool, fieldNumber: 13)
-      }
-      if _optionalString != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalString, fieldNumber: 14)
-      }
-      if _optionalBytes != Data() {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _optionalBytes, fieldNumber: 15)
-      }
-      if let v = _optionalNestedMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      }
-      if let v = _optionalForeignMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      }
-      if let v = _optionalImportMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
-      }
-      if _optionalNestedEnum != Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.zero {
-        try visitor.visitSingularEnumField(value: _optionalNestedEnum, fieldNumber: 21)
-      }
-      if _optionalForeignEnum != Proto3ArenaLiteUnittest_ForeignEnum.foreignZero {
-        try visitor.visitSingularEnumField(value: _optionalForeignEnum, fieldNumber: 22)
-      }
-      if _optionalStringPiece != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalStringPiece, fieldNumber: 24)
-      }
-      if _optionalCord != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: _optionalCord, fieldNumber: 25)
-      }
-      if let v = _optionalPublicImportMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
-      }
-      if let v = _optionalLazyMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
-      }
-      if !_repeatedInt32.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _repeatedInt32, fieldNumber: 31)
-      }
-      if !_repeatedInt64.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: _repeatedInt64, fieldNumber: 32)
-      }
-      if !_repeatedUint32.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: _repeatedUint32, fieldNumber: 33)
-      }
-      if !_repeatedUint64.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: _repeatedUint64, fieldNumber: 34)
-      }
-      if !_repeatedSint32.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: _repeatedSint32, fieldNumber: 35)
-      }
-      if !_repeatedSint64.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: _repeatedSint64, fieldNumber: 36)
-      }
-      if !_repeatedFixed32.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: _repeatedFixed32, fieldNumber: 37)
-      }
-      if !_repeatedFixed64.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: _repeatedFixed64, fieldNumber: 38)
-      }
-      if !_repeatedSfixed32.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: _repeatedSfixed32, fieldNumber: 39)
-      }
-      if !_repeatedSfixed64.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: _repeatedSfixed64, fieldNumber: 40)
-      }
-      if !_repeatedFloat.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: _repeatedFloat, fieldNumber: 41)
-      }
-      if !_repeatedDouble.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: _repeatedDouble, fieldNumber: 42)
-      }
-      if !_repeatedBool.isEmpty {
-        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: _repeatedBool, fieldNumber: 43)
-      }
-      if !_repeatedString.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedString, fieldNumber: 44)
-      }
-      if !_repeatedBytes.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: _repeatedBytes, fieldNumber: 45)
-      }
-      if !_repeatedNestedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedNestedMessage, fieldNumber: 48)
-      }
-      if !_repeatedForeignMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedForeignMessage, fieldNumber: 49)
-      }
-      if !_repeatedImportMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedImportMessage, fieldNumber: 50)
-      }
-      if !_repeatedNestedEnum.isEmpty {
-        try visitor.visitPackedEnumField(value: _repeatedNestedEnum, fieldNumber: 51)
-      }
-      if !_repeatedForeignEnum.isEmpty {
-        try visitor.visitPackedEnumField(value: _repeatedForeignEnum, fieldNumber: 52)
-      }
-      if !_repeatedStringPiece.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedStringPiece, fieldNumber: 54)
-      }
-      if !_repeatedCord.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _repeatedCord, fieldNumber: 55)
-      }
-      if !_repeatedLazyMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedLazyMessage, fieldNumber: 57)
-      }
-      try _oneofField?.traverse(visitor: visitor, start: 111, end: 115)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _optionalInt32 != other._optionalInt32 {return false}
       if _optionalInt64 != other._optionalInt64 {return false}
@@ -1084,7 +939,150 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if storage._optionalInt32 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._optionalInt32, fieldNumber: 1)
+      }
+      if storage._optionalInt64 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: storage._optionalInt64, fieldNumber: 2)
+      }
+      if storage._optionalUint32 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: storage._optionalUint32, fieldNumber: 3)
+      }
+      if storage._optionalUint64 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: storage._optionalUint64, fieldNumber: 4)
+      }
+      if storage._optionalSint32 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: storage._optionalSint32, fieldNumber: 5)
+      }
+      if storage._optionalSint64 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: storage._optionalSint64, fieldNumber: 6)
+      }
+      if storage._optionalFixed32 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: storage._optionalFixed32, fieldNumber: 7)
+      }
+      if storage._optionalFixed64 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: storage._optionalFixed64, fieldNumber: 8)
+      }
+      if storage._optionalSfixed32 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: storage._optionalSfixed32, fieldNumber: 9)
+      }
+      if storage._optionalSfixed64 != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: storage._optionalSfixed64, fieldNumber: 10)
+      }
+      if storage._optionalFloat != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: storage._optionalFloat, fieldNumber: 11)
+      }
+      if storage._optionalDouble != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: storage._optionalDouble, fieldNumber: 12)
+      }
+      if storage._optionalBool != false {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: storage._optionalBool, fieldNumber: 13)
+      }
+      if storage._optionalString != "" {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._optionalString, fieldNumber: 14)
+      }
+      if storage._optionalBytes != Data() {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: storage._optionalBytes, fieldNumber: 15)
+      }
+      if let v = storage._optionalNestedMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
+      }
+      if let v = storage._optionalForeignMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
+      }
+      if let v = storage._optionalImportMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
+      }
+      if storage._optionalNestedEnum != Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.zero {
+        try visitor.visitSingularEnumField(value: storage._optionalNestedEnum, fieldNumber: 21)
+      }
+      if storage._optionalForeignEnum != Proto3ArenaLiteUnittest_ForeignEnum.foreignZero {
+        try visitor.visitSingularEnumField(value: storage._optionalForeignEnum, fieldNumber: 22)
+      }
+      if storage._optionalStringPiece != "" {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._optionalStringPiece, fieldNumber: 24)
+      }
+      if storage._optionalCord != "" {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._optionalCord, fieldNumber: 25)
+      }
+      if let v = storage._optionalPublicImportMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
+      }
+      if let v = storage._optionalLazyMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
+      }
+      if !storage._repeatedInt32.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._repeatedInt32, fieldNumber: 31)
+      }
+      if !storage._repeatedInt64.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: storage._repeatedInt64, fieldNumber: 32)
+      }
+      if !storage._repeatedUint32.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: storage._repeatedUint32, fieldNumber: 33)
+      }
+      if !storage._repeatedUint64.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: storage._repeatedUint64, fieldNumber: 34)
+      }
+      if !storage._repeatedSint32.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: storage._repeatedSint32, fieldNumber: 35)
+      }
+      if !storage._repeatedSint64.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: storage._repeatedSint64, fieldNumber: 36)
+      }
+      if !storage._repeatedFixed32.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: storage._repeatedFixed32, fieldNumber: 37)
+      }
+      if !storage._repeatedFixed64.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: storage._repeatedFixed64, fieldNumber: 38)
+      }
+      if !storage._repeatedSfixed32.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: storage._repeatedSfixed32, fieldNumber: 39)
+      }
+      if !storage._repeatedSfixed64.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: storage._repeatedSfixed64, fieldNumber: 40)
+      }
+      if !storage._repeatedFloat.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: storage._repeatedFloat, fieldNumber: 41)
+      }
+      if !storage._repeatedDouble.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: storage._repeatedDouble, fieldNumber: 42)
+      }
+      if !storage._repeatedBool.isEmpty {
+        try visitor.visitPackedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: storage._repeatedBool, fieldNumber: 43)
+      }
+      if !storage._repeatedString.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._repeatedString, fieldNumber: 44)
+      }
+      if !storage._repeatedBytes.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: storage._repeatedBytes, fieldNumber: 45)
+      }
+      if !storage._repeatedNestedMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._repeatedNestedMessage, fieldNumber: 48)
+      }
+      if !storage._repeatedForeignMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._repeatedForeignMessage, fieldNumber: 49)
+      }
+      if !storage._repeatedImportMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._repeatedImportMessage, fieldNumber: 50)
+      }
+      if !storage._repeatedNestedEnum.isEmpty {
+        try visitor.visitPackedEnumField(value: storage._repeatedNestedEnum, fieldNumber: 51)
+      }
+      if !storage._repeatedForeignEnum.isEmpty {
+        try visitor.visitPackedEnumField(value: storage._repeatedForeignEnum, fieldNumber: 52)
+      }
+      if !storage._repeatedStringPiece.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._repeatedStringPiece, fieldNumber: 54)
+      }
+      if !storage._repeatedCord.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._repeatedCord, fieldNumber: 55)
+      }
+      if !storage._repeatedLazyMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._repeatedLazyMessage, fieldNumber: 57)
+      }
+      try storage._oneofField?.traverse(visitor: visitor, start: 111, end: 115)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestAllTypes) -> Bool {
@@ -1413,15 +1411,6 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftP
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _child {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if let v = _payload {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _child != other._child {return false}
       if _payload != other._payload {return false}
@@ -1472,7 +1461,14 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftP
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._child {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = storage._payload {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_NestedTestAllTypes) -> Bool {
