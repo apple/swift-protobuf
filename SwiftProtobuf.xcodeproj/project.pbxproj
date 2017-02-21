@@ -422,6 +422,12 @@
 		F4F4F1181E5633E7006C6CAD /* Test_Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */; };
 		F4F4F1191E5633E8006C6CAD /* Test_Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */; };
 		F4F4F11A1E5633EA006C6CAD /* Test_Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */; };
+		F4F4F11B1E5C7556006C6CAD /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0E1E54B81400CA8A26 /* TimeUtils.swift */; };
+		F4F4F11C1E5C7556006C6CAD /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0E1E54B81400CA8A26 /* TimeUtils.swift */; };
+		F4F4F11D1E5C7557006C6CAD /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0E1E54B81400CA8A26 /* TimeUtils.swift */; };
+		F4F4F11E1E5C7562006C6CAD /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0C1E54B80800CA8A26 /* MathUtils.swift */; };
+		F4F4F11F1E5C7563006C6CAD /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0C1E54B80800CA8A26 /* MathUtils.swift */; };
+		F4F4F1201E5C7565006C6CAD /* MathUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1CA0C1E54B80800CA8A26 /* MathUtils.swift */; };
 		_LinkFileRef_Protobuf_via_ProtobufTestSuite /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_macOS" /* SwiftProtobuf.framework */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration_Extensions.swift */; };
@@ -1262,6 +1268,7 @@
 				9C2F238A1D7780D1008524F2 /* Errors.swift in Sources */,
 				9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */,
 				9C75F88B1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
+				F4F4F11E1E5C7562006C6CAD /* MathUtils.swift in Sources */,
 				AA86F6FB1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */,
 				9C667A961E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
@@ -1277,6 +1284,7 @@
 				9C2F23921D7780D1008524F2 /* JSONTypeAdditions.swift in Sources */,
 				AAEA52771DA832A8003F318F /* wrappers.pb.swift in Sources */,
 				9C2F23931D7780D1008524F2 /* Message.swift in Sources */,
+				F4F4F11B1E5C7556006C6CAD /* TimeUtils.swift in Sources */,
 				9C2F23981D7780D1008524F2 /* FieldTypes.swift in Sources */,
 				9C2F23991D7780D1008524F2 /* UnknownStorage.swift in Sources */,
 				9C5890B41DFF6389001CFC34 /* TextFormatDecoder.swift in Sources */,
@@ -1494,6 +1502,7 @@
 				AA86F6FC1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				AAF2ED411DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
 				AAF2ED3C1DEF3FBC007B510F /* FieldNameMap.swift in Sources */,
+				F4F4F11F1E5C7563006C6CAD /* MathUtils.swift in Sources */,
 				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
 				9C667A971E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */,
@@ -1509,6 +1518,7 @@
 				F44F93991DAEA76700BC5B85 /* wrappers.pb.swift in Sources */,
 				F44F93811DAEA76700BC5B85 /* BinaryDecoder.swift in Sources */,
 				AAF2ED461DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
+				F4F4F11C1E5C7556006C6CAD /* TimeUtils.swift in Sources */,
 				F44F93981DAEA76700BC5B85 /* Varint.swift in Sources */,
 				F44F937C1DAEA76700BC5B85 /* Google_Protobuf_Duration_Extensions.swift in Sources */,
 				9C5890AE1DFF6384001CFC34 /* TextFormatDecoder.swift in Sources */,
@@ -1660,6 +1670,7 @@
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask_Extensions.swift in Sources */,
 				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */,
 				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp_Extensions.swift in Sources */,
+				F4F4F1201E5C7565006C6CAD /* MathUtils.swift in Sources */,
 				ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				AA86F6FD1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				9C667A981E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
@@ -1675,6 +1686,7 @@
 				F44F94101DAEB23500BC5B85 /* BinaryDecoder.swift in Sources */,
 				F44F94111DAEB23500BC5B85 /* BinaryEncoder.swift in Sources */,
 				F44F94121DAEB23500BC5B85 /* BinaryEncodingSizeVisitor.swift in Sources */,
+				F4F4F11D1E5C7557006C6CAD /* TimeUtils.swift in Sources */,
 				9C75F8971DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
 				F44F94131DAEB23500BC5B85 /* BinaryTypeAdditions.swift in Sources */,
 				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
