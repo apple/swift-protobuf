@@ -80,18 +80,6 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if _int32Value != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _int32Value, fieldNumber: 1)
-      }
-      if let v = _anyValue {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      if !_repeatedAnyValue.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedAnyValue, fieldNumber: 3)
-      }
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _int32Value != other._int32Value {return false}
       if _anyValue != other._anyValue {return false}
@@ -143,7 +131,17 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if storage._int32Value != 0 {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._int32Value, fieldNumber: 1)
+      }
+      if let v = storage._anyValue {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if !storage._repeatedAnyValue.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._repeatedAnyValue, fieldNumber: 3)
+      }
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {

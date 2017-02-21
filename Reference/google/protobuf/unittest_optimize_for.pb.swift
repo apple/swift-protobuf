@@ -101,18 +101,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _i {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
-      }
-      try _foo?.traverse(visitor: visitor, start: 2, end: 4)
-      if let v = _msg {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
-      }
-      try visitor.visitExtensionFields(fields: extensionFieldValues, start: 1000, end: 536870912)
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _i != other._i {return false}
       if _msg != other._msg {return false}
@@ -271,7 +259,17 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._i {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      }
+      try storage._foo?.traverse(visitor: visitor, start: 2, end: 4)
+      if let v = storage._msg {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
+      }
+      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 1000, end: 536870912)
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptimizedForSize) -> Bool {
@@ -391,13 +389,6 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _o {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _o != other._o {return false}
       if unknownFields != other.unknownFields {return false}
@@ -445,7 +436,12 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._o {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {

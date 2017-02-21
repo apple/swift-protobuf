@@ -90,16 +90,6 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _optionalMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      if !_repeatedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _repeatedMessage, fieldNumber: 2)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _optionalMessage != other._optionalMessage {return false}
       if _repeatedMessage != other._repeatedMessage {return false}
@@ -156,7 +146,15 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._optionalMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if !storage._repeatedMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._repeatedMessage, fieldNumber: 2)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {

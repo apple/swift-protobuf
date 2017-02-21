@@ -190,10 +190,6 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      try _kind?.traverse(visitor: visitor, start: 1, end: 7)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _kind != other._kind {return false}
       return true
@@ -397,7 +393,9 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      try storage._kind?.traverse(visitor: visitor, start: 1, end: 7)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
