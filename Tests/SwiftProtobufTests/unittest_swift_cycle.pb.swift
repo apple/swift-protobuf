@@ -123,7 +123,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var aFoo: ProtobufUnittest_CycleFoo {
@@ -252,7 +252,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var aBar: ProtobufUnittest_CycleBar {
@@ -381,7 +381,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var aBaz: ProtobufUnittest_CycleBaz {

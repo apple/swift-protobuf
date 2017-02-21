@@ -101,7 +101,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
     var unknownFields: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknownFields}
-      set {_storage.unknownFields = newValue}
+      set {_uniqueStorage().unknownFields = newValue}
     }
 
     enum Enum: SwiftProtobuf.Enum {

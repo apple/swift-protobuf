@@ -894,7 +894,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   enum OneOf_OneofField: Equatable {
@@ -1975,7 +1975,7 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var child: ProtobufUnittest_NestedTestAllTypes {
@@ -2707,7 +2707,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   struct Extensions {
@@ -3193,7 +3193,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var optionalMessage: ProtobufUnittest_TestRequired {
@@ -3305,7 +3305,7 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage {
@@ -3632,7 +3632,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var a: ProtobufUnittest_TestRecursiveMessage {
@@ -3735,7 +3735,7 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var bb: ProtobufUnittest_TestMutualRecursionB {
@@ -3834,7 +3834,7 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var a: ProtobufUnittest_TestMutualRecursionA {
@@ -3956,7 +3956,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   struct Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -4171,7 +4171,7 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf.P
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var subMessage: ProtobufUnittest_TestAllTypes {
@@ -4262,7 +4262,7 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var subMessage: ProtobufUnittest_TestAllTypes {
@@ -4354,7 +4354,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -4583,7 +4583,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var primitiveField: Int32 {
@@ -4798,7 +4798,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -4950,7 +4950,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestFieldOrderings>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestFieldOrderings>) -> F.ValueType {
@@ -5224,7 +5224,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var escapedBytes: Data {
@@ -6101,7 +6101,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   enum OneOf_Foo: Equatable {
@@ -6402,7 +6402,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   struct FooGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
@@ -6635,7 +6635,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   enum OneOf_Foo: Equatable {
@@ -7369,7 +7369,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   enum OneOf_Foo: Equatable {
@@ -8079,7 +8079,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   enum DynamicEnumType: SwiftProtobuf.Enum {
@@ -8466,7 +8466,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   ///   RepeatedFieldsGenerator defines matching field types as TestParsingMerge,
@@ -8540,7 +8540,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
       var unknownFields: SwiftProtobuf.UnknownStorage {
         get {return _storage.unknownFields}
-        set {_storage.unknownFields = newValue}
+        set {_uniqueStorage().unknownFields = newValue}
       }
 
       var field1: ProtobufUnittest_TestAllTypes {
@@ -8631,7 +8631,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
       var unknownFields: SwiftProtobuf.UnknownStorage {
         get {return _storage.unknownFields}
-        set {_storage.unknownFields = newValue}
+        set {_uniqueStorage().unknownFields = newValue}
       }
 
       var field1: ProtobufUnittest_TestAllTypes {
@@ -8795,7 +8795,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
     var unknownFields: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknownFields}
-      set {_storage.unknownFields = newValue}
+      set {_uniqueStorage().unknownFields = newValue}
     }
 
     var optionalGroupAllTypes: ProtobufUnittest_TestAllTypes {
@@ -8886,7 +8886,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
 
     var unknownFields: SwiftProtobuf.UnknownStorage {
       get {return _storage.unknownFields}
-      set {_storage.unknownFields = newValue}
+      set {_uniqueStorage().unknownFields = newValue}
     }
 
     var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes {
@@ -9018,7 +9018,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestParsingMerge>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestParsingMerge>) -> F.ValueType {
@@ -9541,7 +9541,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   enum OneOf_OneofField: Equatable {
@@ -9849,7 +9849,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestHugeFieldNumbers>) {
-    return _storage.clearExtensionValue(ext: ext)
+    return _uniqueStorage().clearExtensionValue(ext: ext)
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestHugeFieldNumbers>) -> F.ValueType {

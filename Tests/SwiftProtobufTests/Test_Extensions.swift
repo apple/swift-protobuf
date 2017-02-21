@@ -248,4 +248,138 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
             XCTFail("Decoding into unextended message failed for \(coded)")
         }
     }
+
+    func test_MessageNoStorageClass() {
+        var msg1 = ProtobufUnittest_Extend_MsgNoStorage()
+        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 0)
+        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 0)
+
+        msg1.ProtobufUnittest_Extend_extA = 1
+        msg1.ProtobufUnittest_Extend_extB = 2
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 2)
+
+        var msg2 = msg1
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 2)
+
+        msg2.ProtobufUnittest_Extend_extA = 10
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 10)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 2)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 2)
+
+        msg1.ProtobufUnittest_Extend_extB = 3
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 10)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 2)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 3)
+
+        msg2 = msg1
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 3)
+
+        msg2.clearProtobufUnittest_Extend_extA()
+        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 0)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 3)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 3)
+
+        msg1.clearProtobufUnittest_Extend_extB()
+        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extA, 0)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extB, 3)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extA)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extA, 1)
+        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extB)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extB, 0)
+    }
+
+    func test_MessageUsingStorageClass() {
+        var msg1 = ProtobufUnittest_Extend_MsgUsesStorage()
+        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 0)
+        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 0)
+
+        msg1.ProtobufUnittest_Extend_extC = 1
+        msg1.ProtobufUnittest_Extend_extD = 2
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 2)
+
+        var msg2 = msg1
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 2)
+
+        msg2.ProtobufUnittest_Extend_extC = 10
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 10)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 2)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 2)
+
+        msg1.ProtobufUnittest_Extend_extD = 3
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 10)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 2)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 3)
+
+        msg2 = msg1
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 3)
+
+        msg2.clearProtobufUnittest_Extend_extC()
+        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 0)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 3)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 3)
+
+        msg1.clearProtobufUnittest_Extend_extD()
+        XCTAssertFalse(msg2.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extC, 0)
+        XCTAssertTrue(msg2.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg2.ProtobufUnittest_Extend_extD, 3)
+        XCTAssertTrue(msg1.hasProtobufUnittest_Extend_extC)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extC, 1)
+        XCTAssertFalse(msg1.hasProtobufUnittest_Extend_extD)
+        XCTAssertEqual(msg1.ProtobufUnittest_Extend_extD, 0)
+    }
 }

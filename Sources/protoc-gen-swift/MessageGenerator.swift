@@ -558,7 +558,7 @@ class MessageGenerator {
             } else {
                 p.print("\(generatorOptions.visibilitySourceSnippet)var unknownFields: SwiftProtobuf.UnknownStorage {\n")
                 p.print("  get {return _storage.unknownFields}\n")
-                p.print("  set {_storage.unknownFields = newValue}\n")
+                p.print("  set {_uniqueStorage().unknownFields = newValue}\n")
                 p.print("}\n")
             }
         }
@@ -810,7 +810,7 @@ class MessageGenerator {
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
-                p.print("  return _storage.clearExtensionValue(ext: ext)\n")
+                p.print("  return _uniqueStorage().clearExtensionValue(ext: ext)\n")
                 p.print("}\n")
                 p.print("\n")
                 p.print("\(generatorOptions.visibilitySourceSnippet)func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> F.ValueType {\n")

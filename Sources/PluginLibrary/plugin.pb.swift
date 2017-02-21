@@ -253,7 +253,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
   public var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   ///   The .proto files that were explicitly listed on the command-line.  The

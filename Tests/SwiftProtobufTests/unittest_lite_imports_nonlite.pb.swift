@@ -104,7 +104,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var message: ProtobufUnittest_TestAllTypes {

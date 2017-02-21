@@ -8099,7 +8099,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProto
 
   var unknownFields: SwiftProtobuf.UnknownStorage {
     get {return _storage.unknownFields}
-    set {_storage.unknownFields = newValue}
+    set {_uniqueStorage().unknownFields = newValue}
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1: String {
