@@ -30,96 +30,10 @@
 import Foundation
 import XCTest
 
-// TODO(#98): The tests in this class are currently disabled since they are
-// verifying incorrect behavior that needs to be fixed and were broken by
-// another change.
+import SwiftProtobuf
+
 class Test_Required: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllRequiredTypes
-
-    let expected: [UInt8] = [
-        8, 0,
-        16, 0,
-        24, 0,
-        32, 0,
-        40, 0,
-        48, 0,
-        61, 0, 0, 0, 0,
-        65, 0, 0, 0, 0, 0, 0, 0, 0,
-        77, 0, 0, 0, 0,
-        81, 0, 0, 0, 0, 0, 0, 0, 0,
-        93, 0, 0, 0, 0,
-        97, 0, 0, 0, 0, 0, 0, 0, 0,
-        104, 0,
-        114, 0,
-        122, 0,
-        168, 1, 1, // required_nested_enum
-        176, 1, 4,
-        184, 1, 7,
-        194, 1, 0, // required_string_piece
-        202, 1, 0, // required_cord
-        232, 3, 41, // required default_int32
-        240, 3, 42,
-        248, 3, 43,
-        128, 4, 44,
-        136, 4, 89,
-        144, 4, 92,
-        157, 4, 47, 0, 0, 0,
-        161, 4, 48, 0, 0, 0, 0, 0, 0, 0,
-        173, 4, 49, 0, 0, 0,
-        177, 4, 206, 255, 255, 255, 255, 255, 255, 255,
-        189, 4, 0, 0, 78, 66,
-        193, 4, 0, 0, 0, 0, 0, 100, 233, 64,
-        200, 4, 1,
-        210, 4, 5, 104, 101, 108, 108, 111,
-        218, 4, 5, 119, 111, 114, 108, 100,
-        136, 5, 2,
-        144, 5, 5,
-        152, 5, 8,
-        162, 5, 3, 97, 98, 99,
-        170, 5, 3, 49, 50, 51]
-
-    let expectedJSON = ("{"
-        + "\"requiredInt32\":0,"
-        + "\"requiredInt64\":\"0\","
-        + "\"requiredUint32\":0,"
-        + "\"requiredUint64\":\"0\","
-        + "\"requiredSint32\":0,"
-        + "\"requiredSint64\":\"0\","
-        + "\"requiredFixed32\":0,"
-        + "\"requiredFixed64\":\"0\","
-        + "\"requiredSfixed32\":0,"
-        + "\"requiredSfixed64\":\"0\","
-        + "\"requiredFloat\":0,"
-        + "\"requiredDouble\":0,"
-        + "\"requiredBool\":false,"
-        + "\"requiredString\":\"\","
-        + "\"requiredBytes\":\"\","
-        + "\"requiredNestedEnum\":\"FOO\","
-        + "\"requiredForeignEnum\":\"FOREIGN_FOO\","
-        + "\"requiredImportEnum\":\"IMPORT_FOO\","
-        + "\"requiredStringPiece\":\"\","
-        + "\"requiredCord\":\"\","
-        + "\"defaultInt32\":41,"
-        + "\"defaultInt64\":\"42\","
-        + "\"defaultUint32\":43,"
-        + "\"defaultUint64\":\"44\","
-        + "\"defaultSint32\":-45,"
-        + "\"defaultSint64\":\"46\","
-        + "\"defaultFixed32\":47,"
-        + "\"defaultFixed64\":\"48\","
-        + "\"defaultSfixed32\":49,"
-        + "\"defaultSfixed64\":\"-50\","
-        + "\"defaultFloat\":51.5,"
-        + "\"defaultDouble\":52000,"
-        + "\"defaultBool\":true,"
-        + "\"defaultString\":\"hello\","
-        + "\"defaultBytes\":\"d29ybGQ=\","
-        + "\"defaultNestedEnum\":\"BAR\","
-        + "\"defaultForeignEnum\":\"FOREIGN_BAR\","
-        + "\"defaultImportEnum\":\"IMPORT_BAR\","
-        + "\"defaultStringPiece\":\"abc\","
-        + "\"defaultCord\":\"123\""
-        + "}")
 
     func test_IsInitialized() {
         // message declared in proto2 syntax file with required fields.
@@ -226,113 +140,162 @@ class Test_Required: XCTestCase, PBTestHelpers {
         XCTAssertTrue(msg.isInitialized)
     }
 
-    func DISABLED_test_bare() throws {
-        // Because we always encode required fields, we get a non-trivial
-        // output even for a bare object.
-        let o = MessageTestType()
-        XCTAssertEqual(try o.serializedBytes(), expected)
-        XCTAssertEqual(try o.jsonString(), expectedJSON)
-    }
-
-    func DISABLED_test_requiredInt32() {
-        var a = expected
-        a[1] = 1
-        assertEncode(a) {(o: inout MessageTestType) in
-            o.requiredInt32 = 1
-        }
-        assertDecodeSucceeds([8, 2]) {
-            let val: Int32 = $0.requiredInt32  // Verify non-optional
-            return val == 2
+    // Helper to assert decoding fails with a not initialized error.
+    fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let _ = try MessageTestType(serializedData: Data(bytes: bytes))
+            XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
+        } catch BinaryDecodingError.missingRequiredFields {
+            // Correct error!
+        } catch let e {
+            XCTFail("Decoding \(bytes) got wrong error: \(e)", file: file, line: line)
         }
     }
 
-    func DISABLED_test_requiredFloat() {
-        var a = expected
-        a[44] = 63 // float value is 0, 0, 0, 63
-        assertEncode(a) {(o: inout MessageTestType) in
-            o.requiredFloat = 0.5
-        }
-        assertDecodeSucceeds([93, 0, 0, 0, 0]) {
-            let val: Float = $0.requiredFloat  // Verify non-optional
-            return val == 0.0
-        }
-    }
-
-    func DISABLED_test_requiredString() {
-        // Splice the expected value for this field
-        let prefix = expected[0..<56]
-        let field: [UInt8] = [114, 1, 97]
-        let suffix = expected[58..<expected.count]
-        let a = [UInt8](prefix + field + suffix)
-        assertEncode(a) {(o: inout MessageTestType) in
-            o.requiredString = "a"
-        }
-        assertDecodeSucceeds([114, 1, 98]) {
-            let val: String = $0.requiredString  // Verify non-optional
-            return val == "b"
+    // Helper to assert decoding partial succeeds.
+    fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let msg = try MessageTestType(serializedData: Data(bytes: bytes), partial: true)
+            var expected = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
+            if !expectedTextFormat.isEmpty {
+                expected += expectedTextFormat + "\n"
+            }
+            XCTAssertEqual(msg.debugDescription, expected, "While decoding \(bytes)", file: file, line: line)
+        } catch let e {
+            XCTFail("Decoding \(bytes) failed with error: \(e)", file: file, line: line)
         }
     }
 
-    // TODO: Check required group
+    func test_decodeRequired() throws {
+        // Empty empty
+        assertDecodeFailsNotInitialized([])
+        assertPartialDecodeSucceeds([], "")
 
-    // TODO: Check required submessage (and its fields)
+        // Test every field on its own.
+        let testInputs: [([UInt8], String)] = [
+            ([8, 1], "required_int32: 1"),
+            ([16, 2], "required_int64: 2"),
+            ([24, 3], "required_uint32: 3"),
+            ([32, 4], "required_uint64: 4"),
+            ([40, 10], "required_sint32: 5"),
+            ([48, 12], "required_sint64: 6"),
+            ([61, 7, 0, 0, 0], "required_fixed32: 7"),
+            ([65, 8, 0, 0, 0, 0, 0, 0, 0], "required_fixed64: 8"),
+            ([77, 9, 0, 0, 0], "required_sfixed32: 9"),
+            ([81, 10, 0, 0, 0, 0, 0, 0, 0], "required_sfixed64: 10"),
+            ([93, 0, 0, 48, 65], "required_float: 11"),
+            ([97, 0, 0, 0, 0, 0, 0, 40, 64], "required_double: 12"),
+            ([104, 1], "required_bool: true"),
+            ([114, 2, 49, 51], "required_string: \"13\""),
+            ([122, 1, 15], "required_bytes: \"\\017\""),
+            ([131, 1, 136, 1, 16, 132, 1], "RequiredGroup {\n  a: 16\n}"),
+            ([146, 1, 2, 8, 18], "required_nested_message {\n  bb: 18\n}"),
+            ([154, 1, 2, 8, 19], "required_foreign_message {\n  c: 19\n}"),
+            ([162, 1, 2, 8, 20], "required_import_message {\n  d: 20\n}"),
+            ([168, 1, 3], "required_nested_enum: BAZ"),
+            ([176, 1, 5], "required_foreign_enum: FOREIGN_BAR"),
+            ([184, 1, 9], "required_import_enum: IMPORT_BAZ"),
+            ([194, 1, 2, 50, 52], "required_string_piece: \"24\""),
+            ([202, 1, 2, 50, 53], "required_cord: \"25\""),
+            ([210, 1, 2, 8, 26], "required_public_import_message {\n  e: 26\n}"),
+            ([218, 1, 2, 8, 27], "required_lazy_message {\n  bb: 27\n}"),
+            ([232, 3, 61], "default_int32: 61"),
+            ([240, 3, 62], "default_int64: 62"),
+            ([248, 3, 63], "default_uint32: 63"),
+            ([128, 4, 64], "default_uint64: 64"),
+            ([136, 4, 130, 1], "default_sint32: 65"),
+            ([144, 4, 132, 1], "default_sint64: 66"),
+            ([157, 4, 67, 0, 0, 0], "default_fixed32: 67"),
+            ([161, 4, 68, 0, 0, 0, 0, 0, 0, 0], "default_fixed64: 68"),
+            ([173, 4, 69, 0, 0, 0], "default_sfixed32: 69"),
+            ([177, 4, 70, 0, 0, 0, 0, 0, 0, 0], "default_sfixed64: 70"),
+            ([189, 4, 0, 0, 142, 66], "default_float: 71"),
+            ([193, 4, 0, 0, 0, 0, 0, 0, 82, 64], "default_double: 72"),
+            ([200, 4, 0], "default_bool: false"),
+            ([210, 4, 2, 55, 52], "default_string: \"74\""),
+            ([218, 4, 1, 75], "default_bytes: \"K\""),
+            ([136, 5, 3], "default_nested_enum: BAZ"),
+            ([144, 5, 6], "default_foreign_enum: FOREIGN_BAZ"),
+            ([152, 5, 9], "default_import_enum: IMPORT_BAZ"),
+            ([162, 5, 2, 56, 52], "default_string_piece: \"84\""),
+            ([170, 5, 2, 56, 53], "default_cord: \"85\""),
+        ]
+        for (bytes, textFormattedField) in testInputs {
+            assertDecodeFailsNotInitialized(bytes)
+            assertPartialDecodeSucceeds(bytes, textFormattedField)
+        }
 
-    // TODO: Check defaults on required fields
-
+        // Glue it all together and it should decode ok as it will be complete.
+        var allBytesData = Data()
+        var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestAllRequiredTypes:\n"
+        for (bytes, textFormattedField) in testInputs {
+          allBytesData.append(Data(bytes:bytes))
+          allTextFormattedField.append(textFormattedField)
+          allTextFormattedField.append("\n")
+        }
+        let fullMsg = try ProtobufUnittest_TestAllRequiredTypes(serializedData: allBytesData)
+        XCTAssertEqual(fullMsg.debugDescription, allTextFormattedField)
+    }
 }
 
 class Test_SmallRequired: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestSomeRequiredTypes
     // Check behavior of a small message (non-heap-stored) with required fields
 
-// These are all disabled pending:
-//    https://github.com/apple/swift-protobuf/issues/98
-// The problem is the current code serializae the required fields even if they
-// aren't set (instead of checking that they were set. That means when
-// assertDecodeSucceeds serializes the message and reloads it, more fields end
-// up set and equality is no longer true. The original form of this test was
-// dependent on https://github.com/apple/swift-protobuf/issues/97 so fixing that
-// breaks these due to the bad behaviors for required fields.
-//    func testRequiredInt32() {
-//        assertDecodeSucceeds([8, 2]) {
-//            let val: Int32 = $0.requiredInt32  // Verify non-optional
-//            return val == 2
-//        }
-//    }
-//
-//    func testRequiredFloat() {
-//        assertDecodeSucceeds([21, 0, 0, 0, 63]) {
-//            let val: Float = $0.requiredFloat  // Verify non-optional
-//            return val == 0.5
-//        }
-//    }
-//
-//    func testRequiredBool() {
-//        assertDecodeSucceeds([24, 1]) {
-//            let val: Bool = $0.requiredBool  // Verify non-optional
-//            return val == true
-//        }
-//    }
-//
-//    func testRequiredString() {
-//        assertDecodeSucceeds([34, 1, 97]) {
-//            let val: String = $0.requiredString  // Verify non-optional
-//            return val == "a"
-//        }
-//    }
-//
-//    func testRequiredBytes() {
-//        assertDecodeSucceeds([42, 1, 1]) {
-//            let val: Data = $0.requiredBytes  // Verify non-optional
-//            return val == Data(bytes: [1])
-//        }
-//    }
-//
-//    func testRequiredNestedEnum() {
-//        assertDecodeSucceeds([48, 1]) {
-//            let val: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum = $0.requiredNestedEnum
-//            return val == .foo
-//        }
-//    }
+    // Helper to assert decoding fails with a not initialized error.
+    fileprivate func assertDecodeFailsNotInitialized(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let _ = try MessageTestType(serializedData: Data(bytes: bytes))
+            XCTFail("Swift decode should have failed: \(bytes)", file: file, line: line)
+        } catch BinaryDecodingError.missingRequiredFields {
+            // Correct error!
+        } catch let e {
+            XCTFail("Decoding \(bytes) got wrong error: \(e)", file: file, line: line)
+        }
+    }
 
+    // Helper to assert decoding partial succeeds.
+    fileprivate func assertPartialDecodeSucceeds(_ bytes: [UInt8], _ expectedTextFormat: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let msg = try MessageTestType(serializedData: Data(bytes: bytes), partial: true)
+            var expected = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
+            if !expectedTextFormat.isEmpty {
+                expected += expectedTextFormat + "\n"
+            }
+            XCTAssertEqual(msg.debugDescription, expected, "While decoding \(bytes)", file: file, line: line)
+        } catch let e {
+            XCTFail("Decoding \(bytes) failed with error: \(e)", file: file, line: line)
+        }
+    }
+
+    func test_decodeRequired() throws {
+        // Empty empty
+        assertDecodeFailsNotInitialized([])
+        assertPartialDecodeSucceeds([], "")
+
+        // Test every field on its own.
+        let testInputs: [([UInt8], String)] = [
+            ([8, 1], "required_int32: 1"),
+            ([21, 0, 0, 0, 64], "required_float: 2"),
+            ([24, 1], "required_bool: true"),
+            ([34, 1, 52], "required_string: \"4\""),
+            ([42, 1, 5], "required_bytes: \"\\005\""),
+            ([48, 1], "required_nested_enum: FOO"),
+        ]
+        for (bytes, textFormattedField) in testInputs {
+            assertDecodeFailsNotInitialized(bytes)
+            assertPartialDecodeSucceeds(bytes, textFormattedField)
+        }
+
+        // Glue it all together and it should decode ok as it will be complete.
+        var allBytesData = Data()
+        var allTextFormattedField = "SwiftProtobufTests.ProtobufUnittest_TestSomeRequiredTypes:\n"
+        for (bytes, textFormattedField) in testInputs {
+          allBytesData.append(Data(bytes:bytes))
+          allTextFormattedField.append(textFormattedField)
+          allTextFormattedField.append("\n")
+        }
+        let fullMsg = try ProtobufUnittest_TestSomeRequiredTypes(serializedData: allBytesData)
+        XCTAssertEqual(fullMsg.debugDescription, allTextFormattedField)
+    }
 }

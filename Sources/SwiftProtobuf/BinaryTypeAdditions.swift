@@ -268,7 +268,7 @@ public extension Message {
         return visitor.serializedSize
     }
 
-    init(serializedData data: Data, extensions: ExtensionSet? = nil) throws {
+    init(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
         self.init()
         if !data.isEmpty {
             try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
@@ -276,6 +276,9 @@ public extension Message {
                                  count: data.count,
                                  extensions: extensions)
             }
+        }
+        if !partial && !isInitialized {
+            throw BinaryDecodingError.missingRequiredFields
         }
     }
 }
