@@ -89,27 +89,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _myInt {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 1)
-      }
-      try visitor.visitExtensionFields(fields: extensionFieldValues, start: 2, end: 9)
-      try _options?.traverse(visitor: visitor, start: 9, end: 11)
-      if let v = _myString {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 11)
-      }
-      try visitor.visitExtensionFields(fields: extensionFieldValues, start: 12, end: 56)
-      try _options?.traverse(visitor: visitor, start: 60, end: 61)
-      if let v = _myFloat {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 101)
-      }
-      try _options?.traverse(visitor: visitor, start: 150, end: 151)
-      if let v = _optionalNestedMessage {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _myString != other._myString {return false}
       if _myInt != other._myInt {return false}
@@ -397,7 +376,26 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._myInt {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 1)
+      }
+      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 2, end: 9)
+      try storage._options?.traverse(visitor: visitor, start: 9, end: 11)
+      if let v = storage._myString {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 11)
+      }
+      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 12, end: 56)
+      try storage._options?.traverse(visitor: visitor, start: 60, end: 61)
+      if let v = storage._myFloat {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 101)
+      }
+      try storage._options?.traverse(visitor: visitor, start: 150, end: 151)
+      if let v = storage._optionalNestedMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings) -> Bool {

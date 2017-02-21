@@ -149,13 +149,6 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _messageSet {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _messageSet != other._messageSet {return false}
       if unknownFields != other.unknownFields {return false}
@@ -203,7 +196,12 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._messageSet {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSetWireFormatContainer) -> Bool {

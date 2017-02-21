@@ -213,22 +213,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if !_fileToGenerate.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _fileToGenerate, fieldNumber: 1)
-      }
-      if let v = _parameter {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
-      }
-      if let v = _compilerVersion {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if !_protoFile.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _protoFile, fieldNumber: 15)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _fileToGenerate != other._fileToGenerate {return false}
       if _parameter != other._parameter {return false}
@@ -319,7 +303,21 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
   }
 
   public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if !storage._fileToGenerate.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._fileToGenerate, fieldNumber: 1)
+      }
+      if let v = storage._parameter {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+      }
+      if let v = storage._compilerVersion {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if !storage._protoFile.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._protoFile, fieldNumber: 15)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {

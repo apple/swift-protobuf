@@ -173,46 +173,6 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       }
     }
 
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if let v = _package {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
-      }
-      if !_dependency.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _dependency, fieldNumber: 3)
-      }
-      if !_messageType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _messageType, fieldNumber: 4)
-      }
-      if !_enumType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _enumType, fieldNumber: 5)
-      }
-      if !_service.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _service, fieldNumber: 6)
-      }
-      if !_extension_p.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _extension_p, fieldNumber: 7)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _sourceCodeInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }
-      if !_publicDependency.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _publicDependency, fieldNumber: 10)
-      }
-      if !_weakDependency.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: _weakDependency, fieldNumber: 11)
-      }
-      if let v = _syntax {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 12)
-      }
-      unknownFields.traverse(visitor: visitor)
-    }
-
     func isEqualTo(other: _StorageClass) -> Bool {
       if _name != other._name {return false}
       if _package != other._package {return false}
@@ -374,7 +334,45 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._package {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+      }
+      if !storage._dependency.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._dependency, fieldNumber: 3)
+      }
+      if !storage._messageType.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._messageType, fieldNumber: 4)
+      }
+      if !storage._enumType.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._enumType, fieldNumber: 5)
+      }
+      if !storage._service.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._service, fieldNumber: 6)
+      }
+      if !storage._extension_p.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._extension_p, fieldNumber: 7)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      }
+      if let v = storage._sourceCodeInfo {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      }
+      if !storage._publicDependency.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._publicDependency, fieldNumber: 10)
+      }
+      if !storage._weakDependency.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._weakDependency, fieldNumber: 11)
+      }
+      if let v = storage._syntax {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 12)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
@@ -451,40 +449,6 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
       case 10: try decoder.decodeRepeatedStringField(value: &_reservedName)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if !_field.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _field, fieldNumber: 2)
-      }
-      if !_nestedType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _nestedType, fieldNumber: 3)
-      }
-      if !_enumType.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _enumType, fieldNumber: 4)
-      }
-      if !_extensionRange.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _extensionRange, fieldNumber: 5)
-      }
-      if !_extension_p.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _extension_p, fieldNumber: 6)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
-      if !_oneofDecl.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _oneofDecl, fieldNumber: 8)
-      }
-      if !_reservedRange.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _reservedRange, fieldNumber: 9)
-      }
-      if !_reservedName.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: _reservedName, fieldNumber: 10)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -746,7 +710,39 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf.Pro
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if !storage._field.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._field, fieldNumber: 2)
+      }
+      if !storage._nestedType.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._nestedType, fieldNumber: 3)
+      }
+      if !storage._enumType.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._enumType, fieldNumber: 4)
+      }
+      if !storage._extensionRange.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._extensionRange, fieldNumber: 5)
+      }
+      if !storage._extension_p.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._extension_p, fieldNumber: 6)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      }
+      if !storage._oneofDecl.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._oneofDecl, fieldNumber: 8)
+      }
+      if !storage._reservedRange.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._reservedRange, fieldNumber: 9)
+      }
+      if !storage._reservedName.isEmpty {
+        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._reservedName, fieldNumber: 10)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
@@ -818,40 +814,6 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       case 8: try decoder.decodeSingularMessageField(value: &_options)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if let v = _extendee {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
-      }
-      if let v = _number {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
-      }
-      if let v = _label {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-      }
-      if let v = _type {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-      }
-      if let v = _typeName {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 6)
-      }
-      if let v = _defaultValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 7)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
-      if let v = _oneofIndex {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 9)
-      }
-      if let v = _jsonName {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 10)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1270,7 +1232,39 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._extendee {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+      }
+      if let v = storage._number {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+      }
+      if let v = storage._label {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+      }
+      if let v = storage._type {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      }
+      if let v = storage._typeName {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 6)
+      }
+      if let v = storage._defaultValue {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 7)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      }
+      if let v = storage._oneofIndex {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 9)
+      }
+      if let v = storage._jsonName {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 10)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
@@ -1318,16 +1312,6 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       case 2: try decoder.decodeSingularMessageField(value: &_options)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1390,7 +1374,15 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
@@ -1442,19 +1434,6 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       case 3: try decoder.decodeSingularMessageField(value: &_options)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if !_value.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _value, fieldNumber: 2)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1524,7 +1503,18 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if !storage._value.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._value, fieldNumber: 2)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
@@ -1575,19 +1565,6 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
       case 3: try decoder.decodeSingularMessageField(value: &_options)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if let v = _number {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1663,7 +1640,18 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._number {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
@@ -1715,19 +1703,6 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
       case 3: try decoder.decodeSingularMessageField(value: &_options)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if !_method.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _method, fieldNumber: 2)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1797,7 +1772,18 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if !storage._method.isEmpty {
+        try visitor.visitRepeatedMessageField(value: storage._method, fieldNumber: 2)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
@@ -1857,28 +1843,6 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
       case 6: try decoder.decodeSingularBoolField(value: &_serverStreaming)
       default: break
       }
-    }
-
-    func traverse(visitor: SwiftProtobuf.Visitor) throws {
-      if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
-      }
-      if let v = _inputType {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
-      }
-      if let v = _outputType {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 3)
-      }
-      if let v = _options {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      }
-      if let v = _clientStreaming {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 5)
-      }
-      if let v = _serverStreaming {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 6)
-      }
-      unknownFields.traverse(visitor: visitor)
     }
 
     func isEqualTo(other: _StorageClass) -> Bool {
@@ -1997,7 +1961,27 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
   }
 
   func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    try _storage.traverse(visitor: visitor)
+    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
+      if let v = storage._name {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      }
+      if let v = storage._inputType {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+      }
+      if let v = storage._outputType {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 3)
+      }
+      if let v = storage._options {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
+      if let v = storage._clientStreaming {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 5)
+      }
+      if let v = storage._serverStreaming {
+        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 6)
+      }
+      storage.unknownFields.traverse(visitor: visitor)
+    }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {
