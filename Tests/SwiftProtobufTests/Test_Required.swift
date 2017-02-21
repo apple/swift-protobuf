@@ -167,7 +167,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
     }
 
     func test_decodeRequired() throws {
-        // Empty empty
+        // Empty message.
         assertDecodeFailsNotInitialized([])
         assertPartialDecodeSucceeds([], "")
 
@@ -186,7 +186,7 @@ class Test_Required: XCTestCase, PBTestHelpers {
             ([93, 0, 0, 48, 65], "required_float: 11"),
             ([97, 0, 0, 0, 0, 0, 0, 40, 64], "required_double: 12"),
             ([104, 1], "required_bool: true"),
-            ([114, 2, 49, 51], "required_string: \"13\""),
+            ([114, 2, 49, 52], "required_string: \"14\""),
             ([122, 1, 15], "required_bytes: \"\\017\""),
             ([131, 1, 136, 1, 16, 132, 1], "RequiredGroup {\n  a: 16\n}"),
             ([146, 1, 2, 8, 18], "required_nested_message {\n  bb: 18\n}"),
@@ -236,6 +236,104 @@ class Test_Required: XCTestCase, PBTestHelpers {
         let fullMsg = try ProtobufUnittest_TestAllRequiredTypes(serializedData: allBytesData)
         XCTAssertEqual(fullMsg.debugDescription, allTextFormattedField)
     }
+
+    // Helper to assert encoding fails with a not initialized error.
+    fileprivate func assertEncodeFailsNotInitialized(_ message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let _ = try message.serializedData()
+            XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
+        } catch BinaryEncodingError.missingRequiredFields {
+            // Correct error!
+        } catch let e {
+            XCTFail("Encoding got wrong error: \(e) for \(message)", file: file, line: line)
+        }
+    }
+
+    // Helper to assert encoding partial succeeds.
+    fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let data = try message.serializedData(partial: true)
+            XCTAssertEqual(data, Data(bytes:expectedBytes), "While encoding \(message)", file: file, line: line)
+        } catch let e {
+            XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
+        }
+    }
+
+    func test_encodeRequired() throws {
+        var msg = MessageTestType()
+
+        // Empty message.
+        assertEncodeFailsNotInitialized(msg)
+        assertPartialEncodeSucceeds(msg, [])
+
+        typealias ConfigurationBlock = (inout MessageTestType) -> Void
+
+        // Test every field on its own.
+        let testInputs: [([UInt8], ConfigurationBlock)] = [
+            ([8, 1], { (m) in m.requiredInt32 = 1 }),
+            ([16, 2], { (m) in m.requiredInt64 = 2 }),
+            ([24, 3], { (m) in m.requiredUint32 = 3 }),
+            ([32, 4], { (m) in m.requiredUint64 = 4 }),
+            ([40, 10], { (m) in m.requiredSint32 = 5 }),
+            ([48, 12], { (m) in m.requiredSint64 = 6 }),
+            ([61, 7, 0, 0, 0], { (m) in m.requiredFixed32 = 7 }),
+            ([65, 8, 0, 0, 0, 0, 0, 0, 0], { (m) in m.requiredFixed64 = 8 }),
+            ([77, 9, 0, 0, 0], { (m) in m.requiredSfixed32 = 9 }),
+            ([81, 10, 0, 0, 0, 0, 0, 0, 0], { (m) in m.requiredSfixed64 = 10 }),
+            ([93, 0, 0, 48, 65], { (m) in m.requiredFloat = 11 }),
+            ([97, 0, 0, 0, 0, 0, 0, 40, 64], { (m) in m.requiredDouble = 12 }),
+            ([104, 1], { (m) in m.requiredBool = true }),
+            ([114, 2, 49, 52], { (m) in m.requiredString = "14" }),
+            ([122, 1, 15], { (m) in m.requiredBytes = Data(bytes: [15]) }),
+            ([131, 1, 136, 1, 16, 132, 1], { (m) in m.requiredGroup.a = 16 }),
+            ([146, 1, 2, 8, 18], { (m) in m.requiredNestedMessage.bb = 18 }),
+            ([154, 1, 2, 8, 19], { (m) in m.requiredForeignMessage.c = 19 }),
+            ([162, 1, 2, 8, 20], { (m) in m.requiredImportMessage.d = 20 }),
+            ([168, 1, 3], { (m) in m.requiredNestedEnum = .baz }),
+            ([176, 1, 5], { (m) in m.requiredForeignEnum = .foreignBar }),
+            ([184, 1, 9], { (m) in m.requiredImportEnum = .importBaz }),
+            ([194, 1, 2, 50, 52], { (m) in m.requiredStringPiece = "24" }),
+            ([202, 1, 2, 50, 53], { (m) in m.requiredCord = "25" }),
+            ([210, 1, 2, 8, 26], { (m) in m.requiredPublicImportMessage.e = 26 }),
+            ([218, 1, 2, 8, 27], { (m) in m.requiredLazyMessage.bb = 27 }),
+            ([232, 3, 61], { (m) in m.defaultInt32 = 61 }),
+            ([240, 3, 62], { (m) in m.defaultInt64 = 62 }),
+            ([248, 3, 63], { (m) in m.defaultUint32 = 63 }),
+            ([128, 4, 64], { (m) in m.defaultUint64 = 64 }),
+            ([136, 4, 130, 1], { (m) in m.defaultSint32 = 65 }),
+            ([144, 4, 132, 1], { (m) in m.defaultSint64 = 66 }),
+            ([157, 4, 67, 0, 0, 0], { (m) in m.defaultFixed32 = 67 }),
+            ([161, 4, 68, 0, 0, 0, 0, 0, 0, 0], { (m) in m.defaultFixed64 = 68 }),
+            ([173, 4, 69, 0, 0, 0], { (m) in m.defaultSfixed32 = 69 }),
+            ([177, 4, 70, 0, 0, 0, 0, 0, 0, 0], { (m) in m.defaultSfixed64 = 70 }),
+            ([189, 4, 0, 0, 142, 66], { (m) in m.defaultFloat = 71 }),
+            ([193, 4, 0, 0, 0, 0, 0, 0, 82, 64], { (m) in m.defaultDouble = 72 }),
+            ([200, 4, 0], { (m) in m.defaultBool = false }),
+            ([210, 4, 2, 55, 52], { (m) in m.defaultString = "74" }),
+            ([218, 4, 1, 75], { (m) in m.defaultBytes = Data(bytes: [75]) }),
+            ([136, 5, 3], { (m) in m.defaultNestedEnum = .baz }),
+            ([144, 5, 6], { (m) in m.defaultForeignEnum = .foreignBaz }),
+            ([152, 5, 9], { (m) in m.defaultImportEnum = .importBaz }),
+            ([162, 5, 2, 56, 52], { (m) in m.defaultStringPiece = "84" }),
+            ([170, 5, 2, 56, 53], { (m) in m.defaultCord = "85" }),
+        ]
+        for (expected, configure) in testInputs {
+            var message = MessageTestType()
+            configure(&message)
+            assertEncodeFailsNotInitialized(message)
+            assertPartialEncodeSucceeds(message, expected)
+        }
+
+        // Glue it all together and it should encode ok as it will be complete.
+        var allExpectedData = Data()
+        msg = MessageTestType()
+        for (expected, configure) in testInputs {
+            allExpectedData.append(Data(bytes:expected))
+            configure(&msg)
+        }
+        let serialized = try msg.serializedData()
+        XCTAssertEqual(serialized, allExpectedData)
+    }
 }
 
 class Test_SmallRequired: XCTestCase, PBTestHelpers {
@@ -269,7 +367,7 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
     }
 
     func test_decodeRequired() throws {
-        // Empty empty
+        // Empty message.
         assertDecodeFailsNotInitialized([])
         assertPartialDecodeSucceeds([], "")
 
@@ -297,5 +395,63 @@ class Test_SmallRequired: XCTestCase, PBTestHelpers {
         }
         let fullMsg = try ProtobufUnittest_TestSomeRequiredTypes(serializedData: allBytesData)
         XCTAssertEqual(fullMsg.debugDescription, allTextFormattedField)
+    }
+
+    // Helper to assert encoding fails with a not initialized error.
+    fileprivate func assertEncodeFailsNotInitialized(_ message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let _ = try message.serializedData()
+            XCTFail("Swift encode should have failed: \(message)", file: file, line: line)
+        } catch BinaryEncodingError.missingRequiredFields {
+            // Correct error!
+        } catch let e {
+            XCTFail("Encoding got wrong error: \(e) for \(message)", file: file, line: line)
+        }
+    }
+
+    // Helper to assert encoding partial succeeds.
+    fileprivate func assertPartialEncodeSucceeds(_ message: MessageTestType, _ expectedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        do {
+            let data = try message.serializedData(partial: true)
+            XCTAssertEqual(data, Data(bytes:expectedBytes), "While encoding \(message)", file: file, line: line)
+        } catch let e {
+            XCTFail("Encoding failed with error: \(e) for \(message)", file: file, line: line)
+        }
+    }
+
+    func test_encodeRequired() throws {
+        var msg = MessageTestType()
+
+        // Empty message.
+        assertEncodeFailsNotInitialized(msg)
+        assertPartialEncodeSucceeds(msg, [])
+
+        typealias ConfigurationBlock = (inout MessageTestType) -> Void
+
+        // Test every field on its own.
+        let testInputs: [([UInt8], ConfigurationBlock)] = [
+            ([8, 1], { (m) in m.requiredInt32 = 1 }),
+            ([21, 0, 0, 0, 64], { (m) in m.requiredFloat = 2 }),
+            ([24, 1], { (m) in m.requiredBool = true }),
+            ([34, 1, 52], { (m) in m.requiredString = "4" }),
+            ([42, 1, 5], { (m) in m.requiredBytes = Data(bytes: [5]) }),
+            ([48, 1], { (m) in m.requiredNestedEnum = .foo }),
+        ]
+        for (expected, configure) in testInputs {
+            var message = MessageTestType()
+            configure(&message)
+            assertEncodeFailsNotInitialized(message)
+            assertPartialEncodeSucceeds(message, expected)
+        }
+
+        // Glue it all together and it should encode ok as it will be complete.
+        var allExpectedData = Data()
+        msg = MessageTestType()
+        for (expected, configure) in testInputs {
+            allExpectedData.append(Data(bytes:expected))
+            configure(&msg)
+        }
+        let serialized = try msg.serializedData()
+        XCTAssertEqual(serialized, allExpectedData)
     }
 }

@@ -19,7 +19,18 @@ import Foundation
 /// Messages
 ///
 public extension Message {
-    func serializedData() throws -> Data {
+    /// Serializes the message to the Protocol Buffer binary serialization format.
+    ///
+    /// - Parameters:
+    ///   - partial: The binary serialization format requires all `required` fields
+    ///     be present; when `partial` is `false`, `EncodingError.missingRequiredFields`
+    ///     is throw if any were missing. When `partial` is `true`, then partial
+    ///     messages are allowed, and `Message.isRequired` is not checked.
+    /// - Throws: An instance of `EncodingError` on failure .
+    func serializedData(partial: Bool = false) throws -> Data {
+        if !partial && !isInitialized {
+            throw BinaryEncodingError.missingRequiredFields
+        }
         let requiredSize = try serializedDataSize()
         var data = Data(count: requiredSize)
         try data.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
@@ -34,6 +45,9 @@ public extension Message {
     }
 
     internal func serializedDataSize() throws -> Int {
+        // Note: since this api is internal, it doesn't currently worry about
+        // needing a partial argument to handle proto2 syntax required fields.
+        // If this become public, it will need that added.
         var visitor = BinaryEncodingSizeVisitor()
         try traverse(visitor: &visitor)
         return visitor.serializedSize
