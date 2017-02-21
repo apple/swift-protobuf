@@ -70,6 +70,8 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.P
     return _d = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -110,6 +112,8 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
   var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
 
   var repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = []
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

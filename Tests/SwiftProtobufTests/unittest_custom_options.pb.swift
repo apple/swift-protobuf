@@ -280,6 +280,8 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
 
   var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof? = nil
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -323,6 +325,8 @@ struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Message, SwiftProt
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -348,6 +352,8 @@ struct ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf.Message, SwiftPro
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -375,6 +381,8 @@ struct ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf.Message, Swi
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -400,6 +408,8 @@ struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Message, Swi
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -482,6 +492,8 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
 
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -507,6 +519,8 @@ struct ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Message, 
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -534,6 +548,8 @@ struct ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf.Message, Swi
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -559,6 +575,8 @@ struct ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf.Message, Swi
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -586,6 +604,8 @@ struct ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf.Message, SwiftPro
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -612,6 +632,8 @@ struct ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf.Message, Swi
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -637,6 +659,8 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Message, Swi
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -709,6 +733,8 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   var foo4: [Int32] = []
+
+  init() {}
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
@@ -803,6 +829,8 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     var _baz: Int32? = nil
     var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
     var _barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
+
+    init() {}
 
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
@@ -904,6 +932,8 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       return _waldo = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -969,6 +999,8 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     set {_uniqueStorage()._barney = newValue}
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     return _storage.isInitialized
   }
@@ -1029,6 +1061,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _qux: Int32? = nil
     var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1098,6 +1132,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
       return _plugh = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1147,6 +1183,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._complexOptionType5 = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1192,6 +1230,8 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     return _xyzzy = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1227,6 +1267,8 @@ struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Message, SwiftProto
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1256,6 +1298,8 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
@@ -1340,6 +1384,8 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, Swift
     return _s = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1387,6 +1433,8 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     var _sub: ProtobufUnittest_Aggregate? = nil
     var _file: Google_Protobuf_FileOptions? = nil
     var _mset: ProtobufUnittest_AggregateMessageSet? = nil
+
+    init() {}
 
     var isInitialized: Bool {
       if let v = _sub, !v.isInitialized {return false}
@@ -1527,6 +1575,8 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
     return _storage._mset = nil
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     return _storage.isInitialized
   }
@@ -1575,6 +1625,8 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   mutating func clearFieldname() {
     return _fieldname = nil
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1679,6 +1731,8 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       return _nestedField = nil
     }
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1714,6 +1768,8 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf.P
       defaultValue: 0
     )
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1803,6 +1859,8 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
   mutating func clearValue() {
     return _value = nil
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     if _value == nil {return false}
@@ -1911,6 +1969,8 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message, SwiftProtobuf.Prot
     return _value = nil
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     if _value == nil {return false}
     return true
@@ -1950,6 +2010,8 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

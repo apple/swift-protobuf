@@ -396,6 +396,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     var _repeatedPublicImportMessage: [Proto3PublicImportMessage] = []
     var _oneofField: Proto3TestAllTypes.OneOf_OneofField?
 
+    init() {}
+
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -853,6 +855,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     ///   This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1181,6 +1185,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
     }
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1220,6 +1226,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     var _child: Proto3NestedTestAllTypes? = nil
     var _payload: Proto3TestAllTypes? = nil
     var _repeatedChild: [Proto3NestedTestAllTypes] = []
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1294,6 +1302,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     set {_uniqueStorage()._repeatedChild = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1327,6 +1337,8 @@ struct Proto3TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 
 
   var deprecatedInt32: Int32 = 0
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1365,6 +1377,8 @@ struct Proto3ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 
   var c: Int32 = 0
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1396,6 +1410,8 @@ struct Proto3TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   static let _protobuf_fieldNames = FieldNameMap()
 
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1424,6 +1440,8 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   private class _StorageClass {
     typealias ExtendedMessage = Proto3TestForeignNested
     var _foreignNested: Proto3TestAllTypes.NestedMessage? = nil
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1470,6 +1488,8 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
     return _storage._foreignNested = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1509,6 +1529,8 @@ struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Message, SwiftProtobuf.Prot
   var a: Int32 = 0
 
   var bb: Int32 = 0
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1552,6 +1574,8 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     typealias ExtendedMessage = Proto3TestRecursiveMessage
     var _a: Proto3TestRecursiveMessage? = nil
     var _i: Int32 = 0
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1609,6 +1633,8 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     set {_uniqueStorage()._i = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1644,6 +1670,8 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   private class _StorageClass {
     typealias ExtendedMessage = Proto3TestMutualRecursionA
     var _bb: Proto3TestMutualRecursionB? = nil
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1690,6 +1718,8 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     return _storage._bb = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1726,6 +1756,8 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     typealias ExtendedMessage = Proto3TestMutualRecursionB
     var _a: Proto3TestMutualRecursionA? = nil
     var _optionalInt32: Int32 = 0
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1783,6 +1815,8 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1833,6 +1867,8 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
     var _repeatedStringField: [String] = []
     var _repeatedEnumField: [Proto3ForeignEnum] = []
     var _repeatedMessageField: [Proto3ForeignMessage] = []
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1956,6 +1992,8 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
     set {_uniqueStorage()._repeatedMessageField = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -1998,6 +2036,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     var _myInt: Int64 = 0
     var _myFloat: Float = 0
     var _singleNestedMessage: Proto3TestFieldOrderings.NestedMessage? = nil
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2067,6 +2107,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     ///   This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
 
+    init() {}
+
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2123,6 +2165,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     return _storage._singleNestedMessage = nil
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -2156,6 +2200,8 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
 
 
   var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.testSparseEnumUnspecified
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2193,6 +2239,8 @@ struct Proto3OneString: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
 
   var data: String = ""
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2227,6 +2275,8 @@ struct Proto3MoreString: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swi
 
 
   var data: [String] = []
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2263,6 +2313,8 @@ struct Proto3OneBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swift
 
   var data: Data = Data()
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2297,6 +2349,8 @@ struct Proto3MoreBytes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
 
 
   var data: Data = Data()
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2334,6 +2388,8 @@ struct Proto3Int32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
 
   var data: Int32 = 0
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2368,6 +2424,8 @@ struct Proto3Uint32Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
 
   var data: UInt32 = 0
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2404,6 +2462,8 @@ struct Proto3Int64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
 
   var data: Int64 = 0
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2439,6 +2499,8 @@ struct Proto3Uint64Message: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, 
 
   var data: UInt64 = 0
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2473,6 +2535,8 @@ struct Proto3BoolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Sw
 
 
   var data: Bool = false
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2512,6 +2576,8 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
   private class _StorageClass {
     typealias ExtendedMessage = Proto3TestOneof
     var _foo: Proto3TestOneof.OneOf_Foo?
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2649,6 +2715,8 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
     }
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -2723,6 +2791,8 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
   var packedBool: [Bool] = []
 
   var packedEnum: [Proto3ForeignEnum] = []
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2865,6 +2935,8 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
 
   var unpackedEnum: [Proto3ForeignEnum] = []
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2986,6 +3058,8 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message, SwiftPr
 
   var repeatedUint64: [UInt64] = []
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3047,6 +3121,8 @@ struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   ///   */ <- This should not close the generated doc comment
   var a: String = ""
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3079,6 +3155,8 @@ struct Proto3FooRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swi
   static let _protobuf_fieldNames = FieldNameMap()
 
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3101,6 +3179,8 @@ struct Proto3FooResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Sw
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3125,6 +3205,8 @@ struct Proto3FooClientMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
   static let _protobuf_fieldNames = FieldNameMap()
 
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3147,6 +3229,8 @@ struct Proto3FooServerMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3171,6 +3255,8 @@ struct Proto3BarRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swi
   static let _protobuf_fieldNames = FieldNameMap()
 
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -3193,6 +3279,8 @@ struct Proto3BarResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Sw
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

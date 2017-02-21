@@ -278,6 +278,8 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageLite> = [:]
     var _teboring: Dictionary<Int32,Int32> = [:]
 
+    init() {}
+
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -511,6 +513,8 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     set {_uniqueStorage()._teboring = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -580,6 +584,8 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.P
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnumLite> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> = [:]
     var _mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> = [:]
+
+    init() {}
 
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -814,6 +820,8 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.P
     set {_uniqueStorage()._mapInt32ForeignMessageNoArena = newValue}
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -849,6 +857,8 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
+
+  init() {}
 
   public var isInitialized: Bool {
     if !SwiftProtobuf.Internal.areAllInitialized(mapField) {return false}
@@ -896,6 +906,8 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf.Pr
 
   var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -942,6 +954,8 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
 
   var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -984,6 +998,8 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1059,6 +1075,8 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf.P
     return _c = nil
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     if _a == nil {return false}
     if _b == nil {return false}
@@ -1123,6 +1141,8 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftPro
   mutating func clearC() {
     return _c = nil
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {

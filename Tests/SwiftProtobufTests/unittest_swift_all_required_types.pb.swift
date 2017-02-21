@@ -158,6 +158,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     var _defaultCord: String? = nil
     var _oneofField: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField?
 
+    init() {}
+
     var isInitialized: Bool {
       if _requiredInt32 == nil {return false}
       if _requiredInt64 == nil {return false}
@@ -701,6 +703,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       return _bb = nil
     }
 
+    init() {}
+
     public var isInitialized: Bool {
       if _bb == nil {return false}
       return true
@@ -753,6 +757,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     mutating func clearA() {
       return _a = nil
     }
+
+    init() {}
 
     public var isInitialized: Bool {
       if _a == nil {return false}
@@ -1350,6 +1356,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     return _storage.isInitialized
   }
@@ -1511,6 +1519,8 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
   mutating func clearRequiredNestedEnum() {
     return _requiredNestedEnum = nil
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     if _requiredInt32 == nil {return false}

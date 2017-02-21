@@ -181,6 +181,8 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message3.Enum> = [:]
     var _mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message3> = [:]
 
+    init() {}
+
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1299,6 +1301,8 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
       _uniqueStorage()._o = newValue
     }
   }
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)

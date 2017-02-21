@@ -115,6 +115,8 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   ///   to +999,999,999 inclusive.
   var nanos: Int32 = 0
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

@@ -73,6 +73,8 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     var _msg: ProtobufUnittest_ForeignMessage? = nil
     var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
 
+    init() {}
+
     var isInitialized: Bool {
       if !extensionFieldValues.isInitialized {return false}
       return true
@@ -254,6 +256,8 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     return _storage.isInitialized
   }
@@ -322,6 +326,8 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, Swi
     return _x = nil
   }
 
+  init() {}
+
   public var isInitialized: Bool {
     if _x == nil {return false}
     return true
@@ -365,6 +371,8 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
     typealias ExtendedMessage = ProtobufUnittest_TestOptionalOptimizedForSize
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
+
+    init() {}
 
     var isInitialized: Bool {
       if let v = _o, !v.isInitialized {return false}
@@ -422,6 +430,8 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
   mutating func clearO() {
     return _storage._o = nil
   }
+
+  init() {}
 
   public var isInitialized: Bool {
     return _storage.isInitialized

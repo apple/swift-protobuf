@@ -363,6 +363,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     var _fieldName17__: Int32 = 0
     var _fieldName18__: Int32 = 0
 
+    init() {}
+
     func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1265,6 +1267,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       var _a: Int32 = 0
       var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
 
+      init() {}
+
       func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1320,6 +1324,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     mutating func clearCorecursive() {
       return _storage._corecursive = nil
     }
+
+    init() {}
 
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       try _uniqueStorage().decodeMessage(decoder: &decoder)
@@ -2124,6 +2130,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
     }
   }
 
+  init() {}
+
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try _uniqueStorage().decodeMessage(decoder: &decoder)
   }
@@ -2157,6 +2165,8 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message, SwiftP
 
 
   var c: Int32 = 0
+
+  init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
