@@ -137,7 +137,6 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestMap
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -419,7 +418,6 @@ struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestMapSubmessage
     var _testMap: ProtobufUnittest_TestMap? = nil
 
     init() {}
@@ -646,7 +644,6 @@ struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf.Proto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestArenaMap
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]

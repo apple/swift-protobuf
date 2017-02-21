@@ -59,7 +59,6 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestAny
     var _int32Value: Int32 = 0
     var _anyValue: Google_Protobuf_Any? = nil
     var _repeatedAnyValue: [Google_Protobuf_Any] = []

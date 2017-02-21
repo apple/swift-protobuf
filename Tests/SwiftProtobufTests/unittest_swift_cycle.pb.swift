@@ -66,7 +66,6 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_CycleFoo
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
@@ -196,7 +195,6 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_CycleBar
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
@@ -326,7 +324,6 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_CycleBaz
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil

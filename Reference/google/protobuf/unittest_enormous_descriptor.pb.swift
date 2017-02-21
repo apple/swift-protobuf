@@ -1063,7 +1063,6 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_TestEnormousDescriptor
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1: String? = nil
     var _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2: String? = nil

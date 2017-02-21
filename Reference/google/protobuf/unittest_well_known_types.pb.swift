@@ -48,7 +48,6 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestWellKnownTypes
     var _anyField: Google_Protobuf_Any? = nil
     var _apiField: Google_Protobuf_Api? = nil
     var _durationField: Google_Protobuf_Duration? = nil
@@ -475,7 +474,6 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_RepeatedWellKnownTypes
     var _anyField: [Google_Protobuf_Any] = []
     var _apiField: [Google_Protobuf_Api] = []
     var _durationField: [Google_Protobuf_Duration] = []
@@ -775,7 +773,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_OneofWellKnownTypes
     var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
 
     init() {}
@@ -1349,7 +1346,6 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_MapWellKnownTypes
     var _anyField: Dictionary<Int32,Google_Protobuf_Any> = [:]
     var _apiField: Dictionary<Int32,Google_Protobuf_Api> = [:]
     var _durationField: Dictionary<Int32,Google_Protobuf_Duration> = [:]

@@ -124,7 +124,6 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_FileDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _package: String? = nil
@@ -408,7 +407,6 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_DescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _field: [Google_Protobuf_FieldDescriptorProto] = []
@@ -781,7 +779,6 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_FieldDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _number: Int32? = nil
@@ -1298,7 +1295,6 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, Swift
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_OneofDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _options: Google_Protobuf_OneofOptions? = nil
@@ -1420,7 +1416,6 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftP
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_EnumDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
@@ -1555,7 +1550,6 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, S
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_EnumValueDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _number: Int32? = nil
@@ -1695,7 +1689,6 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, Swi
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_ServiceDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _method: [Google_Protobuf_MethodDescriptorProto] = []
@@ -1833,7 +1826,6 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, Swif
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_MethodDescriptorProto
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _name: String? = nil
     var _inputType: String? = nil

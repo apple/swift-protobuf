@@ -1057,7 +1057,6 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_ComplexOptionType3
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _qux: Int32? = nil
     var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
@@ -1426,7 +1425,6 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_Aggregate
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _i: Int32? = nil
     var _s: String? = nil

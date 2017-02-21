@@ -88,7 +88,6 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Prot
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Swift_Performance_TestAllTypes
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0

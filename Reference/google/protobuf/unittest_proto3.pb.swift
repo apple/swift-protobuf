@@ -349,7 +349,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, S
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestAllTypes
     var _singleInt32: Int32 = 0
     var _singleInt64: Int64 = 0
     var _singleUint32: UInt32 = 0
@@ -1222,7 +1221,6 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3NestedTestAllTypes
     var _child: Proto3NestedTestAllTypes? = nil
     var _payload: Proto3TestAllTypes? = nil
     var _repeatedChild: [Proto3NestedTestAllTypes] = []
@@ -1438,7 +1436,6 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messa
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestForeignNested
     var _foreignNested: Proto3TestAllTypes.NestedMessage? = nil
 
     init() {}
@@ -1571,7 +1568,6 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestRecursiveMessage
     var _a: Proto3TestRecursiveMessage? = nil
     var _i: Int32 = 0
 
@@ -1668,7 +1664,6 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestMutualRecursionA
     var _bb: Proto3TestMutualRecursionB? = nil
 
     init() {}
@@ -1753,7 +1748,6 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestMutualRecursionB
     var _a: Proto3TestMutualRecursionA? = nil
     var _optionalInt32: Int32 = 0
 
@@ -1858,7 +1852,6 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestCamelCaseFieldNames
     var _primitiveField: Int32 = 0
     var _stringField: String = ""
     var _enumField: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
@@ -2031,7 +2024,6 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestFieldOrderings
     var _myString: String = ""
     var _myInt: Int64 = 0
     var _myFloat: Float = 0
@@ -2574,7 +2566,6 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, Swif
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto3TestOneof
     var _foo: Proto3TestOneof.OneOf_Foo?
 
     init() {}

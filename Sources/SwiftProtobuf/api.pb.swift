@@ -63,7 +63,6 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Google_Protobuf_Api
     var _name: String = ""
     var _methods: [Google_Protobuf_Method] = []
     var _options: [Google_Protobuf_Option] = []

@@ -126,7 +126,6 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = Proto2WireformatUnittest_TestMessageSetWireFormatContainer
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 

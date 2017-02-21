@@ -297,7 +297,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf.P
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestAllTypesLite
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalInt32: Int32? = nil
     var _optionalInt64: Int64? = nil
@@ -2534,7 +2533,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       ]
 
       private class _StorageClass {
-        typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1
         var unknownFields = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypesLite? = nil
 
@@ -2626,7 +2624,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       ]
 
       private class _StorageClass {
-        typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2
         var unknownFields = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypesLite? = nil
 
@@ -2791,7 +2788,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     ]
 
     private class _StorageClass {
-      typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.OptionalGroup
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 
@@ -2883,7 +2879,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     ]
 
     private class _StorageClass {
-      typealias ExtendedMessage = ProtobufUnittest_TestParsingMergeLite.RepeatedGroup
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 

@@ -125,7 +125,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_Message3
     var _optionalInt32: Int32 = 0
     var _optionalInt64: Int64 = 0
     var _optionalUint32: UInt32 = 0

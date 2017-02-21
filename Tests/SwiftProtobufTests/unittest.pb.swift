@@ -352,7 +352,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf.Proto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestAllTypes
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalInt32: Int32? = nil
     var _optionalInt64: Int64? = nil
@@ -1919,7 +1918,6 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_NestedTestAllTypes
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _child: ProtobufUnittest_NestedTestAllTypes? = nil
     var _payload: ProtobufUnittest_TestAllTypes? = nil
@@ -2435,7 +2433,6 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf.Proto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestRequired
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _a: Int32? = nil
     var _dummy2: Int32? = nil
@@ -3133,7 +3130,6 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestRequiredForeign
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalMessage: ProtobufUnittest_TestRequired? = nil
     var _repeatedMessage: [ProtobufUnittest_TestRequired] = []
@@ -3266,7 +3262,6 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestForeignNested
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
 
@@ -3587,7 +3582,6 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestRecursiveMessage
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _a: ProtobufUnittest_TestRecursiveMessage? = nil
     var _i: Int32? = nil
@@ -3698,7 +3692,6 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestMutualRecursionA
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _bb: ProtobufUnittest_TestMutualRecursionB? = nil
 
@@ -3791,7 +3784,6 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestMutualRecursionB
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _a: ProtobufUnittest_TestMutualRecursionA? = nil
     var _optionalInt32: Int32? = nil
@@ -3907,7 +3899,6 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestDupFieldNumber
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _a: Int32? = nil
     var _foo: ProtobufUnittest_TestDupFieldNumber.Foo? = nil
@@ -4137,7 +4128,6 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf.P
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestEagerMessage
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _subMessage: ProtobufUnittest_TestAllTypes? = nil
 
@@ -4229,7 +4219,6 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf.Pr
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestLazyMessage
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _subMessage: ProtobufUnittest_TestAllTypes? = nil
 
@@ -4322,7 +4311,6 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestNestedMessageHasBits
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalNestedMessage: ProtobufUnittest_TestNestedMessageHasBits.NestedMessage? = nil
 
@@ -4475,7 +4463,6 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestCamelCaseFieldNames
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _primitiveField: Int32? = nil
     var _stringField: String? = nil
@@ -5012,7 +4999,6 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestExtremeDefaultValues
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _escapedBytes: Data? = nil
     var _largeUint32: UInt32? = nil
@@ -6070,7 +6056,6 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestOneof
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _foo: ProtobufUnittest_TestOneof.OneOf_Foo?
 
@@ -6353,7 +6338,6 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestOneofBackwardsCompatible
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _fooInt: Int32? = nil
     var _fooString: String? = nil
@@ -6583,7 +6567,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestOneof2
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _foo: ProtobufUnittest_TestOneof2.OneOf_Foo?
     var _bar: ProtobufUnittest_TestOneof2.OneOf_Bar?
@@ -7331,7 +7314,6 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestRequiredOneof
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _foo: ProtobufUnittest_TestRequiredOneof.OneOf_Foo?
 
@@ -8012,7 +7994,6 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestDynamicExtensions
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _scalarExtension: UInt32? = nil
     var _enumExtension: ProtobufUnittest_ForeignEnum? = nil
@@ -8516,7 +8497,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
       ]
 
       private class _StorageClass {
-        typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1
         var unknownFields = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypes? = nil
 
@@ -8608,7 +8588,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
       ]
 
       private class _StorageClass {
-        typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2
         var unknownFields = SwiftProtobuf.UnknownStorage()
         var _field1: ProtobufUnittest_TestAllTypes? = nil
 
@@ -8773,7 +8752,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
     ]
 
     private class _StorageClass {
-      typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge.OptionalGroup
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
 
@@ -8865,7 +8843,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.P
     ]
 
     private class _StorageClass {
-      typealias ExtendedMessage = ProtobufUnittest_TestParsingMerge.RepeatedGroup
       var unknownFields = SwiftProtobuf.UnknownStorage()
       var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
 

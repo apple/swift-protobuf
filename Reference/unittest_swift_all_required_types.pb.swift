@@ -108,7 +108,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestAllRequiredTypes
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _requiredInt32: Int32? = nil
     var _requiredInt64: Int64? = nil

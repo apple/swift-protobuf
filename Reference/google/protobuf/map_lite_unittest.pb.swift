@@ -257,7 +257,6 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestMapLite
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
@@ -564,7 +563,6 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf.P
   ]
 
   private class _StorageClass {
-    typealias ExtendedMessage = ProtobufUnittest_TestArenaMapLite
     var unknownFields = SwiftProtobuf.UnknownStorage()
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
