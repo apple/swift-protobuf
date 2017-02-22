@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/Google_Protobuf_Duration_Extensions.swift - Extensions for Duration type
+// Sources/SwiftProtobuf/Google_Protobuf_Duration+Extensions.swift - Extensions for Duration type
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
