@@ -30,33 +30,6 @@ protocol ProtobufWrapper {
 
   /// Creates a new instance of the wrapper with the given value.
   init(_ value: WrappedType.BaseType)
-
-  /// Implements the JSON serialization logic for the wrapper types.
-  ///
-  /// We cannot have the `ProtobufWrapper` extension below implement
-  /// `serializeJSON` because it is also implemented in extensions to other
-  /// protocols. In other words, the compiler cannot disambiguate between them
-  /// because both extension implementations have equal "weight". Instead, we
-  /// have to override `serializeJSON` in the extensions to the generated
-  /// concrete structs -- since the struct extension is more specific than the
-  /// protocol extensions, it takes priority. In order to share the
-  /// implementation, we have those extensions "hop" to this one.
-  func serializeWrapperJSON() throws -> String
-}
-
-extension ProtobufWrapper {
-  // NOTE: The `init(_ value: WrappedType.BaseType)` initializer repeated below
-  // should theoretically be able to go here and be declared public, but this
-  // causes linker errors in release builds (see issue #70). If this is indeed a
-  // bug and should be allowed, we should move the initializer back into this
-  // extension once it's fixed, to reduce a small amount of code duplication/
-  // bloat.
-
-  func serializeWrapperJSON() throws -> String {
-    var encoder = JSONEncoder()
-    try WrappedType.serializeJSONValue(encoder: &encoder, value: value)
-    return encoder.result
-  }
 }
 
 extension Google_Protobuf_DoubleValue:
@@ -75,7 +48,9 @@ extension Google_Protobuf_DoubleValue:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    var encoder = JSONEncoder()
+    encoder.putDoubleValue(value: value)
+    return encoder.stringResult
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -101,7 +76,9 @@ extension Google_Protobuf_FloatValue:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    var encoder = JSONEncoder()
+    encoder.putFloatValue(value: value)
+    return encoder.stringResult
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -127,7 +104,9 @@ extension Google_Protobuf_Int64Value:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    var encoder = JSONEncoder()
+    encoder.putInt64(value: value)
+    return encoder.stringResult
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -153,7 +132,9 @@ extension Google_Protobuf_UInt64Value:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    var encoder = JSONEncoder()
+    encoder.putUInt64(value: value)
+    return encoder.stringResult
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -179,7 +160,7 @@ extension Google_Protobuf_Int32Value:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    return String(value)
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -205,7 +186,7 @@ extension Google_Protobuf_UInt32Value:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    return String(value)
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -231,7 +212,7 @@ extension Google_Protobuf_BoolValue:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    return value ? "true" : "false"
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -267,7 +248,9 @@ extension Google_Protobuf_StringValue:
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    var encoder = JSONEncoder()
+    encoder.putStringValue(value: value)
+    return encoder.stringResult
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
@@ -287,7 +270,9 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
   }
 
   public func jsonString() throws -> String {
-    return try serializeWrapperJSON()
+    var encoder = JSONEncoder()
+    encoder.putBytesValue(value: value)
+    return encoder.stringResult
   }
 
   public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {

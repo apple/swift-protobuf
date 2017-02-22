@@ -118,7 +118,7 @@ class OneofGenerator {
 
         // Traverse the current value
         p.print("\n")
-        p.print("fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {\n")
+        p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
         p.indent()
         p.print("switch self {\n")
         for f in fields.sorted(by: {$0.number < $1.number}) {
@@ -126,10 +126,9 @@ class OneofGenerator {
             p.indent()
             p.print("if start <= \(f.number) && \(f.number) < end {\n")
             p.indent()
-            let special = f.isGroup ? "Group" : f.isMessage ? "Message" : f.isEnum ? "Enum" : "";
+            let special = f.isGroup ? "Group" : f.isMessage ? "Message" : f.isEnum ? "Enum" : f.protoTypeName;
             let visitorMethod = "visitSingular\(special)Field"
-            let fieldClause = (f.isGroup || f.isMessage || f.isEnum) ? "" : "fieldType: \(f.traitsType).self, "
-            p.print("try visitor.\(visitorMethod)(\(fieldClause)value: v, fieldNumber: \(f.number))\n")
+            p.print("try visitor.\(visitorMethod)(value: v, fieldNumber: \(f.number))\n")
             p.outdent()
             p.print("}\n")
             p.outdent()

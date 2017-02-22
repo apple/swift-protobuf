@@ -17,8 +17,6 @@ import Foundation
 
 /*
  * Encoder for Binary Protocol Buffer format
- *
- * TODO: Should this be a class?
  */
 public struct BinaryEncoder {
     private var pointer: UnsafeMutablePointer<UInt8>
@@ -44,7 +42,7 @@ public struct BinaryEncoder {
         pointer = pointer.advanced(by: count)
     }
 
-    public mutating func appendUnknown(data: Data) {
+    mutating func appendUnknown(data: Data) {
         append(contentsOf: data)
     }
 
@@ -82,63 +80,47 @@ public struct BinaryEncoder {
         append(value ? 1 : 0)
     }
 
-    mutating func putFixedUInt64(value : UInt64) {
-        var v = value
+    mutating func putFixedUInt64(value: UInt64) {
+        var v = value.littleEndian
         let n = MemoryLayout<UInt64>.size
-        withUnsafePointer(to: &v) { v -> () in
-            v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
-                let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                append(contentsOf: buff)
-            }
-        }
+        memcpy(pointer, &v, n)
+        pointer = pointer.advanced(by: n)
     }
 
-    mutating func putFixedUInt32(value : UInt32) {
-        var v = value
+    mutating func putFixedUInt32(value: UInt32) {
+        var v = value.littleEndian
         let n = MemoryLayout<UInt32>.size
-        withUnsafePointer(to: &v) { v -> () in
-            v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
-                let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                append(contentsOf: buff)
-            }
-        }
+        memcpy(pointer, &v, n)
+        pointer = pointer.advanced(by: n)
     }
 
     mutating func putFloatValue(value: Float) {
-        var v = value
         let n = MemoryLayout<Float>.size
-        withUnsafePointer(to: &v) { v -> () in
-            v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
-                let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                append(contentsOf: buff)
-            }
-        }
+        var v = value
+        var nativeBytes: UInt32 = 0
+        memcpy(&nativeBytes, &v, n)
+        var littleEndianBytes = nativeBytes.littleEndian
+        memcpy(pointer, &littleEndianBytes, n)
+        pointer = pointer.advanced(by: n)
     }
 
     mutating func putDoubleValue(value: Double) {
-        var v = value
         let n = MemoryLayout<Double>.size
-        withUnsafePointer(to: &v) { v -> () in
-            v.withMemoryRebound(to: UInt8.self, capacity: n) { p -> () in
-                let buff = UnsafeBufferPointer<UInt8>(start: p, count: n)
-                append(contentsOf: buff)
-            }
-        }
+        var v = value
+        var nativeBytes: UInt64 = 0
+        memcpy(&nativeBytes, &v, n)
+        var littleEndianBytes = nativeBytes.littleEndian
+        memcpy(pointer, &littleEndianBytes, n)
+        pointer = pointer.advanced(by: n)
     }
 
     // Write a string field, including the leading index/tag value.
     mutating func putStringValue(value: String) {
-        let stringWithNul = value.utf8CString
-        let stringLength = stringWithNul.count - 1
-        putVarInt(value: stringLength)
-        if stringLength > 0 {
-            // TODO: There has got to be a better way to do this...
-            stringWithNul.withUnsafeBufferPointer { bp -> () in
-                bp.baseAddress?.withMemoryRebound(to: UInt8.self, capacity: stringLength) { p -> () in
-                    let stringWithoutNul = UnsafeBufferPointer<UInt8>(start: p, count: stringLength)
-                    append(contentsOf: stringWithoutNul)
-                }
-            }
+        let count = value.utf8.count
+        putVarInt(value: count)
+        for b in value.utf8 {
+            pointer.pointee = b
+            pointer = pointer.successor()
         }
     }
 

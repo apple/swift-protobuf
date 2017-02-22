@@ -591,7 +591,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleNestedEnum\":\"UNKNOWN\"}")
     }
 
-
     func testRepeatedInt32() {
         assertJSONEncode("{\"repeatedInt32\":[1]}") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1]
@@ -608,6 +607,20 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"repeatedInt32\":[]}") {$0.repeatedInt32 == []}
         assertJSONDecodeSucceeds("{\"repeatedInt32\":[1]}") {$0.repeatedInt32 == [1]}
         assertJSONDecodeSucceeds("{\"repeatedInt32\":[1,2]}") {$0.repeatedInt32 == [1, 2]}
+    }
+
+    func testRepeatedString() {
+        assertJSONEncode("{\"repeatedString\":[\"\"]}") {(o: inout MessageTestType) in
+            o.repeatedString = [""]
+        }
+        assertJSONEncode("{\"repeatedString\":[\"abc\",\"\"]}") {(o: inout MessageTestType) in
+            o.repeatedString = ["abc", ""]
+        }
+        assertJSONDecodeSucceeds("{\"repeatedString\":null}") {$0.repeatedString == []}
+        assertJSONDecodeSucceeds("{\"repeatedString\":[]}") {$0.repeatedString == []}
+        assertJSONDecodeSucceeds(" { \"repeatedString\" : [ \"1\" , \"2\" ] } ") {
+            $0.repeatedString == ["1", "2"]
+        }
     }
 
     func testRepeatedNestedMessage() {
@@ -653,6 +666,38 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 class Test_JSONPacked: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestPackedTypes
 
+    func testPackedFloat() {
+        assertJSONEncode("{\"packedFloat\":[1]}") {(o: inout MessageTestType) in
+            o.packedFloat = [1]
+        }
+        assertJSONEncode("{\"packedFloat\":[1,0.25,0.125]}") {(o: inout MessageTestType) in
+            o.packedFloat = [1, 0.25, 0.125]
+        }
+        assertJSONDecodeSucceeds("{\"packedFloat\":[1,0.25,125e-3]}") {
+            $0.packedFloat == [1, 0.25, 0.125]
+        }
+        assertJSONDecodeSucceeds("{\"packedFloat\":null}") {$0.packedFloat == []}
+        assertJSONDecodeSucceeds("{\"packedFloat\":[]}") {$0.packedFloat == []}
+        assertJSONDecodeSucceeds("{\"packedFloat\":[\"1\"]}") {$0.packedFloat == [1]}
+        assertJSONDecodeSucceeds("{\"packedFloat\":[\"1\",2]}") {$0.packedFloat == [1, 2]}
+    }
+
+    func testPackedDouble() {
+        assertJSONEncode("{\"packedDouble\":[1]}") {(o: inout MessageTestType) in
+            o.packedDouble = [1]
+        }
+        assertJSONEncode("{\"packedDouble\":[1,0.25,0.125]}") {(o: inout MessageTestType) in
+            o.packedDouble = [1, 0.25, 0.125]
+        }
+        assertJSONDecodeSucceeds("{\"packedDouble\":[1,0.25,125e-3]}") {
+            $0.packedDouble == [1, 0.25, 0.125]
+        }
+        assertJSONDecodeSucceeds("{\"packedDouble\":null}") {$0.packedDouble == []}
+        assertJSONDecodeSucceeds("{\"packedDouble\":[]}") {$0.packedDouble == []}
+        assertJSONDecodeSucceeds("{\"packedDouble\":[\"1\"]}") {$0.packedDouble == [1]}
+        assertJSONDecodeSucceeds("{\"packedDouble\":[\"1\",2]}") {$0.packedDouble == [1, 2]}
+    }
+
     func testPackedInt32() {
         assertJSONEncode("{\"packedInt32\":[1]}") {(o: inout MessageTestType) in
             o.packedInt32 = [1]
@@ -660,14 +705,173 @@ class Test_JSONPacked: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"packedInt32\":[1,2]}") {(o: inout MessageTestType) in
             o.packedInt32 = [1, 2]
         }
-        assertEncode([210, 5, 2, 1, 2]) {(o: inout MessageTestType) in
-            o.packedInt32 = [1, 2]
+        assertJSONEncode("{\"packedInt32\":[-2147483648,2147483647]}") {(o: inout MessageTestType) in
+            o.packedInt32 = [Int32.min, Int32.max]
         }
-
         assertJSONDecodeSucceeds("{\"packedInt32\":null}") {$0.packedInt32 == []}
         assertJSONDecodeSucceeds("{\"packedInt32\":[]}") {$0.packedInt32 == []}
-        assertJSONDecodeSucceeds("{\"packedInt32\":[1]}") {$0.packedInt32 == [1]}
-        assertJSONDecodeSucceeds("{\"packedInt32\":[1,2]}") {$0.packedInt32 == [1, 2]}
+        assertJSONDecodeSucceeds("{\"packedInt32\":[\"1\"]}") {$0.packedInt32 == [1]}
+        assertJSONDecodeSucceeds("{\"packedInt32\":[\"1\",\"2\"]}") {$0.packedInt32 == [1, 2]}
+        assertJSONDecodeSucceeds(" { \"packedInt32\" : [ \"1\" , \"2\" ] } ") {$0.packedInt32 == [1, 2]}
+    }
+
+    func testPackedInt64() {
+        assertJSONEncode("{\"packedInt64\":[\"1\"]}") {(o: inout MessageTestType) in
+            o.packedInt64 = [1]
+        }
+        assertJSONEncode("{\"packedInt64\":[\"9223372036854775807\",\"-9223372036854775808\"]}") {
+            (o: inout MessageTestType) in
+            o.packedInt64 = [Int64.max, Int64.min]
+        }
+        assertJSONDecodeSucceeds("{\"packedInt64\":null}") {$0.packedInt64 == []}
+        assertJSONDecodeSucceeds("{\"packedInt64\":[]}") {$0.packedInt64 == []}
+        assertJSONDecodeSucceeds("{\"packedInt64\":[1]}") {$0.packedInt64 == [1]}
+        assertJSONDecodeSucceeds("{\"packedInt64\":[1,2]}") {$0.packedInt64 == [1, 2]}
+        assertJSONDecodeFails("{\"packedInt64\":[null]}")
+    }
+
+    func testPackedUInt32() {
+        assertJSONEncode("{\"packedUint32\":[1]}") {(o: inout MessageTestType) in
+            o.packedUint32 = [1]
+        }
+        assertJSONEncode("{\"packedUint32\":[0,4294967295]}") {(o: inout MessageTestType) in
+            o.packedUint32 = [UInt32.min, UInt32.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedUint32\":null}") {$0.packedUint32 == []}
+        assertJSONDecodeSucceeds("{\"packedUint32\":[]}") {$0.packedUint32 == []}
+        assertJSONDecodeSucceeds("{\"packedUint32\":[1]}") {$0.packedUint32 == [1]}
+        assertJSONDecodeSucceeds("{\"packedUint32\":[1,2]}") {$0.packedUint32 == [1, 2]}
+        assertJSONDecodeFails("{\"packedUint32\":[null]}")
+        assertJSONDecodeFails("{\"packedUint32\":[-1]}")
+        assertJSONDecodeFails("{\"packedUint32\":[1.2]}")
+    }
+
+    func testPackedUInt64() {
+        assertJSONEncode("{\"packedUint64\":[\"1\"]}") {(o: inout MessageTestType) in
+            o.packedUint64 = [1]
+        }
+        assertJSONEncode("{\"packedUint64\":[\"0\",\"18446744073709551615\"]}") {
+            (o: inout MessageTestType) in
+            o.packedUint64 = [UInt64.min, UInt64.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedUint64\":null}") {$0.packedUint64 == []}
+        assertJSONDecodeSucceeds("{\"packedUint64\":[]}") {$0.packedUint64 == []}
+        assertJSONDecodeSucceeds("{\"packedUint64\":[1]}") {$0.packedUint64 == [1]}
+        assertJSONDecodeSucceeds("{\"packedUint64\":[1,2]}") {$0.packedUint64 == [1, 2]}
+        assertJSONDecodeFails("{\"packedUint64\":[null]}")
+        assertJSONDecodeFails("{\"packedUint64\":[-1]}")
+        assertJSONDecodeFails("{\"packedUint64\":[1.2]}")
+    }
+
+    func testPackedSInt32() {
+        assertJSONEncode("{\"packedSint32\":[1]}") {(o: inout MessageTestType) in
+            o.packedSint32 = [1]
+        }
+        assertJSONEncode("{\"packedSint32\":[-2147483648,2147483647]}") {(o: inout MessageTestType) in
+            o.packedSint32 = [Int32.min, Int32.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedSint32\":null}") {$0.packedSint32 == []}
+        assertJSONDecodeSucceeds("{\"packedSint32\":[]}") {$0.packedSint32 == []}
+        assertJSONDecodeSucceeds("{\"packedSint32\":[1]}") {$0.packedSint32 == [1]}
+        assertJSONDecodeSucceeds("{\"packedSint32\":[1,2]}") {$0.packedSint32 == [1, 2]}
+        assertJSONDecodeFails("{\"packedSint32\":[null]}")
+        assertJSONDecodeFails("{\"packedSint32\":[1.2]}")
+    }
+
+    func testPackedSInt64() {
+        assertJSONEncode("{\"packedSint64\":[\"1\"]}") {(o: inout MessageTestType) in
+            o.packedSint64 = [1]
+        }
+        assertJSONEncode("{\"packedSint64\":[\"-9223372036854775808\",\"9223372036854775807\"]}") {
+            (o: inout MessageTestType) in
+            o.packedSint64 = [Int64.min, Int64.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedSint64\":null}") {$0.packedSint64 == []}
+        assertJSONDecodeSucceeds("{\"packedSint64\":[]}") {$0.packedSint64 == []}
+        assertJSONDecodeSucceeds("{\"packedSint64\":[1]}") {$0.packedSint64 == [1]}
+        assertJSONDecodeSucceeds("{\"packedSint64\":[1,2]}") {$0.packedSint64 == [1, 2]}
+        assertJSONDecodeFails("{\"packedSint64\":[null]}")
+        assertJSONDecodeFails("{\"packedSint64\":[1.2]}")
+    }
+
+    func testPackedFixed32() {
+        assertJSONEncode("{\"packedFixed32\":[1]}") {(o: inout MessageTestType) in
+            o.packedFixed32 = [1]
+        }
+        assertJSONEncode("{\"packedFixed32\":[0,4294967295]}") {(o: inout MessageTestType) in
+            o.packedFixed32 = [UInt32.min, UInt32.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedFixed32\":null}") {$0.packedFixed32 == []}
+        assertJSONDecodeSucceeds("{\"packedFixed32\":[]}") {$0.packedFixed32 == []}
+        assertJSONDecodeSucceeds("{\"packedFixed32\":[1]}") {$0.packedFixed32 == [1]}
+        assertJSONDecodeSucceeds("{\"packedFixed32\":[1,2]}") {$0.packedFixed32 == [1, 2]}
+        assertJSONDecodeFails("{\"packedFixed32\":[null]}")
+        assertJSONDecodeFails("{\"packedFixed32\":[-1]}")
+        assertJSONDecodeFails("{\"packedFixed32\":[1.2]}")
+    }
+
+    func testPackedFixed64() {
+        assertJSONEncode("{\"packedFixed64\":[\"1\"]}") {(o: inout MessageTestType) in
+            o.packedFixed64 = [1]
+        }
+        assertJSONEncode("{\"packedFixed64\":[\"0\",\"18446744073709551615\"]}") {
+            (o: inout MessageTestType) in
+            o.packedFixed64 = [UInt64.min, UInt64.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedFixed64\":null}") {$0.packedFixed64 == []}
+        assertJSONDecodeSucceeds("{\"packedFixed64\":[]}") {$0.packedFixed64 == []}
+        assertJSONDecodeSucceeds("{\"packedFixed64\":[1]}") {$0.packedFixed64 == [1]}
+        assertJSONDecodeSucceeds("{\"packedFixed64\":[1,2]}") {$0.packedFixed64 == [1, 2]}
+        assertJSONDecodeFails("{\"packedFixed64\":[null]}")
+        assertJSONDecodeFails("{\"packedFixed64\":[-1]}")
+        assertJSONDecodeFails("{\"packedFixed64\":[1.2]}")
+    }
+
+    func testPackedSFixed32() {
+        assertJSONEncode("{\"packedSfixed32\":[1]}") {(o: inout MessageTestType) in
+            o.packedSfixed32 = [1]
+        }
+        assertJSONEncode("{\"packedSfixed32\":[-2147483648,2147483647]}") {(o: inout MessageTestType) in
+            o.packedSfixed32 = [Int32.min, Int32.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedSfixed32\":null}") {$0.packedSfixed32 == []}
+        assertJSONDecodeSucceeds("{\"packedSfixed32\":[]}") {$0.packedSfixed32 == []}
+        assertJSONDecodeSucceeds("{\"packedSfixed32\":[1]}") {$0.packedSfixed32 == [1]}
+        assertJSONDecodeSucceeds("{\"packedSfixed32\":[1,2]}") {$0.packedSfixed32 == [1, 2]}
+        assertJSONDecodeFails("{\"packedSfixed32\":[null]}")
+        assertJSONDecodeFails("{\"packedSfixed32\":[1.2]}")
+    }
+
+    func testPackedSFixed64() {
+        assertJSONEncode("{\"packedSfixed64\":[\"1\"]}") {(o: inout MessageTestType) in
+            o.packedSfixed64 = [1]
+        }
+        assertJSONEncode("{\"packedSfixed64\":[\"-9223372036854775808\",\"9223372036854775807\"]}") {
+            (o: inout MessageTestType) in
+            o.packedSfixed64 = [Int64.min, Int64.max]
+        }
+        assertJSONDecodeSucceeds("{\"packedSfixed64\":null}") {$0.packedSfixed64 == []}
+        assertJSONDecodeSucceeds("{\"packedSfixed64\":[]}") {$0.packedSfixed64 == []}
+        assertJSONDecodeSucceeds("{\"packedSfixed64\":[1]}") {$0.packedSfixed64 == [1]}
+        assertJSONDecodeSucceeds("{\"packedSfixed64\":[1,2]}") {$0.packedSfixed64 == [1, 2]}
+        assertJSONDecodeFails("{\"packedSfixed64\":[null]}")
+        assertJSONDecodeFails("{\"packedSfixed64\":[1.2]}")
+    }
+
+    func testPackedBool() {
+        assertJSONEncode("{\"packedBool\":[true]}") {(o: inout MessageTestType) in
+            o.packedBool = [true]
+        }
+        assertJSONEncode("{\"packedBool\":[true,false]}") {
+            (o: inout MessageTestType) in
+            o.packedBool = [true,false]
+        }
+        assertJSONDecodeSucceeds("{\"packedBool\":null}") {$0.packedBool == []}
+        assertJSONDecodeSucceeds("{\"packedBool\":[]}") {$0.packedBool == []}
+        assertJSONDecodeFails("{\"packedBool\":[null]}")
+        assertJSONDecodeFails("{\"packedBool\":[1,0]}")
+        assertJSONDecodeFails("{\"packedBool\":[\"true\"]}")
+        assertJSONDecodeFails("{\"packedBool\":[\"false\"]}")
     }
 }
 

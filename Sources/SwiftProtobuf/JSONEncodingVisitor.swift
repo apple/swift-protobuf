@@ -17,74 +17,192 @@
 import Foundation
 
 /// Visitor that serializes a message into JSON format.
-final class JSONEncodingVisitor: Visitor {
+internal struct JSONEncodingVisitor: Visitor {
 
-  private var encoder = JSONEncoder()
-  private var nameResolver: (Int) -> String?
-  private var anyTypeURL: String?
+  internal var encoder = JSONEncoder()
+  private var nameResolver: (Int) -> StaticString?
 
-  /// The JSON text produced by the visitor.
-  var result: String {
-    return encoder.result
+  /// The JSON text produced by the visitor, as raw UTF8 bytes.
+  var dataResult: Data {
+    return encoder.dataResult
+  }
+
+  /// The JSON text produced by the visitor, as a String.
+  internal var stringResult: String {
+      return encoder.stringResult
   }
 
   /// Creates a new visitor that serializes the given message to JSON format.
-  init(message: Message, anyTypeURL: String? = nil) throws {
+  init(message: Message) {
     self.nameResolver =
       ProtoNameResolvers.jsonFieldNameResolver(for: message)
-    self.anyTypeURL = anyTypeURL
-
-    encoder.startObject()
-
-    // TODO: This is a bit of a hack that exists as a workaround to make the
-    // hand-written Any serialization work with the new design. We need to
-    // generate those WKTs instead of maintaining the hand-written ones,
-    // handle the special cases differently, and then remove this.
-    if let anyTypeURL = anyTypeURL {
-      encoder.startField(name: "@type")
-      ProtobufString.serializeJSONValue(encoder: &encoder, value: anyTypeURL)
-    }
-
-    try message.traverse(visitor: self)
-    encoder.endObject()
   }
 
-  func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
 
-  func visitSingularField<S: FieldType>(fieldType: S.Type, value: S.BaseType, fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
-    try S.serializeJSONValue(encoder: &encoder, value: value)
+  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putDoubleValue(value: value)
   }
 
-  func visitRepeatedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+  mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putInt32(value: value)
+  }
+
+  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putInt64(value: value)
+  }
+
+  mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putUInt32(value: value)
+  }
+
+  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putUInt64(value: value)
+  }
+
+  mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putUInt32(value: value)
+  }
+
+  mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putInt32(value: value)
+  }
+
+  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putBoolValue(value: value)
+  }
+
+  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putStringValue(value: value)
+  }
+
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putBytesValue(value: value)
+  }
+
+  private mutating func _visitRepeated<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
+    try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
-      try S.serializeJSONValue(encoder: &encoder, value: v)
+      encode(v)
       arraySeparator = ","
     }
     encoder.append(text: "]")
   }
 
-  func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+  mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
     if let n = value._protobuf_jsonName {
       encoder.putStringValue(value: n)
     } else {
-      encoder.putInt64(value: Int64(value.rawValue), quote: false)
+      encoder.putEnumInt(value: value.rawValue)
     }
   }
 
-  func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    let json = try value.jsonString()
+    encoder.append(text: json)
+  }
+
+  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
+    // Google does not serialize groups into JSON
+  }
+
+  mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: Float) in
+      encoder.putFloatValue(value: v)
+    }
+  }
+
+  mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: Double) in
+      encoder.putDoubleValue(value: v)
+    }
+  }
+
+  mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: Int32) in
+      encoder.putInt32(value: v)
+    }
+  }
+
+  mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: Int64) in
+      encoder.putInt64(value: v)
+    }
+  }
+
+   mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: UInt32) in
+      encoder.putUInt32(value: v)
+    }
+  }
+
+  mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: UInt64) in
+      encoder.putUInt64(value: v)
+    }
+  }
+
+   mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+    try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
+  }
+
+  mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+    try visitRepeatedInt64Field(value: value, fieldNumber: fieldNumber)
+  }
+
+  mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+    try visitRepeatedUInt32Field(value: value, fieldNumber: fieldNumber)
+  }
+
+  mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+    try visitRepeatedUInt64Field(value: value, fieldNumber: fieldNumber)
+  }
+
+   mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+    try visitRepeatedInt32Field(value: value, fieldNumber: fieldNumber)
+  }
+
+  mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+    try visitRepeatedInt64Field(value: value, fieldNumber: fieldNumber)
+  }
+
+  mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: Bool) in
+      encoder.putBoolValue(value: v)
+    }
+  }
+
+  mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: String) in
+      encoder.putStringValue(value: v)
+    }
+  }
+
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+    try _visitRepeated(value: value, fieldNumber: fieldNumber) { (v: Data) in
+      encoder.putBytesValue(value: v)
+    }
+  }
+
+  mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "[")
     for v in value {
@@ -92,127 +210,100 @@ final class JSONEncodingVisitor: Visitor {
       if let n = v._protobuf_jsonName {
         encoder.putStringValue(value: n)
       } else {
-        encoder.putInt64(value: Int64(v.rawValue), quote: false)
+        encoder.putEnumInt(value: v.rawValue)
       }
       arraySeparator = ","
     }
     encoder.append(text: "]")
   }
 
-  func visitPackedField<S: FieldType>(fieldType: S.Type, value: [S.BaseType], fieldNumber: Int) throws {
-    try visitRepeatedField(fieldType: fieldType, value: value, fieldNumber: fieldNumber)
-  }
-
-  func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
-    // Note: We ask the message to serialize itself instead of
-    // using JSONEncodingVisitor(message:) since
-    // some messages override the JSON format at this point.
-    try M.serializeJSONValue(encoder: &encoder, value: value)
-  }
-
-  func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
-      // Note: We ask the message to serialize itself instead of
-      // using JSONEncodingVisitor(message:) since
-      // some messages override the JSON format at this point.
-      try M.serializeJSONValue(encoder: &encoder, value: v)
+      let json = try v.jsonString()
+      encoder.append(text: json)
       arraySeparator = ","
     }
     encoder.append(text: "]")
   }
 
-  // Note that JSON encoding for groups is not officially supported
-  // by any Google spec.  But it's trivial to support it here.
-  func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
-    // Groups have no special JSON support, so we use only the generic traversal mechanism here
-    let nestedVisitor = try JSONEncodingVisitor(message: value)
-    encoder.append(text: nestedVisitor.result)
+  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+    // Google does not serialize groups into JSON
   }
 
-  func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
-    var arraySeparator = ""
-    encoder.append(text: "[")
-    for v in value {
-      encoder.append(text: arraySeparator)
-      // Groups have no special JSON support, so we use only the generic traversal mechanism here
-      let nestedVisitor = try JSONEncodingVisitor(message: v)
-      encoder.append(text: nestedVisitor.result)
-      arraySeparator = ","
-    }
-    encoder.append(text: "]")
-  }
+  // Packed fields are handled the same as non-packed fields, so JSON just
+  // relies on the default implementations in Visitor.swift
 
-  func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+
+
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+    try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "{")
     for (k,v) in value {
-      encoder.append(text: arraySeparator)
-      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
-      encoder.append(text: ":")
-      try ValueType.serializeJSONValue(encoder: &encoder, value: v)
-      arraySeparator = ","
+        encoder.append(text: arraySeparator)
+        encoder.isMapKey = true
+        KeyType.serializeJSONValue(encoder: &encoder, value: k)
+        encoder.isMapKey = false
+        encoder.append(text: ":")
+        ValueType.serializeJSONValue(encoder: &encoder, value: v)
+        arraySeparator = ","
     }
     encoder.append(text: "}")
   }
 
-  func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+    try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "{")
     for (k,v) in value {
       encoder.append(text: arraySeparator)
-      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
+      encoder.isMapKey = true
+      KeyType.serializeJSONValue(encoder: &encoder, value: k)
+      encoder.isMapKey = false
       encoder.append(text: ":")
       if let n = v._protobuf_jsonName {
         encoder.putStringValue(value: n)
       } else {
-        encoder.putInt64(value: Int64(v.rawValue), quote: false)
+        encoder.putEnumInt(value: v.rawValue)
       }
       arraySeparator = ","
     }
     encoder.append(text: "}")
   }
 
-  func visitMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
-    let jsonFieldName = try self.jsonFieldName(for: fieldNumber)
-    encoder.startField(name: jsonFieldName)
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+    try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "{")
     for (k,v) in value {
       encoder.append(text: arraySeparator)
-      KeyType.serializeJSONMapKey(encoder: &encoder, value: k)
+      encoder.isMapKey = true
+      KeyType.serializeJSONValue(encoder: &encoder, value: k)
+      encoder.isMapKey = false
       encoder.append(text: ":")
-      try ValueType.serializeJSONValue(encoder: &encoder, value: v)
+      let json = try v.jsonString()
+      encoder.append(text: json)
       arraySeparator = ","
     }
     encoder.append(text: "}")
   }
 
   /// Called for each extension range.
-  func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
     // JSON does not store extensions
   }
 
   /// Helper function that throws an error if the field number could not be
   /// resolved.
-  private func jsonFieldName(for number: Int) throws -> String {
+  private mutating func startField(for number: Int) throws {
     if let jsonName = nameResolver(number) {
-      return jsonName
+        encoder.startField(name: jsonName)
+    } else {
+        throw EncodingError.missingFieldNames
     }
-    throw EncodingError.missingFieldNames
   }
 }

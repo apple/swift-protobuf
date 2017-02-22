@@ -22,7 +22,7 @@ public struct ProtobufMap<KeyType: MapKeyType, ValueType: FieldType>
     public typealias BaseType = Dictionary<Key, Value>
 }
 
-public struct ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message>
+public struct ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message & Hashable>
     where KeyType.BaseType: Hashable
 {
     public typealias Key = KeyType.BaseType

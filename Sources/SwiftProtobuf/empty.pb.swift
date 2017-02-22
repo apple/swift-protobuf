@@ -74,7 +74,7 @@ public struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf.
   public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {

@@ -77,9 +77,9 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftP
     }
   }
 
-  public func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    if fileName != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: fileName, fieldNumber: 1)
+  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !fileName.isEmpty {
+      try visitor.visitSingularStringField(value: fileName, fieldNumber: 1)
     }
   }
 

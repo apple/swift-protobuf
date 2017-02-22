@@ -77,7 +77,7 @@ public protocol Message: CustomDebugStringConvertible {
   /// 'traverse' methods.  The details get a little involved due to
   /// the need to allow particular messages to override particular
   /// behaviors for specific encodings, but the general idea is quite simple.
-  func traverse(visitor: Visitor) throws
+  func traverse<V: Visitor>(visitor: inout V) throws
 
   //
   // Protobuf Binary decoding
@@ -131,8 +131,8 @@ public extension Message {
   }
 
   var hashValue: Int {
-    let visitor = HashVisitor()
-    try? traverse(visitor: visitor)
+    var visitor = HashVisitor()
+    try? traverse(visitor: &visitor)
     return visitor.hashValue
   }
 
@@ -224,7 +224,7 @@ public protocol _MessageImplementationBase: Message, Hashable {
   mutating func _protoc_generated_decodeField<T: Decoder>(decoder: inout T,
                                                           fieldNumber: Int) throws
 
-  func _protoc_generated_traverse(visitor: Visitor) throws
+  func _protoc_generated_traverse<V: Visitor>(visitor: inout V) throws
 
   func _protoc_generated_isEqualTo(other: Self) -> Bool
 }
@@ -235,8 +235,8 @@ public extension _MessageImplementationBase {
   }
 
   // Default implementations simply redirect to the generated versions.
-  public func traverse(visitor: Visitor) throws {
-    try _protoc_generated_traverse(visitor: visitor)
+  public func traverse<V: Visitor>(visitor: inout V) throws {
+    try _protoc_generated_traverse(visitor: &visitor)
   }
 
   mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {

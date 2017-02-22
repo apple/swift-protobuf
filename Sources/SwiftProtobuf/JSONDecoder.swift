@@ -665,7 +665,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         if scanner.skipOptionalNull() {
             return
         }

@@ -18,7 +18,7 @@ import SwiftProtobuf
 
 class Test_Text_Map_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestMap
-    
+
     func test_Int32Int32() {
         assertTextEncode("map_int32_int32 {\n  key: 1\n  value: 2\n}\n") {(o: inout MessageTestType) in
             o.mapInt32Int32 = [1:2]
@@ -46,11 +46,11 @@ class Test_Text_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("map_int32_int32 [{key:1 value:2 nonsense:3}")
         assertTextDecodeFails("map_int32_int32 {key:1}")
     }
-    
+
     func test_StringMessage() {
         let foo = ProtobufUnittest_ForeignMessage.with {$0.c = 999}
 
-        assertTextEncode("map_string_foreign_message {\n  key: \"foo\"\n  value: {\n    c: 999\n  }\n}\n") {(o: inout MessageTestType) in
+        assertTextEncode("map_string_foreign_message {\n  key: \"foo\"\n  value {\n    c: 999\n  }\n}\n") {(o: inout MessageTestType) in
             o.mapStringForeignMessage = ["foo": foo]
         }
     }

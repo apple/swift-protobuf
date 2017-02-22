@@ -18,9 +18,9 @@ import Foundation
 ///
 /// Float traits
 ///
-public extension ProtobufFloat {
+extension ProtobufFloat {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Float) {
-        encoder.putFloatValue(value: value, quote: false)
+        encoder.putFloatValue(value: value)
     }
 }
 
@@ -29,7 +29,7 @@ public extension ProtobufFloat {
 ///
 public extension ProtobufDouble {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Double) {
-        encoder.putDoubleValue(value: value, quote: false)
+        encoder.putDoubleValue(value: value)
     }
 }
 
@@ -38,11 +38,7 @@ public extension ProtobufDouble {
 ///
 public extension ProtobufInt32 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: false)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: true)
+        encoder.putInt32(value: value)
     }
 }
 
@@ -51,11 +47,7 @@ public extension ProtobufInt32 {
 ///
 public extension ProtobufInt64 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
+        encoder.putInt64(value: value)
     }
 }
 
@@ -64,11 +56,7 @@ public extension ProtobufInt64 {
 ///
 public extension ProtobufUInt32 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt32) {
-        encoder.putUInt64(value: UInt64(value), quote: false)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt32) {
-        encoder.putUInt64(value: UInt64(value), quote: true)
+      encoder.putUInt32(value: value)
     }
 }
 
@@ -77,11 +65,7 @@ public extension ProtobufUInt32 {
 ///
 public extension ProtobufUInt64 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt64) {
-        encoder.putUInt64(value: value, quote: true)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt64) {
-        encoder.putUInt64(value: value, quote: true)
+        encoder.putUInt64(value: value)
     }
 }
 
@@ -90,11 +74,7 @@ public extension ProtobufUInt64 {
 ///
 public extension ProtobufSInt32 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: false)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: true)
+        encoder.putInt32(value: value)
     }
 }
 
@@ -103,11 +83,7 @@ public extension ProtobufSInt32 {
 ///
 public extension ProtobufSInt64 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
+        encoder.putInt64(value: value)
     }
 }
 
@@ -116,11 +92,7 @@ public extension ProtobufSInt64 {
 ///
 public extension ProtobufFixed32 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt32) {
-        encoder.putUInt64(value: UInt64(value), quote: false)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt32) {
-        encoder.putUInt64(value: UInt64(value), quote: true)
+        encoder.putUInt32(value: value)
     }
 }
 
@@ -129,11 +101,7 @@ public extension ProtobufFixed32 {
 ///
 public extension ProtobufFixed64 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: UInt64) {
-        encoder.putUInt64(value: value, quote: true)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: UInt64) {
-        encoder.putUInt64(value: value.littleEndian, quote: true)
+        encoder.putUInt64(value: value)
     }
 }
 
@@ -142,11 +110,7 @@ public extension ProtobufFixed64 {
 ///
 public extension ProtobufSFixed32 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: false)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int32) {
-        encoder.putInt64(value: Int64(value), quote: true)
+        encoder.putInt32(value: value)
     }
 }
 
@@ -155,11 +119,7 @@ public extension ProtobufSFixed32 {
 ///
 public extension ProtobufSFixed64 {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Int64) {
-        encoder.putInt64(value: value, quote: true)
+        encoder.putInt64(value: value)
     }
 }
 
@@ -168,11 +128,7 @@ public extension ProtobufSFixed64 {
 ///
 public extension ProtobufBool {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: Bool) {
-        encoder.putBoolValue(value: value, quote: false)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: Bool) {
-        encoder.putBoolValue(value: value, quote: true)
+        encoder.putBoolValue(value: value)
     }
 }
 
@@ -181,10 +137,6 @@ public extension ProtobufBool {
 ///
 public extension ProtobufString {
     public static func serializeJSONValue(encoder: inout JSONEncoder, value: String) {
-        encoder.putStringValue(value: value)
-    }
-
-    public static func serializeJSONMapKey(encoder: inout JSONEncoder, value: String) {
         encoder.putStringValue(value: value)
     }
 }
@@ -203,16 +155,21 @@ public extension ProtobufBytes {
 ///
 public extension Message {
     func jsonString() throws -> String {
-        return try JSONEncodingVisitor(message: self).result
+        var visitor = JSONEncodingVisitor(message: self)
+        visitor.encoder.startObject()
+        try traverse(visitor: &visitor)
+        visitor.encoder.endObject()
+        return visitor.stringResult
     }
 
     func anyJSONString() throws -> String {
-        return try JSONEncodingVisitor(message: self, anyTypeURL: type(of: self).anyTypeURL).result
-    }
-
-    static func serializeJSONValue(encoder: inout JSONEncoder, value: Self) throws {
-        let json = try value.jsonString()
-        encoder.append(text: json)
+        var visitor = JSONEncodingVisitor(message: self)
+        visitor.encoder.startObject()
+        visitor.encoder.startField(name: "@type")
+        ProtobufString.serializeJSONValue(encoder: &visitor.encoder, value: Self.anyTypeURL)
+        try traverse(visitor: &visitor)
+        visitor.encoder.endObject()
+        return visitor.stringResult
     }
 
     public init(jsonString: String) throws {
