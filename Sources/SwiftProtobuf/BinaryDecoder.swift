@@ -154,28 +154,28 @@ struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed32.rawValue else {
             throw BinaryDecodingError.schemaMismatch
         }
-        var i: Float = 0
-        try decodeFourByteNumber(value: &i)
-        value = i
+        value = try decodeFloat()
         consumed = true
     }
 
     internal mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
         switch fieldWireFormat {
         case WireFormat.fixed32.rawValue:
-            var i: Float = 0
-            try decodeFourByteNumber(value: &i)
+            let i = try decodeFloat()
             value.append(i)
             consumed = true
         case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<Float>.size)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
-            var i: Float = 0
-            while !decoder.complete {
-                try decoder.decodeFourByteNumber(value: &i)
-                value.append(i)
+            let bodyBytes = try decodeVarint()
+            if bodyBytes > 0 {
+                let itemSize = UInt64(MemoryLayout<Float>.size)
+                let itemCount = bodyBytes / itemSize
+                if bodyBytes % itemSize != 0 || itemCount > UInt64(Int.max) {
+                    throw BinaryDecodingError.truncated
+                }
+                value.reserveCapacity(value.count + Int(truncatingBitPattern: itemCount))
+                for _ in 1...itemCount {
+                    value.append(try decodeFloat())
+                }
             }
             consumed = true
         default:
@@ -187,7 +187,7 @@ struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed64.rawValue else {
             throw BinaryDecodingError.schemaMismatch
         }
-        try decodeEightByteNumber(value: &value)
+        value = try decodeDouble()
         consumed = true
     }
 
@@ -195,28 +195,29 @@ struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.fixed64.rawValue else {
             throw BinaryDecodingError.schemaMismatch
         }
-        var i: Double = 0
-        try decodeEightByteNumber(value: &i)
-        value = i
+        value = try decodeDouble()
         consumed = true
     }
 
     internal mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
         switch fieldWireFormat {
         case WireFormat.fixed64.rawValue:
-            var i: Double = 0
-            try decodeEightByteNumber(value: &i)
+            let i = try decodeDouble()
             value.append(i)
             consumed = true
         case WireFormat.lengthDelimited.rawValue:
-            var n: Int = 0
-            let p = try getFieldBodyBytes(count: &n)
-            value.reserveCapacity(value.count + n / MemoryLayout<Double>.size)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
-            var i: Double = 0
-            while !decoder.complete {
-                try decoder.decodeEightByteNumber(value: &i)
-                value.append(i)
+            let bodyBytes = try decodeVarint()
+            if bodyBytes > 0 {
+                let itemSize = UInt64(MemoryLayout<Double>.size)
+                let itemCount = bodyBytes / itemSize
+                if bodyBytes % itemSize != 0 || itemCount > UInt64(Int.max) {
+                    throw BinaryDecodingError.truncated
+                }
+                value.reserveCapacity(value.count + Int(truncatingBitPattern: itemCount))
+                for _ in 1...itemCount {
+                    let i = try decodeDouble()
+                    value.append(i)
+                }
             }
             consumed = true
         default:
@@ -1149,6 +1150,26 @@ struct BinaryDecoder: Decoder {
             dest.initialize(from: src, count: 8)
         }
         consume(length: 8)
+    }
+
+    private mutating func decodeFloat() throws -> Float {
+        var littleEndianBytes: UInt32 = 0
+        try decodeFourByteNumber(value: &littleEndianBytes)
+        var nativeEndianBytes = UInt32(littleEndian: littleEndianBytes)
+        var float: Float = 0
+        let n = MemoryLayout<Float>.size
+        memcpy(&float, &nativeEndianBytes, n)
+        return float
+    }
+
+    private mutating func decodeDouble() throws -> Double {
+        var littleEndianBytes: UInt64 = 0
+        try decodeEightByteNumber(value: &littleEndianBytes)
+        var nativeEndianBytes = UInt64(littleEndian: littleEndianBytes)
+        var double: Double = 0
+        let n = MemoryLayout<Double>.size
+        memcpy(&double, &nativeEndianBytes, n)
+        return double
     }
 
     /// Private: Get the start and length for the body of

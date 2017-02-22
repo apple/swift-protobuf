@@ -95,16 +95,22 @@ public struct BinaryEncoder {
     }
 
     mutating func putFloatValue(value: Float) {
-        var v = value
         let n = MemoryLayout<Float>.size
-        memcpy(pointer, &v, n)
+        var v = value
+        var nativeBytes: UInt32 = 0
+        memcpy(&nativeBytes, &v, n)
+        var littleEndianBytes = nativeBytes.littleEndian
+        memcpy(pointer, &littleEndianBytes, n)
         pointer = pointer.advanced(by: n)
     }
 
     mutating func putDoubleValue(value: Double) {
-        var v = value
         let n = MemoryLayout<Double>.size
-        memcpy(pointer, &v, n)
+        var v = value
+        var nativeBytes: UInt64 = 0
+        memcpy(&nativeBytes, &v, n)
+        var littleEndianBytes = nativeBytes.littleEndian
+        memcpy(pointer, &littleEndianBytes, n)
         pointer = pointer.advanced(by: n)
     }
 
