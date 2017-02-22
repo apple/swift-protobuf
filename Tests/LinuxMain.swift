@@ -490,9 +490,6 @@ extension Test_JSON {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testMultipleFields", {try run_test(test:($0 as! Test_JSON).testMultipleFields)}),
-            ("testEncodePerf", {try run_test(test:($0 as! Test_JSON).testEncodePerf)}),
-            ("testDecodePerf", {try run_test(test:($0 as! Test_JSON).testDecodePerf)}),
-            ("testDecodePerf_FoundationCompare", {try run_test(test:($0 as! Test_JSON).testDecodePerf_FoundationCompare)}),
             ("testSingleInt32", {try run_test(test:($0 as! Test_JSON).testSingleInt32)}),
             ("testSingleUInt32", {try run_test(test:($0 as! Test_JSON).testSingleUInt32)}),
             ("testSingleInt64", {try run_test(test:($0 as! Test_JSON).testSingleInt64)}),
@@ -764,14 +761,6 @@ extension Test_ParsingMerge {
     }
 }
 
-extension Test_Performance {
-    static var allTests: [(String, (XCTestCase) throws -> ())] {
-        return [
-            ("testSingularSerialize", {try run_test(test:($0 as! Test_Performance).testSingularSerialize)})
-        ]
-    }
-}
-
 extension Test_ReallyLargeTagNumber {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -966,9 +955,7 @@ extension Test_Text_proto3 {
             ("testInvalidFieldName", {try run_test(test:($0 as! Test_Text_proto3).testInvalidFieldName)}),
             ("testInvalidCapitalization", {try run_test(test:($0 as! Test_Text_proto3).testInvalidCapitalization)}),
             ("testExplicitDelimiters", {try run_test(test:($0 as! Test_Text_proto3).testExplicitDelimiters)}),
-            ("testMultipleFields", {try run_test(test:($0 as! Test_Text_proto3).testMultipleFields)}),
-            ("testEncodePerf", {try run_test(test:($0 as! Test_Text_proto3).testEncodePerf)}),
-            ("testDecodePerf", {try run_test(test:($0 as! Test_Text_proto3).testDecodePerf)})
+            ("testMultipleFields", {try run_test(test:($0 as! Test_Text_proto3).testMultipleFields)})
         ]
     }
 }
@@ -1066,7 +1053,6 @@ XCTMain(
         (testCaseClass: Test_OneofFields_Access_Proto3.self, allTests: Test_OneofFields_Access_Proto3.allTests),
         (testCaseClass: Test_Packed.self, allTests: Test_Packed.allTests),
         (testCaseClass: Test_ParsingMerge.self, allTests: Test_ParsingMerge.allTests),
-        (testCaseClass: Test_Performance.self, allTests: Test_Performance.allTests),
         (testCaseClass: Test_ReallyLargeTagNumber.self, allTests: Test_ReallyLargeTagNumber.allTests),
         (testCaseClass: Test_RecursiveMap.self, allTests: Test_RecursiveMap.allTests),
         (testCaseClass: Test_Required.self, allTests: Test_Required.allTests),

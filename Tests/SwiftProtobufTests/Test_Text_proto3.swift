@@ -1256,29 +1256,4 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
 
         assertTextEncode(expected, configure: configureLargeObject)
     }
-
-    func testEncodePerf() {
-        let m = MessageTestType.with(configureLargeObject)
-        self.measure {
-            do {
-                for _ in 0..<1000 {
-                    let _ = try m.textFormatString()
-                }
-            } catch {
-            }
-        }
-    }
-
-    func testDecodePerf() throws {
-        let m = MessageTestType.with(configureLargeObject)
-        let text = try m.textFormatString()
-        self.measure {
-            do {
-                for _ in 0..<1000 {
-                    let _ = try MessageTestType(textFormatString: text)
-                }
-            } catch {
-            }
-        }
-    }
 }

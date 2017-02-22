@@ -125,7 +125,6 @@
 		9C8CDA351D7A28F600E207CA /* Test_Map_JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Map_JSON.swift /* Test_Map_JSON.swift */; };
 		9C8CDA361D7A28F600E207CA /* Test_Packed.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */; };
 		9C8CDA371D7A28F600E207CA /* Test_ParsingMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift */; };
-		9C8CDA381D7A28F600E207CA /* Test_Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift */; };
 		9C8CDA391D7A28F600E207CA /* Test_ReallyLargeTagNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift */; };
 		9C8CDA3A1D7A28F600E207CA /* Test_RecursiveMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift */; };
 		9C8CDA3B1D7A28F600E207CA /* Test_Required.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift */; };
@@ -305,7 +304,6 @@
 		F44F93C31DAEA8C900BC5B85 /* Test_Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Map.swift /* Test_Map.swift */; };
 		F44F93C41DAEA8C900BC5B85 /* Test_Packed.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */; };
 		F44F93C51DAEA8C900BC5B85 /* Test_ParsingMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift */; };
-		F44F93C61DAEA8C900BC5B85 /* Test_Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift */; };
 		F44F93C71DAEA8C900BC5B85 /* Test_ReallyLargeTagNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift */; };
 		F44F93C81DAEA8C900BC5B85 /* Test_RecursiveMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift */; };
 		F44F93C91DAEA8C900BC5B85 /* Test_Required.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift */; };
@@ -476,7 +474,6 @@
 		__src_cc_ref_Tests/ProtobufTests/Test_Map_JSON.swift /* Test_Map_JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Map_JSON.swift /* Test_Map_JSON.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift */; };
-		__src_cc_ref_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift */; };
 		__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift */; };
@@ -663,7 +660,6 @@
 		__PBXFileRef_Tests/ProtobufTests/Test_Map_JSON.swift /* Test_Map_JSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Map_JSON.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Packed.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ParsingMerge.swift; sourceTree = "<group>"; };
-		__PBXFileRef_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Performance.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_ReallyLargeTagNumber.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_RecursiveMap.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_Required.swift; sourceTree = "<group>"; };
@@ -899,7 +895,6 @@
 				F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift */,
-				__PBXFileRef_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift */,
 				__PBXFileRef_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift */,
@@ -1182,7 +1177,6 @@
 				9C8CDA361D7A28F600E207CA /* Test_Packed.swift in Sources */,
 				9C8CDA371D7A28F600E207CA /* Test_ParsingMerge.swift in Sources */,
 				9C60CBED1DF9DEEA00F7B14E /* Test_Text_proto2.swift in Sources */,
-				9C8CDA381D7A28F600E207CA /* Test_Performance.swift in Sources */,
 				9C8CDA391D7A28F600E207CA /* Test_ReallyLargeTagNumber.swift in Sources */,
 				9C8CDA3A1D7A28F600E207CA /* Test_RecursiveMap.swift in Sources */,
 				9C60CBE91DF8AC3F00F7B14E /* Test_Text_Map_proto3.swift in Sources */,
@@ -1412,7 +1406,6 @@
 				__src_cc_ref_Tests/ProtobufTests/Test_Packed.swift /* Test_Packed.swift in Sources */,
 				F4F4F1181E5633E7006C6CAD /* Test_Naming.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ParsingMerge.swift /* Test_ParsingMerge.swift in Sources */,
-				__src_cc_ref_Tests/ProtobufTests/Test_Performance.swift /* Test_Performance.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_ReallyLargeTagNumber.swift /* Test_ReallyLargeTagNumber.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_RecursiveMap.swift /* Test_RecursiveMap.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/Test_Required.swift /* Test_Required.swift in Sources */,
@@ -1595,7 +1588,6 @@
 				F44F93CF1DAEA8C900BC5B85 /* Test_Unknown_proto3.swift in Sources */,
 				F48FDD2A1E4D18080061D5C1 /* Test_Text_proto3.swift in Sources */,
 				F44F93AC1DAEA8C900BC5B85 /* descriptor.pb.swift in Sources */,
-				F44F93C61DAEA8C900BC5B85 /* Test_Performance.swift in Sources */,
 				F44F93D61DAEA8C900BC5B85 /* unittest_import_lite.pb.swift in Sources */,
 				F44F93BE1DAEA8C900BC5B85 /* Test_JSON_Conformance.swift in Sources */,
 				F44F93E11DAEA8C900BC5B85 /* unittest_no_arena_lite.pb.swift in Sources */,

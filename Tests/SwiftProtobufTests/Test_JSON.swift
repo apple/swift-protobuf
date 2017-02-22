@@ -136,45 +136,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode(expected, configure: configureLargeObject)
     }
 
-    func testEncodePerf() {
-        let m = MessageTestType.with(configureLargeObject)
-        self.measure {
-            do {
-                for _ in 0..<1000 {
-                    let _ = try m.jsonString()
-                }
-            } catch {
-            }
-        }
-    }
-
-    func testDecodePerf() throws {
-        let m = MessageTestType.with(configureLargeObject)
-        let json = try m.jsonString()
-        self.measure {
-            do {
-                for _ in 0..<1000 {
-                    let _ = try MessageTestType(jsonString: json)
-                }
-            } catch {
-            }
-        }
-    }
-
-    func testDecodePerf_FoundationCompare() throws {
-        let m = MessageTestType.with(configureLargeObject)
-        let json = try m.jsonString()
-        self.measure {
-            do {
-                for _ in 0..<1000 {
-                    let data = json.data(using: String.Encoding.utf8)!
-                    let _ = try JSONSerialization.jsonObject(with: data)
-                }
-            } catch {
-            }
-        }
-    }
-
     func testSingleInt32() {
         assertJSONEncode("{\"singleInt32\":1}") {(o: inout MessageTestType) in
             o.singleInt32 = 1
