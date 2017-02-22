@@ -394,19 +394,19 @@ class MessageGenerator {
             swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
             swiftFullName = swiftRelativeName
         }
-        var conformance = "SwiftProtobuf.Message"
+        var conformance: [String] = []
         if isProto3 {
-            conformance += ", SwiftProtobuf.Proto3Message"
+            conformance.append("SwiftProtobuf.Proto3Message")
         } else {
-            conformance += ", SwiftProtobuf.Proto2Message"
+            conformance.append("SwiftProtobuf.Proto2Message")
         }
         if isExtensible {
-            conformance += ", SwiftProtobuf.ExtensibleMessage"
+            conformance.append("SwiftProtobuf.ExtensibleMessage")
         }
-        conformance += ", SwiftProtobuf._MessageImplementationBase"
+        conformance.append("SwiftProtobuf._MessageImplementationBase")
         // TODO: Move this conformance into an extension in a separate file.
-        conformance += ", SwiftProtobuf.ProtoNameProviding"
-        self.swiftMessageConformance = conformance
+        conformance.append("SwiftProtobuf.ProtoNameProviding")
+        self.swiftMessageConformance = conformance.joined(separator: ", ")
 
         var i: Int32 = 0
         var fields = [MessageFieldGenerator]()
