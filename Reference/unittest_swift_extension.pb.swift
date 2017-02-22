@@ -35,21 +35,21 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Foo"
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Bar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Bar: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Bar"
     static let protoPackageName: String = "protobuf_unittest.extend"
     static let _protobuf_fieldNames = FieldNameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    struct Baz: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+    struct Baz: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
       static let protoMessageName: String = "Baz"
       static let protoPackageName: String = "protobuf_unittest.extend"
       static let _protobuf_fieldNames: FieldNameMap = [
@@ -92,12 +92,12 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
         }
       }
 
-      func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+      func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if let v = _a {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 1001)
-        unknownFields.traverse(visitor: visitor)
+        unknownFields.traverse(visitor: &visitor)
       }
 
       func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
@@ -143,8 +143,8 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
     mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-      unknownFields.traverse(visitor: visitor)
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar) -> Bool {
@@ -164,8 +164,8 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo) -> Bool {
@@ -174,7 +174,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf.Proto2M
   }
 }
 
-struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Extend_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "C"
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -211,11 +211,11 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 999)
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 999)
     }
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_C) -> Bool {
@@ -233,7 +233,7 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 //  If this compiles then it means we deal with unique proto names that
 //  could end up with naming collisions when remapped to Swifty names.
 
-struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Msg1"
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -259,9 +259,9 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Msg1) -> Bool {
@@ -295,7 +295,7 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   }
 }
 
-struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Msg2"
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -321,9 +321,9 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Proto2
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Msg2) -> Bool {
@@ -359,7 +359,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
 //  These allow testing where a StorageClass is and isn't used.
 
-struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "MsgNoStorage"
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -402,12 +402,12 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _x {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 201)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgNoStorage) -> Bool {
@@ -442,7 +442,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
   }
 }
 
-struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "MsgUsesStorage"
   static let protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -543,16 +543,16 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if let v = storage._x {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = storage._y {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 100, end: 201)
-      storage.unknownFields.traverse(visitor: visitor)
+      storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

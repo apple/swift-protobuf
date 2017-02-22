@@ -66,7 +66,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 ///   The version number of protocol compiler.
-struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Version"
   static let protoPackageName: String = "google.protobuf.compiler"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -146,20 +146,20 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _major {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     if let v = _minor {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     }
     if let v = _patch {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     }
     if let v = _suffix {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 4)
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     }
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
@@ -173,7 +173,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf.Pr
 }
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "CodeGeneratorRequest"
   static let protoPackageName: String = "google.protobuf.compiler"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -302,13 +302,13 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if !storage._fileToGenerate.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._fileToGenerate, fieldNumber: 1)
+        try visitor.visitRepeatedStringField(value: storage._fileToGenerate, fieldNumber: 1)
       }
       if let v = storage._parameter {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
       }
       if let v = storage._compilerVersion {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
@@ -316,7 +316,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
       if !storage._protoFile.isEmpty {
         try visitor.visitRepeatedMessageField(value: storage._protoFile, fieldNumber: 15)
       }
-      storage.unknownFields.traverse(visitor: visitor)
+      storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -333,7 +333,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "CodeGeneratorResponse"
   static let protoPackageName: String = "google.protobuf.compiler"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -344,7 +344,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  struct File: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct File: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "File"
     static let protoPackageName: String = "google.protobuf.compiler"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -457,17 +457,17 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _name {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
       }
       if let v = _insertionPoint {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
       }
       if let v = _content {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 15)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 15)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
@@ -517,14 +517,14 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _error {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 1)
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, fieldNumber: 15)
     }
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {

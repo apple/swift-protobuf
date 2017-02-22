@@ -249,7 +249,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "FieldMask"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -275,9 +275,9 @@ struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !paths.isEmpty {
-      try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: paths, fieldNumber: 1)
+      try visitor.visitRepeatedStringField(value: paths, fieldNumber: 1)
     }
   }
 

@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "TestFieldOrderings"
   static let protoPackageName: String = "swift.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -172,29 +172,29 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .oneofBool(let v):
         if start <= 9 && 9 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 9)
+          try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
         }
       case .oneofInt32(let v):
         if start <= 10 && 10 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 10)
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
         }
       case .oneofInt64(let v):
         if start <= 60 && 60 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 60)
+          try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
         }
       case .oneofString(let v):
         if start <= 150 && 150 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 150)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 150)
         }
       }
     }
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "swift.protobuf"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -244,14 +244,14 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _bb {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = _oo {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
@@ -375,26 +375,26 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.P
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if let v = storage._myInt {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
       }
       try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 2, end: 9)
-      try storage._options?.traverse(visitor: visitor, start: 9, end: 11)
+      try storage._options?.traverse(visitor: &visitor, start: 9, end: 11)
       if let v = storage._myString {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 11)
       }
       try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 12, end: 56)
-      try storage._options?.traverse(visitor: visitor, start: 60, end: 61)
+      try storage._options?.traverse(visitor: &visitor, start: 60, end: 61)
       if let v = storage._myFloat {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 101)
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 101)
       }
-      try storage._options?.traverse(visitor: visitor, start: 150, end: 151)
+      try storage._options?.traverse(visitor: &visitor, start: 150, end: 151)
       if let v = storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
-      storage.unknownFields.traverse(visitor: visitor)
+      storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

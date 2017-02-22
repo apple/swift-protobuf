@@ -1390,7 +1390,7 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 //  TODO: Build a MessageNames message with a submessage of every name below
 //  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
 
-struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "FieldNames"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -4770,633 +4770,633 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if let v = storage._string {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = storage._int {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
       if let v = storage._double {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
       if let v = storage._float {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
       if let v = storage._uint {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 5)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
       }
       if let v = storage._hashValue_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 6)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
       }
       if let v = storage._description_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 7)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
       }
       if let v = storage._debugDescription_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 8)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
       }
       if let v = storage._swift {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 9)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
       }
       if let v = storage._unrecognized {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 10)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
       }
       if let v = storage._class_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
       if let v = storage._deinit_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 12)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
       if let v = storage._enum_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 13)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
       if let v = storage._extension_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 14)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
       if let v = storage._func_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 15)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
       }
       if let v = storage._import_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 16)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 16)
       }
       if let v = storage._init_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 17)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
       if let v = storage._inout_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 18)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
       }
       if let v = storage._internal_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 19)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 19)
       }
       if let v = storage._let_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 20)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 20)
       }
       if let v = storage._operator_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 21)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
       if let v = storage._private_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 22)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
       if let v = storage._protocol_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 23)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
       if let v = storage._public_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 24)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
       if let v = storage._static_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 25)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 25)
       }
       if let v = storage._struct_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 26)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
       }
       if let v = storage._subscript_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 27)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 27)
       }
       if let v = storage._typealias_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 28)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 28)
       }
       if let v = storage._var_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 29)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 29)
       }
       if let v = storage._break_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 30)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
       }
       if let v = storage._case_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 31)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
       }
       if let v = storage._continue_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 32)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
       }
       if let v = storage._default_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 33)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
       }
       if let v = storage._defer_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 34)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 34)
       }
       if let v = storage._do_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 35)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 35)
       }
       if let v = storage._else_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 36)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 36)
       }
       if let v = storage._fallthrough_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 37)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 37)
       }
       if let v = storage._for_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 38)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 38)
       }
       if let v = storage._guard_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 39)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 39)
       }
       if let v = storage._if_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 40)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 40)
       }
       if let v = storage._in_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 41)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
       }
       if let v = storage._repeat_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 42)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
       }
       if let v = storage._return_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 43)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
       }
       if let v = storage._switch_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 44)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
       }
       if let v = storage._where_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 45)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 45)
       }
       if let v = storage._while_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 46)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 46)
       }
       if let v = storage._as_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 47)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
       if let v = storage._catch_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 48)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
       }
       if let v = storage._dynamicType_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 49)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 49)
       }
       if let v = storage._false_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 50)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 50)
       }
       if let v = storage._is_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 51)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
       }
       if let v = storage._nil_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 52)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 52)
       }
       if let v = storage._rethrows_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 53)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 53)
       }
       if let v = storage._super_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 54)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 54)
       }
       if let v = storage._self_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 55)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 55)
       }
       if let v = storage._throw_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 57)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 57)
       }
       if let v = storage._throws_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 58)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 58)
       }
       if let v = storage._true_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 59)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 59)
       }
       if let v = storage._try_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 60)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 60)
       }
       if let v = storage.__Column__ {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 61)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
       }
       if let v = storage.__File__ {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 62)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 62)
       }
       if let v = storage.__Function__ {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 63)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
       }
       if let v = storage.__Line__ {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 64)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
       }
       if let v = storage.____ {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 65)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
       }
       if let v = storage._associativity {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 66)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 66)
       }
       if let v = storage._convenience {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 67)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 67)
       }
       if let v = storage._dynamic {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 68)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 68)
       }
       if let v = storage._didSet {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 69)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 69)
       }
       if let v = storage._final {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 70)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 70)
       }
       if let v = storage._get {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 71)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 71)
       }
       if let v = storage._infix {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 72)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 72)
       }
       if let v = storage._indirect {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 73)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 73)
       }
       if let v = storage._lazy {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 74)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 74)
       }
       if let v = storage._left {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 75)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 75)
       }
       if let v = storage._mutating {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 76)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 76)
       }
       if let v = storage._none {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 77)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 77)
       }
       if let v = storage._nonmutating {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 78)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
       }
       if let v = storage._optional {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 79)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 79)
       }
       if let v = storage._override {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 80)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 80)
       }
       if let v = storage._postfix {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 81)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 81)
       }
       if let v = storage._precedence {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 82)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 82)
       }
       if let v = storage._prefix {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 83)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 83)
       }
       if let v = storage._required {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 85)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 85)
       }
       if let v = storage._right {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 86)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 86)
       }
       if let v = storage._set {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 87)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 87)
       }
       if let v = storage._type {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 88)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 88)
       }
       if let v = storage._unowned {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 89)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 89)
       }
       if let v = storage._weak {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 90)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 90)
       }
       if let v = storage._willSet {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 91)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 91)
       }
       if let v = storage._id {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 92)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 92)
       }
       if let v = storage._cmd {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 93)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 93)
       }
       if let v = storage._out {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 96)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 96)
       }
       if let v = storage._bycopy {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 98)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 98)
       }
       if let v = storage._byref {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 99)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
       }
       if let v = storage._oneway {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 100)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 100)
       }
       if let v = storage._and {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 102)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 102)
       }
       if let v = storage._andEq {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 103)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 103)
       }
       if let v = storage._alignas {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 104)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 104)
       }
       if let v = storage._alignof {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 105)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 105)
       }
       if let v = storage._asm {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 106)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 106)
       }
       if let v = storage._auto {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 107)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 107)
       }
       if let v = storage._bitand {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 108)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 108)
       }
       if let v = storage._bitor {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 109)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 109)
       }
       if let v = storage._bool {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 110)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 110)
       }
       if let v = storage._char {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 114)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 114)
       }
       if let v = storage._char16T {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 115)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 115)
       }
       if let v = storage._char32T {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 116)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
       }
       if let v = storage._compl {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 118)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 118)
       }
       if let v = storage._const {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 119)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 119)
       }
       if let v = storage._constexpr {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 120)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 120)
       }
       if let v = storage._constCast {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 121)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 121)
       }
       if let v = storage._decltype {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 123)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 123)
       }
       if let v = storage._delete {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 125)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 125)
       }
       if let v = storage._dynamicCast {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 127)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 127)
       }
       if let v = storage._explicit {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 130)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 130)
       }
       if let v = storage._export {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 131)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 131)
       }
       if let v = storage._extern {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 132)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 132)
       }
       if let v = storage._friend {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 136)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 136)
       }
       if let v = storage._goto {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 137)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 137)
       }
       if let v = storage._inline {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 139)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 139)
       }
       if let v = storage._long {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 141)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 141)
       }
       if let v = storage._mutable {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 142)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 142)
       }
       if let v = storage._namespace {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 143)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 143)
       }
       if let v = storage._new {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 144)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 144)
       }
       if let v = storage._noexcept {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 145)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 145)
       }
       if let v = storage._not {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 146)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 146)
       }
       if let v = storage._notEq {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 147)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 147)
       }
       if let v = storage._nullptr {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 148)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 148)
       }
       if let v = storage._or {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 150)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 150)
       }
       if let v = storage._orEq {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 151)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 151)
       }
       if let v = storage._protected {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 153)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 153)
       }
       if let v = storage._register {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 155)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 155)
       }
       if let v = storage._reinterpretCast {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 156)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 156)
       }
       if let v = storage._short {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 158)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 158)
       }
       if let v = storage._signed {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 159)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 159)
       }
       if let v = storage._sizeof {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 160)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 160)
       }
       if let v = storage._staticAssert {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 162)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 162)
       }
       if let v = storage._staticCast {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 163)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 163)
       }
       if let v = storage._template {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 166)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 166)
       }
       if let v = storage._this {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 167)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
       }
       if let v = storage._threadLocal {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 168)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 168)
       }
       if let v = storage._typedef {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 172)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 172)
       }
       if let v = storage._typeid {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 173)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 173)
       }
       if let v = storage._typename {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 174)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 174)
       }
       if let v = storage._union {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 175)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 175)
       }
       if let v = storage._unsigned {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 176)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 176)
       }
       if let v = storage._using {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 177)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 177)
       }
       if let v = storage._virtual {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 178)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 178)
       }
       if let v = storage._void {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 179)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 179)
       }
       if let v = storage._volatile {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 180)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 180)
       }
       if let v = storage._wcharT {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 181)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 181)
       }
       if let v = storage._xor {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 183)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 183)
       }
       if let v = storage._xorEq {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 184)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 184)
       }
       if let v = storage._restrict {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 185)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 185)
       }
       if let v = storage._category {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 186)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 186)
       }
       if let v = storage._ivar {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 187)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 187)
       }
       if let v = storage._method {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 188)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 188)
       }
       if let v = storage._finalize {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 192)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
       }
       if let v = storage._hash {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 193)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
       }
       if let v = storage._dealloc {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 194)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 194)
       }
       if let v = storage._superclass {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 197)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 197)
       }
       if let v = storage._retain {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 198)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 198)
       }
       if let v = storage._release {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 199)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 199)
       }
       if let v = storage._autorelease {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 200)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
       }
       if let v = storage._retainCount {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 201)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
       }
       if let v = storage._zone {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 202)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 202)
       }
       if let v = storage._isProxy {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 203)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 203)
       }
       if let v = storage._copy {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 204)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 204)
       }
       if let v = storage._mutableCopy {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 205)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 205)
       }
       if let v = storage._classForCoder {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 206)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
       }
       if let v = storage._clear {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 207)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
       }
       if let v = storage._data {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 208)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 208)
       }
       if let v = storage._delimitedData {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 209)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 209)
       }
       if let v = storage._descriptor {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 210)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 210)
       }
       if let v = storage._extensionRegistry {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 211)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 211)
       }
       if let v = storage._extensionsCurrentlySet {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 212)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 212)
       }
       if let v = storage._isInitialized_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 213)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 213)
       }
       if let v = storage._serializedSize {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 214)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 214)
       }
       if let v = storage._sortedExtensionsInUse {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 215)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 215)
       }
       if let v = storage._unknownFields_p {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 216)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 216)
       }
       if let v = storage._fixed {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 217)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 217)
       }
       if let v = storage._fract {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 218)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 218)
       }
       if let v = storage._size {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 219)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 219)
       }
       if let v = storage._logicalAddress {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 220)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 220)
       }
       if let v = storage._physicalAddress {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 221)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 221)
       }
       if let v = storage._byteCount {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 222)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 222)
       }
       if let v = storage._byteOffset {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 223)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 223)
       }
       if let v = storage._duration {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 224)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 224)
       }
       if let v = storage._absoluteTime {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 225)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 225)
       }
       if let v = storage._optionBits {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 226)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
       }
       if let v = storage._itemCount {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 227)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 227)
       }
       if let v = storage._pbversion {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 228)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 228)
       }
       if let v = storage._scriptCode {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 229)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 229)
       }
       if let v = storage._langCode {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 230)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 230)
       }
       if let v = storage._regionCode {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 231)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 231)
       }
       if let v = storage._ostype {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 232)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 232)
       }
       if let v = storage._processSerialNumber {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 233)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 233)
       }
       if let v = storage._point {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 234)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 234)
       }
       if let v = storage._rect {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 235)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 235)
       }
       if let v = storage._fixedPoint {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 236)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 236)
       }
       if let v = storage._fixedRect {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 237)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 237)
       }
       if let v = storage._style {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 238)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 238)
       }
       if let v = storage._styleParameter {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 239)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 239)
       }
       if let v = storage._styleField {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 240)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 240)
       }
       if let v = storage._timeScale {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 241)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
       }
       if let v = storage._timeBase {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 242)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 242)
       }
       if let v = storage._timeRecord {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 243)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 243)
       }
       if let v = storage._jsonShouldBeOverriden {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 244)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
       }
-      storage.unknownFields.traverse(visitor: visitor)
+      storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -5412,14 +5412,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf.Prot
   }
 }
 
-struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "MessageNames"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct StringMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct StringMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "String"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5455,11 +5455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
@@ -5469,7 +5469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ProtocolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ProtocolMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Protocol"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5505,11 +5505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
@@ -5519,7 +5519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct IntMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct IntMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Int"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5555,11 +5555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
@@ -5569,7 +5569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct DoubleMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct DoubleMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Double"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5605,11 +5605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
@@ -5619,7 +5619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct FloatMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct FloatMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Float"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5655,11 +5655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
@@ -5669,7 +5669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct UIntMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct UIntMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "UInt"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5705,11 +5705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
@@ -5719,7 +5719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct hashValueMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct hashValueMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "hashValue"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5755,11 +5755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
@@ -5769,7 +5769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct descriptionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct descriptionMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "description"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5805,11 +5805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
@@ -5819,7 +5819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct debugDescriptionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct debugDescriptionMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "debugDescription"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5855,11 +5855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
@@ -5869,7 +5869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Swift: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Swift: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Swift"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5905,11 +5905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
@@ -5919,7 +5919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct UNRECOGNIZED: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct UNRECOGNIZED: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "UNRECOGNIZED"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -5955,11 +5955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
@@ -5969,7 +5969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct classMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "class"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6005,11 +6005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
@@ -6019,7 +6019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct deinitMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct deinitMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "deinit"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6055,11 +6055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
@@ -6069,7 +6069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct enumMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct enumMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "enum"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6105,11 +6105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
@@ -6119,7 +6119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct extensionMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct extensionMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "extension"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6155,11 +6155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
@@ -6169,7 +6169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct funcMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct funcMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "func"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6205,11 +6205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
@@ -6219,7 +6219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct importMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct importMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "import"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6255,11 +6255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
@@ -6269,7 +6269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct initMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct initMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "init"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6305,11 +6305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
@@ -6319,7 +6319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct inoutMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct inoutMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "inout"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6355,11 +6355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
@@ -6369,7 +6369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct internalMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct internalMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "internal"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6405,11 +6405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
@@ -6419,7 +6419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct letMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct letMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "let"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6455,11 +6455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
@@ -6469,7 +6469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct operatorMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct operatorMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "operator"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6505,11 +6505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
@@ -6519,7 +6519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct privateMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct privateMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "private"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6555,11 +6555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
@@ -6569,7 +6569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct protocolMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct protocolMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "protocol"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6605,11 +6605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
@@ -6619,7 +6619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct publicMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct publicMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "public"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6655,11 +6655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
@@ -6669,7 +6669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct staticMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct staticMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "static"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6705,11 +6705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
@@ -6719,7 +6719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct structMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct structMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "struct"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6755,11 +6755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
@@ -6769,7 +6769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct subscriptMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct subscriptMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "subscript"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6805,11 +6805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
@@ -6819,7 +6819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct typealiasMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct typealiasMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "typealias"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6855,11 +6855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
@@ -6869,7 +6869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct varMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct varMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "var"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6905,11 +6905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
@@ -6919,7 +6919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct breakMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct breakMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "break"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -6955,11 +6955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
@@ -6969,7 +6969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct caseMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct caseMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "case"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7005,11 +7005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
@@ -7019,7 +7019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct continueMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct continueMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "continue"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7055,11 +7055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
@@ -7069,7 +7069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct defaultMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct defaultMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "default"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7105,11 +7105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
@@ -7119,7 +7119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct deferMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct deferMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "defer"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7155,11 +7155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
@@ -7169,7 +7169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct doMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct doMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "do"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7205,11 +7205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
@@ -7219,7 +7219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct elseMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct elseMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "else"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7255,11 +7255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
@@ -7269,7 +7269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct fallthroughMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct fallthroughMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "fallthrough"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7305,11 +7305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
@@ -7319,7 +7319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct forMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct forMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "for"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7355,11 +7355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
@@ -7369,7 +7369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct guardMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct guardMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "guard"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7405,11 +7405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
@@ -7419,7 +7419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ifMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ifMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "if"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7455,11 +7455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
@@ -7469,7 +7469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct inMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct inMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "in"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7505,11 +7505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
@@ -7519,7 +7519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct repeatMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct repeatMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "repeat"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7555,11 +7555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
@@ -7569,7 +7569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct returnMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct returnMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "return"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7605,11 +7605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
@@ -7619,7 +7619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct switchMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct switchMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "switch"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7655,11 +7655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
@@ -7669,7 +7669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct whereMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct whereMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "where"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7705,11 +7705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
@@ -7719,7 +7719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct whileMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct whileMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "while"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7755,11 +7755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
@@ -7769,7 +7769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct asMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct asMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "as"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7805,11 +7805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
@@ -7819,7 +7819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct catchMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct catchMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "catch"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7855,11 +7855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
@@ -7869,7 +7869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct dynamicTypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct dynamicTypeMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "dynamicType"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7905,11 +7905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
@@ -7919,7 +7919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct falseMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct falseMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "false"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -7955,11 +7955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
@@ -7969,7 +7969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct isMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct isMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "is"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8005,11 +8005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
@@ -8019,7 +8019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct nilMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct nilMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "nil"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8055,11 +8055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
@@ -8069,7 +8069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct rethrowsMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct rethrowsMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "rethrows"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8105,11 +8105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
@@ -8119,7 +8119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct superMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct superMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "super"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8155,11 +8155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
@@ -8169,7 +8169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct selfMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct selfMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "self"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8205,11 +8205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
@@ -8219,7 +8219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct throwMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct throwMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "throw"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8255,11 +8255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
@@ -8269,7 +8269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct throwsMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct throwsMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "throws"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8305,11 +8305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
@@ -8319,7 +8319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct trueMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct trueMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "true"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8355,11 +8355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
@@ -8369,7 +8369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct tryMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct tryMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "try"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8405,11 +8405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
@@ -8419,7 +8419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct __COLUMN__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct __COLUMN__Message: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "__COLUMN__"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8455,11 +8455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
@@ -8469,7 +8469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct __FILE__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct __FILE__Message: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "__FILE__"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8505,11 +8505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
@@ -8519,7 +8519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct __FUNCTION__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct __FUNCTION__Message: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "__FUNCTION__"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8555,11 +8555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
@@ -8569,7 +8569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct __LINE__Message: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct __LINE__Message: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "__LINE__"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8605,11 +8605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
@@ -8619,7 +8619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct _Message: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct _Message: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "_"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8655,11 +8655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._Message) -> Bool {
@@ -8669,7 +8669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct __Message: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct __Message: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "__"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8705,11 +8705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
@@ -8719,7 +8719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct associativity: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct associativity: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "associativity"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8755,11 +8755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
@@ -8769,7 +8769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct convenience: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct convenience: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "convenience"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8805,11 +8805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
@@ -8819,7 +8819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct dynamic: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct dynamic: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "dynamic"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8855,11 +8855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
@@ -8869,7 +8869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct didSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct didSet: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "didSet"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8905,11 +8905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
@@ -8919,7 +8919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct final: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct final: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "final"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -8955,11 +8955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.final) -> Bool {
@@ -8969,7 +8969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct get: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct get: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "get"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9005,11 +9005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.get) -> Bool {
@@ -9019,7 +9019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct infix: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct infix: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "infix"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9055,11 +9055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.infix) -> Bool {
@@ -9069,7 +9069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct indirect: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct indirect: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "indirect"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9105,11 +9105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
@@ -9119,7 +9119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct lazy: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct lazy: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "lazy"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9155,11 +9155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
@@ -9169,7 +9169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct left: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct left: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "left"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9205,11 +9205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.left) -> Bool {
@@ -9219,7 +9219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct mutating: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct mutating: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "mutating"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9255,11 +9255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
@@ -9269,7 +9269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct none: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct none: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "none"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9305,11 +9305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.none) -> Bool {
@@ -9319,7 +9319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct nonmutating: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct nonmutating: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "nonmutating"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9355,11 +9355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
@@ -9369,7 +9369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct optional: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct optional: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "optional"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9405,11 +9405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.optional) -> Bool {
@@ -9419,7 +9419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct override: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct override: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "override"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9455,11 +9455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.override) -> Bool {
@@ -9469,7 +9469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct postfix: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct postfix: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "postfix"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9505,11 +9505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
@@ -9519,7 +9519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct precedence: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct precedence: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "precedence"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9555,11 +9555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
@@ -9569,7 +9569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct prefix: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct prefix: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "prefix"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9605,11 +9605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
@@ -9619,7 +9619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct required: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct required: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "required"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9655,11 +9655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.required) -> Bool {
@@ -9669,7 +9669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct right: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct right: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "right"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9705,11 +9705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.right) -> Bool {
@@ -9719,7 +9719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct set: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct set: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "set"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9755,11 +9755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.set) -> Bool {
@@ -9769,7 +9769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct TypeMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Type"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9805,11 +9805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
@@ -9819,7 +9819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct unowned: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct unowned: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "unowned"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9855,11 +9855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
@@ -9869,7 +9869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct weak: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct weak: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "weak"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9905,11 +9905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.weak) -> Bool {
@@ -9919,7 +9919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct willSet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct willSet: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "willSet"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -9955,11 +9955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
@@ -9969,7 +9969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct id: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct id: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "id"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10005,11 +10005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.id) -> Bool {
@@ -10019,7 +10019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct _cmd: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct _cmd: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "_cmd"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10055,11 +10055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
@@ -10069,7 +10069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct out: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct out: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "out"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10105,11 +10105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.out) -> Bool {
@@ -10119,7 +10119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct bycopy: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct bycopy: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "bycopy"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10155,11 +10155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
@@ -10169,7 +10169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct byref: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct byref: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "byref"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10205,11 +10205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.byref) -> Bool {
@@ -10219,7 +10219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct oneway: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct oneway: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "oneway"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10255,11 +10255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
@@ -10269,7 +10269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct and: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct and: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "and"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10305,11 +10305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and) -> Bool {
@@ -10319,7 +10319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct and_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct and_eq: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "and_eq"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10355,11 +10355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
@@ -10369,7 +10369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct alignas: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct alignas: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "alignas"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10405,11 +10405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
@@ -10419,7 +10419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct alignof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct alignof: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "alignof"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10455,11 +10455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
@@ -10469,7 +10469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct asm: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct asm: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "asm"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10505,11 +10505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asm) -> Bool {
@@ -10519,7 +10519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct auto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct auto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "auto"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10555,11 +10555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.auto) -> Bool {
@@ -10569,7 +10569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct bitand: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct bitand: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "bitand"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10605,11 +10605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
@@ -10619,7 +10619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct bitor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct bitor: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "bitor"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10655,11 +10655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
@@ -10669,7 +10669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct bool: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct bool: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "bool"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10705,11 +10705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bool) -> Bool {
@@ -10719,7 +10719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct char: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct char: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "char"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10755,11 +10755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char) -> Bool {
@@ -10769,7 +10769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct char16_t: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct char16_t: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "char16_t"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10805,11 +10805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
@@ -10819,7 +10819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct char32_t: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct char32_t: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "char32_t"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10855,11 +10855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
@@ -10869,7 +10869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct compl: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct compl: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "compl"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10905,11 +10905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.compl) -> Bool {
@@ -10919,7 +10919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct const: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct const: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "const"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -10955,11 +10955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const) -> Bool {
@@ -10969,7 +10969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct constexpr: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct constexpr: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "constexpr"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11005,11 +11005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
@@ -11019,7 +11019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct const_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct const_cast: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "const_cast"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11055,11 +11055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
@@ -11069,7 +11069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct decltype: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct decltype: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "decltype"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11105,11 +11105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
@@ -11119,7 +11119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct delete: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct delete: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "delete"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11155,11 +11155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delete) -> Bool {
@@ -11169,7 +11169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct dynamic_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct dynamic_cast: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "dynamic_cast"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11205,11 +11205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
@@ -11219,7 +11219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct explicit: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct explicit: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "explicit"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11255,11 +11255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
@@ -11269,7 +11269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct export: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct export: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "export"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11305,11 +11305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.export) -> Bool {
@@ -11319,7 +11319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct extern: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct extern: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "extern"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11355,11 +11355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extern) -> Bool {
@@ -11369,7 +11369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct friend: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct friend: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "friend"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11405,11 +11405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.friend) -> Bool {
@@ -11419,7 +11419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct goto: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct goto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "goto"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11455,11 +11455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.goto) -> Bool {
@@ -11469,7 +11469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct inline: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct inline: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "inline"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11505,11 +11505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inline) -> Bool {
@@ -11519,7 +11519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct long: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct long: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "long"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11555,11 +11555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.long) -> Bool {
@@ -11569,7 +11569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct mutable: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct mutable: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "mutable"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11605,11 +11605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
@@ -11619,7 +11619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct namespace: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct namespace: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "namespace"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11655,11 +11655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
@@ -11669,7 +11669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct new: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct new: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "new"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11705,11 +11705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.new) -> Bool {
@@ -11719,7 +11719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct noexcept: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct noexcept: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "noexcept"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11755,11 +11755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
@@ -11769,7 +11769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct not: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct not: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "not"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11805,11 +11805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not) -> Bool {
@@ -11819,7 +11819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct not_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct not_eq: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "not_eq"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11855,11 +11855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
@@ -11869,7 +11869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct nullptr: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct nullptr: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "nullptr"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11905,11 +11905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
@@ -11919,7 +11919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct or: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct or: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "or"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -11955,11 +11955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or) -> Bool {
@@ -11969,7 +11969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct or_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct or_eq: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "or_eq"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12005,11 +12005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
@@ -12019,7 +12019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct protected: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct protected: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "protected"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12055,11 +12055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protected) -> Bool {
@@ -12069,7 +12069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct register: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct register: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "register"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12105,11 +12105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.register) -> Bool {
@@ -12119,7 +12119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct reinterpret_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct reinterpret_cast: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "reinterpret_cast"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12155,11 +12155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
@@ -12169,7 +12169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct short: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct short: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "short"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12205,11 +12205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.short) -> Bool {
@@ -12219,7 +12219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct signed: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct signed: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "signed"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12255,11 +12255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.signed) -> Bool {
@@ -12269,7 +12269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct sizeof: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct sizeof: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "sizeof"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12305,11 +12305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
@@ -12319,7 +12319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct static_assert: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct static_assert: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "static_assert"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12355,11 +12355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
@@ -12369,7 +12369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct static_cast: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct static_cast: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "static_cast"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12405,11 +12405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
@@ -12419,7 +12419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct template: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct template: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "template"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12455,11 +12455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.template) -> Bool {
@@ -12469,7 +12469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct this: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct this: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "this"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12505,11 +12505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.this) -> Bool {
@@ -12519,7 +12519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct thread_local: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct thread_local: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "thread_local"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12555,11 +12555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
@@ -12569,7 +12569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct typedef: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct typedef: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "typedef"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12605,11 +12605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
@@ -12619,7 +12619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct typeid: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct typeid: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "typeid"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12655,11 +12655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
@@ -12669,7 +12669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct typename: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct typename: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "typename"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12705,11 +12705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typename) -> Bool {
@@ -12719,7 +12719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct union: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct union: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "union"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12755,11 +12755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.union) -> Bool {
@@ -12769,7 +12769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct unsigned: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct unsigned: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "unsigned"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12805,11 +12805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
@@ -12819,7 +12819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct using: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct using: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "using"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12855,11 +12855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.using) -> Bool {
@@ -12869,7 +12869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct virtual: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct virtual: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "virtual"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12905,11 +12905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
@@ -12919,7 +12919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct void: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct void: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "void"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -12955,11 +12955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.void) -> Bool {
@@ -12969,7 +12969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct volatile: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct volatile: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "volatile"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13005,11 +13005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
@@ -13019,7 +13019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct wchar_t: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct wchar_t: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "wchar_t"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13055,11 +13055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
@@ -13069,7 +13069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct xor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct xor: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "xor"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13105,11 +13105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor) -> Bool {
@@ -13119,7 +13119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct xor_eq: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct xor_eq: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "xor_eq"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13155,11 +13155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
@@ -13169,7 +13169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct restrict: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct restrict: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "restrict"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13205,11 +13205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
@@ -13219,7 +13219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Category: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Category: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Category"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13255,11 +13255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Category) -> Bool {
@@ -13269,7 +13269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Ivar: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Ivar: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Ivar"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13305,11 +13305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
@@ -13319,7 +13319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Method: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Method: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Method"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13355,11 +13355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Method) -> Bool {
@@ -13369,7 +13369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct finalize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct finalize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "finalize"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13405,11 +13405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
@@ -13419,7 +13419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct hash: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct hash: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "hash"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13455,11 +13455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
@@ -13469,7 +13469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct dealloc: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct dealloc: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "dealloc"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13505,11 +13505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
@@ -13519,7 +13519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct superclass: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct superclass: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "superclass"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13555,11 +13555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
@@ -13569,7 +13569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct retain: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct retain: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "retain"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13605,11 +13605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retain) -> Bool {
@@ -13619,7 +13619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct release: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct release: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "release"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13655,11 +13655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.release) -> Bool {
@@ -13669,7 +13669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct autorelease: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct autorelease: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "autorelease"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13705,11 +13705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
@@ -13719,7 +13719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct retainCount: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct retainCount: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "retainCount"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13755,11 +13755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
@@ -13769,7 +13769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct zone: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct zone: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "zone"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13805,11 +13805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.zone) -> Bool {
@@ -13819,7 +13819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct isProxy: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct isProxy: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "isProxy"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13855,11 +13855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
@@ -13869,7 +13869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct copy: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct copy: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "copy"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13905,11 +13905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.copy) -> Bool {
@@ -13919,7 +13919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct mutableCopy: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct mutableCopy: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "mutableCopy"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -13955,11 +13955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
@@ -13969,7 +13969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct classForCoder: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct classForCoder: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "classForCoder"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14005,11 +14005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
@@ -14019,7 +14019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct clear: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct clear: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "clear"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14055,11 +14055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
@@ -14069,7 +14069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct data: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct data: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "data"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14105,11 +14105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.data) -> Bool {
@@ -14119,7 +14119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct delimitedData: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct delimitedData: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "delimitedData"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14155,11 +14155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
@@ -14169,7 +14169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct descriptor: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct descriptor: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "descriptor"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14205,11 +14205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
@@ -14219,7 +14219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct extensionRegistry: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct extensionRegistry: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "extensionRegistry"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14255,11 +14255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
@@ -14269,7 +14269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct extensionsCurrentlySet: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct extensionsCurrentlySet: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "extensionsCurrentlySet"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14305,11 +14305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
@@ -14319,7 +14319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct isInitialized: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct isInitialized: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "isInitialized"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14355,11 +14355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitialized) -> Bool {
@@ -14369,7 +14369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct serializedSize: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct serializedSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "serializedSize"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14405,11 +14405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
@@ -14419,7 +14419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct sortedExtensionsInUse: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct sortedExtensionsInUse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "sortedExtensionsInUse"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14455,11 +14455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
@@ -14469,7 +14469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct unknownFieldsMessage: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct unknownFieldsMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "unknownFields"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14505,11 +14505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
@@ -14519,7 +14519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Fixed: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Fixed: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Fixed"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14555,11 +14555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
@@ -14569,7 +14569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Fract: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Fract: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Fract"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14605,11 +14605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
@@ -14619,7 +14619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Size: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Size: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Size"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14655,11 +14655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Size) -> Bool {
@@ -14669,7 +14669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct LogicalAddress: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct LogicalAddress: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "LogicalAddress"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14705,11 +14705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
@@ -14719,7 +14719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct PhysicalAddress: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct PhysicalAddress: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "PhysicalAddress"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14755,11 +14755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
@@ -14769,7 +14769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ByteCount: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ByteCount: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "ByteCount"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14805,11 +14805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
@@ -14819,7 +14819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ByteOffset: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ByteOffset: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "ByteOffset"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14855,11 +14855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
@@ -14869,7 +14869,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Duration: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Duration"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14905,11 +14905,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
@@ -14919,7 +14919,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct AbsoluteTime: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct AbsoluteTime: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "AbsoluteTime"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -14955,11 +14955,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
@@ -14969,7 +14969,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct OptionBits: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct OptionBits: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "OptionBits"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15005,11 +15005,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
@@ -15019,7 +15019,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ItemCount: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ItemCount: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "ItemCount"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15055,11 +15055,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
@@ -15069,7 +15069,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct PBVersion: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct PBVersion: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "PBVersion"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15105,11 +15105,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
@@ -15119,7 +15119,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ScriptCode: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ScriptCode: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "ScriptCode"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15155,11 +15155,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
@@ -15169,7 +15169,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct LangCode: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct LangCode: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "LangCode"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15205,11 +15205,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
@@ -15219,7 +15219,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct RegionCode: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct RegionCode: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "RegionCode"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15255,11 +15255,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
@@ -15269,7 +15269,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct OSType: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct OSType: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "OSType"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15305,11 +15305,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
@@ -15319,7 +15319,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct ProcessSerialNumber: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct ProcessSerialNumber: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "ProcessSerialNumber"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15355,11 +15355,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
@@ -15369,7 +15369,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Point: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Point: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Point"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15405,11 +15405,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Point) -> Bool {
@@ -15419,7 +15419,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Rect: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Rect: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Rect"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15455,11 +15455,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
@@ -15469,7 +15469,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct FixedPoint: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct FixedPoint: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "FixedPoint"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15505,11 +15505,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
@@ -15519,7 +15519,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct FixedRect: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct FixedRect: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "FixedRect"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15555,11 +15555,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
@@ -15569,7 +15569,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct Style: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Style: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Style"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15605,11 +15605,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Style) -> Bool {
@@ -15619,7 +15619,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct StyleParameter: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct StyleParameter: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "StyleParameter"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15655,11 +15655,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
@@ -15669,7 +15669,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct StyleField: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct StyleField: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "StyleField"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15705,11 +15705,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
@@ -15719,7 +15719,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct TimeScale: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct TimeScale: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "TimeScale"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15755,11 +15755,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
@@ -15769,7 +15769,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct TimeBase: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct TimeBase: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "TimeBase"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15805,11 +15805,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
@@ -15819,7 +15819,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
     }
   }
 
-  struct TimeRecord: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct TimeRecord: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "TimeRecord"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -15855,11 +15855,11 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
@@ -15880,8 +15880,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames) -> Bool {
@@ -15890,7 +15890,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message, SwiftProtobuf.Pr
   }
 }
 
-struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "EnumNames"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -25731,8 +25731,8 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_EnumNames) -> Bool {
@@ -25741,14 +25741,14 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message, SwiftProtobuf.Proto
   }
 }
 
-struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "FieldNamingInitials"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Lowers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Lowers: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Lowers"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -25952,47 +25952,47 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _http {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = _httpRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
       if let v = _theHTTPRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
       if let v = _theHTTP {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
       if let v = _https {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
       if let v = _httpsRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 12)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
       if let v = _theHTTPSRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 13)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
       if let v = _theHTTPS {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 14)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
       if let v = _url {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 21)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
       if let v = _urlValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 22)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
       if let v = _theURLValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 23)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
       if let v = _theURL {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 24)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
       if let v = _aBC {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 31)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
@@ -26014,7 +26014,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  struct Uppers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct Uppers: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "Uppers"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -26204,44 +26204,44 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _http {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = _httpRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
       if let v = _theHTTPRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
       if let v = _theHTTP {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
       if let v = _https {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
       if let v = _httpsRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 12)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
       if let v = _theHTTPSRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 13)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
       if let v = _theHTTPS {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 14)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
       if let v = _url {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 21)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
       if let v = _urlValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 22)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
       if let v = _theURLValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 23)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
       if let v = _theURL {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 24)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
@@ -26262,7 +26262,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  struct WordCase: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct WordCase: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "WordCase"
     static let protoPackageName: String = "swift_unittest.names"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -26452,44 +26452,44 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _http {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = _httpRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
       if let v = _theHTTPRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 3)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
       if let v = _theHTTP {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
       if let v = _https {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
       if let v = _httpsRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 12)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
       if let v = _theHTTPSRequest {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 13)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
       if let v = _theHTTPS {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 14)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
       if let v = _url {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 21)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
       if let v = _urlValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 22)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
       if let v = _theURLValue {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 23)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
       if let v = _theURL {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 24)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
@@ -26521,8 +26521,8 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials) -> Bool {
@@ -26533,7 +26533,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
 
 //  For message scoped extensions.
 
-struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ExtensionNamingInitials"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -26559,9 +26559,9 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Swift
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
@@ -26595,7 +26595,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Swift
   }
 }
 
-struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Lowers"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -26694,8 +26694,8 @@ struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_Lowers) -> Bool {
@@ -26704,7 +26704,7 @@ struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   }
 }
 
-struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Uppers"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -26797,8 +26797,8 @@ struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_Uppers) -> Bool {
@@ -26807,7 +26807,7 @@ struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Me
   }
 }
 
-struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "WordCase"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -26900,8 +26900,8 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf.Proto2
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    unknownFields.traverse(visitor: visitor)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_WordCase) -> Bool {
@@ -26912,7 +26912,7 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf.Proto2
 
 //  For global scoped extensions.
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ExtensionNamingInitialsLowers"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -26938,9 +26938,9 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message,
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
@@ -26974,7 +26974,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message,
   }
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ExtensionNamingInitialsUppers"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -27000,9 +27000,9 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message,
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
@@ -27036,7 +27036,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message,
   }
 }
 
-struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "ExtensionNamingInitialsWordCase"
   static let protoPackageName: String = "swift_unittest.names"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -27062,9 +27062,9 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Messag
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {

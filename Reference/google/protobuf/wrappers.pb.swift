@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Wrapper message for `double`.
 ///  
 ///   The JSON representation for `DoubleValue` is JSON number.
-struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "DoubleValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -82,9 +82,9 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularDoubleField(value: value, fieldNumber: 1)
     }
   }
 
@@ -97,7 +97,7 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///   Wrapper message for `float`.
 ///  
 ///   The JSON representation for `FloatValue` is JSON number.
-struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "FloatValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -123,9 +123,9 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularFloatField(value: value, fieldNumber: 1)
     }
   }
 
@@ -138,7 +138,7 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///   Wrapper message for `int64`.
 ///  
 ///   The JSON representation for `Int64Value` is JSON string.
-struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Int64Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -164,9 +164,9 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularInt64Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -179,7 +179,7 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///   Wrapper message for `uint64`.
 ///  
 ///   The JSON representation for `UInt64Value` is JSON string.
-struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "UInt64Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -205,9 +205,9 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularUInt64Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -220,7 +220,7 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///   Wrapper message for `int32`.
 ///  
 ///   The JSON representation for `Int32Value` is JSON number.
-struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Int32Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -246,9 +246,9 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -261,7 +261,7 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
 ///   Wrapper message for `uint32`.
 ///  
 ///   The JSON representation for `UInt32Value` is JSON number.
-struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "UInt32Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -287,9 +287,9 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularUInt32Field(value: value, fieldNumber: 1)
     }
   }
 
@@ -302,7 +302,7 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///   Wrapper message for `bool`.
 ///  
 ///   The JSON representation for `BoolValue` is JSON `true` and `false`.
-struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "BoolValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -328,9 +328,9 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != false {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularBoolField(value: value, fieldNumber: 1)
     }
   }
 
@@ -343,7 +343,7 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 ///   Wrapper message for `string`.
 ///  
 ///   The JSON representation for `StringValue` is JSON string.
-struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "StringValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -369,9 +369,9 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    if value != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: value, fieldNumber: 1)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !value.isEmpty {
+      try visitor.visitSingularStringField(value: value, fieldNumber: 1)
     }
   }
 
@@ -384,7 +384,7 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3M
 ///   Wrapper message for `bytes`.
 ///  
 ///   The JSON representation for `BytesValue` is JSON string.
-struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "BytesValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -410,9 +410,9 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Me
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != Data() {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: value, fieldNumber: 1)
+      try visitor.visitSingularBytesField(value: value, fieldNumber: 1)
     }
   }
 

@@ -110,7 +110,7 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 }
 
 ///   A protocol buffer message type.
-struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Type"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -227,16 +227,16 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if storage._name != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._name, fieldNumber: 1)
+      if !storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: storage._name, fieldNumber: 1)
       }
       if !storage._fields.isEmpty {
         try visitor.visitRepeatedMessageField(value: storage._fields, fieldNumber: 2)
       }
       if !storage._oneofs.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._oneofs, fieldNumber: 3)
+        try visitor.visitRepeatedStringField(value: storage._oneofs, fieldNumber: 3)
       }
       if !storage._options.isEmpty {
         try visitor.visitRepeatedMessageField(value: storage._options, fieldNumber: 4)
@@ -263,7 +263,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 }
 
 ///   A single field of a message type.
-struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Field"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -610,7 +610,7 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if kind != Google_Protobuf_Field.Kind.typeUnknown {
       try visitor.visitSingularEnumField(value: kind, fieldNumber: 1)
     }
@@ -618,28 +618,28 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
       try visitor.visitSingularEnumField(value: cardinality, fieldNumber: 2)
     }
     if number != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: number, fieldNumber: 3)
+      try visitor.visitSingularInt32Field(value: number, fieldNumber: 3)
     }
-    if name != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, fieldNumber: 4)
+    if !name.isEmpty {
+      try visitor.visitSingularStringField(value: name, fieldNumber: 4)
     }
-    if typeURL != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: typeURL, fieldNumber: 6)
+    if !typeURL.isEmpty {
+      try visitor.visitSingularStringField(value: typeURL, fieldNumber: 6)
     }
     if oneofIndex != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: oneofIndex, fieldNumber: 7)
+      try visitor.visitSingularInt32Field(value: oneofIndex, fieldNumber: 7)
     }
     if packed != false {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: packed, fieldNumber: 8)
+      try visitor.visitSingularBoolField(value: packed, fieldNumber: 8)
     }
     if !options.isEmpty {
       try visitor.visitRepeatedMessageField(value: options, fieldNumber: 9)
     }
-    if jsonName != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: jsonName, fieldNumber: 10)
+    if !jsonName.isEmpty {
+      try visitor.visitSingularStringField(value: jsonName, fieldNumber: 10)
     }
-    if defaultValue != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: defaultValue, fieldNumber: 11)
+    if !defaultValue.isEmpty {
+      try visitor.visitSingularStringField(value: defaultValue, fieldNumber: 11)
     }
   }
 
@@ -659,7 +659,7 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message
 }
 
 ///   Enum type definition.
-struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Enum"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -765,10 +765,10 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if storage._name != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._name, fieldNumber: 1)
+      if !storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: storage._name, fieldNumber: 1)
       }
       if !storage._enumvalue.isEmpty {
         try visitor.visitRepeatedMessageField(value: storage._enumvalue, fieldNumber: 2)
@@ -798,7 +798,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message,
 }
 
 ///   Enum value definition.
-struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "EnumValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -834,12 +834,12 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    if name != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: name, fieldNumber: 1)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !name.isEmpty {
+      try visitor.visitSingularStringField(value: name, fieldNumber: 1)
     }
     if number != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: number, fieldNumber: 2)
+      try visitor.visitSingularInt32Field(value: number, fieldNumber: 2)
     }
     if !options.isEmpty {
       try visitor.visitRepeatedMessageField(value: options, fieldNumber: 3)
@@ -856,7 +856,7 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mes
 
 ///   A protocol buffer option, which can be attached to a message, field,
 ///   enumeration, etc.
-struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Option"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -935,10 +935,10 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf.Proto3Messag
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if storage._name != "" {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._name, fieldNumber: 1)
+      if !storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: storage._name, fieldNumber: 1)
       }
       if let v = storage._value {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)

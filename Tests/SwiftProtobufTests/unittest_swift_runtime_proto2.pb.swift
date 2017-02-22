@@ -48,7 +48,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Message2"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -569,67 +569,67 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .oneofInt32(let v):
         if start <= 51 && 51 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 51)
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
         }
       case .oneofInt64(let v):
         if start <= 52 && 52 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 52)
+          try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
         }
       case .oneofUint32(let v):
         if start <= 53 && 53 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, fieldNumber: 53)
+          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
         }
       case .oneofUint64(let v):
         if start <= 54 && 54 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: v, fieldNumber: 54)
+          try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
         }
       case .oneofSint32(let v):
         if start <= 55 && 55 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: v, fieldNumber: 55)
+          try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
         }
       case .oneofSint64(let v):
         if start <= 56 && 56 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: v, fieldNumber: 56)
+          try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
         }
       case .oneofFixed32(let v):
         if start <= 57 && 57 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: v, fieldNumber: 57)
+          try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
         }
       case .oneofFixed64(let v):
         if start <= 58 && 58 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: v, fieldNumber: 58)
+          try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
         }
       case .oneofSfixed32(let v):
         if start <= 59 && 59 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: v, fieldNumber: 59)
+          try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
         }
       case .oneofSfixed64(let v):
         if start <= 60 && 60 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: v, fieldNumber: 60)
+          try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
         }
       case .oneofFloat(let v):
         if start <= 61 && 61 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 61)
+          try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
         }
       case .oneofDouble(let v):
         if start <= 62 && 62 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 62)
+          try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
         }
       case .oneofBool(let v):
         if start <= 63 && 63 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 63)
+          try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
         }
       case .oneofString(let v):
         if start <= 64 && 64 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 64)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 64)
         }
       case .oneofBytes(let v):
         if start <= 65 && 65 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 65)
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
         }
       case .oneofGroup(let v):
         if start <= 66 && 66 < end {
@@ -712,7 +712,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
 
   }
 
-  struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct OptionalGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "OptionalGroup"
     static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -748,11 +748,11 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 17)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OptionalGroup) -> Bool {
@@ -762,7 +762,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
   }
 
-  struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct RepeatedGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "RepeatedGroup"
     static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -798,11 +798,11 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 47)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.RepeatedGroup) -> Bool {
@@ -812,7 +812,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     }
   }
 
-  struct OneofGroup: SwiftProtobuf.Message, SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct OneofGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
     static let protoMessageName: String = "OneofGroup"
     static let protoPackageName: String = "protobuf_unittest"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -862,14 +862,14 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 67)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 67)
       }
       if let v = _b {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 167)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
@@ -1497,52 +1497,52 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if let v = storage._optionalInt32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = storage._optionalInt64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
       if let v = storage._optionalUint32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, fieldNumber: 3)
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 3)
       }
       if let v = storage._optionalUint64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 4)
       }
       if let v = storage._optionalSint32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: v, fieldNumber: 5)
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 5)
       }
       if let v = storage._optionalSint64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: v, fieldNumber: 6)
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 6)
       }
       if let v = storage._optionalFixed32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: v, fieldNumber: 7)
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 7)
       }
       if let v = storage._optionalFixed64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: v, fieldNumber: 8)
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 8)
       }
       if let v = storage._optionalSfixed32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: v, fieldNumber: 9)
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 9)
       }
       if let v = storage._optionalSfixed64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: v, fieldNumber: 10)
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 10)
       }
       if let v = storage._optionalFloat {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 11)
       }
       if let v = storage._optionalDouble {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 12)
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 12)
       }
       if let v = storage._optionalBool {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 13)
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
       }
       if let v = storage._optionalString {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 14)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
       }
       if let v = storage._optionalBytes {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 15)
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
       }
       if let v = storage._optionalGroup {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 16)
@@ -1554,49 +1554,49 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
         try visitor.visitSingularEnumField(value: v, fieldNumber: 19)
       }
       if !storage._repeatedInt32.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._repeatedInt32, fieldNumber: 31)
+        try visitor.visitRepeatedInt32Field(value: storage._repeatedInt32, fieldNumber: 31)
       }
       if !storage._repeatedInt64.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: storage._repeatedInt64, fieldNumber: 32)
+        try visitor.visitRepeatedInt64Field(value: storage._repeatedInt64, fieldNumber: 32)
       }
       if !storage._repeatedUint32.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: storage._repeatedUint32, fieldNumber: 33)
+        try visitor.visitRepeatedUInt32Field(value: storage._repeatedUint32, fieldNumber: 33)
       }
       if !storage._repeatedUint64.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: storage._repeatedUint64, fieldNumber: 34)
+        try visitor.visitRepeatedUInt64Field(value: storage._repeatedUint64, fieldNumber: 34)
       }
       if !storage._repeatedSint32.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: storage._repeatedSint32, fieldNumber: 35)
+        try visitor.visitRepeatedSInt32Field(value: storage._repeatedSint32, fieldNumber: 35)
       }
       if !storage._repeatedSint64.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: storage._repeatedSint64, fieldNumber: 36)
+        try visitor.visitRepeatedSInt64Field(value: storage._repeatedSint64, fieldNumber: 36)
       }
       if !storage._repeatedFixed32.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: storage._repeatedFixed32, fieldNumber: 37)
+        try visitor.visitRepeatedFixed32Field(value: storage._repeatedFixed32, fieldNumber: 37)
       }
       if !storage._repeatedFixed64.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: storage._repeatedFixed64, fieldNumber: 38)
+        try visitor.visitRepeatedFixed64Field(value: storage._repeatedFixed64, fieldNumber: 38)
       }
       if !storage._repeatedSfixed32.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: storage._repeatedSfixed32, fieldNumber: 39)
+        try visitor.visitRepeatedSFixed32Field(value: storage._repeatedSfixed32, fieldNumber: 39)
       }
       if !storage._repeatedSfixed64.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: storage._repeatedSfixed64, fieldNumber: 40)
+        try visitor.visitRepeatedSFixed64Field(value: storage._repeatedSfixed64, fieldNumber: 40)
       }
       if !storage._repeatedFloat.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: storage._repeatedFloat, fieldNumber: 41)
+        try visitor.visitRepeatedFloatField(value: storage._repeatedFloat, fieldNumber: 41)
       }
       if !storage._repeatedDouble.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: storage._repeatedDouble, fieldNumber: 42)
+        try visitor.visitRepeatedDoubleField(value: storage._repeatedDouble, fieldNumber: 42)
       }
       if !storage._repeatedBool.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufBool.self, value: storage._repeatedBool, fieldNumber: 43)
+        try visitor.visitRepeatedBoolField(value: storage._repeatedBool, fieldNumber: 43)
       }
       if !storage._repeatedString.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufString.self, value: storage._repeatedString, fieldNumber: 44)
+        try visitor.visitRepeatedStringField(value: storage._repeatedString, fieldNumber: 44)
       }
       if !storage._repeatedBytes.isEmpty {
-        try visitor.visitRepeatedField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: storage._repeatedBytes, fieldNumber: 45)
+        try visitor.visitRepeatedBytesField(value: storage._repeatedBytes, fieldNumber: 45)
       }
       if !storage._repeatedGroup.isEmpty {
         try visitor.visitRepeatedGroupField(value: storage._repeatedGroup, fieldNumber: 46)
@@ -1607,7 +1607,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       if !storage._repeatedEnum.isEmpty {
         try visitor.visitRepeatedEnumField(value: storage._repeatedEnum, fieldNumber: 49)
       }
-      try storage._o?.traverse(visitor: visitor, start: 51, end: 70)
+      try storage._o?.traverse(visitor: &visitor, start: 51, end: 70)
       if !storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: storage._mapInt32Int32, fieldNumber: 70)
       }
@@ -1665,7 +1665,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf.Proto2Mes
       if !storage._mapInt32Message.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message2>.self, value: storage._mapInt32Message, fieldNumber: 88)
       }
-      storage.unknownFields.traverse(visitor: visitor)
+      storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

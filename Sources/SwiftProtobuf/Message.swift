@@ -189,7 +189,7 @@ public extension Message {
 
 ///
 /// Marker type that specifies the message was generated from
-/// a proto2 source file.
+/// a source file using proto2 syntax.
 ///
 public protocol Proto2Message: Message {
   var unknownFields: UnknownStorage { get set }
@@ -197,7 +197,7 @@ public protocol Proto2Message: Message {
 
 ///
 /// Marker type that specifies the message was generated from
-/// a proto3 source file.
+/// a source file using proto3 syntax.
 ///
 public protocol Proto3Message: Message {
 }

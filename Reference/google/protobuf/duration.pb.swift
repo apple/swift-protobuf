@@ -94,7 +94,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       td = datetime.timedelta(days=3, minutes=10)
 ///       duration = Duration()
 ///       duration.FromTimedelta(td)
-struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
   static let protoMessageName: String = "Duration"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -131,12 +131,12 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf.Proto3Mess
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if seconds != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: seconds, fieldNumber: 1)
+      try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
     }
     if nanos != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: nanos, fieldNumber: 2)
+      try visitor.visitSingularInt32Field(value: nanos, fieldNumber: 2)
     }
   }
 
