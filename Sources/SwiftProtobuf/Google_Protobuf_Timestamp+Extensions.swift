@@ -210,7 +210,7 @@ public extension Google_Protobuf_Timestamp {
         if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
-            throw EncodingError.timestampJSONRange
+            throw JSONEncodingError.timestampRange
         }
     }
 

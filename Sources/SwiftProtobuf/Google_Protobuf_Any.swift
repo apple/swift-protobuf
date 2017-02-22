@@ -460,7 +460,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 // The big problem here is fetching the type:  Types not in the executable must be fetched from somewhere; Google says we should do an HTTPS fetch against the typeURL, which assumes that everyone will publish all their types and that everyone running this code will have reliable network access.  That seems ... optimistic.
 
                 // ProtobufDynamicMessage() is non-trivial to write but desirable for other reasons.  It's a class that can be instantiated with any protobuf type or descriptor and provides access to protos of the corresponding type.  (Not to be confused with ProtobufRaw which can decode any message but does not use a type descriptor and therefore cannot provide fully-typed access to fields.)
-                throw EncodingError.anyTranscodeFailure
+                throw JSONEncodingError.anyTranscodeFailure
             } else {
                 var jsonEncoder = JSONEncoder()
                 jsonEncoder.startObject()
@@ -534,7 +534,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             if let value = value {
                 try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
             } else {
-                throw EncodingError.anyTranscodeFailure
+                throw BinaryEncodingError.anyTranscodeFailure
             }
         }
     }
