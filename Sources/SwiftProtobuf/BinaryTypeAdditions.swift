@@ -39,7 +39,20 @@ public extension Message {
         return visitor.serializedSize
     }
 
-    init(serializedData data: Data, extensions: ExtensionSet? = nil) throws {
+    /// Initializes the message by decoding the Protocol Buffer binary serialization
+    /// format for this message.
+    ///
+    /// - Parameters:
+    ///   - serializedData: The binary serialization data to decode.
+    ///   - extensions: An `ExtensionSet` to look up and decode any extensions in this
+    ///     message or messages nested within this message's fields.
+    ///   - partial: By default, the binary serialization format requires all `required`
+    ///     fields be present; when `partial` is `false`,
+    ///     `BinaryDecodingError.missingRequiredFields` is thrown if any were missing.
+    ///     When `partial` is `true`, then partial messages are allowed, and
+    ///     `Message.isInitialized` is not checked.
+    /// - Throws: An instance of `BinaryDecodingError` on failure.
+    init(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
         self.init()
         if !data.isEmpty {
             try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
@@ -47,6 +60,9 @@ public extension Message {
                                  count: data.count,
                                  extensions: extensions)
             }
+        }
+        if !partial && !isInitialized {
+            throw BinaryDecodingError.missingRequiredFields
         }
     }
 }
