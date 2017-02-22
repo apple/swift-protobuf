@@ -131,12 +131,12 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if seconds != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: seconds, fieldNumber: 1)
+      try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
     }
     if nanos != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: nanos, fieldNumber: 2)
+      try visitor.visitSingularInt32Field(value: nanos, fieldNumber: 2)
     }
   }
 

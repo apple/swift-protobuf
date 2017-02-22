@@ -138,7 +138,7 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !fields.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
     }
@@ -267,7 +267,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .nullValue(let v):
         if start <= 1 && 1 < end {
@@ -275,15 +275,15 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
         }
       case .numberValue(let v):
         if start <= 2 && 2 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 2)
+          try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
         }
       case .stringValue(let v):
         if start <= 3 && 3 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 3)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 3)
         }
       case .boolValue(let v):
         if start <= 4 && 4 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 4)
+          try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
         }
       case .structValue(let v):
         if start <= 5 && 5 < end {
@@ -392,9 +392,9 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      try storage._kind?.traverse(visitor: visitor, start: 1, end: 7)
+      try storage._kind?.traverse(visitor: &visitor, start: 1, end: 7)
     }
   }
 
@@ -439,7 +439,7 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !values.isEmpty {
       try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
     }

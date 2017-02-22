@@ -156,7 +156,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .oneofE1(let v):
         if start <= 5 && 5 < end {
@@ -238,7 +238,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _e {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     }
@@ -251,8 +251,8 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
     if !repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitRepeatedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try o?.traverse(visitor: visitor, start: 5, end: 7)
-    unknownFields.traverse(visitor: visitor)
+    try o?.traverse(visitor: &visitor, start: 5, end: 7)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {

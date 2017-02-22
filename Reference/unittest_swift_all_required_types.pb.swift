@@ -446,11 +446,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
       return nil
     }
 
-    fileprivate func traverse(visitor: SwiftProtobuf.Visitor, start: Int, end: Int) throws {
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
       switch self {
       case .oneofUint32(let v):
         if start <= 111 && 111 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, fieldNumber: 111)
+          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
         }
       case .oneofNestedMessage(let v):
         if start <= 112 && 112 < end {
@@ -458,11 +458,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
         }
       case .oneofString(let v):
         if start <= 113 && 113 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 113)
+          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
         }
       case .oneofBytes(let v):
         if start <= 114 && 114 < end {
-          try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 114)
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
         }
       }
     }
@@ -579,11 +579,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _bb {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
@@ -634,11 +634,11 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
       }
     }
 
-    func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _a {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 17)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
-      unknownFields.traverse(visitor: visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
@@ -1226,52 +1226,52 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if let v = storage._requiredInt32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       if let v = storage._requiredInt64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 2)
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
       if let v = storage._requiredUint32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, fieldNumber: 3)
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 3)
       }
       if let v = storage._requiredUint64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: v, fieldNumber: 4)
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 4)
       }
       if let v = storage._requiredSint32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: v, fieldNumber: 5)
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 5)
       }
       if let v = storage._requiredSint64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: v, fieldNumber: 6)
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 6)
       }
       if let v = storage._requiredFixed32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: v, fieldNumber: 7)
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 7)
       }
       if let v = storage._requiredFixed64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: v, fieldNumber: 8)
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 8)
       }
       if let v = storage._requiredSfixed32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: v, fieldNumber: 9)
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 9)
       }
       if let v = storage._requiredSfixed64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: v, fieldNumber: 10)
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 10)
       }
       if let v = storage._requiredFloat {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 11)
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 11)
       }
       if let v = storage._requiredDouble {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 12)
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 12)
       }
       if let v = storage._requiredBool {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 13)
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 13)
       }
       if let v = storage._requiredString {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 14)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
       }
       if let v = storage._requiredBytes {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 15)
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 15)
       }
       if let v = storage._requiredGroup {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 16)
@@ -1295,10 +1295,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
         try visitor.visitSingularEnumField(value: v, fieldNumber: 23)
       }
       if let v = storage._requiredStringPiece {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 24)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 24)
       }
       if let v = storage._requiredCord {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 25)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 25)
       }
       if let v = storage._requiredPublicImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 26)
@@ -1307,49 +1307,49 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
       }
       if let v = storage._defaultInt32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 61)
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
       }
       if let v = storage._defaultInt64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt64.self, value: v, fieldNumber: 62)
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 62)
       }
       if let v = storage._defaultUint32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt32.self, value: v, fieldNumber: 63)
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 63)
       }
       if let v = storage._defaultUint64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufUInt64.self, value: v, fieldNumber: 64)
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 64)
       }
       if let v = storage._defaultSint32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt32.self, value: v, fieldNumber: 65)
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 65)
       }
       if let v = storage._defaultSint64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSInt64.self, value: v, fieldNumber: 66)
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 66)
       }
       if let v = storage._defaultFixed32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed32.self, value: v, fieldNumber: 67)
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 67)
       }
       if let v = storage._defaultFixed64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFixed64.self, value: v, fieldNumber: 68)
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 68)
       }
       if let v = storage._defaultSfixed32 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed32.self, value: v, fieldNumber: 69)
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 69)
       }
       if let v = storage._defaultSfixed64 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufSFixed64.self, value: v, fieldNumber: 70)
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 70)
       }
       if let v = storage._defaultFloat {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 71)
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 71)
       }
       if let v = storage._defaultDouble {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufDouble.self, value: v, fieldNumber: 72)
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 72)
       }
       if let v = storage._defaultBool {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 73)
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 73)
       }
       if let v = storage._defaultString {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 74)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 74)
       }
       if let v = storage._defaultBytes {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 75)
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 75)
       }
       if let v = storage._defaultNestedEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 81)
@@ -1361,13 +1361,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
         try visitor.visitSingularEnumField(value: v, fieldNumber: 83)
       }
       if let v = storage._defaultStringPiece {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 84)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 84)
       }
       if let v = storage._defaultCord {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 85)
+        try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
-      try storage._oneofField?.traverse(visitor: visitor, start: 111, end: 115)
-      storage.unknownFields.traverse(visitor: visitor)
+      try storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
+      storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1547,26 +1547,26 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Proto2Message, Swif
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _requiredInt32 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: v, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     if let v = _requiredFloat {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufFloat.self, value: v, fieldNumber: 2)
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 2)
     }
     if let v = _requiredBool {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBool.self, value: v, fieldNumber: 3)
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
     }
     if let v = _requiredString {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: v, fieldNumber: 4)
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     }
     if let v = _requiredBytes {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: v, fieldNumber: 5)
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
     }
     if let v = _requiredNestedEnum {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     }
-    unknownFields.traverse(visitor: visitor)
+    unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {

@@ -130,10 +130,10 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (storage: _StorageClass) in
       if storage._int32Value != 0 {
-        try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: storage._int32Value, fieldNumber: 1)
+        try visitor.visitSingularInt32Field(value: storage._int32Value, fieldNumber: 1)
       }
       if let v = storage._anyValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)

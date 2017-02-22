@@ -168,12 +168,12 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
-    if typeURL != "" {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufString.self, value: typeURL, fieldNumber: 1)
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !typeURL.isEmpty {
+      try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
     }
     if value != Data() {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufBytes.self, value: value, fieldNumber: 2)
+      try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
     }
   }
 
