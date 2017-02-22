@@ -46,20 +46,6 @@ internal protocol JSONIntegerConverting {
 }
 
 
-extension Int32: JSONIntegerConverting {
-
-  init?(safely value: Double) {
-    let upper = Double(sign: .plus, exponent: 31, significand: 1)
-    let lower = -upper - 1
-    guard lower < value && value < upper &&
-      value == value.rounded(.towardZero) else {
-      return nil
-    }
-    self.init(value)
-  }
-}
-
-
 extension Int64: JSONIntegerConverting {
 
   init?(safely value: Double) {
@@ -72,19 +58,6 @@ extension Int64: JSONIntegerConverting {
     let ulp = Double(1 << 11)
     let lower = -upper - ulp
     guard lower < value && value < upper &&
-      value == value.rounded(.towardZero) else {
-      return nil
-    }
-    self.init(value)
-  }
-}
-
-
-extension UInt32: JSONIntegerConverting {
-
-  init?(safely value: Double) {
-    let upper = Double(sign: .plus, exponent: 32, significand: 1)
-    guard -1 < value && value < upper &&
       value == value.rounded(.towardZero) else {
       return nil
     }

@@ -137,7 +137,7 @@ internal struct TextFormatEncoder {
         } else {
             // TODO: Be smarter here about choosing significant digits
             // See: protoc source has C++ code for this with interesting ideas
-            if let v = Int64(exactly: value) {
+            if let v = Int64(safely: value) {
                 appendInt(value: v)
             } else {
                 let s = String(value)
