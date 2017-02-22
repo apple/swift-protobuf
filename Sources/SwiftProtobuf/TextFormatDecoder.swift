@@ -35,7 +35,7 @@ public struct TextFormatDecoder: Decoder {
 
     internal init(messageType: Message.Type, text: String, extensions: ExtensionSet?) throws {
         scanner = TextFormatScanner(text: text, extensions: extensions)
-        guard let nameProviding = (messageType as? ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames
@@ -45,7 +45,7 @@ public struct TextFormatDecoder: Decoder {
     internal init(messageType: Message.Type, scanner: TextFormatScanner, terminator: UInt8?) throws {
         self.scanner = scanner
         self.terminator = terminator
-        guard let nameProviding = (messageType as? ProtoNameProviding.Type) else {
+        guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames

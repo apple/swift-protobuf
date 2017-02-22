@@ -530,7 +530,7 @@ public struct JSONDecoder: Decoder {
     }
 
     internal mutating func decodeFullObject<M: Message>(message: inout M) throws {
-        guard let nameProviding = (M.self as? ProtoNameProviding.Type) else {
+        guard let nameProviding = (M.self as? _ProtoNameProviding.Type) else {
             throw JSONDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_fieldNames

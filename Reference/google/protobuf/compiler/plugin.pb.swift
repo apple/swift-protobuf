@@ -66,7 +66,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 ///   The version number of protocol compiler.
-struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Version"
   static let protoPackageName: String = "google.protobuf.compiler"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -173,7 +173,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProto
 }
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CodeGeneratorRequest"
   static let protoPackageName: String = "google.protobuf.compiler"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -333,7 +333,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Messag
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CodeGeneratorResponse"
   static let protoPackageName: String = "google.protobuf.compiler"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -344,7 +344,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Messa
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  struct File: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct File: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "File"
     static let protoPackageName: String = "google.protobuf.compiler"
     static let _protobuf_fieldNames: FieldNameMap = [
