@@ -45,6 +45,11 @@ internal struct TextFormatEncoder {
         }
     }
 
+    private mutating func append(staticText: StaticString) {
+        let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
+        data.append(contentsOf: buff)
+    }
+
     private mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
@@ -68,8 +73,7 @@ internal struct TextFormatEncoder {
     //    name_of_field: value
     mutating func startField(name: StaticString, inExtension: Bool) {
         appendFieldName(name: name, inExtension: inExtension)
-        data.append(asciiColon)
-        data.append(asciiSpace)
+        append(staticText: ": ")
     }
 
     // In Text format, a message-valued field writes the name
@@ -88,8 +92,7 @@ internal struct TextFormatEncoder {
         for _ in 1...tabSize {
             indent.append(asciiSpace)
         }
-        data.append(asciiOpenCurlyBracket)
-        data.append(asciiNewline)
+        append(staticText: "{\n")
     }
 
     mutating func endObject() {
@@ -105,8 +108,7 @@ internal struct TextFormatEncoder {
     }
 
     mutating func arraySeparator() {
-        data.append(asciiComma)
-        data.append(asciiSpace)
+        append(staticText: ", ")
     }
 
     mutating func endArray() {
@@ -125,12 +127,12 @@ internal struct TextFormatEncoder {
 
     mutating func putDoubleValue(value: Double) {
         if value.isNaN {
-            append(text: "nan")
+            append(staticText: "nan")
         } else if !value.isFinite {
             if value < 0 {
-                append(text: "-inf")
+                append(staticText: "-inf")
             } else {
-                append(text: "inf")
+                append(staticText: "inf")
             }
         } else {
             // TODO: Be smarter here about choosing significant digits
@@ -171,7 +173,7 @@ internal struct TextFormatEncoder {
     }
 
     mutating func putBoolValue(value: Bool) {
-        append(text: value ? "true" : "false")
+        append(staticText: value ? "true" : "false")
     }
 
     mutating func putStringValue(value: String) {
@@ -180,30 +182,22 @@ internal struct TextFormatEncoder {
             switch c.value {
             // Special two-byte escapes
             case 8:
-                data.append(asciiBackslash)
-                data.append(asciiLowerB)
+                append(staticText: "\\b")
             case 9:
-                data.append(asciiBackslash)
-                data.append(asciiLowerT)
+                append(staticText: "\\t")
             case 10:
-                data.append(asciiBackslash)
-                data.append(asciiLowerN)
+                append(staticText: "\\n")
             case 11:
-                data.append(asciiBackslash)
-                data.append(asciiLowerV)
+                append(staticText: "\\v")
             case 12:
-                data.append(asciiBackslash)
-                data.append(asciiLowerF)
+                append(staticText: "\\f")
             case 13:
-                data.append(asciiBackslash)
-                data.append(asciiLowerR)
+                append(staticText: "\\r")
             case 34:
-                data.append(asciiBackslash)
-                data.append(asciiDoubleQuote)
+                append(staticText: "\\\"")
             case 92:
-                data.append(asciiBackslash)
-                data.append(asciiBackslash)
-            case 0...31, 127: // Hex form for C0 control chars
+                append(staticText: "\\\\")
+            case 0...31, 127: // Octal form for C0 control chars
                 data.append(asciiBackslash)
                 data.append(asciiZero + UInt8(c.value / 64))
                 data.append(asciiZero + UInt8(c.value / 8 % 8))
@@ -235,29 +229,21 @@ internal struct TextFormatEncoder {
                 switch c {
                 // Special two-byte escapes
                 case 8:
-                    data.append(asciiBackslash)
-                    data.append(asciiLowerB)
+                    append(staticText: "\\b")
                 case 9:
-                    data.append(asciiBackslash)
-                    data.append(asciiLowerT)
+                    append(staticText: "\\t")
                 case 10:
-                    data.append(asciiBackslash)
-                    data.append(asciiLowerN)
+                    append(staticText: "\\n")
                 case 11:
-                    data.append(asciiBackslash)
-                    data.append(asciiLowerV)
+                    append(staticText: "\\v")
                 case 12:
-                    data.append(asciiBackslash)
-                    data.append(asciiLowerF)
+                    append(staticText: "\\f")
                 case 13:
-                    data.append(asciiBackslash)
-                    data.append(asciiLowerR)
+                    append(staticText: "\\r")
                 case 34:
-                    data.append(asciiBackslash)
-                    data.append(asciiDoubleQuote)
+                    append(staticText: "\\\"")
                 case 92:
-                    data.append(asciiBackslash)
-                    data.append(asciiBackslash)
+                    append(staticText: "\\\\")
                 case 32...126:  // printable ASCII
                     data.append(c)
                 default: // Octal form for non-printable chars

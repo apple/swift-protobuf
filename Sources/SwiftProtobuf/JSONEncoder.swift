@@ -50,7 +50,6 @@ private let asciiLowerS = UInt8(ascii: "s")
 private let asciiLowerT = UInt8(ascii: "t")
 private let asciiLowerU = UInt8(ascii: "u")
 
-
 // Although JSONEncoder itself is public, it has no public members.
 // It is only public because FieldType is public and we're currently
 // implementing JSON maps by reflecting JSONEncoders through the FieldTypes.
@@ -73,6 +72,11 @@ public struct JSONEncoder {
         }
     }
 
+    internal mutating func append(staticText: StaticString) {
+        let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
+        data.append(contentsOf: buff)
+    }
+
     internal mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
@@ -83,10 +87,8 @@ public struct JSONEncoder {
         }
         data.append(asciiDoubleQuote)
         // Append the StaticString's utf8 contents directly
-        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        data.append(contentsOf: buff)
-        data.append(asciiDoubleQuote)
-        data.append(asciiColon)
+        append(staticText: name)
+        append(staticText: "\":")
         separator = asciiComma
     }
 
@@ -98,8 +100,7 @@ public struct JSONEncoder {
         // Can avoid overhead of putStringValue, since
         // the JSON field names are always clean ASCII.
         data.append(contentsOf: name.utf8)
-        data.append(asciiDoubleQuote)
-        data.append(asciiColon)
+        append(staticText: "\":")
         separator = asciiComma
     }
 
@@ -112,19 +113,19 @@ public struct JSONEncoder {
         separator = asciiComma
     }
     internal mutating func putNullValue() {
-        data.append(contentsOf: [asciiLowerN, asciiLowerU, asciiLowerL, asciiLowerL])
+        append(staticText: "null")
     }
     internal mutating func putFloatValue(value: Float) {
         putDoubleValue(value: Double(value))
     }
     internal mutating func putDoubleValue(value: Double) {
         if value.isNaN {
-            append(text: "\"NaN\"")
+            append(staticText: "\"NaN\"")
         } else if !value.isFinite {
             if value < 0 {
-                append(text: "\"-Infinity\"")
+                append(staticText: "\"-Infinity\"")
             } else {
-                append(text: "\"Infinity\"")
+                append(staticText: "\"Infinity\"")
             }
         } else {
             // TODO: Be smarter here about choosing significant digits
@@ -193,9 +194,9 @@ public struct JSONEncoder {
             data.append(asciiDoubleQuote)
         }
         if value {
-            data.append(contentsOf: [asciiLowerT, asciiLowerR, asciiLowerU, asciiLowerE])
+            append(staticText: "true")
         } else {
-            data.append(contentsOf: [asciiLowerF, asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE])
+            append(staticText: "false")
         }
         if isMapKey {
             data.append(asciiDoubleQuote)
@@ -208,15 +209,15 @@ public struct JSONEncoder {
         for c in value.unicodeScalars {
             switch c.value {
             // Special two-byte escapes
-            case 8: data.append(contentsOf: [asciiBackslash, asciiLowerB])
-            case 9: data.append(contentsOf: [asciiBackslash, asciiLowerT])
-            case 10: data.append(contentsOf: [asciiBackslash, asciiLowerN])
-            case 12: data.append(contentsOf: [asciiBackslash, asciiLowerF])
-            case 13: data.append(contentsOf: [asciiBackslash, asciiLowerR])
-            case 34: data.append(contentsOf: [asciiBackslash, asciiDoubleQuote])
-            case 92: data.append(contentsOf: [asciiBackslash, asciiBackslash])
+            case 8: append(staticText: "\\b")
+            case 9: append(staticText: "\\t")
+            case 10: append(staticText: "\\n")
+            case 12: append(staticText: "\\f")
+            case 13: append(staticText: "\\r")
+            case 34: append(staticText: "\\\"")
+            case 92: append(staticText: "\\\\")
             case 0...31, 127...159: // Hex form for C0 control chars
-                data.append(contentsOf: [asciiBackslash, asciiLowerU, asciiZero, asciiZero])
+                append(staticText: "\\u00")
                 data.append(hexDigits[Int(c.value / 16)])
                 data.append(hexDigits[Int(c.value & 15)])
             case 23...126:
