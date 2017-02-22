@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 ///   A message with message_set_wire_format.
-struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessageSet"
   static let protoPackageName: String = "proto2_wireformat_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
@@ -118,7 +118,7 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Proto2Message, Swi
   }
 }
 
-struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessageSetWireFormatContainer"
   static let protoPackageName: String = "proto2_wireformat_unittest"
   static let _protobuf_fieldNames: FieldNameMap = [

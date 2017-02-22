@@ -123,7 +123,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-struct Proto3ImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Proto3ImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ImportMessage"
   static let protoPackageName: String = "protobuf_unittest_import"
   static let _protobuf_fieldNames: FieldNameMap = [

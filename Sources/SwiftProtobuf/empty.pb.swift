@@ -57,7 +57,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       }
 ///  
 ///   The JSON representation for `Empty` is empty JSON object `{}`.
-public struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+public struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Empty"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_fieldNames = FieldNameMap()

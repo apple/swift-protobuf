@@ -110,7 +110,7 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 }
 
 ///   A protocol buffer message type.
-struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Type"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -263,7 +263,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
 }
 
 ///   A single field of a message type.
-struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Field"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -659,7 +659,7 @@ struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 }
 
 ///   Enum type definition.
-struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Enum"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -798,7 +798,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
 }
 
 ///   Enum value definition.
-struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -856,7 +856,7 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
 ///   A protocol buffer option, which can be attached to a message, field,
 ///   enumeration, etc.
-struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Option"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames: FieldNameMap = [

@@ -118,7 +118,7 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum {
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestAllTypes"
   static let protoPackageName: String = "protobuf_unittest_no_arena"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -682,7 +682,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "protobuf_unittest_no_arena"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -735,7 +735,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
     }
   }
 
-  struct OptionalGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct OptionalGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "OptionalGroup"
     static let protoPackageName: String = "protobuf_unittest_no_arena"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -785,7 +785,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
     }
   }
 
-  struct RepeatedGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+  struct RepeatedGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "RepeatedGroup"
     static let protoPackageName: String = "protobuf_unittest_no_arena"
     static let _protobuf_fieldNames: FieldNameMap = [
@@ -1781,7 +1781,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ForeignMessage"
   static let protoPackageName: String = "protobuf_unittest_no_arena"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -1831,7 +1831,7 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, Swif
   }
 }
 
-struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestNoArenaMessage"
   static let protoPackageName: String = "protobuf_unittest_no_arena"
   static let _protobuf_fieldNames: FieldNameMap = [

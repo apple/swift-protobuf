@@ -23,7 +23,7 @@ internal enum ProtoNameResolvers {
   static func protoFieldNameResolver(
     for message: Message
   ) -> (Int) -> StaticString? {
-    if let nameProviding = message as? ProtoNameProviding {
+    if let nameProviding = message as? _ProtoNameProviding {
       return { number in
         nameProviding._protobuf_fieldNames(for: number)?.protoStaticStringName
       }
@@ -41,7 +41,7 @@ internal enum ProtoNameResolvers {
   static func jsonFieldNameResolver(
     for message: Message
   ) -> (Int) -> StaticString? {
-    if let nameProviding = message as? ProtoNameProviding {
+    if let nameProviding = message as? _ProtoNameProviding {
       return { number in
         nameProviding._protobuf_fieldNames(for: number)?.jsonStaticStringName
       }

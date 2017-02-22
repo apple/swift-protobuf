@@ -135,7 +135,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ConformanceRequest"
   static let protoPackageName: String = "conformance"
   static let _protobuf_fieldNames: FieldNameMap = [
@@ -253,7 +253,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
 }
 
 ///   Represents a single test case's output.
-struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf.ProtoNameProviding {
+struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ConformanceResponse"
   static let protoPackageName: String = "conformance"
   static let _protobuf_fieldNames: FieldNameMap = [

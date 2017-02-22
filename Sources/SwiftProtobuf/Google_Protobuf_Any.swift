@@ -144,7 +144,7 @@ public extension Message {
 /// without having the type information available.  This is a basic
 /// limitation of Google's spec for google.protobuf.Any.
 ///
-public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, ProtoNameProviding {
+public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, _ProtoNameProviding {
     public static let protoPackageName: String = "google.protobuf"
     public static let protoMessageName: String = "Any"
     public static let _protobuf_fieldNames: FieldNameMap = [
@@ -385,7 +385,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 }
             } else {
                 // Decode JSON from the stored tokens for generated messages
-                guard let nameProviding = (target as? ProtoNameProviding) else {
+                guard let nameProviding = (target as? _ProtoNameProviding) else {
                     throw JSONDecodingError.missingFieldNames
                 }
                 let fieldNames = type(of: nameProviding)._protobuf_fieldNames
