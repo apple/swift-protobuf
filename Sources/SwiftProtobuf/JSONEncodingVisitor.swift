@@ -303,7 +303,7 @@ internal struct JSONEncodingVisitor: Visitor {
     if let jsonName = nameResolver(number) {
         encoder.startField(name: jsonName)
     } else {
-        throw EncodingError.missingFieldNames
+        throw JSONEncodingError.missingFieldNames
     }
   }
 }

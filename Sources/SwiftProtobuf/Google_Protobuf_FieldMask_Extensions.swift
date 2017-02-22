@@ -137,7 +137,7 @@ public extension Google_Protobuf_FieldMask {
             if let jsonPath = ProtoToJSON(name: p) {
                 jsonPaths.append(jsonPath)
             } else {
-                throw EncodingError.fieldMaskConversion
+                throw JSONEncodingError.fieldMaskConversion
             }
         }
         return "\"" + jsonPaths.joined(separator: ",") + "\""

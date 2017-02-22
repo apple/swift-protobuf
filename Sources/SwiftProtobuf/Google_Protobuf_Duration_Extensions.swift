@@ -123,7 +123,7 @@ public extension Google_Protobuf_Duration {
         if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
         } else {
-            throw EncodingError.durationJSONRange
+            throw JSONEncodingError.durationRange
         }
     }
 

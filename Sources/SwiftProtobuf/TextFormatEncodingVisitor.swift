@@ -55,7 +55,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     if let protoName = nameResolver(number) {
       return protoName
     }
-    throw EncodingError.missingFieldNames
+    throw TextFormatEncodingError.missingFieldNames
   }
 
   private mutating func startField(name: StaticString) {
