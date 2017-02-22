@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/Google_Protobuf_FieldMask_Extensions.swift - Fieldmask extensions
+// Sources/SwiftProtobuf/Google_Protobuf_FieldMask+Extensions.swift - Fieldmask extensions
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

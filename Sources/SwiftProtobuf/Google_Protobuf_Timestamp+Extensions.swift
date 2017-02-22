@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/Google_Protobuf_Timestamp_Extensions.swift - Timestamp extensions
+// Sources/SwiftProtobuf/Google_Protobuf_Timestamp+Extensions.swift - Timestamp extensions
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
