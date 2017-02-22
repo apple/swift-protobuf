@@ -148,9 +148,9 @@ struct Proto3ImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if d != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: d, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: d, fieldNumber: 1)
     }
   }
 

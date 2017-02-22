@@ -140,9 +140,9 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
       try visitor.visitSingularEnumField(value: enumValue, fieldNumber: 2)
@@ -257,15 +257,15 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
     }
   }
 
-  func _protoc_generated_traverse(visitor: SwiftProtobuf.Visitor) throws {
+  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if int32Value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: int32Value, fieldNumber: 1)
+      try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
     }
     if enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
       try visitor.visitSingularEnumField(value: enumValue, fieldNumber: 2)
     }
     if extraInt32Value != 0 {
-      try visitor.visitSingularField(fieldType: SwiftProtobuf.ProtobufInt32.self, value: extraInt32Value, fieldNumber: 3)
+      try visitor.visitSingularInt32Field(value: extraInt32Value, fieldNumber: 3)
     }
   }
 
