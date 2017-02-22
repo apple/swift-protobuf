@@ -670,8 +670,11 @@ class Test_JSONPacked: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"packedFloat\":[1]}") {(o: inout MessageTestType) in
             o.packedFloat = [1]
         }
-        assertJSONEncode("{\"packedFloat\":[1,2]}") {(o: inout MessageTestType) in
-            o.packedFloat = [1, 2]
+        assertJSONEncode("{\"packedFloat\":[1,0.25,0.125]}") {(o: inout MessageTestType) in
+            o.packedFloat = [1, 0.25, 0.125]
+        }
+        assertJSONDecodeSucceeds("{\"packedFloat\":[1,0.25,125e-3]}") {
+            $0.packedFloat == [1, 0.25, 0.125]
         }
         assertJSONDecodeSucceeds("{\"packedFloat\":null}") {$0.packedFloat == []}
         assertJSONDecodeSucceeds("{\"packedFloat\":[]}") {$0.packedFloat == []}
@@ -683,8 +686,11 @@ class Test_JSONPacked: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"packedDouble\":[1]}") {(o: inout MessageTestType) in
             o.packedDouble = [1]
         }
-        assertJSONEncode("{\"packedDouble\":[1,2]}") {(o: inout MessageTestType) in
-            o.packedDouble = [1, 2]
+        assertJSONEncode("{\"packedDouble\":[1,0.25,0.125]}") {(o: inout MessageTestType) in
+            o.packedDouble = [1, 0.25, 0.125]
+        }
+        assertJSONDecodeSucceeds("{\"packedDouble\":[1,0.25,125e-3]}") {
+            $0.packedDouble == [1, 0.25, 0.125]
         }
         assertJSONDecodeSucceeds("{\"packedDouble\":null}") {$0.packedDouble == []}
         assertJSONDecodeSucceeds("{\"packedDouble\":[]}") {$0.packedDouble == []}
