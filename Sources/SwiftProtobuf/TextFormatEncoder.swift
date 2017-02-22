@@ -33,10 +33,12 @@ private let asciiLowerR = UInt8(ascii: "r")
 private let asciiLowerT = UInt8(ascii: "t")
 private let asciiLowerV = UInt8(ascii: "v")
 
+private let tabSize = 2
+
 /// TextFormatEncoder has no public members.
 internal struct TextFormatEncoder {
     private var data = [UInt8]()
-    private var tabLevel = 0
+    private var indent: [UInt8] = []
     var stringResult: String {
         get {
             return String(bytes: data, encoding: String.Encoding.utf8)!
@@ -50,10 +52,7 @@ internal struct TextFormatEncoder {
     init() {}
 
     private mutating func appendFieldName(name: StaticString, inExtension: Bool) {
-        for _ in 0..<tabLevel {
-            data.append(asciiSpace)
-            data.append(asciiSpace)
-        }
+        data.append(contentsOf: indent)
         if inExtension {
             data.append(asciiOpenSquareBracket)
         }
@@ -86,17 +85,18 @@ internal struct TextFormatEncoder {
     }
 
     mutating func startObject() {
-        tabLevel += 1
+        for _ in 1...tabSize {
+            indent.append(asciiSpace)
+        }
         data.append(asciiOpenCurlyBracket)
         data.append(asciiNewline)
     }
 
     mutating func endObject() {
-        tabLevel -= 1
-        for _ in 0..<tabLevel {
-            data.append(asciiSpace)
-            data.append(asciiSpace)
+        for _ in 1...tabSize {
+            indent.remove(at: indent.count - 1)
         }
+        data.append(contentsOf: indent)
         data.append(asciiCloseCurlyBracket)
     }
 
