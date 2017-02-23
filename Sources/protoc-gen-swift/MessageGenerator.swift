@@ -220,8 +220,8 @@ class MessageGenerator {
       }
     }
 
-    p.print("\n")
     if !file.isProto3 {
+      p.print("\n")
       p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
     }
 
@@ -468,6 +468,15 @@ class MessageGenerator {
     generateWithLifetimeExtension(printer: &p,
                                   returns: true,
                                   alsoCapturing: "other") { p in
+      // We can't short-circuit the entire equality test if the storage objects
+      // have the same identity because the unknown fields and extension values
+      // might still be different, but we can at least save some time by only
+      // testing the individual fields in storage when they're different.
+      if storage != nil {
+        p.print("if _storage !== other_storage {\n")
+        p.indent()
+      }
+
       var oneofHandled = Set<Int32>()
       for f in fields {
         if let o = f.oneof {
@@ -485,6 +494,12 @@ class MessageGenerator {
           p.print("if \(notEqualClause) {return false}\n")
         }
       }
+
+      if storage != nil {
+        p.outdent()
+        p.print("}\n")
+      }
+
       if !isProto3 {
         p.print("if unknownFields != other.unknownFields {return false}\n")
       }
