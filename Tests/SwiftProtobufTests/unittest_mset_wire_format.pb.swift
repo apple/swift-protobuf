@@ -84,7 +84,7 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Proto2Message, Swi
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 4, end: 2147483647)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSet) -> Bool {
@@ -200,7 +200,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
       if let v = storage._messageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

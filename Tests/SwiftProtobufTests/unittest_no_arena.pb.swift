@@ -725,7 +725,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
       if let v = _bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.NestedMessage) -> Bool {
@@ -775,7 +775,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup) -> Bool {
@@ -825,7 +825,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup) -> Bool {
@@ -1763,7 +1763,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
       try storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 116)
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1821,7 +1821,7 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Proto2Message, Swif
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessage) -> Bool {
@@ -1904,7 +1904,7 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Proto2Message, 
       if let v = storage._arenaMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

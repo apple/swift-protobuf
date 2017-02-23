@@ -583,7 +583,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
       if let v = _bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
@@ -638,7 +638,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
@@ -1367,7 +1367,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Proto2Message, Swift
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
       try storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1566,7 +1566,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Proto2Message, Swif
     if let v = _requiredNestedEnum {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {

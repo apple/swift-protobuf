@@ -159,7 +159,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProto
     if let v = _suffix {
       try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
@@ -316,7 +316,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Messag
       if !storage._protoFile.isEmpty {
         try visitor.visitRepeatedMessageField(value: storage._protoFile, fieldNumber: 15)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -467,7 +467,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Messa
       if let v = _content {
         try visitor.visitSingularStringField(value: v, fieldNumber: 15)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
@@ -524,7 +524,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Messa
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, fieldNumber: 15)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {

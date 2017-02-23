@@ -97,7 +97,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 1001)
-        unknownFields.traverse(visitor: &visitor)
+        try unknownFields.traverse(visitor: &visitor)
       }
 
       func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
@@ -144,7 +144,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
     }
 
     func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar) -> Bool {
@@ -165,7 +165,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo) -> Bool {
@@ -215,7 +215,7 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     if let v = _c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 999)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_C) -> Bool {
@@ -261,7 +261,7 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Msg1) -> Bool {
@@ -323,7 +323,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_Msg2) -> Bool {
@@ -407,7 +407,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftP
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 201)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgNoStorage) -> Bool {
@@ -552,7 +552,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 100, end: 201)
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

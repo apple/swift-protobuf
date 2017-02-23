@@ -84,7 +84,7 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
       if let v = _c {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 1410)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
@@ -121,7 +121,7 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Ext4MyMessage) -> Bool {
@@ -170,7 +170,7 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
     if let v = _c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1420)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Ext4C) -> Bool {

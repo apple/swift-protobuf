@@ -126,7 +126,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
       if let v = storage._message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

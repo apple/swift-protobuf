@@ -98,7 +98,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Proto2Message, SwiftProtobuf.Exte
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 2, end: 11)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
@@ -173,7 +173,7 @@ struct ExtensionGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplem
     if let v = _a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ExtensionGroup) -> Bool {
@@ -223,7 +223,7 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._Messa
     if let v = _a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
@@ -273,7 +273,7 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Proto2Message, SwiftProtobuf._Mes
     if let v = _a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {

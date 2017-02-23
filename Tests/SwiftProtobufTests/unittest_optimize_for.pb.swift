@@ -268,7 +268,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
       try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 1000, end: 536870912)
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -348,7 +348,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Messag
     if let v = _x {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
@@ -440,7 +440,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
       if let v = storage._o {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

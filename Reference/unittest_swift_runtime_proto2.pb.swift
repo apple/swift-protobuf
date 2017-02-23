@@ -752,7 +752,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OptionalGroup) -> Bool {
@@ -802,7 +802,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.RepeatedGroup) -> Bool {
@@ -869,7 +869,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if let v = _b {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message2.OneofGroup) -> Bool {
@@ -1665,7 +1665,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if !storage._mapInt32Message.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message2>.self, value: storage._mapInt32Message, fieldNumber: 88)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

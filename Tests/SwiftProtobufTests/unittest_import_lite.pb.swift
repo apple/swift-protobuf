@@ -152,7 +152,7 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Proto2Message, Sw
     if let v = _d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {

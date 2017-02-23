@@ -520,7 +520,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf.
       if !storage._teboring.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: storage._teboring, fieldNumber: 18)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -824,7 +824,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProt
       if !storage._mapInt32ForeignMessageNoArena.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestNoArena_ForeignMessageLite>.self, value: storage._mapInt32ForeignMessageNoArena, fieldNumber: 18)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -876,7 +876,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Proto2Message,
     if !mapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: mapField, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMapLite) -> Bool {
@@ -923,7 +923,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Proto2Message, SwiftProto
     if !unknownMapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: unknownMapField, fieldNumber: 102)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapLite) -> Bool {
@@ -971,7 +971,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Proto2Message, S
     if !unknownMapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: unknownMapField, fieldNumber: 102)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtraLite) -> Bool {
@@ -1012,7 +1012,7 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Proto2Message, SwiftPr
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: mapInt32Message, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageMapLite) -> Bool {
@@ -1103,7 +1103,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Proto2Message, SwiftProt
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
@@ -1155,7 +1155,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Proto2Message, Sw
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageArenaLite) -> Bool {

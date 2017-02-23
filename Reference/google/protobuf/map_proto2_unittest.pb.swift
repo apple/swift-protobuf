@@ -210,7 +210,7 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     if !unknownMapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnum>.self, value: unknownMapField, fieldNumber: 102)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
@@ -258,7 +258,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Proto2Message, Swift
     if !unknownMapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtra>.self, value: unknownMapField, fieldNumber: 102)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
@@ -299,7 +299,7 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Proto2Message, SwiftPro
     if !importEnumAmp.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestImport_ImportEnumForMap>.self, value: importEnumAmp, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
@@ -339,7 +339,7 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Proto2Message, SwiftProtobu
     if !m.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: m, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
@@ -457,7 +457,7 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     if !mString.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_TestIntIntMap>.self, value: mString, fieldNumber: 12)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {

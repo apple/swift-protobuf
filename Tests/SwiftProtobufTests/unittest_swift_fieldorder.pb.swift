@@ -251,7 +251,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
       if let v = _oo {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
@@ -394,7 +394,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
       if let v = storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

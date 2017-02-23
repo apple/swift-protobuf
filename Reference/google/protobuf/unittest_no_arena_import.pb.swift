@@ -89,7 +89,7 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Proto2Messa
     if let v = _d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {

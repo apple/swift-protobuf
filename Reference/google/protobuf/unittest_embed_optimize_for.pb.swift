@@ -153,7 +153,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
       if !storage._repeatedMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: storage._repeatedMessage, fieldNumber: 2)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 

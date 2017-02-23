@@ -148,7 +148,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_NoGenericServicesTest_TestMessage) -> Bool {
