@@ -68,6 +68,26 @@ public extension Message {
     /// - Throws: An instance of `BinaryDecodingError` on failure.
     init(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
         self.init()
+        try merge(serializedData: data, extensions: extensions, partial: partial)
+    }
+
+    /// Updates the message by decoding the Protocol Buffer binary serialization
+    /// format data into this message.
+    ///
+    /// - Note: If this method throws, the message may still have been mutated by the
+    ///   binary data that was decoded before the error.
+    ///
+    /// - Parameters:
+    ///   - serializedData: The binary serialization data to decode.
+    ///   - extensions: An `ExtensionSet` to look up and decode any extensions in this
+    ///     message or messages nested within this message's fields.
+    ///   - partial: By default, the binary serialization format requires all `required`
+    ///     fields be present; when `partial` is `false`,
+    ///     `BinaryDecodingError.missingRequiredFields` is thrown if any were missing.
+    ///     When `partial` is `true`, then partial messages are allowed, and
+    ///     `Message.isInitialized` is not checked.
+    /// - Throws: An instance of `BinaryDecodingError` on failure.
+    mutating func merge(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
         if !data.isEmpty {
             try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
                 try decodeBinary(from: pointer,
