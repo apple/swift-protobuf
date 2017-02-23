@@ -541,8 +541,10 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgUsesStorage) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._x != other_storage._x {return false}
-      if _storage._y != other_storage._y {return false}
+      if _storage !== other_storage {
+        if _storage._x != other_storage._x {return false}
+        if _storage._y != other_storage._y {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       if _extensionFieldValues != other._extensionFieldValues {return false}
       return true

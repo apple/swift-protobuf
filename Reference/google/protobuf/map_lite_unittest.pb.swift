@@ -499,24 +499,26 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMapLite) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-      if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-      if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-      if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-      if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-      if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-      if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-      if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-      if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-      if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-      if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-      if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-      if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-      if _storage._mapStringString != other_storage._mapStringString {return false}
-      if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-      if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-      if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
-      if _storage._teboring != other_storage._teboring {return false}
+      if _storage !== other_storage {
+        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+        if _storage._mapStringString != other_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+        if _storage._teboring != other_storage._teboring {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }
@@ -790,24 +792,26 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProt
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestArenaMapLite) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-      if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-      if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-      if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-      if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-      if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-      if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-      if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-      if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-      if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-      if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-      if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-      if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-      if _storage._mapStringString != other_storage._mapStringString {return false}
-      if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-      if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-      if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
-      if _storage._mapInt32ForeignMessageNoArena != other_storage._mapInt32ForeignMessageNoArena {return false}
+      if _storage !== other_storage {
+        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+        if _storage._mapStringString != other_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+        if _storage._mapInt32ForeignMessageNoArena != other_storage._mapInt32ForeignMessageNoArena {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }

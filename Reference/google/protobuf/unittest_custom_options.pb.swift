@@ -998,10 +998,12 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftPr
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._bar != other_storage._bar {return false}
-      if _storage._baz != other_storage._baz {return false}
-      if _storage._fred != other_storage._fred {return false}
-      if _storage._barney != other_storage._barney {return false}
+      if _storage !== other_storage {
+        if _storage._bar != other_storage._bar {return false}
+        if _storage._baz != other_storage._baz {return false}
+        if _storage._fred != other_storage._fred {return false}
+        if _storage._barney != other_storage._barney {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       if _extensionFieldValues != other._extensionFieldValues {return false}
       return true
@@ -1170,8 +1172,10 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Proto2Message, SwiftPr
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._qux != other_storage._qux {return false}
-      if _storage._complexOptionType5 != other_storage._complexOptionType5 {return false}
+      if _storage !== other_storage {
+        if _storage._qux != other_storage._qux {return false}
+        if _storage._complexOptionType5 != other_storage._complexOptionType5 {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }
@@ -1545,11 +1549,13 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Aggregate) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._i != other_storage._i {return false}
-      if _storage._s != other_storage._s {return false}
-      if _storage._sub != other_storage._sub {return false}
-      if _storage._file != other_storage._file {return false}
-      if _storage._mset != other_storage._mset {return false}
+      if _storage !== other_storage {
+        if _storage._i != other_storage._i {return false}
+        if _storage._s != other_storage._s {return false}
+        if _storage._sub != other_storage._sub {return false}
+        if _storage._file != other_storage._file {return false}
+        if _storage._mset != other_storage._mset {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }
