@@ -119,9 +119,9 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     1: .same(proto: "fields"),
   ]
 
-
   ///   Unordered map of dynamically typed values.
   var fields: Dictionary<String,Google_Protobuf_Value> = [:]
+
 
   init() {}
 
@@ -173,28 +173,6 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1, 2, 3, 4, 5, 6:
-        if _kind != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        _kind = try Google_Protobuf_Value.OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _kind != other._kind {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
       clone._kind = _kind
@@ -203,6 +181,98 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   }
 
   private var _storage = _StorageClass()
+
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
+  }
+
+  ///   Represents a null value.
+  var nullValue: Google_Protobuf_NullValue {
+    get {
+      if case .nullValue(let v)? = _storage._kind {
+        return v
+      }
+      return Google_Protobuf_NullValue.nullValue
+    }
+    set {
+      _uniqueStorage()._kind = .nullValue(newValue)
+    }
+  }
+
+  ///   Represents a double value.
+  var numberValue: Double {
+    get {
+      if case .numberValue(let v)? = _storage._kind {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._kind = .numberValue(newValue)
+    }
+  }
+
+  ///   Represents a string value.
+  var stringValue: String {
+    get {
+      if case .stringValue(let v)? = _storage._kind {
+        return v
+      }
+      return ""
+    }
+    set {
+      _uniqueStorage()._kind = .stringValue(newValue)
+    }
+  }
+
+  ///   Represents a boolean value.
+  var boolValue: Bool {
+    get {
+      if case .boolValue(let v)? = _storage._kind {
+        return v
+      }
+      return false
+    }
+    set {
+      _uniqueStorage()._kind = .boolValue(newValue)
+    }
+  }
+
+  ///   Represents a structured value.
+  var structValue: Google_Protobuf_Struct {
+    get {
+      if case .structValue(let v)? = _storage._kind {
+        return v
+      }
+      return Google_Protobuf_Struct()
+    }
+    set {
+      _uniqueStorage()._kind = .structValue(newValue)
+    }
+  }
+
+  ///   Represents a repeated `Value`.
+  var listValue: Google_Protobuf_ListValue {
+    get {
+      if case .listValue(let v)? = _storage._kind {
+        return v
+      }
+      return Google_Protobuf_ListValue()
+    }
+    set {
+      _uniqueStorage()._kind = .listValue(newValue)
+    }
+  }
+
+  var kind: OneOf_Kind? {
+    get {return _storage._kind}
+    set {
+      _uniqueStorage()._kind = newValue
+    }
+  }
 
 
   enum OneOf_Kind: Equatable {
@@ -297,116 +367,38 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
     }
   }
 
-  ///   Represents a null value.
-  var nullValue: Google_Protobuf_NullValue {
-    get {
-      if case .nullValue(let v)? = _storage._kind {
-        return v
-      }
-      return Google_Protobuf_NullValue.nullValue
-    }
-    set {
-      _uniqueStorage()._kind = .nullValue(newValue)
-    }
-  }
-
-  ///   Represents a double value.
-  var numberValue: Double {
-    get {
-      if case .numberValue(let v)? = _storage._kind {
-        return v
-      }
-      return 0
-    }
-    set {
-      _uniqueStorage()._kind = .numberValue(newValue)
-    }
-  }
-
-  ///   Represents a string value.
-  var stringValue: String {
-    get {
-      if case .stringValue(let v)? = _storage._kind {
-        return v
-      }
-      return ""
-    }
-    set {
-      _uniqueStorage()._kind = .stringValue(newValue)
-    }
-  }
-
-  ///   Represents a boolean value.
-  var boolValue: Bool {
-    get {
-      if case .boolValue(let v)? = _storage._kind {
-        return v
-      }
-      return false
-    }
-    set {
-      _uniqueStorage()._kind = .boolValue(newValue)
-    }
-  }
-
-  ///   Represents a structured value.
-  var structValue: Google_Protobuf_Struct {
-    get {
-      if case .structValue(let v)? = _storage._kind {
-        return v
-      }
-      return Google_Protobuf_Struct()
-    }
-    set {
-      _uniqueStorage()._kind = .structValue(newValue)
-    }
-  }
-
-  ///   Represents a repeated `Value`.
-  var listValue: Google_Protobuf_ListValue {
-    get {
-      if case .listValue(let v)? = _storage._kind {
-        return v
-      }
-      return Google_Protobuf_ListValue()
-    }
-    set {
-      _uniqueStorage()._kind = .listValue(newValue)
-    }
-  }
-
-  var kind: OneOf_Kind? {
-    get {return _storage._kind}
-    set {
-      _uniqueStorage()._kind = newValue
-    }
-  }
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1, 2, 3, 4, 5, 6:
+      if _storage._kind != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      _storage._kind = try Google_Protobuf_Value.OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      try storage._kind?.traverse(visitor: &visitor, start: 1, end: 7)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      try _storage._kind?.traverse(visitor: &visitor, start: 1, end: 7)
     }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._kind != other_storage._kind {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -420,9 +412,9 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     1: .same(proto: "values"),
   ]
 
-
   ///   Repeated field of dynamically typed values.
   var values: [Google_Protobuf_Value] = []
+
 
   init() {}
 

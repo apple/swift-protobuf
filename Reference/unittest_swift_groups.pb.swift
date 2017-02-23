@@ -57,8 +57,6 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Proto2Message, SwiftProtobuf.Exte
     1: .same(proto: "a"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
@@ -70,6 +68,8 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Proto2Message, SwiftProtobuf.Exte
   mutating func clearA() {
     return _a = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -140,8 +140,6 @@ struct ExtensionGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplem
     1: .same(proto: "a"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
@@ -153,6 +151,8 @@ struct ExtensionGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplem
   mutating func clearA() {
     return _a = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -190,8 +190,6 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._Messa
     1: .same(proto: "a"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
@@ -203,6 +201,8 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._Messa
   mutating func clearA() {
     return _a = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -240,8 +240,6 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Proto2Message, SwiftProtobuf._Mes
     1: .same(proto: "a"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
@@ -253,6 +251,8 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Proto2Message, SwiftProtobuf._Mes
   mutating func clearA() {
     return _a = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

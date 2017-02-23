@@ -58,8 +58,8 @@ struct Proto3PublicImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     1: .same(proto: "e"),
   ]
 
-
   var e: Int32 = 0
+
 
   init() {}
 

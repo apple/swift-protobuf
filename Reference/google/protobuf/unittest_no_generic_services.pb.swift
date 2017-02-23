@@ -107,8 +107,6 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
     1: .same(proto: "a"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
@@ -120,6 +118,8 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
   mutating func clearA() {
     return _a = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
