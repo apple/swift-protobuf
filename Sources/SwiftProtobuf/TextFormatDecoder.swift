@@ -24,7 +24,7 @@ public struct TextFormatDecoder: Decoder {
     internal var scanner: TextFormatScanner
     private var fieldCount = 0
     private var terminator: UInt8?
-    private var fieldNameMap: FieldNameMap?
+    private var fieldNameMap: _NameMap?
     private var messageType: Message.Type?
 
     internal var complete: Bool {
@@ -38,7 +38,7 @@ public struct TextFormatDecoder: Decoder {
         guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
-        fieldNameMap = nameProviding._protobuf_fieldNames
+        fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
     }
 
@@ -48,7 +48,7 @@ public struct TextFormatDecoder: Decoder {
         guard let nameProviding = (messageType as? _ProtoNameProviding.Type) else {
             throw TextFormatDecodingError.missingFieldNames
         }
-        fieldNameMap = nameProviding._protobuf_fieldNames
+        fieldNameMap = nameProviding._protobuf_nameMap
         self.messageType = messageType
     }
 
@@ -431,7 +431,7 @@ public struct TextFormatDecoder: Decoder {
 
     private mutating func decodeEnum<E: Enum>() throws -> E where E.RawValue == Int {
         if let name = try scanner.nextOptionalEnumName() {
-            if let b = E(protoName: name) {
+            if let b = E(name: name) {
                 return b
             } else {
                 throw TextFormatDecodingError.unrecognizedEnumValue

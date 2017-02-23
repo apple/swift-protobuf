@@ -147,7 +147,7 @@ public extension Message {
 public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, _ProtoNameProviding {
     public static let protoPackageName: String = "google.protobuf"
     public static let protoMessageName: String = "Any"
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    public static let _protobuf_nameMap: _NameMap = [
         1: .unique(proto: "type_url", json: "@type"),
         2: .same(proto: "value"),
     ]
@@ -388,9 +388,9 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 guard let nameProviding = (target as? _ProtoNameProviding) else {
                     throw JSONDecodingError.missingFieldNames
                 }
-                let fieldNames = type(of: nameProviding)._protobuf_fieldNames
+                let fieldNames = type(of: nameProviding)._protobuf_nameMap
                 for (k,v) in jsonFields {
-                    if let fieldNumber = fieldNames.fieldNumber(forJSONName: k) {
+                    if let fieldNumber = fieldNames.number(forJSONName: k) {
                         let raw = v.data(using: String.Encoding.utf8)!
                         try raw.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
                             var decoder = JSONDecoder(utf8Pointer: bytes, count: raw.count)

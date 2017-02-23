@@ -11,7 +11,6 @@
 
 /// This type contains helper functions to resolve field names based on their
 /// numbers during encoding.
-///
 internal enum ProtoNameResolvers {
 
   /// Returns a function that resolves the proto/text name for fields defined on
@@ -25,7 +24,7 @@ internal enum ProtoNameResolvers {
   ) -> (Int) -> StaticString? {
     if let nameProviding = message as? _ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(for: number)?.protoStaticStringName
+        nameProviding._protobuf_names(for: number)?.protoStaticStringName
       }
     } else {
       return { _ in nil }
@@ -43,7 +42,7 @@ internal enum ProtoNameResolvers {
   ) -> (Int) -> StaticString? {
     if let nameProviding = message as? _ProtoNameProviding {
       return { number in
-        nameProviding._protobuf_fieldNames(for: number)?.jsonStaticStringName
+        nameProviding._protobuf_names(for: number)?.jsonStaticStringName
       }
     } else {
       return { _ in nil }

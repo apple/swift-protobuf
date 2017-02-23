@@ -252,7 +252,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "FieldMask"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "paths"),
   ]
 

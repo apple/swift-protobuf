@@ -15,21 +15,48 @@
 ///
 // -----------------------------------------------------------------------------
 
+/// Generated enum types conform to this protocol, which provides the
+/// hashability requirement for enums as well as the name mapping requirement
+/// for encoding/decoding text-based formats.
 public protocol Enum: RawRepresentable, Hashable {
-    init()
-    init?(jsonName: String)
-    init?(protoName: String)
-    var rawValue: Int { get }
+  init()
 
-    /// Returns the JSON name for the enum.
-    /// This is meanted to be internal to the SwiftProtobuf library and shouldn't
-    /// be used by consumers of the library.
-    var _protobuf_jsonName: String? { get }
+  init?(rawValue: Int)
+
+  var rawValue: Int { get }
 }
 
-public extension Enum {
-    // Default impl.
-    var hashValue: Int {
-        return rawValue
+extension Enum {
+
+  /// Default implementation.
+  public var hashValue: Int {
+    return rawValue
+  }
+
+  /// Internal convenience property representing the name of the enum value (or
+  /// `nil` if it is an `UNRECOGNIZED` value or doesn't provide names).
+  ///
+  /// Since the text format and JSON names are always identical, we don't need
+  /// to distinguish them.
+  internal var name: StaticString? {
+    guard let nameProviding = self as? _ProtoNameProviding else {
+      return nil
     }
+    return nameProviding._protobuf_names(for: rawValue)?.protoStaticStringName
+  }
+
+  /// Internal convenience initializer that returns the enum value with the
+  /// given name, if it provides names.
+  ///
+  /// Since the text format and JSON names are always identical, we don't need
+  /// to distinguish them.
+  ///
+  /// - Parameter name: The name of the enum case.
+  internal init?(name: String) {
+    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
+      let number = nameProviding._protobuf_nameMap.number(forJSONName: name) else {
+      return nil
+    }
+    self.init(rawValue: number)
+  }
 }

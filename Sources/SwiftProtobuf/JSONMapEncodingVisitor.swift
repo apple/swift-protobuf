@@ -122,8 +122,8 @@ internal struct JSONMapEncodingVisitor: Visitor {
       // Enums can only be map values, never keys
       assert(fieldNumber == 2)
       startValue()
-      if let n = value._protobuf_jsonName {
-          encoder.putStringValue(value: n)
+      if let n = value.name {
+          encoder.putStringValue(value: String(describing: n))
       } else {
           encoder.putEnumInt(value: value.rawValue)
       }

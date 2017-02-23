@@ -861,7 +861,7 @@ internal struct TextFormatScanner {
     ///
     /// This function accounts for as much as 2/3 of the total run
     /// time of the entire parse.
-    internal mutating func nextFieldNumber(names: FieldNameMap) throws -> Int? {
+    internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
         skipWhitespace()
         if index == utf8.endIndex {
             return nil
@@ -886,7 +886,7 @@ internal struct TextFormatScanner {
             }
             let key = Array(utf8[start..<index])
             return try key.withUnsafeBufferPointer { buff in
-                if let fieldNumber = names.fieldNumber(forProtoName: buff) {
+                if let fieldNumber = names.number(forProtoName: buff) {
                     return fieldNumber
                 } else {
                     throw TextFormatDecodingError.unknownField

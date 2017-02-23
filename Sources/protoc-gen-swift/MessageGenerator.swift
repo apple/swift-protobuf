@@ -170,9 +170,9 @@ class MessageGenerator {
 
     // Map proto field names to field number
     if fields.isEmpty {
-      p.print("\(visibility)static let _protobuf_fieldNames = FieldNameMap()\n")
+      p.print("\(visibility)static let _protobuf_nameMap = SwiftProtobuf._NameMap()\n")
     } else {
-      p.print("\(visibility)static let _protobuf_fieldNames: FieldNameMap = [\n")
+      p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
       p.indent()
       for f in fields {
         p.print("\(f.number): \(f.fieldMapNames),\n")
@@ -295,8 +295,8 @@ class MessageGenerator {
       p.print("\(visibility)func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) -> Bool {\n")
       p.print("  return _extensionFieldValues[ext.fieldNumber] is F\n")
       p.print("}\n")
-      p.print("\(visibility)func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {\n")
-      p.print("  return \(swiftRelativeName)._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)\n")
+      p.print("\(visibility)func _protobuf_names(for number: Int) -> _NameMap.Names? {\n")
+      p.print("  return \(swiftRelativeName)._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)\n")
       p.print("}\n")
     }
 
