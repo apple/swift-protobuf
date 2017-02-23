@@ -714,7 +714,7 @@ class MessageGenerator {
             nextRange = ranges.next()
         }
         if !file.isProto3 {
-            p.print("\(unknownFieldsName).traverse(visitor: &visitor)\n")
+            p.print("try \(unknownFieldsName).traverse(visitor: &visitor)\n")
         }
 
         if storage != nil {

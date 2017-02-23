@@ -25,7 +25,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
 
   init() {}
 
-  mutating func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) throws {
     serializedSize += bytes.count
   }
 

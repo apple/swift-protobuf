@@ -38,7 +38,7 @@ internal struct JSONEncodingVisitor: Visitor {
       ProtoNameResolvers.jsonFieldNameResolver(for: message)
   }
 
-  mutating func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) throws {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
 

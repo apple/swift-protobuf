@@ -94,7 +94,7 @@ public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Proto2Message, Sw
     if !file.isEmpty {
       try visitor.visitRepeatedMessageField(value: file, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileDescriptorSet) -> Bool {
@@ -371,7 +371,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Proto2Message, 
       if let v = storage._syntax {
         try visitor.visitSingularStringField(value: v, fieldNumber: 12)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -547,7 +547,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, Swif
       if let v = _end {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
@@ -620,7 +620,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, Swif
       if let v = _end {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ReservedRange) -> Bool {
@@ -741,7 +741,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, Swif
       if !storage._reservedName.isEmpty {
         try visitor.visitRepeatedStringField(value: storage._reservedName, fieldNumber: 10)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1263,7 +1263,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message,
       if let v = storage._jsonName {
         try visitor.visitSingularStringField(value: v, fieldNumber: 10)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1381,7 +1381,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Proto2Message,
       if let v = storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1513,7 +1513,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Proto2Message, 
       if let v = storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1650,7 +1650,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Proto2Mess
       if let v = storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1782,7 +1782,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Proto2Messag
       if let v = storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1980,7 +1980,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Proto2Message
       if let v = storage._serverStreaming {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      try storage.unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -2439,7 +2439,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftPro
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
@@ -2643,7 +2643,7 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, Swift
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MessageOptions) -> Bool {
@@ -3001,7 +3001,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftPr
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldOptions) -> Bool {
@@ -3082,7 +3082,7 @@ public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftPr
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_OneofOptions) -> Bool {
@@ -3197,7 +3197,7 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftPro
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumOptions) -> Bool {
@@ -3295,7 +3295,7 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, Swi
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValueOptions) -> Bool {
@@ -3397,7 +3397,7 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, Swift
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_ServiceOptions) -> Bool {
@@ -3582,7 +3582,7 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftP
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_MethodOptions) -> Bool {
@@ -3708,7 +3708,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Proto2Message, 
       if let v = _isExtension {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 2)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption.NamePart) -> Bool {
@@ -3843,7 +3843,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Proto2Message, 
     if let v = _aggregateValue {
       try visitor.visitSingularStringField(value: v, fieldNumber: 8)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_UninterpretedOption) -> Bool {
@@ -4026,7 +4026,7 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Proto2Message, Swift
       if !leadingDetachedComments.isEmpty {
         try visitor.visitRepeatedStringField(value: leadingDetachedComments, fieldNumber: 6)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo.Location) -> Bool {
@@ -4104,7 +4104,7 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Proto2Message, Swift
     if !location.isEmpty {
       try visitor.visitRepeatedMessageField(value: location, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_SourceCodeInfo) -> Bool {
@@ -4215,7 +4215,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Proto2Message, Sw
       if let v = _end {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     public func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo.Annotation) -> Bool {
@@ -4251,7 +4251,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Proto2Message, Sw
     if !annotation.isEmpty {
       try visitor.visitRepeatedMessageField(value: annotation, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_GeneratedCodeInfo) -> Bool {

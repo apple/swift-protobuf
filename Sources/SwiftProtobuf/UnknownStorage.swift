@@ -25,11 +25,15 @@ public struct UnknownStorage: Equatable {
 
   public init() {}
 
+  public init(data: Data) {
+      self.data = data
+  }
+
   public mutating func append(protobufData: Data) {
     data.append(protobufData)
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) {
-    visitor.visitUnknown(bytes: data)
+  public func traverse<V: Visitor>(visitor: inout V) throws {
+    try visitor.visitUnknown(bytes: data)
   }
 }

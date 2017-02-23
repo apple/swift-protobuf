@@ -68,7 +68,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
 
-  mutating func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) throws {
     // TODO: Print unknown fields by tag number.
   }
 
