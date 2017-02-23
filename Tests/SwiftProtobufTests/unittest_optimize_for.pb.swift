@@ -256,9 +256,11 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptimizedForSize) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._i != other_storage._i {return false}
-      if _storage._msg != other_storage._msg {return false}
-      if _storage._foo != other_storage._foo {return false}
+      if _storage !== other_storage {
+        if _storage._i != other_storage._i {return false}
+        if _storage._msg != other_storage._msg {return false}
+        if _storage._foo != other_storage._foo {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       if _extensionFieldValues != other._extensionFieldValues {return false}
       return true
@@ -421,7 +423,9 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._o != other_storage._o {return false}
+      if _storage !== other_storage {
+        if _storage._o != other_storage._o {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }

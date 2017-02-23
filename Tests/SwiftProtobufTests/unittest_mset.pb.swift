@@ -132,7 +132,9 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._messageSet != other_storage._messageSet {return false}
+      if _storage !== other_storage {
+        if _storage._messageSet != other_storage._messageSet {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }

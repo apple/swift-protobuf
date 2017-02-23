@@ -314,7 +314,6 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPr
     return _storage._valueField = nil
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -414,25 +413,27 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPr
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._anyField != other_storage._anyField {return false}
-      if _storage._apiField != other_storage._apiField {return false}
-      if _storage._durationField != other_storage._durationField {return false}
-      if _storage._emptyField != other_storage._emptyField {return false}
-      if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-      if _storage._sourceContextField != other_storage._sourceContextField {return false}
-      if _storage._structField != other_storage._structField {return false}
-      if _storage._timestampField != other_storage._timestampField {return false}
-      if _storage._typeField != other_storage._typeField {return false}
-      if _storage._doubleField != other_storage._doubleField {return false}
-      if _storage._floatField != other_storage._floatField {return false}
-      if _storage._int64Field != other_storage._int64Field {return false}
-      if _storage._uint64Field != other_storage._uint64Field {return false}
-      if _storage._int32Field != other_storage._int32Field {return false}
-      if _storage._uint32Field != other_storage._uint32Field {return false}
-      if _storage._boolField != other_storage._boolField {return false}
-      if _storage._stringField != other_storage._stringField {return false}
-      if _storage._bytesField != other_storage._bytesField {return false}
-      if _storage._valueField != other_storage._valueField {return false}
+      if _storage !== other_storage {
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+        if _storage._valueField != other_storage._valueField {return false}
+      }
       return true
     }
   }
@@ -609,7 +610,6 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Proto3Message, Swi
     set {_uniqueStorage()._bytesField = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -705,24 +705,26 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Proto3Message, Swi
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._anyField != other_storage._anyField {return false}
-      if _storage._apiField != other_storage._apiField {return false}
-      if _storage._durationField != other_storage._durationField {return false}
-      if _storage._emptyField != other_storage._emptyField {return false}
-      if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-      if _storage._sourceContextField != other_storage._sourceContextField {return false}
-      if _storage._structField != other_storage._structField {return false}
-      if _storage._timestampField != other_storage._timestampField {return false}
-      if _storage._typeField != other_storage._typeField {return false}
-      if _storage._doubleField != other_storage._doubleField {return false}
-      if _storage._floatField != other_storage._floatField {return false}
-      if _storage._int64Field != other_storage._int64Field {return false}
-      if _storage._uint64Field != other_storage._uint64Field {return false}
-      if _storage._int32Field != other_storage._int32Field {return false}
-      if _storage._uint32Field != other_storage._uint32Field {return false}
-      if _storage._boolField != other_storage._boolField {return false}
-      if _storage._stringField != other_storage._stringField {return false}
-      if _storage._bytesField != other_storage._bytesField {return false}
+      if _storage !== other_storage {
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+      }
       return true
     }
   }
@@ -995,7 +997,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftP
       _uniqueStorage()._oneofField = newValue
     }
   }
-
 
   enum OneOf_OneofField: Equatable {
     case anyField(Google_Protobuf_Any)
@@ -1282,7 +1283,9 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftP
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._oneofField != other_storage._oneofField {return false}
+      if _storage !== other_storage {
+        if _storage._oneofField != other_storage._oneofField {return false}
+      }
       return true
     }
   }
@@ -1460,7 +1463,6 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPro
     set {_uniqueStorage()._bytesField = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1556,24 +1558,26 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPro
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._anyField != other_storage._anyField {return false}
-      if _storage._apiField != other_storage._apiField {return false}
-      if _storage._durationField != other_storage._durationField {return false}
-      if _storage._emptyField != other_storage._emptyField {return false}
-      if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-      if _storage._sourceContextField != other_storage._sourceContextField {return false}
-      if _storage._structField != other_storage._structField {return false}
-      if _storage._timestampField != other_storage._timestampField {return false}
-      if _storage._typeField != other_storage._typeField {return false}
-      if _storage._doubleField != other_storage._doubleField {return false}
-      if _storage._floatField != other_storage._floatField {return false}
-      if _storage._int64Field != other_storage._int64Field {return false}
-      if _storage._uint64Field != other_storage._uint64Field {return false}
-      if _storage._int32Field != other_storage._int32Field {return false}
-      if _storage._uint32Field != other_storage._uint32Field {return false}
-      if _storage._boolField != other_storage._boolField {return false}
-      if _storage._stringField != other_storage._stringField {return false}
-      if _storage._bytesField != other_storage._bytesField {return false}
+      if _storage !== other_storage {
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+      }
       return true
     }
   }

@@ -173,7 +173,6 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
   ///   Which format should the testee serialize its message to?
   var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
 
-
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)
@@ -355,7 +354,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtob
       result = .skipped(newValue)
     }
   }
-
 
   enum OneOf_Result: Equatable {
     case parseError(String)

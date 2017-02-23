@@ -146,8 +146,10 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._optionalMessage != other_storage._optionalMessage {return false}
-      if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+      if _storage !== other_storage {
+        if _storage._optionalMessage != other_storage._optionalMessage {return false}
+        if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }

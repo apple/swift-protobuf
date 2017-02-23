@@ -122,7 +122,9 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._message != other_storage._message {return false}
+      if _storage !== other_storage {
+        if _storage._message != other_storage._message {return false}
+      }
       if unknownFields != other.unknownFields {return false}
       return true
     }

@@ -1269,7 +1269,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
     }
   }
 
-
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage)
@@ -1510,7 +1509,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
       return _storage._corecursive = nil
     }
 
-
     init() {}
 
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1542,8 +1540,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
 
     func _protoc_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage) -> Bool {
       return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._a != other_storage._a {return false}
-        if _storage._corecursive != other_storage._corecursive {return false}
+        if _storage !== other_storage {
+          if _storage._a != other_storage._a {return false}
+          if _storage._corecursive != other_storage._corecursive {return false}
+        }
         return true
       }
     }
@@ -2018,117 +2018,119 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
 
   func _protoc_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
-      if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
-      if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
-      if _storage._optionalUint64 != other_storage._optionalUint64 {return false}
-      if _storage._optionalSint32 != other_storage._optionalSint32 {return false}
-      if _storage._optionalSint64 != other_storage._optionalSint64 {return false}
-      if _storage._optionalFixed32 != other_storage._optionalFixed32 {return false}
-      if _storage._optionalFixed64 != other_storage._optionalFixed64 {return false}
-      if _storage._optionalSfixed32 != other_storage._optionalSfixed32 {return false}
-      if _storage._optionalSfixed64 != other_storage._optionalSfixed64 {return false}
-      if _storage._optionalFloat != other_storage._optionalFloat {return false}
-      if _storage._optionalDouble != other_storage._optionalDouble {return false}
-      if _storage._optionalBool != other_storage._optionalBool {return false}
-      if _storage._optionalString != other_storage._optionalString {return false}
-      if _storage._optionalBytes != other_storage._optionalBytes {return false}
-      if _storage._optionalNestedMessage != other_storage._optionalNestedMessage {return false}
-      if _storage._optionalForeignMessage != other_storage._optionalForeignMessage {return false}
-      if _storage._optionalNestedEnum != other_storage._optionalNestedEnum {return false}
-      if _storage._optionalForeignEnum != other_storage._optionalForeignEnum {return false}
-      if _storage._optionalStringPiece != other_storage._optionalStringPiece {return false}
-      if _storage._optionalCord != other_storage._optionalCord {return false}
-      if _storage._recursiveMessage != other_storage._recursiveMessage {return false}
-      if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}
-      if _storage._repeatedInt64 != other_storage._repeatedInt64 {return false}
-      if _storage._repeatedUint32 != other_storage._repeatedUint32 {return false}
-      if _storage._repeatedUint64 != other_storage._repeatedUint64 {return false}
-      if _storage._repeatedSint32 != other_storage._repeatedSint32 {return false}
-      if _storage._repeatedSint64 != other_storage._repeatedSint64 {return false}
-      if _storage._repeatedFixed32 != other_storage._repeatedFixed32 {return false}
-      if _storage._repeatedFixed64 != other_storage._repeatedFixed64 {return false}
-      if _storage._repeatedSfixed32 != other_storage._repeatedSfixed32 {return false}
-      if _storage._repeatedSfixed64 != other_storage._repeatedSfixed64 {return false}
-      if _storage._repeatedFloat != other_storage._repeatedFloat {return false}
-      if _storage._repeatedDouble != other_storage._repeatedDouble {return false}
-      if _storage._repeatedBool != other_storage._repeatedBool {return false}
-      if _storage._repeatedString != other_storage._repeatedString {return false}
-      if _storage._repeatedBytes != other_storage._repeatedBytes {return false}
-      if _storage._repeatedNestedMessage != other_storage._repeatedNestedMessage {return false}
-      if _storage._repeatedForeignMessage != other_storage._repeatedForeignMessage {return false}
-      if _storage._repeatedNestedEnum != other_storage._repeatedNestedEnum {return false}
-      if _storage._repeatedForeignEnum != other_storage._repeatedForeignEnum {return false}
-      if _storage._repeatedStringPiece != other_storage._repeatedStringPiece {return false}
-      if _storage._repeatedCord != other_storage._repeatedCord {return false}
-      if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-      if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-      if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-      if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-      if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-      if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-      if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-      if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-      if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-      if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-      if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-      if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-      if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-      if _storage._mapStringString != other_storage._mapStringString {return false}
-      if _storage._mapStringBytes != other_storage._mapStringBytes {return false}
-      if _storage._mapStringNestedMessage != other_storage._mapStringNestedMessage {return false}
-      if _storage._mapStringForeignMessage != other_storage._mapStringForeignMessage {return false}
-      if _storage._mapStringNestedEnum != other_storage._mapStringNestedEnum {return false}
-      if _storage._mapStringForeignEnum != other_storage._mapStringForeignEnum {return false}
-      if _storage._oneofField != other_storage._oneofField {return false}
-      if _storage._optionalBoolWrapper != other_storage._optionalBoolWrapper {return false}
-      if _storage._optionalInt32Wrapper != other_storage._optionalInt32Wrapper {return false}
-      if _storage._optionalInt64Wrapper != other_storage._optionalInt64Wrapper {return false}
-      if _storage._optionalUint32Wrapper != other_storage._optionalUint32Wrapper {return false}
-      if _storage._optionalUint64Wrapper != other_storage._optionalUint64Wrapper {return false}
-      if _storage._optionalFloatWrapper != other_storage._optionalFloatWrapper {return false}
-      if _storage._optionalDoubleWrapper != other_storage._optionalDoubleWrapper {return false}
-      if _storage._optionalStringWrapper != other_storage._optionalStringWrapper {return false}
-      if _storage._optionalBytesWrapper != other_storage._optionalBytesWrapper {return false}
-      if _storage._repeatedBoolWrapper != other_storage._repeatedBoolWrapper {return false}
-      if _storage._repeatedInt32Wrapper != other_storage._repeatedInt32Wrapper {return false}
-      if _storage._repeatedInt64Wrapper != other_storage._repeatedInt64Wrapper {return false}
-      if _storage._repeatedUint32Wrapper != other_storage._repeatedUint32Wrapper {return false}
-      if _storage._repeatedUint64Wrapper != other_storage._repeatedUint64Wrapper {return false}
-      if _storage._repeatedFloatWrapper != other_storage._repeatedFloatWrapper {return false}
-      if _storage._repeatedDoubleWrapper != other_storage._repeatedDoubleWrapper {return false}
-      if _storage._repeatedStringWrapper != other_storage._repeatedStringWrapper {return false}
-      if _storage._repeatedBytesWrapper != other_storage._repeatedBytesWrapper {return false}
-      if _storage._optionalDuration != other_storage._optionalDuration {return false}
-      if _storage._optionalTimestamp != other_storage._optionalTimestamp {return false}
-      if _storage._optionalFieldMask != other_storage._optionalFieldMask {return false}
-      if _storage._optionalStruct != other_storage._optionalStruct {return false}
-      if _storage._optionalAny != other_storage._optionalAny {return false}
-      if _storage._optionalValue != other_storage._optionalValue {return false}
-      if _storage._repeatedDuration != other_storage._repeatedDuration {return false}
-      if _storage._repeatedTimestamp != other_storage._repeatedTimestamp {return false}
-      if _storage._repeatedFieldmask != other_storage._repeatedFieldmask {return false}
-      if _storage._repeatedStruct != other_storage._repeatedStruct {return false}
-      if _storage._repeatedAny != other_storage._repeatedAny {return false}
-      if _storage._repeatedValue != other_storage._repeatedValue {return false}
-      if _storage._fieldname1 != other_storage._fieldname1 {return false}
-      if _storage._fieldName2 != other_storage._fieldName2 {return false}
-      if _storage._fieldName3 != other_storage._fieldName3 {return false}
-      if _storage._field_Name4_ != other_storage._field_Name4_ {return false}
-      if _storage._field0Name5 != other_storage._field0Name5 {return false}
-      if _storage._field0Name6 != other_storage._field0Name6 {return false}
-      if _storage._fieldName7 != other_storage._fieldName7 {return false}
-      if _storage._fieldName8 != other_storage._fieldName8 {return false}
-      if _storage._fieldName9 != other_storage._fieldName9 {return false}
-      if _storage._fieldName10 != other_storage._fieldName10 {return false}
-      if _storage._fieldName11 != other_storage._fieldName11 {return false}
-      if _storage._fieldName12 != other_storage._fieldName12 {return false}
-      if _storage.__FieldName13 != other_storage.__FieldName13 {return false}
-      if _storage.__FieldName14 != other_storage.__FieldName14 {return false}
-      if _storage._field_Name15 != other_storage._field_Name15 {return false}
-      if _storage._field_Name16 != other_storage._field_Name16 {return false}
-      if _storage._fieldName17__ != other_storage._fieldName17__ {return false}
-      if _storage._fieldName18__ != other_storage._fieldName18__ {return false}
+      if _storage !== other_storage {
+        if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
+        if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
+        if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
+        if _storage._optionalUint64 != other_storage._optionalUint64 {return false}
+        if _storage._optionalSint32 != other_storage._optionalSint32 {return false}
+        if _storage._optionalSint64 != other_storage._optionalSint64 {return false}
+        if _storage._optionalFixed32 != other_storage._optionalFixed32 {return false}
+        if _storage._optionalFixed64 != other_storage._optionalFixed64 {return false}
+        if _storage._optionalSfixed32 != other_storage._optionalSfixed32 {return false}
+        if _storage._optionalSfixed64 != other_storage._optionalSfixed64 {return false}
+        if _storage._optionalFloat != other_storage._optionalFloat {return false}
+        if _storage._optionalDouble != other_storage._optionalDouble {return false}
+        if _storage._optionalBool != other_storage._optionalBool {return false}
+        if _storage._optionalString != other_storage._optionalString {return false}
+        if _storage._optionalBytes != other_storage._optionalBytes {return false}
+        if _storage._optionalNestedMessage != other_storage._optionalNestedMessage {return false}
+        if _storage._optionalForeignMessage != other_storage._optionalForeignMessage {return false}
+        if _storage._optionalNestedEnum != other_storage._optionalNestedEnum {return false}
+        if _storage._optionalForeignEnum != other_storage._optionalForeignEnum {return false}
+        if _storage._optionalStringPiece != other_storage._optionalStringPiece {return false}
+        if _storage._optionalCord != other_storage._optionalCord {return false}
+        if _storage._recursiveMessage != other_storage._recursiveMessage {return false}
+        if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}
+        if _storage._repeatedInt64 != other_storage._repeatedInt64 {return false}
+        if _storage._repeatedUint32 != other_storage._repeatedUint32 {return false}
+        if _storage._repeatedUint64 != other_storage._repeatedUint64 {return false}
+        if _storage._repeatedSint32 != other_storage._repeatedSint32 {return false}
+        if _storage._repeatedSint64 != other_storage._repeatedSint64 {return false}
+        if _storage._repeatedFixed32 != other_storage._repeatedFixed32 {return false}
+        if _storage._repeatedFixed64 != other_storage._repeatedFixed64 {return false}
+        if _storage._repeatedSfixed32 != other_storage._repeatedSfixed32 {return false}
+        if _storage._repeatedSfixed64 != other_storage._repeatedSfixed64 {return false}
+        if _storage._repeatedFloat != other_storage._repeatedFloat {return false}
+        if _storage._repeatedDouble != other_storage._repeatedDouble {return false}
+        if _storage._repeatedBool != other_storage._repeatedBool {return false}
+        if _storage._repeatedString != other_storage._repeatedString {return false}
+        if _storage._repeatedBytes != other_storage._repeatedBytes {return false}
+        if _storage._repeatedNestedMessage != other_storage._repeatedNestedMessage {return false}
+        if _storage._repeatedForeignMessage != other_storage._repeatedForeignMessage {return false}
+        if _storage._repeatedNestedEnum != other_storage._repeatedNestedEnum {return false}
+        if _storage._repeatedForeignEnum != other_storage._repeatedForeignEnum {return false}
+        if _storage._repeatedStringPiece != other_storage._repeatedStringPiece {return false}
+        if _storage._repeatedCord != other_storage._repeatedCord {return false}
+        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+        if _storage._mapStringString != other_storage._mapStringString {return false}
+        if _storage._mapStringBytes != other_storage._mapStringBytes {return false}
+        if _storage._mapStringNestedMessage != other_storage._mapStringNestedMessage {return false}
+        if _storage._mapStringForeignMessage != other_storage._mapStringForeignMessage {return false}
+        if _storage._mapStringNestedEnum != other_storage._mapStringNestedEnum {return false}
+        if _storage._mapStringForeignEnum != other_storage._mapStringForeignEnum {return false}
+        if _storage._oneofField != other_storage._oneofField {return false}
+        if _storage._optionalBoolWrapper != other_storage._optionalBoolWrapper {return false}
+        if _storage._optionalInt32Wrapper != other_storage._optionalInt32Wrapper {return false}
+        if _storage._optionalInt64Wrapper != other_storage._optionalInt64Wrapper {return false}
+        if _storage._optionalUint32Wrapper != other_storage._optionalUint32Wrapper {return false}
+        if _storage._optionalUint64Wrapper != other_storage._optionalUint64Wrapper {return false}
+        if _storage._optionalFloatWrapper != other_storage._optionalFloatWrapper {return false}
+        if _storage._optionalDoubleWrapper != other_storage._optionalDoubleWrapper {return false}
+        if _storage._optionalStringWrapper != other_storage._optionalStringWrapper {return false}
+        if _storage._optionalBytesWrapper != other_storage._optionalBytesWrapper {return false}
+        if _storage._repeatedBoolWrapper != other_storage._repeatedBoolWrapper {return false}
+        if _storage._repeatedInt32Wrapper != other_storage._repeatedInt32Wrapper {return false}
+        if _storage._repeatedInt64Wrapper != other_storage._repeatedInt64Wrapper {return false}
+        if _storage._repeatedUint32Wrapper != other_storage._repeatedUint32Wrapper {return false}
+        if _storage._repeatedUint64Wrapper != other_storage._repeatedUint64Wrapper {return false}
+        if _storage._repeatedFloatWrapper != other_storage._repeatedFloatWrapper {return false}
+        if _storage._repeatedDoubleWrapper != other_storage._repeatedDoubleWrapper {return false}
+        if _storage._repeatedStringWrapper != other_storage._repeatedStringWrapper {return false}
+        if _storage._repeatedBytesWrapper != other_storage._repeatedBytesWrapper {return false}
+        if _storage._optionalDuration != other_storage._optionalDuration {return false}
+        if _storage._optionalTimestamp != other_storage._optionalTimestamp {return false}
+        if _storage._optionalFieldMask != other_storage._optionalFieldMask {return false}
+        if _storage._optionalStruct != other_storage._optionalStruct {return false}
+        if _storage._optionalAny != other_storage._optionalAny {return false}
+        if _storage._optionalValue != other_storage._optionalValue {return false}
+        if _storage._repeatedDuration != other_storage._repeatedDuration {return false}
+        if _storage._repeatedTimestamp != other_storage._repeatedTimestamp {return false}
+        if _storage._repeatedFieldmask != other_storage._repeatedFieldmask {return false}
+        if _storage._repeatedStruct != other_storage._repeatedStruct {return false}
+        if _storage._repeatedAny != other_storage._repeatedAny {return false}
+        if _storage._repeatedValue != other_storage._repeatedValue {return false}
+        if _storage._fieldname1 != other_storage._fieldname1 {return false}
+        if _storage._fieldName2 != other_storage._fieldName2 {return false}
+        if _storage._fieldName3 != other_storage._fieldName3 {return false}
+        if _storage._field_Name4_ != other_storage._field_Name4_ {return false}
+        if _storage._field0Name5 != other_storage._field0Name5 {return false}
+        if _storage._field0Name6 != other_storage._field0Name6 {return false}
+        if _storage._fieldName7 != other_storage._fieldName7 {return false}
+        if _storage._fieldName8 != other_storage._fieldName8 {return false}
+        if _storage._fieldName9 != other_storage._fieldName9 {return false}
+        if _storage._fieldName10 != other_storage._fieldName10 {return false}
+        if _storage._fieldName11 != other_storage._fieldName11 {return false}
+        if _storage._fieldName12 != other_storage._fieldName12 {return false}
+        if _storage.__FieldName13 != other_storage.__FieldName13 {return false}
+        if _storage.__FieldName14 != other_storage.__FieldName14 {return false}
+        if _storage._field_Name15 != other_storage._field_Name15 {return false}
+        if _storage._field_Name16 != other_storage._field_Name16 {return false}
+        if _storage._fieldName17__ != other_storage._fieldName17__ {return false}
+        if _storage._fieldName18__ != other_storage._fieldName18__ {return false}
+      }
       return true
     }
   }
@@ -2142,7 +2144,6 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Proto3Message, 
   ]
 
   var c: Int32 = 0
-
 
   init() {}
 

@@ -104,7 +104,6 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     set {_uniqueStorage()._repeatedAnyValue = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -140,9 +139,11 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._int32Value != other_storage._int32Value {return false}
-      if _storage._anyValue != other_storage._anyValue {return false}
-      if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
+      if _storage !== other_storage {
+        if _storage._int32Value != other_storage._int32Value {return false}
+        if _storage._anyValue != other_storage._anyValue {return false}
+        if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
+      }
       return true
     }
   }
