@@ -84,7 +84,7 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Proto2Message, SwiftPro
       if let v = _c {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 1210)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend2_MyMessage.C) -> Bool {
@@ -121,7 +121,7 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Proto2Message, SwiftPro
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend2_MyMessage) -> Bool {
@@ -170,7 +170,7 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
     if let v = _c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1220)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend2_C) -> Bool {

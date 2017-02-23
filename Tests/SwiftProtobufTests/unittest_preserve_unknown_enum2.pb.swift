@@ -252,7 +252,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
       try visitor.visitRepeatedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     try o?.traverse(visitor: &visitor, start: 5, end: 7)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {

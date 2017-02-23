@@ -452,7 +452,7 @@ class MessageGenerator {
         nextRange = ranges.next()
       }
       if !isProto3 {
-        p.print("unknownFields.traverse(visitor: &visitor)\n")
+        p.print("try unknownFields.traverse(visitor: &visitor)\n")
       }
     }
     p.outdent()

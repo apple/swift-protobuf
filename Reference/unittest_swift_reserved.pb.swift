@@ -288,7 +288,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
 
     func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 2001)
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
@@ -341,7 +341,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     }
 
     func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
@@ -369,7 +369,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     }
 
     func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqualMessage) -> Bool {
@@ -421,7 +421,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     if let v = _debugDescription_p {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
@@ -468,7 +468,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Proto2Message, Swift
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTestExt) -> Bool {

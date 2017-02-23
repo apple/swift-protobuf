@@ -18101,7 +18101,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Proto2Message, Swif
       if let v = _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000 {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1000)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 

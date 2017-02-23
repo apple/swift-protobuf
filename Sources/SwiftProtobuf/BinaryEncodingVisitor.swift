@@ -30,7 +30,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder = BinaryEncoder(forWritingInto: pointer)
   }
 
-  mutating func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) throws {
     encoder.appendUnknown(data: bytes)
   }
 

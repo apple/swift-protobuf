@@ -155,7 +155,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -271,7 +271,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -387,7 +387,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 

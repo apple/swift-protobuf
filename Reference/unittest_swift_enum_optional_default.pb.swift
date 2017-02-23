@@ -172,7 +172,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
         if let v = _storage._optionalEnum {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
         }
-        unknownFields.traverse(visitor: &visitor)
+        try unknownFields.traverse(visitor: &visitor)
       }
     }
 
@@ -275,7 +275,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
       if let v = _optionalEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
@@ -297,7 +297,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault) -> Bool {

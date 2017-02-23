@@ -5179,7 +5179,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Proto2Message, SwiftProtobu
       if let v = _storage._jsonShouldBeOverriden {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -5448,7 +5448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StringMessage) -> Bool {
@@ -5498,7 +5498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProtocolMessage) -> Bool {
@@ -5548,7 +5548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.IntMessage) -> Bool {
@@ -5598,7 +5598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.DoubleMessage) -> Bool {
@@ -5648,7 +5648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FloatMessage) -> Bool {
@@ -5698,7 +5698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UIntMessage) -> Bool {
@@ -5748,7 +5748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hashValueMessage) -> Bool {
@@ -5798,7 +5798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptionMessage) -> Bool {
@@ -5848,7 +5848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.debugDescriptionMessage) -> Bool {
@@ -5898,7 +5898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Swift) -> Bool {
@@ -5948,7 +5948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.UNRECOGNIZED) -> Bool {
@@ -5998,7 +5998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classMessage) -> Bool {
@@ -6048,7 +6048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deinitMessage) -> Bool {
@@ -6098,7 +6098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.enumMessage) -> Bool {
@@ -6148,7 +6148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionMessage) -> Bool {
@@ -6198,7 +6198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.funcMessage) -> Bool {
@@ -6248,7 +6248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.importMessage) -> Bool {
@@ -6298,7 +6298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.initMessage) -> Bool {
@@ -6348,7 +6348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inoutMessage) -> Bool {
@@ -6398,7 +6398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.internalMessage) -> Bool {
@@ -6448,7 +6448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.letMessage) -> Bool {
@@ -6498,7 +6498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.operatorMessage) -> Bool {
@@ -6548,7 +6548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.privateMessage) -> Bool {
@@ -6598,7 +6598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protocolMessage) -> Bool {
@@ -6648,7 +6648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.publicMessage) -> Bool {
@@ -6698,7 +6698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.staticMessage) -> Bool {
@@ -6748,7 +6748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.structMessage) -> Bool {
@@ -6798,7 +6798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.subscriptMessage) -> Bool {
@@ -6848,7 +6848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typealiasMessage) -> Bool {
@@ -6898,7 +6898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.varMessage) -> Bool {
@@ -6948,7 +6948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.breakMessage) -> Bool {
@@ -6998,7 +6998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.caseMessage) -> Bool {
@@ -7048,7 +7048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.continueMessage) -> Bool {
@@ -7098,7 +7098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.defaultMessage) -> Bool {
@@ -7148,7 +7148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.deferMessage) -> Bool {
@@ -7198,7 +7198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.doMessage) -> Bool {
@@ -7248,7 +7248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.elseMessage) -> Bool {
@@ -7298,7 +7298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.fallthroughMessage) -> Bool {
@@ -7348,7 +7348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.forMessage) -> Bool {
@@ -7398,7 +7398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.guardMessage) -> Bool {
@@ -7448,7 +7448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ifMessage) -> Bool {
@@ -7498,7 +7498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inMessage) -> Bool {
@@ -7548,7 +7548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.repeatMessage) -> Bool {
@@ -7598,7 +7598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.returnMessage) -> Bool {
@@ -7648,7 +7648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.switchMessage) -> Bool {
@@ -7698,7 +7698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whereMessage) -> Bool {
@@ -7748,7 +7748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.whileMessage) -> Bool {
@@ -7798,7 +7798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asMessage) -> Bool {
@@ -7848,7 +7848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.catchMessage) -> Bool {
@@ -7898,7 +7898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamicTypeMessage) -> Bool {
@@ -7948,7 +7948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.falseMessage) -> Bool {
@@ -7998,7 +7998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isMessage) -> Bool {
@@ -8048,7 +8048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nilMessage) -> Bool {
@@ -8098,7 +8098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.rethrowsMessage) -> Bool {
@@ -8148,7 +8148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superMessage) -> Bool {
@@ -8198,7 +8198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.selfMessage) -> Bool {
@@ -8248,7 +8248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwMessage) -> Bool {
@@ -8298,7 +8298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.throwsMessage) -> Bool {
@@ -8348,7 +8348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.trueMessage) -> Bool {
@@ -8398,7 +8398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.tryMessage) -> Bool {
@@ -8448,7 +8448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__COLUMN__Message) -> Bool {
@@ -8498,7 +8498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FILE__Message) -> Bool {
@@ -8548,7 +8548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__FUNCTION__Message) -> Bool {
@@ -8598,7 +8598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__LINE__Message) -> Bool {
@@ -8648,7 +8648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._Message) -> Bool {
@@ -8698,7 +8698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.__Message) -> Bool {
@@ -8748,7 +8748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.associativity) -> Bool {
@@ -8798,7 +8798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.convenience) -> Bool {
@@ -8848,7 +8848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic) -> Bool {
@@ -8898,7 +8898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.didSet) -> Bool {
@@ -8948,7 +8948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.final) -> Bool {
@@ -8998,7 +8998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.get) -> Bool {
@@ -9048,7 +9048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.infix) -> Bool {
@@ -9098,7 +9098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.indirect) -> Bool {
@@ -9148,7 +9148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.lazy) -> Bool {
@@ -9198,7 +9198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.left) -> Bool {
@@ -9248,7 +9248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutating) -> Bool {
@@ -9298,7 +9298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.none) -> Bool {
@@ -9348,7 +9348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nonmutating) -> Bool {
@@ -9398,7 +9398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.optional) -> Bool {
@@ -9448,7 +9448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.override) -> Bool {
@@ -9498,7 +9498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.postfix) -> Bool {
@@ -9548,7 +9548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.precedence) -> Bool {
@@ -9598,7 +9598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.prefix) -> Bool {
@@ -9648,7 +9648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.required) -> Bool {
@@ -9698,7 +9698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.right) -> Bool {
@@ -9748,7 +9748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.set) -> Bool {
@@ -9798,7 +9798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TypeMessage) -> Bool {
@@ -9848,7 +9848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unowned) -> Bool {
@@ -9898,7 +9898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.weak) -> Bool {
@@ -9948,7 +9948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.willSet) -> Bool {
@@ -9998,7 +9998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.id) -> Bool {
@@ -10048,7 +10048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames._cmd) -> Bool {
@@ -10098,7 +10098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.out) -> Bool {
@@ -10148,7 +10148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bycopy) -> Bool {
@@ -10198,7 +10198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.byref) -> Bool {
@@ -10248,7 +10248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.oneway) -> Bool {
@@ -10298,7 +10298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and) -> Bool {
@@ -10348,7 +10348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.and_eq) -> Bool {
@@ -10398,7 +10398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignas) -> Bool {
@@ -10448,7 +10448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.alignof) -> Bool {
@@ -10498,7 +10498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.asm) -> Bool {
@@ -10548,7 +10548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.auto) -> Bool {
@@ -10598,7 +10598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitand) -> Bool {
@@ -10648,7 +10648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bitor) -> Bool {
@@ -10698,7 +10698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.bool) -> Bool {
@@ -10748,7 +10748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char) -> Bool {
@@ -10798,7 +10798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char16_t) -> Bool {
@@ -10848,7 +10848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.char32_t) -> Bool {
@@ -10898,7 +10898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.compl) -> Bool {
@@ -10948,7 +10948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const) -> Bool {
@@ -10998,7 +10998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.constexpr) -> Bool {
@@ -11048,7 +11048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.const_cast) -> Bool {
@@ -11098,7 +11098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.decltype) -> Bool {
@@ -11148,7 +11148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delete) -> Bool {
@@ -11198,7 +11198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dynamic_cast) -> Bool {
@@ -11248,7 +11248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.explicit) -> Bool {
@@ -11298,7 +11298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.export) -> Bool {
@@ -11348,7 +11348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extern) -> Bool {
@@ -11398,7 +11398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.friend) -> Bool {
@@ -11448,7 +11448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.goto) -> Bool {
@@ -11498,7 +11498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.inline) -> Bool {
@@ -11548,7 +11548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.long) -> Bool {
@@ -11598,7 +11598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutable) -> Bool {
@@ -11648,7 +11648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.namespace) -> Bool {
@@ -11698,7 +11698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.new) -> Bool {
@@ -11748,7 +11748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.noexcept) -> Bool {
@@ -11798,7 +11798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not) -> Bool {
@@ -11848,7 +11848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.not_eq) -> Bool {
@@ -11898,7 +11898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.nullptr) -> Bool {
@@ -11948,7 +11948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or) -> Bool {
@@ -11998,7 +11998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.or_eq) -> Bool {
@@ -12048,7 +12048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.protected) -> Bool {
@@ -12098,7 +12098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.register) -> Bool {
@@ -12148,7 +12148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.reinterpret_cast) -> Bool {
@@ -12198,7 +12198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.short) -> Bool {
@@ -12248,7 +12248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.signed) -> Bool {
@@ -12298,7 +12298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sizeof) -> Bool {
@@ -12348,7 +12348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_assert) -> Bool {
@@ -12398,7 +12398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.static_cast) -> Bool {
@@ -12448,7 +12448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.template) -> Bool {
@@ -12498,7 +12498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.this) -> Bool {
@@ -12548,7 +12548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.thread_local) -> Bool {
@@ -12598,7 +12598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typedef) -> Bool {
@@ -12648,7 +12648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typeid) -> Bool {
@@ -12698,7 +12698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.typename) -> Bool {
@@ -12748,7 +12748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.union) -> Bool {
@@ -12798,7 +12798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unsigned) -> Bool {
@@ -12848,7 +12848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.using) -> Bool {
@@ -12898,7 +12898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.virtual) -> Bool {
@@ -12948,7 +12948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.void) -> Bool {
@@ -12998,7 +12998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.volatile) -> Bool {
@@ -13048,7 +13048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.wchar_t) -> Bool {
@@ -13098,7 +13098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor) -> Bool {
@@ -13148,7 +13148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.xor_eq) -> Bool {
@@ -13198,7 +13198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.restrict) -> Bool {
@@ -13248,7 +13248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Category) -> Bool {
@@ -13298,7 +13298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Ivar) -> Bool {
@@ -13348,7 +13348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Method) -> Bool {
@@ -13398,7 +13398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.finalize) -> Bool {
@@ -13448,7 +13448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
@@ -13498,7 +13498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.dealloc) -> Bool {
@@ -13548,7 +13548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.superclass) -> Bool {
@@ -13598,7 +13598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retain) -> Bool {
@@ -13648,7 +13648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.release) -> Bool {
@@ -13698,7 +13698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.autorelease) -> Bool {
@@ -13748,7 +13748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.retainCount) -> Bool {
@@ -13798,7 +13798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.zone) -> Bool {
@@ -13848,7 +13848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isProxy) -> Bool {
@@ -13898,7 +13898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.copy) -> Bool {
@@ -13948,7 +13948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.mutableCopy) -> Bool {
@@ -13998,7 +13998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.classForCoder) -> Bool {
@@ -14048,7 +14048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
@@ -14098,7 +14098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.data) -> Bool {
@@ -14148,7 +14148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.delimitedData) -> Bool {
@@ -14198,7 +14198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.descriptor) -> Bool {
@@ -14248,7 +14248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionRegistry) -> Bool {
@@ -14298,7 +14298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.extensionsCurrentlySet) -> Bool {
@@ -14348,7 +14348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitialized) -> Bool {
@@ -14398,7 +14398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.serializedSize) -> Bool {
@@ -14448,7 +14448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.sortedExtensionsInUse) -> Bool {
@@ -14498,7 +14498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.unknownFieldsMessage) -> Bool {
@@ -14548,7 +14548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fixed) -> Bool {
@@ -14598,7 +14598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Fract) -> Bool {
@@ -14648,7 +14648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Size) -> Bool {
@@ -14698,7 +14698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LogicalAddress) -> Bool {
@@ -14748,7 +14748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PhysicalAddress) -> Bool {
@@ -14798,7 +14798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteCount) -> Bool {
@@ -14848,7 +14848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ByteOffset) -> Bool {
@@ -14898,7 +14898,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Duration) -> Bool {
@@ -14948,7 +14948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.AbsoluteTime) -> Bool {
@@ -14998,7 +14998,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OptionBits) -> Bool {
@@ -15048,7 +15048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ItemCount) -> Bool {
@@ -15098,7 +15098,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.PBVersion) -> Bool {
@@ -15148,7 +15148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ScriptCode) -> Bool {
@@ -15198,7 +15198,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.LangCode) -> Bool {
@@ -15248,7 +15248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.RegionCode) -> Bool {
@@ -15298,7 +15298,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.OSType) -> Bool {
@@ -15348,7 +15348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ProcessSerialNumber) -> Bool {
@@ -15398,7 +15398,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Point) -> Bool {
@@ -15448,7 +15448,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Rect) -> Bool {
@@ -15498,7 +15498,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedPoint) -> Bool {
@@ -15548,7 +15548,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.FixedRect) -> Bool {
@@ -15598,7 +15598,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Style) -> Bool {
@@ -15648,7 +15648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleParameter) -> Bool {
@@ -15698,7 +15698,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.StyleField) -> Bool {
@@ -15748,7 +15748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeScale) -> Bool {
@@ -15798,7 +15798,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeBase) -> Bool {
@@ -15848,7 +15848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       if let v = _a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.TimeRecord) -> Bool {
@@ -15870,7 +15870,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames) -> Bool {
@@ -25721,7 +25721,7 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Proto2Message, SwiftProtobuf
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_EnumNames) -> Bool {
@@ -25981,7 +25981,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       if let v = _aBC {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
@@ -26230,7 +26230,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       if let v = _theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
@@ -26478,7 +26478,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       if let v = _theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
@@ -26511,7 +26511,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials) -> Bool {
@@ -26550,7 +26550,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Proto2Message,
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
@@ -26684,7 +26684,7 @@ struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_Lowers) -> Bool {
@@ -26787,7 +26787,7 @@ struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_Uppers) -> Bool {
@@ -26890,7 +26890,7 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_WordCase) -> Bool {
@@ -26929,7 +26929,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Proto2Me
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
@@ -26991,7 +26991,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Proto2Me
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
@@ -27053,7 +27053,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Proto2
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {

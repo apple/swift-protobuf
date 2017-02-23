@@ -126,7 +126,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
       if let v = _storage._messageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -190,7 +190,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Proto2Message, S
     if let v = _i {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
@@ -249,7 +249,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Proto2Message, S
     if let v = _str {
       try visitor.visitSingularStringField(value: v, fieldNumber: 25)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
@@ -345,7 +345,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
       if let v = _message {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
       }
-      unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
@@ -380,7 +380,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
     if !item.isEmpty {
       try visitor.visitRepeatedGroupField(value: item, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {

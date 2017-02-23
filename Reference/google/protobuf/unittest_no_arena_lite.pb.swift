@@ -89,7 +89,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Proto2Message, 
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {

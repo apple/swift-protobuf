@@ -89,7 +89,7 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProt
     if let v = _d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_NestedMessage) -> Bool {
@@ -136,7 +136,7 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProto
     if !repeatedImportNoArenaMessage.isEmpty {
       try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, fieldNumber: 2)
     }
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ArenaMessage) -> Bool {

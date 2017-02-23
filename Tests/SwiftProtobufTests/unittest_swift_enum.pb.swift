@@ -280,7 +280,7 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Proto2Message, SwiftProtobu
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    unknownFields.traverse(visitor: &visitor)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_SwiftEnumTest) -> Bool {

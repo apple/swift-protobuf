@@ -46,7 +46,7 @@ internal struct HashVisitor: Visitor {
 
   init() {}
 
-  mutating func visitUnknown(bytes: Data) {
+  mutating func visitUnknown(bytes: Data) throws {
     if bytes.count > 0 { // Workaround for Linux Foundation bug
       mix(bytes.hashValue)
     }
