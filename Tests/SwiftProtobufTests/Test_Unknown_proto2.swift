@@ -133,48 +133,48 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         XCTAssertEqual(collector.collected, [Data(bytes: bytes)], line: line)
     }
 
-    func test_MessageNoStorageClass() {
+    func test_MessageNoStorageClass() throws {
         // Reusing message class from unittest_swift_extension.proto that were crafted
         // for forcing/avoiding _StorageClass usage.
         var msg1 = ProtobufUnittest_Extend_MsgNoStorage()
         assertUnknownFields(msg1, [])
 
-        msg1.unknownFields.append(protobufData: Data(bytes: [1, 2]))
-        assertUnknownFields(msg1, [1, 2])
+        try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
+        assertUnknownFields(msg1, [24, 1])
 
         var msg2 = msg1
-        assertUnknownFields(msg2, [1, 2])
-        assertUnknownFields(msg1, [1, 2])
+        assertUnknownFields(msg2, [24, 1])
+        assertUnknownFields(msg1, [24, 1])
 
-        msg2.unknownFields.append(protobufData: Data([3, 4]))
-        assertUnknownFields(msg2, [1, 2, 3, 4])
-        assertUnknownFields(msg1, [1, 2])
+        try msg2.merge(serializedData: Data([34, 1, 52]))   // Field 4, length delimted
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1])
 
-        msg1.unknownFields.append(protobufData: Data([5, 6]))
-        assertUnknownFields(msg2, [1, 2, 3, 4])
-        assertUnknownFields(msg1, [1, 2, 5, 6])
+        try msg1.merge(serializedData: Data([61, 7, 0, 0, 0]))  // Field 7, 32-bit value
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }
 
-    func test_MessageUsingStorageClass() {
+    func test_MessageUsingStorageClass() throws {
         // Reusing message class from unittest_swift_extension.proto that were crafted
         // for forcing/avoiding _StorageClass usage.
         var msg1 = ProtobufUnittest_Extend_MsgUsesStorage()
         assertUnknownFields(msg1, [])
 
-        msg1.unknownFields.append(protobufData: Data(bytes: [1, 2]))
-        assertUnknownFields(msg1, [1, 2])
+        try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
+        assertUnknownFields(msg1, [24, 1])
 
         var msg2 = msg1
-        assertUnknownFields(msg2, [1, 2])
-        assertUnknownFields(msg1, [1, 2])
+        assertUnknownFields(msg2, [24, 1])
+        assertUnknownFields(msg1, [24, 1])
 
-        msg2.unknownFields.append(protobufData: Data([3, 4]))
-        assertUnknownFields(msg2, [1, 2, 3, 4])
-        assertUnknownFields(msg1, [1, 2])
+        try msg2.merge(serializedData: Data([34, 1, 52]))   // Field 4, length delimted
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1])
 
-        msg1.unknownFields.append(protobufData: Data([5, 6]))
-        assertUnknownFields(msg2, [1, 2, 3, 4])
-        assertUnknownFields(msg1, [1, 2, 5, 6])
+        try msg1.merge(serializedData: Data([61, 7, 0, 0, 0]))  // Field 7, 32-bit value
+        assertUnknownFields(msg2, [24, 1, 34, 1, 52])
+        assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }
 }
 
