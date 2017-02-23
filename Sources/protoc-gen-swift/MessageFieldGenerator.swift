@@ -180,11 +180,11 @@ extension Google_Protobuf_FieldDescriptorProto {
             let valueField = m.field[1]
             let valueTraits = valueField.getTraitsType(context: context)
             if valueField.isMessage {
-                return "SwiftProtobuf.ProtobufMessageMap<" + keyTraits + "," + valueTraits + ">"
+                return "SwiftProtobuf._ProtobufMessageMap<" + keyTraits + "," + valueTraits + ">"
             } else if valueField.isEnum {
-                return "SwiftProtobuf.ProtobufEnumMap<" + keyTraits + "," + valueTraits + ">"
+                return "SwiftProtobuf._ProtobufEnumMap<" + keyTraits + "," + valueTraits + ">"
             } else {
-                return "SwiftProtobuf.ProtobufMap<" + keyTraits + "," + valueTraits + ">"
+                return "SwiftProtobuf._ProtobufMap<" + keyTraits + "," + valueTraits + ">"
             }
         }
         switch type {

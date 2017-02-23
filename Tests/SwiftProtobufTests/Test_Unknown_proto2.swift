@@ -208,18 +208,18 @@ struct UnknownCollector: Visitor {
     mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {}
 
     mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
-      fieldType: ProtobufMap<KeyType, ValueType>.Type,
-      value: ProtobufMap<KeyType, ValueType>.BaseType,
+      fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+      value: _ProtobufMap<KeyType, ValueType>.BaseType,
       fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
 
     mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
-      fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
-      value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+      fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+      value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
       fieldNumber: Int) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {}
 
     mutating func visitMapField<KeyType: MapKeyType, ValueType: Message>(
-      fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
-      value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+      fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+      value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
       fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
 
     mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {}

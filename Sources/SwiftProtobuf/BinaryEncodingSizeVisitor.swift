@@ -283,8 +283,8 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   }
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
-    fieldType: ProtobufMap<KeyType, ValueType>.Type,
-    value: ProtobufMap<KeyType, ValueType>.BaseType,
+    fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+    value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where KeyType.BaseType: Hashable {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
@@ -300,8 +300,8 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   }
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
-    fieldType: ProtobufEnumMap<KeyType, ValueType>.Type,
-    value: ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
@@ -317,8 +317,8 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
   }
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(
-    fieldType: ProtobufMessageMap<KeyType, ValueType>.Type,
-    value: ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
   ) throws where KeyType.BaseType: Hashable {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
