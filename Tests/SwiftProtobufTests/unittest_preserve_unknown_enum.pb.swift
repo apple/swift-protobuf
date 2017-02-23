@@ -191,6 +191,41 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
     6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
+  var e: Proto3PreserveUnknownEnumUnittest_MyEnum = Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+
+  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
+
+  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
+
+  ///   not packed
+  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+
+  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
+    get {
+      if case .oneofE1(let v)? = o {
+        return v
+      }
+      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+    }
+    set {
+      o = .oneofE1(newValue)
+    }
+  }
+
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
+
+  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
+    get {
+      if case .oneofE2(let v)? = o {
+        return v
+      }
+      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+    }
+    set {
+      o = .oneofE2(newValue)
+    }
+  }
+
 
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
@@ -233,41 +268,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
           try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
         }
       }
-    }
-  }
-
-  var e: Proto3PreserveUnknownEnumUnittest_MyEnum = Proto3PreserveUnknownEnumUnittest_MyEnum.foo
-
-  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
-
-  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
-
-  ///   not packed
-  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
-
-  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
-    get {
-      if case .oneofE1(let v)? = o {
-        return v
-      }
-      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
-    }
-    set {
-      o = .oneofE1(newValue)
-    }
-  }
-
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
-
-  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
-    get {
-      if case .oneofE2(let v)? = o {
-        return v
-      }
-      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
-    }
-    set {
-      o = .oneofE2(newValue)
     }
   }
 
@@ -332,6 +332,40 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto
     6: .unique(proto: "oneof_e_2", json: "oneofE2"),
   ]
 
+  var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+
+  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+
+  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+
+  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
+
+  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+    get {
+      if case .oneofE1(let v)? = o {
+        return v
+      }
+      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+    }
+    set {
+      o = .oneofE1(newValue)
+    }
+  }
+
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O? = nil
+
+  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
+    get {
+      if case .oneofE2(let v)? = o {
+        return v
+      }
+      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+    }
+    set {
+      o = .oneofE2(newValue)
+    }
+  }
+
 
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
@@ -374,40 +408,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto
           try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
         }
       }
-    }
-  }
-
-  var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
-
-  var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
-
-  var repeatedPackedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
-
-  var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
-
-  var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
-    get {
-      if case .oneofE1(let v)? = o {
-        return v
-      }
-      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
-    }
-    set {
-      o = .oneofE1(newValue)
-    }
-  }
-
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O? = nil
-
-  var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
-    get {
-      if case .oneofE2(let v)? = o {
-        return v
-      }
-      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
-    }
-    set {
-      o = .oneofE2(newValue)
     }
   }
 

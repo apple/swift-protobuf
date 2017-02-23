@@ -56,8 +56,6 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Proto2Message, 
     1: .same(proto: "c"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
@@ -69,6 +67,8 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Proto2Message, 
   mutating func clearC() {
     return _c = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

@@ -256,9 +256,9 @@ struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     1: .same(proto: "paths"),
   ]
 
-
   ///   The set of field mask paths.
   var paths: [String] = []
+
 
   init() {}
 

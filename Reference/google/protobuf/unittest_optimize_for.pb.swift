@@ -65,55 +65,15 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
     3: .unique(proto: "string_field", json: "stringField"),
   ]
 
-  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
-    typealias ExtendedMessage = ProtobufUnittest_TestOptimizedForSize
-    var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+  private class _StorageClass {
     var _i: Int32? = nil
     var _msg: ProtobufUnittest_ForeignMessage? = nil
     var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
 
     init() {}
 
-    var isInitialized: Bool {
-      if !extensionFieldValues.isInitialized {return false}
-      return true
-    }
-
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_i)
-      case 19: try decoder.decodeSingularMessageField(value: &_msg)
-      case 2, 3:
-        if _foo != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        _foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-      default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-          try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
-        }
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _i != other._i {return false}
-      if _msg != other._msg {return false}
-      if _foo != other._foo {return false}
-      if unknownFields != other.unknownFields {return false}
-      if extensionFieldValues != other.extensionFieldValues {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
-      clone.extensionFieldValues = extensionFieldValues
       clone._i = _i
       clone._msg = _msg
       clone._foo = _foo
@@ -123,10 +83,67 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
+
+  var i: Int32 {
+    get {return _storage._i ?? 0}
+    set {_uniqueStorage()._i = newValue}
+  }
+  var hasI: Bool {
+    return _storage._i != nil
+  }
+  mutating func clearI() {
+    return _storage._i = nil
+  }
+
+  var msg: ProtobufUnittest_ForeignMessage {
+    get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
+    set {_uniqueStorage()._msg = newValue}
+  }
+  var hasMsg: Bool {
+    return _storage._msg != nil
+  }
+  mutating func clearMsg() {
+    return _storage._msg = nil
+  }
+
+  var integerField: Int32 {
+    get {
+      if case .integerField(let v)? = _storage._foo {
+        return v
+      }
+      return 0
+    }
+    set {
+      _uniqueStorage()._foo = .integerField(newValue)
+    }
+  }
+
+  var stringField: String {
+    get {
+      if case .stringField(let v)? = _storage._foo {
+        return v
+      }
+      return ""
+    }
+    set {
+      _uniqueStorage()._foo = .stringField(newValue)
+    }
+  }
+
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {
+      _uniqueStorage()._foo = newValue
+    }
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Foo: Equatable {
     case integerField(Int32)
@@ -191,115 +208,85 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
     )
   }
 
-  var i: Int32 {
-    get {return _storage._i ?? 0}
-    set {_uniqueStorage()._i = newValue}
-  }
-  var hasI: Bool {
-    return _storage._i != nil
-  }
-  mutating func clearI() {
-    return _storage._i = nil
-  }
-
-  var msg: ProtobufUnittest_ForeignMessage {
-    get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
-    set {_uniqueStorage()._msg = newValue}
-  }
-  var hasMsg: Bool {
-    return _storage._msg != nil
-  }
-  mutating func clearMsg() {
-    return _storage._msg = nil
-  }
-
-  var integerField: Int32 {
-    get {
-      if case .integerField(let v)? = _storage._foo {
-        return v
-      }
-      return 0
-    }
-    set {
-      _uniqueStorage()._foo = .integerField(newValue)
-    }
-  }
-
-  var stringField: String {
-    get {
-      if case .stringField(let v)? = _storage._foo {
-        return v
-      }
-      return ""
-    }
-    set {
-      _uniqueStorage()._foo = .stringField(newValue)
-    }
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
-  }
-
   init() {}
 
   public var isInitialized: Bool {
-    return _storage.isInitialized
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_extensionFieldValues.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_storage._i)
+    case 19: try decoder.decodeSingularMessageField(value: &_storage._msg)
+    case 2, 3:
+      if _storage._foo != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      _storage._foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._i {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._i {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      try storage._foo?.traverse(visitor: &visitor, start: 2, end: 4)
-      if let v = storage._msg {
+      try _storage._foo?.traverse(visitor: &visitor, start: 2, end: 4)
+      if let v = _storage._msg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 1000, end: 536870912)
-      storage.unknownFields.traverse(visitor: &visitor)
+      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptimizedForSize) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._i != other_storage._i {return false}
+      if _storage._msg != other_storage._msg {return false}
+      if _storage._foo != other_storage._foo {return false}
+      if unknownFields != other.unknownFields {return false}
+      if _extensionFieldValues != other._extensionFieldValues {return false}
+      return true
+    }
   }
 
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
-    }
-    return _storage
-  }
+  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>, value: F.ValueType) {
-    return _uniqueStorage().setExtensionValue(ext: ext, value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) {
-    return _uniqueStorage().clearExtensionValue(ext: ext)
+    _extensionFieldValues[ext.fieldNumber] = nil
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> F.ValueType {
-    return _storage.getExtensionValue(ext: ext)
+    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
+      return fieldValue.value
+    }
+    return ext.defaultValue
   }
 
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> Bool {
-    return _storage.hasExtensionValue(ext: ext)
+    return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_TestOptimizedForSize._protobuf_fieldNames.fieldNames(for: number) ?? _storage.extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestOptimizedForSize._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
@@ -309,8 +296,6 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Messag
   static let _protobuf_fieldNames: FieldNameMap = [
     1: .same(proto: "x"),
   ]
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   private var _x: Int32? = nil
   var x: Int32 {
@@ -323,6 +308,8 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Messag
   mutating func clearX() {
     return _x = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -366,38 +353,12 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
 
     init() {}
 
-    var isInitialized: Bool {
-      if let v = _o, !v.isInitialized {return false}
-      return true
-    }
-
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_o)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _o != other._o {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._o = _o
       return clone
     }
@@ -405,9 +366,11 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var o: ProtobufUnittest_TestRequiredOptimizedForSize {
@@ -421,38 +384,47 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Messag
     return _storage._o = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   public var isInitialized: Bool {
-    return _storage.isInitialized
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._o, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularMessageField(value: &_storage._o)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._o {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._o {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._o != other_storage._o {return false}
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
 

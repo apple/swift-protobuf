@@ -1605,7 +1605,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Proto2Message, SwiftProtobu
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _string: Int32? = nil
     var _int: Int32? = nil
     var _double: Int32? = nil
@@ -1817,442 +1816,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Proto2Message, SwiftProtobu
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_string)
-      case 2: try decoder.decodeSingularInt32Field(value: &_int)
-      case 3: try decoder.decodeSingularInt32Field(value: &_double)
-      case 4: try decoder.decodeSingularInt32Field(value: &_float)
-      case 5: try decoder.decodeSingularInt32Field(value: &_uint)
-      case 6: try decoder.decodeSingularInt32Field(value: &_hashValue_p)
-      case 7: try decoder.decodeSingularInt32Field(value: &_description_p)
-      case 8: try decoder.decodeSingularInt32Field(value: &_debugDescription_p)
-      case 9: try decoder.decodeSingularInt32Field(value: &_swift)
-      case 10: try decoder.decodeSingularInt32Field(value: &_unrecognized)
-      case 11: try decoder.decodeSingularInt32Field(value: &_class_p)
-      case 12: try decoder.decodeSingularInt32Field(value: &_deinit_p)
-      case 13: try decoder.decodeSingularInt32Field(value: &_enum_p)
-      case 14: try decoder.decodeSingularInt32Field(value: &_extension_p)
-      case 15: try decoder.decodeSingularInt32Field(value: &_func_p)
-      case 16: try decoder.decodeSingularInt32Field(value: &_import_p)
-      case 17: try decoder.decodeSingularInt32Field(value: &_init_p)
-      case 18: try decoder.decodeSingularInt32Field(value: &_inout_p)
-      case 19: try decoder.decodeSingularInt32Field(value: &_internal_p)
-      case 20: try decoder.decodeSingularInt32Field(value: &_let_p)
-      case 21: try decoder.decodeSingularInt32Field(value: &_operator_p)
-      case 22: try decoder.decodeSingularInt32Field(value: &_private_p)
-      case 23: try decoder.decodeSingularInt32Field(value: &_protocol_p)
-      case 24: try decoder.decodeSingularInt32Field(value: &_public_p)
-      case 25: try decoder.decodeSingularInt32Field(value: &_static_p)
-      case 26: try decoder.decodeSingularInt32Field(value: &_struct_p)
-      case 27: try decoder.decodeSingularInt32Field(value: &_subscript_p)
-      case 28: try decoder.decodeSingularInt32Field(value: &_typealias_p)
-      case 29: try decoder.decodeSingularInt32Field(value: &_var_p)
-      case 30: try decoder.decodeSingularInt32Field(value: &_break_p)
-      case 31: try decoder.decodeSingularInt32Field(value: &_case_p)
-      case 32: try decoder.decodeSingularInt32Field(value: &_continue_p)
-      case 33: try decoder.decodeSingularInt32Field(value: &_default_p)
-      case 34: try decoder.decodeSingularInt32Field(value: &_defer_p)
-      case 35: try decoder.decodeSingularInt32Field(value: &_do_p)
-      case 36: try decoder.decodeSingularInt32Field(value: &_else_p)
-      case 37: try decoder.decodeSingularInt32Field(value: &_fallthrough_p)
-      case 38: try decoder.decodeSingularInt32Field(value: &_for_p)
-      case 39: try decoder.decodeSingularInt32Field(value: &_guard_p)
-      case 40: try decoder.decodeSingularInt32Field(value: &_if_p)
-      case 41: try decoder.decodeSingularInt32Field(value: &_in_p)
-      case 42: try decoder.decodeSingularInt32Field(value: &_repeat_p)
-      case 43: try decoder.decodeSingularInt32Field(value: &_return_p)
-      case 44: try decoder.decodeSingularInt32Field(value: &_switch_p)
-      case 45: try decoder.decodeSingularInt32Field(value: &_where_p)
-      case 46: try decoder.decodeSingularInt32Field(value: &_while_p)
-      case 47: try decoder.decodeSingularInt32Field(value: &_as_p)
-      case 48: try decoder.decodeSingularInt32Field(value: &_catch_p)
-      case 49: try decoder.decodeSingularInt32Field(value: &_dynamicType_p)
-      case 50: try decoder.decodeSingularInt32Field(value: &_false_p)
-      case 51: try decoder.decodeSingularInt32Field(value: &_is_p)
-      case 52: try decoder.decodeSingularInt32Field(value: &_nil_p)
-      case 53: try decoder.decodeSingularInt32Field(value: &_rethrows_p)
-      case 54: try decoder.decodeSingularInt32Field(value: &_super_p)
-      case 55: try decoder.decodeSingularInt32Field(value: &_self_p)
-      case 57: try decoder.decodeSingularInt32Field(value: &_throw_p)
-      case 58: try decoder.decodeSingularInt32Field(value: &_throws_p)
-      case 59: try decoder.decodeSingularInt32Field(value: &_true_p)
-      case 60: try decoder.decodeSingularInt32Field(value: &_try_p)
-      case 61: try decoder.decodeSingularInt32Field(value: &__Column__)
-      case 62: try decoder.decodeSingularInt32Field(value: &__File__)
-      case 63: try decoder.decodeSingularInt32Field(value: &__Function__)
-      case 64: try decoder.decodeSingularInt32Field(value: &__Line__)
-      case 65: try decoder.decodeSingularInt32Field(value: &____)
-      case 66: try decoder.decodeSingularInt32Field(value: &_associativity)
-      case 67: try decoder.decodeSingularInt32Field(value: &_convenience)
-      case 68: try decoder.decodeSingularInt32Field(value: &_dynamic)
-      case 69: try decoder.decodeSingularInt32Field(value: &_didSet)
-      case 70: try decoder.decodeSingularInt32Field(value: &_final)
-      case 71: try decoder.decodeSingularInt32Field(value: &_get)
-      case 72: try decoder.decodeSingularInt32Field(value: &_infix)
-      case 73: try decoder.decodeSingularInt32Field(value: &_indirect)
-      case 74: try decoder.decodeSingularInt32Field(value: &_lazy)
-      case 75: try decoder.decodeSingularInt32Field(value: &_left)
-      case 76: try decoder.decodeSingularInt32Field(value: &_mutating)
-      case 77: try decoder.decodeSingularInt32Field(value: &_none)
-      case 78: try decoder.decodeSingularInt32Field(value: &_nonmutating)
-      case 79: try decoder.decodeSingularInt32Field(value: &_optional)
-      case 80: try decoder.decodeSingularInt32Field(value: &_override)
-      case 81: try decoder.decodeSingularInt32Field(value: &_postfix)
-      case 82: try decoder.decodeSingularInt32Field(value: &_precedence)
-      case 83: try decoder.decodeSingularInt32Field(value: &_prefix)
-      case 85: try decoder.decodeSingularInt32Field(value: &_required)
-      case 86: try decoder.decodeSingularInt32Field(value: &_right)
-      case 87: try decoder.decodeSingularInt32Field(value: &_set)
-      case 88: try decoder.decodeSingularInt32Field(value: &_type)
-      case 89: try decoder.decodeSingularInt32Field(value: &_unowned)
-      case 90: try decoder.decodeSingularInt32Field(value: &_weak)
-      case 91: try decoder.decodeSingularInt32Field(value: &_willSet)
-      case 92: try decoder.decodeSingularInt32Field(value: &_id)
-      case 93: try decoder.decodeSingularInt32Field(value: &_cmd)
-      case 96: try decoder.decodeSingularInt32Field(value: &_out)
-      case 98: try decoder.decodeSingularInt32Field(value: &_bycopy)
-      case 99: try decoder.decodeSingularInt32Field(value: &_byref)
-      case 100: try decoder.decodeSingularInt32Field(value: &_oneway)
-      case 102: try decoder.decodeSingularInt32Field(value: &_and)
-      case 103: try decoder.decodeSingularInt32Field(value: &_andEq)
-      case 104: try decoder.decodeSingularInt32Field(value: &_alignas)
-      case 105: try decoder.decodeSingularInt32Field(value: &_alignof)
-      case 106: try decoder.decodeSingularInt32Field(value: &_asm)
-      case 107: try decoder.decodeSingularInt32Field(value: &_auto)
-      case 108: try decoder.decodeSingularInt32Field(value: &_bitand)
-      case 109: try decoder.decodeSingularInt32Field(value: &_bitor)
-      case 110: try decoder.decodeSingularInt32Field(value: &_bool)
-      case 114: try decoder.decodeSingularInt32Field(value: &_char)
-      case 115: try decoder.decodeSingularInt32Field(value: &_char16T)
-      case 116: try decoder.decodeSingularInt32Field(value: &_char32T)
-      case 118: try decoder.decodeSingularInt32Field(value: &_compl)
-      case 119: try decoder.decodeSingularInt32Field(value: &_const)
-      case 120: try decoder.decodeSingularInt32Field(value: &_constexpr)
-      case 121: try decoder.decodeSingularInt32Field(value: &_constCast)
-      case 123: try decoder.decodeSingularInt32Field(value: &_decltype)
-      case 125: try decoder.decodeSingularInt32Field(value: &_delete)
-      case 127: try decoder.decodeSingularInt32Field(value: &_dynamicCast)
-      case 130: try decoder.decodeSingularInt32Field(value: &_explicit)
-      case 131: try decoder.decodeSingularInt32Field(value: &_export)
-      case 132: try decoder.decodeSingularInt32Field(value: &_extern)
-      case 136: try decoder.decodeSingularInt32Field(value: &_friend)
-      case 137: try decoder.decodeSingularInt32Field(value: &_goto)
-      case 139: try decoder.decodeSingularInt32Field(value: &_inline)
-      case 141: try decoder.decodeSingularInt32Field(value: &_long)
-      case 142: try decoder.decodeSingularInt32Field(value: &_mutable)
-      case 143: try decoder.decodeSingularInt32Field(value: &_namespace)
-      case 144: try decoder.decodeSingularInt32Field(value: &_new)
-      case 145: try decoder.decodeSingularInt32Field(value: &_noexcept)
-      case 146: try decoder.decodeSingularInt32Field(value: &_not)
-      case 147: try decoder.decodeSingularInt32Field(value: &_notEq)
-      case 148: try decoder.decodeSingularInt32Field(value: &_nullptr)
-      case 150: try decoder.decodeSingularInt32Field(value: &_or)
-      case 151: try decoder.decodeSingularInt32Field(value: &_orEq)
-      case 153: try decoder.decodeSingularInt32Field(value: &_protected)
-      case 155: try decoder.decodeSingularInt32Field(value: &_register)
-      case 156: try decoder.decodeSingularInt32Field(value: &_reinterpretCast)
-      case 158: try decoder.decodeSingularInt32Field(value: &_short)
-      case 159: try decoder.decodeSingularInt32Field(value: &_signed)
-      case 160: try decoder.decodeSingularInt32Field(value: &_sizeof)
-      case 162: try decoder.decodeSingularInt32Field(value: &_staticAssert)
-      case 163: try decoder.decodeSingularInt32Field(value: &_staticCast)
-      case 166: try decoder.decodeSingularInt32Field(value: &_template)
-      case 167: try decoder.decodeSingularInt32Field(value: &_this)
-      case 168: try decoder.decodeSingularInt32Field(value: &_threadLocal)
-      case 172: try decoder.decodeSingularInt32Field(value: &_typedef)
-      case 173: try decoder.decodeSingularInt32Field(value: &_typeid)
-      case 174: try decoder.decodeSingularInt32Field(value: &_typename)
-      case 175: try decoder.decodeSingularInt32Field(value: &_union)
-      case 176: try decoder.decodeSingularInt32Field(value: &_unsigned)
-      case 177: try decoder.decodeSingularInt32Field(value: &_using)
-      case 178: try decoder.decodeSingularInt32Field(value: &_virtual)
-      case 179: try decoder.decodeSingularInt32Field(value: &_void)
-      case 180: try decoder.decodeSingularInt32Field(value: &_volatile)
-      case 181: try decoder.decodeSingularInt32Field(value: &_wcharT)
-      case 183: try decoder.decodeSingularInt32Field(value: &_xor)
-      case 184: try decoder.decodeSingularInt32Field(value: &_xorEq)
-      case 185: try decoder.decodeSingularInt32Field(value: &_restrict)
-      case 186: try decoder.decodeSingularInt32Field(value: &_category)
-      case 187: try decoder.decodeSingularInt32Field(value: &_ivar)
-      case 188: try decoder.decodeSingularInt32Field(value: &_method)
-      case 192: try decoder.decodeSingularInt32Field(value: &_finalize)
-      case 193: try decoder.decodeSingularInt32Field(value: &_hash)
-      case 194: try decoder.decodeSingularInt32Field(value: &_dealloc)
-      case 197: try decoder.decodeSingularInt32Field(value: &_superclass)
-      case 198: try decoder.decodeSingularInt32Field(value: &_retain)
-      case 199: try decoder.decodeSingularInt32Field(value: &_release)
-      case 200: try decoder.decodeSingularInt32Field(value: &_autorelease)
-      case 201: try decoder.decodeSingularInt32Field(value: &_retainCount)
-      case 202: try decoder.decodeSingularInt32Field(value: &_zone)
-      case 203: try decoder.decodeSingularInt32Field(value: &_isProxy)
-      case 204: try decoder.decodeSingularInt32Field(value: &_copy)
-      case 205: try decoder.decodeSingularInt32Field(value: &_mutableCopy)
-      case 206: try decoder.decodeSingularInt32Field(value: &_classForCoder)
-      case 207: try decoder.decodeSingularInt32Field(value: &_clear)
-      case 208: try decoder.decodeSingularInt32Field(value: &_data)
-      case 209: try decoder.decodeSingularInt32Field(value: &_delimitedData)
-      case 210: try decoder.decodeSingularInt32Field(value: &_descriptor)
-      case 211: try decoder.decodeSingularInt32Field(value: &_extensionRegistry)
-      case 212: try decoder.decodeSingularInt32Field(value: &_extensionsCurrentlySet)
-      case 213: try decoder.decodeSingularInt32Field(value: &_isInitialized_p)
-      case 214: try decoder.decodeSingularInt32Field(value: &_serializedSize)
-      case 215: try decoder.decodeSingularInt32Field(value: &_sortedExtensionsInUse)
-      case 216: try decoder.decodeSingularInt32Field(value: &_unknownFields_p)
-      case 217: try decoder.decodeSingularInt32Field(value: &_fixed)
-      case 218: try decoder.decodeSingularInt32Field(value: &_fract)
-      case 219: try decoder.decodeSingularInt32Field(value: &_size)
-      case 220: try decoder.decodeSingularInt32Field(value: &_logicalAddress)
-      case 221: try decoder.decodeSingularInt32Field(value: &_physicalAddress)
-      case 222: try decoder.decodeSingularInt32Field(value: &_byteCount)
-      case 223: try decoder.decodeSingularInt32Field(value: &_byteOffset)
-      case 224: try decoder.decodeSingularInt32Field(value: &_duration)
-      case 225: try decoder.decodeSingularInt32Field(value: &_absoluteTime)
-      case 226: try decoder.decodeSingularInt32Field(value: &_optionBits)
-      case 227: try decoder.decodeSingularInt32Field(value: &_itemCount)
-      case 228: try decoder.decodeSingularInt32Field(value: &_pbversion)
-      case 229: try decoder.decodeSingularInt32Field(value: &_scriptCode)
-      case 230: try decoder.decodeSingularInt32Field(value: &_langCode)
-      case 231: try decoder.decodeSingularInt32Field(value: &_regionCode)
-      case 232: try decoder.decodeSingularInt32Field(value: &_ostype)
-      case 233: try decoder.decodeSingularInt32Field(value: &_processSerialNumber)
-      case 234: try decoder.decodeSingularInt32Field(value: &_point)
-      case 235: try decoder.decodeSingularInt32Field(value: &_rect)
-      case 236: try decoder.decodeSingularInt32Field(value: &_fixedPoint)
-      case 237: try decoder.decodeSingularInt32Field(value: &_fixedRect)
-      case 238: try decoder.decodeSingularInt32Field(value: &_style)
-      case 239: try decoder.decodeSingularInt32Field(value: &_styleParameter)
-      case 240: try decoder.decodeSingularInt32Field(value: &_styleField)
-      case 241: try decoder.decodeSingularInt32Field(value: &_timeScale)
-      case 242: try decoder.decodeSingularInt32Field(value: &_timeBase)
-      case 243: try decoder.decodeSingularInt32Field(value: &_timeRecord)
-      case 244: try decoder.decodeSingularInt32Field(value: &_jsonShouldBeOverriden)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _string != other._string {return false}
-      if _int != other._int {return false}
-      if _double != other._double {return false}
-      if _float != other._float {return false}
-      if _uint != other._uint {return false}
-      if _hashValue_p != other._hashValue_p {return false}
-      if _description_p != other._description_p {return false}
-      if _debugDescription_p != other._debugDescription_p {return false}
-      if _swift != other._swift {return false}
-      if _unrecognized != other._unrecognized {return false}
-      if _class_p != other._class_p {return false}
-      if _deinit_p != other._deinit_p {return false}
-      if _enum_p != other._enum_p {return false}
-      if _extension_p != other._extension_p {return false}
-      if _func_p != other._func_p {return false}
-      if _import_p != other._import_p {return false}
-      if _init_p != other._init_p {return false}
-      if _inout_p != other._inout_p {return false}
-      if _internal_p != other._internal_p {return false}
-      if _let_p != other._let_p {return false}
-      if _operator_p != other._operator_p {return false}
-      if _private_p != other._private_p {return false}
-      if _protocol_p != other._protocol_p {return false}
-      if _public_p != other._public_p {return false}
-      if _static_p != other._static_p {return false}
-      if _struct_p != other._struct_p {return false}
-      if _subscript_p != other._subscript_p {return false}
-      if _typealias_p != other._typealias_p {return false}
-      if _var_p != other._var_p {return false}
-      if _break_p != other._break_p {return false}
-      if _case_p != other._case_p {return false}
-      if _continue_p != other._continue_p {return false}
-      if _default_p != other._default_p {return false}
-      if _defer_p != other._defer_p {return false}
-      if _do_p != other._do_p {return false}
-      if _else_p != other._else_p {return false}
-      if _fallthrough_p != other._fallthrough_p {return false}
-      if _for_p != other._for_p {return false}
-      if _guard_p != other._guard_p {return false}
-      if _if_p != other._if_p {return false}
-      if _in_p != other._in_p {return false}
-      if _repeat_p != other._repeat_p {return false}
-      if _return_p != other._return_p {return false}
-      if _switch_p != other._switch_p {return false}
-      if _where_p != other._where_p {return false}
-      if _while_p != other._while_p {return false}
-      if _as_p != other._as_p {return false}
-      if _catch_p != other._catch_p {return false}
-      if _dynamicType_p != other._dynamicType_p {return false}
-      if _false_p != other._false_p {return false}
-      if _is_p != other._is_p {return false}
-      if _nil_p != other._nil_p {return false}
-      if _rethrows_p != other._rethrows_p {return false}
-      if _super_p != other._super_p {return false}
-      if _self_p != other._self_p {return false}
-      if _throw_p != other._throw_p {return false}
-      if _throws_p != other._throws_p {return false}
-      if _true_p != other._true_p {return false}
-      if _try_p != other._try_p {return false}
-      if __Column__ != other.__Column__ {return false}
-      if __File__ != other.__File__ {return false}
-      if __Function__ != other.__Function__ {return false}
-      if __Line__ != other.__Line__ {return false}
-      if ____ != other.____ {return false}
-      if _associativity != other._associativity {return false}
-      if _convenience != other._convenience {return false}
-      if _dynamic != other._dynamic {return false}
-      if _didSet != other._didSet {return false}
-      if _final != other._final {return false}
-      if _get != other._get {return false}
-      if _infix != other._infix {return false}
-      if _indirect != other._indirect {return false}
-      if _lazy != other._lazy {return false}
-      if _left != other._left {return false}
-      if _mutating != other._mutating {return false}
-      if _none != other._none {return false}
-      if _nonmutating != other._nonmutating {return false}
-      if _optional != other._optional {return false}
-      if _override != other._override {return false}
-      if _postfix != other._postfix {return false}
-      if _precedence != other._precedence {return false}
-      if _prefix != other._prefix {return false}
-      if _required != other._required {return false}
-      if _right != other._right {return false}
-      if _set != other._set {return false}
-      if _type != other._type {return false}
-      if _unowned != other._unowned {return false}
-      if _weak != other._weak {return false}
-      if _willSet != other._willSet {return false}
-      if _id != other._id {return false}
-      if _cmd != other._cmd {return false}
-      if _out != other._out {return false}
-      if _bycopy != other._bycopy {return false}
-      if _byref != other._byref {return false}
-      if _oneway != other._oneway {return false}
-      if _and != other._and {return false}
-      if _andEq != other._andEq {return false}
-      if _alignas != other._alignas {return false}
-      if _alignof != other._alignof {return false}
-      if _asm != other._asm {return false}
-      if _auto != other._auto {return false}
-      if _bitand != other._bitand {return false}
-      if _bitor != other._bitor {return false}
-      if _bool != other._bool {return false}
-      if _char != other._char {return false}
-      if _char16T != other._char16T {return false}
-      if _char32T != other._char32T {return false}
-      if _compl != other._compl {return false}
-      if _const != other._const {return false}
-      if _constexpr != other._constexpr {return false}
-      if _constCast != other._constCast {return false}
-      if _decltype != other._decltype {return false}
-      if _delete != other._delete {return false}
-      if _dynamicCast != other._dynamicCast {return false}
-      if _explicit != other._explicit {return false}
-      if _export != other._export {return false}
-      if _extern != other._extern {return false}
-      if _friend != other._friend {return false}
-      if _goto != other._goto {return false}
-      if _inline != other._inline {return false}
-      if _long != other._long {return false}
-      if _mutable != other._mutable {return false}
-      if _namespace != other._namespace {return false}
-      if _new != other._new {return false}
-      if _noexcept != other._noexcept {return false}
-      if _not != other._not {return false}
-      if _notEq != other._notEq {return false}
-      if _nullptr != other._nullptr {return false}
-      if _or != other._or {return false}
-      if _orEq != other._orEq {return false}
-      if _protected != other._protected {return false}
-      if _register != other._register {return false}
-      if _reinterpretCast != other._reinterpretCast {return false}
-      if _short != other._short {return false}
-      if _signed != other._signed {return false}
-      if _sizeof != other._sizeof {return false}
-      if _staticAssert != other._staticAssert {return false}
-      if _staticCast != other._staticCast {return false}
-      if _template != other._template {return false}
-      if _this != other._this {return false}
-      if _threadLocal != other._threadLocal {return false}
-      if _typedef != other._typedef {return false}
-      if _typeid != other._typeid {return false}
-      if _typename != other._typename {return false}
-      if _union != other._union {return false}
-      if _unsigned != other._unsigned {return false}
-      if _using != other._using {return false}
-      if _virtual != other._virtual {return false}
-      if _void != other._void {return false}
-      if _volatile != other._volatile {return false}
-      if _wcharT != other._wcharT {return false}
-      if _xor != other._xor {return false}
-      if _xorEq != other._xorEq {return false}
-      if _restrict != other._restrict {return false}
-      if _category != other._category {return false}
-      if _ivar != other._ivar {return false}
-      if _method != other._method {return false}
-      if _finalize != other._finalize {return false}
-      if _hash != other._hash {return false}
-      if _dealloc != other._dealloc {return false}
-      if _superclass != other._superclass {return false}
-      if _retain != other._retain {return false}
-      if _release != other._release {return false}
-      if _autorelease != other._autorelease {return false}
-      if _retainCount != other._retainCount {return false}
-      if _zone != other._zone {return false}
-      if _isProxy != other._isProxy {return false}
-      if _copy != other._copy {return false}
-      if _mutableCopy != other._mutableCopy {return false}
-      if _classForCoder != other._classForCoder {return false}
-      if _clear != other._clear {return false}
-      if _data != other._data {return false}
-      if _delimitedData != other._delimitedData {return false}
-      if _descriptor != other._descriptor {return false}
-      if _extensionRegistry != other._extensionRegistry {return false}
-      if _extensionsCurrentlySet != other._extensionsCurrentlySet {return false}
-      if _isInitialized_p != other._isInitialized_p {return false}
-      if _serializedSize != other._serializedSize {return false}
-      if _sortedExtensionsInUse != other._sortedExtensionsInUse {return false}
-      if _unknownFields_p != other._unknownFields_p {return false}
-      if _fixed != other._fixed {return false}
-      if _fract != other._fract {return false}
-      if _size != other._size {return false}
-      if _logicalAddress != other._logicalAddress {return false}
-      if _physicalAddress != other._physicalAddress {return false}
-      if _byteCount != other._byteCount {return false}
-      if _byteOffset != other._byteOffset {return false}
-      if _duration != other._duration {return false}
-      if _absoluteTime != other._absoluteTime {return false}
-      if _optionBits != other._optionBits {return false}
-      if _itemCount != other._itemCount {return false}
-      if _pbversion != other._pbversion {return false}
-      if _scriptCode != other._scriptCode {return false}
-      if _langCode != other._langCode {return false}
-      if _regionCode != other._regionCode {return false}
-      if _ostype != other._ostype {return false}
-      if _processSerialNumber != other._processSerialNumber {return false}
-      if _point != other._point {return false}
-      if _rect != other._rect {return false}
-      if _fixedPoint != other._fixedPoint {return false}
-      if _fixedRect != other._fixedRect {return false}
-      if _style != other._style {return false}
-      if _styleParameter != other._styleParameter {return false}
-      if _styleField != other._styleField {return false}
-      if _timeScale != other._timeScale {return false}
-      if _timeBase != other._timeBase {return false}
-      if _timeRecord != other._timeRecord {return false}
-      if _jsonShouldBeOverriden != other._jsonShouldBeOverriden {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._string = _string
       clone._int = _int
       clone._double = _double
@@ -2467,9 +2032,11 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Proto2Message, SwiftProtobu
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var string: Int32 {
@@ -4760,655 +4327,1075 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Proto2Message, SwiftProtobu
     return _storage._jsonShouldBeOverriden = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_storage._string)
+    case 2: try decoder.decodeSingularInt32Field(value: &_storage._int)
+    case 3: try decoder.decodeSingularInt32Field(value: &_storage._double)
+    case 4: try decoder.decodeSingularInt32Field(value: &_storage._float)
+    case 5: try decoder.decodeSingularInt32Field(value: &_storage._uint)
+    case 6: try decoder.decodeSingularInt32Field(value: &_storage._hashValue_p)
+    case 7: try decoder.decodeSingularInt32Field(value: &_storage._description_p)
+    case 8: try decoder.decodeSingularInt32Field(value: &_storage._debugDescription_p)
+    case 9: try decoder.decodeSingularInt32Field(value: &_storage._swift)
+    case 10: try decoder.decodeSingularInt32Field(value: &_storage._unrecognized)
+    case 11: try decoder.decodeSingularInt32Field(value: &_storage._class_p)
+    case 12: try decoder.decodeSingularInt32Field(value: &_storage._deinit_p)
+    case 13: try decoder.decodeSingularInt32Field(value: &_storage._enum_p)
+    case 14: try decoder.decodeSingularInt32Field(value: &_storage._extension_p)
+    case 15: try decoder.decodeSingularInt32Field(value: &_storage._func_p)
+    case 16: try decoder.decodeSingularInt32Field(value: &_storage._import_p)
+    case 17: try decoder.decodeSingularInt32Field(value: &_storage._init_p)
+    case 18: try decoder.decodeSingularInt32Field(value: &_storage._inout_p)
+    case 19: try decoder.decodeSingularInt32Field(value: &_storage._internal_p)
+    case 20: try decoder.decodeSingularInt32Field(value: &_storage._let_p)
+    case 21: try decoder.decodeSingularInt32Field(value: &_storage._operator_p)
+    case 22: try decoder.decodeSingularInt32Field(value: &_storage._private_p)
+    case 23: try decoder.decodeSingularInt32Field(value: &_storage._protocol_p)
+    case 24: try decoder.decodeSingularInt32Field(value: &_storage._public_p)
+    case 25: try decoder.decodeSingularInt32Field(value: &_storage._static_p)
+    case 26: try decoder.decodeSingularInt32Field(value: &_storage._struct_p)
+    case 27: try decoder.decodeSingularInt32Field(value: &_storage._subscript_p)
+    case 28: try decoder.decodeSingularInt32Field(value: &_storage._typealias_p)
+    case 29: try decoder.decodeSingularInt32Field(value: &_storage._var_p)
+    case 30: try decoder.decodeSingularInt32Field(value: &_storage._break_p)
+    case 31: try decoder.decodeSingularInt32Field(value: &_storage._case_p)
+    case 32: try decoder.decodeSingularInt32Field(value: &_storage._continue_p)
+    case 33: try decoder.decodeSingularInt32Field(value: &_storage._default_p)
+    case 34: try decoder.decodeSingularInt32Field(value: &_storage._defer_p)
+    case 35: try decoder.decodeSingularInt32Field(value: &_storage._do_p)
+    case 36: try decoder.decodeSingularInt32Field(value: &_storage._else_p)
+    case 37: try decoder.decodeSingularInt32Field(value: &_storage._fallthrough_p)
+    case 38: try decoder.decodeSingularInt32Field(value: &_storage._for_p)
+    case 39: try decoder.decodeSingularInt32Field(value: &_storage._guard_p)
+    case 40: try decoder.decodeSingularInt32Field(value: &_storage._if_p)
+    case 41: try decoder.decodeSingularInt32Field(value: &_storage._in_p)
+    case 42: try decoder.decodeSingularInt32Field(value: &_storage._repeat_p)
+    case 43: try decoder.decodeSingularInt32Field(value: &_storage._return_p)
+    case 44: try decoder.decodeSingularInt32Field(value: &_storage._switch_p)
+    case 45: try decoder.decodeSingularInt32Field(value: &_storage._where_p)
+    case 46: try decoder.decodeSingularInt32Field(value: &_storage._while_p)
+    case 47: try decoder.decodeSingularInt32Field(value: &_storage._as_p)
+    case 48: try decoder.decodeSingularInt32Field(value: &_storage._catch_p)
+    case 49: try decoder.decodeSingularInt32Field(value: &_storage._dynamicType_p)
+    case 50: try decoder.decodeSingularInt32Field(value: &_storage._false_p)
+    case 51: try decoder.decodeSingularInt32Field(value: &_storage._is_p)
+    case 52: try decoder.decodeSingularInt32Field(value: &_storage._nil_p)
+    case 53: try decoder.decodeSingularInt32Field(value: &_storage._rethrows_p)
+    case 54: try decoder.decodeSingularInt32Field(value: &_storage._super_p)
+    case 55: try decoder.decodeSingularInt32Field(value: &_storage._self_p)
+    case 57: try decoder.decodeSingularInt32Field(value: &_storage._throw_p)
+    case 58: try decoder.decodeSingularInt32Field(value: &_storage._throws_p)
+    case 59: try decoder.decodeSingularInt32Field(value: &_storage._true_p)
+    case 60: try decoder.decodeSingularInt32Field(value: &_storage._try_p)
+    case 61: try decoder.decodeSingularInt32Field(value: &_storage.__Column__)
+    case 62: try decoder.decodeSingularInt32Field(value: &_storage.__File__)
+    case 63: try decoder.decodeSingularInt32Field(value: &_storage.__Function__)
+    case 64: try decoder.decodeSingularInt32Field(value: &_storage.__Line__)
+    case 65: try decoder.decodeSingularInt32Field(value: &_storage.____)
+    case 66: try decoder.decodeSingularInt32Field(value: &_storage._associativity)
+    case 67: try decoder.decodeSingularInt32Field(value: &_storage._convenience)
+    case 68: try decoder.decodeSingularInt32Field(value: &_storage._dynamic)
+    case 69: try decoder.decodeSingularInt32Field(value: &_storage._didSet)
+    case 70: try decoder.decodeSingularInt32Field(value: &_storage._final)
+    case 71: try decoder.decodeSingularInt32Field(value: &_storage._get)
+    case 72: try decoder.decodeSingularInt32Field(value: &_storage._infix)
+    case 73: try decoder.decodeSingularInt32Field(value: &_storage._indirect)
+    case 74: try decoder.decodeSingularInt32Field(value: &_storage._lazy)
+    case 75: try decoder.decodeSingularInt32Field(value: &_storage._left)
+    case 76: try decoder.decodeSingularInt32Field(value: &_storage._mutating)
+    case 77: try decoder.decodeSingularInt32Field(value: &_storage._none)
+    case 78: try decoder.decodeSingularInt32Field(value: &_storage._nonmutating)
+    case 79: try decoder.decodeSingularInt32Field(value: &_storage._optional)
+    case 80: try decoder.decodeSingularInt32Field(value: &_storage._override)
+    case 81: try decoder.decodeSingularInt32Field(value: &_storage._postfix)
+    case 82: try decoder.decodeSingularInt32Field(value: &_storage._precedence)
+    case 83: try decoder.decodeSingularInt32Field(value: &_storage._prefix)
+    case 85: try decoder.decodeSingularInt32Field(value: &_storage._required)
+    case 86: try decoder.decodeSingularInt32Field(value: &_storage._right)
+    case 87: try decoder.decodeSingularInt32Field(value: &_storage._set)
+    case 88: try decoder.decodeSingularInt32Field(value: &_storage._type)
+    case 89: try decoder.decodeSingularInt32Field(value: &_storage._unowned)
+    case 90: try decoder.decodeSingularInt32Field(value: &_storage._weak)
+    case 91: try decoder.decodeSingularInt32Field(value: &_storage._willSet)
+    case 92: try decoder.decodeSingularInt32Field(value: &_storage._id)
+    case 93: try decoder.decodeSingularInt32Field(value: &_storage._cmd)
+    case 96: try decoder.decodeSingularInt32Field(value: &_storage._out)
+    case 98: try decoder.decodeSingularInt32Field(value: &_storage._bycopy)
+    case 99: try decoder.decodeSingularInt32Field(value: &_storage._byref)
+    case 100: try decoder.decodeSingularInt32Field(value: &_storage._oneway)
+    case 102: try decoder.decodeSingularInt32Field(value: &_storage._and)
+    case 103: try decoder.decodeSingularInt32Field(value: &_storage._andEq)
+    case 104: try decoder.decodeSingularInt32Field(value: &_storage._alignas)
+    case 105: try decoder.decodeSingularInt32Field(value: &_storage._alignof)
+    case 106: try decoder.decodeSingularInt32Field(value: &_storage._asm)
+    case 107: try decoder.decodeSingularInt32Field(value: &_storage._auto)
+    case 108: try decoder.decodeSingularInt32Field(value: &_storage._bitand)
+    case 109: try decoder.decodeSingularInt32Field(value: &_storage._bitor)
+    case 110: try decoder.decodeSingularInt32Field(value: &_storage._bool)
+    case 114: try decoder.decodeSingularInt32Field(value: &_storage._char)
+    case 115: try decoder.decodeSingularInt32Field(value: &_storage._char16T)
+    case 116: try decoder.decodeSingularInt32Field(value: &_storage._char32T)
+    case 118: try decoder.decodeSingularInt32Field(value: &_storage._compl)
+    case 119: try decoder.decodeSingularInt32Field(value: &_storage._const)
+    case 120: try decoder.decodeSingularInt32Field(value: &_storage._constexpr)
+    case 121: try decoder.decodeSingularInt32Field(value: &_storage._constCast)
+    case 123: try decoder.decodeSingularInt32Field(value: &_storage._decltype)
+    case 125: try decoder.decodeSingularInt32Field(value: &_storage._delete)
+    case 127: try decoder.decodeSingularInt32Field(value: &_storage._dynamicCast)
+    case 130: try decoder.decodeSingularInt32Field(value: &_storage._explicit)
+    case 131: try decoder.decodeSingularInt32Field(value: &_storage._export)
+    case 132: try decoder.decodeSingularInt32Field(value: &_storage._extern)
+    case 136: try decoder.decodeSingularInt32Field(value: &_storage._friend)
+    case 137: try decoder.decodeSingularInt32Field(value: &_storage._goto)
+    case 139: try decoder.decodeSingularInt32Field(value: &_storage._inline)
+    case 141: try decoder.decodeSingularInt32Field(value: &_storage._long)
+    case 142: try decoder.decodeSingularInt32Field(value: &_storage._mutable)
+    case 143: try decoder.decodeSingularInt32Field(value: &_storage._namespace)
+    case 144: try decoder.decodeSingularInt32Field(value: &_storage._new)
+    case 145: try decoder.decodeSingularInt32Field(value: &_storage._noexcept)
+    case 146: try decoder.decodeSingularInt32Field(value: &_storage._not)
+    case 147: try decoder.decodeSingularInt32Field(value: &_storage._notEq)
+    case 148: try decoder.decodeSingularInt32Field(value: &_storage._nullptr)
+    case 150: try decoder.decodeSingularInt32Field(value: &_storage._or)
+    case 151: try decoder.decodeSingularInt32Field(value: &_storage._orEq)
+    case 153: try decoder.decodeSingularInt32Field(value: &_storage._protected)
+    case 155: try decoder.decodeSingularInt32Field(value: &_storage._register)
+    case 156: try decoder.decodeSingularInt32Field(value: &_storage._reinterpretCast)
+    case 158: try decoder.decodeSingularInt32Field(value: &_storage._short)
+    case 159: try decoder.decodeSingularInt32Field(value: &_storage._signed)
+    case 160: try decoder.decodeSingularInt32Field(value: &_storage._sizeof)
+    case 162: try decoder.decodeSingularInt32Field(value: &_storage._staticAssert)
+    case 163: try decoder.decodeSingularInt32Field(value: &_storage._staticCast)
+    case 166: try decoder.decodeSingularInt32Field(value: &_storage._template)
+    case 167: try decoder.decodeSingularInt32Field(value: &_storage._this)
+    case 168: try decoder.decodeSingularInt32Field(value: &_storage._threadLocal)
+    case 172: try decoder.decodeSingularInt32Field(value: &_storage._typedef)
+    case 173: try decoder.decodeSingularInt32Field(value: &_storage._typeid)
+    case 174: try decoder.decodeSingularInt32Field(value: &_storage._typename)
+    case 175: try decoder.decodeSingularInt32Field(value: &_storage._union)
+    case 176: try decoder.decodeSingularInt32Field(value: &_storage._unsigned)
+    case 177: try decoder.decodeSingularInt32Field(value: &_storage._using)
+    case 178: try decoder.decodeSingularInt32Field(value: &_storage._virtual)
+    case 179: try decoder.decodeSingularInt32Field(value: &_storage._void)
+    case 180: try decoder.decodeSingularInt32Field(value: &_storage._volatile)
+    case 181: try decoder.decodeSingularInt32Field(value: &_storage._wcharT)
+    case 183: try decoder.decodeSingularInt32Field(value: &_storage._xor)
+    case 184: try decoder.decodeSingularInt32Field(value: &_storage._xorEq)
+    case 185: try decoder.decodeSingularInt32Field(value: &_storage._restrict)
+    case 186: try decoder.decodeSingularInt32Field(value: &_storage._category)
+    case 187: try decoder.decodeSingularInt32Field(value: &_storage._ivar)
+    case 188: try decoder.decodeSingularInt32Field(value: &_storage._method)
+    case 192: try decoder.decodeSingularInt32Field(value: &_storage._finalize)
+    case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash)
+    case 194: try decoder.decodeSingularInt32Field(value: &_storage._dealloc)
+    case 197: try decoder.decodeSingularInt32Field(value: &_storage._superclass)
+    case 198: try decoder.decodeSingularInt32Field(value: &_storage._retain)
+    case 199: try decoder.decodeSingularInt32Field(value: &_storage._release)
+    case 200: try decoder.decodeSingularInt32Field(value: &_storage._autorelease)
+    case 201: try decoder.decodeSingularInt32Field(value: &_storage._retainCount)
+    case 202: try decoder.decodeSingularInt32Field(value: &_storage._zone)
+    case 203: try decoder.decodeSingularInt32Field(value: &_storage._isProxy)
+    case 204: try decoder.decodeSingularInt32Field(value: &_storage._copy)
+    case 205: try decoder.decodeSingularInt32Field(value: &_storage._mutableCopy)
+    case 206: try decoder.decodeSingularInt32Field(value: &_storage._classForCoder)
+    case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear)
+    case 208: try decoder.decodeSingularInt32Field(value: &_storage._data)
+    case 209: try decoder.decodeSingularInt32Field(value: &_storage._delimitedData)
+    case 210: try decoder.decodeSingularInt32Field(value: &_storage._descriptor)
+    case 211: try decoder.decodeSingularInt32Field(value: &_storage._extensionRegistry)
+    case 212: try decoder.decodeSingularInt32Field(value: &_storage._extensionsCurrentlySet)
+    case 213: try decoder.decodeSingularInt32Field(value: &_storage._isInitialized_p)
+    case 214: try decoder.decodeSingularInt32Field(value: &_storage._serializedSize)
+    case 215: try decoder.decodeSingularInt32Field(value: &_storage._sortedExtensionsInUse)
+    case 216: try decoder.decodeSingularInt32Field(value: &_storage._unknownFields_p)
+    case 217: try decoder.decodeSingularInt32Field(value: &_storage._fixed)
+    case 218: try decoder.decodeSingularInt32Field(value: &_storage._fract)
+    case 219: try decoder.decodeSingularInt32Field(value: &_storage._size)
+    case 220: try decoder.decodeSingularInt32Field(value: &_storage._logicalAddress)
+    case 221: try decoder.decodeSingularInt32Field(value: &_storage._physicalAddress)
+    case 222: try decoder.decodeSingularInt32Field(value: &_storage._byteCount)
+    case 223: try decoder.decodeSingularInt32Field(value: &_storage._byteOffset)
+    case 224: try decoder.decodeSingularInt32Field(value: &_storage._duration)
+    case 225: try decoder.decodeSingularInt32Field(value: &_storage._absoluteTime)
+    case 226: try decoder.decodeSingularInt32Field(value: &_storage._optionBits)
+    case 227: try decoder.decodeSingularInt32Field(value: &_storage._itemCount)
+    case 228: try decoder.decodeSingularInt32Field(value: &_storage._pbversion)
+    case 229: try decoder.decodeSingularInt32Field(value: &_storage._scriptCode)
+    case 230: try decoder.decodeSingularInt32Field(value: &_storage._langCode)
+    case 231: try decoder.decodeSingularInt32Field(value: &_storage._regionCode)
+    case 232: try decoder.decodeSingularInt32Field(value: &_storage._ostype)
+    case 233: try decoder.decodeSingularInt32Field(value: &_storage._processSerialNumber)
+    case 234: try decoder.decodeSingularInt32Field(value: &_storage._point)
+    case 235: try decoder.decodeSingularInt32Field(value: &_storage._rect)
+    case 236: try decoder.decodeSingularInt32Field(value: &_storage._fixedPoint)
+    case 237: try decoder.decodeSingularInt32Field(value: &_storage._fixedRect)
+    case 238: try decoder.decodeSingularInt32Field(value: &_storage._style)
+    case 239: try decoder.decodeSingularInt32Field(value: &_storage._styleParameter)
+    case 240: try decoder.decodeSingularInt32Field(value: &_storage._styleField)
+    case 241: try decoder.decodeSingularInt32Field(value: &_storage._timeScale)
+    case 242: try decoder.decodeSingularInt32Field(value: &_storage._timeBase)
+    case 243: try decoder.decodeSingularInt32Field(value: &_storage._timeRecord)
+    case 244: try decoder.decodeSingularInt32Field(value: &_storage._jsonShouldBeOverriden)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._string {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._string {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = storage._int {
+      if let v = _storage._int {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      if let v = storage._double {
+      if let v = _storage._double {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
-      if let v = storage._float {
+      if let v = _storage._float {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
       }
-      if let v = storage._uint {
+      if let v = _storage._uint {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 5)
       }
-      if let v = storage._hashValue_p {
+      if let v = _storage._hashValue_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
       }
-      if let v = storage._description_p {
+      if let v = _storage._description_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 7)
       }
-      if let v = storage._debugDescription_p {
+      if let v = _storage._debugDescription_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 8)
       }
-      if let v = storage._swift {
+      if let v = _storage._swift {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 9)
       }
-      if let v = storage._unrecognized {
+      if let v = _storage._unrecognized {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
       }
-      if let v = storage._class_p {
+      if let v = _storage._class_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
       }
-      if let v = storage._deinit_p {
+      if let v = _storage._deinit_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
       }
-      if let v = storage._enum_p {
+      if let v = _storage._enum_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
       }
-      if let v = storage._extension_p {
+      if let v = _storage._extension_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
-      if let v = storage._func_p {
+      if let v = _storage._func_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
       }
-      if let v = storage._import_p {
+      if let v = _storage._import_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 16)
       }
-      if let v = storage._init_p {
+      if let v = _storage._init_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
-      if let v = storage._inout_p {
+      if let v = _storage._inout_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
       }
-      if let v = storage._internal_p {
+      if let v = _storage._internal_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 19)
       }
-      if let v = storage._let_p {
+      if let v = _storage._let_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 20)
       }
-      if let v = storage._operator_p {
+      if let v = _storage._operator_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
       }
-      if let v = storage._private_p {
+      if let v = _storage._private_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
       }
-      if let v = storage._protocol_p {
+      if let v = _storage._protocol_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
       }
-      if let v = storage._public_p {
+      if let v = _storage._public_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
-      if let v = storage._static_p {
+      if let v = _storage._static_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 25)
       }
-      if let v = storage._struct_p {
+      if let v = _storage._struct_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
       }
-      if let v = storage._subscript_p {
+      if let v = _storage._subscript_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 27)
       }
-      if let v = storage._typealias_p {
+      if let v = _storage._typealias_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 28)
       }
-      if let v = storage._var_p {
+      if let v = _storage._var_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 29)
       }
-      if let v = storage._break_p {
+      if let v = _storage._break_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
       }
-      if let v = storage._case_p {
+      if let v = _storage._case_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
       }
-      if let v = storage._continue_p {
+      if let v = _storage._continue_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 32)
       }
-      if let v = storage._default_p {
+      if let v = _storage._default_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
       }
-      if let v = storage._defer_p {
+      if let v = _storage._defer_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 34)
       }
-      if let v = storage._do_p {
+      if let v = _storage._do_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 35)
       }
-      if let v = storage._else_p {
+      if let v = _storage._else_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 36)
       }
-      if let v = storage._fallthrough_p {
+      if let v = _storage._fallthrough_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 37)
       }
-      if let v = storage._for_p {
+      if let v = _storage._for_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 38)
       }
-      if let v = storage._guard_p {
+      if let v = _storage._guard_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 39)
       }
-      if let v = storage._if_p {
+      if let v = _storage._if_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 40)
       }
-      if let v = storage._in_p {
+      if let v = _storage._in_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
       }
-      if let v = storage._repeat_p {
+      if let v = _storage._repeat_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
       }
-      if let v = storage._return_p {
+      if let v = _storage._return_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
       }
-      if let v = storage._switch_p {
+      if let v = _storage._switch_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
       }
-      if let v = storage._where_p {
+      if let v = _storage._where_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 45)
       }
-      if let v = storage._while_p {
+      if let v = _storage._while_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 46)
       }
-      if let v = storage._as_p {
+      if let v = _storage._as_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
-      if let v = storage._catch_p {
+      if let v = _storage._catch_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 48)
       }
-      if let v = storage._dynamicType_p {
+      if let v = _storage._dynamicType_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 49)
       }
-      if let v = storage._false_p {
+      if let v = _storage._false_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 50)
       }
-      if let v = storage._is_p {
+      if let v = _storage._is_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
       }
-      if let v = storage._nil_p {
+      if let v = _storage._nil_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 52)
       }
-      if let v = storage._rethrows_p {
+      if let v = _storage._rethrows_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 53)
       }
-      if let v = storage._super_p {
+      if let v = _storage._super_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 54)
       }
-      if let v = storage._self_p {
+      if let v = _storage._self_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 55)
       }
-      if let v = storage._throw_p {
+      if let v = _storage._throw_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 57)
       }
-      if let v = storage._throws_p {
+      if let v = _storage._throws_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 58)
       }
-      if let v = storage._true_p {
+      if let v = _storage._true_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 59)
       }
-      if let v = storage._try_p {
+      if let v = _storage._try_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 60)
       }
-      if let v = storage.__Column__ {
+      if let v = _storage.__Column__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 61)
       }
-      if let v = storage.__File__ {
+      if let v = _storage.__File__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 62)
       }
-      if let v = storage.__Function__ {
+      if let v = _storage.__Function__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 63)
       }
-      if let v = storage.__Line__ {
+      if let v = _storage.__Line__ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 64)
       }
-      if let v = storage.____ {
+      if let v = _storage.____ {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 65)
       }
-      if let v = storage._associativity {
+      if let v = _storage._associativity {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 66)
       }
-      if let v = storage._convenience {
+      if let v = _storage._convenience {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 67)
       }
-      if let v = storage._dynamic {
+      if let v = _storage._dynamic {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 68)
       }
-      if let v = storage._didSet {
+      if let v = _storage._didSet {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 69)
       }
-      if let v = storage._final {
+      if let v = _storage._final {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 70)
       }
-      if let v = storage._get {
+      if let v = _storage._get {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 71)
       }
-      if let v = storage._infix {
+      if let v = _storage._infix {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 72)
       }
-      if let v = storage._indirect {
+      if let v = _storage._indirect {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 73)
       }
-      if let v = storage._lazy {
+      if let v = _storage._lazy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 74)
       }
-      if let v = storage._left {
+      if let v = _storage._left {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 75)
       }
-      if let v = storage._mutating {
+      if let v = _storage._mutating {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 76)
       }
-      if let v = storage._none {
+      if let v = _storage._none {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 77)
       }
-      if let v = storage._nonmutating {
+      if let v = _storage._nonmutating {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 78)
       }
-      if let v = storage._optional {
+      if let v = _storage._optional {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 79)
       }
-      if let v = storage._override {
+      if let v = _storage._override {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 80)
       }
-      if let v = storage._postfix {
+      if let v = _storage._postfix {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 81)
       }
-      if let v = storage._precedence {
+      if let v = _storage._precedence {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 82)
       }
-      if let v = storage._prefix {
+      if let v = _storage._prefix {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 83)
       }
-      if let v = storage._required {
+      if let v = _storage._required {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 85)
       }
-      if let v = storage._right {
+      if let v = _storage._right {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 86)
       }
-      if let v = storage._set {
+      if let v = _storage._set {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 87)
       }
-      if let v = storage._type {
+      if let v = _storage._type {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 88)
       }
-      if let v = storage._unowned {
+      if let v = _storage._unowned {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 89)
       }
-      if let v = storage._weak {
+      if let v = _storage._weak {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 90)
       }
-      if let v = storage._willSet {
+      if let v = _storage._willSet {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 91)
       }
-      if let v = storage._id {
+      if let v = _storage._id {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 92)
       }
-      if let v = storage._cmd {
+      if let v = _storage._cmd {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 93)
       }
-      if let v = storage._out {
+      if let v = _storage._out {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 96)
       }
-      if let v = storage._bycopy {
+      if let v = _storage._bycopy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 98)
       }
-      if let v = storage._byref {
+      if let v = _storage._byref {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 99)
       }
-      if let v = storage._oneway {
+      if let v = _storage._oneway {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 100)
       }
-      if let v = storage._and {
+      if let v = _storage._and {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 102)
       }
-      if let v = storage._andEq {
+      if let v = _storage._andEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 103)
       }
-      if let v = storage._alignas {
+      if let v = _storage._alignas {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 104)
       }
-      if let v = storage._alignof {
+      if let v = _storage._alignof {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 105)
       }
-      if let v = storage._asm {
+      if let v = _storage._asm {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 106)
       }
-      if let v = storage._auto {
+      if let v = _storage._auto {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 107)
       }
-      if let v = storage._bitand {
+      if let v = _storage._bitand {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 108)
       }
-      if let v = storage._bitor {
+      if let v = _storage._bitor {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 109)
       }
-      if let v = storage._bool {
+      if let v = _storage._bool {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 110)
       }
-      if let v = storage._char {
+      if let v = _storage._char {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 114)
       }
-      if let v = storage._char16T {
+      if let v = _storage._char16T {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 115)
       }
-      if let v = storage._char32T {
+      if let v = _storage._char32T {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
       }
-      if let v = storage._compl {
+      if let v = _storage._compl {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 118)
       }
-      if let v = storage._const {
+      if let v = _storage._const {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 119)
       }
-      if let v = storage._constexpr {
+      if let v = _storage._constexpr {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 120)
       }
-      if let v = storage._constCast {
+      if let v = _storage._constCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 121)
       }
-      if let v = storage._decltype {
+      if let v = _storage._decltype {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 123)
       }
-      if let v = storage._delete {
+      if let v = _storage._delete {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 125)
       }
-      if let v = storage._dynamicCast {
+      if let v = _storage._dynamicCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 127)
       }
-      if let v = storage._explicit {
+      if let v = _storage._explicit {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 130)
       }
-      if let v = storage._export {
+      if let v = _storage._export {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 131)
       }
-      if let v = storage._extern {
+      if let v = _storage._extern {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 132)
       }
-      if let v = storage._friend {
+      if let v = _storage._friend {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 136)
       }
-      if let v = storage._goto {
+      if let v = _storage._goto {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 137)
       }
-      if let v = storage._inline {
+      if let v = _storage._inline {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 139)
       }
-      if let v = storage._long {
+      if let v = _storage._long {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 141)
       }
-      if let v = storage._mutable {
+      if let v = _storage._mutable {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 142)
       }
-      if let v = storage._namespace {
+      if let v = _storage._namespace {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 143)
       }
-      if let v = storage._new {
+      if let v = _storage._new {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 144)
       }
-      if let v = storage._noexcept {
+      if let v = _storage._noexcept {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 145)
       }
-      if let v = storage._not {
+      if let v = _storage._not {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 146)
       }
-      if let v = storage._notEq {
+      if let v = _storage._notEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 147)
       }
-      if let v = storage._nullptr {
+      if let v = _storage._nullptr {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 148)
       }
-      if let v = storage._or {
+      if let v = _storage._or {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 150)
       }
-      if let v = storage._orEq {
+      if let v = _storage._orEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 151)
       }
-      if let v = storage._protected {
+      if let v = _storage._protected {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 153)
       }
-      if let v = storage._register {
+      if let v = _storage._register {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 155)
       }
-      if let v = storage._reinterpretCast {
+      if let v = _storage._reinterpretCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 156)
       }
-      if let v = storage._short {
+      if let v = _storage._short {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 158)
       }
-      if let v = storage._signed {
+      if let v = _storage._signed {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 159)
       }
-      if let v = storage._sizeof {
+      if let v = _storage._sizeof {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 160)
       }
-      if let v = storage._staticAssert {
+      if let v = _storage._staticAssert {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 162)
       }
-      if let v = storage._staticCast {
+      if let v = _storage._staticCast {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 163)
       }
-      if let v = storage._template {
+      if let v = _storage._template {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 166)
       }
-      if let v = storage._this {
+      if let v = _storage._this {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 167)
       }
-      if let v = storage._threadLocal {
+      if let v = _storage._threadLocal {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 168)
       }
-      if let v = storage._typedef {
+      if let v = _storage._typedef {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 172)
       }
-      if let v = storage._typeid {
+      if let v = _storage._typeid {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 173)
       }
-      if let v = storage._typename {
+      if let v = _storage._typename {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 174)
       }
-      if let v = storage._union {
+      if let v = _storage._union {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 175)
       }
-      if let v = storage._unsigned {
+      if let v = _storage._unsigned {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 176)
       }
-      if let v = storage._using {
+      if let v = _storage._using {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 177)
       }
-      if let v = storage._virtual {
+      if let v = _storage._virtual {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 178)
       }
-      if let v = storage._void {
+      if let v = _storage._void {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 179)
       }
-      if let v = storage._volatile {
+      if let v = _storage._volatile {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 180)
       }
-      if let v = storage._wcharT {
+      if let v = _storage._wcharT {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 181)
       }
-      if let v = storage._xor {
+      if let v = _storage._xor {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 183)
       }
-      if let v = storage._xorEq {
+      if let v = _storage._xorEq {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 184)
       }
-      if let v = storage._restrict {
+      if let v = _storage._restrict {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 185)
       }
-      if let v = storage._category {
+      if let v = _storage._category {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 186)
       }
-      if let v = storage._ivar {
+      if let v = _storage._ivar {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 187)
       }
-      if let v = storage._method {
+      if let v = _storage._method {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 188)
       }
-      if let v = storage._finalize {
+      if let v = _storage._finalize {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
       }
-      if let v = storage._hash {
+      if let v = _storage._hash {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
       }
-      if let v = storage._dealloc {
+      if let v = _storage._dealloc {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 194)
       }
-      if let v = storage._superclass {
+      if let v = _storage._superclass {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 197)
       }
-      if let v = storage._retain {
+      if let v = _storage._retain {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 198)
       }
-      if let v = storage._release {
+      if let v = _storage._release {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 199)
       }
-      if let v = storage._autorelease {
+      if let v = _storage._autorelease {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 200)
       }
-      if let v = storage._retainCount {
+      if let v = _storage._retainCount {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
       }
-      if let v = storage._zone {
+      if let v = _storage._zone {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 202)
       }
-      if let v = storage._isProxy {
+      if let v = _storage._isProxy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 203)
       }
-      if let v = storage._copy {
+      if let v = _storage._copy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 204)
       }
-      if let v = storage._mutableCopy {
+      if let v = _storage._mutableCopy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 205)
       }
-      if let v = storage._classForCoder {
+      if let v = _storage._classForCoder {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
       }
-      if let v = storage._clear {
+      if let v = _storage._clear {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
       }
-      if let v = storage._data {
+      if let v = _storage._data {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 208)
       }
-      if let v = storage._delimitedData {
+      if let v = _storage._delimitedData {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 209)
       }
-      if let v = storage._descriptor {
+      if let v = _storage._descriptor {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 210)
       }
-      if let v = storage._extensionRegistry {
+      if let v = _storage._extensionRegistry {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 211)
       }
-      if let v = storage._extensionsCurrentlySet {
+      if let v = _storage._extensionsCurrentlySet {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 212)
       }
-      if let v = storage._isInitialized_p {
+      if let v = _storage._isInitialized_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 213)
       }
-      if let v = storage._serializedSize {
+      if let v = _storage._serializedSize {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 214)
       }
-      if let v = storage._sortedExtensionsInUse {
+      if let v = _storage._sortedExtensionsInUse {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 215)
       }
-      if let v = storage._unknownFields_p {
+      if let v = _storage._unknownFields_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 216)
       }
-      if let v = storage._fixed {
+      if let v = _storage._fixed {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 217)
       }
-      if let v = storage._fract {
+      if let v = _storage._fract {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 218)
       }
-      if let v = storage._size {
+      if let v = _storage._size {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 219)
       }
-      if let v = storage._logicalAddress {
+      if let v = _storage._logicalAddress {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 220)
       }
-      if let v = storage._physicalAddress {
+      if let v = _storage._physicalAddress {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 221)
       }
-      if let v = storage._byteCount {
+      if let v = _storage._byteCount {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 222)
       }
-      if let v = storage._byteOffset {
+      if let v = _storage._byteOffset {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 223)
       }
-      if let v = storage._duration {
+      if let v = _storage._duration {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 224)
       }
-      if let v = storage._absoluteTime {
+      if let v = _storage._absoluteTime {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 225)
       }
-      if let v = storage._optionBits {
+      if let v = _storage._optionBits {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
       }
-      if let v = storage._itemCount {
+      if let v = _storage._itemCount {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 227)
       }
-      if let v = storage._pbversion {
+      if let v = _storage._pbversion {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 228)
       }
-      if let v = storage._scriptCode {
+      if let v = _storage._scriptCode {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 229)
       }
-      if let v = storage._langCode {
+      if let v = _storage._langCode {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 230)
       }
-      if let v = storage._regionCode {
+      if let v = _storage._regionCode {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 231)
       }
-      if let v = storage._ostype {
+      if let v = _storage._ostype {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 232)
       }
-      if let v = storage._processSerialNumber {
+      if let v = _storage._processSerialNumber {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 233)
       }
-      if let v = storage._point {
+      if let v = _storage._point {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 234)
       }
-      if let v = storage._rect {
+      if let v = _storage._rect {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 235)
       }
-      if let v = storage._fixedPoint {
+      if let v = _storage._fixedPoint {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 236)
       }
-      if let v = storage._fixedRect {
+      if let v = _storage._fixedRect {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 237)
       }
-      if let v = storage._style {
+      if let v = _storage._style {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 238)
       }
-      if let v = storage._styleParameter {
+      if let v = _storage._styleParameter {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 239)
       }
-      if let v = storage._styleField {
+      if let v = _storage._styleField {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 240)
       }
-      if let v = storage._timeScale {
+      if let v = _storage._timeScale {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 241)
       }
-      if let v = storage._timeBase {
+      if let v = _storage._timeBase {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 242)
       }
-      if let v = storage._timeRecord {
+      if let v = _storage._timeRecord {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 243)
       }
-      if let v = storage._jsonShouldBeOverriden {
+      if let v = _storage._jsonShouldBeOverriden {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._string != other_storage._string {return false}
+      if _storage._int != other_storage._int {return false}
+      if _storage._double != other_storage._double {return false}
+      if _storage._float != other_storage._float {return false}
+      if _storage._uint != other_storage._uint {return false}
+      if _storage._hashValue_p != other_storage._hashValue_p {return false}
+      if _storage._description_p != other_storage._description_p {return false}
+      if _storage._debugDescription_p != other_storage._debugDescription_p {return false}
+      if _storage._swift != other_storage._swift {return false}
+      if _storage._unrecognized != other_storage._unrecognized {return false}
+      if _storage._class_p != other_storage._class_p {return false}
+      if _storage._deinit_p != other_storage._deinit_p {return false}
+      if _storage._enum_p != other_storage._enum_p {return false}
+      if _storage._extension_p != other_storage._extension_p {return false}
+      if _storage._func_p != other_storage._func_p {return false}
+      if _storage._import_p != other_storage._import_p {return false}
+      if _storage._init_p != other_storage._init_p {return false}
+      if _storage._inout_p != other_storage._inout_p {return false}
+      if _storage._internal_p != other_storage._internal_p {return false}
+      if _storage._let_p != other_storage._let_p {return false}
+      if _storage._operator_p != other_storage._operator_p {return false}
+      if _storage._private_p != other_storage._private_p {return false}
+      if _storage._protocol_p != other_storage._protocol_p {return false}
+      if _storage._public_p != other_storage._public_p {return false}
+      if _storage._static_p != other_storage._static_p {return false}
+      if _storage._struct_p != other_storage._struct_p {return false}
+      if _storage._subscript_p != other_storage._subscript_p {return false}
+      if _storage._typealias_p != other_storage._typealias_p {return false}
+      if _storage._var_p != other_storage._var_p {return false}
+      if _storage._break_p != other_storage._break_p {return false}
+      if _storage._case_p != other_storage._case_p {return false}
+      if _storage._continue_p != other_storage._continue_p {return false}
+      if _storage._default_p != other_storage._default_p {return false}
+      if _storage._defer_p != other_storage._defer_p {return false}
+      if _storage._do_p != other_storage._do_p {return false}
+      if _storage._else_p != other_storage._else_p {return false}
+      if _storage._fallthrough_p != other_storage._fallthrough_p {return false}
+      if _storage._for_p != other_storage._for_p {return false}
+      if _storage._guard_p != other_storage._guard_p {return false}
+      if _storage._if_p != other_storage._if_p {return false}
+      if _storage._in_p != other_storage._in_p {return false}
+      if _storage._repeat_p != other_storage._repeat_p {return false}
+      if _storage._return_p != other_storage._return_p {return false}
+      if _storage._switch_p != other_storage._switch_p {return false}
+      if _storage._where_p != other_storage._where_p {return false}
+      if _storage._while_p != other_storage._while_p {return false}
+      if _storage._as_p != other_storage._as_p {return false}
+      if _storage._catch_p != other_storage._catch_p {return false}
+      if _storage._dynamicType_p != other_storage._dynamicType_p {return false}
+      if _storage._false_p != other_storage._false_p {return false}
+      if _storage._is_p != other_storage._is_p {return false}
+      if _storage._nil_p != other_storage._nil_p {return false}
+      if _storage._rethrows_p != other_storage._rethrows_p {return false}
+      if _storage._super_p != other_storage._super_p {return false}
+      if _storage._self_p != other_storage._self_p {return false}
+      if _storage._throw_p != other_storage._throw_p {return false}
+      if _storage._throws_p != other_storage._throws_p {return false}
+      if _storage._true_p != other_storage._true_p {return false}
+      if _storage._try_p != other_storage._try_p {return false}
+      if _storage.__Column__ != other_storage.__Column__ {return false}
+      if _storage.__File__ != other_storage.__File__ {return false}
+      if _storage.__Function__ != other_storage.__Function__ {return false}
+      if _storage.__Line__ != other_storage.__Line__ {return false}
+      if _storage.____ != other_storage.____ {return false}
+      if _storage._associativity != other_storage._associativity {return false}
+      if _storage._convenience != other_storage._convenience {return false}
+      if _storage._dynamic != other_storage._dynamic {return false}
+      if _storage._didSet != other_storage._didSet {return false}
+      if _storage._final != other_storage._final {return false}
+      if _storage._get != other_storage._get {return false}
+      if _storage._infix != other_storage._infix {return false}
+      if _storage._indirect != other_storage._indirect {return false}
+      if _storage._lazy != other_storage._lazy {return false}
+      if _storage._left != other_storage._left {return false}
+      if _storage._mutating != other_storage._mutating {return false}
+      if _storage._none != other_storage._none {return false}
+      if _storage._nonmutating != other_storage._nonmutating {return false}
+      if _storage._optional != other_storage._optional {return false}
+      if _storage._override != other_storage._override {return false}
+      if _storage._postfix != other_storage._postfix {return false}
+      if _storage._precedence != other_storage._precedence {return false}
+      if _storage._prefix != other_storage._prefix {return false}
+      if _storage._required != other_storage._required {return false}
+      if _storage._right != other_storage._right {return false}
+      if _storage._set != other_storage._set {return false}
+      if _storage._type != other_storage._type {return false}
+      if _storage._unowned != other_storage._unowned {return false}
+      if _storage._weak != other_storage._weak {return false}
+      if _storage._willSet != other_storage._willSet {return false}
+      if _storage._id != other_storage._id {return false}
+      if _storage._cmd != other_storage._cmd {return false}
+      if _storage._out != other_storage._out {return false}
+      if _storage._bycopy != other_storage._bycopy {return false}
+      if _storage._byref != other_storage._byref {return false}
+      if _storage._oneway != other_storage._oneway {return false}
+      if _storage._and != other_storage._and {return false}
+      if _storage._andEq != other_storage._andEq {return false}
+      if _storage._alignas != other_storage._alignas {return false}
+      if _storage._alignof != other_storage._alignof {return false}
+      if _storage._asm != other_storage._asm {return false}
+      if _storage._auto != other_storage._auto {return false}
+      if _storage._bitand != other_storage._bitand {return false}
+      if _storage._bitor != other_storage._bitor {return false}
+      if _storage._bool != other_storage._bool {return false}
+      if _storage._char != other_storage._char {return false}
+      if _storage._char16T != other_storage._char16T {return false}
+      if _storage._char32T != other_storage._char32T {return false}
+      if _storage._compl != other_storage._compl {return false}
+      if _storage._const != other_storage._const {return false}
+      if _storage._constexpr != other_storage._constexpr {return false}
+      if _storage._constCast != other_storage._constCast {return false}
+      if _storage._decltype != other_storage._decltype {return false}
+      if _storage._delete != other_storage._delete {return false}
+      if _storage._dynamicCast != other_storage._dynamicCast {return false}
+      if _storage._explicit != other_storage._explicit {return false}
+      if _storage._export != other_storage._export {return false}
+      if _storage._extern != other_storage._extern {return false}
+      if _storage._friend != other_storage._friend {return false}
+      if _storage._goto != other_storage._goto {return false}
+      if _storage._inline != other_storage._inline {return false}
+      if _storage._long != other_storage._long {return false}
+      if _storage._mutable != other_storage._mutable {return false}
+      if _storage._namespace != other_storage._namespace {return false}
+      if _storage._new != other_storage._new {return false}
+      if _storage._noexcept != other_storage._noexcept {return false}
+      if _storage._not != other_storage._not {return false}
+      if _storage._notEq != other_storage._notEq {return false}
+      if _storage._nullptr != other_storage._nullptr {return false}
+      if _storage._or != other_storage._or {return false}
+      if _storage._orEq != other_storage._orEq {return false}
+      if _storage._protected != other_storage._protected {return false}
+      if _storage._register != other_storage._register {return false}
+      if _storage._reinterpretCast != other_storage._reinterpretCast {return false}
+      if _storage._short != other_storage._short {return false}
+      if _storage._signed != other_storage._signed {return false}
+      if _storage._sizeof != other_storage._sizeof {return false}
+      if _storage._staticAssert != other_storage._staticAssert {return false}
+      if _storage._staticCast != other_storage._staticCast {return false}
+      if _storage._template != other_storage._template {return false}
+      if _storage._this != other_storage._this {return false}
+      if _storage._threadLocal != other_storage._threadLocal {return false}
+      if _storage._typedef != other_storage._typedef {return false}
+      if _storage._typeid != other_storage._typeid {return false}
+      if _storage._typename != other_storage._typename {return false}
+      if _storage._union != other_storage._union {return false}
+      if _storage._unsigned != other_storage._unsigned {return false}
+      if _storage._using != other_storage._using {return false}
+      if _storage._virtual != other_storage._virtual {return false}
+      if _storage._void != other_storage._void {return false}
+      if _storage._volatile != other_storage._volatile {return false}
+      if _storage._wcharT != other_storage._wcharT {return false}
+      if _storage._xor != other_storage._xor {return false}
+      if _storage._xorEq != other_storage._xorEq {return false}
+      if _storage._restrict != other_storage._restrict {return false}
+      if _storage._category != other_storage._category {return false}
+      if _storage._ivar != other_storage._ivar {return false}
+      if _storage._method != other_storage._method {return false}
+      if _storage._finalize != other_storage._finalize {return false}
+      if _storage._hash != other_storage._hash {return false}
+      if _storage._dealloc != other_storage._dealloc {return false}
+      if _storage._superclass != other_storage._superclass {return false}
+      if _storage._retain != other_storage._retain {return false}
+      if _storage._release != other_storage._release {return false}
+      if _storage._autorelease != other_storage._autorelease {return false}
+      if _storage._retainCount != other_storage._retainCount {return false}
+      if _storage._zone != other_storage._zone {return false}
+      if _storage._isProxy != other_storage._isProxy {return false}
+      if _storage._copy != other_storage._copy {return false}
+      if _storage._mutableCopy != other_storage._mutableCopy {return false}
+      if _storage._classForCoder != other_storage._classForCoder {return false}
+      if _storage._clear != other_storage._clear {return false}
+      if _storage._data != other_storage._data {return false}
+      if _storage._delimitedData != other_storage._delimitedData {return false}
+      if _storage._descriptor != other_storage._descriptor {return false}
+      if _storage._extensionRegistry != other_storage._extensionRegistry {return false}
+      if _storage._extensionsCurrentlySet != other_storage._extensionsCurrentlySet {return false}
+      if _storage._isInitialized_p != other_storage._isInitialized_p {return false}
+      if _storage._serializedSize != other_storage._serializedSize {return false}
+      if _storage._sortedExtensionsInUse != other_storage._sortedExtensionsInUse {return false}
+      if _storage._unknownFields_p != other_storage._unknownFields_p {return false}
+      if _storage._fixed != other_storage._fixed {return false}
+      if _storage._fract != other_storage._fract {return false}
+      if _storage._size != other_storage._size {return false}
+      if _storage._logicalAddress != other_storage._logicalAddress {return false}
+      if _storage._physicalAddress != other_storage._physicalAddress {return false}
+      if _storage._byteCount != other_storage._byteCount {return false}
+      if _storage._byteOffset != other_storage._byteOffset {return false}
+      if _storage._duration != other_storage._duration {return false}
+      if _storage._absoluteTime != other_storage._absoluteTime {return false}
+      if _storage._optionBits != other_storage._optionBits {return false}
+      if _storage._itemCount != other_storage._itemCount {return false}
+      if _storage._pbversion != other_storage._pbversion {return false}
+      if _storage._scriptCode != other_storage._scriptCode {return false}
+      if _storage._langCode != other_storage._langCode {return false}
+      if _storage._regionCode != other_storage._regionCode {return false}
+      if _storage._ostype != other_storage._ostype {return false}
+      if _storage._processSerialNumber != other_storage._processSerialNumber {return false}
+      if _storage._point != other_storage._point {return false}
+      if _storage._rect != other_storage._rect {return false}
+      if _storage._fixedPoint != other_storage._fixedPoint {return false}
+      if _storage._fixedRect != other_storage._fixedRect {return false}
+      if _storage._style != other_storage._style {return false}
+      if _storage._styleParameter != other_storage._styleParameter {return false}
+      if _storage._styleField != other_storage._styleField {return false}
+      if _storage._timeScale != other_storage._timeScale {return false}
+      if _storage._timeBase != other_storage._timeBase {return false}
+      if _storage._timeRecord != other_storage._timeRecord {return false}
+      if _storage._jsonShouldBeOverriden != other_storage._jsonShouldBeOverriden {return false}
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -5426,8 +5413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5439,6 +5424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5476,8 +5463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5489,6 +5474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5526,8 +5513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5539,6 +5524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5576,8 +5563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5589,6 +5574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5626,8 +5613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5639,6 +5624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5676,8 +5663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5689,6 +5674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5726,8 +5713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5739,6 +5724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5776,8 +5763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5789,6 +5774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5826,8 +5813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5839,6 +5824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5876,8 +5863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5889,6 +5874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5926,8 +5913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5939,6 +5924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -5976,8 +5963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -5989,6 +5974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6026,8 +6013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6039,6 +6024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6076,8 +6063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6089,6 +6074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6126,8 +6113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6139,6 +6124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6176,8 +6163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6189,6 +6174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6226,8 +6213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6239,6 +6224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6276,8 +6263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6289,6 +6274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6326,8 +6313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6339,6 +6324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6376,8 +6363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6389,6 +6374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6426,8 +6413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6439,6 +6424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6476,8 +6463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6489,6 +6474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6526,8 +6513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6539,6 +6524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6576,8 +6563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6589,6 +6574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6626,8 +6613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6639,6 +6624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6676,8 +6663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6689,6 +6674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6726,8 +6713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6739,6 +6724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6776,8 +6763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6789,6 +6774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6826,8 +6813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6839,6 +6824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6876,8 +6863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6889,6 +6874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6926,8 +6913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6939,6 +6924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -6976,8 +6963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -6989,6 +6974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7026,8 +7013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7039,6 +7024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7076,8 +7063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7089,6 +7074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7126,8 +7113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7139,6 +7124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7176,8 +7163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7189,6 +7174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7226,8 +7213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7239,6 +7224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7276,8 +7263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7289,6 +7274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7326,8 +7313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7339,6 +7324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7376,8 +7363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7389,6 +7374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7426,8 +7413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7439,6 +7424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7476,8 +7463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7489,6 +7474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7526,8 +7513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7539,6 +7524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7576,8 +7563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7589,6 +7574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7626,8 +7613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7639,6 +7624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7676,8 +7663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7689,6 +7674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7726,8 +7713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7739,6 +7724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7776,8 +7763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7789,6 +7774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7826,8 +7813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7839,6 +7824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7876,8 +7863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7889,6 +7874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7926,8 +7913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7939,6 +7924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -7976,8 +7963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -7989,6 +7974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8026,8 +8013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8039,6 +8024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8076,8 +8063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8089,6 +8074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8126,8 +8113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8139,6 +8124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8176,8 +8163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8189,6 +8174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8226,8 +8213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8239,6 +8224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8276,8 +8263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8289,6 +8274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8326,8 +8313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8339,6 +8324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8376,8 +8363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8389,6 +8374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8426,8 +8413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8439,6 +8424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8476,8 +8463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8489,6 +8474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8526,8 +8513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8539,6 +8524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8576,8 +8563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8589,6 +8574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8626,8 +8613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8639,6 +8624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8676,8 +8663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8689,6 +8674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8726,8 +8713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8739,6 +8724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8776,8 +8763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8789,6 +8774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8826,8 +8813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8839,6 +8824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8876,8 +8863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8889,6 +8874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8926,8 +8913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8939,6 +8924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -8976,8 +8963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -8989,6 +8974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9026,8 +9013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9039,6 +9024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9076,8 +9063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9089,6 +9074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9126,8 +9113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9139,6 +9124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9176,8 +9163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9189,6 +9174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9226,8 +9213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9239,6 +9224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9276,8 +9263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9289,6 +9274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9326,8 +9313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9339,6 +9324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9376,8 +9363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9389,6 +9374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9426,8 +9413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9439,6 +9424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9476,8 +9463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9489,6 +9474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9526,8 +9513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9539,6 +9524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9576,8 +9563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9589,6 +9574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9626,8 +9613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9639,6 +9624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9676,8 +9663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9689,6 +9674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9726,8 +9713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9739,6 +9724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9776,8 +9763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9789,6 +9774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9826,8 +9813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9839,6 +9824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9876,8 +9863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9889,6 +9874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9926,8 +9913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9939,6 +9924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -9976,8 +9963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -9989,6 +9974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10026,8 +10013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10039,6 +10024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10076,8 +10063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10089,6 +10074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10126,8 +10113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10139,6 +10124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10176,8 +10163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10189,6 +10174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10226,8 +10213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10239,6 +10224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10276,8 +10263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10289,6 +10274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10326,8 +10313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10339,6 +10324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10376,8 +10363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10389,6 +10374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10426,8 +10413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10439,6 +10424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10476,8 +10463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10489,6 +10474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10526,8 +10513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10539,6 +10524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10576,8 +10563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10589,6 +10574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10626,8 +10613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10639,6 +10624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10676,8 +10663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10689,6 +10674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10726,8 +10713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10739,6 +10724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10776,8 +10763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10789,6 +10774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10826,8 +10813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10839,6 +10824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10876,8 +10863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10889,6 +10874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10926,8 +10913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10939,6 +10924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -10976,8 +10963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -10989,6 +10974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11026,8 +11013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11039,6 +11024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11076,8 +11063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11089,6 +11074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11126,8 +11113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11139,6 +11124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11176,8 +11163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11189,6 +11174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11226,8 +11213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11239,6 +11224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11276,8 +11263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11289,6 +11274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11326,8 +11313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11339,6 +11324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11376,8 +11363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11389,6 +11374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11426,8 +11413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11439,6 +11424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11476,8 +11463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11489,6 +11474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11526,8 +11513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11539,6 +11524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11576,8 +11563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11589,6 +11574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11626,8 +11613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11639,6 +11624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11676,8 +11663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11689,6 +11674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11726,8 +11713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11739,6 +11724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11776,8 +11763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11789,6 +11774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11826,8 +11813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11839,6 +11824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11876,8 +11863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11889,6 +11874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11926,8 +11913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11939,6 +11924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -11976,8 +11963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -11989,6 +11974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12026,8 +12013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12039,6 +12024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12076,8 +12063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12089,6 +12074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12126,8 +12113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12139,6 +12124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12176,8 +12163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12189,6 +12174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12226,8 +12213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12239,6 +12224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12276,8 +12263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12289,6 +12274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12326,8 +12313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12339,6 +12324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12376,8 +12363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12389,6 +12374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12426,8 +12413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12439,6 +12424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12476,8 +12463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12489,6 +12474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12526,8 +12513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12539,6 +12524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12576,8 +12563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12589,6 +12574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12626,8 +12613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12639,6 +12624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12676,8 +12663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12689,6 +12674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12726,8 +12713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12739,6 +12724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12776,8 +12763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12789,6 +12774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12826,8 +12813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12839,6 +12824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12876,8 +12863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12889,6 +12874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12926,8 +12913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12939,6 +12924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -12976,8 +12963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -12989,6 +12974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13026,8 +13013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13039,6 +13024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13076,8 +13063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13089,6 +13074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13126,8 +13113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13139,6 +13124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13176,8 +13163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13189,6 +13174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13226,8 +13213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13239,6 +13224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13276,8 +13263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13289,6 +13274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13326,8 +13313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13339,6 +13324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13376,8 +13363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13389,6 +13374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13426,8 +13413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13439,6 +13424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13476,8 +13463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13489,6 +13474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13526,8 +13513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13539,6 +13524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13576,8 +13563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13589,6 +13574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13626,8 +13613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13639,6 +13624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13676,8 +13663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13689,6 +13674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13726,8 +13713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13739,6 +13724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13776,8 +13763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13789,6 +13774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13826,8 +13813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13839,6 +13824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13876,8 +13863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13889,6 +13874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13926,8 +13913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13939,6 +13924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -13976,8 +13963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -13989,6 +13974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14026,8 +14013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14039,6 +14024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14076,8 +14063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14089,6 +14074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14126,8 +14113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14139,6 +14124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14176,8 +14163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14189,6 +14174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14226,8 +14213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14239,6 +14224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14276,8 +14263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14289,6 +14274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14326,8 +14313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14339,6 +14324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14376,8 +14363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14389,6 +14374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14426,8 +14413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14439,6 +14424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14476,8 +14463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14489,6 +14474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14526,8 +14513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14539,6 +14524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14576,8 +14563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14589,6 +14574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14626,8 +14613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14639,6 +14624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14676,8 +14663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14689,6 +14674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14726,8 +14713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14739,6 +14724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14776,8 +14763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14789,6 +14774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14826,8 +14813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14839,6 +14824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14876,8 +14863,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14889,6 +14874,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14926,8 +14913,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14939,6 +14924,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -14976,8 +14963,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -14989,6 +14974,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15026,8 +15013,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15039,6 +15024,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15076,8 +15063,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15089,6 +15074,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15126,8 +15113,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15139,6 +15124,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15176,8 +15163,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15189,6 +15174,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15226,8 +15213,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15239,6 +15224,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15276,8 +15263,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15289,6 +15274,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15326,8 +15313,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15339,6 +15324,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15376,8 +15363,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15389,6 +15374,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15426,8 +15413,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15439,6 +15424,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15476,8 +15463,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15489,6 +15474,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15526,8 +15513,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15539,6 +15524,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15576,8 +15563,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15589,6 +15574,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15626,8 +15613,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15639,6 +15624,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15676,8 +15663,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15689,6 +15674,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15726,8 +15713,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15739,6 +15724,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15776,8 +15763,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15789,6 +15774,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -15826,8 +15813,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
       1: .same(proto: "a"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
@@ -15839,6 +15824,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Proto2Message, SwiftProto
     mutating func clearA() {
       return _a = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -25767,8 +25754,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       31: .unique(proto: "a_b_c", json: "aBC"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
@@ -25925,6 +25910,8 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       return _aBC = nil
     }
 
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
     init() {}
 
     mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -26032,8 +26019,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       24: .unique(proto: "the_URL", json: "theURL"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
@@ -26177,6 +26162,8 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
     mutating func clearTheURL() {
       return _theURL = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -26280,8 +26267,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
       24: .same(proto: "TheUrl"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
@@ -26425,6 +26410,8 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Proto2Message, Swi
     mutating func clearTheURL() {
       return _theURL = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 

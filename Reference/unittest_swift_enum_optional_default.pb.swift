@@ -51,36 +51,13 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
     ]
 
     private class _StorageClass {
-      var unknownFields = SwiftProtobuf.UnknownStorage()
       var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
       var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
 
       init() {}
 
-      func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-          try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-        }
-      }
-
-      func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularMessageField(value: &_message)
-        case 17: try decoder.decodeSingularEnumField(value: &_optionalEnum)
-        default: break
-        }
-      }
-
-      func isEqualTo(other: _StorageClass) -> Bool {
-        if _message != other._message {return false}
-        if _optionalEnum != other._optionalEnum {return false}
-        if unknownFields != other.unknownFields {return false}
-        return true
-      }
-
       func copy() -> _StorageClass {
         let clone = _StorageClass()
-        clone.unknownFields = unknownFields
         clone._message = _message
         clone._optionalEnum = _optionalEnum
         return clone
@@ -89,56 +66,11 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
     private var _storage = _StorageClass()
 
-    var unknownFields: SwiftProtobuf.UnknownStorage {
-      get {return _storage.unknownFields}
-      set {_uniqueStorage().unknownFields = newValue}
-    }
-
-    enum Enum: SwiftProtobuf.Enum {
-      typealias RawValue = Int
-      case foo // = 0
-
-      init() {
-        self = .foo
+    private mutating func _uniqueStorage() -> _StorageClass {
+      if !isKnownUniquelyReferenced(&_storage) {
+        _storage = _storage.copy()
       }
-
-      init?(rawValue: Int) {
-        switch rawValue {
-        case 0: self = .foo
-        default: return nil
-        }
-      }
-
-      init?(jsonName: String) {
-        switch jsonName {
-        case "FOO": self = .foo
-        default: return nil
-        }
-      }
-
-      init?(protoName: String) {
-        switch protoName {
-        case "FOO": self = .foo
-        default: return nil
-        }
-      }
-
-      var rawValue: Int {
-        get {
-          switch self {
-          case .foo: return 0
-          }
-        }
-      }
-
-      var _protobuf_jsonName: String? {
-        get {
-          switch self {
-          case .foo: return "FOO"
-          }
-        }
-      }
-
+      return _storage
     }
 
     ///   The circular reference here forces the generator to
@@ -164,47 +96,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
     mutating func clearOptionalEnum() {
       return _storage._optionalEnum = nil
     }
-
-    init() {}
-
-    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      try _uniqueStorage().decodeMessage(decoder: &decoder)
-    }
-
-    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-
-    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-        if let v = storage._message {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-        }
-        if let v = storage._optionalEnum {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-        }
-        storage.unknownFields.traverse(visitor: &visitor)
-      }
-    }
-
-    func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
-      return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-    }
-
-    private mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
-      }
-      return _storage
-    }
-  }
-
-  struct NestedMessage2: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage2"
-    static let protoPackageName: String = "protobuf_unittest.extend"
-    static let _protobuf_fieldNames: FieldNameMap = [
-      17: .unique(proto: "optional_enum", json: "optionalEnum"),
-    ]
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -255,6 +146,53 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
     }
 
+    init() {}
+
+    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+      }
+    }
+
+    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
+      case 17: try decoder.decodeSingularEnumField(value: &_storage._optionalEnum)
+      default: break
+      }
+    }
+
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._message {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        }
+        if let v = _storage._optionalEnum {
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+        }
+        unknownFields.traverse(visitor: &visitor)
+      }
+    }
+
+    func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
+      return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._message != other_storage._message {return false}
+        if _storage._optionalEnum != other_storage._optionalEnum {return false}
+        if unknownFields != other.unknownFields {return false}
+        return true
+      }
+    }
+  }
+
+  struct NestedMessage2: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = "NestedMessage2"
+    static let protoPackageName: String = "protobuf_unittest.extend"
+    static let _protobuf_fieldNames: FieldNameMap = [
+      17: .unique(proto: "optional_enum", json: "optionalEnum"),
+    ]
+
     private var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum {
       get {return _optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo}
@@ -265,6 +203,55 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
     }
     mutating func clearOptionalEnum() {
       return _optionalEnum = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    enum Enum: SwiftProtobuf.Enum {
+      typealias RawValue = Int
+      case foo // = 0
+
+      init() {
+        self = .foo
+      }
+
+      init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .foo
+        default: return nil
+        }
+      }
+
+      init?(jsonName: String) {
+        switch jsonName {
+        case "FOO": self = .foo
+        default: return nil
+        }
+      }
+
+      init?(protoName: String) {
+        switch protoName {
+        case "FOO": self = .foo
+        default: return nil
+        }
+      }
+
+      var rawValue: Int {
+        get {
+          switch self {
+          case .foo: return 0
+          }
+        }
+      }
+
+      var _protobuf_jsonName: String? {
+        get {
+          switch self {
+          case .foo: return "FOO"
+          }
+        }
+      }
+
     }
 
     init() {}

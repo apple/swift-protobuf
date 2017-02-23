@@ -371,18 +371,6 @@ struct MessageFieldGenerator {
 
     var traitsType: String {return descriptor.getTraitsType(context: context)}
 
-    func generateNotEqual(name: String, usesHeapStorage: Bool) -> String {
-        if isProto3 || isRepeated {
-            return "\(name) != other.\(name)"
-        } else {
-            var name = name
-            if !usesHeapStorage {
-                name = "_" + name
-            }
-            return "\(name) != other.\(name)"
-        }
-    }
-
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
         if comments != "" {
@@ -486,10 +474,14 @@ struct MessageFieldGenerator {
         p.print("}\n")
     }
 
-    func generateDecodeFieldCase(printer p: inout CodePrinter, prefix: String = "") {
-        var prefix = prefix
-        if prefix == "" && !isRepeated && !isMap && !isProto3 {
+    func generateDecodeFieldCase(printer p: inout CodePrinter, usesStorage: Bool) {
+        let prefix: String
+        if usesStorage {
+            prefix = "_storage._"
+        } else if !isRepeated && !isMap && !isProto3 {
             prefix = "_"
+        } else {
+            prefix = ""
         }
 
         let decoderMethod: String
@@ -522,10 +514,14 @@ struct MessageFieldGenerator {
         p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)\(separator)\(valueArg))\n")
     }
 
-    func generateTraverse(printer p: inout CodePrinter, prefix: String = "") {
-        var prefix = prefix
-        if prefix == "" && !isRepeated && !isMap && !isProto3 {
+    func generateTraverse(printer p: inout CodePrinter, usesStorage: Bool) {
+        let prefix: String
+        if usesStorage {
+            prefix = "_storage._"
+        } else if !isRepeated && !isMap && !isProto3 {
             prefix = "_"
+        } else {
+            prefix = ""
         }
 
         let visitMethod: String

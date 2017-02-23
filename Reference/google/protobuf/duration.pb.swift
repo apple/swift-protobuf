@@ -102,7 +102,6 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     2: .same(proto: "nanos"),
   ]
 
-
   ///   Signed seconds of the span of time. Must be from -315,576,000,000
   ///   to +315,576,000,000 inclusive.
   var seconds: Int64 = 0
@@ -114,6 +113,7 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
   ///   of the same sign as the `seconds` field. Must be from -999,999,999
   ///   to +999,999,999 inclusive.
   var nanos: Int32 = 0
+
 
   init() {}
 

@@ -125,7 +125,6 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     2: .same(proto: "value"),
   ]
 
-
   ///   A URL/resource name whose content describes the type of the
   ///   serialized protocol buffer message.
   ///  
@@ -151,6 +150,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
   ///   Must be a valid serialized protocol buffer of the above specified type.
   var value: Data = Data()
+
 
   init() {}
 

@@ -57,10 +57,10 @@ struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftProtobuf
     1: .unique(proto: "file_name", json: "fileName"),
   ]
 
-
   ///   The path-qualified name of the .proto file that contained the associated
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   var fileName: String = ""
+
 
   init() {}
 

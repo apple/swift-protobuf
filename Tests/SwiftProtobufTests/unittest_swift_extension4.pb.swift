@@ -51,8 +51,6 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
       1410: .same(proto: "c"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _c: Int64? = nil
     var c: Int64 {
       get {return _c ?? 0}
@@ -64,6 +62,8 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
     mutating func clearC() {
       return _c = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -137,8 +137,6 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
     1420: .same(proto: "c"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
@@ -150,6 +148,8 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
   mutating func clearC() {
     return _c = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

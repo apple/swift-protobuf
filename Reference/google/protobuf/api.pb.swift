@@ -73,36 +73,6 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_name)
-      case 2: try decoder.decodeRepeatedMessageField(value: &_methods)
-      case 3: try decoder.decodeRepeatedMessageField(value: &_options)
-      case 4: try decoder.decodeSingularStringField(value: &_version)
-      case 5: try decoder.decodeSingularMessageField(value: &_sourceContext)
-      case 6: try decoder.decodeRepeatedMessageField(value: &_mixins)
-      case 7: try decoder.decodeSingularEnumField(value: &_syntax)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _name != other._name {return false}
-      if _methods != other._methods {return false}
-      if _options != other._options {return false}
-      if _version != other._version {return false}
-      if _sourceContext != other._sourceContext {return false}
-      if _mixins != other._mixins {return false}
-      if _syntax != other._syntax {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
       clone._name = _name
@@ -118,6 +88,12 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
   private var _storage = _StorageClass()
 
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
+  }
 
   ///   The fully qualified name of this api, including package name
   ///   followed by the api's simple name.
@@ -188,51 +164,67 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     set {_uniqueStorage()._syntax = newValue}
   }
 
+
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._methods)
+    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._options)
+    case 4: try decoder.decodeSingularStringField(value: &_storage._version)
+    case 5: try decoder.decodeSingularMessageField(value: &_storage._sourceContext)
+    case 6: try decoder.decodeRepeatedMessageField(value: &_storage._mixins)
+    case 7: try decoder.decodeSingularEnumField(value: &_storage._syntax)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if !storage._name.isEmpty {
-        try visitor.visitSingularStringField(value: storage._name, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._name.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
       }
-      if !storage._methods.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._methods, fieldNumber: 2)
+      if !_storage._methods.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._methods, fieldNumber: 2)
       }
-      if !storage._options.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._options, fieldNumber: 3)
+      if !_storage._options.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._options, fieldNumber: 3)
       }
-      if !storage._version.isEmpty {
-        try visitor.visitSingularStringField(value: storage._version, fieldNumber: 4)
+      if !_storage._version.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._version, fieldNumber: 4)
       }
-      if let v = storage._sourceContext {
+      if let v = _storage._sourceContext {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
-      if !storage._mixins.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._mixins, fieldNumber: 6)
+      if !_storage._mixins.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._mixins, fieldNumber: 6)
       }
-      if storage._syntax != Google_Protobuf_Syntax.proto2 {
-        try visitor.visitSingularEnumField(value: storage._syntax, fieldNumber: 7)
+      if _storage._syntax != Google_Protobuf_Syntax.proto2 {
+        try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 7)
       }
     }
   }
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._name != other_storage._name {return false}
+      if _storage._methods != other_storage._methods {return false}
+      if _storage._options != other_storage._options {return false}
+      if _storage._version != other_storage._version {return false}
+      if _storage._sourceContext != other_storage._sourceContext {return false}
+      if _storage._mixins != other_storage._mixins {return false}
+      if _storage._syntax != other_storage._syntax {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -249,7 +241,6 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     6: .same(proto: "options"),
     7: .same(proto: "syntax"),
   ]
-
 
   ///   The simple name of this method.
   var name: String = ""
@@ -271,6 +262,7 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 
   ///   The source syntax of this method.
   var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
 
   init() {}
 
@@ -414,13 +406,13 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
     2: .same(proto: "root"),
   ]
 
-
   ///   The fully qualified name of the API which is included.
   var name: String = ""
 
   ///   If non-empty specifies a path under which inherited HTTP paths
   ///   are rooted.
   var root: String = ""
+
 
   init() {}
 
