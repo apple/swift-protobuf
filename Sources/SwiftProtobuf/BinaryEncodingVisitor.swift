@@ -101,7 +101,9 @@ internal struct BinaryEncodingVisitor: Visitor {
 
   mutating func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
-    let t = try value.serializedData()
+    // Can force partial to true here because the parent message would have
+    // already recursed for the isInitialized check if it was needed.
+    let t = try value.serializedData(partial: true)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     encoder.putBytesValue(value: t)
   }

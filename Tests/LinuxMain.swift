@@ -786,7 +786,8 @@ extension Test_Required {
             ("test_NestedInProto3_IsInitialized", {try run_test(test:($0 as! Test_Required).test_NestedInProto3_IsInitialized)}),
             ("test_map_isInitialized", {try run_test(test:($0 as! Test_Required).test_map_isInitialized)}),
             ("test_Extensions_isInitialized", {try run_test(test:($0 as! Test_Required).test_Extensions_isInitialized)}),
-            ("test_decodeRequired", {try run_test(test:($0 as! Test_Required).test_decodeRequired)})
+            ("test_decodeRequired", {try run_test(test:($0 as! Test_Required).test_decodeRequired)}),
+            ("test_encodeRequired", {try run_test(test:($0 as! Test_Required).test_encodeRequired)})
         ]
     }
 }
@@ -794,7 +795,8 @@ extension Test_Required {
 extension Test_SmallRequired {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("test_decodeRequired", {try run_test(test:($0 as! Test_SmallRequired).test_decodeRequired)})
+            ("test_decodeRequired", {try run_test(test:($0 as! Test_SmallRequired).test_decodeRequired)}),
+            ("test_encodeRequired", {try run_test(test:($0 as! Test_SmallRequired).test_encodeRequired)})
         ]
     }
 }
