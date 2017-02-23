@@ -534,7 +534,7 @@ public struct TextFormatDecoder: Decoder {
         try decodeRepeatedMessageField(value: &value)
     }
 
-    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: MapValueType>(mapType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: MapValueType>(mapType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType.BaseType?
         let terminator = try scanner.skipObjectStart()
@@ -561,7 +561,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: inout ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -581,7 +581,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: Enum>(mapType: ProtobufEnumMap<KeyType, ValueType>.Type, value: inout ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: Enum>(mapType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -608,7 +608,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: inout ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true
@@ -628,7 +628,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: Message & Hashable>(mapType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    private mutating func decodeMapEntry<KeyType: MapKeyType, ValueType: Message & Hashable>(mapType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         var keyField: KeyType.BaseType?
         var valueField: ValueType?
         let terminator = try scanner.skipObjectStart()
@@ -655,7 +655,7 @@ public struct TextFormatDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: inout ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
             var firstItem = true

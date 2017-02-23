@@ -3592,7 +3592,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Proto2Message, S
     case 536870006: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
     case 536870007: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
     case 536870008: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
-    case 536870010: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._stringStringMap)
+    case 536870010: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._stringStringMap)
     case 536870011, 536870012, 536870013, 536870014:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
@@ -3635,7 +3635,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Proto2Message, S
         try visitor.visitSingularGroupField(value: v, fieldNumber: 536870008)
       }
       if !_storage._stringStringMap.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._stringStringMap, fieldNumber: 536870010)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._stringStringMap, fieldNumber: 536870010)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 536870011, end: 536870015)
       unknownFields.traverse(visitor: &visitor)

@@ -14,7 +14,8 @@
 
 import Foundation
 
-public struct ProtobufMap<KeyType: MapKeyType, ValueType: FieldType>
+/// SwiftProtobuf Internal: Support for Encoding/Decoding.
+public struct _ProtobufMap<KeyType: MapKeyType, ValueType: FieldType>
     where KeyType.BaseType: Hashable
 {
     public typealias Key = KeyType.BaseType
@@ -22,7 +23,8 @@ public struct ProtobufMap<KeyType: MapKeyType, ValueType: FieldType>
     public typealias BaseType = Dictionary<Key, Value>
 }
 
-public struct ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message & Hashable>
+/// SwiftProtobuf Internal: Support for Encoding/Decoding.
+public struct _ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message & Hashable>
     where KeyType.BaseType: Hashable
 {
     public typealias Key = KeyType.BaseType
@@ -30,7 +32,8 @@ public struct ProtobufMessageMap<KeyType: MapKeyType, ValueType: Message & Hasha
     public typealias BaseType = Dictionary<Key, Value>
 }
 
-public struct ProtobufEnumMap<KeyType: MapKeyType, ValueType: Enum>
+/// SwiftProtobuf Internal: Support for Encoding/Decoding.
+public struct _ProtobufEnumMap<KeyType: MapKeyType, ValueType: Enum>
     where KeyType.BaseType: Hashable
 {
     public typealias Key = KeyType.BaseType

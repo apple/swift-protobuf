@@ -239,7 +239,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
 
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: ProtobufMap<KeyType, ValueType>.Type, value: ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
     try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "{")
@@ -255,7 +255,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: ProtobufEnumMap<KeyType, ValueType>.Type, value: ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
     try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "{")
@@ -275,7 +275,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: ProtobufMessageMap<KeyType, ValueType>.Type, value: ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
     try startField(for: fieldNumber)
     var arraySeparator = ""
     encoder.append(text: "{")
