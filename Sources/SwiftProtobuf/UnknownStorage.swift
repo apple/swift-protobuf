@@ -25,7 +25,7 @@ public struct UnknownStorage: Equatable {
 
   public init() {}
 
-  public mutating func append(protobufData: Data) {
+  internal mutating func append(protobufData: Data) {
     data.append(protobufData)
   }
 
