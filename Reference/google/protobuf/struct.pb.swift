@@ -122,7 +122,6 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
   ///   Unordered map of dynamically typed values.
   var fields: Dictionary<String,Google_Protobuf_Value> = [:]
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -274,7 +273,6 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
     }
   }
 
-
   enum OneOf_Kind: Equatable {
     case nullValue(Google_Protobuf_NullValue)
     case numberValue(Double)
@@ -396,7 +394,9 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._kind != other_storage._kind {return false}
+      if _storage !== other_storage {
+        if _storage._kind != other_storage._kind {return false}
+      }
       return true
     }
   }
@@ -414,7 +414,6 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   ///   Repeated field of dynamically typed values.
   var values: [Google_Protobuf_Value] = []
-
 
   init() {}
 

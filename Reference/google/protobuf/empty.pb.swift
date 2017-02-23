@@ -62,7 +62,6 @@ struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_fieldNames = FieldNameMap()
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

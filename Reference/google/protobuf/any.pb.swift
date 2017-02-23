@@ -151,7 +151,6 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
   ///   Must be a valid serialized protocol buffer of the above specified type.
   var value: Data = Data()
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

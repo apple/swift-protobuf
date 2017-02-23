@@ -760,7 +760,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
     }
   }
 
-
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3TestAllTypes.NestedMessage)
@@ -916,7 +915,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
-
 
     init() {}
 
@@ -1150,51 +1148,53 @@ struct Proto3TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
 
   func _protoc_generated_isEqualTo(other: Proto3TestAllTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._singleInt32 != other_storage._singleInt32 {return false}
-      if _storage._singleInt64 != other_storage._singleInt64 {return false}
-      if _storage._singleUint32 != other_storage._singleUint32 {return false}
-      if _storage._singleUint64 != other_storage._singleUint64 {return false}
-      if _storage._singleSint32 != other_storage._singleSint32 {return false}
-      if _storage._singleSint64 != other_storage._singleSint64 {return false}
-      if _storage._singleFixed32 != other_storage._singleFixed32 {return false}
-      if _storage._singleFixed64 != other_storage._singleFixed64 {return false}
-      if _storage._singleSfixed32 != other_storage._singleSfixed32 {return false}
-      if _storage._singleSfixed64 != other_storage._singleSfixed64 {return false}
-      if _storage._singleFloat != other_storage._singleFloat {return false}
-      if _storage._singleDouble != other_storage._singleDouble {return false}
-      if _storage._singleBool != other_storage._singleBool {return false}
-      if _storage._singleString != other_storage._singleString {return false}
-      if _storage._singleBytes != other_storage._singleBytes {return false}
-      if _storage._singleNestedMessage != other_storage._singleNestedMessage {return false}
-      if _storage._singleForeignMessage != other_storage._singleForeignMessage {return false}
-      if _storage._singleImportMessage != other_storage._singleImportMessage {return false}
-      if _storage._singleNestedEnum != other_storage._singleNestedEnum {return false}
-      if _storage._singleForeignEnum != other_storage._singleForeignEnum {return false}
-      if _storage._singleImportEnum != other_storage._singleImportEnum {return false}
-      if _storage._singlePublicImportMessage != other_storage._singlePublicImportMessage {return false}
-      if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}
-      if _storage._repeatedInt64 != other_storage._repeatedInt64 {return false}
-      if _storage._repeatedUint32 != other_storage._repeatedUint32 {return false}
-      if _storage._repeatedUint64 != other_storage._repeatedUint64 {return false}
-      if _storage._repeatedSint32 != other_storage._repeatedSint32 {return false}
-      if _storage._repeatedSint64 != other_storage._repeatedSint64 {return false}
-      if _storage._repeatedFixed32 != other_storage._repeatedFixed32 {return false}
-      if _storage._repeatedFixed64 != other_storage._repeatedFixed64 {return false}
-      if _storage._repeatedSfixed32 != other_storage._repeatedSfixed32 {return false}
-      if _storage._repeatedSfixed64 != other_storage._repeatedSfixed64 {return false}
-      if _storage._repeatedFloat != other_storage._repeatedFloat {return false}
-      if _storage._repeatedDouble != other_storage._repeatedDouble {return false}
-      if _storage._repeatedBool != other_storage._repeatedBool {return false}
-      if _storage._repeatedString != other_storage._repeatedString {return false}
-      if _storage._repeatedBytes != other_storage._repeatedBytes {return false}
-      if _storage._repeatedNestedMessage != other_storage._repeatedNestedMessage {return false}
-      if _storage._repeatedForeignMessage != other_storage._repeatedForeignMessage {return false}
-      if _storage._repeatedImportMessage != other_storage._repeatedImportMessage {return false}
-      if _storage._repeatedNestedEnum != other_storage._repeatedNestedEnum {return false}
-      if _storage._repeatedForeignEnum != other_storage._repeatedForeignEnum {return false}
-      if _storage._repeatedImportEnum != other_storage._repeatedImportEnum {return false}
-      if _storage._repeatedPublicImportMessage != other_storage._repeatedPublicImportMessage {return false}
-      if _storage._oneofField != other_storage._oneofField {return false}
+      if _storage !== other_storage {
+        if _storage._singleInt32 != other_storage._singleInt32 {return false}
+        if _storage._singleInt64 != other_storage._singleInt64 {return false}
+        if _storage._singleUint32 != other_storage._singleUint32 {return false}
+        if _storage._singleUint64 != other_storage._singleUint64 {return false}
+        if _storage._singleSint32 != other_storage._singleSint32 {return false}
+        if _storage._singleSint64 != other_storage._singleSint64 {return false}
+        if _storage._singleFixed32 != other_storage._singleFixed32 {return false}
+        if _storage._singleFixed64 != other_storage._singleFixed64 {return false}
+        if _storage._singleSfixed32 != other_storage._singleSfixed32 {return false}
+        if _storage._singleSfixed64 != other_storage._singleSfixed64 {return false}
+        if _storage._singleFloat != other_storage._singleFloat {return false}
+        if _storage._singleDouble != other_storage._singleDouble {return false}
+        if _storage._singleBool != other_storage._singleBool {return false}
+        if _storage._singleString != other_storage._singleString {return false}
+        if _storage._singleBytes != other_storage._singleBytes {return false}
+        if _storage._singleNestedMessage != other_storage._singleNestedMessage {return false}
+        if _storage._singleForeignMessage != other_storage._singleForeignMessage {return false}
+        if _storage._singleImportMessage != other_storage._singleImportMessage {return false}
+        if _storage._singleNestedEnum != other_storage._singleNestedEnum {return false}
+        if _storage._singleForeignEnum != other_storage._singleForeignEnum {return false}
+        if _storage._singleImportEnum != other_storage._singleImportEnum {return false}
+        if _storage._singlePublicImportMessage != other_storage._singlePublicImportMessage {return false}
+        if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}
+        if _storage._repeatedInt64 != other_storage._repeatedInt64 {return false}
+        if _storage._repeatedUint32 != other_storage._repeatedUint32 {return false}
+        if _storage._repeatedUint64 != other_storage._repeatedUint64 {return false}
+        if _storage._repeatedSint32 != other_storage._repeatedSint32 {return false}
+        if _storage._repeatedSint64 != other_storage._repeatedSint64 {return false}
+        if _storage._repeatedFixed32 != other_storage._repeatedFixed32 {return false}
+        if _storage._repeatedFixed64 != other_storage._repeatedFixed64 {return false}
+        if _storage._repeatedSfixed32 != other_storage._repeatedSfixed32 {return false}
+        if _storage._repeatedSfixed64 != other_storage._repeatedSfixed64 {return false}
+        if _storage._repeatedFloat != other_storage._repeatedFloat {return false}
+        if _storage._repeatedDouble != other_storage._repeatedDouble {return false}
+        if _storage._repeatedBool != other_storage._repeatedBool {return false}
+        if _storage._repeatedString != other_storage._repeatedString {return false}
+        if _storage._repeatedBytes != other_storage._repeatedBytes {return false}
+        if _storage._repeatedNestedMessage != other_storage._repeatedNestedMessage {return false}
+        if _storage._repeatedForeignMessage != other_storage._repeatedForeignMessage {return false}
+        if _storage._repeatedImportMessage != other_storage._repeatedImportMessage {return false}
+        if _storage._repeatedNestedEnum != other_storage._repeatedNestedEnum {return false}
+        if _storage._repeatedForeignEnum != other_storage._repeatedForeignEnum {return false}
+        if _storage._repeatedImportEnum != other_storage._repeatedImportEnum {return false}
+        if _storage._repeatedPublicImportMessage != other_storage._repeatedPublicImportMessage {return false}
+        if _storage._oneofField != other_storage._oneofField {return false}
+      }
       return true
     }
   }
@@ -1262,7 +1262,6 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     set {_uniqueStorage()._repeatedChild = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1298,9 +1297,11 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
   func _protoc_generated_isEqualTo(other: Proto3NestedTestAllTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._child != other_storage._child {return false}
-      if _storage._payload != other_storage._payload {return false}
-      if _storage._repeatedChild != other_storage._repeatedChild {return false}
+      if _storage !== other_storage {
+        if _storage._child != other_storage._child {return false}
+        if _storage._payload != other_storage._payload {return false}
+        if _storage._repeatedChild != other_storage._repeatedChild {return false}
+      }
       return true
     }
   }
@@ -1314,7 +1315,6 @@ struct Proto3TestDeprecatedFields: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
   ]
 
   var deprecatedInt32: Int32 = 0
-
 
   init() {}
 
@@ -1354,7 +1354,6 @@ struct Proto3ForeignMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
 
   var c: Int32 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1386,7 +1385,6 @@ struct Proto3TestReservedFields: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
   static let protoMessageName: String = "TestReservedFields"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
-
 
   init() {}
 
@@ -1447,7 +1445,6 @@ struct Proto3TestForeignNested: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
     return _storage._foreignNested = nil
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1475,7 +1472,9 @@ struct Proto3TestForeignNested: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
 
   func _protoc_generated_isEqualTo(other: Proto3TestForeignNested) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._foreignNested != other_storage._foreignNested {return false}
+      if _storage !== other_storage {
+        if _storage._foreignNested != other_storage._foreignNested {return false}
+      }
       return true
     }
   }
@@ -1495,7 +1494,6 @@ struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Proto3Message, SwiftProtobu
   var a: Int32 = 0
 
   var bb: Int32 = 0
-
 
   init() {}
 
@@ -1576,7 +1574,6 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     set {_uniqueStorage()._i = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1608,8 +1605,10 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   func _protoc_generated_isEqualTo(other: Proto3TestRecursiveMessage) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._a != other_storage._a {return false}
-      if _storage._i != other_storage._i {return false}
+      if _storage !== other_storage {
+        if _storage._a != other_storage._a {return false}
+        if _storage._i != other_storage._i {return false}
+      }
       return true
     }
   }
@@ -1655,7 +1654,6 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     return _storage._bb = nil
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1683,7 +1681,9 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   func _protoc_generated_isEqualTo(other: Proto3TestMutualRecursionA) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._bb != other_storage._bb {return false}
+      if _storage !== other_storage {
+        if _storage._bb != other_storage._bb {return false}
+      }
       return true
     }
   }
@@ -1736,7 +1736,6 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1768,8 +1767,10 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   func _protoc_generated_isEqualTo(other: Proto3TestMutualRecursionB) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._a != other_storage._a {return false}
-      if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
+      if _storage !== other_storage {
+        if _storage._a != other_storage._a {return false}
+        if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
+      }
       return true
     }
   }
@@ -1872,7 +1873,6 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Proto3Message, SwiftProtobuf
     set {_uniqueStorage()._repeatedMessageField = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1928,14 +1928,16 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Proto3Message, SwiftProtobuf
 
   func _protoc_generated_isEqualTo(other: Proto3TestCamelCaseFieldNames) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._primitiveField != other_storage._primitiveField {return false}
-      if _storage._stringField != other_storage._stringField {return false}
-      if _storage._enumField != other_storage._enumField {return false}
-      if _storage._messageField != other_storage._messageField {return false}
-      if _storage._repeatedPrimitiveField != other_storage._repeatedPrimitiveField {return false}
-      if _storage._repeatedStringField != other_storage._repeatedStringField {return false}
-      if _storage._repeatedEnumField != other_storage._repeatedEnumField {return false}
-      if _storage._repeatedMessageField != other_storage._repeatedMessageField {return false}
+      if _storage !== other_storage {
+        if _storage._primitiveField != other_storage._primitiveField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._enumField != other_storage._enumField {return false}
+        if _storage._messageField != other_storage._messageField {return false}
+        if _storage._repeatedPrimitiveField != other_storage._repeatedPrimitiveField {return false}
+        if _storage._repeatedStringField != other_storage._repeatedStringField {return false}
+        if _storage._repeatedEnumField != other_storage._repeatedEnumField {return false}
+        if _storage._repeatedMessageField != other_storage._repeatedMessageField {return false}
+      }
       return true
     }
   }
@@ -2006,7 +2008,6 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     return _storage._singleNestedMessage = nil
   }
 
-
   struct NestedMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "protobuf_unittest"
@@ -2021,7 +2022,6 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
-
 
     init() {}
 
@@ -2094,10 +2094,12 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
   func _protoc_generated_isEqualTo(other: Proto3TestFieldOrderings) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._myString != other_storage._myString {return false}
-      if _storage._myInt != other_storage._myInt {return false}
-      if _storage._myFloat != other_storage._myFloat {return false}
-      if _storage._singleNestedMessage != other_storage._singleNestedMessage {return false}
+      if _storage !== other_storage {
+        if _storage._myString != other_storage._myString {return false}
+        if _storage._myInt != other_storage._myInt {return false}
+        if _storage._myFloat != other_storage._myFloat {return false}
+        if _storage._singleNestedMessage != other_storage._singleNestedMessage {return false}
+      }
       return true
     }
   }
@@ -2111,7 +2113,6 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
   ]
 
   var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.testSparseEnumUnspecified
-
 
   init() {}
 
@@ -2150,7 +2151,6 @@ struct Proto3OneString: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
 
   var data: String = ""
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2186,7 +2186,6 @@ struct Proto3MoreString: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpl
   ]
 
   var data: [String] = []
-
 
   init() {}
 
@@ -2224,7 +2223,6 @@ struct Proto3OneBytes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplem
 
   var data: Data = Data()
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2260,7 +2258,6 @@ struct Proto3MoreBytes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
   ]
 
   var data: Data = Data()
-
 
   init() {}
 
@@ -2299,7 +2296,6 @@ struct Proto3Int32Message: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
 
   var data: Int32 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2335,7 +2331,6 @@ struct Proto3Uint32Message: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
   ]
 
   var data: UInt32 = 0
-
 
   init() {}
 
@@ -2373,7 +2368,6 @@ struct Proto3Int64Message: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
 
   var data: Int64 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2410,7 +2404,6 @@ struct Proto3Uint64Message: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
   var data: UInt64 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2446,7 +2439,6 @@ struct Proto3BoolMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImp
   ]
 
   var data: Bool = false
-
 
   init() {}
 
@@ -2549,7 +2541,6 @@ struct Proto3TestOneof: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
     }
   }
 
-
   enum OneOf_Foo: Equatable {
     case fooInt(Int32)
     case fooString(String)
@@ -2636,7 +2627,9 @@ struct Proto3TestOneof: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
 
   func _protoc_generated_isEqualTo(other: Proto3TestOneof) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._foo != other_storage._foo {return false}
+      if _storage !== other_storage {
+        if _storage._foo != other_storage._foo {return false}
+      }
       return true
     }
   }
@@ -2691,7 +2684,6 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   var packedBool: [Bool] = []
 
   var packedEnum: [Proto3ForeignEnum] = []
-
 
   init() {}
 
@@ -2835,7 +2827,6 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
 
   var unpackedEnum: [Proto3ForeignEnum] = []
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2958,7 +2949,6 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Proto3Message, S
 
   var repeatedUint64: [UInt64] = []
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3021,7 +3011,6 @@ struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Proto3Message, SwiftProt
   ///   */ <- This should not close the generated doc comment
   var a: String = ""
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3055,7 +3044,6 @@ struct Proto3FooRequest: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpl
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3079,7 +3067,6 @@ struct Proto3FooResponse: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImp
   static let protoMessageName: String = "FooResponse"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
-
 
   init() {}
 
@@ -3105,7 +3092,6 @@ struct Proto3FooClientMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3129,7 +3115,6 @@ struct Proto3FooServerMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
   static let protoMessageName: String = "FooServerMessage"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
-
 
   init() {}
 
@@ -3155,7 +3140,6 @@ struct Proto3BarRequest: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpl
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -3179,7 +3163,6 @@ struct Proto3BarResponse: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImp
   static let protoMessageName: String = "BarResponse"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_fieldNames = FieldNameMap()
-
 
   init() {}
 

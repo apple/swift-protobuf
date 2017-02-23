@@ -226,7 +226,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
     }
   }
 
-
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
     case oneofE2(Proto3PreserveUnknownEnumUnittest_MyEnum)
@@ -365,7 +364,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto
       o = .oneofE2(newValue)
     }
   }
-
 
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)

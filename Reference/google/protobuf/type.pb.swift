@@ -195,7 +195,6 @@ struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
     set {_uniqueStorage()._syntax = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -243,12 +242,14 @@ struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._name != other_storage._name {return false}
-      if _storage._fields != other_storage._fields {return false}
-      if _storage._oneofs != other_storage._oneofs {return false}
-      if _storage._options != other_storage._options {return false}
-      if _storage._sourceContext != other_storage._sourceContext {return false}
-      if _storage._syntax != other_storage._syntax {return false}
+      if _storage !== other_storage {
+        if _storage._name != other_storage._name {return false}
+        if _storage._fields != other_storage._fields {return false}
+        if _storage._oneofs != other_storage._oneofs {return false}
+        if _storage._options != other_storage._options {return false}
+        if _storage._sourceContext != other_storage._sourceContext {return false}
+        if _storage._syntax != other_storage._syntax {return false}
+      }
       return true
     }
   }
@@ -302,7 +303,6 @@ struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
   ///   The string value of the default value of this field. Proto2 syntax only.
   var defaultValue: String = ""
-
 
   ///   Basic field types.
   enum Kind: SwiftProtobuf.Enum {
@@ -727,7 +727,6 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
     set {_uniqueStorage()._syntax = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -771,11 +770,13 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._name != other_storage._name {return false}
-      if _storage._enumvalue != other_storage._enumvalue {return false}
-      if _storage._options != other_storage._options {return false}
-      if _storage._sourceContext != other_storage._sourceContext {return false}
-      if _storage._syntax != other_storage._syntax {return false}
+      if _storage !== other_storage {
+        if _storage._name != other_storage._name {return false}
+        if _storage._enumvalue != other_storage._enumvalue {return false}
+        if _storage._options != other_storage._options {return false}
+        if _storage._sourceContext != other_storage._sourceContext {return false}
+        if _storage._syntax != other_storage._syntax {return false}
+      }
       return true
     }
   }
@@ -799,7 +800,6 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   ///   Protocol buffer options.
   var options: [Google_Protobuf_Option] = []
-
 
   init() {}
 
@@ -895,7 +895,6 @@ struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     return _storage._value = nil
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -927,8 +926,10 @@ struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._name != other_storage._name {return false}
-      if _storage._value != other_storage._value {return false}
+      if _storage !== other_storage {
+        if _storage._name != other_storage._name {return false}
+        if _storage._value != other_storage._value {return false}
+      }
       return true
     }
   }

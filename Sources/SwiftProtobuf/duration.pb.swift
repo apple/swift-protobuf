@@ -114,7 +114,6 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtob
   ///   to +999,999,999 inclusive.
   public var nanos: Int32 = 0
 
-
   public init() {}
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

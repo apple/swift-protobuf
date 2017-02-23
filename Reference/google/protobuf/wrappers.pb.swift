@@ -66,7 +66,6 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
   ///   The double value.
   var value: Double = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -106,7 +105,6 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   ///   The float value.
   var value: Float = 0
-
 
   init() {}
 
@@ -148,7 +146,6 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
   ///   The int64 value.
   var value: Int64 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -188,7 +185,6 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   ///   The uint64 value.
   var value: UInt64 = 0
-
 
   init() {}
 
@@ -230,7 +226,6 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
   ///   The int32 value.
   var value: Int32 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -270,7 +265,6 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   ///   The uint32 value.
   var value: UInt32 = 0
-
 
   init() {}
 
@@ -312,7 +306,6 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
   ///   The bool value.
   var value: Bool = false
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -353,7 +346,6 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
   ///   The string value.
   var value: String = ""
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -393,7 +385,6 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   ///   The bytes value.
   var value: Data = Data()
-
 
   init() {}
 

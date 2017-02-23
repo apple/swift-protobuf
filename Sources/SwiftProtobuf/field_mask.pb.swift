@@ -259,7 +259,6 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProto
   ///   The set of field mask paths.
   public var paths: [String] = []
 
-
   public init() {}
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

@@ -280,7 +280,6 @@ struct Proto3TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpleme
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -372,23 +371,25 @@ struct Proto3TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpleme
 
   func _protoc_generated_isEqualTo(other: Proto3TestMap) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-      if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-      if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-      if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-      if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-      if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-      if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-      if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-      if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-      if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-      if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-      if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-      if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-      if _storage._mapStringString != other_storage._mapStringString {return false}
-      if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-      if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-      if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+      if _storage !== other_storage {
+        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+        if _storage._mapStringString != other_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+      }
       return true
     }
   }
@@ -433,7 +434,6 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
     return _storage._testMap = nil
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -461,7 +461,9 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
 
   func _protoc_generated_isEqualTo(other: Proto3TestMapSubmessage) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._testMap != other_storage._testMap {return false}
+      if _storage !== other_storage {
+        if _storage._testMap != other_storage._testMap {return false}
+      }
       return true
     }
   }
@@ -475,7 +477,6 @@ struct Proto3TestMessageMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
   ]
 
   var mapInt32Message: Dictionary<Int32,Proto3TestAllTypes> = [:]
-
 
   init() {}
 
@@ -516,7 +517,6 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   var map1: Dictionary<Int32,Int32> = [:]
 
   var map2: Dictionary<Int32,Int32> = [:]
-
 
   init() {}
 
@@ -600,7 +600,6 @@ struct Proto3TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
   var mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
 
   var mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
-
 
   init() {}
 
@@ -710,7 +709,6 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Proto3Message, Swift
 
   var type: Dictionary<Int32,Proto3MessageContainingEnumCalledType> = [:]
 
-
   enum TypeEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 0
@@ -797,7 +795,6 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Proto3Message, Swift
   ]
 
   var entry: Dictionary<Int32,Int32> = [:]
-
 
   init() {}
 

@@ -132,7 +132,6 @@ struct Proto3ImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
   var d: Int32 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

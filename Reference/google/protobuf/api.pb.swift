@@ -164,7 +164,6 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     set {_uniqueStorage()._syntax = newValue}
   }
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -216,13 +215,15 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 
   func _protoc_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage._name != other_storage._name {return false}
-      if _storage._methods != other_storage._methods {return false}
-      if _storage._options != other_storage._options {return false}
-      if _storage._version != other_storage._version {return false}
-      if _storage._sourceContext != other_storage._sourceContext {return false}
-      if _storage._mixins != other_storage._mixins {return false}
-      if _storage._syntax != other_storage._syntax {return false}
+      if _storage !== other_storage {
+        if _storage._name != other_storage._name {return false}
+        if _storage._methods != other_storage._methods {return false}
+        if _storage._options != other_storage._options {return false}
+        if _storage._version != other_storage._version {return false}
+        if _storage._sourceContext != other_storage._sourceContext {return false}
+        if _storage._mixins != other_storage._mixins {return false}
+        if _storage._syntax != other_storage._syntax {return false}
+      }
       return true
     }
   }
@@ -262,7 +263,6 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 
   ///   The source syntax of this method.
   var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
 
   init() {}
 
@@ -412,7 +412,6 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   ///   If non-empty specifies a path under which inherited HTTP paths
   ///   are rooted.
   var root: String = ""
-
 
   init() {}
 

@@ -61,7 +61,6 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftP
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   public var fileName: String = ""
 
-
   public init() {}
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {

@@ -61,7 +61,6 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
 
   var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
 
-
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 0
@@ -170,7 +169,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
   var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
 
   var extraInt32Value: Int32 = 0
-
 
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int

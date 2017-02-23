@@ -178,8 +178,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Proto2Message,
 
     func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
       return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._message != other_storage._message {return false}
-        if _storage._optionalEnum != other_storage._optionalEnum {return false}
+        if _storage !== other_storage {
+          if _storage._message != other_storage._message {return false}
+          if _storage._optionalEnum != other_storage._optionalEnum {return false}
+        }
         if unknownFields != other.unknownFields {return false}
         return true
       }

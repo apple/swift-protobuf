@@ -118,7 +118,6 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
   ///   inclusive.
   var nanos: Int32 = 0
 
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
