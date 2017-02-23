@@ -16,9 +16,10 @@
 
 import Foundation
 
-public struct Internal {
-  private init() {}
+public enum Internal {
 
+  /// Helper to loop over a list of Messages to see if they are all
+  /// initialized (see Message.isInitialized for what that means).
   public static func areAllInitialized(_ listOfMessages: [Message]) -> Bool {
     for msg in listOfMessages {
       if !msg.isInitialized {
@@ -28,6 +29,8 @@ public struct Internal {
     return true
   }
 
+  /// Helper to loop over dictionary with values that are Messages to see if
+  /// they are all initialized (see Message.isInitialized for what that means).
   public static func areAllInitialized<K: Hashable>(_ mapToMessages: [K: Message]) -> Bool {
     for (_, msg) in mapToMessages {
       if !msg.isInitialized {
