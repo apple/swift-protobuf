@@ -64,42 +64,13 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
     var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
 
     init() {}
 
-    var isInitialized: Bool {
-      if let v = _optionalMessage, !v.isInitialized {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_repeatedMessage) {return false}
-      return true
-    }
-
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_optionalMessage)
-      case 2: try decoder.decodeRepeatedMessageField(value: &_repeatedMessage)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _optionalMessage != other._optionalMessage {return false}
-      if _repeatedMessage != other._repeatedMessage {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._optionalMessage = _optionalMessage
       clone._repeatedMessage = _repeatedMessage
       return clone
@@ -108,9 +79,11 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   ///   Test that embedding a message which has optimize_for = CODE_SIZE into
@@ -131,40 +104,54 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
     set {_uniqueStorage()._repeatedMessage = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   public var isInitialized: Bool {
-    return _storage.isInitialized
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._optionalMessage, !v.isInitialized {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(repeatedMessage) {return false}
+      return true
+    }
   }
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
+    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessage)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._optionalMessage {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._optionalMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if !storage._repeatedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedMessage, fieldNumber: 2)
+      if !_storage._repeatedMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedMessage, fieldNumber: 2)
       }
-      try storage.unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage !== other_storage {
+        if _storage._optionalMessage != other_storage._optionalMessage {return false}
+        if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+      }
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }

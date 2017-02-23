@@ -56,8 +56,6 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Proto2Messa
     1: .same(proto: "d"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
@@ -69,6 +67,8 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Proto2Messa
   mutating func clearD() {
     return _d = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

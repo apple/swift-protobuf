@@ -64,38 +64,12 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
     init() {}
 
-    var isInitialized: Bool {
-      if let v = _messageSet, !v.isInitialized {return false}
-      return true
-    }
-
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_messageSet)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _messageSet != other._messageSet {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._messageSet = _messageSet
       return clone
     }
@@ -103,9 +77,11 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
@@ -119,38 +95,49 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
     return _storage._messageSet = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   public var isInitialized: Bool {
-    return _storage.isInitialized
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._messageSet, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularMessageField(value: &_storage._messageSet)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._messageSet {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._messageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try storage.unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage !== other_storage {
+        if _storage._messageSet != other_storage._messageSet {return false}
+      }
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -160,17 +147,6 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Proto2Message, S
   static let _protobuf_fieldNames: FieldNameMap = [
     15: .same(proto: "i"),
   ]
-
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
-      fieldNumber: 1545008,
-      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension1.message_set_extension"),
-      defaultValue: ProtobufUnittest_TestMessageSetExtension1()
-    )
-  }
 
   private var _i: Int32? = nil
   var i: Int32 {
@@ -182,6 +158,17 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Proto2Message, S
   }
   mutating func clearI() {
     return _i = nil
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct Extensions {
+
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
+      fieldNumber: 1545008,
+      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension1.message_set_extension"),
+      defaultValue: ProtobufUnittest_TestMessageSetExtension1()
+    )
   }
 
   init() {}
@@ -220,17 +207,6 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Proto2Message, S
     25: .same(proto: "str"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
-      fieldNumber: 1547769,
-      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension2.message_set_extension"),
-      defaultValue: ProtobufUnittest_TestMessageSetExtension2()
-    )
-  }
-
   private var _str: String? = nil
   var str: String {
     get {return _str ?? ""}
@@ -241,6 +217,17 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Proto2Message, S
   }
   mutating func clearStr() {
     return _str = nil
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct Extensions {
+
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
+      fieldNumber: 1547769,
+      fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension2.message_set_extension"),
+      defaultValue: ProtobufUnittest_TestMessageSetExtension2()
+    )
   }
 
   init() {}
@@ -291,6 +278,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
     1: .unique(proto: "Item", json: "item"),
   ]
 
+  var item: [ProtobufUnittest_RawMessageSet.Item] = []
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct Item: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -300,8 +289,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
       2: .unique(proto: "type_id", json: "typeId"),
       3: .same(proto: "message"),
     ]
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     private var _typeId: Int32? = nil
     var typeId: Int32 {
@@ -326,6 +313,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
     mutating func clearMessage() {
       return _message = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -366,8 +355,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
       return true
     }
   }
-
-  var item: [ProtobufUnittest_RawMessageSet.Item] = []
 
   init() {}
 

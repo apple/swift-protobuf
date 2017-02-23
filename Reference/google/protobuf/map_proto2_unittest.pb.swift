@@ -181,11 +181,11 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
   var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -229,11 +229,11 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Proto2Message, Swift
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
   var unknownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -276,9 +276,9 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Proto2Message, SwiftPro
     1: .unique(proto: "import_enum_amp", json: "importEnumAmp"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -316,9 +316,9 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Proto2Message, SwiftProtobu
     1: .same(proto: "m"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   var m: Dictionary<Int32,Int32> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -368,8 +368,6 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     12: .unique(proto: "m_string", json: "mString"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   var mInt32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
 
   var mInt64: Dictionary<Int64,ProtobufUnittest_TestIntIntMap> = [:]
@@ -393,6 +391,8 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   var mBool: Dictionary<Bool,ProtobufUnittest_TestIntIntMap> = [:]
 
   var mString: Dictionary<String,ProtobufUnittest_TestIntIntMap> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

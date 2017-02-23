@@ -65,28 +65,6 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_int32Value)
-      case 2: try decoder.decodeSingularMessageField(value: &_anyValue)
-      case 3: try decoder.decodeRepeatedMessageField(value: &_repeatedAnyValue)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _int32Value != other._int32Value {return false}
-      if _anyValue != other._anyValue {return false}
-      if _repeatedAnyValue != other._repeatedAnyValue {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
       clone._int32Value = _int32Value
@@ -98,6 +76,12 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 
   private var _storage = _StorageClass()
 
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
+  }
 
   var int32Value: Int32 {
     get {return _storage._int32Value}
@@ -123,35 +107,44 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_storage._int32Value)
+    case 2: try decoder.decodeSingularMessageField(value: &_storage._anyValue)
+    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAnyValue)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if storage._int32Value != 0 {
-        try visitor.visitSingularInt32Field(value: storage._int32Value, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._int32Value != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._int32Value, fieldNumber: 1)
       }
-      if let v = storage._anyValue {
+      if let v = _storage._anyValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      if !storage._repeatedAnyValue.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedAnyValue, fieldNumber: 3)
+      if !_storage._repeatedAnyValue.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedAnyValue, fieldNumber: 3)
       }
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage !== other_storage {
+        if _storage._int32Value != other_storage._int32Value {return false}
+        if _storage._anyValue != other_storage._anyValue {return false}
+        if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
+      }
+      return true
     }
-    return _storage
   }
 }

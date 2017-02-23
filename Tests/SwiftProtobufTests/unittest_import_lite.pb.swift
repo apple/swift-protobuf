@@ -119,8 +119,6 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Proto2Message, Sw
     1: .same(proto: "d"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
@@ -132,6 +130,8 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Proto2Message, Sw
   mutating func clearD() {
     return _d = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

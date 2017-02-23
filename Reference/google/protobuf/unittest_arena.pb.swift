@@ -56,8 +56,6 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProt
     1: .same(proto: "d"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
@@ -69,6 +67,8 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProt
   mutating func clearD() {
     return _d = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -107,11 +107,11 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProto
     2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []
 
   var repeatedImportNoArenaMessage: [Proto2ArenaUnittest_ImportNoArenaNestedMessage] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 

@@ -57,6 +57,9 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
     2: .unique(proto: "enum_value", json: "enumValue"),
   ]
 
+  var int32Value: Int32 = 0
+
+  var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
 
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
@@ -120,10 +123,6 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
 
   }
 
-  var int32Value: Int32 = 0
-
-  var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
-
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -165,6 +164,11 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
     3: .unique(proto: "extra_int32_value", json: "extraInt32Value"),
   ]
 
+  var int32Value: Int32 = 0
+
+  var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
+
+  var extraInt32Value: Int32 = 0
 
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
@@ -233,12 +237,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
     }
 
   }
-
-  var int32Value: Int32 = 0
-
-  var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
-
-  var extraInt32Value: Int32 = 0
 
   init() {}
 

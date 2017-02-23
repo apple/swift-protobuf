@@ -76,8 +76,6 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, Swi
     4: .same(proto: "suffix"),
   ]
 
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _major: Int32? = nil
   public var major: Int32 {
     get {return _major ?? 0}
@@ -127,6 +125,8 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, Swi
   public mutating func clearSuffix() {
     return _suffix = nil
   }
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
@@ -184,7 +184,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _fileToGenerate: [String] = []
     var _parameter: String? = nil
     var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
@@ -192,39 +191,8 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
 
     init() {}
 
-    var isInitialized: Bool {
-      if !SwiftProtobuf.Internal.areAllInitialized(_protoFile) {return false}
-      return true
-    }
-
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeRepeatedStringField(value: &_fileToGenerate)
-      case 2: try decoder.decodeSingularStringField(value: &_parameter)
-      case 15: try decoder.decodeRepeatedMessageField(value: &_protoFile)
-      case 3: try decoder.decodeSingularMessageField(value: &_compilerVersion)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _fileToGenerate != other._fileToGenerate {return false}
-      if _parameter != other._parameter {return false}
-      if _protoFile != other._protoFile {return false}
-      if _compilerVersion != other._compilerVersion {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._fileToGenerate = _fileToGenerate
       clone._parameter = _parameter
       clone._protoFile = _protoFile
@@ -235,9 +203,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
 
   private var _storage = _StorageClass()
 
-  public var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   ///   The .proto files that were explicitly listed on the command-line.  The
@@ -288,47 +258,64 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
     return _storage._compilerVersion = nil
   }
 
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
   public init() {}
 
   public var isInitialized: Bool {
-    return _storage.isInitialized
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !SwiftProtobuf.Internal.areAllInitialized(protoFile) {return false}
+      return true
+    }
   }
 
   public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
+    case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
+    case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
+    case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
+    default: break
+    }
   }
 
   public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if !storage._fileToGenerate.isEmpty {
-        try visitor.visitRepeatedStringField(value: storage._fileToGenerate, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._fileToGenerate.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._fileToGenerate, fieldNumber: 1)
       }
-      if let v = storage._parameter {
+      if let v = _storage._parameter {
         try visitor.visitSingularStringField(value: v, fieldNumber: 2)
       }
-      if let v = storage._compilerVersion {
+      if let v = _storage._compilerVersion {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      if !storage._protoFile.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._protoFile, fieldNumber: 15)
+      if !_storage._protoFile.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._protoFile, fieldNumber: 15)
       }
-      try storage.unknownFields.traverse(visitor: &visitor)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
   public func _protoc_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage !== other_storage {
+        if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
+        if _storage._parameter != other_storage._parameter {return false}
+        if _storage._protoFile != other_storage._protoFile {return false}
+        if _storage._compilerVersion != other_storage._compilerVersion {return false}
+      }
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -341,6 +328,28 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
     15: .same(proto: "file"),
   ]
 
+  ///   Error message.  If non-empty, code generation failed.  The plugin process
+  ///   should exit with status code zero even if it reports an error in this way.
+  ///  
+  ///   This should be used to indicate errors in .proto files which prevent the
+  ///   code generator from generating correct code.  Errors which indicate a
+  ///   problem in protoc itself -- such as the input CodeGeneratorRequest being
+  ///   unparseable -- should be reported by writing a message to stderr and
+  ///   exiting with a non-zero status code.
+  private var _error: String? = nil
+  public var error: String {
+    get {return _error ?? ""}
+    set {_error = newValue}
+  }
+  public var hasError: Bool {
+    return _error != nil
+  }
+  public mutating func clearError() {
+    return _error = nil
+  }
+
+  public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
@@ -352,8 +361,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
       2: .unique(proto: "insertion_point", json: "insertionPoint"),
       15: .same(proto: "content"),
     ]
-
-    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     ///   The file name, relative to the output directory.  The name must not
     ///   contain "." or ".." components and must be relative, not be absolute (so,
@@ -440,6 +447,8 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
       return _content = nil
     }
 
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
+
     public init() {}
 
     public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -478,28 +487,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
       return true
     }
   }
-
-  ///   Error message.  If non-empty, code generation failed.  The plugin process
-  ///   should exit with status code zero even if it reports an error in this way.
-  ///  
-  ///   This should be used to indicate errors in .proto files which prevent the
-  ///   code generator from generating correct code.  Errors which indicate a
-  ///   problem in protoc itself -- such as the input CodeGeneratorRequest being
-  ///   unparseable -- should be reported by writing a message to stderr and
-  ///   exiting with a non-zero status code.
-  private var _error: String? = nil
-  public var error: String {
-    get {return _error ?? ""}
-    set {_error = newValue}
-  }
-  public var hasError: Bool {
-    return _error != nil
-  }
-  public mutating func clearError() {
-    return _error = nil
-  }
-
-  public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
   public init() {}
 

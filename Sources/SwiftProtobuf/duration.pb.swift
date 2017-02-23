@@ -102,7 +102,6 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtob
     2: .same(proto: "nanos"),
   ]
 
-
   ///   Signed seconds of the span of time. Must be from -315,576,000,000
   ///   to +315,576,000,000 inclusive.
   public var seconds: Int64 = 0

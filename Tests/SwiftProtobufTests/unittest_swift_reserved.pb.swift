@@ -48,6 +48,92 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     22: .unique(proto: "debug_description", json: "debugDescription"),
   ]
 
+  ///   static r/o properties on Message, ensure they still work as fields.
+  private var _protoMessageName: Int32? = nil
+  var protoMessageName: Int32 {
+    get {return _protoMessageName ?? 0}
+    set {_protoMessageName = newValue}
+  }
+  var hasProtoMessageName: Bool {
+    return _protoMessageName != nil
+  }
+  mutating func clearProtoMessageName() {
+    return _protoMessageName = nil
+  }
+
+  private var _protoPackageName: Int32? = nil
+  var protoPackageName: Int32 {
+    get {return _protoPackageName ?? 0}
+    set {_protoPackageName = newValue}
+  }
+  var hasProtoPackageName: Bool {
+    return _protoPackageName != nil
+  }
+  mutating func clearProtoPackageName() {
+    return _protoPackageName = nil
+  }
+
+  private var _anyTypePrefix: Int32? = nil
+  var anyTypePrefix: Int32 {
+    get {return _anyTypePrefix ?? 0}
+    set {_anyTypePrefix = newValue}
+  }
+  var hasAnyTypePrefix: Bool {
+    return _anyTypePrefix != nil
+  }
+  mutating func clearAnyTypePrefix() {
+    return _anyTypePrefix = nil
+  }
+
+  private var _anyTypeURL: Int32? = nil
+  var anyTypeURL: Int32 {
+    get {return _anyTypeURL ?? 0}
+    set {_anyTypeURL = newValue}
+  }
+  var hasAnyTypeURL: Bool {
+    return _anyTypeURL != nil
+  }
+  mutating func clearAnyTypeURL() {
+    return _anyTypeURL = nil
+  }
+
+  ///   r/o properties on Message, ensure it gets remapped.
+  private var _isInitialized_p: String? = nil
+  var isInitialized_p: String {
+    get {return _isInitialized_p ?? ""}
+    set {_isInitialized_p = newValue}
+  }
+  var hasIsInitialized_p: Bool {
+    return _isInitialized_p != nil
+  }
+  mutating func clearIsInitialized_p() {
+    return _isInitialized_p = nil
+  }
+
+  private var _hashValue_p: String? = nil
+  var hashValue_p: String {
+    get {return _hashValue_p ?? ""}
+    set {_hashValue_p = newValue}
+  }
+  var hasHashValue_p: Bool {
+    return _hashValue_p != nil
+  }
+  mutating func clearHashValue_p() {
+    return _hashValue_p = nil
+  }
+
+  private var _debugDescription_p: Int32? = nil
+  var debugDescription_p: Int32 {
+    get {return _debugDescription_p ?? 0}
+    set {_debugDescription_p = newValue}
+  }
+  var hasDebugDescription_p: Bool {
+    return _debugDescription_p != nil
+  }
+  mutating func clearDebugDescription_p() {
+    return _debugDescription_p = nil
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum Enum: SwiftProtobuf.Enum {
@@ -290,92 +376,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
       if unknownFields != other.unknownFields {return false}
       return true
     }
-  }
-
-  ///   static r/o properties on Message, ensure they still work as fields.
-  private var _protoMessageName: Int32? = nil
-  var protoMessageName: Int32 {
-    get {return _protoMessageName ?? 0}
-    set {_protoMessageName = newValue}
-  }
-  var hasProtoMessageName: Bool {
-    return _protoMessageName != nil
-  }
-  mutating func clearProtoMessageName() {
-    return _protoMessageName = nil
-  }
-
-  private var _protoPackageName: Int32? = nil
-  var protoPackageName: Int32 {
-    get {return _protoPackageName ?? 0}
-    set {_protoPackageName = newValue}
-  }
-  var hasProtoPackageName: Bool {
-    return _protoPackageName != nil
-  }
-  mutating func clearProtoPackageName() {
-    return _protoPackageName = nil
-  }
-
-  private var _anyTypePrefix: Int32? = nil
-  var anyTypePrefix: Int32 {
-    get {return _anyTypePrefix ?? 0}
-    set {_anyTypePrefix = newValue}
-  }
-  var hasAnyTypePrefix: Bool {
-    return _anyTypePrefix != nil
-  }
-  mutating func clearAnyTypePrefix() {
-    return _anyTypePrefix = nil
-  }
-
-  private var _anyTypeURL: Int32? = nil
-  var anyTypeURL: Int32 {
-    get {return _anyTypeURL ?? 0}
-    set {_anyTypeURL = newValue}
-  }
-  var hasAnyTypeURL: Bool {
-    return _anyTypeURL != nil
-  }
-  mutating func clearAnyTypeURL() {
-    return _anyTypeURL = nil
-  }
-
-  ///   r/o properties on Message, ensure it gets remapped.
-  private var _isInitialized_p: String? = nil
-  var isInitialized_p: String {
-    get {return _isInitialized_p ?? ""}
-    set {_isInitialized_p = newValue}
-  }
-  var hasIsInitialized_p: Bool {
-    return _isInitialized_p != nil
-  }
-  mutating func clearIsInitialized_p() {
-    return _isInitialized_p = nil
-  }
-
-  private var _hashValue_p: String? = nil
-  var hashValue_p: String {
-    get {return _hashValue_p ?? ""}
-    set {_hashValue_p = newValue}
-  }
-  var hasHashValue_p: Bool {
-    return _hashValue_p != nil
-  }
-  mutating func clearHashValue_p() {
-    return _hashValue_p = nil
-  }
-
-  private var _debugDescription_p: Int32? = nil
-  var debugDescription_p: Int32 {
-    get {return _debugDescription_p ?? 0}
-    set {_debugDescription_p = newValue}
-  }
-  var hasDebugDescription_p: Bool {
-    return _debugDescription_p != nil
-  }
-  mutating func clearDebugDescription_p() {
-    return _debugDescription_p = nil
   }
 
   init() {}

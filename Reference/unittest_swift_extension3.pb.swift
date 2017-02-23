@@ -51,8 +51,6 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Proto2Message, SwiftPro
       1310: .same(proto: "c"),
     ]
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
     private var _c: Int64? = nil
     var c: Int64 {
       get {return _c ?? 0}
@@ -64,6 +62,8 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Proto2Message, SwiftPro
     mutating func clearC() {
       return _c = nil
     }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -137,8 +137,6 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
     1320: .same(proto: "c"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
@@ -150,6 +148,8 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
   mutating func clearC() {
     return _c = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
