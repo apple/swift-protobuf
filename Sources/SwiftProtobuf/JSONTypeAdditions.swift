@@ -52,6 +52,13 @@ public extension Message {
                                       count: jsonUTF8Data.count)
             if !decoder.scanner.skipOptionalNull() {
                 try decoder.decodeFullObject(message: &self)
+            } else if Self.self is _CustomJSONCodable.Type {
+                if let message = try (Self.self as! _CustomJSONCodable.Type)
+                    .decodedFromJSONNull() {
+                    self = message as! Self
+                } else {
+                    throw JSONDecodingError.illegalNull
+                }
             }
             if !decoder.scanner.complete {
                 throw JSONDecodingError.trailingGarbage

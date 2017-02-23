@@ -874,7 +874,7 @@ extension Test_JSON_ListValue {
 extension Test_JSON_Value {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testValue_default", {try run_test(test:($0 as! Test_JSON_Value).testValue_default)}),
+            ("testValue_emptyShouldThrow", {try run_test(test:($0 as! Test_JSON_Value).testValue_emptyShouldThrow)}),
             ("testValue_null", {try run_test(test:($0 as! Test_JSON_Value).testValue_null)}),
             ("testValue_number", {try run_test(test:($0 as! Test_JSON_Value).testValue_number)}),
             ("testValue_string", {try run_test(test:($0 as! Test_JSON_Value).testValue_string)}),

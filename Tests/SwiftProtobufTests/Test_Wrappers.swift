@@ -24,11 +24,13 @@ class Test_Wrappers: XCTestCase {
     func testDoubleValue() throws {
         var m = Google_Protobuf_DoubleValue()
         XCTAssertEqual("0", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_DoubleValue(jsonString:"null"))
         m.value = 1.0
         XCTAssertEqual("1", try m.jsonString())
-        XCTAssertNotEqual(m, try Google_Protobuf_DoubleValue(jsonString:"null"))
         XCTAssertEqual([9,0,0,0,0,0,0,240,63], try m.serializedBytes())
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalDoubleWrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalDoubleWrapper)
 
         // Check that we can rely on object equality
         var m2 = Google_Protobuf_DoubleValue(1.0)
@@ -58,10 +60,13 @@ class Test_Wrappers: XCTestCase {
     func testFloatValue() throws {
         var m = Google_Protobuf_FloatValue()
         XCTAssertEqual("0", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_FloatValue(jsonString:"null"))
         m.value = 1.0
         XCTAssertEqual("1", try m.jsonString())
         XCTAssertEqual([13,0,0,128,63], try m.serializedBytes())
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalFloatWrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalFloatWrapper)
 
         // Check that we can rely on object equality
         var m2 = Google_Protobuf_FloatValue(1.0)
@@ -95,12 +100,15 @@ class Test_Wrappers: XCTestCase {
     func testInt64Value() throws {
         var m = Google_Protobuf_Int64Value()
         XCTAssertEqual("\"0\"", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_Int64Value(jsonString: "null"))
         m.value = 777
         let j2 = try m.jsonString()
         XCTAssertEqual("\"777\"", j2)
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalInt64Wrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalInt64Wrapper)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString:"777").hashValue)
@@ -110,11 +118,14 @@ class Test_Wrappers: XCTestCase {
     func testUInt64Value() throws {
         var m = Google_Protobuf_UInt64Value()
         XCTAssertEqual("\"0\"", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_UInt64Value(jsonString: "null"))
         m.value = 777
         XCTAssertEqual("\"777\"", try m.jsonString())
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalUInt64Wrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalUint64Wrapper)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt64Value(jsonString:"777").hashValue)
@@ -124,11 +135,14 @@ class Test_Wrappers: XCTestCase {
     func testInt32Value() throws {
         var m = Google_Protobuf_Int32Value()
         XCTAssertEqual("0", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_Int32Value(jsonString: "null"))
         m.value = 777
         XCTAssertEqual("777", try m.jsonString())
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalInt32Wrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalInt32Wrapper)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString:"777").hashValue)
@@ -138,11 +152,14 @@ class Test_Wrappers: XCTestCase {
     func testUInt32Value() throws {
         var m = Google_Protobuf_UInt32Value()
         XCTAssertEqual("0", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_UInt32Value(jsonString: "null"))
         m.value = 777
         XCTAssertEqual("777", try m.jsonString())
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalUInt32Wrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalUint32Wrapper)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt32Value(jsonString:"777").hashValue)
@@ -152,11 +169,14 @@ class Test_Wrappers: XCTestCase {
     func testBoolValue() throws {
         var m = Google_Protobuf_BoolValue()
         XCTAssertEqual("false", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_BoolValue(jsonString: "null"))
         m.value = true
         XCTAssertEqual("true", try m.jsonString())
         XCTAssertEqual([8,1], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalBoolWrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalBoolWrapper)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString:"true").hashValue)
@@ -166,11 +186,15 @@ class Test_Wrappers: XCTestCase {
     func testStringValue() throws {
         var m = Google_Protobuf_StringValue()
         XCTAssertEqual("\"\"", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_StringValue(jsonString: "null"))
         m.value = "abc"
         XCTAssertEqual("\"abc\"", try m.jsonString())
         XCTAssertEqual([10,3,97,98,99], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalStringWrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalStringWrapper)
+
         XCTAssertThrowsError(try Google_Protobuf_StringValue(jsonString: "\"\\UABCD\""))
         XCTAssertEqual(try Google_Protobuf_StringValue(jsonString: "\"\\uABCD\""), Google_Protobuf_StringValue("\u{ABCD}"))
         XCTAssertEqual(try Google_Protobuf_StringValue(jsonString: "\"\\\"\\\\\\/\\b\\f\\n\\r\\t\""), Google_Protobuf_StringValue("\"\\/\u{08}\u{0c}\n\r\t"))
@@ -183,11 +207,14 @@ class Test_Wrappers: XCTestCase {
     func testBytesValue() throws {
         var m = Google_Protobuf_BytesValue()
         XCTAssertEqual("\"\"", try m.jsonString())
-        XCTAssertEqual(m, try Google_Protobuf_BytesValue(jsonString: "null"))
         m.value = Data(bytes: [0, 1, 2])
         XCTAssertEqual("\"AAEC\"", try m.jsonString())
         XCTAssertEqual([10,3,0,1,2], try m.serializedBytes())
         // TODO: More
+
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+          jsonString: "{\"optionalBytesWrapper\":null}")
+        XCTAssertFalse(mw.hasOptionalBytesWrapper)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_BytesValue(jsonString:"\"AAEC\"").hashValue)

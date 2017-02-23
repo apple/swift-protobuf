@@ -549,13 +549,12 @@ internal struct JSONDecoder: Decoder {
 
     mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
         if scanner.skipOptionalNull() {
-            // Fields of type google.protobuf.Value treat 'null' as the default value
-            if M.self == Google_Protobuf_Value.self {
-                value = M()
-            } else {
-                // All other message field types treat 'null' as an unset field
-                value = nil
+            if M.self is _CustomJSONCodable.Type {
+                value = try (M.self as! _CustomJSONCodable.Type).decodedFromJSONNull() as? M
+                return
             }
+            // All other message field types treat 'null' as an unset 
+            value = nil
             return
         }
         if value == nil {
@@ -570,15 +569,20 @@ internal struct JSONDecoder: Decoder {
         if scanner.skipOptionalNull() {
             return
         }
-       try scanner.skipRequiredArrayStart()
+        try scanner.skipRequiredArrayStart()
         if scanner.skipOptionalArrayEnd() {
             return
         }
         while true {
             if scanner.skipOptionalNull() {
-                if M.self == Google_Protobuf_Value.self {
-                    value.append(M())
-                } else {
+                var appended = false
+                if M.self is _CustomJSONCodable.Type {
+                    if let message = try (M.self as! _CustomJSONCodable.Type).decodedFromJSONNull() as? M {
+                        value.append(message)
+                        appended = true
+                    }
+                }
+                if !appended {
                     throw JSONDecodingError.illegalNull
                 }
             } else {

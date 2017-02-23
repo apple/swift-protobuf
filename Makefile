@@ -140,6 +140,7 @@ LIBRARY_PROTOS= \
 	Protos/google/protobuf/empty.proto \
 	Protos/google/protobuf/field_mask.proto \
 	Protos/google/protobuf/source_context.proto \
+	Protos/google/protobuf/struct.proto \
 	Protos/google/protobuf/timestamp.proto \
 	Protos/google/protobuf/type.proto \
 	Protos/google/protobuf/wrappers.proto

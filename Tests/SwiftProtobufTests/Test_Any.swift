@@ -530,9 +530,7 @@ class Test_Any: XCTestCase {
             XCTAssertThrowsError(try Google_Protobuf_Struct(unpackingAny: anyField))
             do {
                 let unpacked = try Google_Protobuf_Value(unpackingAny: anyField)
-                if let structValue = unpacked.structValue {
-                    XCTAssertEqual(structValue.fields["foo"], Google_Protobuf_Value(numberValue:1))
-                }
+                XCTAssertEqual(unpacked.structValue.fields["foo"], Google_Protobuf_Value(numberValue:1))
             } catch {
                 XCTFail("failed to unpack \(anyField)")
             }

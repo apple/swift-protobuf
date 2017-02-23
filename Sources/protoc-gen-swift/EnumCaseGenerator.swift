@@ -43,10 +43,10 @@ class EnumCaseGenerator {
   }
 
   init(descriptor: Google_Protobuf_EnumValueDescriptorProto,
-    path: [Int32],
-    file: FileGenerator,
-    stripLength: Int,
-    aliasing aliasOfGenerator: EnumCaseGenerator?
+       path: [Int32],
+       file: FileGenerator,
+       stripLength: Int,
+       aliasing aliasOfGenerator: EnumCaseGenerator?
   ) {
     self.descriptor = descriptor
     self.swiftName = descriptor.getSwiftName(stripLength: stripLength)

@@ -125,7 +125,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
                 let decoded = try MessageTestType(jsonString: encoded)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
-                XCTFail("Encode/decode cycle should not throw error, decoding: \(encoded)", file: file, line: line)
+                XCTFail("Encode/decode cycle should not throw error decoding: \(encoded), but it threw \(error)", file: file, line: line)
             }
         } catch let e {
             XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)

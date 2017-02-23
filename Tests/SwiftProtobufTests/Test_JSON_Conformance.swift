@@ -131,9 +131,9 @@ class Test_JSON_Conformance: XCTestCase {
         do {
             decoded = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: repeatedValueWithNull)
             XCTAssertNotEqual(decoded, ProtobufTestMessages_Proto3_TestAllTypes())
-            XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), Google_Protobuf_Value()])
+            XCTAssertEqual(decoded.repeatedValue, [Google_Protobuf_Value(numberValue:1), nil as Google_Protobuf_Value])
         } catch {
-            XCTFail("Decode failed with error: \(repeatedValueWithNull)")
+            XCTFail("Decode failed with error \(error): \(repeatedValueWithNull)")
             return
         }
         do {
