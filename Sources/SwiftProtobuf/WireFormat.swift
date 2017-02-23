@@ -12,13 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-
-// TODO(#51): This type is currently public because there are protocols that use
-// it that cannot currently be easily made internal. Revisit the visibility of
-// this type once we've figured out if we can lock those other protocols down.
-
 /// Denotes the wire format by which a value is encoded in binary form.
-public enum WireFormat: UInt8 {
+internal enum WireFormat: UInt8 {
 
   case varint = 0
   case fixed64 = 1
