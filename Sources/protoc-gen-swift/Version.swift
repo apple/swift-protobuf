@@ -48,7 +48,7 @@ struct Version {
                + "The generated Swift output requires the SwiftProtobuf \(versionString)\n"
                + "library be included in your project.\n"
                + "\n"
-               + "If you use `swift build` to compiler your project, add this to\n"
+               + "If you use `swift build` to compile your project, add this to\n"
                + "Package.swift:\n"
                + "\n"
                + "   dependencies: [\n"
