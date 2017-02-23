@@ -107,7 +107,6 @@ public struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProto
     2: .same(proto: "nanos"),
   ]
 
-
   ///   Represents seconds of UTC time since Unix epoch
   ///   1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
   ///   9999-12-31T23:59:59Z inclusive.
@@ -118,6 +117,7 @@ public struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProto
   ///   that count forward in time. Must be from 0 to 999,999,999
   ///   inclusive.
   public var nanos: Int32 = 0
+
 
   public init() {}
 

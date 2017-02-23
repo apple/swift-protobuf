@@ -63,9 +63,9 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftPro
     1: .same(proto: "value"),
   ]
 
-
   ///   The double value.
   public var value: Double = 0
+
 
   public init() {}
 
@@ -104,9 +104,9 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProt
     1: .same(proto: "value"),
   ]
 
-
   ///   The float value.
   public var value: Float = 0
+
 
   public init() {}
 
@@ -145,9 +145,9 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProt
     1: .same(proto: "value"),
   ]
 
-
   ///   The int64 value.
   public var value: Int64 = 0
+
 
   public init() {}
 
@@ -186,9 +186,9 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftPro
     1: .same(proto: "value"),
   ]
 
-
   ///   The uint64 value.
   public var value: UInt64 = 0
+
 
   public init() {}
 
@@ -227,9 +227,9 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProt
     1: .same(proto: "value"),
   ]
 
-
   ///   The int32 value.
   public var value: Int32 = 0
+
 
   public init() {}
 
@@ -268,9 +268,9 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftPro
     1: .same(proto: "value"),
   ]
 
-
   ///   The uint32 value.
   public var value: UInt32 = 0
+
 
   public init() {}
 
@@ -309,9 +309,9 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProto
     1: .same(proto: "value"),
   ]
 
-
   ///   The bool value.
   public var value: Bool = false
+
 
   public init() {}
 
@@ -350,9 +350,9 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftPro
     1: .same(proto: "value"),
   ]
 
-
   ///   The string value.
   public var value: String = ""
+
 
   public init() {}
 
@@ -391,9 +391,9 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProt
     1: .same(proto: "value"),
   ]
 
-
   ///   The bytes value.
   public var value: Data = Data()
+
 
   public init() {}
 

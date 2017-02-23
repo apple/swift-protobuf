@@ -56,8 +56,6 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
         1: .same(proto: "a"),
       ]
 
-      var unknownFields = SwiftProtobuf.UnknownStorage()
-
       private var _a: Int32? = nil
       var a: Int32 {
         get {return _a ?? 0}
@@ -69,6 +67,8 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
       mutating func clearA() {
         return _a = nil
       }
+
+      var unknownFields = SwiftProtobuf.UnknownStorage()
 
       init() {}
 
@@ -181,8 +181,6 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     999: .same(proto: "c"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   ///        extensions 10 to 20;
   private var _c: Int64? = nil
   var c: Int64 {
@@ -195,6 +193,8 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   mutating func clearC() {
     return _c = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -366,8 +366,6 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftP
     1: .same(proto: "x"),
   ]
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
-
   private var _x: Int32? = nil
   var x: Int32 {
     get {return _x ?? 0}
@@ -379,6 +377,8 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftP
   mutating func clearX() {
     return _x = nil
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -450,49 +450,14 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
     2: .same(proto: "y"),
   ]
 
-  private class _StorageClass: SwiftProtobuf._ExtensibleMessageStorage {
-    typealias ExtendedMessage = ProtobufUnittest_Extend_MsgUsesStorage
-    var extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+  private class _StorageClass {
     var _x: Int32? = nil
     var _y: ProtobufUnittest_Extend_MsgUsesStorage? = nil
 
     init() {}
 
-    var isInitialized: Bool {
-      if !extensionFieldValues.isInitialized {return false}
-      if let v = _y, !v.isInitialized {return false}
-      return true
-    }
-
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_x)
-      case 2: try decoder.decodeSingularMessageField(value: &_y)
-      default: if (100 <= fieldNumber && fieldNumber < 201) {
-          try decoder.decodeExtensionField(values: &extensionFieldValues, messageType: ProtobufUnittest_Extend_MsgUsesStorage.self, fieldNumber: fieldNumber)
-        }
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _x != other._x {return false}
-      if _y != other._y {return false}
-      if unknownFields != other.unknownFields {return false}
-      if extensionFieldValues != other.extensionFieldValues {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
-      clone.extensionFieldValues = extensionFieldValues
       clone._x = _x
       clone._y = _y
       return clone
@@ -501,9 +466,11 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var x: Int32 {
@@ -529,61 +496,81 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
     return _storage._y = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   public var isInitialized: Bool {
-    return _storage.isInitialized
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_extensionFieldValues.isInitialized {return false}
+      if let v = _storage._y, !v.isInitialized {return false}
+      return true
+    }
   }
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_storage._x)
+    case 2: try decoder.decodeSingularMessageField(value: &_storage._y)
+    default: if (100 <= fieldNumber && fieldNumber < 201) {
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_Extend_MsgUsesStorage.self, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._x {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._x {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = storage._y {
+      if let v = _storage._y {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      try visitor.visitExtensionFields(fields: storage.extensionFieldValues, start: 100, end: 201)
-      storage.unknownFields.traverse(visitor: &visitor)
+      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 201)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgUsesStorage) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._x != other_storage._x {return false}
+      if _storage._y != other_storage._y {return false}
+      if unknownFields != other.unknownFields {return false}
+      if _extensionFieldValues != other._extensionFieldValues {return false}
+      return true
+    }
   }
 
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
-    }
-    return _storage
-  }
+  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>, value: F.ValueType) {
-    return _uniqueStorage().setExtensionValue(ext: ext, value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>) {
-    return _uniqueStorage().clearExtensionValue(ext: ext)
+    _extensionFieldValues[ext.fieldNumber] = nil
   }
 
   func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>) -> F.ValueType {
-    return _storage.getExtensionValue(ext: ext)
+    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
+      return fieldValue.value
+    }
+    return ext.defaultValue
   }
 
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>) -> Bool {
-    return _storage.hasExtensionValue(ext: ext)
+    return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_Extend_MsgUsesStorage._protobuf_fieldNames.fieldNames(for: number) ?? _storage.extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_Extend_MsgUsesStorage._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 

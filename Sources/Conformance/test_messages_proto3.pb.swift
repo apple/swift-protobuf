@@ -364,248 +364,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_optionalInt32)
-      case 2: try decoder.decodeSingularInt64Field(value: &_optionalInt64)
-      case 3: try decoder.decodeSingularUInt32Field(value: &_optionalUint32)
-      case 4: try decoder.decodeSingularUInt64Field(value: &_optionalUint64)
-      case 5: try decoder.decodeSingularSInt32Field(value: &_optionalSint32)
-      case 6: try decoder.decodeSingularSInt64Field(value: &_optionalSint64)
-      case 7: try decoder.decodeSingularFixed32Field(value: &_optionalFixed32)
-      case 8: try decoder.decodeSingularFixed64Field(value: &_optionalFixed64)
-      case 9: try decoder.decodeSingularSFixed32Field(value: &_optionalSfixed32)
-      case 10: try decoder.decodeSingularSFixed64Field(value: &_optionalSfixed64)
-      case 11: try decoder.decodeSingularFloatField(value: &_optionalFloat)
-      case 12: try decoder.decodeSingularDoubleField(value: &_optionalDouble)
-      case 13: try decoder.decodeSingularBoolField(value: &_optionalBool)
-      case 14: try decoder.decodeSingularStringField(value: &_optionalString)
-      case 15: try decoder.decodeSingularBytesField(value: &_optionalBytes)
-      case 18: try decoder.decodeSingularMessageField(value: &_optionalNestedMessage)
-      case 19: try decoder.decodeSingularMessageField(value: &_optionalForeignMessage)
-      case 21: try decoder.decodeSingularEnumField(value: &_optionalNestedEnum)
-      case 22: try decoder.decodeSingularEnumField(value: &_optionalForeignEnum)
-      case 24: try decoder.decodeSingularStringField(value: &_optionalStringPiece)
-      case 25: try decoder.decodeSingularStringField(value: &_optionalCord)
-      case 27: try decoder.decodeSingularMessageField(value: &_recursiveMessage)
-      case 31: try decoder.decodeRepeatedInt32Field(value: &_repeatedInt32)
-      case 32: try decoder.decodeRepeatedInt64Field(value: &_repeatedInt64)
-      case 33: try decoder.decodeRepeatedUInt32Field(value: &_repeatedUint32)
-      case 34: try decoder.decodeRepeatedUInt64Field(value: &_repeatedUint64)
-      case 35: try decoder.decodeRepeatedSInt32Field(value: &_repeatedSint32)
-      case 36: try decoder.decodeRepeatedSInt64Field(value: &_repeatedSint64)
-      case 37: try decoder.decodeRepeatedFixed32Field(value: &_repeatedFixed32)
-      case 38: try decoder.decodeRepeatedFixed64Field(value: &_repeatedFixed64)
-      case 39: try decoder.decodeRepeatedSFixed32Field(value: &_repeatedSfixed32)
-      case 40: try decoder.decodeRepeatedSFixed64Field(value: &_repeatedSfixed64)
-      case 41: try decoder.decodeRepeatedFloatField(value: &_repeatedFloat)
-      case 42: try decoder.decodeRepeatedDoubleField(value: &_repeatedDouble)
-      case 43: try decoder.decodeRepeatedBoolField(value: &_repeatedBool)
-      case 44: try decoder.decodeRepeatedStringField(value: &_repeatedString)
-      case 45: try decoder.decodeRepeatedBytesField(value: &_repeatedBytes)
-      case 48: try decoder.decodeRepeatedMessageField(value: &_repeatedNestedMessage)
-      case 49: try decoder.decodeRepeatedMessageField(value: &_repeatedForeignMessage)
-      case 51: try decoder.decodeRepeatedEnumField(value: &_repeatedNestedEnum)
-      case 52: try decoder.decodeRepeatedEnumField(value: &_repeatedForeignEnum)
-      case 54: try decoder.decodeRepeatedStringField(value: &_repeatedStringPiece)
-      case 55: try decoder.decodeRepeatedStringField(value: &_repeatedCord)
-      case 56: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_mapInt32Int32)
-      case 57: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_mapInt64Int64)
-      case 58: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: &_mapUint32Uint32)
-      case 59: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: &_mapUint64Uint64)
-      case 60: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: &_mapSint32Sint32)
-      case 61: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: &_mapSint64Sint64)
-      case 62: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: &_mapFixed32Fixed32)
-      case 63: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: &_mapFixed64Fixed64)
-      case 64: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: &_mapSfixed32Sfixed32)
-      case 65: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: &_mapSfixed64Sfixed64)
-      case 66: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: &_mapInt32Float)
-      case 67: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: &_mapInt32Double)
-      case 68: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_mapBoolBool)
-      case 69: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_mapStringString)
-      case 70: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_mapStringBytes)
-      case 71: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage>.self, value: &_mapStringNestedMessage)
-      case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: &_mapStringForeignMessage)
-      case 73: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: &_mapStringNestedEnum)
-      case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: &_mapStringForeignEnum)
-      case 111, 112, 113, 114, 115, 116, 117, 118, 119:
-        if _oneofField != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        _oneofField = try ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-      case 201: try decoder.decodeSingularMessageField(value: &_optionalBoolWrapper)
-      case 202: try decoder.decodeSingularMessageField(value: &_optionalInt32Wrapper)
-      case 203: try decoder.decodeSingularMessageField(value: &_optionalInt64Wrapper)
-      case 204: try decoder.decodeSingularMessageField(value: &_optionalUint32Wrapper)
-      case 205: try decoder.decodeSingularMessageField(value: &_optionalUint64Wrapper)
-      case 206: try decoder.decodeSingularMessageField(value: &_optionalFloatWrapper)
-      case 207: try decoder.decodeSingularMessageField(value: &_optionalDoubleWrapper)
-      case 208: try decoder.decodeSingularMessageField(value: &_optionalStringWrapper)
-      case 209: try decoder.decodeSingularMessageField(value: &_optionalBytesWrapper)
-      case 211: try decoder.decodeRepeatedMessageField(value: &_repeatedBoolWrapper)
-      case 212: try decoder.decodeRepeatedMessageField(value: &_repeatedInt32Wrapper)
-      case 213: try decoder.decodeRepeatedMessageField(value: &_repeatedInt64Wrapper)
-      case 214: try decoder.decodeRepeatedMessageField(value: &_repeatedUint32Wrapper)
-      case 215: try decoder.decodeRepeatedMessageField(value: &_repeatedUint64Wrapper)
-      case 216: try decoder.decodeRepeatedMessageField(value: &_repeatedFloatWrapper)
-      case 217: try decoder.decodeRepeatedMessageField(value: &_repeatedDoubleWrapper)
-      case 218: try decoder.decodeRepeatedMessageField(value: &_repeatedStringWrapper)
-      case 219: try decoder.decodeRepeatedMessageField(value: &_repeatedBytesWrapper)
-      case 301: try decoder.decodeSingularMessageField(value: &_optionalDuration)
-      case 302: try decoder.decodeSingularMessageField(value: &_optionalTimestamp)
-      case 303: try decoder.decodeSingularMessageField(value: &_optionalFieldMask)
-      case 304: try decoder.decodeSingularMessageField(value: &_optionalStruct)
-      case 305: try decoder.decodeSingularMessageField(value: &_optionalAny)
-      case 306: try decoder.decodeSingularMessageField(value: &_optionalValue)
-      case 311: try decoder.decodeRepeatedMessageField(value: &_repeatedDuration)
-      case 312: try decoder.decodeRepeatedMessageField(value: &_repeatedTimestamp)
-      case 313: try decoder.decodeRepeatedMessageField(value: &_repeatedFieldmask)
-      case 324: try decoder.decodeRepeatedMessageField(value: &_repeatedStruct)
-      case 315: try decoder.decodeRepeatedMessageField(value: &_repeatedAny)
-      case 316: try decoder.decodeRepeatedMessageField(value: &_repeatedValue)
-      case 401: try decoder.decodeSingularInt32Field(value: &_fieldname1)
-      case 402: try decoder.decodeSingularInt32Field(value: &_fieldName2)
-      case 403: try decoder.decodeSingularInt32Field(value: &_fieldName3)
-      case 404: try decoder.decodeSingularInt32Field(value: &_field_Name4_)
-      case 405: try decoder.decodeSingularInt32Field(value: &_field0Name5)
-      case 406: try decoder.decodeSingularInt32Field(value: &_field0Name6)
-      case 407: try decoder.decodeSingularInt32Field(value: &_fieldName7)
-      case 408: try decoder.decodeSingularInt32Field(value: &_fieldName8)
-      case 409: try decoder.decodeSingularInt32Field(value: &_fieldName9)
-      case 410: try decoder.decodeSingularInt32Field(value: &_fieldName10)
-      case 411: try decoder.decodeSingularInt32Field(value: &_fieldName11)
-      case 412: try decoder.decodeSingularInt32Field(value: &_fieldName12)
-      case 413: try decoder.decodeSingularInt32Field(value: &__FieldName13)
-      case 414: try decoder.decodeSingularInt32Field(value: &__FieldName14)
-      case 415: try decoder.decodeSingularInt32Field(value: &_field_Name15)
-      case 416: try decoder.decodeSingularInt32Field(value: &_field_Name16)
-      case 417: try decoder.decodeSingularInt32Field(value: &_fieldName17__)
-      case 418: try decoder.decodeSingularInt32Field(value: &_fieldName18__)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _optionalInt32 != other._optionalInt32 {return false}
-      if _optionalInt64 != other._optionalInt64 {return false}
-      if _optionalUint32 != other._optionalUint32 {return false}
-      if _optionalUint64 != other._optionalUint64 {return false}
-      if _optionalSint32 != other._optionalSint32 {return false}
-      if _optionalSint64 != other._optionalSint64 {return false}
-      if _optionalFixed32 != other._optionalFixed32 {return false}
-      if _optionalFixed64 != other._optionalFixed64 {return false}
-      if _optionalSfixed32 != other._optionalSfixed32 {return false}
-      if _optionalSfixed64 != other._optionalSfixed64 {return false}
-      if _optionalFloat != other._optionalFloat {return false}
-      if _optionalDouble != other._optionalDouble {return false}
-      if _optionalBool != other._optionalBool {return false}
-      if _optionalString != other._optionalString {return false}
-      if _optionalBytes != other._optionalBytes {return false}
-      if _optionalNestedMessage != other._optionalNestedMessage {return false}
-      if _optionalForeignMessage != other._optionalForeignMessage {return false}
-      if _optionalNestedEnum != other._optionalNestedEnum {return false}
-      if _optionalForeignEnum != other._optionalForeignEnum {return false}
-      if _optionalStringPiece != other._optionalStringPiece {return false}
-      if _optionalCord != other._optionalCord {return false}
-      if _recursiveMessage != other._recursiveMessage {return false}
-      if _repeatedInt32 != other._repeatedInt32 {return false}
-      if _repeatedInt64 != other._repeatedInt64 {return false}
-      if _repeatedUint32 != other._repeatedUint32 {return false}
-      if _repeatedUint64 != other._repeatedUint64 {return false}
-      if _repeatedSint32 != other._repeatedSint32 {return false}
-      if _repeatedSint64 != other._repeatedSint64 {return false}
-      if _repeatedFixed32 != other._repeatedFixed32 {return false}
-      if _repeatedFixed64 != other._repeatedFixed64 {return false}
-      if _repeatedSfixed32 != other._repeatedSfixed32 {return false}
-      if _repeatedSfixed64 != other._repeatedSfixed64 {return false}
-      if _repeatedFloat != other._repeatedFloat {return false}
-      if _repeatedDouble != other._repeatedDouble {return false}
-      if _repeatedBool != other._repeatedBool {return false}
-      if _repeatedString != other._repeatedString {return false}
-      if _repeatedBytes != other._repeatedBytes {return false}
-      if _repeatedNestedMessage != other._repeatedNestedMessage {return false}
-      if _repeatedForeignMessage != other._repeatedForeignMessage {return false}
-      if _repeatedNestedEnum != other._repeatedNestedEnum {return false}
-      if _repeatedForeignEnum != other._repeatedForeignEnum {return false}
-      if _repeatedStringPiece != other._repeatedStringPiece {return false}
-      if _repeatedCord != other._repeatedCord {return false}
-      if _mapInt32Int32 != other._mapInt32Int32 {return false}
-      if _mapInt64Int64 != other._mapInt64Int64 {return false}
-      if _mapUint32Uint32 != other._mapUint32Uint32 {return false}
-      if _mapUint64Uint64 != other._mapUint64Uint64 {return false}
-      if _mapSint32Sint32 != other._mapSint32Sint32 {return false}
-      if _mapSint64Sint64 != other._mapSint64Sint64 {return false}
-      if _mapFixed32Fixed32 != other._mapFixed32Fixed32 {return false}
-      if _mapFixed64Fixed64 != other._mapFixed64Fixed64 {return false}
-      if _mapSfixed32Sfixed32 != other._mapSfixed32Sfixed32 {return false}
-      if _mapSfixed64Sfixed64 != other._mapSfixed64Sfixed64 {return false}
-      if _mapInt32Float != other._mapInt32Float {return false}
-      if _mapInt32Double != other._mapInt32Double {return false}
-      if _mapBoolBool != other._mapBoolBool {return false}
-      if _mapStringString != other._mapStringString {return false}
-      if _mapStringBytes != other._mapStringBytes {return false}
-      if _mapStringNestedMessage != other._mapStringNestedMessage {return false}
-      if _mapStringForeignMessage != other._mapStringForeignMessage {return false}
-      if _mapStringNestedEnum != other._mapStringNestedEnum {return false}
-      if _mapStringForeignEnum != other._mapStringForeignEnum {return false}
-      if _oneofField != other._oneofField {return false}
-      if _optionalBoolWrapper != other._optionalBoolWrapper {return false}
-      if _optionalInt32Wrapper != other._optionalInt32Wrapper {return false}
-      if _optionalInt64Wrapper != other._optionalInt64Wrapper {return false}
-      if _optionalUint32Wrapper != other._optionalUint32Wrapper {return false}
-      if _optionalUint64Wrapper != other._optionalUint64Wrapper {return false}
-      if _optionalFloatWrapper != other._optionalFloatWrapper {return false}
-      if _optionalDoubleWrapper != other._optionalDoubleWrapper {return false}
-      if _optionalStringWrapper != other._optionalStringWrapper {return false}
-      if _optionalBytesWrapper != other._optionalBytesWrapper {return false}
-      if _repeatedBoolWrapper != other._repeatedBoolWrapper {return false}
-      if _repeatedInt32Wrapper != other._repeatedInt32Wrapper {return false}
-      if _repeatedInt64Wrapper != other._repeatedInt64Wrapper {return false}
-      if _repeatedUint32Wrapper != other._repeatedUint32Wrapper {return false}
-      if _repeatedUint64Wrapper != other._repeatedUint64Wrapper {return false}
-      if _repeatedFloatWrapper != other._repeatedFloatWrapper {return false}
-      if _repeatedDoubleWrapper != other._repeatedDoubleWrapper {return false}
-      if _repeatedStringWrapper != other._repeatedStringWrapper {return false}
-      if _repeatedBytesWrapper != other._repeatedBytesWrapper {return false}
-      if _optionalDuration != other._optionalDuration {return false}
-      if _optionalTimestamp != other._optionalTimestamp {return false}
-      if _optionalFieldMask != other._optionalFieldMask {return false}
-      if _optionalStruct != other._optionalStruct {return false}
-      if _optionalAny != other._optionalAny {return false}
-      if _optionalValue != other._optionalValue {return false}
-      if _repeatedDuration != other._repeatedDuration {return false}
-      if _repeatedTimestamp != other._repeatedTimestamp {return false}
-      if _repeatedFieldmask != other._repeatedFieldmask {return false}
-      if _repeatedStruct != other._repeatedStruct {return false}
-      if _repeatedAny != other._repeatedAny {return false}
-      if _repeatedValue != other._repeatedValue {return false}
-      if _fieldname1 != other._fieldname1 {return false}
-      if _fieldName2 != other._fieldName2 {return false}
-      if _fieldName3 != other._fieldName3 {return false}
-      if _field_Name4_ != other._field_Name4_ {return false}
-      if _field0Name5 != other._field0Name5 {return false}
-      if _field0Name6 != other._field0Name6 {return false}
-      if _fieldName7 != other._fieldName7 {return false}
-      if _fieldName8 != other._fieldName8 {return false}
-      if _fieldName9 != other._fieldName9 {return false}
-      if _fieldName10 != other._fieldName10 {return false}
-      if _fieldName11 != other._fieldName11 {return false}
-      if _fieldName12 != other._fieldName12 {return false}
-      if __FieldName13 != other.__FieldName13 {return false}
-      if __FieldName14 != other.__FieldName14 {return false}
-      if _field_Name15 != other._field_Name15 {return false}
-      if _field_Name16 != other._field_Name16 {return false}
-      if _fieldName17__ != other._fieldName17__ {return false}
-      if _fieldName18__ != other._fieldName18__ {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
       clone._optionalInt32 = _optionalInt32
@@ -725,292 +483,11 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
 
   private var _storage = _StorageClass()
 
-
-  enum OneOf_OneofField: Equatable {
-    case oneofUint32(UInt32)
-    case oneofNestedMessage(ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage)
-    case oneofString(String)
-    case oneofBytes(Data)
-    case oneofBool(Bool)
-    case oneofUint64(UInt64)
-    case oneofFloat(Float)
-    case oneofDouble(Double)
-    case oneofEnum(ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum)
-
-    static func ==(lhs: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField, rhs: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField) -> Bool {
-      switch (lhs, rhs) {
-      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
-      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
-      case (.oneofString(let l), .oneofString(let r)): return l == r
-      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
-      case (.oneofBool(let l), .oneofBool(let r)): return l == r
-      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
-      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
-      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
-      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
-      default: return false
-      }
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 111:
-        var value = UInt32()
-        try decoder.decodeSingularUInt32Field(value: &value)
-        self = .oneofUint32(value)
-        return
-      case 112:
-        var value: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .oneofNestedMessage(value)
-          return
-        }
-      case 113:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .oneofString(value)
-        return
-      case 114:
-        var value = Data()
-        try decoder.decodeSingularBytesField(value: &value)
-        self = .oneofBytes(value)
-        return
-      case 115:
-        var value = Bool()
-        try decoder.decodeSingularBoolField(value: &value)
-        self = .oneofBool(value)
-        return
-      case 116:
-        var value = UInt64()
-        try decoder.decodeSingularUInt64Field(value: &value)
-        self = .oneofUint64(value)
-        return
-      case 117:
-        var value = Float()
-        try decoder.decodeSingularFloatField(value: &value)
-        self = .oneofFloat(value)
-        return
-      case 118:
-        var value = Double()
-        try decoder.decodeSingularDoubleField(value: &value)
-        self = .oneofDouble(value)
-        return
-      case 119:
-        var value = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofEnum(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofUint32(let v):
-        if start <= 111 && 111 < end {
-          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-        }
-      case .oneofNestedMessage(let v):
-        if start <= 112 && 112 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-        }
-      case .oneofString(let v):
-        if start <= 113 && 113 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-        }
-      case .oneofBytes(let v):
-        if start <= 114 && 114 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-        }
-      case .oneofBool(let v):
-        if start <= 115 && 115 < end {
-          try visitor.visitSingularBoolField(value: v, fieldNumber: 115)
-        }
-      case .oneofUint64(let v):
-        if start <= 116 && 116 < end {
-          try visitor.visitSingularUInt64Field(value: v, fieldNumber: 116)
-        }
-      case .oneofFloat(let v):
-        if start <= 117 && 117 < end {
-          try visitor.visitSingularFloatField(value: v, fieldNumber: 117)
-        }
-      case .oneofDouble(let v):
-        if start <= 118 && 118 < end {
-          try visitor.visitSingularDoubleField(value: v, fieldNumber: 118)
-        }
-      case .oneofEnum(let v):
-        if start <= 119 && 119 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
-        }
-      }
-    }
-  }
-
-  enum NestedEnum: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case foo // = 0
-    case bar // = 1
-    case baz // = 2
-
-    ///   Intentionally negative.
-    case neg // = -1
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .foo
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .foo
-      case 1: self = .bar
-      case 2: self = .baz
-      case -1: self = .neg
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    init?(jsonName: String) {
-      switch jsonName {
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "NEG": self = .neg
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "NEG": self = .neg
-      default: return nil
-      }
-    }
-
-    var rawValue: Int {
-      get {
-        switch self {
-        case .foo: return 0
-        case .bar: return 1
-        case .baz: return 2
-        case .neg: return -1
-        case .UNRECOGNIZED(let i): return i
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .foo: return "FOO"
-        case .bar: return "BAR"
-        case .baz: return "BAZ"
-        case .neg: return "NEG"
-        case .UNRECOGNIZED: return nil
-        }
-      }
-    }
-
-  }
-
-  struct NestedMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "protobuf_test_messages.proto3"
-    static let _protobuf_fieldNames: FieldNameMap = [
-      1: .same(proto: "a"),
-      2: .same(proto: "corecursive"),
-    ]
-
-    private class _StorageClass {
-      var _a: Int32 = 0
-      var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
-
-      init() {}
-
-      func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-        while let fieldNumber = try decoder.nextFieldNumber() {
-          try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-        }
-      }
-
-      func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_a)
-        case 2: try decoder.decodeSingularMessageField(value: &_corecursive)
-        default: break
-        }
-      }
-
-      func isEqualTo(other: _StorageClass) -> Bool {
-        if _a != other._a {return false}
-        if _corecursive != other._corecursive {return false}
-        return true
-      }
-
-      func copy() -> _StorageClass {
-        let clone = _StorageClass()
-        clone._a = _a
-        clone._corecursive = _corecursive
-        return clone
-      }
-    }
-
-    private var _storage = _StorageClass()
-
-
-    var a: Int32 {
-      get {return _storage._a}
-      set {_uniqueStorage()._a = newValue}
-    }
-
-    var corecursive: ProtobufTestMessages_Proto3_TestAllTypes {
-      get {return _storage._corecursive ?? ProtobufTestMessages_Proto3_TestAllTypes()}
-      set {_uniqueStorage()._corecursive = newValue}
-    }
-    var hasCorecursive: Bool {
-      return _storage._corecursive != nil
-    }
-    mutating func clearCorecursive() {
-      return _storage._corecursive = nil
-    }
-
-    init() {}
-
-    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      try _uniqueStorage().decodeMessage(decoder: &decoder)
-    }
-
-    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-
-    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-        if storage._a != 0 {
-          try visitor.visitSingularInt32Field(value: storage._a, fieldNumber: 1)
-        }
-        if let v = storage._corecursive {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-        }
-      }
-    }
-
-    func _protoc_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage) -> Bool {
-      return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-    }
-
-    private mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
-      }
-      return _storage
-    }
+    return _storage
   }
 
   ///   Singular
@@ -1792,361 +1269,868 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
     }
   }
 
+
+  enum OneOf_OneofField: Equatable {
+    case oneofUint32(UInt32)
+    case oneofNestedMessage(ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage)
+    case oneofString(String)
+    case oneofBytes(Data)
+    case oneofBool(Bool)
+    case oneofUint64(UInt64)
+    case oneofFloat(Float)
+    case oneofDouble(Double)
+    case oneofEnum(ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum)
+
+    static func ==(lhs: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField, rhs: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
+      case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofBool(let l), .oneofBool(let r)): return l == r
+      case (.oneofUint64(let l), .oneofUint64(let r)): return l == r
+      case (.oneofFloat(let l), .oneofFloat(let r)): return l == r
+      case (.oneofDouble(let l), .oneofDouble(let r)): return l == r
+      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      default: return false
+      }
+    }
+
+    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 111:
+        var value = UInt32()
+        try decoder.decodeSingularUInt32Field(value: &value)
+        self = .oneofUint32(value)
+        return
+      case 112:
+        var value: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage?
+        try decoder.decodeSingularMessageField(value: &value)
+        if let value = value {
+          self = .oneofNestedMessage(value)
+          return
+        }
+      case 113:
+        var value = String()
+        try decoder.decodeSingularStringField(value: &value)
+        self = .oneofString(value)
+        return
+      case 114:
+        var value = Data()
+        try decoder.decodeSingularBytesField(value: &value)
+        self = .oneofBytes(value)
+        return
+      case 115:
+        var value = Bool()
+        try decoder.decodeSingularBoolField(value: &value)
+        self = .oneofBool(value)
+        return
+      case 116:
+        var value = UInt64()
+        try decoder.decodeSingularUInt64Field(value: &value)
+        self = .oneofUint64(value)
+        return
+      case 117:
+        var value = Float()
+        try decoder.decodeSingularFloatField(value: &value)
+        self = .oneofFloat(value)
+        return
+      case 118:
+        var value = Double()
+        try decoder.decodeSingularDoubleField(value: &value)
+        self = .oneofDouble(value)
+        return
+      case 119:
+        var value = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum()
+        try decoder.decodeSingularEnumField(value: &value)
+        self = .oneofEnum(value)
+        return
+      default:
+        break
+      }
+      return nil
+    }
+
+    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+      switch self {
+      case .oneofUint32(let v):
+        if start <= 111 && 111 < end {
+          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
+        }
+      case .oneofNestedMessage(let v):
+        if start <= 112 && 112 < end {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
+        }
+      case .oneofString(let v):
+        if start <= 113 && 113 < end {
+          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
+        }
+      case .oneofBytes(let v):
+        if start <= 114 && 114 < end {
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+        }
+      case .oneofBool(let v):
+        if start <= 115 && 115 < end {
+          try visitor.visitSingularBoolField(value: v, fieldNumber: 115)
+        }
+      case .oneofUint64(let v):
+        if start <= 116 && 116 < end {
+          try visitor.visitSingularUInt64Field(value: v, fieldNumber: 116)
+        }
+      case .oneofFloat(let v):
+        if start <= 117 && 117 < end {
+          try visitor.visitSingularFloatField(value: v, fieldNumber: 117)
+        }
+      case .oneofDouble(let v):
+        if start <= 118 && 118 < end {
+          try visitor.visitSingularDoubleField(value: v, fieldNumber: 118)
+        }
+      case .oneofEnum(let v):
+        if start <= 119 && 119 < end {
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
+        }
+      }
+    }
+  }
+
+  enum NestedEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case foo // = 0
+    case bar // = 1
+    case baz // = 2
+
+    ///   Intentionally negative.
+    case neg // = -1
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .foo
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .foo
+      case 1: self = .bar
+      case 2: self = .baz
+      case -1: self = .neg
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    init?(jsonName: String) {
+      switch jsonName {
+      case "FOO": self = .foo
+      case "BAR": self = .bar
+      case "BAZ": self = .baz
+      case "NEG": self = .neg
+      default: return nil
+      }
+    }
+
+    init?(protoName: String) {
+      switch protoName {
+      case "FOO": self = .foo
+      case "BAR": self = .bar
+      case "BAZ": self = .baz
+      case "NEG": self = .neg
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      get {
+        switch self {
+        case .foo: return 0
+        case .bar: return 1
+        case .baz: return 2
+        case .neg: return -1
+        case .UNRECOGNIZED(let i): return i
+        }
+      }
+    }
+
+    var _protobuf_jsonName: String? {
+      get {
+        switch self {
+        case .foo: return "FOO"
+        case .bar: return "BAR"
+        case .baz: return "BAZ"
+        case .neg: return "NEG"
+        case .UNRECOGNIZED: return nil
+        }
+      }
+    }
+
+  }
+
+  struct NestedMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = "NestedMessage"
+    static let protoPackageName: String = "protobuf_test_messages.proto3"
+    static let _protobuf_fieldNames: FieldNameMap = [
+      1: .same(proto: "a"),
+      2: .same(proto: "corecursive"),
+    ]
+
+    private class _StorageClass {
+      var _a: Int32 = 0
+      var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
+
+      init() {}
+
+      func copy() -> _StorageClass {
+        let clone = _StorageClass()
+        clone._a = _a
+        clone._corecursive = _corecursive
+        return clone
+      }
+    }
+
+    private var _storage = _StorageClass()
+
+    private mutating func _uniqueStorage() -> _StorageClass {
+      if !isKnownUniquelyReferenced(&_storage) {
+        _storage = _storage.copy()
+      }
+      return _storage
+    }
+
+    var a: Int32 {
+      get {return _storage._a}
+      set {_uniqueStorage()._a = newValue}
+    }
+
+    var corecursive: ProtobufTestMessages_Proto3_TestAllTypes {
+      get {return _storage._corecursive ?? ProtobufTestMessages_Proto3_TestAllTypes()}
+      set {_uniqueStorage()._corecursive = newValue}
+    }
+    var hasCorecursive: Bool {
+      return _storage._corecursive != nil
+    }
+    mutating func clearCorecursive() {
+      return _storage._corecursive = nil
+    }
+
+
+    init() {}
+
+    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        }
+      }
+    }
+
+    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_storage._a)
+      case 2: try decoder.decodeSingularMessageField(value: &_storage._corecursive)
+      default: break
+      }
+    }
+
+    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if _storage._a != 0 {
+          try visitor.visitSingularInt32Field(value: _storage._a, fieldNumber: 1)
+        }
+        if let v = _storage._corecursive {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+        }
+      }
+    }
+
+    func _protoc_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage) -> Bool {
+      return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._a != other_storage._a {return false}
+        if _storage._corecursive != other_storage._corecursive {return false}
+        return true
+      }
+    }
+  }
+
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
+    case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
+    case 3: try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint32)
+    case 4: try decoder.decodeSingularUInt64Field(value: &_storage._optionalUint64)
+    case 5: try decoder.decodeSingularSInt32Field(value: &_storage._optionalSint32)
+    case 6: try decoder.decodeSingularSInt64Field(value: &_storage._optionalSint64)
+    case 7: try decoder.decodeSingularFixed32Field(value: &_storage._optionalFixed32)
+    case 8: try decoder.decodeSingularFixed64Field(value: &_storage._optionalFixed64)
+    case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._optionalSfixed32)
+    case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._optionalSfixed64)
+    case 11: try decoder.decodeSingularFloatField(value: &_storage._optionalFloat)
+    case 12: try decoder.decodeSingularDoubleField(value: &_storage._optionalDouble)
+    case 13: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
+    case 14: try decoder.decodeSingularStringField(value: &_storage._optionalString)
+    case 15: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
+    case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
+    case 19: try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage)
+    case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
+    case 22: try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum)
+    case 24: try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece)
+    case 25: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
+    case 27: try decoder.decodeSingularMessageField(value: &_storage._recursiveMessage)
+    case 31: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
+    case 32: try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64)
+    case 33: try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32)
+    case 34: try decoder.decodeRepeatedUInt64Field(value: &_storage._repeatedUint64)
+    case 35: try decoder.decodeRepeatedSInt32Field(value: &_storage._repeatedSint32)
+    case 36: try decoder.decodeRepeatedSInt64Field(value: &_storage._repeatedSint64)
+    case 37: try decoder.decodeRepeatedFixed32Field(value: &_storage._repeatedFixed32)
+    case 38: try decoder.decodeRepeatedFixed64Field(value: &_storage._repeatedFixed64)
+    case 39: try decoder.decodeRepeatedSFixed32Field(value: &_storage._repeatedSfixed32)
+    case 40: try decoder.decodeRepeatedSFixed64Field(value: &_storage._repeatedSfixed64)
+    case 41: try decoder.decodeRepeatedFloatField(value: &_storage._repeatedFloat)
+    case 42: try decoder.decodeRepeatedDoubleField(value: &_storage._repeatedDouble)
+    case 43: try decoder.decodeRepeatedBoolField(value: &_storage._repeatedBool)
+    case 44: try decoder.decodeRepeatedStringField(value: &_storage._repeatedString)
+    case 45: try decoder.decodeRepeatedBytesField(value: &_storage._repeatedBytes)
+    case 48: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedNestedMessage)
+    case 49: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedForeignMessage)
+    case 51: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedNestedEnum)
+    case 52: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum)
+    case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
+    case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
+    case 56: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._mapInt32Int32)
+    case 57: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_storage._mapInt64Int64)
+    case 58: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: &_storage._mapUint32Uint32)
+    case 59: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: &_storage._mapUint64Uint64)
+    case 60: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: &_storage._mapSint32Sint32)
+    case 61: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: &_storage._mapSint64Sint64)
+    case 62: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: &_storage._mapFixed32Fixed32)
+    case 63: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: &_storage._mapFixed64Fixed64)
+    case 64: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: &_storage._mapSfixed32Sfixed32)
+    case 65: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: &_storage._mapSfixed64Sfixed64)
+    case 66: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: &_storage._mapInt32Float)
+    case 67: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: &_storage._mapInt32Double)
+    case 68: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool)
+    case 69: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString)
+    case 70: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapStringBytes)
+    case 71: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage>.self, value: &_storage._mapStringNestedMessage)
+    case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: &_storage._mapStringForeignMessage)
+    case 73: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: &_storage._mapStringNestedEnum)
+    case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: &_storage._mapStringForeignEnum)
+    case 111, 112, 113, 114, 115, 116, 117, 118, 119:
+      if _storage._oneofField != nil {
+        try decoder.handleConflictingOneOf()
+      }
+      _storage._oneofField = try ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+    case 201: try decoder.decodeSingularMessageField(value: &_storage._optionalBoolWrapper)
+    case 202: try decoder.decodeSingularMessageField(value: &_storage._optionalInt32Wrapper)
+    case 203: try decoder.decodeSingularMessageField(value: &_storage._optionalInt64Wrapper)
+    case 204: try decoder.decodeSingularMessageField(value: &_storage._optionalUint32Wrapper)
+    case 205: try decoder.decodeSingularMessageField(value: &_storage._optionalUint64Wrapper)
+    case 206: try decoder.decodeSingularMessageField(value: &_storage._optionalFloatWrapper)
+    case 207: try decoder.decodeSingularMessageField(value: &_storage._optionalDoubleWrapper)
+    case 208: try decoder.decodeSingularMessageField(value: &_storage._optionalStringWrapper)
+    case 209: try decoder.decodeSingularMessageField(value: &_storage._optionalBytesWrapper)
+    case 211: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedBoolWrapper)
+    case 212: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedInt32Wrapper)
+    case 213: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedInt64Wrapper)
+    case 214: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedUint32Wrapper)
+    case 215: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedUint64Wrapper)
+    case 216: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFloatWrapper)
+    case 217: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDoubleWrapper)
+    case 218: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStringWrapper)
+    case 219: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedBytesWrapper)
+    case 301: try decoder.decodeSingularMessageField(value: &_storage._optionalDuration)
+    case 302: try decoder.decodeSingularMessageField(value: &_storage._optionalTimestamp)
+    case 303: try decoder.decodeSingularMessageField(value: &_storage._optionalFieldMask)
+    case 304: try decoder.decodeSingularMessageField(value: &_storage._optionalStruct)
+    case 305: try decoder.decodeSingularMessageField(value: &_storage._optionalAny)
+    case 306: try decoder.decodeSingularMessageField(value: &_storage._optionalValue)
+    case 311: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDuration)
+    case 312: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedTimestamp)
+    case 313: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask)
+    case 324: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct)
+    case 315: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAny)
+    case 316: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedValue)
+    case 401: try decoder.decodeSingularInt32Field(value: &_storage._fieldname1)
+    case 402: try decoder.decodeSingularInt32Field(value: &_storage._fieldName2)
+    case 403: try decoder.decodeSingularInt32Field(value: &_storage._fieldName3)
+    case 404: try decoder.decodeSingularInt32Field(value: &_storage._field_Name4_)
+    case 405: try decoder.decodeSingularInt32Field(value: &_storage._field0Name5)
+    case 406: try decoder.decodeSingularInt32Field(value: &_storage._field0Name6)
+    case 407: try decoder.decodeSingularInt32Field(value: &_storage._fieldName7)
+    case 408: try decoder.decodeSingularInt32Field(value: &_storage._fieldName8)
+    case 409: try decoder.decodeSingularInt32Field(value: &_storage._fieldName9)
+    case 410: try decoder.decodeSingularInt32Field(value: &_storage._fieldName10)
+    case 411: try decoder.decodeSingularInt32Field(value: &_storage._fieldName11)
+    case 412: try decoder.decodeSingularInt32Field(value: &_storage._fieldName12)
+    case 413: try decoder.decodeSingularInt32Field(value: &_storage.__FieldName13)
+    case 414: try decoder.decodeSingularInt32Field(value: &_storage.__FieldName14)
+    case 415: try decoder.decodeSingularInt32Field(value: &_storage._field_Name15)
+    case 416: try decoder.decodeSingularInt32Field(value: &_storage._field_Name16)
+    case 417: try decoder.decodeSingularInt32Field(value: &_storage._fieldName17__)
+    case 418: try decoder.decodeSingularInt32Field(value: &_storage._fieldName18__)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if storage._optionalInt32 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._optionalInt32, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if _storage._optionalInt32 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._optionalInt32, fieldNumber: 1)
       }
-      if storage._optionalInt64 != 0 {
-        try visitor.visitSingularInt64Field(value: storage._optionalInt64, fieldNumber: 2)
+      if _storage._optionalInt64 != 0 {
+        try visitor.visitSingularInt64Field(value: _storage._optionalInt64, fieldNumber: 2)
       }
-      if storage._optionalUint32 != 0 {
-        try visitor.visitSingularUInt32Field(value: storage._optionalUint32, fieldNumber: 3)
+      if _storage._optionalUint32 != 0 {
+        try visitor.visitSingularUInt32Field(value: _storage._optionalUint32, fieldNumber: 3)
       }
-      if storage._optionalUint64 != 0 {
-        try visitor.visitSingularUInt64Field(value: storage._optionalUint64, fieldNumber: 4)
+      if _storage._optionalUint64 != 0 {
+        try visitor.visitSingularUInt64Field(value: _storage._optionalUint64, fieldNumber: 4)
       }
-      if storage._optionalSint32 != 0 {
-        try visitor.visitSingularSInt32Field(value: storage._optionalSint32, fieldNumber: 5)
+      if _storage._optionalSint32 != 0 {
+        try visitor.visitSingularSInt32Field(value: _storage._optionalSint32, fieldNumber: 5)
       }
-      if storage._optionalSint64 != 0 {
-        try visitor.visitSingularSInt64Field(value: storage._optionalSint64, fieldNumber: 6)
+      if _storage._optionalSint64 != 0 {
+        try visitor.visitSingularSInt64Field(value: _storage._optionalSint64, fieldNumber: 6)
       }
-      if storage._optionalFixed32 != 0 {
-        try visitor.visitSingularFixed32Field(value: storage._optionalFixed32, fieldNumber: 7)
+      if _storage._optionalFixed32 != 0 {
+        try visitor.visitSingularFixed32Field(value: _storage._optionalFixed32, fieldNumber: 7)
       }
-      if storage._optionalFixed64 != 0 {
-        try visitor.visitSingularFixed64Field(value: storage._optionalFixed64, fieldNumber: 8)
+      if _storage._optionalFixed64 != 0 {
+        try visitor.visitSingularFixed64Field(value: _storage._optionalFixed64, fieldNumber: 8)
       }
-      if storage._optionalSfixed32 != 0 {
-        try visitor.visitSingularSFixed32Field(value: storage._optionalSfixed32, fieldNumber: 9)
+      if _storage._optionalSfixed32 != 0 {
+        try visitor.visitSingularSFixed32Field(value: _storage._optionalSfixed32, fieldNumber: 9)
       }
-      if storage._optionalSfixed64 != 0 {
-        try visitor.visitSingularSFixed64Field(value: storage._optionalSfixed64, fieldNumber: 10)
+      if _storage._optionalSfixed64 != 0 {
+        try visitor.visitSingularSFixed64Field(value: _storage._optionalSfixed64, fieldNumber: 10)
       }
-      if storage._optionalFloat != 0 {
-        try visitor.visitSingularFloatField(value: storage._optionalFloat, fieldNumber: 11)
+      if _storage._optionalFloat != 0 {
+        try visitor.visitSingularFloatField(value: _storage._optionalFloat, fieldNumber: 11)
       }
-      if storage._optionalDouble != 0 {
-        try visitor.visitSingularDoubleField(value: storage._optionalDouble, fieldNumber: 12)
+      if _storage._optionalDouble != 0 {
+        try visitor.visitSingularDoubleField(value: _storage._optionalDouble, fieldNumber: 12)
       }
-      if storage._optionalBool != false {
-        try visitor.visitSingularBoolField(value: storage._optionalBool, fieldNumber: 13)
+      if _storage._optionalBool != false {
+        try visitor.visitSingularBoolField(value: _storage._optionalBool, fieldNumber: 13)
       }
-      if !storage._optionalString.isEmpty {
-        try visitor.visitSingularStringField(value: storage._optionalString, fieldNumber: 14)
+      if !_storage._optionalString.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._optionalString, fieldNumber: 14)
       }
-      if storage._optionalBytes != Data() {
-        try visitor.visitSingularBytesField(value: storage._optionalBytes, fieldNumber: 15)
+      if _storage._optionalBytes != Data() {
+        try visitor.visitSingularBytesField(value: _storage._optionalBytes, fieldNumber: 15)
       }
-      if let v = storage._optionalNestedMessage {
+      if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
       }
-      if let v = storage._optionalForeignMessage {
+      if let v = _storage._optionalForeignMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      if storage._optionalNestedEnum != ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo {
-        try visitor.visitSingularEnumField(value: storage._optionalNestedEnum, fieldNumber: 21)
+      if _storage._optionalNestedEnum != ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo {
+        try visitor.visitSingularEnumField(value: _storage._optionalNestedEnum, fieldNumber: 21)
       }
-      if storage._optionalForeignEnum != ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo {
-        try visitor.visitSingularEnumField(value: storage._optionalForeignEnum, fieldNumber: 22)
+      if _storage._optionalForeignEnum != ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo {
+        try visitor.visitSingularEnumField(value: _storage._optionalForeignEnum, fieldNumber: 22)
       }
-      if !storage._optionalStringPiece.isEmpty {
-        try visitor.visitSingularStringField(value: storage._optionalStringPiece, fieldNumber: 24)
+      if !_storage._optionalStringPiece.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._optionalStringPiece, fieldNumber: 24)
       }
-      if !storage._optionalCord.isEmpty {
-        try visitor.visitSingularStringField(value: storage._optionalCord, fieldNumber: 25)
+      if !_storage._optionalCord.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._optionalCord, fieldNumber: 25)
       }
-      if let v = storage._recursiveMessage {
+      if let v = _storage._recursiveMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 27)
       }
-      if !storage._repeatedInt32.isEmpty {
-        try visitor.visitPackedInt32Field(value: storage._repeatedInt32, fieldNumber: 31)
+      if !_storage._repeatedInt32.isEmpty {
+        try visitor.visitPackedInt32Field(value: _storage._repeatedInt32, fieldNumber: 31)
       }
-      if !storage._repeatedInt64.isEmpty {
-        try visitor.visitPackedInt64Field(value: storage._repeatedInt64, fieldNumber: 32)
+      if !_storage._repeatedInt64.isEmpty {
+        try visitor.visitPackedInt64Field(value: _storage._repeatedInt64, fieldNumber: 32)
       }
-      if !storage._repeatedUint32.isEmpty {
-        try visitor.visitPackedUInt32Field(value: storage._repeatedUint32, fieldNumber: 33)
+      if !_storage._repeatedUint32.isEmpty {
+        try visitor.visitPackedUInt32Field(value: _storage._repeatedUint32, fieldNumber: 33)
       }
-      if !storage._repeatedUint64.isEmpty {
-        try visitor.visitPackedUInt64Field(value: storage._repeatedUint64, fieldNumber: 34)
+      if !_storage._repeatedUint64.isEmpty {
+        try visitor.visitPackedUInt64Field(value: _storage._repeatedUint64, fieldNumber: 34)
       }
-      if !storage._repeatedSint32.isEmpty {
-        try visitor.visitPackedSInt32Field(value: storage._repeatedSint32, fieldNumber: 35)
+      if !_storage._repeatedSint32.isEmpty {
+        try visitor.visitPackedSInt32Field(value: _storage._repeatedSint32, fieldNumber: 35)
       }
-      if !storage._repeatedSint64.isEmpty {
-        try visitor.visitPackedSInt64Field(value: storage._repeatedSint64, fieldNumber: 36)
+      if !_storage._repeatedSint64.isEmpty {
+        try visitor.visitPackedSInt64Field(value: _storage._repeatedSint64, fieldNumber: 36)
       }
-      if !storage._repeatedFixed32.isEmpty {
-        try visitor.visitPackedFixed32Field(value: storage._repeatedFixed32, fieldNumber: 37)
+      if !_storage._repeatedFixed32.isEmpty {
+        try visitor.visitPackedFixed32Field(value: _storage._repeatedFixed32, fieldNumber: 37)
       }
-      if !storage._repeatedFixed64.isEmpty {
-        try visitor.visitPackedFixed64Field(value: storage._repeatedFixed64, fieldNumber: 38)
+      if !_storage._repeatedFixed64.isEmpty {
+        try visitor.visitPackedFixed64Field(value: _storage._repeatedFixed64, fieldNumber: 38)
       }
-      if !storage._repeatedSfixed32.isEmpty {
-        try visitor.visitPackedSFixed32Field(value: storage._repeatedSfixed32, fieldNumber: 39)
+      if !_storage._repeatedSfixed32.isEmpty {
+        try visitor.visitPackedSFixed32Field(value: _storage._repeatedSfixed32, fieldNumber: 39)
       }
-      if !storage._repeatedSfixed64.isEmpty {
-        try visitor.visitPackedSFixed64Field(value: storage._repeatedSfixed64, fieldNumber: 40)
+      if !_storage._repeatedSfixed64.isEmpty {
+        try visitor.visitPackedSFixed64Field(value: _storage._repeatedSfixed64, fieldNumber: 40)
       }
-      if !storage._repeatedFloat.isEmpty {
-        try visitor.visitPackedFloatField(value: storage._repeatedFloat, fieldNumber: 41)
+      if !_storage._repeatedFloat.isEmpty {
+        try visitor.visitPackedFloatField(value: _storage._repeatedFloat, fieldNumber: 41)
       }
-      if !storage._repeatedDouble.isEmpty {
-        try visitor.visitPackedDoubleField(value: storage._repeatedDouble, fieldNumber: 42)
+      if !_storage._repeatedDouble.isEmpty {
+        try visitor.visitPackedDoubleField(value: _storage._repeatedDouble, fieldNumber: 42)
       }
-      if !storage._repeatedBool.isEmpty {
-        try visitor.visitPackedBoolField(value: storage._repeatedBool, fieldNumber: 43)
+      if !_storage._repeatedBool.isEmpty {
+        try visitor.visitPackedBoolField(value: _storage._repeatedBool, fieldNumber: 43)
       }
-      if !storage._repeatedString.isEmpty {
-        try visitor.visitRepeatedStringField(value: storage._repeatedString, fieldNumber: 44)
+      if !_storage._repeatedString.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedString, fieldNumber: 44)
       }
-      if !storage._repeatedBytes.isEmpty {
-        try visitor.visitRepeatedBytesField(value: storage._repeatedBytes, fieldNumber: 45)
+      if !_storage._repeatedBytes.isEmpty {
+        try visitor.visitRepeatedBytesField(value: _storage._repeatedBytes, fieldNumber: 45)
       }
-      if !storage._repeatedNestedMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedNestedMessage, fieldNumber: 48)
+      if !_storage._repeatedNestedMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedNestedMessage, fieldNumber: 48)
       }
-      if !storage._repeatedForeignMessage.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedForeignMessage, fieldNumber: 49)
+      if !_storage._repeatedForeignMessage.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedForeignMessage, fieldNumber: 49)
       }
-      if !storage._repeatedNestedEnum.isEmpty {
-        try visitor.visitPackedEnumField(value: storage._repeatedNestedEnum, fieldNumber: 51)
+      if !_storage._repeatedNestedEnum.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._repeatedNestedEnum, fieldNumber: 51)
       }
-      if !storage._repeatedForeignEnum.isEmpty {
-        try visitor.visitPackedEnumField(value: storage._repeatedForeignEnum, fieldNumber: 52)
+      if !_storage._repeatedForeignEnum.isEmpty {
+        try visitor.visitPackedEnumField(value: _storage._repeatedForeignEnum, fieldNumber: 52)
       }
-      if !storage._repeatedStringPiece.isEmpty {
-        try visitor.visitRepeatedStringField(value: storage._repeatedStringPiece, fieldNumber: 54)
+      if !_storage._repeatedStringPiece.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedStringPiece, fieldNumber: 54)
       }
-      if !storage._repeatedCord.isEmpty {
-        try visitor.visitRepeatedStringField(value: storage._repeatedCord, fieldNumber: 55)
+      if !_storage._repeatedCord.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._repeatedCord, fieldNumber: 55)
       }
-      if !storage._mapInt32Int32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: storage._mapInt32Int32, fieldNumber: 56)
+      if !_storage._mapInt32Int32.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 56)
       }
-      if !storage._mapInt64Int64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: storage._mapInt64Int64, fieldNumber: 57)
+      if !_storage._mapInt64Int64.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: _storage._mapInt64Int64, fieldNumber: 57)
       }
-      if !storage._mapUint32Uint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: storage._mapUint32Uint32, fieldNumber: 58)
+      if !_storage._mapUint32Uint32.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: _storage._mapUint32Uint32, fieldNumber: 58)
       }
-      if !storage._mapUint64Uint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: storage._mapUint64Uint64, fieldNumber: 59)
+      if !_storage._mapUint64Uint64.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: _storage._mapUint64Uint64, fieldNumber: 59)
       }
-      if !storage._mapSint32Sint32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: storage._mapSint32Sint32, fieldNumber: 60)
+      if !_storage._mapSint32Sint32.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: _storage._mapSint32Sint32, fieldNumber: 60)
       }
-      if !storage._mapSint64Sint64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: storage._mapSint64Sint64, fieldNumber: 61)
+      if !_storage._mapSint64Sint64.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: _storage._mapSint64Sint64, fieldNumber: 61)
       }
-      if !storage._mapFixed32Fixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: storage._mapFixed32Fixed32, fieldNumber: 62)
+      if !_storage._mapFixed32Fixed32.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: _storage._mapFixed32Fixed32, fieldNumber: 62)
       }
-      if !storage._mapFixed64Fixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: storage._mapFixed64Fixed64, fieldNumber: 63)
+      if !_storage._mapFixed64Fixed64.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: _storage._mapFixed64Fixed64, fieldNumber: 63)
       }
-      if !storage._mapSfixed32Sfixed32.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: storage._mapSfixed32Sfixed32, fieldNumber: 64)
+      if !_storage._mapSfixed32Sfixed32.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: _storage._mapSfixed32Sfixed32, fieldNumber: 64)
       }
-      if !storage._mapSfixed64Sfixed64.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: storage._mapSfixed64Sfixed64, fieldNumber: 65)
+      if !_storage._mapSfixed64Sfixed64.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: _storage._mapSfixed64Sfixed64, fieldNumber: 65)
       }
-      if !storage._mapInt32Float.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: storage._mapInt32Float, fieldNumber: 66)
+      if !_storage._mapInt32Float.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: _storage._mapInt32Float, fieldNumber: 66)
       }
-      if !storage._mapInt32Double.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: storage._mapInt32Double, fieldNumber: 67)
+      if !_storage._mapInt32Double.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: _storage._mapInt32Double, fieldNumber: 67)
       }
-      if !storage._mapBoolBool.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: storage._mapBoolBool, fieldNumber: 68)
+      if !_storage._mapBoolBool.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: _storage._mapBoolBool, fieldNumber: 68)
       }
-      if !storage._mapStringString.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: storage._mapStringString, fieldNumber: 69)
+      if !_storage._mapStringString.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._mapStringString, fieldNumber: 69)
       }
-      if !storage._mapStringBytes.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: storage._mapStringBytes, fieldNumber: 70)
+      if !_storage._mapStringBytes.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: _storage._mapStringBytes, fieldNumber: 70)
       }
-      if !storage._mapStringNestedMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage>.self, value: storage._mapStringNestedMessage, fieldNumber: 71)
+      if !_storage._mapStringNestedMessage.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage>.self, value: _storage._mapStringNestedMessage, fieldNumber: 71)
       }
-      if !storage._mapStringForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: storage._mapStringForeignMessage, fieldNumber: 72)
+      if !_storage._mapStringForeignMessage.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: _storage._mapStringForeignMessage, fieldNumber: 72)
       }
-      if !storage._mapStringNestedEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: storage._mapStringNestedEnum, fieldNumber: 73)
+      if !_storage._mapStringNestedEnum.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: _storage._mapStringNestedEnum, fieldNumber: 73)
       }
-      if !storage._mapStringForeignEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: storage._mapStringForeignEnum, fieldNumber: 74)
+      if !_storage._mapStringForeignEnum.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf.ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: _storage._mapStringForeignEnum, fieldNumber: 74)
       }
-      try storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 120)
-      if let v = storage._optionalBoolWrapper {
+      try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 120)
+      if let v = _storage._optionalBoolWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 201)
       }
-      if let v = storage._optionalInt32Wrapper {
+      if let v = _storage._optionalInt32Wrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 202)
       }
-      if let v = storage._optionalInt64Wrapper {
+      if let v = _storage._optionalInt64Wrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 203)
       }
-      if let v = storage._optionalUint32Wrapper {
+      if let v = _storage._optionalUint32Wrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 204)
       }
-      if let v = storage._optionalUint64Wrapper {
+      if let v = _storage._optionalUint64Wrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 205)
       }
-      if let v = storage._optionalFloatWrapper {
+      if let v = _storage._optionalFloatWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 206)
       }
-      if let v = storage._optionalDoubleWrapper {
+      if let v = _storage._optionalDoubleWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 207)
       }
-      if let v = storage._optionalStringWrapper {
+      if let v = _storage._optionalStringWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 208)
       }
-      if let v = storage._optionalBytesWrapper {
+      if let v = _storage._optionalBytesWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 209)
       }
-      if !storage._repeatedBoolWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedBoolWrapper, fieldNumber: 211)
+      if !_storage._repeatedBoolWrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedBoolWrapper, fieldNumber: 211)
       }
-      if !storage._repeatedInt32Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedInt32Wrapper, fieldNumber: 212)
+      if !_storage._repeatedInt32Wrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedInt32Wrapper, fieldNumber: 212)
       }
-      if !storage._repeatedInt64Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedInt64Wrapper, fieldNumber: 213)
+      if !_storage._repeatedInt64Wrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedInt64Wrapper, fieldNumber: 213)
       }
-      if !storage._repeatedUint32Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedUint32Wrapper, fieldNumber: 214)
+      if !_storage._repeatedUint32Wrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedUint32Wrapper, fieldNumber: 214)
       }
-      if !storage._repeatedUint64Wrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedUint64Wrapper, fieldNumber: 215)
+      if !_storage._repeatedUint64Wrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedUint64Wrapper, fieldNumber: 215)
       }
-      if !storage._repeatedFloatWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedFloatWrapper, fieldNumber: 216)
+      if !_storage._repeatedFloatWrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedFloatWrapper, fieldNumber: 216)
       }
-      if !storage._repeatedDoubleWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedDoubleWrapper, fieldNumber: 217)
+      if !_storage._repeatedDoubleWrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedDoubleWrapper, fieldNumber: 217)
       }
-      if !storage._repeatedStringWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedStringWrapper, fieldNumber: 218)
+      if !_storage._repeatedStringWrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedStringWrapper, fieldNumber: 218)
       }
-      if !storage._repeatedBytesWrapper.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedBytesWrapper, fieldNumber: 219)
+      if !_storage._repeatedBytesWrapper.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedBytesWrapper, fieldNumber: 219)
       }
-      if let v = storage._optionalDuration {
+      if let v = _storage._optionalDuration {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 301)
       }
-      if let v = storage._optionalTimestamp {
+      if let v = _storage._optionalTimestamp {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 302)
       }
-      if let v = storage._optionalFieldMask {
+      if let v = _storage._optionalFieldMask {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 303)
       }
-      if let v = storage._optionalStruct {
+      if let v = _storage._optionalStruct {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 304)
       }
-      if let v = storage._optionalAny {
+      if let v = _storage._optionalAny {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 305)
       }
-      if let v = storage._optionalValue {
+      if let v = _storage._optionalValue {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 306)
       }
-      if !storage._repeatedDuration.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedDuration, fieldNumber: 311)
+      if !_storage._repeatedDuration.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedDuration, fieldNumber: 311)
       }
-      if !storage._repeatedTimestamp.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedTimestamp, fieldNumber: 312)
+      if !_storage._repeatedTimestamp.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedTimestamp, fieldNumber: 312)
       }
-      if !storage._repeatedFieldmask.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedFieldmask, fieldNumber: 313)
+      if !_storage._repeatedFieldmask.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedFieldmask, fieldNumber: 313)
       }
-      if !storage._repeatedAny.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedAny, fieldNumber: 315)
+      if !_storage._repeatedAny.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedAny, fieldNumber: 315)
       }
-      if !storage._repeatedValue.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedValue, fieldNumber: 316)
+      if !_storage._repeatedValue.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedValue, fieldNumber: 316)
       }
-      if !storage._repeatedStruct.isEmpty {
-        try visitor.visitRepeatedMessageField(value: storage._repeatedStruct, fieldNumber: 324)
+      if !_storage._repeatedStruct.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedStruct, fieldNumber: 324)
       }
-      if storage._fieldname1 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldname1, fieldNumber: 401)
+      if _storage._fieldname1 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldname1, fieldNumber: 401)
       }
-      if storage._fieldName2 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName2, fieldNumber: 402)
+      if _storage._fieldName2 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName2, fieldNumber: 402)
       }
-      if storage._fieldName3 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName3, fieldNumber: 403)
+      if _storage._fieldName3 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName3, fieldNumber: 403)
       }
-      if storage._field_Name4_ != 0 {
-        try visitor.visitSingularInt32Field(value: storage._field_Name4_, fieldNumber: 404)
+      if _storage._field_Name4_ != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._field_Name4_, fieldNumber: 404)
       }
-      if storage._field0Name5 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._field0Name5, fieldNumber: 405)
+      if _storage._field0Name5 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._field0Name5, fieldNumber: 405)
       }
-      if storage._field0Name6 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._field0Name6, fieldNumber: 406)
+      if _storage._field0Name6 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._field0Name6, fieldNumber: 406)
       }
-      if storage._fieldName7 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName7, fieldNumber: 407)
+      if _storage._fieldName7 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName7, fieldNumber: 407)
       }
-      if storage._fieldName8 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName8, fieldNumber: 408)
+      if _storage._fieldName8 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName8, fieldNumber: 408)
       }
-      if storage._fieldName9 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName9, fieldNumber: 409)
+      if _storage._fieldName9 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName9, fieldNumber: 409)
       }
-      if storage._fieldName10 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName10, fieldNumber: 410)
+      if _storage._fieldName10 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName10, fieldNumber: 410)
       }
-      if storage._fieldName11 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName11, fieldNumber: 411)
+      if _storage._fieldName11 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName11, fieldNumber: 411)
       }
-      if storage._fieldName12 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName12, fieldNumber: 412)
+      if _storage._fieldName12 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName12, fieldNumber: 412)
       }
-      if storage.__FieldName13 != 0 {
-        try visitor.visitSingularInt32Field(value: storage.__FieldName13, fieldNumber: 413)
+      if _storage.__FieldName13 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage.__FieldName13, fieldNumber: 413)
       }
-      if storage.__FieldName14 != 0 {
-        try visitor.visitSingularInt32Field(value: storage.__FieldName14, fieldNumber: 414)
+      if _storage.__FieldName14 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage.__FieldName14, fieldNumber: 414)
       }
-      if storage._field_Name15 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._field_Name15, fieldNumber: 415)
+      if _storage._field_Name15 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._field_Name15, fieldNumber: 415)
       }
-      if storage._field_Name16 != 0 {
-        try visitor.visitSingularInt32Field(value: storage._field_Name16, fieldNumber: 416)
+      if _storage._field_Name16 != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._field_Name16, fieldNumber: 416)
       }
-      if storage._fieldName17__ != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName17__, fieldNumber: 417)
+      if _storage._fieldName17__ != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName17__, fieldNumber: 417)
       }
-      if storage._fieldName18__ != 0 {
-        try visitor.visitSingularInt32Field(value: storage._fieldName18__, fieldNumber: 418)
+      if _storage._fieldName18__ != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldName18__, fieldNumber: 418)
       }
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
+      if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
+      if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
+      if _storage._optionalUint64 != other_storage._optionalUint64 {return false}
+      if _storage._optionalSint32 != other_storage._optionalSint32 {return false}
+      if _storage._optionalSint64 != other_storage._optionalSint64 {return false}
+      if _storage._optionalFixed32 != other_storage._optionalFixed32 {return false}
+      if _storage._optionalFixed64 != other_storage._optionalFixed64 {return false}
+      if _storage._optionalSfixed32 != other_storage._optionalSfixed32 {return false}
+      if _storage._optionalSfixed64 != other_storage._optionalSfixed64 {return false}
+      if _storage._optionalFloat != other_storage._optionalFloat {return false}
+      if _storage._optionalDouble != other_storage._optionalDouble {return false}
+      if _storage._optionalBool != other_storage._optionalBool {return false}
+      if _storage._optionalString != other_storage._optionalString {return false}
+      if _storage._optionalBytes != other_storage._optionalBytes {return false}
+      if _storage._optionalNestedMessage != other_storage._optionalNestedMessage {return false}
+      if _storage._optionalForeignMessage != other_storage._optionalForeignMessage {return false}
+      if _storage._optionalNestedEnum != other_storage._optionalNestedEnum {return false}
+      if _storage._optionalForeignEnum != other_storage._optionalForeignEnum {return false}
+      if _storage._optionalStringPiece != other_storage._optionalStringPiece {return false}
+      if _storage._optionalCord != other_storage._optionalCord {return false}
+      if _storage._recursiveMessage != other_storage._recursiveMessage {return false}
+      if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}
+      if _storage._repeatedInt64 != other_storage._repeatedInt64 {return false}
+      if _storage._repeatedUint32 != other_storage._repeatedUint32 {return false}
+      if _storage._repeatedUint64 != other_storage._repeatedUint64 {return false}
+      if _storage._repeatedSint32 != other_storage._repeatedSint32 {return false}
+      if _storage._repeatedSint64 != other_storage._repeatedSint64 {return false}
+      if _storage._repeatedFixed32 != other_storage._repeatedFixed32 {return false}
+      if _storage._repeatedFixed64 != other_storage._repeatedFixed64 {return false}
+      if _storage._repeatedSfixed32 != other_storage._repeatedSfixed32 {return false}
+      if _storage._repeatedSfixed64 != other_storage._repeatedSfixed64 {return false}
+      if _storage._repeatedFloat != other_storage._repeatedFloat {return false}
+      if _storage._repeatedDouble != other_storage._repeatedDouble {return false}
+      if _storage._repeatedBool != other_storage._repeatedBool {return false}
+      if _storage._repeatedString != other_storage._repeatedString {return false}
+      if _storage._repeatedBytes != other_storage._repeatedBytes {return false}
+      if _storage._repeatedNestedMessage != other_storage._repeatedNestedMessage {return false}
+      if _storage._repeatedForeignMessage != other_storage._repeatedForeignMessage {return false}
+      if _storage._repeatedNestedEnum != other_storage._repeatedNestedEnum {return false}
+      if _storage._repeatedForeignEnum != other_storage._repeatedForeignEnum {return false}
+      if _storage._repeatedStringPiece != other_storage._repeatedStringPiece {return false}
+      if _storage._repeatedCord != other_storage._repeatedCord {return false}
+      if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+      if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+      if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+      if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+      if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+      if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+      if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+      if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+      if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+      if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+      if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+      if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+      if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+      if _storage._mapStringString != other_storage._mapStringString {return false}
+      if _storage._mapStringBytes != other_storage._mapStringBytes {return false}
+      if _storage._mapStringNestedMessage != other_storage._mapStringNestedMessage {return false}
+      if _storage._mapStringForeignMessage != other_storage._mapStringForeignMessage {return false}
+      if _storage._mapStringNestedEnum != other_storage._mapStringNestedEnum {return false}
+      if _storage._mapStringForeignEnum != other_storage._mapStringForeignEnum {return false}
+      if _storage._oneofField != other_storage._oneofField {return false}
+      if _storage._optionalBoolWrapper != other_storage._optionalBoolWrapper {return false}
+      if _storage._optionalInt32Wrapper != other_storage._optionalInt32Wrapper {return false}
+      if _storage._optionalInt64Wrapper != other_storage._optionalInt64Wrapper {return false}
+      if _storage._optionalUint32Wrapper != other_storage._optionalUint32Wrapper {return false}
+      if _storage._optionalUint64Wrapper != other_storage._optionalUint64Wrapper {return false}
+      if _storage._optionalFloatWrapper != other_storage._optionalFloatWrapper {return false}
+      if _storage._optionalDoubleWrapper != other_storage._optionalDoubleWrapper {return false}
+      if _storage._optionalStringWrapper != other_storage._optionalStringWrapper {return false}
+      if _storage._optionalBytesWrapper != other_storage._optionalBytesWrapper {return false}
+      if _storage._repeatedBoolWrapper != other_storage._repeatedBoolWrapper {return false}
+      if _storage._repeatedInt32Wrapper != other_storage._repeatedInt32Wrapper {return false}
+      if _storage._repeatedInt64Wrapper != other_storage._repeatedInt64Wrapper {return false}
+      if _storage._repeatedUint32Wrapper != other_storage._repeatedUint32Wrapper {return false}
+      if _storage._repeatedUint64Wrapper != other_storage._repeatedUint64Wrapper {return false}
+      if _storage._repeatedFloatWrapper != other_storage._repeatedFloatWrapper {return false}
+      if _storage._repeatedDoubleWrapper != other_storage._repeatedDoubleWrapper {return false}
+      if _storage._repeatedStringWrapper != other_storage._repeatedStringWrapper {return false}
+      if _storage._repeatedBytesWrapper != other_storage._repeatedBytesWrapper {return false}
+      if _storage._optionalDuration != other_storage._optionalDuration {return false}
+      if _storage._optionalTimestamp != other_storage._optionalTimestamp {return false}
+      if _storage._optionalFieldMask != other_storage._optionalFieldMask {return false}
+      if _storage._optionalStruct != other_storage._optionalStruct {return false}
+      if _storage._optionalAny != other_storage._optionalAny {return false}
+      if _storage._optionalValue != other_storage._optionalValue {return false}
+      if _storage._repeatedDuration != other_storage._repeatedDuration {return false}
+      if _storage._repeatedTimestamp != other_storage._repeatedTimestamp {return false}
+      if _storage._repeatedFieldmask != other_storage._repeatedFieldmask {return false}
+      if _storage._repeatedStruct != other_storage._repeatedStruct {return false}
+      if _storage._repeatedAny != other_storage._repeatedAny {return false}
+      if _storage._repeatedValue != other_storage._repeatedValue {return false}
+      if _storage._fieldname1 != other_storage._fieldname1 {return false}
+      if _storage._fieldName2 != other_storage._fieldName2 {return false}
+      if _storage._fieldName3 != other_storage._fieldName3 {return false}
+      if _storage._field_Name4_ != other_storage._field_Name4_ {return false}
+      if _storage._field0Name5 != other_storage._field0Name5 {return false}
+      if _storage._field0Name6 != other_storage._field0Name6 {return false}
+      if _storage._fieldName7 != other_storage._fieldName7 {return false}
+      if _storage._fieldName8 != other_storage._fieldName8 {return false}
+      if _storage._fieldName9 != other_storage._fieldName9 {return false}
+      if _storage._fieldName10 != other_storage._fieldName10 {return false}
+      if _storage._fieldName11 != other_storage._fieldName11 {return false}
+      if _storage._fieldName12 != other_storage._fieldName12 {return false}
+      if _storage.__FieldName13 != other_storage.__FieldName13 {return false}
+      if _storage.__FieldName14 != other_storage.__FieldName14 {return false}
+      if _storage._field_Name15 != other_storage._field_Name15 {return false}
+      if _storage._field_Name16 != other_storage._field_Name16 {return false}
+      if _storage._fieldName17__ != other_storage._fieldName17__ {return false}
+      if _storage._fieldName18__ != other_storage._fieldName18__ {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -2157,8 +2141,8 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Proto3Message, 
     1: .same(proto: "c"),
   ]
 
-
   var c: Int32 = 0
+
 
   init() {}
 

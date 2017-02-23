@@ -66,39 +66,14 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_aFoo)
-      case 2: try decoder.decodeSingularMessageField(value: &_aBar)
-      case 3: try decoder.decodeSingularMessageField(value: &_aBaz)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _aFoo != other._aFoo {return false}
-      if _aBar != other._aBar {return false}
-      if _aBaz != other._aBaz {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._aFoo = _aFoo
       clone._aBar = _aBar
       clone._aBaz = _aBaz
@@ -108,9 +83,11 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var aFoo: ProtobufUnittest_CycleFoo {
@@ -146,40 +123,50 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     return _storage._aBaz = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
+    case 2: try decoder.decodeSingularMessageField(value: &_storage._aBar)
+    case 3: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._aFoo {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if let v = storage._aBar {
+      if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      if let v = storage._aBaz {
+      if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._aFoo != other_storage._aFoo {return false}
+      if _storage._aBar != other_storage._aBar {return false}
+      if _storage._aBaz != other_storage._aBaz {return false}
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -193,39 +180,14 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_aBar)
-      case 2: try decoder.decodeSingularMessageField(value: &_aBaz)
-      case 3: try decoder.decodeSingularMessageField(value: &_aFoo)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _aBar != other._aBar {return false}
-      if _aBaz != other._aBaz {return false}
-      if _aFoo != other._aFoo {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._aBar = _aBar
       clone._aBaz = _aBaz
       clone._aFoo = _aFoo
@@ -235,9 +197,11 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var aBar: ProtobufUnittest_CycleBar {
@@ -273,40 +237,50 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     return _storage._aFoo = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularMessageField(value: &_storage._aBar)
+    case 2: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
+    case 3: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._aBar {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if let v = storage._aBaz {
+      if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      if let v = storage._aFoo {
+      if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._aBar != other_storage._aBar {return false}
+      if _storage._aBaz != other_storage._aBaz {return false}
+      if _storage._aFoo != other_storage._aFoo {return false}
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
 
@@ -320,39 +294,14 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   ]
 
   private class _StorageClass {
-    var unknownFields = SwiftProtobuf.UnknownStorage()
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
 
     init() {}
 
-    func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    func decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularMessageField(value: &_aBaz)
-      case 2: try decoder.decodeSingularMessageField(value: &_aFoo)
-      case 3: try decoder.decodeSingularMessageField(value: &_aBar)
-      default: break
-      }
-    }
-
-    func isEqualTo(other: _StorageClass) -> Bool {
-      if _aBaz != other._aBaz {return false}
-      if _aFoo != other._aFoo {return false}
-      if _aBar != other._aBar {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
-
     func copy() -> _StorageClass {
       let clone = _StorageClass()
-      clone.unknownFields = unknownFields
       clone._aBaz = _aBaz
       clone._aFoo = _aFoo
       clone._aBar = _aBar
@@ -362,9 +311,11 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 
   private var _storage = _StorageClass()
 
-  var unknownFields: SwiftProtobuf.UnknownStorage {
-    get {return _storage.unknownFields}
-    set {_uniqueStorage().unknownFields = newValue}
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
   }
 
   var aBaz: ProtobufUnittest_CycleBaz {
@@ -400,39 +351,49 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     return _storage._aBar = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    try _uniqueStorage().decodeMessage(decoder: &decoder)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
   }
 
   mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    try _uniqueStorage().decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    switch fieldNumber {
+    case 1: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
+    case 2: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
+    case 3: try decoder.decodeSingularMessageField(value: &_storage._aBar)
+    default: break
+    }
   }
 
   func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (storage: _StorageClass) in
-      if let v = storage._aBaz {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      if let v = storage._aFoo {
+      if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      if let v = storage._aBar {
+      if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      storage.unknownFields.traverse(visitor: &visitor)
+      unknownFields.traverse(visitor: &visitor)
     }
   }
 
   func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
-    return _storage === other._storage || _storage.isEqualTo(other: other._storage)
-  }
-
-  private mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage._aBaz != other_storage._aBaz {return false}
+      if _storage._aFoo != other_storage._aFoo {return false}
+      if _storage._aBar != other_storage._aBar {return false}
+      if unknownFields != other.unknownFields {return false}
+      return true
     }
-    return _storage
   }
 }
