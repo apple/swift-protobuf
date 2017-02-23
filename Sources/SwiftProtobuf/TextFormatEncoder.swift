@@ -26,26 +26,21 @@ private let asciiCloseCurlyBracket = UInt8(ascii: "}")
 private let asciiOpenSquareBracket = UInt8(ascii: "[")
 private let asciiCloseSquareBracket = UInt8(ascii: "]")
 private let asciiNewline = UInt8(ascii: "\n")
-private let asciiLowerB = UInt8(ascii: "b")
-private let asciiLowerF = UInt8(ascii: "f")
-private let asciiLowerN = UInt8(ascii: "n")
-private let asciiLowerR = UInt8(ascii: "r")
-private let asciiLowerT = UInt8(ascii: "t")
-private let asciiLowerV = UInt8(ascii: "v")
+private let asciiUpperA = UInt8(ascii: "A")
 
 private let tabSize = 2
 
 /// TextFormatEncoder has no public members.
 internal struct TextFormatEncoder {
     private var data = [UInt8]()
-    private var indent: [UInt8] = []
+    private var indentString: [UInt8] = []
     var stringResult: String {
         get {
             return String(bytes: data, encoding: String.Encoding.utf8)!
         }
     }
 
-    private mutating func append(staticText: StaticString) {
+    internal mutating func append(staticText: StaticString) {
         let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
         data.append(contentsOf: buff)
     }
@@ -56,8 +51,12 @@ internal struct TextFormatEncoder {
 
     init() {}
 
+    internal mutating func indent() {
+        data.append(contentsOf: indentString)
+    }
+
     private mutating func appendFieldName(name: StaticString, inExtension: Bool) {
-        data.append(contentsOf: indent)
+        indent()
         if inExtension {
             data.append(asciiOpenSquareBracket)
         }
@@ -76,31 +75,42 @@ internal struct TextFormatEncoder {
         append(staticText: ": ")
     }
 
-    // In Text format, a message-valued field writes the name
-    // without a trailing colon:
-    //    name_of_field {key: value key2: value2}
-    mutating func startMessageField(name: StaticString, inExtension: Bool) {
-        appendFieldName(name: name, inExtension: inExtension)
-        data.append(asciiSpace)
+    mutating func startField(number: Int) {
+        indent()
+        appendUInt(value: UInt64(number))
+        append(staticText: ": ")
     }
 
     mutating func endField() {
         data.append(asciiNewline)
     }
 
-    mutating func startObject() {
+    // In Text format, a message-valued field writes the name
+    // without a trailing colon:
+    //    name_of_field {key: value key2: value2}
+    mutating func startMessageField(name: StaticString, inExtension: Bool) {
+        appendFieldName(name: name, inExtension: inExtension)
+        append(staticText: " {\n")
         for _ in 1...tabSize {
-            indent.append(asciiSpace)
+            indentString.append(asciiSpace)
         }
-        append(staticText: "{\n")
     }
 
-    mutating func endObject() {
+    mutating func startMessageField(number: Int) {
+        indent()
+        appendUInt(value: UInt64(number))
+        append(staticText: " {\n")
         for _ in 1...tabSize {
-            indent.remove(at: indent.count - 1)
+            indentString.append(asciiSpace)
         }
-        data.append(contentsOf: indent)
-        data.append(asciiCloseCurlyBracket)
+    }
+
+    mutating func endMessageField() {
+        for _ in 1...tabSize {
+            indentString.remove(at: indentString.count - 1)
+        }
+        indent()
+        append(staticText: "}\n")
     }
 
     mutating func startArray() {
@@ -170,6 +180,20 @@ internal struct TextFormatEncoder {
 
     mutating func putUInt64(value: UInt64) {
         appendUInt(value: value)
+    }
+
+    mutating func appendUIntHex(value: UInt64, digits: Int) {
+        if digits == 0 {
+            append(staticText: "0x")
+        } else {
+            appendUIntHex(value: value >> 4, digits: digits - 1)
+            let d = UInt8(truncatingBitPattern: value % 16)
+            data.append(d < 10 ? asciiZero + d : asciiUpperA + d - 10)
+        }
+    }
+
+    mutating func putUInt64Hex(value: UInt64, digits: Int) {
+        appendUIntHex(value: value, digits: digits)
     }
 
     mutating func putBoolValue(value: Bool) {
