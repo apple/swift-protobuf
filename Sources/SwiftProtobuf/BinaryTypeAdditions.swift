@@ -90,9 +90,9 @@ public extension Message {
     mutating func merge(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
         if !data.isEmpty {
             try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-                try decodeBinary(from: pointer,
-                                 count: data.count,
-                                 extensions: extensions)
+                try _mergeSerializedBytes(from: pointer,
+                                          count: data.count,
+                                          extensions: extensions)
             }
         }
         if !partial && !isInitialized {
@@ -103,7 +103,7 @@ public extension Message {
 
 /// Proto2 messages preserve unknown fields
 public extension Proto2Message {
-    public mutating func decodeBinary(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    public mutating func _mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var decoder = BinaryDecoder(forReadingFrom: bytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &decoder)
         guard decoder.complete else {
@@ -117,7 +117,7 @@ public extension Proto2Message {
 
 // Proto3 messages ignore unknown fields
 public extension Proto3Message {
-    public mutating func decodeBinary(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    public mutating func _mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var decoder = BinaryDecoder(forReadingFrom: bytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &decoder)
         guard decoder.complete else {
