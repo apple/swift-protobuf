@@ -859,6 +859,22 @@ extension Test_Text_Map_proto3 {
     }
 }
 
+extension Test_Text_Unknown {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_unknown_varint", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_varint)}),
+            ("test_unknown_fixed64", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_fixed64)}),
+            ("test_unknown_lengthDelimited_string", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_lengthDelimited_string)}),
+            ("test_unknown_lengthDelimited_message", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_lengthDelimited_message)}),
+            ("test_unknown_lengthDelimited_notmessage", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_lengthDelimited_notmessage)}),
+            ("test_unknown_lengthDelimited_nested_message", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_lengthDelimited_nested_message)}),
+            ("test_unknown_group", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_group)}),
+            ("test_unknown_nested_group", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_nested_group)}),
+            ("test_unknown_fixed32", {try run_test(test:($0 as! Test_Text_Unknown).test_unknown_fixed32)})
+        ]
+    }
+}
+
 extension Test_Text_WKT_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1064,6 +1080,7 @@ XCTMain(
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
         (testCaseClass: Test_Text_Map_proto3.self, allTests: Test_Text_Map_proto3.allTests),
+        (testCaseClass: Test_Text_Unknown.self, allTests: Test_Text_Unknown.allTests),
         (testCaseClass: Test_Text_WKT_proto3.self, allTests: Test_Text_WKT_proto3.allTests),
         (testCaseClass: Test_Text_proto2.self, allTests: Test_Text_proto2.allTests),
         (testCaseClass: Test_Text_proto2_extensions.self, allTests: Test_Text_proto2_extensions.allTests),

@@ -32,7 +32,7 @@ struct BinaryDecoder: Decoder {
     // Whether or not the field value  has actually been parsed
     private var consumed = true
     // Wire format for last-examined field
-    private var fieldWireFormat = WireFormat.varint
+    internal var fieldWireFormat = WireFormat.varint
     // Field number for last-parsed field tag
     private var fieldNumber: Int = 0
     // Collection of extension fields for this decode
@@ -1099,7 +1099,7 @@ struct BinaryDecoder: Decoder {
 
     /// Private: Get the tag that starts a new field.
     /// This also bookmarks the start of field for a possible skip().
-    private mutating func getTag() throws -> FieldTag? {
+    internal mutating func getTag() throws -> FieldTag? {
         fieldStartP = p
         fieldEndP = nil
         return try getTagWithoutUpdatingFieldStart()

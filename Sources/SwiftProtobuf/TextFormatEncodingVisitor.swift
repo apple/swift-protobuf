@@ -67,9 +67,66 @@ internal struct TextFormatEncodingVisitor: Visitor {
     startField(name: protoFieldName)
   }
 
-
   mutating func visitUnknown(bytes: Data) throws {
-    // TODO: Print unknown fields by tag number.
+      try bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
+          var decoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
+          try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
+      }
+  }
+
+  private mutating func visitUnknown(decoder: inout BinaryDecoder, groupFieldNumber: Int?) throws {
+      while let tag = try decoder.getTag() {
+          switch tag.wireFormat {
+          case .varint:
+              var value: UInt64 = 0
+              encoder.startField(number: tag.fieldNumber)
+              try decoder.decodeSingularUInt64Field(value: &value)
+              encoder.putUInt64(value: value)
+              encoder.endField()
+          case .fixed64:
+              var value: UInt64 = 0
+              encoder.startField(number: tag.fieldNumber)
+              try decoder.decodeSingularFixed64Field(value: &value)
+              encoder.putUInt64Hex(value: value, digits: 16)
+              encoder.endField()
+          case .lengthDelimited:
+              var bytes = Data()
+              try decoder.decodeSingularBytesField(value: &bytes)
+              bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
+                  var testDecoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
+                  do {
+                      // Skip all the fields to test if it looks like a message
+                      while let _ = try testDecoder.nextFieldNumber() {
+                      }
+                      // No error?  Output the message body.
+                      var subDecoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
+                      encoder.startMessageField(number: tag.fieldNumber)
+                      try visitUnknown(decoder: &subDecoder, groupFieldNumber: nil)
+                      encoder.endMessageField()
+                  } catch {
+                      // Field scan threw an error, so just dump it as a string.
+                      encoder.startField(number: tag.fieldNumber)
+                      encoder.putBytesValue(value: bytes)
+                      encoder.endField()
+                  }
+              }
+          case .startGroup:
+              encoder.startMessageField(number: tag.fieldNumber)
+              try visitUnknown(decoder: &decoder, groupFieldNumber: tag.fieldNumber)
+              encoder.endMessageField()
+          case .endGroup:
+              // Unknown data is scanned and verified by the
+              // binary parser, so this can never fail.
+              assert(tag.fieldNumber == groupFieldNumber)
+              return
+          case .fixed32:
+              var value: UInt32 = 0
+              encoder.startField(number: tag.fieldNumber)
+              try decoder.decodeSingularFixed32Field(value: &value)
+              encoder.putUInt64Hex(value: UInt64(value), digits: 8)
+              encoder.endField()
+          }
+      }
   }
 
   // Visitor.swift defines default versions for other singular field types
@@ -122,12 +179,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
                                              fieldNumber: Int) throws {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-    encoder.startObject()
     var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
     try value.traverse(visitor: &visitor)
     encoder = visitor.encoder
-    encoder.endObject()
-    encoder.endField()
+    encoder.endMessageField()
   }
 
   // The default implementations in Visitor.swift provide the correct
@@ -249,12 +304,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for v in value {
       encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-      encoder.startObject()
       var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
       try v.traverse(visitor: &visitor)
       encoder = visitor.encoder
-      encoder.endObject()
-      encoder.endField()
+      encoder.endMessageField()
     }
   }
 
@@ -368,12 +421,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for (k,v) in map {
       encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-      encoder.startObject()
       var visitor = TextFormatEncodingVisitor(nameResolver: mapNameResolver, encoder: encoder)
       try coder(&visitor, k, v)
       encoder = visitor.encoder
-      encoder.endObject()
-      encoder.endField()
+      encoder.endMessageField()
     }
   }
 
