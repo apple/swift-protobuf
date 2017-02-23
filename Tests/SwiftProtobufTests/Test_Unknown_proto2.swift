@@ -129,7 +129,11 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
 
     func assertUnknownFields(_ message: Proto2Message, _ bytes: [UInt8], line: UInt = #line) {
         var collector = UnknownCollector()
-        XCTAssertNoThrow(try message.unknownFields.traverse(visitor: &collector))
+        do {
+            try message.unknownFields.traverse(visitor: &collector)
+        } catch let e {
+            XCTFail("Throw why walking unknowns: \(e)", line: line)
+        }
         XCTAssertEqual(collector.collected, [Data(bytes: bytes)], line: line)
     }
 
