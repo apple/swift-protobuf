@@ -398,15 +398,8 @@ update-proto-files: check-for-protobuf-checkout
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_proto3.proto
 
-SWIFT_CONFORMANCE_PLUGIN_SOURCES= \
-	Sources/Conformance/conformance.pb.swift \
-	Sources/Conformance/main.swift
-
-$(SWIFT_CONFORMANCE_PLUGIN): $(SWIFT_CONFORMANCE_PLUGIN_SOURCES)
-	${SWIFT} build
-
 # Runs the conformance tests.
-test-conformance: check-for-protobuf-checkout $(SWIFT_CONFORMANCE_PLUGIN) $(CONFORMANCE_HOST) failure_list_swift.txt
+test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) failure_list_swift.txt
 	( \
 		ABS_PBDIR=`cd ${GOOGLE_PROTOBUF_CHECKOUT}; pwd`; \
 		$${ABS_PBDIR}/conformance/conformance-test-runner --failure_list failure_list_swift.txt $(SWIFT_CONFORMANCE_PLUGIN); \
