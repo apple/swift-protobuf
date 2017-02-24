@@ -29,7 +29,7 @@ class Harness {
 
   /// The number of times to loop the body of the run() method.
   /// Increase this to get better precision...
-  var runCount = 100
+  var runCount = 1000
 
   /// The number of times to call append() for repeated fields.
   let repeatedCount: Int32 = 10
@@ -125,13 +125,15 @@ class Harness {
     _ name: String,
     block: () throws -> Result
   ) rethrows -> Result {
-    taskNames.append(name)
-    let start = Date()
-    let result = try block()
-    let end = Date()
-    let diff = end.timeIntervalSince(start) / Double(runCount) * 1000000.0
-    currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
-    return result
+      return try autoreleasepool { () -> Result in
+          taskNames.append(name)
+          let start = Date()
+          let result = try block()
+          let end = Date()
+          let diff = end.timeIntervalSince(start) / Double(runCount) * 1000000.0
+          currentSubtasks[name] = (currentSubtasks[name] ?? 0) + diff
+          return result
+      }
   }
 
   /// Compute the mean and standard deviation of the given time intervals.

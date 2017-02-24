@@ -28,6 +28,9 @@ function print_swift_set_field() {
       echo "          message.field$num.append(Data(repeating:$((num)), count: 20))"
       echo "        }"
       ;;
+    repeated\ bool)
+      echo "        message.field$num = [true, false, true, false, true, false, true, false]"
+      ;;
     repeated\ string)
       echo "        for _ in 0..<repeatedCount {"
       echo "          message.field$num.append(\"$((200+num))\")"
@@ -40,6 +43,9 @@ function print_swift_set_field() {
       ;;
     bytes)
       echo "        message.field$num = Data(repeating:$((num)), count: 20)"
+      ;;
+    bool)
+      echo "        message.field$num = true"
       ;;
     string)
       echo "        message.field$num = \"$((200+num))\""
