@@ -55,11 +55,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
   case importBaz // = 9
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    7: .same(proto: "IMPORT_FOO"),
+    8: .same(proto: "IMPORT_BAR"),
+    9: .same(proto: "IMPORT_BAZ"),
+  ]
 
   init() {
     self = .importFoo
@@ -74,52 +80,28 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "IMPORT_FOO": self = .importFoo
-    case "IMPORT_BAR": self = .importBar
-    case "IMPORT_BAZ": self = .importBaz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "IMPORT_FOO": self = .importFoo
-    case "IMPORT_BAR": self = .importBar
-    case "IMPORT_BAZ": self = .importBaz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .importFoo: return 7
-      case .importBar: return 8
-      case .importBaz: return 9
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .importFoo: return "IMPORT_FOO"
-      case .importBar: return "IMPORT_BAR"
-      case .importBaz: return "IMPORT_BAZ"
-      }
+    switch self {
+    case .importFoo: return 7
+    case .importBar: return 8
+    case .importBaz: return 9
     }
   }
 
 }
 
 ///   To use an enum in a map, it must has the first value as 0.
-enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
+enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case unknown // = 0
   case foo // = 1
   case bar // = 2
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNKNOWN"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+  ]
 
   init() {
     self = .unknown
@@ -134,41 +116,11 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "UNKNOWN": self = .unknown
-    case "FOO": self = .foo
-    case "BAR": self = .bar
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "UNKNOWN": self = .unknown
-    case "FOO": self = .foo
-    case "BAR": self = .bar
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .unknown: return 0
-      case .foo: return 1
-      case .bar: return 2
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .unknown: return "UNKNOWN"
-      case .foo: return "FOO"
-      case .bar: return "BAR"
-      }
+    switch self {
+    case .unknown: return 0
+    case .foo: return 1
+    case .bar: return 2
     }
   }
 
@@ -177,7 +129,7 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
 struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ImportMessage"
   static let protoPackageName: String = "protobuf_unittest_import"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]
 

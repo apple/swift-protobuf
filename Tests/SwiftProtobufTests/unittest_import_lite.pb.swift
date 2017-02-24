@@ -53,11 +53,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
+enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case importLiteFoo // = 7
   case importLiteBar // = 8
   case importLiteBaz // = 9
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    7: .same(proto: "IMPORT_LITE_FOO"),
+    8: .same(proto: "IMPORT_LITE_BAR"),
+    9: .same(proto: "IMPORT_LITE_BAZ"),
+  ]
 
   init() {
     self = .importLiteFoo
@@ -72,41 +78,11 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "IMPORT_LITE_FOO": self = .importLiteFoo
-    case "IMPORT_LITE_BAR": self = .importLiteBar
-    case "IMPORT_LITE_BAZ": self = .importLiteBaz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "IMPORT_LITE_FOO": self = .importLiteFoo
-    case "IMPORT_LITE_BAR": self = .importLiteBar
-    case "IMPORT_LITE_BAZ": self = .importLiteBaz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .importLiteFoo: return 7
-      case .importLiteBar: return 8
-      case .importLiteBaz: return 9
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .importLiteFoo: return "IMPORT_LITE_FOO"
-      case .importLiteBar: return "IMPORT_LITE_BAR"
-      case .importLiteBaz: return "IMPORT_LITE_BAZ"
-      }
+    switch self {
+    case .importLiteFoo: return 7
+    case .importLiteBar: return 8
+    case .importLiteBaz: return 9
     }
   }
 
@@ -115,7 +91,7 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ImportMessageLite"
   static let protoPackageName: String = "protobuf_unittest_import"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]
 
