@@ -49,13 +49,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
+enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foreignZero // = 0
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
   case UNRECOGNIZED(Int)
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOREIGN_ZERO"),
+    4: .same(proto: "FOREIGN_FOO"),
+    5: .same(proto: "FOREIGN_BAR"),
+    6: .same(proto: "FOREIGN_BAZ"),
+  ]
 
   init() {
     self = .foreignZero
@@ -71,47 +78,13 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "FOREIGN_ZERO": self = .foreignZero
-    case "FOREIGN_FOO": self = .foreignFoo
-    case "FOREIGN_BAR": self = .foreignBar
-    case "FOREIGN_BAZ": self = .foreignBaz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "FOREIGN_ZERO": self = .foreignZero
-    case "FOREIGN_FOO": self = .foreignFoo
-    case "FOREIGN_BAR": self = .foreignBar
-    case "FOREIGN_BAZ": self = .foreignBaz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .foreignZero: return 0
-      case .foreignFoo: return 4
-      case .foreignBar: return 5
-      case .foreignBaz: return 6
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .foreignZero: return "FOREIGN_ZERO"
-      case .foreignFoo: return "FOREIGN_FOO"
-      case .foreignBar: return "FOREIGN_BAR"
-      case .foreignBaz: return "FOREIGN_BAZ"
-      case .UNRECOGNIZED: return nil
-      }
+    switch self {
+    case .foreignZero: return 0
+    case .foreignFoo: return 4
+    case .foreignBar: return 5
+    case .foreignBaz: return 6
+    case .UNRECOGNIZED(let i): return i
     }
   }
 
@@ -122,7 +95,7 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
 struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestAllTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
     3: .unique(proto: "optional_uint32", json: "optionalUint32"),
@@ -702,7 +675,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case zero // = 0
     case foo // = 1
@@ -712,6 +685,14 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     ///   Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "ZERO"),
+      1: .same(proto: "FOO"),
+      2: .same(proto: "BAR"),
+      3: .same(proto: "BAZ"),
+      -1: .same(proto: "NEG"),
+    ]
 
     init() {
       self = .zero
@@ -728,51 +709,14 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "ZERO": self = .zero
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "NEG": self = .neg
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "ZERO": self = .zero
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "NEG": self = .neg
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .zero: return 0
-        case .foo: return 1
-        case .bar: return 2
-        case .baz: return 3
-        case .neg: return -1
-        case .UNRECOGNIZED(let i): return i
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .zero: return "ZERO"
-        case .foo: return "FOO"
-        case .bar: return "BAR"
-        case .baz: return "BAZ"
-        case .neg: return "NEG"
-        case .UNRECOGNIZED: return nil
-        }
+      switch self {
+      case .zero: return 0
+      case .foo: return 1
+      case .bar: return 2
+      case .baz: return 3
+      case .neg: return -1
+      case .UNRECOGNIZED(let i): return i
       }
     }
 
@@ -781,7 +725,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
   struct NestedMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "proto3_arena_lite_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "bb"),
     ]
 
@@ -1094,7 +1038,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
 struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestPackedTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     90: .unique(proto: "packed_int32", json: "packedInt32"),
     91: .unique(proto: "packed_int64", json: "packedInt64"),
     92: .unique(proto: "packed_uint32", json: "packedUint32"),
@@ -1235,7 +1179,7 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
 struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestUnpackedTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "repeated_int32", json: "repeatedInt32"),
     2: .unique(proto: "repeated_int64", json: "repeatedInt64"),
     3: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
@@ -1376,7 +1320,7 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
 struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "NestedTestAllTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
   ]
@@ -1471,7 +1415,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
 struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ForeignMessage"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
 
@@ -1508,7 +1452,7 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Proto3Message, Swif
 struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestEmptyMessage"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   init() {}
 

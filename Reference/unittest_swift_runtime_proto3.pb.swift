@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Message3"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
     3: .unique(proto: "optional_uint32", json: "optionalUint32"),
@@ -948,13 +948,20 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  enum Enum: SwiftProtobuf.Enum {
+  enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case extra3 // = 30
     case UNRECOGNIZED(Int)
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "FOO"),
+      1: .same(proto: "BAR"),
+      2: .same(proto: "BAZ"),
+      30: .same(proto: "EXTRA_3"),
+    ]
 
     init() {
       self = .foo
@@ -970,47 +977,13 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "EXTRA_3": self = .extra3
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "EXTRA_3": self = .extra3
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .foo: return 0
-        case .bar: return 1
-        case .baz: return 2
-        case .extra3: return 30
-        case .UNRECOGNIZED(let i): return i
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .foo: return "FOO"
-        case .bar: return "BAR"
-        case .baz: return "BAZ"
-        case .extra3: return "EXTRA_3"
-        case .UNRECOGNIZED: return nil
-        }
+      switch self {
+      case .foo: return 0
+      case .bar: return 1
+      case .baz: return 2
+      case .extra3: return 30
+      case .UNRECOGNIZED(let i): return i
       }
     }
 

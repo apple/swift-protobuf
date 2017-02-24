@@ -62,7 +62,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FileDescriptorSet"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "file"),
   ]
 
@@ -108,7 +108,7 @@ struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Proto2Message, SwiftProt
 struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FileDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "package"),
     3: .same(proto: "dependency"),
@@ -378,7 +378,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Proto2Message, SwiftPr
 struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "DescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "field"),
     6: .same(proto: "extension"),
@@ -499,7 +499,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtob
   struct ExtensionRange: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "ExtensionRange"
     static let protoPackageName: String = "google.protobuf"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "start"),
       2: .same(proto: "end"),
     ]
@@ -570,7 +570,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtob
   struct ReservedRange: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "ReservedRange"
     static let protoPackageName: String = "google.protobuf"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "start"),
       2: .same(proto: "end"),
     ]
@@ -735,7 +735,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtob
 struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FieldDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     3: .same(proto: "number"),
     4: .same(proto: "label"),
@@ -919,7 +919,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftP
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TypeEnum: SwiftProtobuf.Enum {
+  enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
     ///   0 is reserved for errors.
@@ -962,6 +962,27 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftP
     ///   Uses ZigZag encoding.
     case sint64 // = 18
 
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "TYPE_DOUBLE"),
+      2: .same(proto: "TYPE_FLOAT"),
+      3: .same(proto: "TYPE_INT64"),
+      4: .same(proto: "TYPE_UINT64"),
+      5: .same(proto: "TYPE_INT32"),
+      6: .same(proto: "TYPE_FIXED64"),
+      7: .same(proto: "TYPE_FIXED32"),
+      8: .same(proto: "TYPE_BOOL"),
+      9: .same(proto: "TYPE_STRING"),
+      10: .same(proto: "TYPE_GROUP"),
+      11: .same(proto: "TYPE_MESSAGE"),
+      12: .same(proto: "TYPE_BYTES"),
+      13: .same(proto: "TYPE_UINT32"),
+      14: .same(proto: "TYPE_ENUM"),
+      15: .same(proto: "TYPE_SFIXED32"),
+      16: .same(proto: "TYPE_SFIXED64"),
+      17: .same(proto: "TYPE_SINT32"),
+      18: .same(proto: "TYPE_SINT64"),
+    ]
+
     init() {
       self = .double
     }
@@ -990,113 +1011,44 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftP
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "TYPE_DOUBLE": self = .double
-      case "TYPE_FLOAT": self = .float
-      case "TYPE_INT64": self = .int64
-      case "TYPE_UINT64": self = .uint64
-      case "TYPE_INT32": self = .int32
-      case "TYPE_FIXED64": self = .fixed64
-      case "TYPE_FIXED32": self = .fixed32
-      case "TYPE_BOOL": self = .bool
-      case "TYPE_STRING": self = .string
-      case "TYPE_GROUP": self = .group
-      case "TYPE_MESSAGE": self = .message
-      case "TYPE_BYTES": self = .bytes
-      case "TYPE_UINT32": self = .uint32
-      case "TYPE_ENUM": self = .`enum`
-      case "TYPE_SFIXED32": self = .sfixed32
-      case "TYPE_SFIXED64": self = .sfixed64
-      case "TYPE_SINT32": self = .sint32
-      case "TYPE_SINT64": self = .sint64
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "TYPE_DOUBLE": self = .double
-      case "TYPE_FLOAT": self = .float
-      case "TYPE_INT64": self = .int64
-      case "TYPE_UINT64": self = .uint64
-      case "TYPE_INT32": self = .int32
-      case "TYPE_FIXED64": self = .fixed64
-      case "TYPE_FIXED32": self = .fixed32
-      case "TYPE_BOOL": self = .bool
-      case "TYPE_STRING": self = .string
-      case "TYPE_GROUP": self = .group
-      case "TYPE_MESSAGE": self = .message
-      case "TYPE_BYTES": self = .bytes
-      case "TYPE_UINT32": self = .uint32
-      case "TYPE_ENUM": self = .`enum`
-      case "TYPE_SFIXED32": self = .sfixed32
-      case "TYPE_SFIXED64": self = .sfixed64
-      case "TYPE_SINT32": self = .sint32
-      case "TYPE_SINT64": self = .sint64
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .double: return 1
-        case .float: return 2
-        case .int64: return 3
-        case .uint64: return 4
-        case .int32: return 5
-        case .fixed64: return 6
-        case .fixed32: return 7
-        case .bool: return 8
-        case .string: return 9
-        case .group: return 10
-        case .message: return 11
-        case .bytes: return 12
-        case .uint32: return 13
-        case .`enum`: return 14
-        case .sfixed32: return 15
-        case .sfixed64: return 16
-        case .sint32: return 17
-        case .sint64: return 18
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .double: return "TYPE_DOUBLE"
-        case .float: return "TYPE_FLOAT"
-        case .int64: return "TYPE_INT64"
-        case .uint64: return "TYPE_UINT64"
-        case .int32: return "TYPE_INT32"
-        case .fixed64: return "TYPE_FIXED64"
-        case .fixed32: return "TYPE_FIXED32"
-        case .bool: return "TYPE_BOOL"
-        case .string: return "TYPE_STRING"
-        case .group: return "TYPE_GROUP"
-        case .message: return "TYPE_MESSAGE"
-        case .bytes: return "TYPE_BYTES"
-        case .uint32: return "TYPE_UINT32"
-        case .`enum`: return "TYPE_ENUM"
-        case .sfixed32: return "TYPE_SFIXED32"
-        case .sfixed64: return "TYPE_SFIXED64"
-        case .sint32: return "TYPE_SINT32"
-        case .sint64: return "TYPE_SINT64"
-        }
+      switch self {
+      case .double: return 1
+      case .float: return 2
+      case .int64: return 3
+      case .uint64: return 4
+      case .int32: return 5
+      case .fixed64: return 6
+      case .fixed32: return 7
+      case .bool: return 8
+      case .string: return 9
+      case .group: return 10
+      case .message: return 11
+      case .bytes: return 12
+      case .uint32: return 13
+      case .`enum`: return 14
+      case .sfixed32: return 15
+      case .sfixed64: return 16
+      case .sint32: return 17
+      case .sint64: return 18
       }
     }
 
   }
 
-  enum Label: SwiftProtobuf.Enum {
+  enum Label: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
     ///   0 is reserved for errors
     case `optional` // = 1
     case `required` // = 2
     case repeated // = 3
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "LABEL_OPTIONAL"),
+      2: .same(proto: "LABEL_REQUIRED"),
+      3: .same(proto: "LABEL_REPEATED"),
+    ]
 
     init() {
       self = .`optional`
@@ -1111,41 +1063,11 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftP
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "LABEL_OPTIONAL": self = .`optional`
-      case "LABEL_REQUIRED": self = .`required`
-      case "LABEL_REPEATED": self = .repeated
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "LABEL_OPTIONAL": self = .`optional`
-      case "LABEL_REQUIRED": self = .`required`
-      case "LABEL_REPEATED": self = .repeated
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .`optional`: return 1
-        case .`required`: return 2
-        case .repeated: return 3
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .`optional`: return "LABEL_OPTIONAL"
-        case .`required`: return "LABEL_REQUIRED"
-        case .repeated: return "LABEL_REPEATED"
-        }
+      switch self {
+      case .`optional`: return 1
+      case .`required`: return 2
+      case .repeated: return 3
       }
     }
 
@@ -1244,7 +1166,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Proto2Message, SwiftP
 struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "OneofDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "options"),
   ]
@@ -1349,7 +1271,7 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Proto2Message, SwiftP
 struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "value"),
     3: .same(proto: "options"),
@@ -1468,7 +1390,7 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Proto2Message, SwiftPr
 struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumValueDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "number"),
     3: .same(proto: "options"),
@@ -1592,7 +1514,7 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Proto2Message, Sw
 struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ServiceDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "method"),
     3: .same(proto: "options"),
@@ -1711,7 +1633,7 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Proto2Message, Swif
 struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MethodDescriptorProto"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .unique(proto: "input_type", json: "inputType"),
     3: .unique(proto: "output_type", json: "outputType"),
@@ -1927,7 +1849,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Proto2Message, Swift
 struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FileOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "java_package", json: "javaPackage"),
     8: .unique(proto: "java_outer_classname", json: "javaOuterClassname"),
     10: .unique(proto: "java_multiple_files", json: "javaMultipleFiles"),
@@ -2182,7 +2104,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Generated classes can be optimized for speed or code size.
-  enum OptimizeMode: SwiftProtobuf.Enum {
+  enum OptimizeMode: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
     ///   Generate complete code for parsing, serialization,
@@ -2193,6 +2115,12 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
 
     ///   Generate code using MessageLite and the lite runtime.
     case liteRuntime // = 3
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "SPEED"),
+      2: .same(proto: "CODE_SIZE"),
+      3: .same(proto: "LITE_RUNTIME"),
+    ]
 
     init() {
       self = .speed
@@ -2207,41 +2135,11 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "SPEED": self = .speed
-      case "CODE_SIZE": self = .codeSize
-      case "LITE_RUNTIME": self = .liteRuntime
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "SPEED": self = .speed
-      case "CODE_SIZE": self = .codeSize
-      case "LITE_RUNTIME": self = .liteRuntime
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .speed: return 1
-        case .codeSize: return 2
-        case .liteRuntime: return 3
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .speed: return "SPEED"
-        case .codeSize: return "CODE_SIZE"
-        case .liteRuntime: return "LITE_RUNTIME"
-        }
+      switch self {
+      case .speed: return 1
+      case .codeSize: return 2
+      case .liteRuntime: return 3
       }
     }
 
@@ -2380,15 +2278,15 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_FileOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_FileOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_FileOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MessageOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "message_set_wire_format", json: "messageSetWireFormat"),
     2: .unique(proto: "no_standard_descriptor_accessor", json: "noStandardDescriptorAccessor"),
     3: .same(proto: "deprecated"),
@@ -2573,15 +2471,15 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, SwiftProtobu
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_MessageOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_MessageOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_MessageOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FieldOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ctype"),
     2: .same(proto: "packed"),
     6: .same(proto: "jstype"),
@@ -2719,13 +2617,19 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum CType: SwiftProtobuf.Enum {
+  enum CType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
     ///   Default mode.
     case string // = 0
     case cord // = 1
     case stringPiece // = 2
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "STRING"),
+      1: .same(proto: "CORD"),
+      2: .same(proto: "STRING_PIECE"),
+    ]
 
     init() {
       self = .string
@@ -2740,47 +2644,17 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "STRING": self = .string
-      case "CORD": self = .cord
-      case "STRING_PIECE": self = .stringPiece
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "STRING": self = .string
-      case "CORD": self = .cord
-      case "STRING_PIECE": self = .stringPiece
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .string: return 0
-        case .cord: return 1
-        case .stringPiece: return 2
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .string: return "STRING"
-        case .cord: return "CORD"
-        case .stringPiece: return "STRING_PIECE"
-        }
+      switch self {
+      case .string: return 0
+      case .cord: return 1
+      case .stringPiece: return 2
       }
     }
 
   }
 
-  enum JSType: SwiftProtobuf.Enum {
+  enum JSType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
     ///   Use the default type.
@@ -2791,6 +2665,12 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
     ///   Use JavaScript numbers.
     case jsNumber // = 2
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "JS_NORMAL"),
+      1: .same(proto: "JS_STRING"),
+      2: .same(proto: "JS_NUMBER"),
+    ]
 
     init() {
       self = .jsNormal
@@ -2805,41 +2685,11 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "JS_NORMAL": self = .jsNormal
-      case "JS_STRING": self = .jsString
-      case "JS_NUMBER": self = .jsNumber
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "JS_NORMAL": self = .jsNormal
-      case "JS_STRING": self = .jsString
-      case "JS_NUMBER": self = .jsNumber
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .jsNormal: return 0
-        case .jsString: return 1
-        case .jsNumber: return 2
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .jsNormal: return "JS_NORMAL"
-        case .jsString: return "JS_STRING"
-        case .jsNumber: return "JS_NUMBER"
-        }
+      switch self {
+      case .jsNormal: return 0
+      case .jsString: return 1
+      case .jsNumber: return 2
       }
     }
 
@@ -2933,15 +2783,15 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_FieldOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_FieldOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_FieldOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "OneofOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
 
@@ -3008,15 +2858,15 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_OneofOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_OneofOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_OneofOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .unique(proto: "allow_alias", json: "allowAlias"),
     3: .same(proto: "deprecated"),
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
@@ -3125,15 +2975,15 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_EnumOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_EnumOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_EnumOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "EnumValueOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deprecated"),
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
@@ -3222,15 +3072,15 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, SwiftProto
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_EnumValueOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_EnumValueOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_EnumValueOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ServiceOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     33: .same(proto: "deprecated"),
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
   ]
@@ -3324,15 +3174,15 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, SwiftProtobu
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_ServiceOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_ServiceOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_ServiceOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MethodOptions"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     33: .same(proto: "deprecated"),
     34: .unique(proto: "idempotency_level", json: "idempotencyLevel"),
     999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
@@ -3379,7 +3229,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
   ///   Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   ///   or neither? HTTP based RPC implementation may choose GET verb for safe
   ///   methods, and PUT verb for idempotent methods instead of the default POST.
-  enum IdempotencyLevel: SwiftProtobuf.Enum {
+  enum IdempotencyLevel: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case idempotencyUnknown // = 0
 
@@ -3388,6 +3238,12 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
 
     ///   idempotent, but may have side effects
     case idempotent // = 2
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "IDEMPOTENCY_UNKNOWN"),
+      1: .same(proto: "NO_SIDE_EFFECTS"),
+      2: .same(proto: "IDEMPOTENT"),
+    ]
 
     init() {
       self = .idempotencyUnknown
@@ -3402,41 +3258,11 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "IDEMPOTENCY_UNKNOWN": self = .idempotencyUnknown
-      case "NO_SIDE_EFFECTS": self = .noSideEffects
-      case "IDEMPOTENT": self = .idempotent
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "IDEMPOTENCY_UNKNOWN": self = .idempotencyUnknown
-      case "NO_SIDE_EFFECTS": self = .noSideEffects
-      case "IDEMPOTENT": self = .idempotent
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .idempotencyUnknown: return 0
-        case .noSideEffects: return 1
-        case .idempotent: return 2
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .idempotencyUnknown: return "IDEMPOTENCY_UNKNOWN"
-        case .noSideEffects: return "NO_SIDE_EFFECTS"
-        case .idempotent: return "IDEMPOTENT"
-        }
+      switch self {
+      case .idempotencyUnknown: return 0
+      case .noSideEffects: return 1
+      case .idempotent: return 2
       }
     }
 
@@ -3510,8 +3336,8 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_MethodOptions>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_MethodOptions._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_MethodOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
@@ -3524,7 +3350,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
 struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "UninterpretedOption"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "name"),
     3: .unique(proto: "identifier_value", json: "identifierValue"),
     4: .unique(proto: "positive_int_value", json: "positiveIntValue"),
@@ -3620,7 +3446,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Proto2Message, SwiftPr
   struct NamePart: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NamePart"
     static let protoPackageName: String = "google.protobuf"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .unique(proto: "name_part", json: "namePart"),
       2: .unique(proto: "is_extension", json: "isExtension"),
     ]
@@ -3763,7 +3589,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Proto2Message, SwiftPr
 struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SourceCodeInfo"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "location"),
   ]
 
@@ -3817,7 +3643,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Proto2Message, SwiftProtobu
   struct Location: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "Location"
     static let protoPackageName: String = "google.protobuf"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "path"),
       2: .same(proto: "span"),
       3: .unique(proto: "leading_comments", json: "leadingComments"),
@@ -4016,7 +3842,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Proto2Message, SwiftProtobu
 struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "GeneratedCodeInfo"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "annotation"),
   ]
 
@@ -4029,7 +3855,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Proto2Message, SwiftProt
   struct Annotation: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "Annotation"
     static let protoPackageName: String = "google.protobuf"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "path"),
       2: .unique(proto: "source_file", json: "sourceFile"),
       3: .same(proto: "begin"),

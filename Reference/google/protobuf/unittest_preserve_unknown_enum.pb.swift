@@ -49,12 +49,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
+enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
   case UNRECOGNIZED(Int)
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+    1: .same(proto: "BAR"),
+    2: .same(proto: "BAZ"),
+  ]
 
   init() {
     self = .foo
@@ -69,55 +75,31 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "FOO": self = .foo
-    case "BAR": self = .bar
-    case "BAZ": self = .baz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "FOO": self = .foo
-    case "BAR": self = .bar
-    case "BAZ": self = .baz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .foo: return 0
-      case .bar: return 1
-      case .baz: return 2
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .foo: return "FOO"
-      case .bar: return "BAR"
-      case .baz: return "BAZ"
-      case .UNRECOGNIZED: return nil
-      }
+    switch self {
+    case .foo: return 0
+    case .bar: return 1
+    case .baz: return 2
+    case .UNRECOGNIZED(let i): return i
     }
   }
 
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
+enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
   case eBaz // = 2
   case eExtra // = 3
   case UNRECOGNIZED(Int)
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "E_FOO"),
+    1: .same(proto: "E_BAR"),
+    2: .same(proto: "E_BAZ"),
+    3: .same(proto: "E_EXTRA"),
+  ]
 
   init() {
     self = .eFoo
@@ -133,47 +115,13 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "E_FOO": self = .eFoo
-    case "E_BAR": self = .eBar
-    case "E_BAZ": self = .eBaz
-    case "E_EXTRA": self = .eExtra
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "E_FOO": self = .eFoo
-    case "E_BAR": self = .eBar
-    case "E_BAZ": self = .eBaz
-    case "E_EXTRA": self = .eExtra
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .eFoo: return 0
-      case .eBar: return 1
-      case .eBaz: return 2
-      case .eExtra: return 3
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .eFoo: return "E_FOO"
-      case .eBar: return "E_BAR"
-      case .eBaz: return "E_BAZ"
-      case .eExtra: return "E_EXTRA"
-      case .UNRECOGNIZED: return nil
-      }
+    switch self {
+    case .eFoo: return 0
+    case .eBar: return 1
+    case .eBaz: return 2
+    case .eExtra: return 3
+    case .UNRECOGNIZED(let i): return i
     }
   }
 
@@ -182,7 +130,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MyMessage"
   static let protoPackageName: String = "proto3_preserve_unknown_enum_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .unique(proto: "repeated_e", json: "repeatedE"),
     3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),
@@ -322,7 +270,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
 struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MyMessagePlusExtra"
   static let protoPackageName: String = "proto3_preserve_unknown_enum_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .unique(proto: "repeated_e", json: "repeatedE"),
     3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),

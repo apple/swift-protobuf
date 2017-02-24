@@ -55,13 +55,20 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum Proto3ImportEnum: SwiftProtobuf.Enum {
+enum Proto3ImportEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case importEnumUnspecified // = 0
   case importFoo // = 7
   case importBar // = 8
   case importBaz // = 9
   case UNRECOGNIZED(Int)
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "IMPORT_ENUM_UNSPECIFIED"),
+    7: .same(proto: "IMPORT_FOO"),
+    8: .same(proto: "IMPORT_BAR"),
+    9: .same(proto: "IMPORT_BAZ"),
+  ]
 
   init() {
     self = .importEnumUnspecified
@@ -77,47 +84,13 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "IMPORT_ENUM_UNSPECIFIED": self = .importEnumUnspecified
-    case "IMPORT_FOO": self = .importFoo
-    case "IMPORT_BAR": self = .importBar
-    case "IMPORT_BAZ": self = .importBaz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "IMPORT_ENUM_UNSPECIFIED": self = .importEnumUnspecified
-    case "IMPORT_FOO": self = .importFoo
-    case "IMPORT_BAR": self = .importBar
-    case "IMPORT_BAZ": self = .importBaz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .importEnumUnspecified: return 0
-      case .importFoo: return 7
-      case .importBar: return 8
-      case .importBaz: return 9
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .importEnumUnspecified: return "IMPORT_ENUM_UNSPECIFIED"
-      case .importFoo: return "IMPORT_FOO"
-      case .importBar: return "IMPORT_BAR"
-      case .importBaz: return "IMPORT_BAZ"
-      case .UNRECOGNIZED: return nil
-      }
+    switch self {
+    case .importEnumUnspecified: return 0
+    case .importFoo: return 7
+    case .importBar: return 8
+    case .importBaz: return 9
+    case .UNRECOGNIZED(let i): return i
     }
   }
 
@@ -126,7 +99,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 struct Proto3ImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ImportMessage"
   static let protoPackageName: String = "protobuf_unittest_import"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]
 
