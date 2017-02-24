@@ -106,7 +106,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
     /// This uses the provided block to initialize the object, then:
     /// * Encodes the object and checks that the result is the expected result
     /// * Decodes it again and verifies that the round-trip gives an equal object
-    func assertTextEncode(_ expected: String, extensions: ExtensionSet? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+    func assertTextFormatEncode(_ expected: String, extensions: ExtensionSet? = nil, file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
         var configured = empty
         configure(&configured)
@@ -149,7 +149,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertTextDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
+    func assertTextFormatDecodeSucceeds(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) throws -> Bool) {
         do {
             let decoded: MessageTestType = try MessageTestType(textFormatString: text)
             do {
@@ -190,7 +190,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
-    func assertTextDecodeFails(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line) {
+    func assertTextFormatDecodeFails(_ text: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let _ = try MessageTestType(textFormatString: text)
             XCTFail("Swift decode should have failed: \(text)", file: file, line: line)

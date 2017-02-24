@@ -1,4 +1,4 @@
-// Tests/SwiftProtobufTests/Test_Text_Unknown.swift - Exercise unknown field text format coding
+// Tests/SwiftProtobufTests/Test_TextFormat_Unknown.swift - Exercise unknown field text format coding
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Text_Unknown: XCTestCase, PBTestHelpers {
+class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestEmptyMessage
 
     func test_unknown_varint() throws {
