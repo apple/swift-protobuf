@@ -24,10 +24,20 @@ import XCTest
 class Test_Map_JSON: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestMap
 
-    func testMapInt32Int32() {
+    func testMapInt32Int32() throws {
         assertJSONEncode("{\"mapInt32Int32\":{\"1\":2}}") {(o: inout MessageTestType) in
             o.mapInt32Int32 = [1:2]
         }
+
+        var o = MessageTestType()
+        o.mapInt32Int32 = [1:2, 3:4]
+        let json = try o.jsonString()
+        // Must be in one of these two orders
+        if (json != "{\"mapInt32Int32\":{\"1\":2,\"3\":4}}"
+            && json != "{\"mapInt32Int32\":{\"3\":4,\"1\":2}}") {
+            XCTFail("Got:  \(json)")
+        }
+
         // Decode should work same regardless of order
         assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"1\":2, \"3\":4}}") {$0.mapInt32Int32 == [1:2, 3:4]}
         assertJSONDecodeSucceeds("{\"mapInt32Int32\":{\"3\":4,\"1\":2}}") {$0.mapInt32Int32 == [1:2, 3:4]}
@@ -47,9 +57,18 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"mapInt32Int32\":{\"1\":2}} X")
     }
 
-    func testMapStringString() {
+    func testMapStringString() throws {
         assertJSONEncode("{\"mapStringString\":{\"3\":\"4\"}}") {(o: inout MessageTestType) in
             o.mapStringString = ["3":"4"]
+        }
+
+        var o = MessageTestType()
+        o.mapStringString = ["foo":"bar", "baz":"quux"]
+        let json = try o.jsonString()
+        // Must be in one of these two orders
+        if (json != "{\"mapStringString\":{\"foo\":\"bar\",\"baz\":\"quux\"}}"
+            && json != "{\"mapStringString\":{\"baz\":\"quux\",\"foo\":\"bar\"}}") {
+            XCTFail("Got:  \(json)")
         }
     }
 
@@ -58,6 +77,24 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
             o.mapInt32Bytes = [1:Data()]
         }
         assertJSONDecodeSucceeds("{\"mapInt32Bytes\":{\"1\":\"\", \"2\":\"QUI=\", \"3\": \"AAA=\"}}") {$0.mapInt32Bytes == [1:Data(), 2: Data(bytes: [65, 66]), 3: Data(bytes: [0,0])]}
+    }
+
+    func testMapInt32Enum() throws {
+        assertJSONEncode("{\"mapInt32Enum\":{\"3\":\"MAP_ENUM_FOO\"}}") {(o: inout MessageTestType) in
+            o.mapInt32Enum = [3: .foo]
+        }
+
+        var o = MessageTestType()
+        o.mapInt32Enum = [1:.foo, 3:.baz]
+        let json = try o.jsonString()
+        // Must be in one of these two orders
+        if (json != "{\"mapInt32Enum\":{\"1\":\"MAP_ENUM_FOO\",\"3\":\"MAP_ENUM_BAZ\"}}"
+            && json != "{\"mapInt32Enum\":{\"3\":\"MAP_ENUM_BAZ\",\"1\":\"MAP_ENUM_FOO\"}}") {
+            XCTFail("Got:  \(json)")
+        }
+
+        let decoded = try MessageTestType(jsonString: json)
+        XCTAssertEqual(decoded.mapInt32Enum, [1: .foo, 3: .baz])
     }
 
     func testMapInt32Message() {

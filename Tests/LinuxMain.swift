@@ -646,6 +646,7 @@ extension Test_Map_JSON {
             ("testMapInt32Int32", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Int32)}),
             ("testMapStringString", {try run_test(test:($0 as! Test_Map_JSON).testMapStringString)}),
             ("testMapInt32Bytes", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Bytes)}),
+            ("testMapInt32Enum", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Enum)}),
             ("testMapInt32Message", {try run_test(test:($0 as! Test_Map_JSON).testMapInt32Message)}),
             ("test_mapBoolBool", {try run_test(test:($0 as! Test_Map_JSON).test_mapBoolBool)})
         ]

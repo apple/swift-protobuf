@@ -44,10 +44,6 @@ public protocol FieldType {
     static func visitSingular<V: Visitor>(value: BaseType, fieldNumber: Int, with visitor: inout V) throws
     static func visitRepeated<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws
     static func visitPacked<V: Visitor>(value: [BaseType], fieldNumber: Int, with visitor: inout V) throws
-
-    /// Serialize the value to a JSON encoder (without field name)
-    /// This is used by the JSON map support.
-    static func serializeJSONValue(encoder: inout JSONEncoder, value: BaseType)
 }
 
 ///
