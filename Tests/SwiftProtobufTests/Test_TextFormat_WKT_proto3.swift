@@ -1,4 +1,4 @@
-// Tests/SwiftProtobufTests/Test_Text_WKT_proto3.swift - Exercise proto3 text format coding
+// Tests/SwiftProtobufTests/Test_TextFormat_WKT_proto3.swift - Exercise proto3 text format coding
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -16,7 +16,7 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
-class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
+class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestWellKnownTypes
 
     func assertAnyTest<M: Message & Equatable>(_ message: M, expected: String, file: XCTestFileArgType = #file, line: UInt = #line) {
@@ -110,7 +110,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testDuration() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "duration_field {\n  seconds: 123\n  nanos: 123456789\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -119,7 +119,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testEmpty() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "empty_field {\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -128,7 +128,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testFieldMask() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "field_mask_field {\n  paths: \"foo\"\n  paths: \"bar.baz\"\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -143,7 +143,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testTimestamp() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "timestamp_field {\n  seconds: 123\n  nanos: 123456789\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -155,19 +155,19 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testDoubleValue() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "double_field {\n  value: 1.125\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.doubleField = Google_Protobuf_DoubleValue(1.125)
         }
-        assertTextEncode(
+        assertTextFormatEncode(
             "double_field {\n  value: inf\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.doubleField = Google_Protobuf_DoubleValue(Double.infinity)
         }
-        assertTextEncode(
+        assertTextFormatEncode(
             "double_field {\n  value: -inf\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -176,19 +176,19 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testFloatValue() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "float_field {\n  value: 1.125\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.floatField = Google_Protobuf_FloatValue(1.125)
         }
-        assertTextEncode(
+        assertTextFormatEncode(
             "float_field {\n  value: inf\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.floatField = Google_Protobuf_FloatValue(Float.infinity)
         }
-        assertTextEncode(
+        assertTextFormatEncode(
             "float_field {\n  value: -inf\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -197,13 +197,13 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testInt64Value() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "int64_field {\n  value: 9223372036854775807\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.int64Field = Google_Protobuf_Int64Value(Int64.max)
         }
-        assertTextEncode(
+        assertTextFormatEncode(
             "int64_field {\n  value: -9223372036854775808\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -212,7 +212,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testUInt64Value() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "uint64_field {\n  value: 18446744073709551615\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -221,13 +221,13 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testInt32Value() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "int32_field {\n  value: 2147483647\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.int32Field = Google_Protobuf_Int32Value(Int32.max)
         }
-        assertTextEncode(
+        assertTextFormatEncode(
             "int32_field {\n  value: -2147483648\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -236,7 +236,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testUInt32Value() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "uint32_field {\n  value: 4294967295\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -245,14 +245,14 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testBoolValue() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "bool_field {\n  value: true\n}\n"
         ) {
             (o: inout MessageTestType) in
             o.boolField = Google_Protobuf_BoolValue(true)
         }
         // false is the default, so encodes as empty (verified against C++ implementation)
-        assertTextEncode(
+        assertTextFormatEncode(
             "bool_field {\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -261,7 +261,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testStringValue() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "string_field {\n  value: \"abc\"\n}\n"
         ) {
             (o: inout MessageTestType) in
@@ -270,7 +270,7 @@ class Test_Text_WKT_proto3: XCTestCase, PBTestHelpers {
     }
 
     func testBytesValue() {
-        assertTextEncode(
+        assertTextFormatEncode(
             "bytes_field {\n  value: \"abc\"\n}\n"
         ) {
             (o: inout MessageTestType) in
