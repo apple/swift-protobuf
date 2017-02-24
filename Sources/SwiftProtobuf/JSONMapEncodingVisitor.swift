@@ -144,133 +144,133 @@ internal struct JSONMapEncodingVisitor: Visitor {
 
   // Repeated values are not supported in maps.
 
-  public mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
+  mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
+  mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+  mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+  mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
+  mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
+  mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
+  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+  mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
+  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
+  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
       assert(false)
   }
 
   // Packed values are not supported in maps.
 
-  public mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
+  mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
+  mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+  mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+  mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
+  mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
       assert(false)
   }
 
-  public mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+  mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
       assert(false)
   }
 

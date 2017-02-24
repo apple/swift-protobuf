@@ -52,32 +52,32 @@ internal struct HashVisitor: Visitor {
     }
   }
 
-  public mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
     mix(fieldNumber)
     mix(value.hashValue)
   }
 
-  public mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
     mix(fieldNumber)
     mix(value.hashValue)
   }
 
-  public mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
     mix(fieldNumber)
     mix(value.hashValue)
   }
 
-  public mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
     mix(fieldNumber)
     mix(value.hashValue)
   }
 
-  public mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
     mix(fieldNumber)
     mix(value.hashValue)
   }
 
-  public mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     mix(fieldNumber)
     mix(value.hashValue)
   }

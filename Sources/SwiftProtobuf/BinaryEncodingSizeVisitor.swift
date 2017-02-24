@@ -29,94 +29,94 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += bytes.count
   }
 
-  public mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
+  mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed32).encodedSize
     serializedSize += tagSize + MemoryLayout<Float>.size
   }
 
-  public mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed64).encodedSize
     serializedSize += tagSize + MemoryLayout<Double>.size
   }
 
-  public mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
+  mutating func visitSingularInt32Field(value: Int32, fieldNumber: Int) throws {
     try visitSingularInt64Field(value: Int64(value), fieldNumber: fieldNumber)
   }
 
-  public mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
     serializedSize += tagSize + Varint.encodedSize(of: value)
   }
 
-  public mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
+  mutating func visitSingularUInt32Field(value: UInt32, fieldNumber: Int) throws {
     try visitSingularUInt64Field(value: UInt64(value), fieldNumber: fieldNumber)
   }
 
-  public mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
     serializedSize += tagSize + Varint.encodedSize(of: value)
   }
 
-  public mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
+  mutating func visitSingularSInt32Field(value: Int32, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
     serializedSize += tagSize + Varint.encodedSize(of: ZigZag.encoded(value))
   }
 
-  public mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
+  mutating func visitSingularSInt64Field(value: Int64, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
     serializedSize += tagSize + Varint.encodedSize(of: ZigZag.encoded(value))
   }
 
-  public mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
+  mutating func visitSingularFixed32Field(value: UInt32, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed32).encodedSize
     serializedSize += tagSize + MemoryLayout<UInt32>.size
   }
 
-  public mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
+  mutating func visitSingularFixed64Field(value: UInt64, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed64).encodedSize
     serializedSize += tagSize + MemoryLayout<UInt64>.size
   }
 
-  public mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
+  mutating func visitSingularSFixed32Field(value: Int32, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed32).encodedSize
     serializedSize += tagSize + MemoryLayout<Int32>.size
   }
 
-  public mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
+  mutating func visitSingularSFixed64Field(value: Int64, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .fixed64).encodedSize
     serializedSize += tagSize + MemoryLayout<Int64>.size
   }
 
-  public mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .varint).encodedSize
     serializedSize += tagSize + 1
   }
 
-  public mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let count = value.utf8.count
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
-  public mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let count = value.count
     serializedSize += tagSize + Varint.encodedSize(of: Int64(count)) + count
   }
 
-  public mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
+  mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count * MemoryLayout<Float>.size
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
+  mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count * MemoryLayout<Double>.size
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     var dataSize = 0
     for v in value {
@@ -126,7 +126,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     var dataSize = 0
     for v in value {
@@ -136,7 +136,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     var dataSize = 0
     for v in value {
@@ -146,7 +146,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     var dataSize = 0
     for v in value {
@@ -156,7 +156,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     var dataSize = 0
     for v in value {
@@ -166,7 +166,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
+  mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     var dataSize = 0
     for v in value {
@@ -176,31 +176,31 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
       tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
+  mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count * MemoryLayout<UInt32>.size
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
+  mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count * MemoryLayout<UInt64>.size
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
+  mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count * MemoryLayout<Int32>.size
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
+  mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count * MemoryLayout<Int64>.size
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
 
-  public mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
+  mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
     let tagSize = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited).encodedSize
     let dataSize = value.count
     serializedSize += tagSize + Varint.encodedSize(of: Int64(dataSize)) + dataSize
