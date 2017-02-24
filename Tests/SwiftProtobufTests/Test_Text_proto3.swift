@@ -517,6 +517,9 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextEncode("single_bytes: \"\\000\\001AB\\177\\200\\377\"\n") {(o: inout MessageTestType) in
             o.singleBytes = Data(bytes: [0, 1, 65, 66, 127, 128, 255])
         }
+        assertTextEncode("single_bytes: \"\\b\\t\\n\\v\\f\\r\\\"'?\\\\\"\n") {(o: inout MessageTestType) in
+            o.singleBytes = Data(bytes: [8, 9, 10, 11, 12, 13, 34, 39, 63, 92])
+        }
         assertTextDecodeSucceeds("single_bytes: \"A\" \"B\"\n") {(o: MessageTestType) in
             return o.singleBytes == Data(bytes: [65, 66])
         }
@@ -544,6 +547,17 @@ class Test_Text_proto3: XCTestCase, PBTestHelpers {
         assertTextDecodeFails("single_bytes: \"\\x&\"\n")
         assertTextDecodeFails("single_bytes: \"\\xg\"\n")
         assertTextDecodeFails("single_bytes: \"\\q\"\n")
+    }
+
+    func testEncoding_singleBytes_roundtrip() throws {
+        for i in UInt8(0)...UInt8(255) {
+            let d = Data(bytes: [i])
+            let message = Proto3TestAllTypes.with { $0.singleBytes = d }
+            let text = try message.textFormatString()
+            let decoded = try Proto3TestAllTypes(textFormatString: text)
+            XCTAssertEqual(decoded, message)
+            XCTAssertEqual(message.singleBytes[0], i)
+        }
     }
 
     func testEncoding_singleNestedMessage() {
