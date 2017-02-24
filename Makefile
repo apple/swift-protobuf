@@ -402,7 +402,10 @@ update-proto-files: check-for-protobuf-checkout
 test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) failure_list_swift.txt
 	( \
 		ABS_PBDIR=`cd ${GOOGLE_PROTOBUF_CHECKOUT}; pwd`; \
-		$${ABS_PBDIR}/conformance/conformance-test-runner --failure_list failure_list_swift.txt $(SWIFT_CONFORMANCE_PLUGIN); \
+		$${ABS_PBDIR}/conformance/conformance-test-runner \
+		  --enforce_recommended \
+		  --failure_list failure_list_swift.txt \
+		  $(SWIFT_CONFORMANCE_PLUGIN); \
 	)
 
 # The 'conformance-host' program is part of the protobuf project.
