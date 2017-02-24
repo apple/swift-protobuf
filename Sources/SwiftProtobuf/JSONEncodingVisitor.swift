@@ -241,54 +241,37 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
     encoder.append(text: "{")
+    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)
     for (k,v) in value {
-        encoder.append(text: arraySeparator)
-        encoder.isMapKey = true
-        KeyType.serializeJSONValue(encoder: &encoder, value: k)
-        encoder.isMapKey = false
-        encoder.append(text: ":")
-        ValueType.serializeJSONValue(encoder: &encoder, value: v)
-        arraySeparator = ","
+        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+        try ValueType.visitSingular(value: v, fieldNumber: 2, with: &mapVisitor)
     }
+    encoder = mapVisitor.encoder
     encoder.append(text: "}")
   }
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
     encoder.append(text: "{")
+    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)
     for (k,v) in value {
-      encoder.append(text: arraySeparator)
-      encoder.isMapKey = true
-      KeyType.serializeJSONValue(encoder: &encoder, value: k)
-      encoder.isMapKey = false
-      encoder.append(text: ":")
-      if let n = v._protobuf_jsonName {
-        encoder.putStringValue(value: n)
-      } else {
-        encoder.putEnumInt(value: v.rawValue)
-      }
-      arraySeparator = ","
+        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+        try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
     }
+    encoder = mapVisitor.encoder
     encoder.append(text: "}")
   }
 
   mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
     encoder.append(text: "{")
+    var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)
     for (k,v) in value {
-      encoder.append(text: arraySeparator)
-      encoder.isMapKey = true
-      KeyType.serializeJSONValue(encoder: &encoder, value: k)
-      encoder.isMapKey = false
-      encoder.append(text: ":")
-      let json = try v.jsonString()
-      encoder.append(text: json)
-      arraySeparator = ","
+        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+        try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
+    encoder = mapVisitor.encoder
     encoder.append(text: "}")
   }
 

@@ -96,12 +96,13 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
     public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.startObject()
+        var mapVisitor = JSONMapEncodingVisitor(encoder: jsonEncoder)
         for (k,v) in fields {
-            jsonEncoder.startField(name: k)
-            try v.serializeJSONValue(jsonEncoder: &jsonEncoder)
+            try mapVisitor.visitSingularStringField(value: k, fieldNumber: 1)
+            try mapVisitor.visitSingularMessageField(value: v, fieldNumber: 2)
         }
-        jsonEncoder.endObject()
-        return jsonEncoder.stringResult
+        mapVisitor.encoder.endObject()
+        return mapVisitor.encoder.stringResult
     }
 
     public func anyJSONString() throws -> String {
@@ -563,9 +564,9 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
     public func jsonString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.append(text: "[")
-        var separator = ""
+        var separator: StaticString = ""
         for v in values {
-            jsonEncoder.append(text: separator)
+            jsonEncoder.append(staticText: separator)
             try v.serializeJSONValue(jsonEncoder: &jsonEncoder)
             separator = ","
         }
