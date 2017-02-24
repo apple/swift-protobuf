@@ -524,9 +524,21 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.singleBytes = Data(bytes: [65, 66, 67, 68, 69, 70])
         }
     }
+
     func testSingleBytes2() {
         assertJSONDecodeSucceeds("{\"singleBytes\":\"QUJD\"}") {
             $0.singleBytes == Data(bytes: [65, 66, 67])
+        }
+    }
+
+    func testSingleBytes_roundtrip() throws {
+        for i in UInt8(0)...UInt8(255) {
+            let d = Data(bytes: [i])
+            let message = Proto3TestAllTypes.with { $0.singleBytes = d }
+            let text = try message.jsonString()
+            let decoded = try Proto3TestAllTypes(jsonString: text)
+            XCTAssertEqual(decoded, message)
+            XCTAssertEqual(message.singleBytes[0], i)
         }
     }
 

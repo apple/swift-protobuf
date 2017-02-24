@@ -146,7 +146,8 @@ private func decodeBytes(_ s: String) -> Data? {
           out.append(asciiVerticalTab)
         case asciiSingleQuote,
              asciiDoubleQuote,
-             asciiQuestionMark: // \'  \"  \?
+             asciiQuestionMark,
+             asciiBackslash: // \'  \"  \?  \\
           out.append(escaped)
         default:
           return nil // Unrecognized escape
