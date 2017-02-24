@@ -21,7 +21,7 @@ import Foundation
 internal struct BinaryEncoder {
     private var pointer: UnsafeMutablePointer<UInt8>
 
-    public init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
+    init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
         self.pointer = pointer
     }
 
