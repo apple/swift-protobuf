@@ -18,7 +18,7 @@ public struct JSONDecoder: Decoder {
     internal var scanner: JSONScanner
     private var fieldCount = 0
     private var isMapKey = false
-    private var fieldNameMap: FieldNameMap?
+    private var fieldNameMap: _NameMap?
 
     public mutating func handleConflictingOneOf() throws {
         throw JSONDecodingError.conflictingOneOf
@@ -460,8 +460,8 @@ public struct JSONDecoder: Decoder {
             value = nil
             return
         } else if let name = try scanner.nextOptionalQuotedString() {
-            if let b = E(jsonName: name) {
-                value = b
+            if let v = E(name: name) {
+                value = v
                 return
             }
         } else {
@@ -479,8 +479,8 @@ public struct JSONDecoder: Decoder {
             value = E()
             return
         } else if let name = try scanner.nextOptionalQuotedString() {
-            if let b = E(jsonName: name) {
-                value = b
+            if let v = E(name: name) {
+                value = v
                 return
             }
         } else {
@@ -505,8 +505,8 @@ public struct JSONDecoder: Decoder {
         }
         while true {
             if let name = try scanner.nextOptionalQuotedString() {
-                if let b = E(jsonName: name) {
-                    value.append(b)
+                if let v = E(name: name) {
+                    value.append(v)
                 } else {
                     throw JSONDecodingError.unrecognizedEnumValue
                 }
@@ -533,7 +533,7 @@ public struct JSONDecoder: Decoder {
         guard let nameProviding = (M.self as? _ProtoNameProviding.Type) else {
             throw JSONDecodingError.missingFieldNames
         }
-        fieldNameMap = nameProviding._protobuf_fieldNames
+        fieldNameMap = nameProviding._protobuf_nameMap
         try scanner.skipRequiredObjectStart()
         if scanner.skipOptionalObjectEnd() {
             return

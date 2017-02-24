@@ -51,9 +51,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
+enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foo // = 1
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "FOO"),
+  ]
 
   init() {
     self = .foo
@@ -66,33 +70,9 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "FOO": self = .foo
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "FOO": self = .foo
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .foo: return 1
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .foo: return "FOO"
-      }
+    switch self {
+    case .foo: return 1
     }
   }
 
@@ -103,7 +83,7 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
 struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessage"
   static let protoPackageName: String = "google.protobuf.no_generic_services_test"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
   ]
 
@@ -178,8 +158,8 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_NoGenericServicesTest_TestMessage>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Google_Protobuf_NoGenericServicesTest_TestMessage._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Google_Protobuf_NoGenericServicesTest_TestMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 

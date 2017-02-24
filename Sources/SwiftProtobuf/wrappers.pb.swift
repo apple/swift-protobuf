@@ -59,7 +59,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "DoubleValue"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -99,7 +99,7 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftPro
 public struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "FloatValue"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -139,7 +139,7 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProt
 public struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Int64Value"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -179,7 +179,7 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProt
 public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "UInt64Value"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -219,7 +219,7 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftPro
 public struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Int32Value"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -259,7 +259,7 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProt
 public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "UInt32Value"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -299,7 +299,7 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftPro
 public struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "BoolValue"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -339,7 +339,7 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProto
 public struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "StringValue"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -379,7 +379,7 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftPro
 public struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "BytesValue"
   public static let protoPackageName: String = "google.protobuf"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 

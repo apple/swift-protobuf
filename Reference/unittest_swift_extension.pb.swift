@@ -38,21 +38,21 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Foo"
   static let protoPackageName: String = "protobuf_unittest.extend"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct Bar: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "Bar"
     static let protoPackageName: String = "protobuf_unittest.extend"
-    static let _protobuf_fieldNames = FieldNameMap()
+    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     struct Baz: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
       static let protoMessageName: String = "Baz"
       static let protoPackageName: String = "protobuf_unittest.extend"
-      static let _protobuf_fieldNames: FieldNameMap = [
+      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "a"),
       ]
 
@@ -127,8 +127,8 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
       func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>) -> Bool {
         return _extensionFieldValues[ext.fieldNumber] is F
       }
-      func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-        return Baz._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+      func _protobuf_names(for number: Int) -> _NameMap.Names? {
+        return Baz._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
       }
     }
 
@@ -177,7 +177,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
 struct ProtobufUnittest_Extend_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "C"
   static let protoPackageName: String = "protobuf_unittest.extend"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "c"),
   ]
 
@@ -236,7 +236,7 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Msg1"
   static let protoPackageName: String = "protobuf_unittest.extend"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -290,15 +290,15 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_Msg1>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_Extend_Msg1._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_Extend_Msg1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Msg2"
   static let protoPackageName: String = "protobuf_unittest.extend"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -352,8 +352,8 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_Msg2>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_Extend_Msg2._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_Extend_Msg2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
@@ -362,7 +362,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MsgNoStorage"
   static let protoPackageName: String = "protobuf_unittest.extend"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
   ]
 
@@ -437,15 +437,15 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftP
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgNoStorage>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_Extend_MsgNoStorage._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_Extend_MsgNoStorage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MsgUsesStorage"
   static let protoPackageName: String = "protobuf_unittest.extend"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
     2: .same(proto: "y"),
   ]
@@ -571,8 +571,8 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_Extend_MsgUsesStorage._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_Extend_MsgUsesStorage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 

@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftReservedTest"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .unique(proto: "proto_message_name", json: "protoMessageName"),
     11: .unique(proto: "proto_package_name", json: "protoPackageName"),
     12: .unique(proto: "any_type_prefix", json: "anyTypePrefix"),
@@ -136,7 +136,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Enum: SwiftProtobuf.Enum {
+  enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case double // = 1
     case json // = 2
@@ -144,6 +144,15 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     case ___ // = 4
     case self_ // = 5
     case type // = 6
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "DOUBLE"),
+      2: .same(proto: "JSON"),
+      3: .same(proto: "CLASS"),
+      4: .same(proto: "_"),
+      5: .same(proto: "SELF"),
+      6: .same(proto: "TYPE"),
+    ]
 
     init() {
       self = .double
@@ -161,61 +170,26 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "DOUBLE": self = .double
-      case "JSON": self = .json
-      case "CLASS": self = .`class`
-      case "_": self = .___
-      case "SELF": self = .self_
-      case "TYPE": self = .type
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "DOUBLE": self = .double
-      case "JSON": self = .json
-      case "CLASS": self = .`class`
-      case "_": self = .___
-      case "SELF": self = .self_
-      case "TYPE": self = .type
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .double: return 1
-        case .json: return 2
-        case .`class`: return 3
-        case .___: return 4
-        case .self_: return 5
-        case .type: return 6
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .double: return "DOUBLE"
-        case .json: return "JSON"
-        case .`class`: return "CLASS"
-        case .___: return "_"
-        case .self_: return "SELF"
-        case .type: return "TYPE"
-        }
+      switch self {
+      case .double: return 1
+      case .json: return 2
+      case .`class`: return 3
+      case .___: return 4
+      case .self_: return 5
+      case .type: return 6
       }
     }
 
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum {
+  enum ProtocolEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case a // = 1
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "a"),
+    ]
 
     init() {
       self = .a
@@ -228,33 +202,9 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "a": self = .a
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "a": self = .a
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .a: return 1
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .a: return "a"
-        }
+      switch self {
+      case .a: return 1
       }
     }
 
@@ -263,7 +213,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
   struct classMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "class"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames = FieldNameMap()
+    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -317,15 +267,15 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>) -> Bool {
       return _extensionFieldValues[ext.fieldNumber] is F
     }
-    func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-      return classMessage._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    func _protobuf_names(for number: Int) -> _NameMap.Names? {
+      return classMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
     }
   }
 
   struct TypeMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "Type"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames = FieldNameMap()
+    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -353,7 +303,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
   struct isEqualMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "isEqual"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames = FieldNameMap()
+    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -440,7 +390,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
 struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftReservedTestExt"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

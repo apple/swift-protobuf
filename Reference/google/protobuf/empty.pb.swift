@@ -60,7 +60,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Empty"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   init() {}
 

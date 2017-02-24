@@ -55,10 +55,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
+enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case val1 // = 1
   case val2 // = 2
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "METHODOPT1_VAL1"),
+    2: .same(proto: "METHODOPT1_VAL2"),
+  ]
 
   init() {
     self = .val1
@@ -72,45 +77,22 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "METHODOPT1_VAL1": self = .val1
-    case "METHODOPT1_VAL2": self = .val2
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "METHODOPT1_VAL1": self = .val1
-    case "METHODOPT1_VAL2": self = .val2
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .val1: return 1
-      case .val2: return 2
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .val1: return "METHODOPT1_VAL1"
-      case .val2: return "METHODOPT1_VAL2"
-      }
+    switch self {
+    case .val1: return 1
+    case .val2: return 2
     }
   }
 
 }
 
-enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case value // = 1
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "VALUE"),
+  ]
 
   init() {
     self = .value
@@ -123,33 +105,9 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "VALUE": self = .value
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "VALUE": self = .value
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .value: return 1
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .value: return "VALUE"
-      }
+    switch self {
+    case .value: return 1
     }
   }
 
@@ -160,7 +118,7 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessageWithCustomOptions"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
     2: .unique(proto: "oneof_field", json: "oneofField"),
   ]
@@ -227,10 +185,15 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Proto2Messag
     }
   }
 
-  enum AnEnum: SwiftProtobuf.Enum {
+  enum AnEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case val1 // = 1
     case val2 // = 2
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "ANENUM_VAL1"),
+      2: .same(proto: "ANENUM_VAL2"),
+    ]
 
     init() {
       self = .val1
@@ -244,37 +207,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Proto2Messag
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "ANENUM_VAL1": self = .val1
-      case "ANENUM_VAL2": self = .val2
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "ANENUM_VAL1": self = .val1
-      case "ANENUM_VAL2": self = .val2
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .val1: return 1
-        case .val2: return 2
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .val1: return "ANENUM_VAL1"
-        case .val2: return "ANENUM_VAL2"
-        }
+      switch self {
+      case .val1: return 1
+      case .val2: return 2
       }
     }
 
@@ -321,7 +257,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionFooRequest"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -349,7 +285,7 @@ struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Proto2Message, Swi
 struct ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionFooResponse"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -377,7 +313,7 @@ struct ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf.Proto2Message, Sw
 struct ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionFooClientMessage"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -405,7 +341,7 @@ struct ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionFooServerMessage"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -435,14 +371,19 @@ struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "DummyMessageContainingEnum"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnumType: SwiftProtobuf.Enum {
+  enum TestEnumType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case testOptionEnumType1 // = 22
     case testOptionEnumType2 // = -23
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      22: .same(proto: "TEST_OPTION_ENUM_TYPE1"),
+      -23: .same(proto: "TEST_OPTION_ENUM_TYPE2"),
+    ]
 
     init() {
       self = .testOptionEnumType1
@@ -456,37 +397,10 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Proto2Message,
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "TEST_OPTION_ENUM_TYPE1": self = .testOptionEnumType1
-      case "TEST_OPTION_ENUM_TYPE2": self = .testOptionEnumType2
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "TEST_OPTION_ENUM_TYPE1": self = .testOptionEnumType1
-      case "TEST_OPTION_ENUM_TYPE2": self = .testOptionEnumType2
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .testOptionEnumType1: return 22
-        case .testOptionEnumType2: return -23
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .testOptionEnumType1: return "TEST_OPTION_ENUM_TYPE1"
-        case .testOptionEnumType2: return "TEST_OPTION_ENUM_TYPE2"
-        }
+      switch self {
+      case .testOptionEnumType1: return 22
+      case .testOptionEnumType2: return -23
       }
     }
 
@@ -516,7 +430,7 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Proto2Message,
 struct ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "DummyMessageInvalidAsOptionType"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -544,7 +458,7 @@ struct ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf.Proto2Mes
 struct ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionMinIntegerValues"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -572,7 +486,7 @@ struct ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionMaxIntegerValues"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -600,7 +514,7 @@ struct ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "CustomOptionOtherValues"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -628,7 +542,7 @@ struct ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf.Proto2Message, Sw
 struct ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SettingRealsFromPositiveInts"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -656,7 +570,7 @@ struct ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SettingRealsFromNegativeInts"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -687,7 +601,7 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ComplexOptionType1"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "foo"),
     2: .same(proto: "foo2"),
     3: .same(proto: "foo3"),
@@ -806,15 +720,15 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Proto2Message, SwiftPr
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType1._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_ComplexOptionType1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ComplexOptionType2"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bar"),
     2: .same(proto: "baz"),
     3: .same(proto: "fred"),
@@ -891,7 +805,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftPr
   struct ComplexOptionType4: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "ComplexOptionType4"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "waldo"),
     ]
 
@@ -1030,15 +944,15 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftPr
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType2._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_ComplexOptionType2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ComplexOptionType3"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "qux"),
     2: .unique(proto: "ComplexOptionType5", json: "complexoptiontype5"),
   ]
@@ -1093,7 +1007,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Proto2Message, SwiftPr
   struct ComplexOptionType5: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "ComplexOptionType5"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       3: .same(proto: "plugh"),
     ]
 
@@ -1185,7 +1099,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Proto2Message, SwiftPr
 struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ComplexOpt6"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     7593951: .same(proto: "xyzzy"),
   ]
 
@@ -1236,7 +1150,7 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "VariousComplexOptions"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1268,7 +1182,7 @@ struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Proto2Message, Swif
 struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "AggregateMessageSet"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1322,15 +1236,15 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Proto2Message, SwiftP
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_AggregateMessageSet._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_AggregateMessageSet._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "AggregateMessageSetElement"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "s"),
   ]
 
@@ -1390,7 +1304,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Proto2Message,
 struct ProtobufUnittest_Aggregate: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Aggregate"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
     2: .same(proto: "s"),
     3: .same(proto: "sub"),
@@ -1565,7 +1479,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Proto2Message, SwiftProtobuf._M
 struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "AggregateMessage"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fieldname"),
   ]
 
@@ -1616,13 +1530,17 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Proto2Message, SwiftProt
 struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "NestedOptionType"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum {
+  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case value // = 1
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      1: .same(proto: "NESTED_ENUM_VALUE"),
+    ]
 
     init() {
       self = .value
@@ -1635,33 +1553,9 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Proto2Message, SwiftProt
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "NESTED_ENUM_VALUE": self = .value
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "NESTED_ENUM_VALUE": self = .value
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .value: return 1
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .value: return "NESTED_ENUM_VALUE"
-        }
+      switch self {
+      case .value: return 1
       }
     }
 
@@ -1670,7 +1564,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Proto2Message, SwiftProt
   struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .unique(proto: "nested_field", json: "nestedField"),
     ]
 
@@ -1752,7 +1646,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Proto2Message, SwiftProt
 struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "OldOptionType"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -1770,9 +1664,13 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Proto2Message, SwiftProtobu
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: SwiftProtobuf.Enum {
+  enum TestEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case oldValue // = 0
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "OLD_VALUE"),
+    ]
 
     init() {
       self = .oldValue
@@ -1785,33 +1683,9 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Proto2Message, SwiftProtobu
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "OLD_VALUE": self = .oldValue
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "OLD_VALUE": self = .oldValue
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .oldValue: return 0
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .oldValue: return "OLD_VALUE"
-        }
+      switch self {
+      case .oldValue: return 0
       }
     }
 
@@ -1855,7 +1729,7 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Proto2Message, SwiftProtobu
 struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "NewOptionType"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
@@ -1873,10 +1747,15 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Proto2Message, SwiftProtobu
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: SwiftProtobuf.Enum {
+  enum TestEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case oldValue // = 0
     case newValue // = 1
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "OLD_VALUE"),
+      1: .same(proto: "NEW_VALUE"),
+    ]
 
     init() {
       self = .oldValue
@@ -1890,37 +1769,10 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Proto2Message, SwiftProtobu
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "OLD_VALUE": self = .oldValue
-      case "NEW_VALUE": self = .newValue
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "OLD_VALUE": self = .oldValue
-      case "NEW_VALUE": self = .newValue
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .oldValue: return 0
-        case .newValue: return 1
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .oldValue: return "OLD_VALUE"
-        case .newValue: return "NEW_VALUE"
-        }
+      switch self {
+      case .oldValue: return 0
+      case .newValue: return 1
       }
     }
 
@@ -1964,7 +1816,7 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Proto2Message, SwiftProtobu
 struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessageWithRequiredEnumOption"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames = FieldNameMap()
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

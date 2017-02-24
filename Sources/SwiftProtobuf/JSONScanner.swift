@@ -970,17 +970,17 @@ internal struct JSONScanner {
     /// Throws if field name cannot be parsed.
     /// If it encounters an unknown field name, it silently skips
     /// the value and looks at the following field name.
-    internal mutating func nextFieldNumber(names: FieldNameMap) throws -> Int? {
+    internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
         while true {
             if let key = try nextBareKey() {
                 try skipRequiredCharacter(asciiColon) // :
-                if let fieldNumber = names.fieldNumber(forJSONName: key) {
+                if let fieldNumber = names.number(forJSONName: key) {
                     return fieldNumber
                 }
             } else {
                 let key = try nextQuotedString()
                 try skipRequiredCharacter(asciiColon) // :
-                if let fieldNumber = names.fieldNumber(forJSONName: key) {
+                if let fieldNumber = names.number(forJSONName: key) {
                     return fieldNumber
                 }
             }

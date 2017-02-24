@@ -58,7 +58,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestOptimizedForSize"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
     19: .same(proto: "msg"),
     2: .unique(proto: "integer_field", json: "integerField"),
@@ -287,15 +287,15 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return ProtobufUnittest_TestOptimizedForSize._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return ProtobufUnittest_TestOptimizedForSize._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 
 struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestRequiredOptimizedForSize"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
   ]
 
@@ -350,7 +350,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Proto2Messag
 struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestOptionalOptimizedForSize"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "o"),
   ]
 

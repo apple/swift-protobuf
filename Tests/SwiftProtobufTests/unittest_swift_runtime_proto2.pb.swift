@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Message2"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
     3: .unique(proto: "optional_uint32", json: "optionalUint32"),
@@ -1123,12 +1123,19 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  enum Enum: SwiftProtobuf.Enum {
+  enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case extra2 // = 20
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "FOO"),
+      1: .same(proto: "BAR"),
+      2: .same(proto: "BAZ"),
+      20: .same(proto: "EXTRA_2"),
+    ]
 
     init() {
       self = .foo
@@ -1144,45 +1151,12 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "EXTRA_2": self = .extra2
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "FOO": self = .foo
-      case "BAR": self = .bar
-      case "BAZ": self = .baz
-      case "EXTRA_2": self = .extra2
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .foo: return 0
-        case .bar: return 1
-        case .baz: return 2
-        case .extra2: return 20
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .foo: return "FOO"
-        case .bar: return "BAR"
-        case .baz: return "BAZ"
-        case .extra2: return "EXTRA_2"
-        }
+      switch self {
+      case .foo: return 0
+      case .bar: return 1
+      case .baz: return 2
+      case .extra2: return 20
       }
     }
 
@@ -1191,7 +1165,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   struct OptionalGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "OptionalGroup"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       17: .same(proto: "a"),
     ]
 
@@ -1241,7 +1215,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   struct RepeatedGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "RepeatedGroup"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       47: .same(proto: "a"),
     ]
 
@@ -1291,7 +1265,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
   struct OneofGroup: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "OneofGroup"
     static let protoPackageName: String = "protobuf_unittest"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       67: .same(proto: "a"),
       167: .same(proto: "b"),
     ]

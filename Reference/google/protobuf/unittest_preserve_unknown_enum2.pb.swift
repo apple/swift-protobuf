@@ -49,11 +49,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
+enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+    1: .same(proto: "BAR"),
+    2: .same(proto: "BAZ"),
+  ]
 
   init() {
     self = .foo
@@ -68,41 +74,11 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "FOO": self = .foo
-    case "BAR": self = .bar
-    case "BAZ": self = .baz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "FOO": self = .foo
-    case "BAR": self = .bar
-    case "BAZ": self = .baz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .foo: return 0
-      case .bar: return 1
-      case .baz: return 2
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .foo: return "FOO"
-      case .bar: return "BAR"
-      case .baz: return "BAZ"
-      }
+    switch self {
+    case .foo: return 0
+    case .bar: return 1
+    case .baz: return 2
     }
   }
 
@@ -111,7 +87,7 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MyMessage"
   static let protoPackageName: String = "proto2_preserve_unknown_enum_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .unique(proto: "repeated_e", json: "repeatedE"),
     3: .unique(proto: "repeated_packed_e", json: "repeatedPackedE"),

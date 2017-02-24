@@ -69,7 +69,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Version"
   public static let protoPackageName: String = "google.protobuf.compiler"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "major"),
     2: .same(proto: "minor"),
     3: .same(proto: "patch"),
@@ -176,7 +176,7 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Proto2Message, Swi
 public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "CodeGeneratorRequest"
   public static let protoPackageName: String = "google.protobuf.compiler"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "file_to_generate", json: "fileToGenerate"),
     2: .same(proto: "parameter"),
     15: .unique(proto: "proto_file", json: "protoFile"),
@@ -323,7 +323,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Proto
 public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "CodeGeneratorResponse"
   public static let protoPackageName: String = "google.protobuf.compiler"
-  public static let _protobuf_fieldNames: FieldNameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
     15: .same(proto: "file"),
   ]
@@ -356,7 +356,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Prot
   public struct File: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     public static let protoMessageName: String = "File"
     public static let protoPackageName: String = "google.protobuf.compiler"
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "name"),
       2: .unique(proto: "insertion_point", json: "insertionPoint"),
       15: .same(proto: "content"),

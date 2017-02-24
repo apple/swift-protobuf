@@ -65,7 +65,7 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
     set { values[index] = newValue }
   }
 
-  public func fieldNames(for number: Int) -> FieldNameMap.Names? {
+  public func fieldNames(for number: Int) -> _NameMap.Names? {
     return values[number]?.protobufExtension.fieldNames
   }
 

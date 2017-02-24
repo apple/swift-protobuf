@@ -38,7 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestFieldOrderings"
   static let protoPackageName: String = "swift.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .unique(proto: "my_string", json: "myString"),
     1: .unique(proto: "my_int", json: "myInt"),
     101: .unique(proto: "my_float", json: "myFloat"),
@@ -256,7 +256,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
   struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "swift.protobuf"
-    static let _protobuf_fieldNames: FieldNameMap = [
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       2: .same(proto: "oo"),
       1: .same(proto: "bb"),
     ]
@@ -413,8 +413,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
   func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) -> Bool {
     return _extensionFieldValues[ext.fieldNumber] is F
   }
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Swift_Protobuf_TestFieldOrderings._protobuf_fieldNames.fieldNames(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+  func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Swift_Protobuf_TestFieldOrderings._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
   }
 }
 

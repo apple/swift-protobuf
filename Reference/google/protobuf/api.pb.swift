@@ -52,7 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Api"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "methods"),
     3: .same(proto: "options"),
@@ -233,7 +233,7 @@ struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
 struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Method"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .unique(proto: "request_type_url", json: "requestTypeUrl"),
     3: .unique(proto: "request_streaming", json: "requestStreaming"),
@@ -401,7 +401,7 @@ struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Mixin"
   static let protoPackageName: String = "google.protobuf"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "root"),
   ]

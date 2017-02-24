@@ -106,8 +106,8 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    if let n = value._protobuf_jsonName {
-      encoder.putStringValue(value: n)
+    if let n = value.name {
+      encoder.putStringValue(value: String(describing: n))
     } else {
       encoder.putEnumInt(value: value.rawValue)
     }
@@ -207,8 +207,8 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
-      if let n = v._protobuf_jsonName {
-        encoder.putStringValue(value: n)
+      if let n = v.name {
+        encoder.putStringValue(value: String(describing: n))
       } else {
         encoder.putEnumInt(value: v.rawValue)
       }
@@ -255,9 +255,9 @@ internal struct JSONEncodingVisitor: Visitor {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)
-    for (k,v) in value {
-        try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
-        try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
+    for (k, v) in value {
+      try KeyType.visitSingular(value: k, fieldNumber: 1, with: &mapVisitor)
+      try mapVisitor.visitSingularEnumField(value: v, fieldNumber: 2)
     }
     encoder = mapVisitor.encoder
     encoder.append(text: "}")

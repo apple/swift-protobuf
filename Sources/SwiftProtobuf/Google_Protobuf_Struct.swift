@@ -17,7 +17,7 @@
  * Hand-built implementation.
  */
 
-public enum Google_Protobuf_NullValue: Enum {
+public enum Google_Protobuf_NullValue: Enum, _ProtoNameProviding {
     // TODO: This is awkward, see the references to .NullValue(.NullValue) below.
     // TODO: The .nullValue property on Google_Protobuf_Value has to have
     // a type; but this is a little weird.
@@ -25,13 +25,13 @@ public enum Google_Protobuf_NullValue: Enum {
     ///   Null value.
     case nullValue
 
-    public init?(rawValue: Int) {self = .nullValue}
-    public init?(jsonName: String) {self = .nullValue}
-    public init?(protoName: String) {self = .nullValue}
+    public static var _protobuf_nameMap: _NameMap = [
+      0: .same(proto: "NULL_VALUE"),
+    ]
+
     public init() {self = .nullValue}
+    public init?(rawValue: Int) {self = .nullValue}
     public var rawValue: Int {return 0}
-    public var _protobuf_jsonName: String? {return "NULL_VALUE"}
-    public var hashValue: Int {return 0}
 }
 
 ///   `Struct` represents a structured data value, consisting of fields
@@ -48,7 +48,7 @@ public enum Google_Protobuf_NullValue: Enum {
 public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding {
     public static let protoMessageName: String = "Struct"
     public static let protoPackageName: String = "google.protobuf"
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    public static let _protobuf_nameMap: _NameMap = [
         1: .same(proto: "fields"),
     ]
     public typealias Key = String
@@ -145,7 +145,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding {
     public static let protoMessageName: String = "Value"
     public static let protoPackageName: String = "google.protobuf"
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    public static let _protobuf_nameMap: _NameMap = [
         1: .unique(proto: "null_value", json: "nullValue"),
         2: .unique(proto: "number_value", json: "numberValue"),
         3: .unique(proto: "string_value", json: "stringValue"),
@@ -531,7 +531,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding {
     public static let protoMessageName: String = "ListValue"
     public static let protoPackageName: String = "google.protobuf"
-    public static let _protobuf_fieldNames: FieldNameMap = [
+    public static let _protobuf_nameMap: _NameMap = [
         1: .same(proto: "values"),
     ]
 

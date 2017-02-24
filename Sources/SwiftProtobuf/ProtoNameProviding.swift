@@ -19,7 +19,7 @@ public protocol _ProtoNameProviding {
 
   /// The mapping between field numbers and proto/JSON field names defined in
   /// the conforming message type.
-  static var _protobuf_fieldNames: FieldNameMap { get }
+  static var _protobuf_nameMap: _NameMap { get }
 
   /// Returns the field name bundle for the field with the given number.
   ///
@@ -27,13 +27,13 @@ public protocol _ProtoNameProviding {
   /// which is sufficient for proto3. For proto2 extensions, making this an
   /// instance method allows generated messages to override it and ask their
   /// extension sets for names as well.
-  func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names?
+  func _protobuf_names(for number: Int) -> _NameMap.Names?
 }
 
 
 /// SwiftProtobuf Internal: Common support looking up field names.
 extension _ProtoNameProviding {
-  public func _protobuf_fieldNames(for number: Int) -> FieldNameMap.Names? {
-    return Self._protobuf_fieldNames.fieldNames(for: number)
+  public func _protobuf_names(for number: Int) -> _NameMap.Names? {
+    return Self._protobuf_nameMap.names(for: number)
   }
 }

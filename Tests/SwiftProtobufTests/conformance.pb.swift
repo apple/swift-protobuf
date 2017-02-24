@@ -68,12 +68,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 //    - running as a sub-process may be more tricky in unusual environments like
 //      iOS apps, where fork/stdin/stdout are not available.
 
-enum Conformance_WireFormat: SwiftProtobuf.Enum {
+enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
   case json // = 2
   case UNRECOGNIZED(Int)
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNSPECIFIED"),
+    1: .same(proto: "PROTOBUF"),
+    2: .same(proto: "JSON"),
+  ]
 
   init() {
     self = .unspecified
@@ -88,43 +94,12 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "UNSPECIFIED": self = .unspecified
-    case "PROTOBUF": self = .protobuf
-    case "JSON": self = .json
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "UNSPECIFIED": self = .unspecified
-    case "PROTOBUF": self = .protobuf
-    case "JSON": self = .json
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .unspecified: return 0
-      case .protobuf: return 1
-      case .json: return 2
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .unspecified: return "UNSPECIFIED"
-      case .protobuf: return "PROTOBUF"
-      case .json: return "JSON"
-      case .UNRECOGNIZED: return nil
-      }
+    switch self {
+    case .unspecified: return 0
+    case .protobuf: return 1
+    case .json: return 2
+    case .UNRECOGNIZED(let i): return i
     }
   }
 
@@ -138,7 +113,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ConformanceRequest"
   static let protoPackageName: String = "conformance"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "protobuf_payload", json: "protobufPayload"),
     2: .unique(proto: "json_payload", json: "jsonPayload"),
     3: .unique(proto: "requested_output_format", json: "requestedOutputFormat"),
@@ -255,7 +230,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
 struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ConformanceResponse"
   static let protoPackageName: String = "conformance"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "parse_error", json: "parseError"),
     6: .unique(proto: "serialize_error", json: "serializeError"),
     2: .unique(proto: "runtime_error", json: "runtimeError"),

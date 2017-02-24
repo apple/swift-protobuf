@@ -49,12 +49,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
   case UNRECOGNIZED(Int)
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MAP_ENUM_FOO"),
+    1: .same(proto: "MAP_ENUM_BAR"),
+    2: .same(proto: "MAP_ENUM_BAZ"),
+  ]
 
   init() {
     self = .foo
@@ -69,43 +75,12 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
     }
   }
 
-  init?(jsonName: String) {
-    switch jsonName {
-    case "MAP_ENUM_FOO": self = .foo
-    case "MAP_ENUM_BAR": self = .bar
-    case "MAP_ENUM_BAZ": self = .baz
-    default: return nil
-    }
-  }
-
-  init?(protoName: String) {
-    switch protoName {
-    case "MAP_ENUM_FOO": self = .foo
-    case "MAP_ENUM_BAR": self = .bar
-    case "MAP_ENUM_BAZ": self = .baz
-    default: return nil
-    }
-  }
-
   var rawValue: Int {
-    get {
-      switch self {
-      case .foo: return 0
-      case .bar: return 1
-      case .baz: return 2
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-  }
-
-  var _protobuf_jsonName: String? {
-    get {
-      switch self {
-      case .foo: return "MAP_ENUM_FOO"
-      case .bar: return "MAP_ENUM_BAR"
-      case .baz: return "MAP_ENUM_BAZ"
-      case .UNRECOGNIZED: return nil
-      }
+    switch self {
+    case .foo: return 0
+    case .bar: return 1
+    case .baz: return 2
+    case .UNRECOGNIZED(let i): return i
     }
   }
 
@@ -115,7 +90,7 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMap"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
     2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
     3: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32"),
@@ -404,7 +379,7 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
 struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMapSubmessage"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "test_map", json: "testMap"),
   ]
 
@@ -478,7 +453,7 @@ struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftPro
 struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessageMap"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_message", json: "mapInt32Message"),
   ]
 
@@ -515,7 +490,7 @@ struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Proto3Message, SwiftProtob
 struct ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestSameTypeMap"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "map1"),
     2: .same(proto: "map2"),
   ]
@@ -560,7 +535,7 @@ struct ProtobufUnittest_TestSameTypeMap: SwiftProtobuf.Proto3Message, SwiftProto
 struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestRequiredMessageMap"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_field", json: "mapField"),
   ]
 
@@ -601,7 +576,7 @@ struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Proto3Message, Swi
 struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestArenaMap"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
     2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
     3: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32"),
@@ -892,16 +867,20 @@ struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf
 struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MessageContainingEnumCalledType"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
   ]
 
   var type: Dictionary<String,ProtobufUnittest_MessageContainingEnumCalledType> = [:]
 
-  enum TypeEnum: SwiftProtobuf.Enum {
+  enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
     case foo // = 0
     case UNRECOGNIZED(Int)
+
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      0: .same(proto: "TYPE_FOO"),
+    ]
 
     init() {
       self = .foo
@@ -914,35 +893,10 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Proto3Mes
       }
     }
 
-    init?(jsonName: String) {
-      switch jsonName {
-      case "TYPE_FOO": self = .foo
-      default: return nil
-      }
-    }
-
-    init?(protoName: String) {
-      switch protoName {
-      case "TYPE_FOO": self = .foo
-      default: return nil
-      }
-    }
-
     var rawValue: Int {
-      get {
-        switch self {
-        case .foo: return 0
-        case .UNRECOGNIZED(let i): return i
-        }
-      }
-    }
-
-    var _protobuf_jsonName: String? {
-      get {
-        switch self {
-        case .foo: return "TYPE_FOO"
-        case .UNRECOGNIZED: return nil
-        }
+      switch self {
+      case .foo: return 0
+      case .UNRECOGNIZED(let i): return i
       }
     }
 
@@ -979,7 +933,7 @@ struct ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf.Proto3Mes
 struct ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MessageContainingMapCalledEntry"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entry"),
   ]
 
@@ -1015,7 +969,7 @@ struct ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf.Proto3Mes
 struct ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestRecursiveMapMessage"
   static let protoPackageName: String = "protobuf_unittest"
-  static let _protobuf_fieldNames: FieldNameMap = [
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
   ]
 

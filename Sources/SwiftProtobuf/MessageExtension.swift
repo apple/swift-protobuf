@@ -19,7 +19,7 @@
 /// pieces.
 public protocol MessageExtensionBase {
     var fieldNumber: Int { get }
-    var fieldNames: FieldNameMap.Names { get }
+    var fieldNames: _NameMap.Names { get }
     var messageType: Message.Type { get }
     func newField() -> AnyExtensionField
 }
@@ -29,10 +29,10 @@ public protocol MessageExtensionBase {
 /// compile-time compatibility checks.
 public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: MessageExtensionBase {
     public let fieldNumber: Int
-    public var fieldNames: FieldNameMap.Names
+    public var fieldNames: _NameMap.Names
     public let messageType: Message.Type
     public let defaultValue: FieldType.ValueType
-    public init(fieldNumber: Int, fieldNames: FieldNameMap.Names, defaultValue: FieldType.ValueType) {
+    public init(fieldNumber: Int, fieldNames: _NameMap.Names, defaultValue: FieldType.ValueType) {
         self.fieldNumber = fieldNumber
         self.fieldNames = fieldNames
         self.messageType = MessageType.self
