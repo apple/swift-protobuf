@@ -54,6 +54,13 @@ private let base64Digits: [UInt8] = {
     return digits
 }()
 
+private let hexDigits: [UInt8] = {
+    var digits = [UInt8]()
+    digits.append(contentsOf: asciiZero...asciiNine)
+    digits.append(contentsOf: asciiUpperA...asciiUpperF)
+    return digits
+}()
+
 internal struct JSONEncoder {
     private var data = [UInt8]()
     private var separator: UInt8?
@@ -237,10 +244,6 @@ internal struct JSONEncoder {
 
     /// Append a string value escaping special characters as needed.
     internal mutating func putStringValue(value: String) {
-        let hexDigits = [asciiZero, asciiOne, asciiTwo, asciiThree, asciiFour,
-                         asciiFive, asciiSix, asciiSeven, asciiEight, asciiNine,
-                         asciiUpperA, asciiUpperB, asciiUpperC, asciiUpperD,
-                         asciiUpperE, asciiUpperF];
         data.append(asciiDoubleQuote)
         for c in value.unicodeScalars {
             switch c.value {
