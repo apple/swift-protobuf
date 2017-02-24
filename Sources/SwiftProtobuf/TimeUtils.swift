@@ -19,7 +19,7 @@ let secondsPerHour: Int32 = 3600
 let secondsPerMinute: Int32 = 60
 let nanosPerSecond: Int32 = 1000000000
 
-func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: Int32, ss: Int32) {
+internal func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: Int32, ss: Int32) {
     let secondsSinceMidnight = Int32(mod(seconds, Int64(secondsPerDay)))
     let ss = mod(secondsSinceMidnight, secondsPerMinute)
     let mm = mod(div(secondsSinceMidnight, secondsPerMinute), minutesPerHour)
@@ -28,13 +28,13 @@ func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: Int32, ss:
     return (hh: hh, mm: mm, ss: ss)
 }
 
-func julianDayNumberFromSecondsSince1970(seconds: Int64) -> Int64 {
+internal func julianDayNumberFromSecondsSince1970(seconds: Int64) -> Int64 {
     // January 1, 1970 is Julian Day Number 2440588.
     // See http://aa.usno.navy.mil/faq/docs/JD_Formula.php
     return div(seconds + 2440588 * Int64(secondsPerDay), Int64(secondsPerDay))
 }
 
-func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, MM: Int32, DD: Int32) {
+internal func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, MM: Int32, DD: Int32) {
     // The following implements Richards' algorithm (see the Wikipedia article
     // for "Julian day").
     // If you touch this code, please test it exhaustively by playing with

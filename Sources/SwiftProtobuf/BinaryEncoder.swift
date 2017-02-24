@@ -18,7 +18,7 @@ import Foundation
 /*
  * Encoder for Binary Protocol Buffer format
  */
-public struct BinaryEncoder {
+internal struct BinaryEncoder {
     private var pointer: UnsafeMutablePointer<UInt8>
 
     public init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {

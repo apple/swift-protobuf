@@ -17,7 +17,7 @@
 
 import Foundation
 
-struct BinaryDecoder: Decoder {
+internal struct BinaryDecoder: Decoder {
     // Used only by packed repeated enums; see below
     private var unknownOverride: Data?
 
