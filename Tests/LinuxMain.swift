@@ -653,6 +653,15 @@ extension Test_Map_JSON {
     }
 }
 
+extension Test_Merge {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testMergeSimple", {try run_test(test:($0 as! Test_Merge).testMergeSimple)}),
+            ("testMergePreservesValueSemantics", {try run_test(test:($0 as! Test_Merge).testMergePreservesValueSemantics)})
+        ]
+    }
+}
+
 extension Test_FieldNamingInitials {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1067,6 +1076,7 @@ XCTMain(
         (testCaseClass: Test_MapFields_Access_Proto2.self, allTests: Test_MapFields_Access_Proto2.allTests),
         (testCaseClass: Test_MapFields_Access_Proto3.self, allTests: Test_MapFields_Access_Proto3.allTests),
         (testCaseClass: Test_Map_JSON.self, allTests: Test_Map_JSON.allTests),
+        (testCaseClass: Test_Merge.self, allTests: Test_Merge.allTests),
         (testCaseClass: Test_FieldNamingInitials.self, allTests: Test_FieldNamingInitials.allTests),
         (testCaseClass: Test_ExtensionNamingInitials_MessageScoped.self, allTests: Test_ExtensionNamingInitials_MessageScoped.allTests),
         (testCaseClass: Test_ExtensionNamingInitials_GlobalScoped.self, allTests: Test_ExtensionNamingInitials_GlobalScoped.allTests),
