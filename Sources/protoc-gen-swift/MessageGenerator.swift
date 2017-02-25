@@ -331,6 +331,9 @@ class MessageGenerator {
   private func generateDecodeMessage(printer p: inout CodePrinter) {
     p.print("\(visibility)mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
     p.indent()
+    if storage != nil {
+      p.print("_ = _uniqueStorage()\n")
+    }
     // We can't extend the lifetime of _storage in decodeField because it will
     // get executed for every field, instead of once per message, canceling out
     // all the benefits. Fortunately the optimizer is able to recognize that
