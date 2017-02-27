@@ -129,7 +129,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Proto2Message, SwiftProtobuf.Exte
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftTestGroupExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return SwiftTestGroupExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

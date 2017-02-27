@@ -2052,7 +2052,7 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Proto2Message, Swif
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestAllExtensionsLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestAllExtensionsLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2214,7 +2214,7 @@ struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Proto2Message, S
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestPackedExtensionsLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestPackedExtensionsLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2897,7 +2897,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Proto2Message, Swift
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestParsingMergeLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestParsingMergeLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2990,7 +2990,7 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Proto2
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestEmptyMessageWithExtensionsLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestEmptyMessageWithExtensionsLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -3594,7 +3594,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Proto2Message, S
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestHugeFieldNumbersLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestHugeFieldNumbersLite._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

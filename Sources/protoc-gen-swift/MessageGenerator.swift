@@ -296,7 +296,7 @@ class MessageGenerator {
       p.print("  return _extensionFieldValues[ext.fieldNumber] is F\n")
       p.print("}\n")
       p.print("\(visibility)func _protobuf_names(for number: Int) -> _NameMap.Names? {\n")
-      p.print("  return \(swiftRelativeName)._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)\n")
+      p.print("  return \(swiftRelativeName)._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)\n")
       p.print("}\n")
     }
 

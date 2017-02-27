@@ -107,7 +107,7 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Proto2Message,
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufObjcUnittest_TestObjCStartupMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufObjcUnittest_TestObjCStartupMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

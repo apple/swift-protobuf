@@ -21944,7 +21944,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Proto2Message,
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitials._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return SwiftUnittest_Names_ExtensionNamingInitials._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -22323,7 +22323,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Proto2Me
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitialsLowers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return SwiftUnittest_Names_ExtensionNamingInitialsLowers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -22385,7 +22385,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Proto2Me
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitialsUppers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return SwiftUnittest_Names_ExtensionNamingInitialsUppers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -22447,7 +22447,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Proto2
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitialsWordCase._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return SwiftUnittest_Names_ExtensionNamingInitialsWordCase._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

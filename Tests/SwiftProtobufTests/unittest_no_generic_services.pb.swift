@@ -159,7 +159,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_NoGenericServicesTest_TestMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_NoGenericServicesTest_TestMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

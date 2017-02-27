@@ -288,7 +288,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestOptimizedForSize._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestOptimizedForSize._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

@@ -128,7 +128,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
         return _extensionFieldValues[ext.fieldNumber] is F
       }
       func _protobuf_names(for number: Int) -> _NameMap.Names? {
-        return Baz._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+        return Baz._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
       }
     }
 
@@ -291,7 +291,7 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_Extend_Msg1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_Extend_Msg1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -353,7 +353,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_Extend_Msg2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_Extend_Msg2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -438,7 +438,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftP
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_Extend_MsgNoStorage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_Extend_MsgNoStorage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -572,7 +572,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_Extend_MsgUsesStorage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_Extend_MsgUsesStorage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
