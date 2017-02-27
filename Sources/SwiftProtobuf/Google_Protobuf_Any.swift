@@ -367,7 +367,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             // Decode protobuf from the stored bytes
             if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    try target._mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
+                    try target._protobuf_mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
                 }
             }
             return
