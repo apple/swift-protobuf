@@ -335,7 +335,8 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobu
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -343,7 +344,7 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobu
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
     case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
@@ -381,7 +382,7 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobu
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._optionalInt32 != 0 {
         try visitor.visitSingularInt32Field(value: _storage._optionalInt32, fieldNumber: 1)
@@ -482,7 +483,7 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobu
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Swift_Performance_TestAllTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Swift_Performance_TestAllTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}

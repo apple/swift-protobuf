@@ -62,26 +62,26 @@ struct Proto3PublicImportMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &e)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if e != 0 {
       try visitor.visitSingularInt32Field(value: e, fieldNumber: 1)
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3PublicImportMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3PublicImportMessage) -> Bool {
     if e != other.e {return false}
     return true
   }

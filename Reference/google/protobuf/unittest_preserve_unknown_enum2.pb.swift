@@ -193,13 +193,13 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularEnumField(value: &_e)
     case 2: try decoder.decodeRepeatedEnumField(value: &repeatedE)
@@ -214,7 +214,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _e {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     }
@@ -231,7 +231,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto2Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
     if _e != other._e {return false}
     if repeatedE != other.repeatedE {return false}
     if repeatedPackedE != other.repeatedPackedE {return false}

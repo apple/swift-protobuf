@@ -106,7 +106,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
     }
   }
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -114,14 +115,14 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._messageSet)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._messageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -130,7 +131,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Proto2Message, Sw
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._messageSet != other_storage._messageSet {return false}
@@ -173,27 +174,27 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Proto2Message, S
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 15: try decoder.decodeSingularInt32Field(value: &_i)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _i {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
     if _i != other._i {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -232,27 +233,27 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Proto2Message, S
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 25: try decoder.decodeSingularStringField(value: &_str)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _str {
       try visitor.visitSingularStringField(value: v, fieldNumber: 25)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
     if _str != other._str {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -324,13 +325,13 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
       return true
     }
 
-    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       }
     }
 
-    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
       case 2: try decoder.decodeSingularInt32Field(value: &_typeId)
       case 3: try decoder.decodeSingularBytesField(value: &_message)
@@ -338,7 +339,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
       }
     }
 
-    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _typeId {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
@@ -348,7 +349,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
+    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
       if _typeId != other._typeId {return false}
       if _message != other._message {return false}
       if unknownFields != other.unknownFields {return false}
@@ -363,27 +364,27 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Proto2Message, SwiftProtobu
     return true
   }
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeRepeatedGroupField(value: &item)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !item.isEmpty {
       try visitor.visitRepeatedGroupField(value: item, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {
     if item != other.item {return false}
     if unknownFields != other.unknownFields {return false}
     return true

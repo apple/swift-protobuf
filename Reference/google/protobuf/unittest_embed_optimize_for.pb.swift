@@ -116,7 +116,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
     }
   }
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -124,7 +125,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
     case 2: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedMessage)
@@ -132,7 +133,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._optionalMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -144,7 +145,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Proto2Message, 
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._optionalMessage != other_storage._optionalMessage {return false}

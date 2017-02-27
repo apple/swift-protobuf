@@ -331,7 +331,8 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf.
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -339,7 +340,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._mapInt32Int32)
     case 2: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_storage._mapInt64Int64)
@@ -363,7 +364,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 1)
@@ -423,7 +424,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMapLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMapLite) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
@@ -624,7 +625,8 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProt
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -632,7 +634,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProt
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._mapInt32Int32)
     case 2: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_storage._mapInt64Int64)
@@ -656,7 +658,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProt
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 1)
@@ -716,7 +718,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Proto2Message, SwiftProt
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestArenaMapLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestArenaMapLite) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
@@ -763,27 +765,27 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Proto2Message,
     return true
   }
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &mapField)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !mapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: mapField, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMapLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMapLite) -> Bool {
     if mapField != other.mapField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -806,13 +808,13 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Proto2Message, SwiftProto
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &knownMapField)
     case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &unknownMapField)
@@ -820,7 +822,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Proto2Message, SwiftProto
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !knownMapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: knownMapField, fieldNumber: 101)
     }
@@ -830,7 +832,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Proto2Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapLite) -> Bool {
     if knownMapField != other.knownMapField {return false}
     if unknownMapField != other.unknownMapField {return false}
     if unknownFields != other.unknownFields {return false}
@@ -854,13 +856,13 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Proto2Message, S
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &knownMapField)
     case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &unknownMapField)
@@ -868,7 +870,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Proto2Message, S
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !knownMapField.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: knownMapField, fieldNumber: 101)
     }
@@ -878,7 +880,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Proto2Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtraLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtraLite) -> Bool {
     if knownMapField != other.knownMapField {return false}
     if unknownMapField != other.unknownMapField {return false}
     if unknownFields != other.unknownFields {return false}
@@ -899,27 +901,27 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Proto2Message, SwiftPr
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: &mapInt32Message)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: mapInt32Message, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestMessageMapLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageMapLite) -> Bool {
     if mapInt32Message != other.mapInt32Message {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -982,13 +984,13 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Proto2Message, SwiftProt
     return true
   }
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_a)
     case 2: try decoder.decodeSingularInt32Field(value: &_b)
@@ -997,7 +999,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Proto2Message, SwiftProt
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -1010,7 +1012,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Proto2Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
     if _a != other._a {return false}
     if _b != other._b {return false}
     if _c != other._c {return false}
@@ -1042,27 +1044,27 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Proto2Message, Sw
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_c)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageArenaLite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageArenaLite) -> Bool {
     if _c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true

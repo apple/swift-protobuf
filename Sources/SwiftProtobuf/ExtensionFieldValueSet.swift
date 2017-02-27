@@ -14,8 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-public struct ExtensionFieldValueSet: Equatable, Sequence {
-  public typealias Iterator = Dictionary<Int, AnyExtensionField>.Iterator
+public struct ExtensionFieldValueSet: Equatable {
   fileprivate var values = [Int : AnyExtensionField]()
 
   public static func ==(lhs: ExtensionFieldValueSet,
@@ -40,10 +39,6 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
 
   public init() {}
 
-  public func makeIterator() -> Iterator {
-    return values.makeIterator()
-  }
-
   public var hashValue: Int {
     var hash: Int = 0
     for i in values.keys.sorted() {
@@ -65,7 +60,8 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
     set { values[index] = newValue }
   }
 
-  public func fieldNames(for number: Int) -> _NameMap.Names? {
+  /// SwiftProtobuf Internal: Common support for decoding/encoding.
+  public func _protobuf_fieldNames(for number: Int) -> _NameMap.Names? {
     return values[number]?.protobufExtension.fieldNames
   }
 

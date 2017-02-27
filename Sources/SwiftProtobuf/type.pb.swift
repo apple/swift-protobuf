@@ -174,7 +174,8 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -182,7 +183,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &_storage._name)
     case 2: try decoder.decodeRepeatedMessageField(value: &_storage._fields)
@@ -194,7 +195,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     }
   }
 
-  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -217,7 +218,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._name != other_storage._name {return false}
@@ -473,13 +474,13 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf.
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularEnumField(value: &kind)
     case 2: try decoder.decodeSingularEnumField(value: &cardinality)
@@ -495,7 +496,7 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if kind != Google_Protobuf_Field.Kind.typeUnknown {
       try visitor.visitSingularEnumField(value: kind, fieldNumber: 1)
     }
@@ -528,7 +529,7 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Proto3Message, SwiftProtobuf.
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
     if kind != other.kind {return false}
     if cardinality != other.cardinality {return false}
     if number != other.number {return false}
@@ -622,7 +623,8 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -630,7 +632,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &_storage._name)
     case 2: try decoder.decodeRepeatedMessageField(value: &_storage._enumvalue)
@@ -641,7 +643,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     }
   }
 
-  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -661,7 +663,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._name != other_storage._name {return false}
@@ -696,13 +698,13 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &name)
     case 2: try decoder.decodeSingularInt32Field(value: &number)
@@ -711,7 +713,7 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProto
     }
   }
 
-  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !name.isEmpty {
       try visitor.visitSingularStringField(value: name, fieldNumber: 1)
     }
@@ -723,7 +725,7 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Proto3Message, SwiftProto
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
     if name != other.name {return false}
     if number != other.number {return false}
     if options != other.options {return false}
@@ -790,7 +792,8 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -798,7 +801,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &_storage._name)
     case 2: try decoder.decodeSingularMessageField(value: &_storage._value)
@@ -806,7 +809,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf
     }
   }
 
-  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -817,7 +820,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Proto3Message, SwiftProtobuf
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._name != other_storage._name {return false}

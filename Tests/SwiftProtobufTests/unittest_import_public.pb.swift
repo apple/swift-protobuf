@@ -74,27 +74,27 @@ struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Proto2Message, 
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_e)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _e {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessage) -> Bool {
     if _e != other._e {return false}
     if unknownFields != other.unknownFields {return false}
     return true

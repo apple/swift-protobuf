@@ -58,6 +58,11 @@ public protocol Message: CustomDebugStringConvertible {
   /// Note that this is not specific to protobuf encoding; formats that use
   /// textual identifiers translate those to fieldNumbers and then invoke
   /// this to decode the field value.
+  ///
+  /// Warning: This method does NOT take precautions to preserve copy-on-write
+  /// semantics for messages with heap storage; it should only be called on
+  /// newly-created messages or messages where the storage has been ensured
+  /// unique.
   mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
 
   /// Decode all of the fields from the given decoder.
@@ -84,9 +89,9 @@ public protocol Message: CustomDebugStringConvertible {
   func traverse<V: Visitor>(visitor: inout V) throws
 
   /// SwiftProtobuf Internal: Common support for decoding.
-  mutating func _mergeSerializedBytes(from: UnsafePointer<UInt8>,
-                                      count: Int,
-                                      extensions: ExtensionSet?) throws
+  mutating func _protobuf_mergeSerializedBytes(from: UnsafePointer<UInt8>,
+                                               count: Int,
+                                               extensions: ExtensionSet?) throws
 
   //
   // google.protobuf.Any support
@@ -219,32 +224,32 @@ public protocol _MessageImplementationBase: Message, Hashable {
   // The compiler actually generates the following methods. Default
   // implementations below redirect the standard names. This allows developers
   // to override the standard names to customize the behavior.
-  mutating func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws
+  mutating func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws
 
-  mutating func _protoc_generated_decodeField<T: Decoder>(decoder: inout T,
+  mutating func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T,
                                                           fieldNumber: Int) throws
 
-  func _protoc_generated_traverse<V: Visitor>(visitor: inout V) throws
+  func _protobuf_generated_traverse<V: Visitor>(visitor: inout V) throws
 
-  func _protoc_generated_isEqualTo(other: Self) -> Bool
+  func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
   public static func ==(lhs: Self, rhs: Self) -> Bool {
-    return lhs._protoc_generated_isEqualTo(other: rhs)
+    return lhs._protobuf_generated_isEqualTo(other: rhs)
   }
 
   // Default implementations simply redirect to the generated versions.
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    try _protoc_generated_traverse(visitor: &visitor)
+    try _protobuf_generated_traverse(visitor: &visitor)
   }
 
   mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
-    try _protoc_generated_decodeField(decoder: &decoder,
+    try _protobuf_generated_decodeField(decoder: &decoder,
                                       fieldNumber: fieldNumber)
   }
 
   mutating func decodeMessage<T: Decoder>(decoder: inout T) throws {
-      try _protoc_generated_decodeMessage(decoder: &decoder)
+      try _protobuf_generated_decodeMessage(decoder: &decoder)
   }
 }

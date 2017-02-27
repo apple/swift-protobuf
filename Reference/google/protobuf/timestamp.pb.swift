@@ -120,13 +120,13 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt64Field(value: &seconds)
     case 2: try decoder.decodeSingularInt32Field(value: &nanos)
@@ -134,7 +134,7 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if seconds != 0 {
       try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
     }
@@ -143,7 +143,7 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
     if seconds != other.seconds {return false}
     if nanos != other.nanos {return false}
     return true

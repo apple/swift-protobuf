@@ -110,13 +110,13 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
-    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         }
     }
 
-    public mutating func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    public mutating func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
         switch fieldNumber {
         case 1: try decoder.decodeMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: &fields)
         default:
@@ -124,13 +124,13 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         }
     }
 
-    public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !fields.isEmpty {
             try visitor.visitMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
         }
     }
 
-    public  func _protoc_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
+    public  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
         if fields != other.fields {return false}
         return true
     }
@@ -238,13 +238,13 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         }
     }
 
-    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    mutating public func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
         switch fieldNumber {
         case 1, 2, 3, 4, 5, 6:
             if kind != nil {
@@ -297,7 +297,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         }
     }
 
-    public func _protoc_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
+    public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
         return kind == other.kind
     }
 
@@ -305,7 +305,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         try any.unpackTo(target: &self)
     }
 
-    public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         try kind?.traverse(visitor: &visitor, start:1, end: 7)
     }
 
@@ -602,26 +602,26 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
         try any.unpackTo(target: &self)
     }
 
-    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         }
     }
 
-    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    mutating public func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
         switch fieldNumber {
         case 1: try decoder.decodeRepeatedMessageField(value: &values)
         default: break
         }
     }
 
-    public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !values.isEmpty {
             try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
         }
     }
 
-    public func _protoc_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
+    public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
         return values == other.values
     }
 }
