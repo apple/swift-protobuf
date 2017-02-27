@@ -96,7 +96,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -105,14 +105,14 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._message)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -121,7 +121,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Proto2Message, Swi
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._message != other_storage._message {return false}

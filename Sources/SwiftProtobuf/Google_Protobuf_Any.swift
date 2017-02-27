@@ -260,13 +260,13 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         typeURL = type(of: message).anyTypeURL
     }
 
-    mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
+    mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
         }
     }
 
-    mutating public func _protoc_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
+    mutating public func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &typeURL)
         case 2: try decoder.decodeSingularBytesField(value: &_value)
@@ -367,7 +367,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             // Decode protobuf from the stored bytes
             if protobuf.count > 0 {
                 try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-                    try target._mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
+                    try target._protobuf_mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
                 }
             }
             return
@@ -488,7 +488,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
 
     // Caveat:  This can be very expensive.  We should consider organizing
     // the code generation so that generated equality tests check Any fields last.
-    public func _protoc_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
+    public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
         if ((typeURL != nil && typeURL != "") || (other.typeURL != nil && other.typeURL != "")) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
             return false
         }
@@ -527,7 +527,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         return false
     }
 
-    public func _protoc_generated_traverse<V: Visitor>(visitor: inout V) throws {
+    public func _protobuf_generated_traverse<V: Visitor>(visitor: inout V) throws {
         if let typeURL = typeURL {
             try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
             // Try to generate bytes for this field...

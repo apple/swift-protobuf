@@ -67,27 +67,27 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
 
     init() {}
 
-    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       }
     }
 
-    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1410: try decoder.decodeSingularInt64Field(value: &_c)
       default: break
       }
     }
 
-    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if let v = _c {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 1410)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protoc_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
+    func _protobuf_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
       if _c != other._c {return false}
       if unknownFields != other.unknownFields {return false}
       return true
@@ -111,20 +111,20 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: Ext4MyMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Ext4MyMessage) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -153,27 +153,27 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1420: try decoder.decodeSingularInt64Field(value: &_c)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1420)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: Ext4C) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Ext4C) -> Bool {
     if _c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true

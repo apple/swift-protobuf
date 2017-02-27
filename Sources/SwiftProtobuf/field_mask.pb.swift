@@ -261,26 +261,26 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Proto3Message, SwiftProto
 
   public init() {}
 
-  public mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  public mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeRepeatedStringField(value: &paths)
     default: break
     }
   }
 
-  public func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !paths.isEmpty {
       try visitor.visitRepeatedStringField(value: paths, fieldNumber: 1)
     }
   }
 
-  public func _protoc_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
     if paths != other.paths {return false}
     return true
   }

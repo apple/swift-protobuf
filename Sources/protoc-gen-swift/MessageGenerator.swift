@@ -296,7 +296,7 @@ class MessageGenerator {
       p.print("  return _extensionFieldValues[ext.fieldNumber] is F\n")
       p.print("}\n")
       p.print("\(visibility)func _protobuf_names(for number: Int) -> _NameMap.Names? {\n")
-      p.print("  return \(swiftRelativeName)._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)\n")
+      p.print("  return \(swiftRelativeName)._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)\n")
       p.print("}\n")
     }
 
@@ -325,11 +325,11 @@ class MessageGenerator {
     }
   }
 
-  /// Generates the `_protoc_generated_decodeMessage` method for the message.
+  /// Generates the `_protobuf_generated_decodeMessage` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
+    p.print("\(visibility)mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
     p.indent()
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")
@@ -351,11 +351,11 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  /// Generates the `_protoc_generated_decodeField` method for the message.
+  /// Generates the `_protobuf_generated_decodeField` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeField(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
+    p.print("\(visibility)mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
     p.indent()
 
     if !fields.isEmpty {
@@ -414,11 +414,11 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  /// Generates the `_protoc_gen_traverse` method for the message.
+  /// Generates the `_protobuf_generated_traverse` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
+    p.print("\(visibility)func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
       var ranges = descriptor.extensionRange.makeIterator()
@@ -466,7 +466,7 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateIsEqualTo(printer p: inout CodePrinter) {
-    p.print("\(visibility)func _protoc_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
+    p.print("\(visibility)func _protobuf_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p,
                                   returns: true,

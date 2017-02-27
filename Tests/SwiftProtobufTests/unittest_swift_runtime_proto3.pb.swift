@@ -991,7 +991,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1000,7 +1000,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
     case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
@@ -1064,7 +1064,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._optionalInt32 != 0 {
         try visitor.visitSingularInt32Field(value: _storage._optionalInt32, fieldNumber: 1)
@@ -1229,7 +1229,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_Message3) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Message3) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}

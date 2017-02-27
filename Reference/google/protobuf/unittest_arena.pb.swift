@@ -72,27 +72,27 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Proto2Message, SwiftProt
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_d)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_NestedMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_NestedMessage) -> Bool {
     if _d != other._d {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -115,13 +115,13 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProto
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeRepeatedMessageField(value: &repeatedNestedMessage)
     case 2: try decoder.decodeRepeatedMessageField(value: &repeatedImportNoArenaMessage)
@@ -129,7 +129,7 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProto
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !repeatedNestedMessage.isEmpty {
       try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, fieldNumber: 1)
     }
@@ -139,7 +139,7 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Proto2Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protoc_generated_isEqualTo(other: Proto2ArenaUnittest_ArenaMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_ArenaMessage) -> Bool {
     if repeatedNestedMessage != other.repeatedNestedMessage {return false}
     if repeatedImportNoArenaMessage != other.repeatedImportNoArenaMessage {return false}
     if unknownFields != other.unknownFields {return false}

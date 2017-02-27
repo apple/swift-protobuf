@@ -127,7 +127,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -136,7 +136,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
     case 2: try decoder.decodeSingularMessageField(value: &_storage._aBar)
@@ -145,7 +145,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -160,7 +160,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._aFoo != other_storage._aFoo {return false}
@@ -244,7 +244,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -253,7 +253,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._aBar)
     case 2: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
@@ -262,7 +262,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -277,7 +277,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._aBar != other_storage._aBar {return false}
@@ -361,7 +361,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -370,7 +370,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._aBaz)
     case 2: try decoder.decodeSingularMessageField(value: &_storage._aFoo)
@@ -379,7 +379,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -394,7 +394,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Proto2Message, SwiftProtobuf._Me
     }
   }
 
-  func _protoc_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._aBaz != other_storage._aBaz {return false}

@@ -822,7 +822,7 @@ internal struct BinaryDecoder: Decoder {
         if value == nil {
             value = M()
         }
-        try value!._mergeSerializedBytes(from: p, count: count, extensions: extensions)
+        try value!._protobuf_mergeSerializedBytes(from: p, count: count, extensions: extensions)
         consumed = true
     }
 
@@ -833,7 +833,7 @@ internal struct BinaryDecoder: Decoder {
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
         var newValue = M()
-        try newValue._mergeSerializedBytes(from: p, count: count, extensions: extensions)
+        try newValue._protobuf_mergeSerializedBytes(from: p, count: count, extensions: extensions)
         value.append(newValue)
         consumed = true
     }
@@ -895,6 +895,7 @@ internal struct BinaryDecoder: Decoder {
 
         if let k = k, let v = v {
             value[k] = v
+            consumed = true
         } else {
             throw BinaryDecodingError.malformedProtobuf
         }
@@ -926,6 +927,7 @@ internal struct BinaryDecoder: Decoder {
 
         if let k = k, let v = v {
             value[k] = v
+            consumed = true
         } else {
             throw BinaryDecodingError.malformedProtobuf
         }
@@ -957,6 +959,7 @@ internal struct BinaryDecoder: Decoder {
 
         if let k = k, let v = v {
             value[k] = v
+            consumed = true
         } else {
             throw BinaryDecodingError.malformedProtobuf
         }

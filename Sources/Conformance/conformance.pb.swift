@@ -194,13 +194,13 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1, 2:
       if payload != nil {
@@ -212,14 +212,14 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try payload?.traverse(visitor: &visitor, start: 1, end: 3)
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
       try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
     if payload != other.payload {return false}
     if requestedOutputFormat != other.requestedOutputFormat {return false}
     return true
@@ -420,13 +420,13 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtob
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1, 6, 2, 3, 4, 5:
       if result != nil {
@@ -437,11 +437,11 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtob
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try result?.traverse(visitor: &visitor, start: 1, end: 7)
   }
 
-  func _protoc_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
     if result != other.result {return false}
     return true
   }
