@@ -48,16 +48,12 @@ public extension Message {
             var decoder = JSONDecoder(utf8Pointer: bytes,
                                       count: jsonUTF8Data.count)
             if !decoder.scanner.skipOptionalNull() {
-                try self.decodeJSON(from: &decoder)
+                try decoder.decodeFullObject(message: &self)
             }
             if !decoder.scanner.complete {
                 throw JSONDecodingError.trailingGarbage
             }
         }
-    }
-
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        try decoder.decodeFullObject(message: &self)
     }
 }
 

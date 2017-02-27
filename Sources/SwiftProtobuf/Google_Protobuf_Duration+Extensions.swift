@@ -114,11 +114,6 @@ public extension Google_Protobuf_Duration {
         self.nanos = nanos
     }
 
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        (seconds, nanos) = try parseDuration(text: s)
-    }
-
     public func jsonString() throws -> String {
         if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
@@ -132,6 +127,14 @@ public extension Google_Protobuf_Duration {
         return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 }
+
+extension Google_Protobuf_Duration: _CustomJSONCodable {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        let s = try decoder.scanner.nextQuotedString()
+        (seconds, nanos) = try parseDuration(text: s)
+    }
+}
+
 
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double

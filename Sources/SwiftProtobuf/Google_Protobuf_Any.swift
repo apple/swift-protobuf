@@ -144,7 +144,7 @@ public extension Message {
 /// without having the type information available.  This is a basic
 /// limitation of Google's spec for google.protobuf.Any.
 ///
-public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, _ProtoNameProviding {
+public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementationBase, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoPackageName: String = "google.protobuf"
     public static let protoMessageName: String = "Any"
     public static let _protobuf_nameMap: _NameMap = [
@@ -260,6 +260,18 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         typeURL = type(of: message).anyTypeURL
     }
 
+    public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
+        self.init()
+        var textDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self,
+                                                text: textFormatString,
+                                                extensions: extensions)
+        try decodeTextFormat(decoder: &textDecoder)
+        if !textDecoder.complete {
+            throw TextFormatDecodingError.trailingGarbage
+        }
+    }
+
+
     mutating public func _protoc_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -274,7 +286,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public mutating func decodeTextFormat(from decoder: inout TextFormatDecoder) throws {
+    mutating func decodeTextFormat(decoder: inout TextFormatDecoder) throws {
         // First, check if this uses the "verbose" Any encoding.
         // If it does, and we have the type available, we can
         // eagerly decode the contained Message object.
@@ -282,13 +294,24 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
             // Decoding the verbose form requires knowing the type:
             typeURL = url
             let messageTypeName = typeName(fromURL: url)
+            let terminator = try decoder.scanner.skipObjectStart()
             // Is it a well-known type? Or a user-registered type?
-            if let messageType = (Google_Protobuf_Any.wellKnownTypes[messageTypeName]
+            if messageTypeName == "google.protobuf.Any" {
+                var subDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self, scanner: decoder.scanner, terminator: terminator)
+                var any = Google_Protobuf_Any()
+                try any.decodeTextFormat(decoder: &subDecoder)
+                decoder.scanner = subDecoder.scanner
+                if let _ = try decoder.nextFieldNumber() {
+                    // Verbose any can never have additional keys
+                    throw TextFormatDecodingError.malformedText
+                }
+                _message = any
+                return
+            } else if let messageType = (Google_Protobuf_Any.wellKnownTypes[messageTypeName]
                 ?? Google_Protobuf_Any.knownTypes[messageTypeName]) {
-                _message = messageType.init()
-                let terminator = try decoder.scanner.skipObjectStart()
                 var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-                try _message!.decodeTextFormat(from: &subDecoder)
+                _message = messageType.init()
+                try _message!.decodeMessage(decoder: &subDecoder)
                 decoder.scanner = subDecoder.scanner
                 if let _ = try decoder.nextFieldNumber() {
                     // Verbose any can never have additional keys
@@ -312,7 +335,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     // a performance hit if the Any contents were never accessed (bad).
     // Of course, we can't always decode eagerly (we don't always have the
     // message type available), so the deferred logic here is still needed.
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return

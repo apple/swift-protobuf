@@ -60,8 +60,12 @@ public protocol Message: CustomDebugStringConvertible {
   /// this to decode the field value.
   mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
 
+  /// Decode all of the fields from the given decoder.
+  ///
+  /// This is generally a simple loop that repeatedly gets the next
+  /// field number from `decoder.nextFieldNumber()` and
+  /// then invokes `decodeField` above.
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
-
 
   /// Support for traversing the object tree.
   ///
@@ -85,16 +89,12 @@ public protocol Message: CustomDebugStringConvertible {
                                       extensions: ExtensionSet?) throws
 
   //
-  // Protobuf Text decoding
-  //
-  mutating func decodeTextFormat(from: inout TextFormatDecoder) throws
-
-  //
   // google.protobuf.Any support
   //
 
-  // Decode from an `Any` (which might itself have been decoded from JSON,
-  // protobuf, or another `Any`).
+  /// Decode this object from an `Any` (which might itself have been
+  /// decoded from JSON, protobuf, or another `Any`).  This is the
+  /// analog of `unpack` in the Google C++ or Java API.
   init(any: Google_Protobuf_Any) throws
 
   /// Serialize as an `Any` object in JSON format.
@@ -107,10 +107,8 @@ public protocol Message: CustomDebugStringConvertible {
   // JSON encoding/decoding support
   //
 
-  /// Overridden by well-known-types with custom JSON requirements.
+  /// Returns a JSON-coded representation of this object as a String.
   func jsonString() throws -> String
-
-  mutating func decodeJSON(from: inout JSONDecoder) throws
 
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.
@@ -119,6 +117,10 @@ public protocol Message: CustomDebugStringConvertible {
   // the generated struct.
   var hashValue: Int { get }
   var debugDescription: String { get }
+}
+
+internal protocol _CustomJSONCodable {
+    mutating func decodeJSON(from: inout JSONDecoder) throws
 }
 
 public extension Message {
@@ -209,7 +211,7 @@ public protocol Proto3Message: Message {
 ///
 /// Generally, you should use `SwiftProtobuf.Message` instead
 /// when you need a variable or argument that holds a message,
-/// or occasionally `SwiftProtobuf.Message & Equatable` or even
+/// or occasionally `SwiftProtobuf.Message & Equatable` or
 /// `SwiftProtobuf.Message & Hashable` if you need to use equality
 /// tests or put it in a `Set<>`.
 ///

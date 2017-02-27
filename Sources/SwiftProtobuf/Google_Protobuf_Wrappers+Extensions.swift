@@ -33,7 +33,7 @@ protocol ProtobufWrapper {
 }
 
 extension Google_Protobuf_DoubleValue:
-  ProtobufWrapper, ExpressibleByFloatLiteral {
+  ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufDouble
   public typealias FloatLiteralType = WrappedType.BaseType
@@ -53,7 +53,7 @@ extension Google_Protobuf_DoubleValue:
     return encoder.stringResult
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -61,7 +61,7 @@ extension Google_Protobuf_DoubleValue:
 }
 
 extension Google_Protobuf_FloatValue:
-  ProtobufWrapper, ExpressibleByFloatLiteral {
+  ProtobufWrapper, ExpressibleByFloatLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufFloat
   public typealias FloatLiteralType = Float
@@ -81,7 +81,7 @@ extension Google_Protobuf_FloatValue:
     return encoder.stringResult
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -89,7 +89,7 @@ extension Google_Protobuf_FloatValue:
 }
 
 extension Google_Protobuf_Int64Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral {
+ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufInt64
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -109,7 +109,7 @@ extension Google_Protobuf_Int64Value:
     return encoder.stringResult
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -117,7 +117,7 @@ extension Google_Protobuf_Int64Value:
 }
 
 extension Google_Protobuf_UInt64Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral {
+  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufUInt64
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -137,7 +137,7 @@ extension Google_Protobuf_UInt64Value:
     return encoder.stringResult
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -145,7 +145,7 @@ extension Google_Protobuf_UInt64Value:
 }
 
 extension Google_Protobuf_Int32Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral {
+  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufInt32
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -163,7 +163,7 @@ extension Google_Protobuf_Int32Value:
     return String(value)
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -171,7 +171,7 @@ extension Google_Protobuf_Int32Value:
 }
 
 extension Google_Protobuf_UInt32Value:
-  ProtobufWrapper, ExpressibleByIntegerLiteral {
+  ProtobufWrapper, ExpressibleByIntegerLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufUInt32
   public typealias IntegerLiteralType = WrappedType.BaseType
@@ -189,7 +189,7 @@ extension Google_Protobuf_UInt32Value:
     return String(value)
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -197,7 +197,7 @@ extension Google_Protobuf_UInt32Value:
 }
 
 extension Google_Protobuf_BoolValue:
-  ProtobufWrapper, ExpressibleByBooleanLiteral {
+  ProtobufWrapper, ExpressibleByBooleanLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufBool
   public typealias BooleanLiteralType = Bool
@@ -215,7 +215,7 @@ extension Google_Protobuf_BoolValue:
     return value ? "true" : "false"
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
@@ -223,7 +223,7 @@ extension Google_Protobuf_BoolValue:
 }
 
 extension Google_Protobuf_StringValue:
-  ProtobufWrapper, ExpressibleByStringLiteral {
+  ProtobufWrapper, ExpressibleByStringLiteral, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufString
   public typealias StringLiteralType = String
@@ -253,14 +253,14 @@ extension Google_Protobuf_StringValue:
     return encoder.stringResult
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue
   }
 }
 
-extension Google_Protobuf_BytesValue: ProtobufWrapper {
+extension Google_Protobuf_BytesValue: ProtobufWrapper, _CustomJSONCodable {
 
   public typealias WrappedType = ProtobufBytes
 
@@ -275,7 +275,7 @@ extension Google_Protobuf_BytesValue: ProtobufWrapper {
     return encoder.stringResult
   }
 
-  public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     var v: WrappedType.BaseType?
     try WrappedType.decodeSingular(value: &v, from: &decoder)
     value = v ?? WrappedType.proto3DefaultValue

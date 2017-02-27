@@ -14,13 +14,13 @@
 
 import Foundation
 
-public struct JSONDecoder: Decoder {
+internal struct JSONDecoder: Decoder {
     internal var scanner: JSONScanner
     private var fieldCount = 0
     private var isMapKey = false
     private var fieldNameMap: _NameMap?
 
-    public mutating func handleConflictingOneOf() throws {
+    mutating func handleConflictingOneOf() throws {
         throw JSONDecodingError.conflictingOneOf
     }
 
@@ -32,7 +32,7 @@ public struct JSONDecoder: Decoder {
         self.scanner = scanner
     }
 
-    public mutating func nextFieldNumber() throws -> Int? {
+    mutating func nextFieldNumber() throws -> Int? {
         if scanner.skipOptionalObjectEnd() {
             return nil
         }
@@ -46,7 +46,7 @@ public struct JSONDecoder: Decoder {
         return nil
     }
 
-    public mutating func decodeSingularFloatField(value: inout Float) throws {
+    mutating func decodeSingularFloatField(value: inout Float) throws {
         if scanner.skipOptionalNull() {
             value = 0
             return
@@ -54,7 +54,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextFloat()
     }
 
-    public mutating func decodeSingularFloatField(value: inout Float?) throws {
+    mutating func decodeSingularFloatField(value: inout Float?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -62,7 +62,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextFloat()
     }
 
-    public mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
+    mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -80,7 +80,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularDoubleField(value: inout Double) throws {
+    mutating func decodeSingularDoubleField(value: inout Double) throws {
         if scanner.skipOptionalNull() {
             value = 0
             return
@@ -88,7 +88,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextDouble()
     }
 
-    public mutating func decodeSingularDoubleField(value: inout Double?) throws {
+    mutating func decodeSingularDoubleField(value: inout Double?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -96,7 +96,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextDouble()
     }
 
-    public mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
+    mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -114,7 +114,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularInt32Field(value: inout Int32) throws {
+    mutating func decodeSingularInt32Field(value: inout Int32) throws {
         if scanner.skipOptionalNull() {
             value = 0
             return
@@ -126,7 +126,7 @@ public struct JSONDecoder: Decoder {
         value = Int32(truncatingBitPattern: n)
     }
 
-    public mutating func decodeSingularInt32Field(value: inout Int32?) throws {
+    mutating func decodeSingularInt32Field(value: inout Int32?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -138,7 +138,7 @@ public struct JSONDecoder: Decoder {
         value = Int32(truncatingBitPattern: n)
     }
 
-    public mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
+    mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -159,7 +159,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularInt64Field(value: inout Int64) throws {
+    mutating func decodeSingularInt64Field(value: inout Int64) throws {
         if scanner.skipOptionalNull() {
             value = 0
             return
@@ -167,7 +167,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextSInt()
     }
 
-    public mutating func decodeSingularInt64Field(value: inout Int64?) throws {
+    mutating func decodeSingularInt64Field(value: inout Int64?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -175,7 +175,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextSInt()
     }
 
-    public mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
+    mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -193,7 +193,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
+    mutating func decodeSingularUInt32Field(value: inout UInt32) throws {
         if scanner.skipOptionalNull() {
             value = 0
             return
@@ -205,7 +205,7 @@ public struct JSONDecoder: Decoder {
         value = UInt32(truncatingBitPattern: n)
     }
 
-    public mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
+    mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -217,7 +217,7 @@ public struct JSONDecoder: Decoder {
         value = UInt32(truncatingBitPattern: n)
     }
 
-    public mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
+    mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -238,7 +238,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
+    mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
         if scanner.skipOptionalNull() {
             value = 0
             return
@@ -246,7 +246,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextUInt()
     }
 
-    public mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
+    mutating func decodeSingularUInt64Field(value: inout UInt64?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -254,7 +254,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextUInt()
     }
 
-    public mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
+    mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -272,79 +272,79 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularSInt32Field(value: inout Int32) throws {
+    mutating func decodeSingularSInt32Field(value: inout Int32) throws {
         try decodeSingularInt32Field(value: &value)
     }
 
-    public mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
+    mutating func decodeSingularSInt32Field(value: inout Int32?) throws {
         try decodeSingularInt32Field(value: &value)
     }
 
-    public mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
+    mutating func decodeRepeatedSInt32Field(value: inout [Int32]) throws {
         try decodeRepeatedInt32Field(value: &value)
     }
 
-    public mutating func decodeSingularSInt64Field(value: inout Int64) throws {
+    mutating func decodeSingularSInt64Field(value: inout Int64) throws {
         try decodeSingularInt64Field(value: &value)
     }
 
-    public mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
+    mutating func decodeSingularSInt64Field(value: inout Int64?) throws {
         try decodeSingularInt64Field(value: &value)
     }
 
-    public mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
+    mutating func decodeRepeatedSInt64Field(value: inout [Int64]) throws {
         try decodeRepeatedInt64Field(value: &value)
     }
 
-    public mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
+    mutating func decodeSingularFixed32Field(value: inout UInt32) throws {
         try decodeSingularUInt32Field(value: &value)
     }
 
-    public mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
+    mutating func decodeSingularFixed32Field(value: inout UInt32?) throws {
         try decodeSingularUInt32Field(value: &value)
     }
 
-    public mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
+    mutating func decodeRepeatedFixed32Field(value: inout [UInt32]) throws {
         try decodeRepeatedUInt32Field(value: &value)
     }
 
-    public mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
+    mutating func decodeSingularFixed64Field(value: inout UInt64) throws {
         try decodeSingularUInt64Field(value: &value)
     }
 
-    public mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
+    mutating func decodeSingularFixed64Field(value: inout UInt64?) throws {
         try decodeSingularUInt64Field(value: &value)
     }
 
-    public mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
+    mutating func decodeRepeatedFixed64Field(value: inout [UInt64]) throws {
         try decodeRepeatedUInt64Field(value: &value)
     }
 
-    public mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
+    mutating func decodeSingularSFixed32Field(value: inout Int32) throws {
         try decodeSingularInt32Field(value: &value)
     }
 
-    public mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
+    mutating func decodeSingularSFixed32Field(value: inout Int32?) throws {
         try decodeSingularInt32Field(value: &value)
     }
 
-    public mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
+    mutating func decodeRepeatedSFixed32Field(value: inout [Int32]) throws {
         try decodeRepeatedInt32Field(value: &value)
     }
 
-    public mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
+    mutating func decodeSingularSFixed64Field(value: inout Int64) throws {
         try decodeSingularInt64Field(value: &value)
     }
 
-    public mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
+    mutating func decodeSingularSFixed64Field(value: inout Int64?) throws {
         try decodeSingularInt64Field(value: &value)
     }
 
-    public mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
+    mutating func decodeRepeatedSFixed64Field(value: inout [Int64]) throws {
         try decodeRepeatedInt64Field(value: &value)
     }
 
-    public mutating func decodeSingularBoolField(value: inout Bool) throws {
+    mutating func decodeSingularBoolField(value: inout Bool) throws {
         if scanner.skipOptionalNull() {
             value = false
             return
@@ -356,7 +356,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularBoolField(value: inout Bool?) throws {
+    mutating func decodeSingularBoolField(value: inout Bool?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -368,7 +368,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
+    mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -386,7 +386,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularStringField(value: inout String) throws {
+    mutating func decodeSingularStringField(value: inout String) throws {
         if scanner.skipOptionalNull() {
             value = ""
             return
@@ -394,7 +394,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextQuotedString()
     }
 
-    public mutating func decodeSingularStringField(value: inout String?) throws {
+    mutating func decodeSingularStringField(value: inout String?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -402,7 +402,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextQuotedString()
     }
 
-    public mutating func decodeRepeatedStringField(value: inout [String]) throws {
+    mutating func decodeRepeatedStringField(value: inout [String]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -420,7 +420,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularBytesField(value: inout Data) throws {
+    mutating func decodeSingularBytesField(value: inout Data) throws {
         if scanner.skipOptionalNull() {
             value = Data()
             return
@@ -428,7 +428,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextBytesValue()
     }
 
-    public mutating func decodeSingularBytesField(value: inout Data?) throws {
+    mutating func decodeSingularBytesField(value: inout Data?) throws {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -436,7 +436,7 @@ public struct JSONDecoder: Decoder {
         value = try scanner.nextBytesValue()
     }
 
-    public mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
+    mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -455,7 +455,7 @@ public struct JSONDecoder: Decoder {
     }
 
 
-    public mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int {
+    mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws where E.RawValue == Int {
         if scanner.skipOptionalNull() {
             value = nil
             return
@@ -474,7 +474,7 @@ public struct JSONDecoder: Decoder {
         throw JSONDecodingError.unrecognizedEnumValue
     }
 
-    public mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
+    mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws where E.RawValue == Int {
         if scanner.skipOptionalNull() {
             value = E()
             return
@@ -495,7 +495,7 @@ public struct JSONDecoder: Decoder {
         throw JSONDecodingError.unrecognizedEnumValue
     }
 
-    public mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int {
+    mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int {
         if scanner.skipOptionalNull() {
             return
         }
@@ -534,14 +534,20 @@ public struct JSONDecoder: Decoder {
             throw JSONDecodingError.missingFieldNames
         }
         fieldNameMap = nameProviding._protobuf_nameMap
-        try scanner.skipRequiredObjectStart()
-        if scanner.skipOptionalObjectEnd() {
-            return
+        if let m = message as? _CustomJSONCodable {
+            var customCodable = m
+            try customCodable.decodeJSON(from: &self)
+            message = customCodable as! M
+        } else {
+            try scanner.skipRequiredObjectStart()
+            if scanner.skipOptionalObjectEnd() {
+                return
+            }
+            try message.decodeMessage(decoder: &self)
         }
-        try message.decodeMessage(decoder: &self)
     }
 
-    public mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
+    mutating func decodeSingularMessageField<M: Message>(value: inout M?) throws {
         if scanner.skipOptionalNull() {
             // Fields of type google.protobuf.Value treat 'null' as the default value
             if M.self == Google_Protobuf_Value.self {
@@ -556,11 +562,11 @@ public struct JSONDecoder: Decoder {
             value = M()
         }
         var subDecoder = JSONDecoder(scanner: scanner)
-        try value!.decodeJSON(from: &subDecoder)
+        try subDecoder.decodeFullObject(message: &value!)
         scanner = subDecoder.scanner
     }
 
-    public mutating func decodeRepeatedMessageField<M: Message>(value: inout [M]) throws {
+    mutating func decodeRepeatedMessageField<M: Message>(value: inout [M]) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -578,9 +584,10 @@ public struct JSONDecoder: Decoder {
             } else {
                 var message = M()
                 var subDecoder = JSONDecoder(scanner: scanner)
-                try message.decodeJSON(from: &subDecoder)
+                try subDecoder.decodeFullObject(message: &message)
                 scanner = subDecoder.scanner
                 value.append(message)
+                scanner = subDecoder.scanner
             }
             if scanner.skipOptionalArrayEnd() {
                 return
@@ -589,15 +596,15 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {
+    mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {
         throw JSONDecodingError.schemaMismatch
     }
 
-    public mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws {
+    mutating func decodeRepeatedGroupField<G: Message>(value: inout [G]) throws {
         throw JSONDecodingError.schemaMismatch
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -631,7 +638,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
         if scanner.skipOptionalNull() {
             return
         }
@@ -665,7 +672,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         if scanner.skipOptionalNull() {
             return
         }
@@ -699,7 +706,7 @@ public struct JSONDecoder: Decoder {
         }
     }
 
-    public mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
+    mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         throw JSONDecodingError.schemaMismatch
     }
 }
