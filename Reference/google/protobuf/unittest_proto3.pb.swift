@@ -826,6 +826,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1145,6 +1146,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1328,6 +1330,7 @@ struct Proto3TestForeignNested: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1457,6 +1460,7 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1537,6 +1541,7 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1619,6 +1624,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1756,6 +1762,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Proto3Message, SwiftProtobuf
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1938,6 +1945,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -2481,6 +2489,7 @@ struct Proto3TestOneof: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

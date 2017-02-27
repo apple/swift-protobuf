@@ -764,6 +764,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtob
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1373,6 +1374,7 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, Swift
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)

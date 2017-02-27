@@ -58,6 +58,11 @@ public protocol Message: CustomDebugStringConvertible {
   /// Note that this is not specific to protobuf encoding; formats that use
   /// textual identifiers translate those to fieldNumbers and then invoke
   /// this to decode the field value.
+  ///
+  /// Warning: This method does NOT take precautions to preserve copy-on-write
+  /// semantics for messages with heap storage; it should only be called on
+  /// newly-created messages or messages where the storage has been ensured
+  /// unique.
   mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
 
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
