@@ -721,7 +721,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Proto2Message, SwiftPr
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_ComplexOptionType1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -945,7 +945,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftPr
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_ComplexOptionType2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -1237,7 +1237,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Proto2Message, SwiftP
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_AggregateMessageSet._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_AggregateMessageSet._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

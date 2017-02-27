@@ -2279,7 +2279,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_FileOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_FileOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2472,7 +2472,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, SwiftProtobu
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_MessageOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_MessageOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2784,7 +2784,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_FieldOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_FieldOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2859,7 +2859,7 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_OneofOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_OneofOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -2976,7 +2976,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_EnumOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_EnumOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -3073,7 +3073,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, SwiftProto
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_EnumValueOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_EnumValueOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -3175,7 +3175,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, SwiftProtobu
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_ServiceOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_ServiceOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -3337,7 +3337,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Google_Protobuf_MethodOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Google_Protobuf_MethodOptions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

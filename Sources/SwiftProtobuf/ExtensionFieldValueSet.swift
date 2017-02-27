@@ -65,7 +65,8 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
     set { values[index] = newValue }
   }
 
-  public func fieldNames(for number: Int) -> _NameMap.Names? {
+  /// SwiftProtobuf Internal: Common support for decoding/encoding.
+  public func _protobuf_fieldNames(for number: Int) -> _NameMap.Names? {
     return values[number]?.protobufExtension.fieldNames
   }
 

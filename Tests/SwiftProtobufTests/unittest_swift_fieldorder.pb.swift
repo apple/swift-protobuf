@@ -414,7 +414,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Swift_Protobuf_TestFieldOrderings._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return Swift_Protobuf_TestFieldOrderings._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 

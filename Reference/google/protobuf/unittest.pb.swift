@@ -2101,7 +2101,7 @@ struct ProtobufUnittest_TestAllExtensions: SwiftProtobuf.Proto2Message, SwiftPro
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestAllExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestAllExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -3255,7 +3255,7 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Proto2Mess
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestEmptyMessageWithExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestEmptyMessageWithExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -3319,7 +3319,7 @@ struct ProtobufUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Proto2Message
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestMultipleExtensionRanges._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestMultipleExtensionRanges._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -4665,7 +4665,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftPr
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestFieldOrderings._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestFieldOrderings._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -7524,7 +7524,7 @@ struct ProtobufUnittest_TestPackedExtensions: SwiftProtobuf.Proto2Message, Swift
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestPackedExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestPackedExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -7586,7 +7586,7 @@ struct ProtobufUnittest_TestUnpackedExtensions: SwiftProtobuf.Proto2Message, Swi
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestUnpackedExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestUnpackedExtensions._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -8540,7 +8540,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Proto2Message, SwiftProt
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestParsingMerge._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestParsingMerge._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
@@ -9358,7 +9358,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Proto2Message, Swift
     return _extensionFieldValues[ext.fieldNumber] is F
   }
   func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_TestHugeFieldNumbers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues.fieldNames(for: number)
+    return ProtobufUnittest_TestHugeFieldNumbers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
   }
 }
 
