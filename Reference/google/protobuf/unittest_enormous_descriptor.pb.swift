@@ -14085,7 +14085,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Proto2Message, Swif
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -14093,7 +14093,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Proto2Message, Swif
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularStringField(value: &_storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1)
     case 2: try decoder.decodeSingularStringField(value: &_storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2)
@@ -15099,7 +15099,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Proto2Message, Swif
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
@@ -18105,7 +18105,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Proto2Message, Swif
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Google_Protobuf_TestEnormousDescriptor) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Google_Protobuf_TestEnormousDescriptor) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 != other_storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 {return false}

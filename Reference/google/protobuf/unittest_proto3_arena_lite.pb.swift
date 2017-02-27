@@ -736,26 +736,26 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
 
     init() {}
 
-    mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
       }
     }
 
-    mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &bb)
       default: break
       }
     }
 
-    func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if bb != 0 {
         try visitor.visitSingularInt32Field(value: bb, fieldNumber: 1)
       }
     }
 
-    func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage) -> Bool {
+    func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage) -> Bool {
       if bb != other.bb {return false}
       return true
     }
@@ -763,7 +763,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -771,7 +771,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
     case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
@@ -829,7 +829,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._optionalInt32 != 0 {
         try visitor.visitSingularInt32Field(value: _storage._optionalInt32, fieldNumber: 1)
@@ -976,7 +976,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestAllTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestAllTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
@@ -1085,13 +1085,13 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 90: try decoder.decodeRepeatedInt32Field(value: &packedInt32)
     case 91: try decoder.decodeRepeatedInt64Field(value: &packedInt64)
@@ -1111,7 +1111,7 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !packedInt32.isEmpty {
       try visitor.visitPackedInt32Field(value: packedInt32, fieldNumber: 90)
     }
@@ -1156,7 +1156,7 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestPackedTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestPackedTypes) -> Bool {
     if packedInt32 != other.packedInt32 {return false}
     if packedInt64 != other.packedInt64 {return false}
     if packedUint32 != other.packedUint32 {return false}
@@ -1226,13 +1226,13 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeRepeatedInt32Field(value: &repeatedInt32)
     case 2: try decoder.decodeRepeatedInt64Field(value: &repeatedInt64)
@@ -1252,7 +1252,7 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !repeatedInt32.isEmpty {
       try visitor.visitRepeatedInt32Field(value: repeatedInt32, fieldNumber: 1)
     }
@@ -1297,7 +1297,7 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestUnpackedTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestUnpackedTypes) -> Bool {
     if repeatedInt32 != other.repeatedInt32 {return false}
     if repeatedInt64 != other.repeatedInt64 {return false}
     if repeatedUint32 != other.repeatedUint32 {return false}
@@ -1372,7 +1372,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -1380,7 +1380,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularMessageField(value: &_storage._child)
     case 2: try decoder.decodeSingularMessageField(value: &_storage._payload)
@@ -1388,7 +1388,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._child {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -1399,7 +1399,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_NestedTestAllTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_NestedTestAllTypes) -> Bool {
     return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
       if _storage !== other_storage {
         if _storage._child != other_storage._child {return false}
@@ -1423,26 +1423,26 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Proto3Message, Swif
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &c)
     default: break
     }
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if c != 0 {
       try visitor.visitSingularInt32Field(value: c, fieldNumber: 1)
     }
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_ForeignMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_ForeignMessage) -> Bool {
     if c != other.c {return false}
     return true
   }
@@ -1456,19 +1456,19 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Proto3Message, Sw
 
   init() {}
 
-  mutating func _protoc_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
     }
   }
 
-  mutating func _protoc_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protoc_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
   }
 
-  func _protoc_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestEmptyMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestEmptyMessage) -> Bool {
     return true
   }
 }
