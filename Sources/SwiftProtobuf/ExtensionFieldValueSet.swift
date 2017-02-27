@@ -14,8 +14,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-public struct ExtensionFieldValueSet: Equatable, Sequence {
-  public typealias Iterator = Dictionary<Int, AnyExtensionField>.Iterator
+public struct ExtensionFieldValueSet: Equatable {
   fileprivate var values = [Int : AnyExtensionField]()
 
   public static func ==(lhs: ExtensionFieldValueSet,
@@ -39,10 +38,6 @@ public struct ExtensionFieldValueSet: Equatable, Sequence {
   }
 
   public init() {}
-
-  public func makeIterator() -> Iterator {
-    return values.makeIterator()
-  }
 
   public var hashValue: Int {
     var hash: Int = 0
