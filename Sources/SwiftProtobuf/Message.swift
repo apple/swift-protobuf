@@ -80,9 +80,9 @@ public protocol Message: CustomDebugStringConvertible {
   func traverse<V: Visitor>(visitor: inout V) throws
 
   /// SwiftProtobuf Internal: Common support for decoding.
-  mutating func _mergeSerializedBytes(from: UnsafePointer<UInt8>,
-                                      count: Int,
-                                      extensions: ExtensionSet?) throws
+  mutating func _protobuf_mergeSerializedBytes(from: UnsafePointer<UInt8>,
+                                               count: Int,
+                                               extensions: ExtensionSet?) throws
 
   //
   // Protobuf Text decoding
