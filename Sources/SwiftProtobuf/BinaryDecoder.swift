@@ -895,6 +895,7 @@ internal struct BinaryDecoder: Decoder {
 
         if let k = k, let v = v {
             value[k] = v
+            consumed = true
         } else {
             throw BinaryDecodingError.malformedProtobuf
         }
@@ -926,6 +927,7 @@ internal struct BinaryDecoder: Decoder {
 
         if let k = k, let v = v {
             value[k] = v
+            consumed = true
         } else {
             throw BinaryDecodingError.malformedProtobuf
         }
@@ -957,6 +959,7 @@ internal struct BinaryDecoder: Decoder {
 
         if let k = k, let v = v {
             value[k] = v
+            consumed = true
         } else {
             throw BinaryDecodingError.malformedProtobuf
         }
