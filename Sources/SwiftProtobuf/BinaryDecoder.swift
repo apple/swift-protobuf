@@ -961,7 +961,7 @@ internal struct BinaryDecoder: Decoder {
 
     internal mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = extensions?[messageType, fieldNumber] {
-            var fieldValue = values[fieldNumber] ?? ext.newField()
+            var fieldValue = values[fieldNumber] ?? ext._protobuf_newField()
             try fieldValue.decodeExtensionField(decoder: &self)
             values[fieldNumber] = fieldValue
         }
