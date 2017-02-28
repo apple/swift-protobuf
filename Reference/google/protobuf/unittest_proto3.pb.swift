@@ -933,7 +933,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
       if !_storage._singleString.isEmpty {
         try visitor.visitSingularStringField(value: _storage._singleString, fieldNumber: 14)
       }
-      if _storage._singleBytes != Data() {
+      if !_storage._singleBytes.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._singleBytes, fieldNumber: 15)
       }
       if let v = _storage._singleNestedMessage {
@@ -2127,7 +2127,7 @@ struct Proto3OneBytes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplem
   }
 
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if data != Data() {
+    if !data.isEmpty {
       try visitor.visitSingularBytesField(value: data, fieldNumber: 1)
     }
   }
@@ -2163,7 +2163,7 @@ struct Proto3MoreBytes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
   }
 
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if data != Data() {
+    if !data.isEmpty {
       try visitor.visitSingularBytesField(value: data, fieldNumber: 1)
     }
   }

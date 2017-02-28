@@ -402,7 +402,7 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProt
   }
 
   public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != Data() {
+    if !value.isEmpty {
       try visitor.visitSingularBytesField(value: value, fieldNumber: 1)
     }
   }

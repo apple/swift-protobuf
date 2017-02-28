@@ -320,6 +320,7 @@ struct MessageFieldGenerator {
     var isMessage: Bool {return descriptor.isMessage}
     var isEnum: Bool {return descriptor.type == .enum}
     var isString: Bool {return descriptor.type == .string}
+    var isBytes: Bool {return descriptor.type == .bytes}
     var isPacked: Bool {return descriptor.isPackable &&
         (descriptor.options.hasPacked ? descriptor.options.packed : isProto3)}
     var isRepeated: Bool {return descriptor.isRepeated}
@@ -563,7 +564,7 @@ struct MessageFieldGenerator {
         } else {
             assert(isProto3)
             varName = prefix + swiftName
-            if isString {
+            if isString || isBytes {
                 conditional = ("!\(varName).isEmpty")
             } else {
                 conditional = ("\(varName) != \(swiftDefaultValue)")
