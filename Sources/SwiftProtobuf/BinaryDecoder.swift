@@ -915,8 +915,14 @@ internal struct BinaryDecoder: Decoder {
             switch fieldNumber {
             case 1: // Keys are basic types
                 try KeyType.decodeSingular(value: &k, from: &subdecoder)
-            case 2: // Value is a message type
+            case 2: // Value is an Enum type
                 try subdecoder.decodeSingularEnumField(value: &v)
+                if v == nil {
+                    // Decoding the enum failed, likely a proto2 syntax unknown enum
+                    // value, this whole entry goes into the parent message's
+                    // unknown fields.
+                    return
+                }
             default: // Skip any other fields within the map entry object
                 try subdecoder.skip()
             }

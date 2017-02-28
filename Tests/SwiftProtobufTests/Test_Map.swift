@@ -314,4 +314,41 @@ class Test_Map: XCTestCase, PBTestHelpers {
             return $0.mapStringForeignMessage == ["a": m1]
         }
     }
+
+    // Based on TEST(GeneratedMapFieldTest, Proto2UnknownEnum)
+    func test_mapEnumUnknowns_Proto2() throws {
+        var m1 = ProtobufUnittest_TestEnumMapPlusExtra()
+        m1.knownMapField[0] = .eProto2MapEnumFoo
+        m1.unknownMapField[0] = .eProto2MapEnumExtra
+
+        // It should be in unknowns
+        let serialized = try m1.serializedData()
+        let m2 = try ProtobufUnittest_TestEnumMap(serializedData: serialized)
+        XCTAssertEqual(m2.knownMapField.count, 1)
+        XCTAssertEqual(m2.knownMapField[0], .foo)
+        XCTAssertEqual(m2.unknownMapField.count, 0)
+        XCTAssertFalse(m2.unknownFields.data.isEmpty)  // Should have the entry
+
+        // It should be back in the map.
+        let serialized2 = try m2.serializedData()
+        let m3 = try ProtobufUnittest_TestEnumMapPlusExtra(serializedData: serialized2)
+        XCTAssertEqual(m3.knownMapField.count, 1)
+        XCTAssertEqual(m3.knownMapField[0], .eProto2MapEnumFoo)
+        XCTAssertEqual(m3.unknownMapField.count, 1)
+        XCTAssertEqual(m3.unknownMapField[0], .eProto2MapEnumExtra)
+    }
+
+    // Like test_mapEnumUnknowns_Proto2, but using the native .UNRECOGNIZED() support.
+    func test_mapEnumUnknowns_Proto3() throws {
+        var m1 = ProtobufUnittest_TestMap()
+        m1.mapInt32Enum[1] = .baz
+        m1.mapInt32Enum[2] = .UNRECOGNIZED(999)
+
+        // It should be in unknowns
+        let serialized = try m1.serializedData()
+        let m2 = try ProtobufUnittest_TestMap(serializedData: serialized)
+        XCTAssertEqual(m2.mapInt32Enum.count, 2)
+        XCTAssertEqual(m2.mapInt32Enum[1], .baz)
+        XCTAssertEqual(m2.mapInt32Enum[2], .UNRECOGNIZED(999))
+    }
 }
