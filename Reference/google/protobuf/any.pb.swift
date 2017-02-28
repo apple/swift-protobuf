@@ -171,7 +171,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     if !typeURL.isEmpty {
       try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
     }
-    if value != Data() {
+    if !value.isEmpty {
       try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
     }
   }

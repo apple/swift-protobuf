@@ -1108,7 +1108,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
       if !_storage._optionalString.isEmpty {
         try visitor.visitSingularStringField(value: _storage._optionalString, fieldNumber: 14)
       }
-      if _storage._optionalBytes != Data() {
+      if !_storage._optionalBytes.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._optionalBytes, fieldNumber: 15)
       }
       if let v = _storage._optionalMessage {

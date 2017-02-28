@@ -874,7 +874,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
       if !_storage._optionalString.isEmpty {
         try visitor.visitSingularStringField(value: _storage._optionalString, fieldNumber: 14)
       }
-      if _storage._optionalBytes != Data() {
+      if !_storage._optionalBytes.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._optionalBytes, fieldNumber: 15)
       }
       if let v = _storage._optionalNestedMessage {
