@@ -167,7 +167,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeFails([130, 6, 4, 8, 255, 255, 255, 127, 255, 255, 255])
         assertDecodeFails([130, 6, 7, 255, 255, 255, 127, 255, 255, 255])
         assertDecodeFails([128, 6])
-        assertDecodeFails([128, 6, 0])
+        assertDecodesAsUnknownFields([128, 6, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([128, 6, 0, 0, 0, 0])
         assertDecodeFails([129, 6])
         assertDecodeFails([129, 6, 0])
@@ -195,7 +195,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeFails([138, 6, 24, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([138, 6, 23, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([136, 6])
-        assertDecodeFails([136, 6, 0])
+        assertDecodesAsUnknownFields([136, 6, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([136, 6, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([139, 6])
         assertDecodeFails([139, 6, 0])
@@ -223,8 +223,8 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([146, 6, 0]) {$0.packedSfixed32 == []}
         assertDecodeFails([146, 6, 12, 0, 0, 0, 128, 1, 0, 0, 0, 255, 255, 255])
         assertDecodeFails([146, 6, 11, 0, 0, 0, 128, 1, 0, 0, 0, 255, 255, 255])
-        assertDecodeFails([144, 6, 5])
-        assertDecodeFails([144, 6, 0])
+        assertDecodesAsUnknownFields([144, 6, 5])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([144, 6, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([144, 6, 0, 0, 0, 0])
         assertDecodeFails([145, 6])
         assertDecodeFails([145, 6, 0])
@@ -253,7 +253,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeFails([154, 6, 32,  0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([154, 6, 31,  0, 0, 0, 0, 0, 0, 0, 128, 255, 255, 255, 127, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([152, 6])
-        assertDecodeFails([152, 6, 0])
+        assertDecodesAsUnknownFields([152, 6, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([152, 6, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([155, 6])
         assertDecodeFails([155, 6, 0])
@@ -302,7 +302,7 @@ class Test_Packed: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([170, 6, 8, 0, 0, 0, 0, 0, 0, 224, 63, 169, 6, 0, 0, 0, 0, 0, 0, 208, 63]) {$0.packedDouble == [0.5, 0.25]}
         assertDecodeSucceeds([170, 6, 8, 0, 0, 0, 0, 0, 0, 224, 63, 170, 6, 8, 0, 0, 0, 0, 0, 0, 208, 63]) {$0.packedDouble == [0.5, 0.25]}
         assertDecodeFails([168, 6])
-        assertDecodeFails([168, 6, 0])
+        assertDecodesAsUnknownFields([168, 6, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([168, 6, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([171, 6])
         assertDecodeFails([171, 6, 0])
