@@ -196,13 +196,13 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
   struct Extensions {
 
     static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
-      fieldNumber: 1234,
+      _protobuf_fieldNumber: 1234,
       fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension"),
       defaultValue: 0
     )
 
     static let test_extension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
-      fieldNumber: 1235,
+      _protobuf_fieldNumber: 1235,
       fieldNames: .same(proto: "protobuf_unittest.TestOptimizedForSize.test_extension2"),
       defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
     )
@@ -271,7 +271,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Proto2Message, Swift
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_TestOptimizedForSize>) {

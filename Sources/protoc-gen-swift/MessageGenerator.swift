@@ -278,7 +278,7 @@ class MessageGenerator {
       p.print("private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
       p.print("\n")
       p.print("\(visibility)mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
-      p.print("  _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)\n")
+      p.print("  _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)\n")
       p.print("}\n")
       p.print("\n")
       p.print("\(visibility)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")

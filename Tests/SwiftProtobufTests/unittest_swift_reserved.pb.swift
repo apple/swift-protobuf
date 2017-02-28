@@ -250,7 +250,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Proto2Message, SwiftPro
     private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
     mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>, value: F.ValueType) {
-      _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+      _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
     }
 
     mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>) {
@@ -400,7 +400,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Proto2Message, Swift
     ///   Message (SwiftReservedTestExt), the generation controls what
     ///   that struct has to conform to, so collisions there don't matter.
     static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
-      fieldNumber: 1001,
+      _protobuf_fieldNumber: 1001,
       fieldNames: .same(proto: "protobuf_unittest.SwiftReservedTestExt.hash_value"),
       defaultValue: false
     )
@@ -429,7 +429,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Proto2Message, Swift
 
 ///   Won't get _p added because it is fully qualified.
 let ProtobufUnittest_Extensions_debug_description = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
-  fieldNumber: 1000,
+  _protobuf_fieldNumber: 1000,
   fieldNames: .same(proto: "protobuf_unittest.debug_description"),
   defaultValue: false
 )
