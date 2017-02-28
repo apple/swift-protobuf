@@ -32,8 +32,8 @@ public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: 
     public var _protobuf_fieldNames: _NameMap.Names
     public let messageType: Message.Type
     public let defaultValue: FieldType.ValueType
-    public init(fieldNumber: Int, fieldNames: _NameMap.Names, defaultValue: FieldType.ValueType) {
-        self.fieldNumber = fieldNumber
+    public init(_protobuf_fieldNumber: Int, fieldNames: _NameMap.Names, defaultValue: FieldType.ValueType) {
+        self.fieldNumber = _protobuf_fieldNumber
         self._protobuf_fieldNames = fieldNames
         self.messageType = MessageType.self
         self.defaultValue = defaultValue

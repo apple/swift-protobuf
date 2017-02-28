@@ -166,7 +166,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Proto2Message, S
   struct Extensions {
 
     static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
-      fieldNumber: 1545008,
+      _protobuf_fieldNumber: 1545008,
       fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension1.message_set_extension"),
       defaultValue: ProtobufUnittest_TestMessageSetExtension1()
     )
@@ -225,7 +225,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Proto2Message, S
   struct Extensions {
 
     static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
-      fieldNumber: 1547769,
+      _protobuf_fieldNumber: 1547769,
       fieldNames: .same(proto: "protobuf_unittest.TestMessageSetExtension2.message_set_extension"),
       defaultValue: ProtobufUnittest_TestMessageSetExtension2()
     )

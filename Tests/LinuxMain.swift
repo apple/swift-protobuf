@@ -569,6 +569,7 @@ extension Test_Map {
         return [
             ("test_mapInt32Int32", {try run_test(test:($0 as! Test_Map).test_mapInt32Int32)}),
             ("test_mapInt64Int64", {try run_test(test:($0 as! Test_Map).test_mapInt64Int64)}),
+            ("test_mapUint32Uint32", {try run_test(test:($0 as! Test_Map).test_mapUint32Uint32)}),
             ("test_mapUint64Uint64", {try run_test(test:($0 as! Test_Map).test_mapUint64Uint64)}),
             ("test_mapSint32Sint32", {try run_test(test:($0 as! Test_Map).test_mapSint32Sint32)}),
             ("test_mapSint64Sint64", {try run_test(test:($0 as! Test_Map).test_mapSint64Sint64)}),

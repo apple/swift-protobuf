@@ -97,13 +97,13 @@ struct Ext4MyMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImpleme
   struct Extensions {
 
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-      fieldNumber: 410,
+      _protobuf_fieldNumber: 410,
       fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.b"),
       defaultValue: ""
     )
 
     static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-      fieldNumber: 411,
+      _protobuf_fieldNumber: 411,
       fieldNames: .same(proto: "protobuf_unittest.extend4.MyMessage.C"),
       defaultValue: Ext4MyMessage.C()
     )
@@ -181,13 +181,13 @@ struct Ext4C: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationB
 }
 
 let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  fieldNumber: 420,
+  _protobuf_fieldNumber: 420,
   fieldNames: .same(proto: "protobuf_unittest.extend4.b"),
   defaultValue: ""
 )
 
 let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  fieldNumber: 421,
+  _protobuf_fieldNumber: 421,
   fieldNames: .same(proto: "protobuf_unittest.extend4.C"),
   defaultValue: Ext4C()
 )

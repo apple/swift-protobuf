@@ -420,13 +420,13 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
 }
 
 let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
-  fieldNumber: 50,
+  _protobuf_fieldNumber: 50,
   fieldNames: .same(proto: "swift.protobuf.my_extension_string"),
   defaultValue: ""
 )
 
 let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
-  fieldNumber: 5,
+  _protobuf_fieldNumber: 5,
   fieldNames: .same(proto: "swift.protobuf.my_extension_int"),
   defaultValue: 0
 )

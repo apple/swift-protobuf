@@ -164,7 +164,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
 }
 
 let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
-  fieldNumber: 1000,
+  _protobuf_fieldNumber: 1000,
   fieldNames: .same(proto: "google.protobuf.no_generic_services_test.test_extension"),
   defaultValue: 0
 )

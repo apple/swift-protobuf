@@ -400,7 +400,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Proto2Message, Swift
     ///   Message (SwiftReservedTestExt), the generation controls what
     ///   that struct has to conform to, so collisions there don't matter.
     static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
-      fieldNumber: 1001,
+      _protobuf_fieldNumber: 1001,
       fieldNames: .same(proto: "protobuf_unittest.SwiftReservedTestExt.hash_value"),
       defaultValue: false
     )
@@ -429,7 +429,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Proto2Message, Swift
 
 ///   Won't get _p added because it is fully qualified.
 let ProtobufUnittest_Extensions_debug_description = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
-  fieldNumber: 1000,
+  _protobuf_fieldNumber: 1000,
   fieldNames: .same(proto: "protobuf_unittest.debug_description"),
   defaultValue: false
 )
