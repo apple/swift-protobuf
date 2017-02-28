@@ -17,7 +17,7 @@
 import Foundation
 
 public struct UnknownStorage: Equatable {
-  internal var data = Data()
+  public private(set) var data = Data()
 
   public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
     return lhs.data == rhs.data
