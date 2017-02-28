@@ -22,7 +22,7 @@ import XCTest
 // entries isn't well-defined.
 
 class Test_Map_JSON: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestMap
+    typealias MessageTestType = ProtobufUnittest_TestMap
 
     func testMapInt32Int32() throws {
         assertJSONEncode("{\"mapInt32Int32\":{\"1\":2}}") {(o: inout MessageTestType) in
@@ -99,14 +99,14 @@ class Test_Map_JSON: XCTestCase, PBTestHelpers {
 
     func testMapInt32Message() {
         assertJSONEncode("{\"mapInt32ForeignMessage\":{\"7\":{\"c\":999}}}") {(o: inout MessageTestType) in
-            var m = Proto3ForeignMessage()
+            var m = ProtobufUnittest_ForeignMessage()
             m.c = 999
             o.mapInt32ForeignMessage[7] = m
         }
         assertJSONDecodeSucceeds("{\"mapInt32ForeignMessage\":{\"7\":{\"c\":7},\"8\":{\"c\":8}}}") {
-            var sub7 = Proto3ForeignMessage()
+            var sub7 = ProtobufUnittest_ForeignMessage()
             sub7.c = 7
-            var sub8 = Proto3ForeignMessage()
+            var sub8 = ProtobufUnittest_ForeignMessage()
             sub8.c = 8
             return $0.mapInt32ForeignMessage == [7:sub7, 8:sub8]
         }
