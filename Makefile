@@ -82,6 +82,7 @@ TEST_PROTOS= \
 	Protos/conformance/conformance.proto \
 	Protos/google/protobuf/any_test.proto \
 	Protos/google/protobuf/descriptor.proto \
+	Protos/google/protobuf/map_proto2_unittest.proto \
 	Protos/google/protobuf/map_unittest.proto \
 	Protos/google/protobuf/test_messages_proto3.proto \
 	Protos/google/protobuf/unittest.proto \
