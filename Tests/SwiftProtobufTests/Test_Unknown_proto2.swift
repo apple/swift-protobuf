@@ -128,13 +128,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
 
 
     func assertUnknownFields(_ message: Proto2Message, _ bytes: [UInt8], line: UInt = #line) {
-        var collector = UnknownCollector()
-        do {
-            try message.unknownFields.traverse(visitor: &collector)
-        } catch let e {
-            XCTFail("Throw why walking unknowns: \(e)", line: line)
-        }
-        XCTAssertEqual(collector.collected, [Data(bytes: bytes)], line: line)
+        XCTAssertEqual(message.unknownFields.data, Data(bytes: bytes), line: line)
     }
 
     func test_MessageNoStorageClass() throws {
@@ -180,47 +174,4 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }
-}
-
-// Helper visitor class that ignores everything, but collects the
-// things passed to visitUnknown.
-struct UnknownCollector: Visitor {
-    var collected: [Data] = []
-
-    mutating func visitUnknown(bytes: Data) {
-        collected.append(bytes)
-    }
-
-    mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {}
-
-    mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {}
-
-    mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {}
-
-    mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {}
-
-    mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {}
-
-    mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {}
-
-    mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {}
-
-    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {}
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
-      fieldType: _ProtobufMap<KeyType, ValueType>.Type,
-      value: _ProtobufMap<KeyType, ValueType>.BaseType,
-      fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
-      fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
-      value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
-      fieldNumber: Int) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {}
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: Message>(
-      fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
-      value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
-      fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
-
-    mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {}
 }
