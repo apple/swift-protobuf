@@ -111,7 +111,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Proto2Message, SwiftProtobuf.Exte
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftTestGroupExtensions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftTestGroupExtensions>) {

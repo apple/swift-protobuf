@@ -110,7 +110,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Proto2Message, SwiftProtobuf._
       private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
       mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>, value: F.ValueType) {
-        _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+        _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
       }
 
       mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Baz>) {
@@ -273,7 +273,7 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_Msg1>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_Msg1>) {
@@ -335,7 +335,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_Msg2>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_Msg2>) {
@@ -420,7 +420,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Proto2Message, SwiftP
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgNoStorage>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgNoStorage>) {
@@ -555,7 +555,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Proto2Message, Swif
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_Extend_MsgUsesStorage>) {

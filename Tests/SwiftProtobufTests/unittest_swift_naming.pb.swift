@@ -21927,7 +21927,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Proto2Message,
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitials>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitials>) {
@@ -22306,7 +22306,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Proto2Me
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsLowers>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsLowers>) {
@@ -22368,7 +22368,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Proto2Me
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsUppers>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsUppers>) {
@@ -22430,7 +22430,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Proto2
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>) {

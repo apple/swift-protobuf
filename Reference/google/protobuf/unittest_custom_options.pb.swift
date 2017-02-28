@@ -703,7 +703,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Proto2Message, SwiftPr
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>) {
@@ -928,7 +928,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftPr
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) {
@@ -1221,7 +1221,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Proto2Message, SwiftP
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>) {

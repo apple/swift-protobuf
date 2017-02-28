@@ -2269,7 +2269,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_FileOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_FileOptions>) {
@@ -2462,7 +2462,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, SwiftProtobu
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_MessageOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_MessageOptions>) {
@@ -2774,7 +2774,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_FieldOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_FieldOptions>) {
@@ -2849,7 +2849,7 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_OneofOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_OneofOptions>) {
@@ -2966,7 +2966,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf.E
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_EnumOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_EnumOptions>) {
@@ -3063,7 +3063,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, SwiftProto
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_EnumValueOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_EnumValueOptions>) {
@@ -3165,7 +3165,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, SwiftProtobu
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_ServiceOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_ServiceOptions>) {
@@ -3327,7 +3327,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftProtobuf
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_MethodOptions>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Google_Protobuf_MethodOptions>) {
