@@ -892,13 +892,13 @@ internal struct BinaryDecoder: Decoder {
         if !subdecoder.complete {
             throw BinaryDecodingError.trailingGarbage
         }
-
-        if let k = k, let v = v {
-            value[k] = v
-            consumed = true
-        } else {
-            throw BinaryDecodingError.malformedProtobuf
-        }
+        // A map<> definition can't provide a default value for the keys/values,
+        // so it is safe to use the proto3 default to get the right
+        // integer/string/bytes. The one catch is a proto2 enum (which can be the
+        // value) can have a non zero value, but that case is the next
+        // custom decodeMapField<>() method and handles it.
+        value[k ?? KeyType.proto3DefaultValue] = v ?? ValueType.proto3DefaultValue
+        consumed = true
     }
 
     internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
@@ -924,13 +924,10 @@ internal struct BinaryDecoder: Decoder {
         if !subdecoder.complete {
             throw BinaryDecodingError.trailingGarbage
         }
-
-        if let k = k, let v = v {
-            value[k] = v
-            consumed = true
-        } else {
-            throw BinaryDecodingError.malformedProtobuf
-        }
+        // A map<> definition can't provide a default value for the keys, so it
+        // is safe to use the proto3 default to get the right integer/string/bytes.
+        value[k ?? KeyType.proto3DefaultValue] = v ?? ValueType()
+        consumed = true
     }
 
     internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
@@ -956,13 +953,10 @@ internal struct BinaryDecoder: Decoder {
         if !subdecoder.complete {
             throw BinaryDecodingError.trailingGarbage
         }
-
-        if let k = k, let v = v {
-            value[k] = v
-            consumed = true
-        } else {
-            throw BinaryDecodingError.malformedProtobuf
-        }
+        // A map<> definition can't provide a default value for the keys, so it
+        // is safe to use the proto3 default to get the right integer/string/bytes.
+        value[k ?? KeyType.proto3DefaultValue] = v ?? ValueType()
+        consumed = true
     }
 
     internal mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
