@@ -301,7 +301,23 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleInt64\":2147483648}") {$0.singleInt64 == 2147483648}
     }
 
-    func testSingleDouble() {
+    private func assertRoundTripJSON(file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+        var original = MessageTestType()
+        configure(&original)
+        do {
+            let json = try original.jsonString()
+            do {
+                let decoded = try MessageTestType(jsonString: json)
+                XCTAssertEqual(original, decoded)
+            } catch let e {
+                XCTFail("Failed to decode \(e): \(json)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to encode \(e)", file: file, line: line)
+        }
+    }
+
+    func testSingleDouble() throws {
         assertJSONEncode("{\"singleDouble\":1}") {(o: inout MessageTestType) in
             o.singleDouble = 1.0
         }
@@ -346,6 +362,26 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleDouble\":1e3.2}")
         assertJSONDecodeFails("{\"singleDouble\":\"1e3.2\"}")
         assertJSONDecodeFails("{\"singleDouble\":1.0.0}")
+
+        // A wide range of numbers should exactly round-trip
+        assertRoundTripJSON {$0.singleDouble = 0.1}
+        assertRoundTripJSON {$0.singleDouble = 0.01}
+        assertRoundTripJSON {$0.singleDouble = 0.001}
+        assertRoundTripJSON {$0.singleDouble = 0.0001}
+        assertRoundTripJSON {$0.singleDouble = 0.00001}
+        assertRoundTripJSON {$0.singleDouble = 0.000001}
+        assertRoundTripJSON {$0.singleDouble = 1e-10}
+        assertRoundTripJSON {$0.singleDouble = 1e-20}
+        assertRoundTripJSON {$0.singleDouble = 1e-30}
+        assertRoundTripJSON {$0.singleDouble = 1e-40}
+        assertRoundTripJSON {$0.singleDouble = 1e-50}
+        assertRoundTripJSON {$0.singleDouble = 1e-60}
+        assertRoundTripJSON {$0.singleDouble = 1e-100}
+        assertRoundTripJSON {$0.singleDouble = 1e-200}
+        assertRoundTripJSON {$0.singleDouble = Double.pi}
+        assertRoundTripJSON {$0.singleDouble = 123456.789123456789123}
+        assertRoundTripJSON {$0.singleDouble = 1.7976931348623157e+308}
+        assertRoundTripJSON {$0.singleDouble = 2.22507385850720138309e-308}
     }
 
     func testSingleFloat() {
@@ -394,6 +430,30 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleFloat\":\"1e3.2\"}")
         // Out-of-range numbers should fail
         assertJSONDecodeFails("{\"singleFloat\":1e39}")
+
+        // A wide range of numbers should exactly round-trip
+        assertRoundTripJSON {$0.singleFloat = 0.1}
+        assertRoundTripJSON {$0.singleFloat = 0.01}
+        assertRoundTripJSON {$0.singleFloat = 0.001}
+        assertRoundTripJSON {$0.singleFloat = 0.0001}
+        assertRoundTripJSON {$0.singleFloat = 0.00001}
+        assertRoundTripJSON {$0.singleFloat = 0.000001}
+        assertRoundTripJSON {$0.singleFloat = 1e-10}
+        assertRoundTripJSON {$0.singleFloat = 1e-20}
+        assertRoundTripJSON {$0.singleFloat = 1e-30}
+        assertRoundTripJSON {$0.singleFloat = 1e-40}
+        assertRoundTripJSON {$0.singleFloat = 1e-50}
+        assertRoundTripJSON {$0.singleFloat = 1e-60}
+        assertRoundTripJSON {$0.singleFloat = 1e-100}
+        assertRoundTripJSON {$0.singleFloat = 1e-200}
+        assertRoundTripJSON {$0.singleFloat = Float.pi}
+        assertRoundTripJSON {$0.singleFloat = 123456.789123456789123}
+        assertRoundTripJSON {$0.singleFloat = 1999.9999999999}
+        assertRoundTripJSON {$0.singleFloat = 1999.9}
+        assertRoundTripJSON {$0.singleFloat = 1999.99}
+        assertRoundTripJSON {$0.singleFloat = 1999.99}
+        assertRoundTripJSON {$0.singleFloat = 3.402823567e+38}
+        assertRoundTripJSON {$0.singleFloat = 1.1754944e-38}
     }
 
     func testSingleDouble_NaN() throws {

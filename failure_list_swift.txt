@@ -1,2 +1,0 @@
-Required.ProtobufInput.RepeatedScalarSelectsLast.DOUBLE.JsonOutput
-Required.ProtobufInput.ValidDataRepeated.DOUBLE.JsonOutput
