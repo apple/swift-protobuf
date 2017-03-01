@@ -92,7 +92,7 @@ enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._Pro
 
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
-struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestAllTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -607,6 +607,8 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     }
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage)
@@ -722,7 +724,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "proto3_arena_lite_unittest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -733,6 +735,8 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
@@ -753,10 +757,12 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
       if bb != 0 {
         try visitor.visitSingularInt32Field(value: bb, fieldNumber: 1)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage) -> Bool {
       if bb != other.bb {return false}
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -974,6 +980,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1029,6 +1036,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
         if _storage._repeatedLazyMessage != other_storage._repeatedLazyMessage {return false}
         if _storage._oneofField != other_storage._oneofField {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -1036,7 +1044,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, SwiftP
 
 //  Test messages for packed fields
 
-struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestPackedTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1083,6 +1091,8 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
   var packedBool: [Bool] = []
 
   var packedEnum: [Proto3ArenaLiteUnittest_ForeignEnum] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -1155,6 +1165,7 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
     if !packedEnum.isEmpty {
       try visitor.visitPackedEnumField(value: packedEnum, fieldNumber: 103)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestPackedTypes) -> Bool {
@@ -1172,12 +1183,13 @@ struct Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf.Proto3Message, Swi
     if packedDouble != other.packedDouble {return false}
     if packedBool != other.packedBool {return false}
     if packedEnum != other.packedEnum {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   Explicitly set packed to false
-struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestUnpackedTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1224,6 +1236,8 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
   var repeatedBool: [Bool] = []
 
   var repeatedNestedEnum: [Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -1296,6 +1310,7 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
     if !repeatedNestedEnum.isEmpty {
       try visitor.visitRepeatedEnumField(value: repeatedNestedEnum, fieldNumber: 14)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestUnpackedTypes) -> Bool {
@@ -1313,12 +1328,13 @@ struct Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf.Proto3Message, S
     if repeatedDouble != other.repeatedDouble {return false}
     if repeatedBool != other.repeatedBool {return false}
     if repeatedNestedEnum != other.repeatedNestedEnum {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   This proto includes a recusively nested message.
-struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "NestedTestAllTypes"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1371,6 +1387,8 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
     return _storage._payload = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1398,6 +1416,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
       if let v = _storage._payload {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1407,6 +1426,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
         if _storage._child != other_storage._child {return false}
         if _storage._payload != other_storage._payload {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -1414,7 +1434,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Proto3Message, 
 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
-struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ForeignMessage"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1422,6 +1442,8 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Proto3Message, Swif
   ]
 
   var c: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -1442,19 +1464,23 @@ struct Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf.Proto3Message, Swif
     if c != 0 {
       try visitor.visitSingularInt32Field(value: c, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_ForeignMessage) -> Bool {
     if c != other.c {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
-struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestEmptyMessage"
   static let protoPackageName: String = "proto3_arena_lite_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -1468,9 +1494,11 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Proto3Message, Sw
   }
 
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaLiteUnittest_TestEmptyMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

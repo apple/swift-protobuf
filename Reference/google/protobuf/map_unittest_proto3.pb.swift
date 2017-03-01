@@ -94,7 +94,7 @@ enum Proto3MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
 }
 
 ///   Tests maps.
-struct Proto3TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMap"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -255,6 +255,8 @@ struct Proto3TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpleme
     set {_uniqueStorage()._mapInt32ForeignMessage = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -342,6 +344,7 @@ struct Proto3TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpleme
       if !_storage._mapInt32ForeignMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3ForeignMessage>.self, value: _storage._mapInt32ForeignMessage, fieldNumber: 17)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -366,12 +369,13 @@ struct Proto3TestMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImpleme
         if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
         if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
 }
 
-struct Proto3TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMapSubmessage"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -410,6 +414,8 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
     return _storage._testMap = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -433,6 +439,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
       if let v = _storage._testMap {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -441,12 +448,13 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mess
       if _storage !== other_storage {
         if _storage._testMap != other_storage._testMap {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
 }
 
-struct Proto3TestMessageMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestMessageMap"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -454,6 +462,8 @@ struct Proto3TestMessageMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
   ]
 
   var mapInt32Message: Dictionary<Int32,Proto3TestAllTypes> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -474,16 +484,18 @@ struct Proto3TestMessageMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Message
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3TestAllTypes>.self, value: mapInt32Message, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMessageMap) -> Bool {
     if mapInt32Message != other.mapInt32Message {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   Two map fields share the same entry default instance.
-struct Proto3TestSameTypeMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestSameTypeMap"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -494,6 +506,8 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   var map1: Dictionary<Int32,Int32> = [:]
 
   var map2: Dictionary<Int32,Int32> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -518,16 +532,18 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
     if !map2.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: map2, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestSameTypeMap) -> Bool {
     if map1 != other.map1 {return false}
     if map2 != other.map2 {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-struct Proto3TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestArenaMap"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -577,6 +593,8 @@ struct Proto3TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
   var mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
 
   var mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -653,6 +671,7 @@ struct Proto3TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
     if !mapInt32ForeignMessage.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3ForeignMessage>.self, value: mapInt32ForeignMessage, fieldNumber: 15)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestArenaMap) -> Bool {
@@ -671,13 +690,14 @@ struct Proto3TestArenaMap: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
     if mapBoolBool != other.mapBoolBool {return false}
     if mapInt32Enum != other.mapInt32Enum {return false}
     if mapInt32ForeignMessage != other.mapInt32ForeignMessage {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   Previously, message containing enum called Type cannot be used as value of
 ///   map field.
-struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MessageContainingEnumCalledType"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -685,6 +705,8 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Proto3Message, Swift
   ]
 
   var type: Dictionary<Int32,Proto3MessageContainingEnumCalledType> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
@@ -734,16 +756,18 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Proto3Message, Swift
     if !type.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3MessageContainingEnumCalledType>.self, value: type, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3MessageContainingEnumCalledType) -> Bool {
     if type != other.type {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   Previously, message cannot contain map field called "entry".
-struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MessageContainingMapCalledEntry"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -751,6 +775,8 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Proto3Message, Swift
   ]
 
   var entry: Dictionary<Int32,Int32> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -771,10 +797,12 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Proto3Message, Swift
     if !entry.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: entry, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3MessageContainingMapCalledEntry) -> Bool {
     if entry != other.entry {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

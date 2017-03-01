@@ -57,10 +57,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       }
 ///  
 ///   The JSON representation for `Empty` is empty JSON object `{}`.
-struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Empty"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -74,9 +76,11 @@ struct Google_Protobuf_Empty: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   }
 
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Empty) -> Bool {
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

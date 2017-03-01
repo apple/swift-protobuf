@@ -56,7 +56,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Wrapper message for `double`.
 ///  
 ///   The JSON representation for `DoubleValue` is JSON number.
-struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "DoubleValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -65,6 +65,8 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   ///   The double value.
   var value: Double = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -85,10 +87,12 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     if value != 0 {
       try visitor.visitSingularDoubleField(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -96,7 +100,7 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 ///   Wrapper message for `float`.
 ///  
 ///   The JSON representation for `FloatValue` is JSON number.
-struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FloatValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -105,6 +109,8 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   ///   The float value.
   var value: Float = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -125,10 +131,12 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     if value != 0 {
       try visitor.visitSingularFloatField(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -136,7 +144,7 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 ///   Wrapper message for `int64`.
 ///  
 ///   The JSON representation for `Int64Value` is JSON string.
-struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Int64Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -145,6 +153,8 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   ///   The int64 value.
   var value: Int64 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -165,10 +175,12 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     if value != 0 {
       try visitor.visitSingularInt64Field(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -176,7 +188,7 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 ///   Wrapper message for `uint64`.
 ///  
 ///   The JSON representation for `UInt64Value` is JSON string.
-struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "UInt64Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -185,6 +197,8 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   ///   The uint64 value.
   var value: UInt64 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -205,10 +219,12 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     if value != 0 {
       try visitor.visitSingularUInt64Field(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -216,7 +232,7 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 ///   Wrapper message for `int32`.
 ///  
 ///   The JSON representation for `Int32Value` is JSON number.
-struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Int32Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -225,6 +241,8 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   ///   The int32 value.
   var value: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -245,10 +263,12 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     if value != 0 {
       try visitor.visitSingularInt32Field(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -256,7 +276,7 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 ///   Wrapper message for `uint32`.
 ///  
 ///   The JSON representation for `UInt32Value` is JSON number.
-struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "UInt32Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -265,6 +285,8 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   ///   The uint32 value.
   var value: UInt32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -285,10 +307,12 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     if value != 0 {
       try visitor.visitSingularUInt32Field(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -296,7 +320,7 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 ///   Wrapper message for `bool`.
 ///  
 ///   The JSON representation for `BoolValue` is JSON `true` and `false`.
-struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "BoolValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -305,6 +329,8 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   ///   The bool value.
   var value: Bool = false
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -325,10 +351,12 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     if value != false {
       try visitor.visitSingularBoolField(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -336,7 +364,7 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 ///   Wrapper message for `string`.
 ///  
 ///   The JSON representation for `StringValue` is JSON string.
-struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "StringValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -345,6 +373,8 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 
   ///   The string value.
   var value: String = ""
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -365,10 +395,12 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
     if !value.isEmpty {
       try visitor.visitSingularStringField(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -376,7 +408,7 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._
 ///   Wrapper message for `bytes`.
 ///  
 ///   The JSON representation for `BytesValue` is JSON string.
-struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "BytesValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -385,6 +417,8 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
 
   ///   The bytes value.
   var value: Data = Data()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -405,10 +439,12 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     if !value.isEmpty {
       try visitor.visitSingularBytesField(value: value, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_BytesValue) -> Bool {
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
