@@ -99,7 +99,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
-struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Timestamp"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -117,6 +117,8 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
   ///   that count forward in time. Must be from 0 to 999,999,999
   ///   inclusive.
   var nanos: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -141,11 +143,13 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     if nanos != 0 {
       try visitor.visitSingularInt32Field(value: nanos, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
     if seconds != other.seconds {return false}
     if nanos != other.nanos {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

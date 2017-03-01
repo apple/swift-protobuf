@@ -48,7 +48,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Message3"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -737,6 +737,8 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     }
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   enum OneOf_O: Equatable {
     case oneofInt32(Int32)
     case oneofInt64(Int64)
@@ -1226,6 +1228,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
       if !_storage._mapInt32Message.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message3>.self, value: _storage._mapInt32Message, fieldNumber: 88)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1287,6 +1290,117 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
         if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
         if _storage._mapInt32Message != other_storage._mapInt32Message {return false}
       }
+      if unknownFields != other.unknownFields {return false}
+      return true
+    }
+  }
+}
+
+//  These allow testing where a StorageClass is and isn't used.
+
+struct ProtobufUnittest_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "Msg3NoStorage"
+  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    }
+  }
+
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+  }
+
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Msg3NoStorage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "Msg3UsesStorage"
+  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    999: .same(proto: "y"),
+  ]
+
+  private class _StorageClass {
+    var _y: ProtobufUnittest_Msg3UsesStorage? = nil
+
+    init() {}
+
+    func copy() -> _StorageClass {
+      let clone = _StorageClass()
+      clone._y = _y
+      return clone
+    }
+  }
+
+  private var _storage = _StorageClass()
+
+  private mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _storage.copy()
+    }
+    return _storage
+  }
+
+  ///   Recursive class (i.e. - can build a graph), forces _StorageClass.
+  var y: ProtobufUnittest_Msg3UsesStorage {
+    get {return _storage._y ?? ProtobufUnittest_Msg3UsesStorage()}
+    set {_uniqueStorage()._y = newValue}
+  }
+  var hasY: Bool {
+    return _storage._y != nil
+  }
+  mutating func clearY() {
+    return _storage._y = nil
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 999: try decoder.decodeSingularMessageField(value: &_storage._y)
+    default: break
+    }
+  }
+
+  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._y {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 999)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Msg3UsesStorage) -> Bool {
+    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      if _storage !== other_storage {
+        if _storage._y != other_storage._y {return false}
+      }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }

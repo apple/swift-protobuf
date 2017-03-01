@@ -117,7 +117,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Any"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -151,6 +151,8 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
   ///   Must be a valid serialized protocol buffer of the above specified type.
   var value: Data = Data()
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -174,11 +176,13 @@ struct Google_Protobuf_Any: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageI
     if !value.isEmpty {
       try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if typeURL != other.typeURL {return false}
     if value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

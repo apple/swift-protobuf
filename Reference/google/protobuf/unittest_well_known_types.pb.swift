@@ -22,7 +22,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestWellKnownTypes"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -314,6 +314,8 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPr
     return _storage._valueField = nil
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -409,6 +411,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPr
       if let v = _storage._valueField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -435,13 +438,14 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPr
         if _storage._bytesField != other_storage._bytesField {return false}
         if _storage._valueField != other_storage._valueField {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
 }
 
 ///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "RepeatedWellKnownTypes"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -611,6 +615,8 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Proto3Message, Swi
     set {_uniqueStorage()._bytesField = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -702,6 +708,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Proto3Message, Swi
       if !_storage._bytesField.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._bytesField, fieldNumber: 18)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -727,12 +734,13 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Proto3Message, Swi
         if _storage._stringField != other_storage._stringField {return false}
         if _storage._bytesField != other_storage._bytesField {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "OneofWellKnownTypes"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -999,6 +1007,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftP
       _uniqueStorage()._oneofField = newValue
     }
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_OneofField: Equatable {
     case anyField(Google_Protobuf_Any)
@@ -1281,6 +1291,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftP
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._oneofField?.traverse(visitor: &visitor, start: 1, end: 19)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1289,6 +1300,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftP
       if _storage !== other_storage {
         if _storage._oneofField != other_storage._oneofField {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -1297,7 +1309,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftP
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MapWellKnownTypes"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1466,6 +1478,8 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPro
     set {_uniqueStorage()._bytesField = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1557,6 +1571,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPro
       if !_storage._bytesField.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _storage._bytesField, fieldNumber: 18)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -1582,6 +1597,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Proto3Message, SwiftPro
         if _storage._stringField != other_storage._stringField {return false}
         if _storage._bytesField != other_storage._bytesField {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }

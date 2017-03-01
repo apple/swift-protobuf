@@ -99,11 +99,9 @@ public extension Message {
             throw BinaryDecodingError.missingRequiredFields
         }
     }
-}
 
-/// Proto2 messages preserve unknown fields
-public extension Proto2Message {
-    public mutating func _protobuf_mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    /// SwiftProtobuf Internal: Common support for decoding.
+    internal mutating func _protobuf_mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
         var decoder = BinaryDecoder(forReadingFrom: bytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &decoder)
         guard decoder.complete else {
@@ -111,17 +109,6 @@ public extension Proto2Message {
         }
         if let unknownData = decoder.unknownData {
             unknownFields.append(protobufData: unknownData)
-        }
-    }
-}
-
-// Proto3 messages ignore unknown fields
-public extension Proto3Message {
-    public mutating func _protobuf_mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
-        var decoder = BinaryDecoder(forReadingFrom: bytes, count: count, extensions: extensions)
-        try decodeMessage(decoder: &decoder)
-        guard decoder.complete else {
-            throw BinaryDecodingError.trailingGarbage
         }
     }
 }

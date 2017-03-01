@@ -94,7 +94,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       td = datetime.timedelta(days=3, minutes=10)
 ///       duration = Duration()
 ///       duration.FromTimedelta(td)
-public struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Duration"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -113,6 +113,8 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtob
   ///   of the same sign as the `seconds` field. Must be from -999,999,999
   ///   to +999,999,999 inclusive.
   public var nanos: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
@@ -137,11 +139,13 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Proto3Message, SwiftProtob
     if nanos != 0 {
       try visitor.visitSingularInt32Field(value: nanos, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Duration) -> Bool {
     if seconds != other.seconds {return false}
     if nanos != other.nanos {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

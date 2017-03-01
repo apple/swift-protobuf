@@ -67,12 +67,7 @@ class MessageGenerator {
       swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
       swiftFullName = swiftRelativeName
     }
-    var conformance: [String] = []
-    if isProto3 {
-      conformance.append("SwiftProtobuf.Proto3Message")
-    } else {
-      conformance.append("SwiftProtobuf.Proto2Message")
-    }
+    var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
     }
@@ -220,10 +215,8 @@ class MessageGenerator {
       }
     }
 
-    if !file.isProto3 {
-      p.print("\n")
-      p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
-    }
+    p.print("\n")
+    p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
 
     for o in oneofs {
       o.generateNested(printer: &p)
@@ -449,9 +442,7 @@ class MessageGenerator {
         p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
         nextRange = ranges.next()
       }
-      if !isProto3 {
-        p.print("try unknownFields.traverse(visitor: &visitor)\n")
-      }
+      p.print("try unknownFields.traverse(visitor: &visitor)\n")
     }
     p.outdent()
     p.print("}\n")
@@ -498,9 +489,7 @@ class MessageGenerator {
         p.print("}\n")
       }
 
-      if !isProto3 {
-        p.print("if unknownFields != other.unknownFields {return false}\n")
-      }
+      p.print("if unknownFields != other.unknownFields {return false}\n")
       if isExtensible {
         p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
       }
