@@ -365,14 +365,8 @@ class MessageGenerator {
         if f.descriptor.hasOneofIndex {
           let oneofIndex = f.descriptor.oneofIndex
           if !oneofHandled.contains(oneofIndex) {
-            p.print("case \(f.number)")
-            for other in fields {
-              if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
-                p.print(", \(other.number)")
-              }
-            }
+            p.print("case \(oneofFieldNumbersPattern(index: oneofIndex)):\n")
             let oneof = f.oneof!
-            p.print(":\n")
             p.indent()
             p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
             p.print("  try decoder.handleConflictingOneOf()\n")
@@ -407,6 +401,48 @@ class MessageGenerator {
 
     p.outdent()
     p.print("}\n")
+  }
+
+  /// Returns a Swift pattern (or list of patterns) suitable for a `case`
+  /// statement that matches any of the field numbers corresponding to the
+  /// `oneof` with the given index.
+  ///
+  /// This function collapses large contiguous field number sequences into
+  /// into range patterns instead of listing all of the fields explicitly.
+  ///
+  /// - Parameter index: The index of the `oneof`.
+  /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
+  private func oneofFieldNumbersPattern(index: Int32) -> String {
+    let oneofFields = fields.lazy.filter {
+      $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == index
+    }.map { $0.number }.sorted()
+
+    assert(oneofFields.count > 0)
+
+    if oneofFields.count <= 2 {
+      // For one or two fields, just return "n" or "n, m". ("n...m" would
+      // also be valid, but this is one character shorter.)
+      return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
+    }
+
+    var it = oneofFields.makeIterator()
+
+    // Safe force-unwraps from here on down: We know there's at least one.
+    let first = it.next()!
+    var previous = first
+    while let current = it.next() {
+      if current - previous > 1 {
+        // Not a contiguous range, so just print the comma-delimited list of
+        // field numbers. (We could consider optimizing this to print ranges
+        // for contiguous subsequences later, as well.)
+        return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
+      }
+      previous = current
+    }
+
+    // The field numbers were contiguous, so return a range instead.
+    let last = oneofFields.last!
+    return "\(first)...\(last)"
   }
 
   /// Generates the `_protobuf_generated_traverse` method for the message.
