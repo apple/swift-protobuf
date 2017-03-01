@@ -1573,7 +1573,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Proto3Message, Sw
     case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: &_storage._mapStringForeignMessage)
     case 73: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: &_storage._mapStringNestedEnum)
     case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: &_storage._mapStringForeignEnum)
-    case 111, 112, 113, 114, 115, 116, 117, 118, 119:
+    case 111...119:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }

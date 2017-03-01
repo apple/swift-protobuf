@@ -880,7 +880,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageIm
     case 52: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum)
     case 53: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedImportEnum)
     case 54: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedPublicImportMessage)
-    case 111, 112, 113, 114:
+    case 111...114:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -2499,7 +2499,7 @@ struct Proto3TestOneof: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImple
 
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 2, 3:
+    case 1...3:
       if _storage._foo != nil {
         try decoder.handleConflictingOneOf()
       }
