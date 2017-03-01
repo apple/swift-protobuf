@@ -882,11 +882,11 @@ internal struct BinaryDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1:
-                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
+                try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2:
-                _ = try ValueType.decodeSingular(value: &v, from: &subdecoder)
-            default: // Always ignore unknown fields within the map entry object
-                return
+                try ValueType.decodeSingular(value: &v, from: &subdecoder)
+            default: // Skip any other fields within the map entry object
+                try subdecoder.skip()
             }
         }
         if !subdecoder.complete {
@@ -914,11 +914,17 @@ internal struct BinaryDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1: // Keys are basic types
-                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
-            case 2: // Value is a message type
-                _ = try subdecoder.decodeSingularEnumField(value: &v)
-            default: // Always ignore unknown fields within the map entry object
-                return
+                try KeyType.decodeSingular(value: &k, from: &subdecoder)
+            case 2: // Value is an Enum type
+                try subdecoder.decodeSingularEnumField(value: &v)
+                if v == nil {
+                    // Decoding the enum failed, likely a proto2 syntax unknown enum
+                    // value, this whole entry goes into the parent message's
+                    // unknown fields.
+                    return
+                }
+            default: // Skip any other fields within the map entry object
+                try subdecoder.skip()
             }
         }
         if !subdecoder.complete {
@@ -943,11 +949,11 @@ internal struct BinaryDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1: // Keys are basic types
-                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
+                try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2: // Value is a message type
-                _ = try subdecoder.decodeSingularMessageField(value: &v)
-            default: // Always ignore unknown fields within the map entry object
-                return
+                try subdecoder.decodeSingularMessageField(value: &v)
+            default: // Skip any other fields within the map entry object
+                try subdecoder.skip()
             }
         }
         if !subdecoder.complete {
