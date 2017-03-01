@@ -1408,7 +1408,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Proto2Message, SwiftP
     case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
     case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
     case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-    case 111, 112, 113, 114, 115:
+    case 111...115:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }

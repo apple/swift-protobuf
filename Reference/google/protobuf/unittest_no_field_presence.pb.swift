@@ -775,7 +775,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Proto3Message, 
     case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
     case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
     case 57: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage)
-    case 111, 112, 113, 114:
+    case 111...114:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }

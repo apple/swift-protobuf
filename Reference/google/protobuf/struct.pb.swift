@@ -357,7 +357,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 2, 3, 4, 5, 6:
+    case 1...6:
       if _storage._kind != nil {
         try decoder.handleConflictingOneOf()
       }
