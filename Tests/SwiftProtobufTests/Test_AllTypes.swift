@@ -668,8 +668,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             $0.optionalGroup.a == 99999
         }
         // Extra field 1 within group
+        // TODO: That extra field should be an unknownField (current doesn't work)
         assertDecodeSucceeds([131, 1, 8, 0, 136, 1, 159, 141, 6, 132, 1]) {
             $0.optionalGroup.a == 99999
+        }
+        // Empty group
+        assertDecodeSucceeds([131, 1, 132, 1]) {
+            $0.optionalGroup == MessageTestType.OptionalGroup()
         }
         assertDebugDescription(
           "SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\nOptionalGroup {\n  a: 1\n}\n") {(o: inout MessageTestType) in
@@ -677,6 +682,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             g.a = 1
             o.optionalGroup = g
         }
+        assertDecodeFails([131, 1, 136, 1, 159, 141, 6]) // End group missing.
+        assertDecodeFails([131, 1, 136, 1, 159, 141, 6, 132, 2]) // Wrong end group.
 
         assertDecodeFails([128, 1]) // Bad wire type
         assertDecodeFails([128, 1, 0]) // Bad wire type
@@ -1352,13 +1359,15 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
     }
 
     func testEncoding_repeatedGroup() {
-        assertEncode([243, 2, 248, 2, 1, 244, 2, 243, 2, 248, 2, 2, 244, 2]) {(o: inout MessageTestType) in
+        assertEncode([243, 2, 248, 2, 1, 244, 2, 243, 2, 244, 2]) {(o: inout MessageTestType) in
             var g1 = MessageTestType.RepeatedGroup()
             g1.a = 1
-            var g2 = MessageTestType.RepeatedGroup()
-            g2.a = 2
+            let g2 = MessageTestType.RepeatedGroup()
+            // g2 has nothing set.
             o.repeatedGroup = [g1, g2]
         }
+        assertDecodeFails([243, 2, 248, 2, 1]) // End group missing.
+        assertDecodeFails([243, 2, 248, 2, 1, 244, 3]) // Wrong end group.
         assertDecodeFails([240, 2]) // Wire type 0
         assertDecodeFails([240, 2, 0])
         assertDecodeFails([240, 2, 244, 2])
@@ -2202,4 +2211,94 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         XCTAssert(populatorRan)
     }
 
+    func testUnknownFields_Success() throws {
+        let testInputs: [([UInt8], String)] = [
+          ([192, 12, 1], "200: 1"), //  varint of 1.
+          ([193, 12, 20, 0, 0, 0, 0, 0, 0, 0], "200: 0x0000000000000014"), // fixed64 of 20
+          ([194, 12, 3, 65, 66, 67], "200: \"ABC\""),  // length delimited.
+          ([195, 12, 8, 1, 196, 12], "200 {\n  1: 1\n}"), // StartGroup, Field 1: varint of 1, EndGroup.
+          ([197, 12, 30, 0, 0, 0], "200: 0x0000001E"),  // fixed32.
+
+          ([192, 12, 129, 1], "200: 129"), //  varint of 129 (two bytes on wire).
+          ([195, 12, 11, 8, 1, 12, 196, 12], "200 {\n  1 {\n    1: 1\n  }\n}"), // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup, EndGroup.
+        ]
+
+        // Fields at the top level of the message.
+        for (bytes, expectedTextFormat) in testInputs {
+            do {
+                let msg = try ProtobufUnittest_TestAllTypes(serializedBytes: bytes)
+                XCTAssertEqual(msg.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.textFormatString(), expectedTextFormat + "\n", "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedData(), Data(bytes: bytes), "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
+
+        // Fields appearing within a message field.
+        for (bytes, expectedTextFormat) in testInputs {
+            // Hang it in the 'payload' field of NestedTestAllTypes
+            let fullBytes = [18, UInt8(bytes.count)] + bytes
+            var fullExpectedTextFormat = "payload {\n"
+            for line in expectedTextFormat.components(separatedBy: "\n") {
+                fullExpectedTextFormat.append("  \(line)\n")
+            }
+            fullExpectedTextFormat.append("}\n")
+
+            do {
+                let msg = try ProtobufUnittest_NestedTestAllTypes(serializedBytes: fullBytes)
+                XCTAssertTrue(msg.unknownFields.data.isEmpty)
+                XCTAssertEqual(msg.payload.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedData(), Data(bytes: fullBytes), "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
+
+        // TODO: UnknownFields appearing within a group field (currently doesn't work).
+    }
+
+    func testUnknownFields_Failures() throws {
+        let testInputs: [[UInt8]] = [
+          [192, 12], //  varint
+          [192, 12, 129], //  varint (should be two bytes)
+          [193, 12], // fixed64
+          [193, 12, 20, 0, 0, 0, 0, 0, 0], // fixed64
+          [194, 12],  // length delimited.
+          [194, 12, 3, 65, 66],  // length delimited.
+          [195, 12], // StartGroup.
+          [195, 12, 8, 1], // StartGroup, Field 1: varint of 1.
+          [197, 12],  // fixed32.
+          [197, 12, 30, 0, 0],  // fixed32.
+
+          [195, 12, 11], // StartGroup, Field 1: StartGroup.
+          [195, 12, 11, 8, 1, 12], // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup.
+          [195, 12, 11, 8, 1, 196, 12], // StartGroup, Field 1: StartGroup, Field 1: varint of 1, EndGroup (but wrong group).
+        ]
+
+        // Fields at the top level of the message.
+        for bytes in testInputs {
+            do {
+                _ = try ProtobufUnittest_TestAllTypes(serializedBytes: bytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+        }
+
+        // Fields appearing within a message field.
+        for bytes in testInputs {
+            // Hang it in the 'payload' field of NestedTestAllTypes
+            let fullBytes = [18, UInt8(bytes.count)] + bytes
+            do {
+                _ = try ProtobufUnittest_NestedTestAllTypes(serializedBytes: fullBytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+        }
+
+        // TODO: UnknownFields appearing within a group field (currently doesn't work).
+    }
 }

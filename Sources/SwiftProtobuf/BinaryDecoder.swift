@@ -61,6 +61,7 @@ internal struct BinaryDecoder: Decoder {
         // the varint parser.
         if fieldNumber > 0 {
             if let override = unknownOverride {
+                assert(fieldWireFormat != .startGroup && fieldWireFormat != .endGroup)
                 if unknownData == nil {
                     unknownData = override
                 } else {
@@ -1022,10 +1023,8 @@ internal struct BinaryDecoder: Decoder {
         case .startGroup:
             while true {
                 if let innerTag = try getTagWithoutUpdatingFieldStart() {
-                    if innerTag.fieldNumber == tag.fieldNumber {
-                        if innerTag.wireFormat == .endGroup {
-                            break
-                        }
+                    if innerTag.fieldNumber == tag.fieldNumber && innerTag.wireFormat == .endGroup {
+                        break
                     } else {
                         try skipOver(tag: innerTag)
                     }
