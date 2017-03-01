@@ -69,9 +69,23 @@ fileprivate func typeName(fromMessage message: Message) -> String {
 }
 
 public extension Message {
-  public init(any: Google_Protobuf_Any) throws {
+  /// Initialize this message from the provided `google.protobuf.Any`
+  /// well-known type.
+  ///
+  /// This corresponds to the `unpack` method in the Google C++ API.
+  ///
+  /// If the Any object was decoded from Protobuf Binary or JSON
+  /// format, then the enclosed field data was stored and is not
+  /// fully decoded until you unpack the Any object into a message.
+  /// As such, this method will typically need to perform a full
+  /// deserialization of the enclosed data and can fail for any
+  /// reason that deserialization can fail.
+  ///
+  /// See `Google_Protobuf_Any.unpackTo()` for more discussion.
+  ///
+  public init(unpackingAny: Google_Protobuf_Any) throws {
     self.init()
-    try any.unpackTo(target: &self)
+    try unpackingAny.unpackTo(target: &self)
   }
 }
 
@@ -190,7 +204,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 let encodedTypeName = typeName(fromURL: typeURL)
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[encodedTypeName] {
                     do {
-                        let m = try messageType.init(any: self)
+                        let m = try messageType.init(unpackingAny: self)
                         return try m.serializedData()
                     } catch {
                         return nil
@@ -199,7 +213,7 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 // See if the user has registered the type:
                 if let messageType = Google_Protobuf_Any.knownTypes[encodedTypeName] {
                     do {
-                        let m = try messageType.init(any: self)
+                        let m = try messageType.init(unpackingAny: self)
                         return try m.serializedData()
                     } catch {
                         return nil
@@ -247,6 +261,32 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     ]
 
     static private var knownTypes = [String:Message.Type]()
+
+    /// Register a message type so that Any objects can use
+    /// them for decoding contents.
+    ///
+    /// This is currently only required in two cases:
+    ///
+    /// * When decoding Protobuf Text format.  Currently,
+    ///   Any objects do not defer deserialization from Text
+    ///   format.  Depending on how the Any objects are stored
+    ///   in text format, the Any object may need to look up
+    ///   the message type in order to deserialize itself.
+    ///
+    /// * When re-encoding an Any object into a different
+    ///   format than it was decoded from.  For example, if
+    ///   you decode a message containing an Any object from
+    ///   JSON format and then re-encode the message into Protobuf
+    ///   Binary format, the Any object will need to complete the
+    ///   deferred deserialization of the JSON object before it
+    ///   can re-encode.
+    ///
+    /// Note that well-known types are pre-registered for you and
+    /// you do not need to register them from your code.
+    ///
+    /// Also note that this is not needed if you only decode and encode
+    /// to and from the same format.
+    ///
     static public func register(messageType: Message.Type) {
         let m = messageType.init()
         let messageTypeName = typeName(fromMessage: m)
@@ -255,11 +295,21 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
 
     public init() {}
 
+    /// Initialize an Any object from the provided message.
+    ///
+    /// This corresponds to the `pack` operation in the C++ API.
+    ///
+    /// Unlike the C++ implementation, the message is not immediately
+    /// serialized; it is merely stored until the Any object itself
+    /// needs to be serialized.  This design avoids unnecessary
+    /// decoding/recoding when writing JSON format.
+    ///
     public init(message: Message) {
         _message = message
         typeURL = type(of: message).anyTypeURL
     }
 
+    /// Decode an Any object from Protobuf Text Format.
     public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
         self.init()
         var textDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self,
@@ -361,6 +411,8 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
+    ///
+    ///
     /// Update the provided object from the data in the Any container.
     /// This is essentially just a deferred deserialization; the Any
     /// may hold protobuf bytes or JSON fields depending on how the Any
@@ -490,13 +542,13 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
                 // If it's a well-known type, we can always do this:
                 let messageTypeName = typeName(fromURL: typeURL)
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
-                    let m = try messageType.init(any: self)
+                    let m = try messageType.init(unpackingAny: self)
                     let value = try m.jsonString()
                     return "{\"@type\":\"\(type(of: m).anyTypeURL)\",\"value\":\(value)}"
                 }
                 // Otherwise, it may be a registered type:
                 if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
-                    let m = try messageType.init(any: self)
+                    let m = try messageType.init(unpackingAny: self)
                     return try _serializeAnyJSON(for: m)
                 }
 
