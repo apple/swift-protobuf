@@ -350,9 +350,9 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
       }
       _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-    default: if (2 <= fieldNumber && fieldNumber < 9) || (12 <= fieldNumber && fieldNumber < 56) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
-      }
+    case 2..<9, 12..<56:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 

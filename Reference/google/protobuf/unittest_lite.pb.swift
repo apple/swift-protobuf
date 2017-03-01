@@ -2839,9 +2839,9 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Proto2Message, Swift
     case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAllTypes)
     case 10: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
     case 20: try decoder.decodeRepeatedGroupField(value: &_storage._repeatedGroup)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestParsingMergeLite.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestParsingMergeLite.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -3515,9 +3515,9 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Proto2Message, S
         try decoder.handleConflictingOneOf()
       }
       _storage._oneofField = try ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: if (536860000 <= fieldNumber && fieldNumber < 536870000) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbersLite.self, fieldNumber: fieldNumber)
-      }
+    case 536860000..<536870000:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbersLite.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 

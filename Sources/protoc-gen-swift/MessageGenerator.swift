@@ -385,20 +385,16 @@ class MessageGenerator {
           f.generateDecodeFieldCase(printer: &p, usesStorage: storage != nil)
         }
       }
-      p.print("default: ")
-      if isProto3 || !isExtensible {
-        p.print("break\n")
+      if isExtensible {
+        p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+        p.print("  try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
       }
-      p.indent()
-    }
-    if isExtensible {
+      p.print("default: break\n")
+    } else if isExtensible {
+      // Just output a simple if-statement if the message had no fields of its
+      // own but we still need to generate a decode statement for extensions.
       p.print("if ")
-      var separator = ""
-      for range in descriptor.extensionRange {
-        p.print(separator)
-        p.print("(\(range.start) <= fieldNumber && fieldNumber < \(range.end))")
-        separator = " || "
-      }
+      p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
       p.print(" {\n")
       p.indent()
       p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
@@ -406,7 +402,6 @@ class MessageGenerator {
       p.print("}\n")
     }
     if !fields.isEmpty {
-      p.outdent()
       p.print("}\n")
     }
 

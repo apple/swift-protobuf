@@ -2185,9 +2185,9 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Proto2Message, SwiftPro
     case 37: try decoder.decodeSingularStringField(value: &_csharpNamespace)
     case 39: try decoder.decodeSingularStringField(value: &_swiftPrefix)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -2422,9 +2422,9 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Proto2Message, Swift
     case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
     case 7: try decoder.decodeSingularBoolField(value: &_mapEntry)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -2726,9 +2726,9 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Proto2Message, SwiftPr
     case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
     case 10: try decoder.decodeSingularBoolField(value: &_weak)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -2825,9 +2825,9 @@ public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Proto2Message, SwiftPr
   public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -2934,9 +2934,9 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Proto2Message, SwiftPro
     case 2: try decoder.decodeSingularBoolField(value: &_allowAlias)
     case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -3035,9 +3035,9 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Proto2Message, Swi
     switch fieldNumber {
     case 1: try decoder.decodeSingularBoolField(value: &_deprecated)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -3137,9 +3137,9 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Proto2Message, Swift
     switch fieldNumber {
     case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -3295,9 +3295,9 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Proto2Message, SwiftP
     case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
     case 34: try decoder.decodeSingularEnumField(value: &_idempotencyLevel)
     case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 

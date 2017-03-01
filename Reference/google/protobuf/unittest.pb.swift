@@ -4618,9 +4618,9 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftPr
     case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
     case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
     case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-    default: if (2 <= fieldNumber && fieldNumber < 11) || (12 <= fieldNumber && fieldNumber < 101) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestFieldOrderings.self, fieldNumber: fieldNumber)
-      }
+    case 2..<11, 12..<101:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestFieldOrderings.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -8501,9 +8501,9 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Proto2Message, SwiftProt
     case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAllTypes)
     case 10: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
     case 20: try decoder.decodeRepeatedGroupField(value: &_storage._repeatedGroup)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestParsingMerge.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestParsingMerge.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -9298,9 +9298,9 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Proto2Message, Swift
         try decoder.handleConflictingOneOf()
       }
       _storage._oneofField = try ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: if (536860000 <= fieldNumber && fieldNumber < 536870000) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbers.self, fieldNumber: fieldNumber)
-      }
+    case 536860000..<536870000:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestHugeFieldNumbers.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
