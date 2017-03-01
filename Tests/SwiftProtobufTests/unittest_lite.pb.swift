@@ -1485,7 +1485,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._
     case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
     case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
     case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-    case 111, 112, 113, 114, 115:
+    case 111...115:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -3510,7 +3510,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     case 536870007: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
     case 536870008: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
     case 536870010: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._stringStringMap)
-    case 536870011, 536870012, 536870013, 536870014:
+    case 536870011...536870014:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }

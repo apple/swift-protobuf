@@ -1134,7 +1134,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
     case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
     case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-    case 111, 112, 113, 114:
+    case 111...114:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }

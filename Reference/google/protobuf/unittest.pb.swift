@@ -1474,7 +1474,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
     case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
     case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
     case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-    case 111, 112, 113, 114:
+    case 111...114:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -5994,7 +5994,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 2, 3, 4:
+    case 1...4:
       if _storage._foo != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -6911,7 +6911,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Messag
         try decoder.handleConflictingOneOf()
       }
       _storage._foo = try ProtobufUnittest_TestOneof2.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    case 12, 13, 14, 15, 16, 17:
+    case 12...17:
       if _storage._bar != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -7166,7 +7166,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 2, 3:
+    case 1...3:
       if _storage._foo != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -9293,7 +9293,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     case 536870007: try decoder.decodeSingularMessageField(value: &_storage._optionalMessage)
     case 536870008: try decoder.decodeSingularGroupField(value: &_storage._optionalGroup)
     case 536870010: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._stringStringMap)
-    case 536870011, 536870012, 536870013, 536870014:
+    case 536870011...536870014:
       if _storage._oneofField != nil {
         try decoder.handleConflictingOneOf()
       }

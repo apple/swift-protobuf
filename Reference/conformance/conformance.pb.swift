@@ -434,7 +434,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 6, 2, 3, 4, 5:
+    case 1...6:
       if result != nil {
         try decoder.handleConflictingOneOf()
       }

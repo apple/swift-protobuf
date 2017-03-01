@@ -344,7 +344,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
     case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
     case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
-    case 60, 9, 150, 10:
+    case 9, 10, 60, 150:
       if _storage._options != nil {
         try decoder.handleConflictingOneOf()
       }
