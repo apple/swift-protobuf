@@ -1033,7 +1033,9 @@ extension Test_Unknown_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testBinaryPB", {try run_test(test:($0 as! Test_Unknown_proto3).testBinaryPB)}),
-            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)})
+            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)}),
+            ("test_MessageNoStorageClass", {try run_test(test:($0 as! Test_Unknown_proto3).test_MessageNoStorageClass)}),
+            ("test_MessageUsingStorageClass", {try run_test(test:($0 as! Test_Unknown_proto3).test_MessageUsingStorageClass)})
         ]
     }
 }

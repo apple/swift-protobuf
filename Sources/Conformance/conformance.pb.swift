@@ -110,7 +110,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProvidi
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ConformanceRequest"
   static let protoPackageName: String = "conformance"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -147,6 +147,8 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
 
   ///   Which format should the testee serialize its message to?
   var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
@@ -217,17 +219,19 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Proto3Message, SwiftProtobu
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
       try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
     if payload != other.payload {return false}
     if requestedOutputFormat != other.requestedOutputFormat {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
 ///   Represents a single test case's output.
-struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ConformanceResponse"
   static let protoPackageName: String = "conformance"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -329,6 +333,8 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtob
       result = .skipped(newValue)
     }
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
     case parseError(String)
@@ -439,10 +445,12 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Proto3Message, SwiftProtob
 
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try result?.traverse(visitor: &visitor, start: 1, end: 7)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
     if result != other.result {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

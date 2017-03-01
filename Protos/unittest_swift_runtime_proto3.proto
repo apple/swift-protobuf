@@ -119,3 +119,14 @@ message Message3 {
   map<int32   , Enum    > map_int32_enum        = 87;
   map<int32   , Message3> map_int32_message     = 88;
 }
+
+
+// These allow testing where a StorageClass is and isn't used.
+
+message Msg3NoStorage {
+}
+
+message Msg3UsesStorage {
+  // Recursive class (i.e. - can build a graph), forces _StorageClass.
+  Msg3UsesStorage y = 999;
+}

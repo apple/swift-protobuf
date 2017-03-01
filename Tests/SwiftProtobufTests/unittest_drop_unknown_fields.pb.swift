@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Foo"
   static let protoPackageName: String = "unittest_drop_unknown_fields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -60,6 +60,8 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
   var int32Value: Int32 = 0
 
   var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
@@ -121,16 +123,18 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Proto3Message, SwiftProtobuf
     if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
       try visitor.visitSingularEnumField(value: enumValue, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "FooWithExtraFields"
   static let protoPackageName: String = "unittest_drop_unknown_fields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -144,6 +148,8 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
   var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
 
   var extraInt32Value: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
@@ -213,12 +219,14 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Proto3Message
     if extraInt32Value != 0 {
       try visitor.visitSingularInt32Field(value: extraInt32Value, fieldNumber: 3)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
     if int32Value != other.int32Value {return false}
     if enumValue != other.enumValue {return false}
     if extraInt32Value != other.extraInt32Value {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

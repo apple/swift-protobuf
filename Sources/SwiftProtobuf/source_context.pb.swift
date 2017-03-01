@@ -50,7 +50,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
-public struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "SourceContext"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -60,6 +60,8 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftP
   ///   The path-qualified name of the .proto file that contained the associated
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
   public var fileName: String = ""
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
@@ -80,10 +82,12 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Proto3Message, SwiftP
     if !fileName.isEmpty {
       try visitor.visitSingularStringField(value: fileName, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
     if fileName != other.fileName {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
