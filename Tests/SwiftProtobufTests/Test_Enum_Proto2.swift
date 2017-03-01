@@ -59,4 +59,33 @@ class Test_Enum_Proto2: XCTestCase, PBTestHelpers {
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.enumTest2FirstValue.rawValue, 1)
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.secondValue.rawValue, 2)
     }
+
+    func testUnknownValues() throws {
+        let orig = Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.with {
+            $0.e = .eExtra
+            $0.repeatedE.append(.eExtra)
+            $0.repeatedPackedE.append(.eExtra)
+            $0.oneofE1 = .eExtra
+        }
+
+        let origSerialized = try orig.serializedData()
+        let msg = try Proto2PreserveUnknownEnumUnittest_MyMessage(serializedData: origSerialized)
+
+        // Nothing should be set, should all be in unknowns.
+        XCTAssertFalse(msg.hasE)
+        XCTAssertEqual(msg.repeatedE.count, 0)
+        XCTAssertEqual(msg.repeatedPackedE.count, 0)
+        XCTAssertNil(msg.o)
+        XCTAssertFalse(msg.unknownFields.data.isEmpty)
+
+        let msgSerialized = try msg.serializedData()
+        let msgPrime = try Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra(serializedData: msgSerialized)
+
+        // They should be back in the right fields.
+        XCTAssertEqual(msgPrime.e, .eExtra)
+        XCTAssertEqual(msgPrime.repeatedE, [.eExtra])
+        XCTAssertEqual(msgPrime.repeatedPackedE, [.eExtra])
+        XCTAssertEqual(msgPrime.o, .oneofE1(.eExtra))
+        XCTAssertTrue(msgPrime.unknownFields.data.isEmpty)
+    }
 }

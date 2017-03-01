@@ -67,6 +67,7 @@ internal struct BinaryDecoder: Decoder {
                 } else {
                     unknownData!.append(override)
                 }
+                unknownOverride = nil
             } else if !consumed {
                 let u = try getRawField()
                 if unknownData == nil {
@@ -788,9 +789,7 @@ internal struct BinaryDecoder: Decoder {
                     extras.append(i32)
                 }
             }
-            if extras.isEmpty {
-                unknownOverride = nil
-            } else {
+            if !extras.isEmpty {
                 let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                 var bodySize = 0
                 for v in extras {
