@@ -400,7 +400,8 @@ extension Test_Enum {
             ("testEqual", {try run_test(test:($0 as! Test_Enum).testEqual)}),
             ("testJSONsingular", {try run_test(test:($0 as! Test_Enum).testJSONsingular)}),
             ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum).testJSONrepeated)}),
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)})
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)}),
+            ("testUnknownValues", {try run_test(test:($0 as! Test_Enum).testUnknownValues)})
         ]
     }
 }
@@ -412,7 +413,8 @@ extension Test_Enum_Proto2 {
             ("testUnknownIgnored", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownIgnored)}),
             ("testJSONsingular", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONsingular)}),
             ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONrepeated)}),
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)})
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)}),
+            ("testUnknownValues", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownValues)})
         ]
     }
 }
