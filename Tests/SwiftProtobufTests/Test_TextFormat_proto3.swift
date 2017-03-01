@@ -219,6 +219,22 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("single_sfixed64: a\n")
     }
 
+    private func assertRoundTripText(file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
+        var original = MessageTestType()
+        configure(&original)
+        do {
+            let json = try original.textFormatString()
+            do {
+                let decoded = try MessageTestType(textFormatString: json)
+                XCTAssertEqual(original, decoded)
+            } catch let e {
+                XCTFail("Failed to decode \(e): \(json)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to encode \(e)", file: file, line: line)
+        }
+    }
+
     func testEncoding_singleFloat() {
         var a = MessageTestType()
         a.singleFloat = 11
@@ -293,6 +309,30 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("single_float: 1,2\n")
         assertTextFormatDecodeFails("single_float: 0xf\n")
         assertTextFormatDecodeFails("single_float: 012\n")
+
+        // A wide range of numbers should exactly round-trip
+        assertRoundTripText {$0.singleFloat = 0.1}
+        assertRoundTripText {$0.singleFloat = 0.01}
+        assertRoundTripText {$0.singleFloat = 0.001}
+        assertRoundTripText {$0.singleFloat = 0.0001}
+        assertRoundTripText {$0.singleFloat = 0.00001}
+        assertRoundTripText {$0.singleFloat = 0.000001}
+        assertRoundTripText {$0.singleFloat = 1e-10}
+        assertRoundTripText {$0.singleFloat = 1e-20}
+        assertRoundTripText {$0.singleFloat = 1e-30}
+        assertRoundTripText {$0.singleFloat = 1e-40}
+        assertRoundTripText {$0.singleFloat = 1e-50}
+        assertRoundTripText {$0.singleFloat = 1e-60}
+        assertRoundTripText {$0.singleFloat = 1e-100}
+        assertRoundTripText {$0.singleFloat = 1e-200}
+        assertRoundTripText {$0.singleFloat = Float.pi}
+        assertRoundTripText {$0.singleFloat = 123456.789123456789123}
+        assertRoundTripText {$0.singleFloat = 1999.9999999999}
+        assertRoundTripText {$0.singleFloat = 1999.9}
+        assertRoundTripText {$0.singleFloat = 1999.99}
+        assertRoundTripText {$0.singleFloat = 1999.99}
+        assertRoundTripText {$0.singleFloat = 3.402823567e+38}
+        assertRoundTripText {$0.singleFloat = 1.1754944e-38}
     }
 
     func testEncoding_singleDouble() {
@@ -325,6 +365,26 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("single_double: 1.2.3\n")
         assertTextFormatDecodeFails("single_double: 0xf\n")
         assertTextFormatDecodeFails("single_double: 0123\n")
+
+        // A wide range of numbers should exactly round-trip
+        assertRoundTripText {$0.singleDouble = 0.1}
+        assertRoundTripText {$0.singleDouble = 0.01}
+        assertRoundTripText {$0.singleDouble = 0.001}
+        assertRoundTripText {$0.singleDouble = 0.0001}
+        assertRoundTripText {$0.singleDouble = 0.00001}
+        assertRoundTripText {$0.singleDouble = 0.000001}
+        assertRoundTripText {$0.singleDouble = 1e-10}
+        assertRoundTripText {$0.singleDouble = 1e-20}
+        assertRoundTripText {$0.singleDouble = 1e-30}
+        assertRoundTripText {$0.singleDouble = 1e-40}
+        assertRoundTripText {$0.singleDouble = 1e-50}
+        assertRoundTripText {$0.singleDouble = 1e-60}
+        assertRoundTripText {$0.singleDouble = 1e-100}
+        assertRoundTripText {$0.singleDouble = 1e-200}
+        assertRoundTripText {$0.singleDouble = Double.pi}
+        assertRoundTripText {$0.singleDouble = 123456.789123456789123}
+        assertRoundTripText {$0.singleDouble = 1.7976931348623157e+308}
+        assertRoundTripText {$0.singleDouble = 2.22507385850720138309e-308}
     }
 
     func testEncoding_singleBool() {
