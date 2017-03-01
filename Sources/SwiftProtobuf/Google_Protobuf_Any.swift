@@ -450,8 +450,17 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         }
     }
 
-    public init(any: Google_Protobuf_Any) throws {
-        try any.unpackTo(target: &self)
+    /// Traversal-based JSON encoding of a standard message type
+    /// This mimics the standard JSON message encoding logic, but adds
+    /// the additional `@type` field.
+    private func _serializeAnyJSON(for message: Message) throws -> String {
+        var visitor = JSONEncodingVisitor(message: message)
+        visitor.encoder.startObject()
+        visitor.encoder.startField(name: "@type")
+        visitor.encoder.putStringValue(value: type(of: message).anyTypeURL)
+        try message.traverse(visitor: &visitor)
+        visitor.encoder.endObject()
+        return visitor.stringResult
     }
 
     // Override the traversal-based JSON encoding
@@ -463,31 +472,54 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
     // into an object, then reserializing back to JSON.
     public func jsonString() throws -> String {
         if let message = _message {
-            return try message.anyJSONString()
+            // We were initialized from a message object
+            if message is _CustomJSONCodable {
+                // Serialize a Well-known type to JSON:
+                let value = try message.jsonString()
+                return "{\"@type\":\"\(type(of: message).anyTypeURL)\",\"value\":\(value)}"
+            } else {
+                // Serialize a regular message to JSON:
+                return try _serializeAnyJSON(for: message)
+            }
         } else if let typeURL = typeURL {
             if _value != nil {
-                // Transcode protobuf-to-JSON by decoding and recoding.
-                // Well-known types are always available:
+                // We have protobuf binary data and want to build JSON,
+                // transcode by decoding the binary data to a message object
+                // and then recode back into JSON:
+
+                // If it's a well-known type, we can always do this:
                 let messageTypeName = typeName(fromURL: typeURL)
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
                     let m = try messageType.init(any: self)
-                    return try m.anyJSONString()
+                    let value = try m.jsonString()
+                    return "{\"@type\":\"\(type(of: m).anyTypeURL)\",\"value\":\(value)}"
                 }
-                // The user may have registered this type:
+                // Otherwise, it may be a registered type:
                 if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
                     let m = try messageType.init(any: self)
-                    return try m.anyJSONString()
+                    return try _serializeAnyJSON(for: m)
                 }
+
+                // If we don't have the type available, we can't decode the
+                // binary value, so we're stuck.  (The Google spec does not
+                // provide a way to just package the binary value for someone
+                // else to decode later.)
+
                 // TODO: Google spec requires more work in the general case:
                 // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
                 // let type = Google_Protobuf_Type(protobuf: encodedType)
                 // return ProtobufDynamicMessage(type: type, any: self)?.serializeAnyJSON()
 
-                // The big problem here is fetching the type:  Types not in the executable must be fetched from somewhere; Google says we should do an HTTPS fetch against the typeURL, which assumes that everyone will publish all their types and that everyone running this code will have reliable network access.  That seems ... optimistic.
-
-                // ProtobufDynamicMessage() is non-trivial to write but desirable for other reasons.  It's a class that can be instantiated with any protobuf type or descriptor and provides access to protos of the corresponding type.  (Not to be confused with ProtobufRaw which can decode any message but does not use a type descriptor and therefore cannot provide fully-typed access to fields.)
+                // ProtobufDynamicMessage() is non-trivial to write
+                // but desirable for other reasons.  It's a class that
+                // can be instantiated with any protobuf type or
+                // descriptor and provides access to protos of the
+                // corresponding type.
                 throw JSONEncodingError.anyTranscodeFailure
             } else {
+                // We don't have binary data:  If we were parsed from JSON,
+                // we can just write the fields back out.  If not, then
+                // our output is just the `@type` and nothing more...
                 var jsonEncoder = JSONEncoder()
                 jsonEncoder.startObject()
                 jsonEncoder.startField(name: "@type")
@@ -505,11 +537,6 @@ public struct Google_Protobuf_Any: Message, Proto3Message, _MessageImplementatio
         } else {
             return "{}"
         }
-    }
-
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     // Caveat:  This can be very expensive.  We should consider organizing

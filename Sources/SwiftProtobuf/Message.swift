@@ -94,21 +94,6 @@ public protocol Message: CustomDebugStringConvertible {
                                                extensions: ExtensionSet?) throws
 
   //
-  // google.protobuf.Any support
-  //
-
-  /// Decode this object from an `Any` (which might itself have been
-  /// decoded from JSON, protobuf, or another `Any`).  This is the
-  /// analog of `unpack` in the Google C++ or Java API.
-  init(any: Google_Protobuf_Any) throws
-
-  /// Serialize as an `Any` object in JSON format.
-  ///
-  /// For generated message types, this generates the same JSON object as
-  /// `serializeJSON()` except it adds an additional `@type` field.
-  func anyJSONString() throws -> String
-
-  //
   // JSON encoding/decoding support
   //
 
@@ -124,6 +109,7 @@ public protocol Message: CustomDebugStringConvertible {
   var debugDescription: String { get }
 }
 
+// This is essentially a synonym for "Well-Known Type"
 internal protocol _CustomJSONCodable {
     mutating func decodeJSON(from: inout JSONDecoder) throws
 }

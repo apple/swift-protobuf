@@ -121,11 +121,6 @@ public extension Google_Protobuf_Duration {
             throw JSONEncodingError.durationRange
         }
     }
-
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
 }
 
 extension Google_Protobuf_Duration: _CustomJSONCodable {

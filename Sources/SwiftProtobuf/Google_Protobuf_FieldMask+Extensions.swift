@@ -133,11 +133,6 @@ public extension Google_Protobuf_FieldMask {
         }
         return "\"" + jsonPaths.joined(separator: ",") + "\""
     }
-
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
 }
 
 extension Google_Protobuf_FieldMask: _CustomJSONCodable {

@@ -105,11 +105,6 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
         return mapVisitor.encoder.stringResult
     }
 
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
-
     mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
             try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
@@ -261,11 +256,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         return jsonEncoder.stringResult
     }
 
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
-
     fileprivate func serializeJSONValue(jsonEncoder: inout JSONEncoder) throws {
         try kind?.serializeJSONField(encoder: &jsonEncoder)
     }
@@ -299,10 +289,6 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 
     public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
         return kind == other.kind
-    }
-
-    public init(any: Google_Protobuf_Any) throws {
-        try any.unpackTo(target: &self)
     }
 
     public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -591,15 +577,6 @@ public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImpleme
             }
             try decoder.scanner.skipRequiredComma()
         }
-    }
-
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
-
-    public init(any: Google_Protobuf_Any) throws {
-        try any.unpackTo(target: &self)
     }
 
     mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
