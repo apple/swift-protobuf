@@ -87,9 +87,9 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Proto2Message, SwiftProtobuf.Exte
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_a)
-    default: if (2 <= fieldNumber && fieldNumber < 11) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
-      }
+    case 2..<11:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 

@@ -667,9 +667,9 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Proto2Message, SwiftPr
     case 2: try decoder.decodeSingularInt32Field(value: &_foo2)
     case 3: try decoder.decodeSingularInt32Field(value: &_foo3)
     case 4: try decoder.decodeRepeatedInt32Field(value: &foo4)
-    default: if (100 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType1.self, fieldNumber: fieldNumber)
-      }
+    case 100..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType1.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -886,9 +886,9 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Proto2Message, SwiftPr
     case 2: try decoder.decodeSingularInt32Field(value: &_storage._baz)
     case 3: try decoder.decodeSingularMessageField(value: &_storage._fred)
     case 4: try decoder.decodeRepeatedMessageField(value: &_storage._barney)
-    default: if (100 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType2.self, fieldNumber: fieldNumber)
-      }
+    case 100..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType2.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 

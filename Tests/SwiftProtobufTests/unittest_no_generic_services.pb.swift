@@ -117,9 +117,9 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Proto2Me
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1: try decoder.decodeSingularInt32Field(value: &_a)
-    default: if (1000 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
-      }
+    case 1000..<536870912:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
