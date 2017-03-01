@@ -84,14 +84,6 @@ class Test_Map: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds(inputBytes: [10, 6, 8, 1, 24, 3, 16, 2], recodedBytes: [10, 4, 8, 1, 16, 2]) {
             $0.mapInt32Int32 == [1: 2]
         }
-
-        // TODO: This current doens't fail -
-        // 1. The comment imples it should be a bad wire type, but that doesn't
-        //    appear to be true, it is a field 1 startGroup.
-        // 2. The current known field support seems not to handle startGroups
-        //    correctly in that they don't seem to push everything in until the
-        //    endGroup.
-//        assertDecodeFails([11, 4, 8, 1, 16, 2]) // Bad wire type
     }
 
     func test_mapInt64Int64() {

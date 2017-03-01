@@ -107,7 +107,9 @@ extension Test_AllTypes {
             ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription3)}),
             ("testDebugDescription4", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription4)}),
             ("testWithFactoryHelper", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelper)}),
-            ("testWithFactoryHelperRethrows", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelperRethrows)})
+            ("testWithFactoryHelperRethrows", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelperRethrows)}),
+            ("testUnknownFields_Success", {try run_test(test:($0 as! Test_AllTypes).testUnknownFields_Success)}),
+            ("testUnknownFields_Failures", {try run_test(test:($0 as! Test_AllTypes).testUnknownFields_Failures)})
         ]
     }
 }
@@ -584,7 +586,9 @@ extension Test_Map {
             ("test_mapInt32Bytes", {try run_test(test:($0 as! Test_Map).test_mapInt32Bytes)}),
             ("test_mapInt32Enum", {try run_test(test:($0 as! Test_Map).test_mapInt32Enum)}),
             ("test_mapInt32ForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapInt32ForeignMessage)}),
-            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)})
+            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)}),
+            ("test_mapEnumUnknowns_Proto2", {try run_test(test:($0 as! Test_Map).test_mapEnumUnknowns_Proto2)}),
+            ("test_mapEnumUnknowns_Proto3", {try run_test(test:($0 as! Test_Map).test_mapEnumUnknowns_Proto3)})
         ]
     }
 }
