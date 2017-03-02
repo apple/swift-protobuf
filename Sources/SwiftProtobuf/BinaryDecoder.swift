@@ -37,6 +37,9 @@ internal struct BinaryDecoder: Decoder {
     private var fieldNumber: Int = 0
     // Collection of extension fields for this decode
     private var extensions: ExtensionSet?
+    // The current group number. See decodeFullGroup(group:fieldNumber:) for how
+    // this is used.
+    private var groupFieldNumber: Int?
 
     var unknownData: Data?
 
@@ -143,6 +146,11 @@ internal struct BinaryDecoder: Decoder {
         }
         if fieldNumber != 0 {
             consumed = false
+
+            // Reached the end of the current group.
+            if fieldWireFormat == .endGroup && groupFieldNumber == fieldNumber {
+              return nil
+            }
             return fieldNumber
         }
         throw BinaryDecodingError.malformedProtobuf
@@ -856,17 +864,28 @@ internal struct BinaryDecoder: Decoder {
         guard fieldWireFormat == WireFormat.startGroup else {
             throw BinaryDecodingError.malformedProtobuf
         }
-        while let tag = try getTag() {
-            if tag.wireFormat == .endGroup {
-                if tag.fieldNumber == fieldNumber {
-                    return
-                }
-                throw BinaryDecodingError.malformedProtobuf
-            }
-            try group.decodeField(decoder: &self, fieldNumber: tag.fieldNumber)
-            try skip()
+        assert(unknownData == nil)
+
+        // This works by making a clone of the current decoder state and
+        // setting `groupFieldNumber` to signal `nextFieldNumber()` to watch
+        // for that as a marker for having reached the end of a group/message.
+        // Groups within groups works because this effectively makes a stack
+        // of decoders, each one looking for their ending tag.
+
+        var subDecoder = self
+        subDecoder.groupFieldNumber = fieldNumber
+        // startGroup was read, so current tag/data is done (otherwise the
+        // startTag will end up in the unknowns of the first thing decoded).
+        subDecoder.consumed = true
+        try group.decodeMessage(decoder: &subDecoder)
+        guard subDecoder.fieldNumber == fieldNumber && subDecoder.fieldWireFormat == .endGroup else {
+            throw BinaryDecodingError.truncated
         }
-        throw BinaryDecodingError.truncated
+        if let groupUnknowns = subDecoder.unknownData {
+            group.unknownFields.append(protobufData: groupUnknowns)
+        }
+        // Advance over what was parsed.
+        consume(length: available - subDecoder.available)
     }
 
     internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {

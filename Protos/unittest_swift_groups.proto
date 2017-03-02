@@ -48,3 +48,19 @@ extend SwiftTestGroupExtensions {
 message SwiftTestGroupUnextended {
   optional int32 a = 1;
 }
+
+message SwiftTestNestingGroupsMessage {
+  optional int32 outer_a = 1;
+  optional group SubGroup1 = 2 {
+    optional int32 sub1_a = 1;
+    optional group SubGroup2 = 2 {
+      optional int32 sub2_a = 1;
+    }
+  }
+  repeated group SubGroup3 = 3 {
+    optional int32 sub3_a = 1;
+    repeated group SubGroup4 = 2 {
+      optional int32 sub4_a = 1;
+    }
+  }
+}

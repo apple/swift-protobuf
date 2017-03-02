@@ -2256,7 +2256,25 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
         }
 
-        // TODO: UnknownFields appearing within a group field (currently doesn't work).
+        // Fields appearing within a group field.
+        for (bytes, expectedTextFormat) in testInputs {
+            // Hang it in the 'OptionalGroup' field of TestAllTypes
+            let fullBytes = [131, 1] + bytes + [132, 1]
+            var fullExpectedTextFormat = "OptionalGroup {\n"
+            for line in expectedTextFormat.components(separatedBy: "\n") {
+                fullExpectedTextFormat.append("  \(line)\n")
+            }
+            fullExpectedTextFormat.append("}\n")
+            do {
+                let msg = try ProtobufUnittest_TestAllTypes(serializedBytes: fullBytes)
+                XCTAssertTrue(msg.unknownFields.data.isEmpty)
+                XCTAssertEqual(msg.optionalGroup.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedData(), Data(bytes: fullBytes), "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
     }
 
     func testUnknownFields_Failures() throws {
@@ -2299,6 +2317,16 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
         }
 
-        // TODO: UnknownFields appearing within a group field (currently doesn't work).
+        // Fields appearing within a group field.
+        for bytes in testInputs {
+            // Hang it after the start of the 'OptionalGroup' field of TestAllTypes
+            let fullBytes = [131, 1] + bytes
+            do {
+                _ = try ProtobufUnittest_TestAllTypes(serializedBytes: fullBytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+       }
     }
 }
