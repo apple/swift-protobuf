@@ -490,6 +490,15 @@ extension Test_FieldOrdering {
     }
 }
 
+extension Test_GroupWithinGroup {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testGroupWithGroup_Single", {try run_test(test:($0 as! Test_GroupWithinGroup).testGroupWithGroup_Single)}),
+            ("testGroupWithGroup_Repeated", {try run_test(test:($0 as! Test_GroupWithinGroup).testGroupWithGroup_Repeated)})
+        ]
+    }
+}
+
 extension Test_JSON {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1076,6 +1085,7 @@ XCTMain(
         (testCaseClass: Test_ExtremeDefaultValues.self, allTests: Test_ExtremeDefaultValues.allTests),
         (testCaseClass: Test_FieldMask.self, allTests: Test_FieldMask.allTests),
         (testCaseClass: Test_FieldOrdering.self, allTests: Test_FieldOrdering.allTests),
+        (testCaseClass: Test_GroupWithinGroup.self, allTests: Test_GroupWithinGroup.allTests),
         (testCaseClass: Test_JSON.self, allTests: Test_JSON.allTests),
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
