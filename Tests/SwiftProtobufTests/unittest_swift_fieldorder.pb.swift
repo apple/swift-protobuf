@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestFieldOrderings"
   static let protoPackageName: String = "swift.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -253,7 +253,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
     }
   }
 
-  struct NestedMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "NestedMessage"
     static let protoPackageName: String = "swift.protobuf"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -344,15 +344,15 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
     case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
     case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
     case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
-    case 60, 9, 150, 10:
+    case 9, 10, 60, 150:
       if _storage._options != nil {
         try decoder.handleConflictingOneOf()
       }
       _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
     case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-    default: if (2 <= fieldNumber && fieldNumber < 9) || (12 <= fieldNumber && fieldNumber < 56) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
-      }
+    case 2..<9, 12..<56:
+      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
+    default: break
     }
   }
 
@@ -397,7 +397,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) {
@@ -420,13 +420,13 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Proto2Message, SwiftProt
 }
 
 let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
-  fieldNumber: 50,
+  _protobuf_fieldNumber: 50,
   fieldNames: .same(proto: "swift.protobuf.my_extension_string"),
   defaultValue: ""
 )
 
 let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
-  fieldNumber: 5,
+  _protobuf_fieldNumber: 5,
   fieldNames: .same(proto: "swift.protobuf.my_extension_int"),
   defaultValue: 0
 )

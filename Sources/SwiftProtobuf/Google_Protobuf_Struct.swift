@@ -45,7 +45,7 @@ public enum Google_Protobuf_NullValue: Enum, _ProtoNameProviding {
 
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
-public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding, _CustomJSONCodable {
+public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoMessageName: String = "Struct"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
@@ -53,6 +53,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
     ]
     public typealias Key = String
     public typealias Value = Google_Protobuf_Value
+    public var unknownFields = UnknownStorage()
 
     ///   Unordered map of dynamically typed values.
     public var fields: Dictionary<String,Google_Protobuf_Value> = [:]
@@ -137,7 +138,7 @@ public struct Google_Protobuf_Struct: Message, Proto3Message, _MessageImplementa
 ///   variants, absence of any variant indicates an error.
 ///
 ///   The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding, _CustomJSONCodable {
+public struct Google_Protobuf_Value: Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoMessageName: String = "Value"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
@@ -148,6 +149,7 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
         5: .unique(proto: "struct_value", json: "structValue"),
         6: .unique(proto: "list_value", json: "listValue"),
     ]
+    public var unknownFields = UnknownStorage()
 
     // TODO: Would it make sense to collapse the implementation here and
     // make Google_Protobuf_Value be the enum directly?
@@ -514,12 +516,13 @@ public struct Google_Protobuf_Value: Message, Proto3Message, _MessageImplementat
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///
 ///   The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue: Message, Proto3Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding, _CustomJSONCodable {
+public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoMessageName: String = "ListValue"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
         1: .same(proto: "values"),
     ]
+    public var unknownFields = UnknownStorage()
 
     // TODO: Give this a direct array interface by proxying the interesting
     // bits down to values

@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Proto2Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestObjCStartupMessage"
   static let protoPackageName: String = "protobuf_objc_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -89,7 +89,7 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Proto2Message,
   private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 
   mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)
+    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
   }
 
   mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufObjcUnittest_TestObjCStartupMessage>) {
@@ -111,7 +111,7 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Proto2Message,
   }
 }
 
-struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Proto2Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestObjCStartupNested"
   static let protoPackageName: String = "protobuf_objc_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -121,7 +121,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Proto2Message, 
   struct Extensions {
 
     static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-      fieldNumber: 3,
+      _protobuf_fieldNumber: 3,
       fieldNames: .same(proto: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension"),
       defaultValue: ""
     )
@@ -150,13 +150,13 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Proto2Message, 
 
 ///   Singular
 let ProtobufObjcUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-  fieldNumber: 1,
+  _protobuf_fieldNumber: 1,
   fieldNames: .same(proto: "protobuf_objc_unittest.optional_int32_extension"),
   defaultValue: 0
 )
 
 let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-  fieldNumber: 2,
+  _protobuf_fieldNumber: 2,
   fieldNames: .same(proto: "protobuf_objc_unittest.repeated_int32_extension"),
   defaultValue: []
 )

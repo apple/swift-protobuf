@@ -193,7 +193,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for v in value {
       startField(name: protoFieldName)
-      encoder.putDoubleValue(value: Double(v))
+      encoder.putFloatValue(value: v)
       encoder.endField()
     }
   }
@@ -341,7 +341,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
     try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Float) in
-      encoder.putDoubleValue(value: Double(v))
+      encoder.putFloatValue(value: v)
     }
   }
 

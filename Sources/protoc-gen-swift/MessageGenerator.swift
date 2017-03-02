@@ -67,12 +67,7 @@ class MessageGenerator {
       swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
       swiftFullName = swiftRelativeName
     }
-    var conformance: [String] = []
-    if isProto3 {
-      conformance.append("SwiftProtobuf.Proto3Message")
-    } else {
-      conformance.append("SwiftProtobuf.Proto2Message")
-    }
+    var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
     }
@@ -220,10 +215,8 @@ class MessageGenerator {
       }
     }
 
-    if !file.isProto3 {
-      p.print("\n")
-      p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
-    }
+    p.print("\n")
+    p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
 
     for o in oneofs {
       o.generateNested(printer: &p)
@@ -278,7 +271,7 @@ class MessageGenerator {
       p.print("private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
       p.print("\n")
       p.print("\(visibility)mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>, value: F.ValueType) {\n")
-      p.print("  _extensionFieldValues[ext.fieldNumber] = ext.set(value: value)\n")
+      p.print("  _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)\n")
       p.print("}\n")
       p.print("\n")
       p.print("\(visibility)mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, \(swiftRelativeName)>) {\n")
@@ -365,14 +358,8 @@ class MessageGenerator {
         if f.descriptor.hasOneofIndex {
           let oneofIndex = f.descriptor.oneofIndex
           if !oneofHandled.contains(oneofIndex) {
-            p.print("case \(f.number)")
-            for other in fields {
-              if other.descriptor.hasOneofIndex && other.descriptor.oneofIndex == oneofIndex && other.number != f.number {
-                p.print(", \(other.number)")
-              }
-            }
+            p.print("case \(oneofFieldNumbersPattern(index: oneofIndex)):\n")
             let oneof = f.oneof!
-            p.print(":\n")
             p.indent()
             p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
             p.print("  try decoder.handleConflictingOneOf()\n")
@@ -385,20 +372,16 @@ class MessageGenerator {
           f.generateDecodeFieldCase(printer: &p, usesStorage: storage != nil)
         }
       }
-      p.print("default: ")
-      if isProto3 || !isExtensible {
-        p.print("break\n")
+      if isExtensible {
+        p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+        p.print("  try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
       }
-      p.indent()
-    }
-    if isExtensible {
+      p.print("default: break\n")
+    } else if isExtensible {
+      // Just output a simple if-statement if the message had no fields of its
+      // own but we still need to generate a decode statement for extensions.
       p.print("if ")
-      var separator = ""
-      for range in descriptor.extensionRange {
-        p.print(separator)
-        p.print("(\(range.start) <= fieldNumber && fieldNumber < \(range.end))")
-        separator = " || "
-      }
+      p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
       p.print(" {\n")
       p.indent()
       p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
@@ -406,12 +389,53 @@ class MessageGenerator {
       p.print("}\n")
     }
     if !fields.isEmpty {
-      p.outdent()
       p.print("}\n")
     }
 
     p.outdent()
     p.print("}\n")
+  }
+
+  /// Returns a Swift pattern (or list of patterns) suitable for a `case`
+  /// statement that matches any of the field numbers corresponding to the
+  /// `oneof` with the given index.
+  ///
+  /// This function collapses large contiguous field number sequences into
+  /// into range patterns instead of listing all of the fields explicitly.
+  ///
+  /// - Parameter index: The index of the `oneof`.
+  /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
+  private func oneofFieldNumbersPattern(index: Int32) -> String {
+    let oneofFields = fields.lazy.filter {
+      $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == index
+    }.map { $0.number }.sorted()
+
+    assert(oneofFields.count > 0)
+
+    if oneofFields.count <= 2 {
+      // For one or two fields, just return "n" or "n, m". ("n...m" would
+      // also be valid, but this is one character shorter.)
+      return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
+    }
+
+    var it = oneofFields.makeIterator()
+
+    // Safe force-unwraps from here on down: We know there's at least one.
+    let first = it.next()!
+    var previous = first
+    while let current = it.next() {
+      if current - previous > 1 {
+        // Not a contiguous range, so just print the comma-delimited list of
+        // field numbers. (We could consider optimizing this to print ranges
+        // for contiguous subsequences later, as well.)
+        return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
+      }
+      previous = current
+    }
+
+    // The field numbers were contiguous, so return a range instead.
+    let last = oneofFields.last!
+    return "\(first)...\(last)"
   }
 
   /// Generates the `_protobuf_generated_traverse` method for the message.
@@ -454,9 +478,7 @@ class MessageGenerator {
         p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
         nextRange = ranges.next()
       }
-      if !isProto3 {
-        p.print("try unknownFields.traverse(visitor: &visitor)\n")
-      }
+      p.print("try unknownFields.traverse(visitor: &visitor)\n")
     }
     p.outdent()
     p.print("}\n")
@@ -503,9 +525,7 @@ class MessageGenerator {
         p.print("}\n")
       }
 
-      if !isProto3 {
-        p.print("if unknownFields != other.unknownFields {return false}\n")
-      }
+      p.print("if unknownFields != other.unknownFields {return false}\n")
       if isExtensible {
         p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
       }

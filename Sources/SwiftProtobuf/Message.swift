@@ -45,6 +45,10 @@ public protocol Message: CustomDebugStringConvertible {
   /// on any messages withing this message.
   var isInitialized: Bool { get }
 
+  /// Some formats include enough information to transport fields that were
+  /// not known at generation time. When encountered, they are stored here.
+  var unknownFields: UnknownStorage { get set }
+
   //
   // General serialization/deserialization machinery
   //
@@ -87,11 +91,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// the need to allow particular messages to override particular
   /// behaviors for specific encodings, but the general idea is quite simple.
   func traverse<V: Visitor>(visitor: inout V) throws
-
-  /// SwiftProtobuf Internal: Common support for decoding.
-  mutating func _protobuf_mergeSerializedBytes(from: UnsafePointer<UInt8>,
-                                               count: Int,
-                                               extensions: ExtensionSet?) throws
 
   //
   // JSON encoding/decoding support
@@ -176,21 +175,6 @@ public extension Message {
     try populator(&message)
     return message
   }
-}
-
-///
-/// Marker type that specifies the message was generated from
-/// a source file using proto2 syntax.
-///
-public protocol Proto2Message: Message {
-  var unknownFields: UnknownStorage { get set }
-}
-
-///
-/// Marker type that specifies the message was generated from
-/// a source file using proto3 syntax.
-///
-public protocol Proto3Message: Message {
 }
 
 ///

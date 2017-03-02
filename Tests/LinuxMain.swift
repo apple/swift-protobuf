@@ -107,7 +107,9 @@ extension Test_AllTypes {
             ("testDebugDescription3", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription3)}),
             ("testDebugDescription4", {try run_test(test:($0 as! Test_AllTypes).testDebugDescription4)}),
             ("testWithFactoryHelper", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelper)}),
-            ("testWithFactoryHelperRethrows", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelperRethrows)})
+            ("testWithFactoryHelperRethrows", {try run_test(test:($0 as! Test_AllTypes).testWithFactoryHelperRethrows)}),
+            ("testUnknownFields_Success", {try run_test(test:($0 as! Test_AllTypes).testUnknownFields_Success)}),
+            ("testUnknownFields_Failures", {try run_test(test:($0 as! Test_AllTypes).testUnknownFields_Failures)})
         ]
     }
 }
@@ -398,7 +400,8 @@ extension Test_Enum {
             ("testEqual", {try run_test(test:($0 as! Test_Enum).testEqual)}),
             ("testJSONsingular", {try run_test(test:($0 as! Test_Enum).testJSONsingular)}),
             ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum).testJSONrepeated)}),
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)})
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum).testEnumPrefix)}),
+            ("testUnknownValues", {try run_test(test:($0 as! Test_Enum).testUnknownValues)})
         ]
     }
 }
@@ -410,7 +413,8 @@ extension Test_Enum_Proto2 {
             ("testUnknownIgnored", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownIgnored)}),
             ("testJSONsingular", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONsingular)}),
             ("testJSONrepeated", {try run_test(test:($0 as! Test_Enum_Proto2).testJSONrepeated)}),
-            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)})
+            ("testEnumPrefix", {try run_test(test:($0 as! Test_Enum_Proto2).testEnumPrefix)}),
+            ("testUnknownValues", {try run_test(test:($0 as! Test_Enum_Proto2).testUnknownValues)})
         ]
     }
 }
@@ -569,6 +573,7 @@ extension Test_Map {
         return [
             ("test_mapInt32Int32", {try run_test(test:($0 as! Test_Map).test_mapInt32Int32)}),
             ("test_mapInt64Int64", {try run_test(test:($0 as! Test_Map).test_mapInt64Int64)}),
+            ("test_mapUint32Uint32", {try run_test(test:($0 as! Test_Map).test_mapUint32Uint32)}),
             ("test_mapUint64Uint64", {try run_test(test:($0 as! Test_Map).test_mapUint64Uint64)}),
             ("test_mapSint32Sint32", {try run_test(test:($0 as! Test_Map).test_mapSint32Sint32)}),
             ("test_mapSint64Sint64", {try run_test(test:($0 as! Test_Map).test_mapSint64Sint64)}),
@@ -583,7 +588,9 @@ extension Test_Map {
             ("test_mapInt32Bytes", {try run_test(test:($0 as! Test_Map).test_mapInt32Bytes)}),
             ("test_mapInt32Enum", {try run_test(test:($0 as! Test_Map).test_mapInt32Enum)}),
             ("test_mapInt32ForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapInt32ForeignMessage)}),
-            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)})
+            ("test_mapStringForeignMessage", {try run_test(test:($0 as! Test_Map).test_mapStringForeignMessage)}),
+            ("test_mapEnumUnknowns_Proto2", {try run_test(test:($0 as! Test_Map).test_mapEnumUnknowns_Proto2)}),
+            ("test_mapEnumUnknowns_Proto3", {try run_test(test:($0 as! Test_Map).test_mapEnumUnknowns_Proto3)})
         ]
     }
 }
@@ -1028,7 +1035,9 @@ extension Test_Unknown_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testBinaryPB", {try run_test(test:($0 as! Test_Unknown_proto3).testBinaryPB)}),
-            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)})
+            ("testJSON", {try run_test(test:($0 as! Test_Unknown_proto3).testJSON)}),
+            ("test_MessageNoStorageClass", {try run_test(test:($0 as! Test_Unknown_proto3).test_MessageNoStorageClass)}),
+            ("test_MessageUsingStorageClass", {try run_test(test:($0 as! Test_Unknown_proto3).test_MessageUsingStorageClass)})
         ]
     }
 }

@@ -61,7 +61,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         // TODO: Make this faster...
         for (_, list) in fields {
             for (t, e) in list {
-                let extensionName = e.fieldNames.protoStaticStringName.description
+                let extensionName = e._protobuf_fieldNames.protoStaticStringName.description
                 if extensionName == protoFieldName && t == messageType {
                     return e.fieldNumber
                 }
@@ -84,7 +84,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         var names = [String]()
         for (_, list) in fields {
             for (_, e) in list {
-                let extensionName = e.fieldNames.protoStaticStringName.description
+                let extensionName = e._protobuf_fieldNames.protoStaticStringName.description
                 names.append("\(extensionName)(\(e.fieldNumber))")
             }
         }

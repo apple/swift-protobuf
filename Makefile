@@ -82,8 +82,8 @@ TEST_PROTOS= \
 	Protos/conformance/conformance.proto \
 	Protos/google/protobuf/any_test.proto \
 	Protos/google/protobuf/descriptor.proto \
+	Protos/google/protobuf/map_proto2_unittest.proto \
 	Protos/google/protobuf/map_unittest.proto \
-	Protos/google/protobuf/map_unittest_proto3.proto \
 	Protos/google/protobuf/test_messages_proto3.proto \
 	Protos/google/protobuf/unittest.proto \
 	Protos/google/protobuf/unittest_arena.proto \
@@ -393,7 +393,6 @@ update-proto-files: check-for-protobuf-checkout
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
 	# It would be nice to get these added to google/protobuf instead of
 	# applying them locally.
-	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/map_unittest_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_proto3.proto

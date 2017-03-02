@@ -32,16 +32,15 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
             do {
                 let json = try empty.jsonString()
                 XCTAssertEqual("{}", json, file: file, line: line)
-            } catch {
-                XCTFail("Recoding empty message threw an error", file: file, line: line)
+            } catch let e {
+                XCTFail("Recoding empty threw error \(e)", file: file, line: line)
             }
         } catch {
-            XCTFail("empty message threw an error", file: file, line: line)
+            XCTFail("Error decoding into an empty message \(json)", file: file, line: line)
         }
     }
 
     // Binary PB coding preserves unknown fields for proto2
-    // (but not proto3; see Test_Unknown_proto3)
     func testBinaryPB() {
         func assertRecodes(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
             do {
@@ -50,10 +49,10 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
                     let pb = try empty.serializedData()
                     XCTAssertEqual(Data(bytes: protobufBytes), pb, file: file, line: line)
                 } catch {
-                    XCTFail()
+                    XCTFail("Recoding empty failed", file: file, line: line)
                 }
             } catch {
-                XCTFail(file: file, line: line)
+                XCTFail("Decoding threw error \(protobufBytes)", file: file, line: line)
             }
         }
         func assertFails(_ protobufBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
@@ -103,12 +102,15 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
 
     // JSON coding drops unknown fields for both proto2 and proto3
     func testJSON() {
-        // Unknown fields should be ignored
+        // Unknown fields should be ignored if they are well-formed JSON
         assertJSONIgnores("{\"unknown\":7}")
         assertJSONIgnores("{\"unknown\":null}")
         assertJSONIgnores("{\"unknown\":false}")
         assertJSONIgnores("{\"unknown\":true}")
         assertJSONIgnores("{\"unknown\":  7.0}")
+        assertJSONIgnores("{\"unknown\": -3.04}")
+        assertJSONIgnores("{\"unknown\":  -7.0e-55}")
+        assertJSONIgnores("{\"unknown\":  7.308e+8}")
         assertJSONIgnores("{\"unknown\": \"hi!\"}")
         assertJSONIgnores("{\"unknown\": []}")
         assertJSONIgnores("{\"unknown\": [3, 4, 5]}")
@@ -117,30 +119,50 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertJSONIgnores("{\"unknown\": {}}")
         assertJSONIgnores("{\"unknown\": {\"foo\": 1}}")
         assertJSONIgnores("{\"unknown\": 7, \"also_unknown\": 8}")
-        assertJSONIgnores("{\"unknown\": 7, \"unknown\": 8}")
+        assertJSONIgnores("{\"unknown\": 7, \"unknown\": 8}") // ???
 
-        // Badly formed JSON should still fail the decode
+        // Badly formed JSON should fail to decode, even in unknown sections
+        assertJSONDecodeFails("{\"unknown\":  1e999}")
         assertJSONDecodeFails("{\"unknown\": \"hi!\"")
         assertJSONDecodeFails("{\"unknown\": \"hi!}")
         assertJSONDecodeFails("{\"unknown\": qqq }")
         assertJSONDecodeFails("{\"unknown\": { }")
+        assertJSONDecodeFails("{\"unknown\": [ }")
+        assertJSONDecodeFails("{\"unknown\": { ]}")
+        assertJSONDecodeFails("{\"unknown\": ]}")
+        assertJSONDecodeFails("{\"unknown\": null true}")
+        assertJSONDecodeFails("{\"unknown\": nulll }")
+        assertJSONDecodeFails("{\"unknown\": nul }")
+        assertJSONDecodeFails("{\"unknown\": Null }")
+        assertJSONDecodeFails("{\"unknown\": NULL }")
+        assertJSONDecodeFails("{\"unknown\": True }")
+        assertJSONDecodeFails("{\"unknown\": False }")
+        assertJSONDecodeFails("{\"unknown\": nan }")
+        assertJSONDecodeFails("{\"unknown\": NaN }")
+        assertJSONDecodeFails("{\"unknown\": Infinity }")
+        assertJSONDecodeFails("{\"unknown\": infinity }")
+        assertJSONDecodeFails("{\"unknown\": Inf }")
+        assertJSONDecodeFails("{\"unknown\": inf }")
+        assertJSONDecodeFails("{\"unknown\": 1}}")
+        assertJSONDecodeFails("{\"unknown\": {1, 2}}")
+        assertJSONDecodeFails("{\"unknown\": 1.2.3.4.5}")
+        assertJSONDecodeFails("{\"unknown\": -.04}")
+        assertJSONDecodeFails("{\"unknown\": -19.}")
+        assertJSONDecodeFails("{\"unknown\": -9.3e+}")
+        assertJSONDecodeFails("{\"unknown\": 1 2 3}")
+        assertJSONDecodeFails("{\"unknown\": { true false }}")
+        assertJSONDecodeFails("{\"unknown\"}")
+        assertJSONDecodeFails("{\"unknown\": }")
+        assertJSONDecodeFails("{\"unknown\", \"a\": 1}")
     }
 
 
-    func assertUnknownFields(_ message: Proto2Message, _ bytes: [UInt8], line: UInt = #line) {
-        var collector = UnknownCollector()
-        do {
-            try message.unknownFields.traverse(visitor: &collector)
-        } catch let e {
-            XCTFail("Throw why walking unknowns: \(e)", line: line)
-        }
-        XCTAssertEqual(collector.collected, [Data(bytes: bytes)], line: line)
+    func assertUnknownFields(_ message: Message, _ bytes: [UInt8], line: UInt = #line) {
+        XCTAssertEqual(message.unknownFields.data, Data(bytes: bytes), line: line)
     }
 
     func test_MessageNoStorageClass() throws {
-        // Reusing message class from unittest_swift_extension.proto that were crafted
-        // for forcing/avoiding _StorageClass usage.
-        var msg1 = ProtobufUnittest_Extend_MsgNoStorage()
+        var msg1 = ProtobufUnittest_Msg2NoStorage()
         assertUnknownFields(msg1, [])
 
         try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
@@ -160,9 +182,7 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
     }
 
     func test_MessageUsingStorageClass() throws {
-        // Reusing message class from unittest_swift_extension.proto that were crafted
-        // for forcing/avoiding _StorageClass usage.
-        var msg1 = ProtobufUnittest_Extend_MsgUsesStorage()
+        var msg1 = ProtobufUnittest_Msg2UsesStorage()
         assertUnknownFields(msg1, [])
 
         try msg1.merge(serializedData: Data(bytes: [24, 1]))  // Field 3, varint
@@ -180,47 +200,4 @@ class Test_Unknown_proto2: XCTestCase, PBTestHelpers {
         assertUnknownFields(msg2, [24, 1, 34, 1, 52])
         assertUnknownFields(msg1, [24, 1, 61, 7, 0, 0, 0])
     }
-}
-
-// Helper visitor class that ignores everything, but collects the
-// things passed to visitUnknown.
-struct UnknownCollector: Visitor {
-    var collected: [Data] = []
-
-    mutating func visitUnknown(bytes: Data) {
-        collected.append(bytes)
-    }
-
-    mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {}
-
-    mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {}
-
-    mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {}
-
-    mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {}
-
-    mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {}
-
-    mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {}
-
-    mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {}
-
-    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {}
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
-      fieldType: _ProtobufMap<KeyType, ValueType>.Type,
-      value: _ProtobufMap<KeyType, ValueType>.BaseType,
-      fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
-      fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
-      value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
-      fieldNumber: Int) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int {}
-
-    mutating func visitMapField<KeyType: MapKeyType, ValueType: Message>(
-      fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
-      value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
-      fieldNumber: Int) throws where KeyType.BaseType: Hashable {}
-
-    mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {}
 }

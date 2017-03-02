@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "TestAny"
   static let protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -104,6 +104,8 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
     set {_uniqueStorage()._repeatedAnyValue = newValue}
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   init() {}
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -135,6 +137,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
       if !_storage._repeatedAnyValue.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedAnyValue, fieldNumber: 3)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -145,6 +148,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Proto3Message, SwiftProtobuf._Mes
         if _storage._anyValue != other_storage._anyValue {return false}
         if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }

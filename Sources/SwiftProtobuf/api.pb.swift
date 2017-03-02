@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-public struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Api"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -164,6 +164,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
     set {_uniqueStorage()._syntax = newValue}
   }
 
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
   public init() {}
 
   public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -211,6 +213,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
       if _storage._syntax != Google_Protobuf_Syntax.proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 7)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -225,13 +228,14 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Proto3Message, SwiftProtobuf._M
         if _storage._mixins != other_storage._mixins {return false}
         if _storage._syntax != other_storage._syntax {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
 }
 
 ///   Method represents a method of an api.
-public struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Method"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -264,6 +268,8 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf
 
   ///   The source syntax of this method.
   public var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
@@ -308,6 +314,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf
     if syntax != Google_Protobuf_Syntax.proto2 {
       try visitor.visitSingularEnumField(value: syntax, fieldNumber: 7)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
@@ -318,6 +325,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf
     if responseStreaming != other.responseStreaming {return false}
     if options != other.options {return false}
     if syntax != other.syntax {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -399,7 +407,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Proto3Message, SwiftProtobuf
 ///         }
 ///         ...
 ///       }
-public struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = "Mixin"
   public static let protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -413,6 +421,8 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf.
   ///   If non-empty specifies a path under which inherited HTTP paths
   ///   are rooted.
   public var root: String = ""
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
@@ -437,11 +447,13 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Proto3Message, SwiftProtobuf.
     if !root.isEmpty {
       try visitor.visitSingularStringField(value: root, fieldNumber: 2)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Mixin) -> Bool {
     if name != other.name {return false}
     if root != other.root {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

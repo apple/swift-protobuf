@@ -91,7 +91,7 @@ enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProv
 ///   with the proto support for the language.
 ///  
 ///   The JSON representation for `Struct` is JSON object.
-struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Struct"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -100,6 +100,8 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 
   ///   Unordered map of dynamically typed values.
   var fields: Dictionary<String,Google_Protobuf_Value> = [:]
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -120,10 +122,12 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
     if !fields.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
     if fields != other.fields {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
@@ -134,7 +138,7 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messa
 ///   variants, absence of any variant indicates an error.
 ///  
 ///   The JSON representation for `Value` is JSON value.
-struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Value"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -252,6 +256,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
     }
   }
 
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
   enum OneOf_Kind: Equatable {
     case nullValue(Google_Protobuf_NullValue)
     case numberValue(Double)
@@ -357,7 +363,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     switch fieldNumber {
-    case 1, 2, 3, 4, 5, 6:
+    case 1...6:
       if _storage._kind != nil {
         try decoder.handleConflictingOneOf()
       }
@@ -369,6 +375,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
   func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._kind?.traverse(visitor: &visitor, start: 1, end: 7)
+      try unknownFields.traverse(visitor: &visitor)
     }
   }
 
@@ -377,6 +384,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
       if _storage !== other_storage {
         if _storage._kind != other_storage._kind {return false}
       }
+      if unknownFields != other.unknownFields {return false}
       return true
     }
   }
@@ -385,7 +393,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Proto3Message, SwiftProtobuf._Messag
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
-struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ListValue"
   static let protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -394,6 +402,8 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
 
   ///   Repeated field of dynamically typed values.
   var values: [Google_Protobuf_Value] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
 
@@ -414,10 +424,12 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Proto3Message, SwiftProtobuf._Me
     if !values.isEmpty {
       try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
     if values != other.values {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

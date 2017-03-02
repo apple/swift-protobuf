@@ -23,8 +23,8 @@ internal func timeOfDayFromSecondsSince1970(seconds: Int64) -> (hh: Int32, mm: I
     let secondsSinceMidnight = Int32(mod(seconds, Int64(secondsPerDay)))
     let ss = mod(secondsSinceMidnight, secondsPerMinute)
     let mm = mod(div(secondsSinceMidnight, secondsPerMinute), minutesPerHour)
-    let hh = div(secondsSinceMidnight, secondsPerHour)
-    
+    let hh = Int32(div(secondsSinceMidnight, secondsPerHour))
+
     return (hh: hh, mm: mm, ss: ss)
 }
 
@@ -43,11 +43,11 @@ internal func gregorianDateFromSecondsSince1970(seconds: Int64) -> (YY: Int32, M
     let JJ = julianDayNumberFromSecondsSince1970(seconds: seconds)
     let f = JJ + 1401 + div(div(4 * JJ + 274277, 146097) * 3, 4) - 38
     let e = 4 * f + 3
-    let g = div(mod(e, 1461), 4)
+    let g = Int64(div(mod(e, 1461), 4))
     let h = 5 * g + 2
     let DD = div(mod(h, 153), 5) + 1
     let MM = mod(div(h, 153) + 2, 12) + 1
     let YY = div(e, 1461) - 4716 + div(12 + 2 - MM, 12)
-    
+
     return (YY: Int32(YY), MM: Int32(MM), DD: Int32(DD))
 }

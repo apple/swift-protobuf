@@ -131,8 +131,33 @@ internal struct JSONEncoder {
     }
 
     /// Append a float value to the output.
+    /// This handles Nan and infinite values by
+    /// writing well-known string values.
     internal mutating func putFloatValue(value: Float) {
-        putDoubleValue(value: Double(value))
+        if value.isNaN {
+            append(staticText: "\"NaN\"")
+        } else if !value.isFinite {
+            if value < 0 {
+                append(staticText: "\"-Infinity\"")
+            } else {
+                append(staticText: "\"Infinity\"")
+            }
+        } else {
+            if let v = Int64(safely: Double(value)) {
+                appendInt(value: v)
+            } else {
+                let s = String(value)
+                let reparsed = Float(s)
+                // If exact match, then default precision is sufficient:
+                if value == reparsed {
+                    append(text: s)
+                } else {
+                    let precision = FLT_DIG + 2
+                    let s = String(format: "%.*g", precision, Double(value))
+                    append(text: s)
+                }
+            }
+        }
     }
 
     /// Append a double value to the output.
@@ -148,13 +173,19 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            // TODO: Be smarter here about choosing significant digits
-            // See: protoc source has C++ code for this with interesting ideas
             if let v = Int64(safely: value) {
                 appendInt(value: v)
             } else {
                 let s = String(value)
-                append(text: s)
+                let reparsed = Double(s)
+                // If exact match, then default precision is sufficient:
+                if value == reparsed {
+                    append(text: s)
+                } else {
+                    let precision = DBL_DIG + 2
+                    let s = String(format: "%.*g", precision, value)
+                    append(text: s)
+                }
             }
         }
     }

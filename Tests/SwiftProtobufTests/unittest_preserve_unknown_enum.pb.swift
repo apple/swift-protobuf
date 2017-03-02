@@ -127,7 +127,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swif
 
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MyMessage"
   static let protoPackageName: String = "proto3_preserve_unknown_enum_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -173,6 +173,8 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
       o = .oneofE2(newValue)
     }
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnum)
@@ -255,6 +257,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
       try visitor.visitPackedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     try o?.traverse(visitor: &visitor, start: 5, end: 7)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessage) -> Bool {
@@ -263,11 +266,12 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Proto3Message,
     if repeatedPackedE != other.repeatedPackedE {return false}
     if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
     if o != other.o {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto3Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "MyMessagePlusExtra"
   static let protoPackageName: String = "proto3_preserve_unknown_enum_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -312,6 +316,8 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto
       o = .oneofE2(newValue)
     }
   }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: Equatable {
     case oneofE1(Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra)
@@ -394,6 +400,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto
       try visitor.visitPackedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
     }
     try o?.traverse(visitor: &visitor, start: 5, end: 7)
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra) -> Bool {
@@ -402,6 +409,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Proto
     if repeatedPackedE != other.repeatedPackedE {return false}
     if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
     if o != other.o {return false}
+    if unknownFields != other.unknownFields {return false}
     return true
   }
 }

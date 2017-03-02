@@ -73,6 +73,30 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
     }
 
+  func assertDecodeSucceeds(inputBytes bytes: [UInt8], recodedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+        do {
+            let decoded = try MessageTestType(serializedData: Data(bytes: bytes))
+            XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)
+
+            do {
+                let encoded = try decoded.serializedData()
+                XCTAssertEqual(Data(bytes: recodedBytes), encoded, "Didn't recode as expected: \(string(from: encoded)) expected: \(recodedBytes)", file: file, line: line)
+                do {
+                    let redecoded = try MessageTestType(serializedData: encoded)
+                    XCTAssert(check(redecoded), "Condition failed for redecoded \(redecoded)", file: file, line: line)
+                    XCTAssertEqual(decoded, redecoded, file: file, line: line)
+                } catch let e {
+                    XCTFail("Failed to redecode: \(e)", file: file, line: line)
+                }
+            } catch let e {
+                XCTFail("Failed to encode: \(e)\n    \(decoded)", file: file, line: line)
+            }
+        } catch let e {
+            XCTFail("Failed to decode: \(e)", file: file, line: line)
+        }
+    }
+
+
     func assertDecodeFails(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
         do {
             let _ = try MessageTestType(serializedData: Data(bytes: bytes))

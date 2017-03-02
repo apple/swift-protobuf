@@ -61,11 +61,13 @@ internal struct BinaryDecoder: Decoder {
         // the varint parser.
         if fieldNumber > 0 {
             if let override = unknownOverride {
+                assert(fieldWireFormat != .startGroup && fieldWireFormat != .endGroup)
                 if unknownData == nil {
                     unknownData = override
                 } else {
                     unknownData!.append(override)
                 }
+                unknownOverride = nil
             } else if !consumed {
                 let u = try getRawField()
                 if unknownData == nil {
@@ -787,9 +789,7 @@ internal struct BinaryDecoder: Decoder {
                     extras.append(i32)
                 }
             }
-            if extras.isEmpty {
-                unknownOverride = nil
-            } else {
+            if !extras.isEmpty {
                 let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                 var bodySize = 0
                 for v in extras {
@@ -882,23 +882,23 @@ internal struct BinaryDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1:
-                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
+                try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2:
-                _ = try ValueType.decodeSingular(value: &v, from: &subdecoder)
-            default: // Always ignore unknown fields within the map entry object
-                return
+                try ValueType.decodeSingular(value: &v, from: &subdecoder)
+            default: // Skip any other fields within the map entry object
+                try subdecoder.skip()
             }
         }
         if !subdecoder.complete {
             throw BinaryDecodingError.trailingGarbage
         }
-
-        if let k = k, let v = v {
-            value[k] = v
-            consumed = true
-        } else {
-            throw BinaryDecodingError.malformedProtobuf
-        }
+        // A map<> definition can't provide a default value for the keys/values,
+        // so it is safe to use the proto3 default to get the right
+        // integer/string/bytes. The one catch is a proto2 enum (which can be the
+        // value) can have a non zero value, but that case is the next
+        // custom decodeMapField<>() method and handles it.
+        value[k ?? KeyType.proto3DefaultValue] = v ?? ValueType.proto3DefaultValue
+        consumed = true
     }
 
     internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
@@ -914,23 +914,26 @@ internal struct BinaryDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1: // Keys are basic types
-                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
-            case 2: // Value is a message type
-                _ = try subdecoder.decodeSingularEnumField(value: &v)
-            default: // Always ignore unknown fields within the map entry object
-                return
+                try KeyType.decodeSingular(value: &k, from: &subdecoder)
+            case 2: // Value is an Enum type
+                try subdecoder.decodeSingularEnumField(value: &v)
+                if v == nil {
+                    // Decoding the enum failed, likely a proto2 syntax unknown enum
+                    // value, this whole entry goes into the parent message's
+                    // unknown fields.
+                    return
+                }
+            default: // Skip any other fields within the map entry object
+                try subdecoder.skip()
             }
         }
         if !subdecoder.complete {
             throw BinaryDecodingError.trailingGarbage
         }
-
-        if let k = k, let v = v {
-            value[k] = v
-            consumed = true
-        } else {
-            throw BinaryDecodingError.malformedProtobuf
-        }
+        // A map<> definition can't provide a default value for the keys, so it
+        // is safe to use the proto3 default to get the right integer/string/bytes.
+        value[k ?? KeyType.proto3DefaultValue] = v ?? ValueType()
+        consumed = true
     }
 
     internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
@@ -946,28 +949,25 @@ internal struct BinaryDecoder: Decoder {
             let fieldNumber = tag.fieldNumber
             switch fieldNumber {
             case 1: // Keys are basic types
-                _ = try KeyType.decodeSingular(value: &k, from: &subdecoder)
+                try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2: // Value is a message type
-                _ = try subdecoder.decodeSingularMessageField(value: &v)
-            default: // Always ignore unknown fields within the map entry object
-                return
+                try subdecoder.decodeSingularMessageField(value: &v)
+            default: // Skip any other fields within the map entry object
+                try subdecoder.skip()
             }
         }
         if !subdecoder.complete {
             throw BinaryDecodingError.trailingGarbage
         }
-
-        if let k = k, let v = v {
-            value[k] = v
-            consumed = true
-        } else {
-            throw BinaryDecodingError.malformedProtobuf
-        }
+        // A map<> definition can't provide a default value for the keys, so it
+        // is safe to use the proto3 default to get the right integer/string/bytes.
+        value[k ?? KeyType.proto3DefaultValue] = v ?? ValueType()
+        consumed = true
     }
 
     internal mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = extensions?[messageType, fieldNumber] {
-            var fieldValue = values[fieldNumber] ?? ext.newField()
+            var fieldValue = values[fieldNumber] ?? ext._protobuf_newField()
             try fieldValue.decodeExtensionField(decoder: &self)
             values[fieldNumber] = fieldValue
         }
@@ -1022,10 +1022,8 @@ internal struct BinaryDecoder: Decoder {
         case .startGroup:
             while true {
                 if let innerTag = try getTagWithoutUpdatingFieldStart() {
-                    if innerTag.fieldNumber == tag.fieldNumber {
-                        if innerTag.wireFormat == .endGroup {
-                            break
-                        }
+                    if innerTag.fieldNumber == tag.fieldNumber && innerTag.wireFormat == .endGroup {
+                        break
                     } else {
                         try skipOver(tag: innerTag)
                     }

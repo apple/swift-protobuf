@@ -15,7 +15,7 @@
 struct Version {
     static let major = 0
     static let minor = 9
-    static let revision = 28
+    static let revision = 29
     static let versionString = "\(major).\(minor).\(revision)"
 
     // The "compatibility version" of the runtime library, which must be
@@ -32,7 +32,7 @@ struct Version {
 
     static let name = "protoc-gen-swift"
     static let versionedName = "protoc-gen-swift \(versionString)"
-    static let copyright = "Copyright (C) 2014-2016 Apple Inc. and the Swift project authors"
+    static let copyright = "Copyright (C) 2014-2017 Apple Inc. and the project authors"
     static let summary = "Convert parsed proto definitions into Swift"
     static let help = (
                "Note:  This is a plugin for protoc and should not normally be run\n"

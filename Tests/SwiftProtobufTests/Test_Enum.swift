@@ -47,4 +47,26 @@ class Test_Enum: XCTestCase, PBTestHelpers {
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.enumTest2FirstValue.rawValue, 1)
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.secondValue.rawValue, 2)
     }
+
+    func testUnknownValues() throws {
+        let orig = Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.with {
+            $0.e = .eExtra
+            $0.repeatedE.append(.eExtra)
+            $0.repeatedPackedE.append(.eExtra)
+            $0.oneofE1 = .eExtra
+        }
+
+        let origSerialized = try orig.serializedData()
+        let msg = try Proto3PreserveUnknownEnumUnittest_MyMessage(serializedData: origSerialized)
+
+        // Nothing in unknowns, they should just be unrecognized.
+        XCTAssertEqual(msg.e, .UNRECOGNIZED(3))
+        XCTAssertEqual(msg.repeatedE, [.UNRECOGNIZED(3)])
+        XCTAssertEqual(msg.repeatedPackedE, [.UNRECOGNIZED(3)])
+        XCTAssertEqual(msg.o, .oneofE1(.UNRECOGNIZED(3)))
+        XCTAssertTrue(msg.unknownFields.data.isEmpty)
+
+        let msgSerialized = try msg.serializedData()
+        XCTAssertEqual(origSerialized, msgSerialized)
+    }
 }
