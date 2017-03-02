@@ -201,11 +201,6 @@ public extension Google_Protobuf_Timestamp {
         self.nanos = nanos
     }
 
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        (seconds, nanos) = try parseTimestamp(s: s)
-    }
-
     public func jsonString() throws -> String {
         if let formatted = formatTimestamp(seconds: seconds, nanos: nanos) {
             return "\"\(formatted)\""
@@ -213,10 +208,12 @@ public extension Google_Protobuf_Timestamp {
             throw JSONEncodingError.timestampRange
         }
     }
+}
 
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
+extension Google_Protobuf_Timestamp: _CustomJSONCodable {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        let s = try decoder.scanner.nextQuotedString()
+        (seconds, nanos) = try parseTimestamp(s: s)
     }
 }
 

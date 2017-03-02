@@ -29,7 +29,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
             XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
             do {
                 let decoded = try MessageTestType(textFormatString: encoded)
-                let decodedMessage = try M(any: decoded.anyField)
+                let decodedMessage = try M(unpackingAny: decoded.anyField)
                 let r = (message == decodedMessage)
                 XCTAssert(r, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
@@ -57,8 +57,8 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
 
         let a_decoded = try ProtobufUnittest_TestWellKnownTypes(textFormatString: a_encoded)
         let a_decoded_any = a_decoded.anyField
-        let a_decoded_any_any = try Google_Protobuf_Any(any: a_decoded_any)
-        let a_decoded_any_any_duration = try Google_Protobuf_Duration(any: a_decoded_any_any)
+        let a_decoded_any_any = try Google_Protobuf_Any(unpackingAny: a_decoded_any)
+        let a_decoded_any_any_duration = try Google_Protobuf_Duration(unpackingAny: a_decoded_any_any)
         XCTAssertEqual(a_decoded_any_any_duration.seconds, 123)
         XCTAssertEqual(a_decoded_any_any_duration.nanos, 234567890)
     }
@@ -75,7 +75,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         }
         do {
             let a_any = a.anyField
-            let a_duration = try Google_Protobuf_Duration(any: a_any)
+            let a_duration = try Google_Protobuf_Duration(unpackingAny: a_any)
             XCTAssertEqual(a_duration.seconds, 77)
             XCTAssertEqual(a_duration.nanos, 123456789)
         } catch let e {
@@ -92,13 +92,13 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         }
         let b_any: Google_Protobuf_Any
         do {
-            b_any = try Google_Protobuf_Any(any: b.anyField)
+            b_any = try Google_Protobuf_Any(unpackingAny: b.anyField)
         } catch let e {
             XCTFail("Any field doesn't hold an Any?: \(e)")
             return
         }
         do {
-            let b_duration = try Google_Protobuf_Duration(any: b_any)
+            let b_duration = try Google_Protobuf_Duration(unpackingAny: b_any)
             XCTAssertEqual(b_duration.seconds, 88)
             XCTAssertEqual(b_duration.nanos, 987654321)
         } catch let e {

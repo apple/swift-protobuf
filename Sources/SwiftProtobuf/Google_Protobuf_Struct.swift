@@ -45,7 +45,7 @@ public enum Google_Protobuf_NullValue: Enum, _ProtoNameProviding {
 
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
-public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding {
+public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoMessageName: String = "Struct"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
@@ -76,7 +76,7 @@ public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, Expre
         set(newValue) {fields[index] = newValue}
     }
 
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
         if decoder.scanner.skipOptionalObjectEnd() {
             return
@@ -104,11 +104,6 @@ public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, Expre
         }
         mapVisitor.encoder.endObject()
         return mapVisitor.encoder.stringResult
-    }
-
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
     }
 
     mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
@@ -143,7 +138,7 @@ public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, Expre
 ///   variants, absence of any variant indicates an error.
 ///
 ///   The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value: Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding {
+public struct Google_Protobuf_Value: Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoMessageName: String = "Value"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
@@ -263,16 +258,11 @@ public struct Google_Protobuf_Value: Message, _MessageImplementationBase, Expres
         return jsonEncoder.stringResult
     }
 
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
-
     fileprivate func serializeJSONValue(jsonEncoder: inout JSONEncoder) throws {
         try kind?.serializeJSONField(encoder: &jsonEncoder)
     }
 
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let c = try decoder.scanner.peekOneCharacter()
         switch c {
         case "n":
@@ -301,10 +291,6 @@ public struct Google_Protobuf_Value: Message, _MessageImplementationBase, Expres
 
     public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
         return kind == other.kind
-    }
-
-    public init(any: Google_Protobuf_Any) throws {
-        try any.unpackTo(target: &self)
     }
 
     public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -530,7 +516,7 @@ public struct Google_Protobuf_Value: Message, _MessageImplementationBase, Expres
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///
 ///   The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding {
+public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding, _CustomJSONCodable {
     public static let protoMessageName: String = "ListValue"
     public static let protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
@@ -577,7 +563,7 @@ public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, Ex
         return jsonEncoder.stringResult
     }
 
-    public mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         if decoder.scanner.skipOptionalNull() {
             return
         }
@@ -594,15 +580,6 @@ public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, Ex
             }
             try decoder.scanner.skipRequiredComma()
         }
-    }
-
-    public func anyJSONString() throws -> String {
-        let value = try jsonString()
-        return "{\"@type\":\"\(type(of: self).anyTypeURL)\",\"value\":\(value)}"
-    }
-
-    public init(any: Google_Protobuf_Any) throws {
-        try any.unpackTo(target: &self)
     }
 
     mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {

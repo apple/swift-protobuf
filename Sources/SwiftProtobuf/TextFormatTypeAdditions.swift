@@ -30,13 +30,9 @@ public extension Message {
         var textDecoder = try TextFormatDecoder(messageType: Self.self,
                                                 text: textFormatString,
                                                 extensions: extensions)
-        try decodeTextFormat(from: &textDecoder)
+        try decodeMessage(decoder: &textDecoder)
         if !textDecoder.complete {
             throw TextFormatDecodingError.trailingGarbage
         }
-    }
-
-    public mutating func decodeTextFormat(from decoder: inout TextFormatDecoder) throws {
-        try decodeMessage(decoder: &decoder)
     }
 }
