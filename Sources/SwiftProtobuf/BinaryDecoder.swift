@@ -1048,8 +1048,14 @@ internal struct BinaryDecoder: Decoder {
         case .startGroup:
             while true {
                 if let innerTag = try getTagWithoutUpdatingFieldStart() {
-                    if innerTag.fieldNumber == tag.fieldNumber && innerTag.wireFormat == .endGroup {
-                        break
+                    if innerTag.wireFormat == .endGroup {
+                        if innerTag.fieldNumber == tag.fieldNumber {
+                            break
+                        } else {
+                            // .endGroup for a something other than the current
+                            // group is an invalid binary.
+                            throw BinaryDecodingError.malformedProtobuf
+                        }
                     } else {
                         try skipOver(tag: innerTag)
                     }
