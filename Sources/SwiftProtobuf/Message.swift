@@ -38,8 +38,6 @@ public protocol Message: CustomDebugStringConvertible {
   // Used by various encoders and decoders
   static var protoMessageName: String { get }
   static var protoPackageName: String { get }
-  static var anyTypePrefix: String { get }
-  static var anyTypeURL: String { get }
 
   /// Check if all required fields (if any) have values set on this message
   /// on any messages withing this message.
@@ -128,20 +126,6 @@ public extension Message {
       result += "<internal error>"
     }
     return result
-  }
-
-  static var anyTypePrefix: String { return "type.googleapis.com" }
-  static var anyTypeURL: String {
-    var url = anyTypePrefix
-    if anyTypePrefix == "" || anyTypePrefix.characters.last! != "/" {
-      url += "/"
-    }
-    if protoPackageName != "" {
-      url += protoPackageName
-      url += "."
-    }
-    url += protoMessageName
-    return url
   }
 
   /// Creates an instance of the message type on which this method is called,
