@@ -952,10 +952,12 @@ internal struct BinaryDecoder: Decoder {
                 try KeyType.decodeSingular(value: &k, from: &subdecoder)
             case 2: // Value is an Enum type
                 try subdecoder.decodeSingularEnumField(value: &v)
-                if v == nil {
-                    // Decoding the enum failed, likely a proto2 syntax unknown enum
-                    // value, this whole entry goes into the parent message's
-                    // unknown fields.
+                if v == nil && tag.wireFormat == .varint {
+                    // Enum decode fail and wire format was varint, so this had to
+                    // have been a proto2 unknown enum value. This whole map entry
+                    // into the parent message's unknown fields. If the wire format
+                    // was wrong, treat it like an unknown field and drop it with
+                    // the map entry.
                     return
                 }
             default: // Skip any other fields within the map entry object
