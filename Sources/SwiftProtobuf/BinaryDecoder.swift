@@ -147,9 +147,16 @@ internal struct BinaryDecoder: Decoder {
         if fieldNumber != 0 {
             consumed = false
 
-            // Reached the end of the current group.
-            if fieldWireFormat == .endGroup && groupFieldNumber == fieldNumber {
-              return nil
+            if fieldWireFormat == .endGroup {
+                if groupFieldNumber == fieldNumber {
+                    // Reached the end of the current group, single the
+                    // end of the message.
+                    return nil
+                } else {
+                    // .endGroup when not in a group or for a different
+                    // group is an invalid binary.
+                    throw BinaryDecodingError.malformedProtobuf
+                }
             }
             return fieldNumber
         }
