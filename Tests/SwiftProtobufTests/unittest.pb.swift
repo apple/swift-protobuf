@@ -96,15 +96,13 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._P
   case foo1 // = 1
   case bar1 // = 2
   case baz // = 3
-  case foo2 // = 1
-  case bar2 // = 2
+  static let foo2 = foo1
+  static let bar2 = bar1
 
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "FOO1"),
-    2: .same(proto: "BAR1"),
+    1: .aliased(primary: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(primary: "BAR1", aliases: ["BAR2"]),
     3: .same(proto: "BAZ"),
-    1: .same(proto: "FOO2"),
-    2: .same(proto: "BAR2"),
   ]
 
   init() {
@@ -125,8 +123,6 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._P
     case .foo1: return 1
     case .bar1: return 2
     case .baz: return 3
-    case .foo2: return 1
-    case .bar2: return 2
     }
   }
 
