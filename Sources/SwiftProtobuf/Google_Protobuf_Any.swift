@@ -535,15 +535,18 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     // into an object, then reserializing back to JSON.
     internal func encodedJSONString() throws -> String {
         if let message = _message {
-            // We were initialized from a message object, means typeURL
-            // also was initialized.
+            // We were initialized from a message object.
+
+            // We should have been initialized with a typeURL, but
+            // ensure it wasn't cleared.
+            let url = typeURL ?? buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
             if let m = message as? _CustomJSONCodable {
                 // Serialize a Well-known type to JSON:
                 let value = try m.encodedJSONString()
-                return "{\"@type\":\"\(typeURL!)\",\"value\":\(value)}"
+                return "{\"@type\":\"\(url)\",\"value\":\(value)}"
             } else {
                 // Serialize a regular message to JSON:
-                return try _serializeAnyJSON(for: message, typeURL: typeURL!)
+                return try _serializeAnyJSON(for: message, typeURL: url)
             }
         } else if let typeURL = typeURL {
             if _value != nil {
