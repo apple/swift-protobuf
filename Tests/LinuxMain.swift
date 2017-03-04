@@ -406,6 +406,17 @@ extension Test_Enum {
     }
 }
 
+extension Test_EnumWithAliases {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testJSONEncodeUsesOriginalNames", {try run_test(test:($0 as! Test_EnumWithAliases).testJSONEncodeUsesOriginalNames)}),
+            ("testJSONDecodeAcceptsAllNames", {try run_test(test:($0 as! Test_EnumWithAliases).testJSONDecodeAcceptsAllNames)}),
+            ("testTextFormatEncodeUsesOriginalNames", {try run_test(test:($0 as! Test_EnumWithAliases).testTextFormatEncodeUsesOriginalNames)}),
+            ("testTextFormatDecodeAcceptsAllNames", {try run_test(test:($0 as! Test_EnumWithAliases).testTextFormatDecodeAcceptsAllNames)})
+        ]
+    }
+}
+
 extension Test_Enum_Proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1080,6 +1091,7 @@ XCTMain(
         (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
         (testCaseClass: Test_Empty.self, allTests: Test_Empty.allTests),
         (testCaseClass: Test_Enum.self, allTests: Test_Enum.allTests),
+        (testCaseClass: Test_EnumWithAliases.self, allTests: Test_EnumWithAliases.allTests),
         (testCaseClass: Test_Enum_Proto2.self, allTests: Test_Enum_Proto2.allTests),
         (testCaseClass: Test_Extensions.self, allTests: Test_Extensions.allTests),
         (testCaseClass: Test_ExtremeDefaultValues.self, allTests: Test_ExtremeDefaultValues.allTests),
