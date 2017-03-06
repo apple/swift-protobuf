@@ -14,6 +14,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+
 private let minTimestampSeconds: Int64 = -62135596800  // 0001-01-01T00:00:00Z
 private let maxTimestampSeconds: Int64 = 253402300799  // 9999-12-31T23:59:59Z
 
@@ -219,6 +220,8 @@ extension Google_Protobuf_Timestamp: _CustomJSONCodable {
 }
 
 public extension Google_Protobuf_Timestamp {
+    /// Returns a `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// UTC on 1 January 1970 by a given number of seconds.
     public init(timeIntervalSince1970: TimeInterval) {
         let sd = floor(timeIntervalSince1970)
         let nd = round((timeIntervalSince1970 - sd) * TimeInterval(nanosPerSecond))
@@ -226,6 +229,8 @@ public extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
+    /// Returns a `Google_Protobuf_Timestamp` initialized relative to 00:00:00
+    /// UTC on 1 January 2001 by a given number of seconds.
     public init(timeIntervalSinceReferenceDate: TimeInterval) {
         let sd = floor(timeIntervalSinceReferenceDate)
         let nd = round((timeIntervalSinceReferenceDate - sd) * TimeInterval(nanosPerSecond))
@@ -236,6 +241,8 @@ public extension Google_Protobuf_Timestamp {
         self.init(seconds: s, nanos: n)
     }
 
+    /// Returns a `Google_Protobuf_Timestamp` initialized to the same time as
+    /// the given `Date`.
     public init(date: Date) {
         // Note: Internally, Date uses the "reference date," not the 1970 date.
         // We use it when interacting with Dates so that Date doesn't perform
@@ -243,14 +250,19 @@ public extension Google_Protobuf_Timestamp {
         self.init(timeIntervalSinceReferenceDate: date.timeIntervalSinceReferenceDate)
     }
 
+    /// The interval between the timestamp and 00:00:00 UTC on 1 January
+    /// 1970.
     public var timeIntervalSince1970: TimeInterval {
         return TimeInterval(self.seconds) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
     }
 
+    /// The interval between the timestamp and 00:00:00 UTC on 1 January
+    /// 2001.
     public var timeIntervalSinceReferenceDate: TimeInterval {
         return TimeInterval(self.seconds - Int64(Date.timeIntervalBetween1970AndReferenceDate)) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
     }
 
+    /// A `Date` initialized to the same time as the timestamp.
     public var date: Date {
         return Date(timeIntervalSinceReferenceDate: self.timeIntervalSinceReferenceDate)
     }
