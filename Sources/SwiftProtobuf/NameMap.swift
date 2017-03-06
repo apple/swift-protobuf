@@ -66,10 +66,10 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// other.
     case unique(proto: StaticString, json: StaticString)
 
-    /// Used for enum cases only to represent a value's primary name (the first
-    /// defined case) and its aliases. The JSON and text format names for enums
-    /// are always the same.
-    case aliased(primary: StaticString, aliases: [StaticString])
+    /// Used for enum cases only to represent a value's primary proto name (the
+    /// first defined case) and its aliases. The JSON and text format names for
+    /// enums are always the same.
+    case aliased(proto: StaticString, aliases: [StaticString])
 
     // TODO: Add a case for JSON names that are computable from the proto name
     // using the same algorithm implemented by protoc; for example,
@@ -81,7 +81,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch self {
       case .same(proto: let name): return name
       case .unique(proto: let name, json: _): return name
-      case .aliased(primary: let name, aliases: _): return name
+      case .aliased(proto: let name, aliases: _): return name
       }
     }
 
@@ -90,7 +90,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch self {
       case .same(proto: let name): return name
       case .unique(proto: _, json: let name): return name
-      case .aliased(primary: let name, aliases: _): return name
+      case .aliased(proto: let name, aliases: _): return name
       }
     }
 
@@ -100,7 +100,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch self {
       case .same(proto: let name): return [name]
       case .unique(proto: let name, json: _): return [name]
-      case .aliased(primary: let name, aliases: let aliases):
+      case .aliased(proto: let name, aliases: let aliases):
         var names = [name]
         names.append(contentsOf: aliases)
         return names
@@ -113,7 +113,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch self {
       case .same(proto: let name): return [name]
       case .unique(proto: _, json: let name): return [name]
-      case .aliased(primary: let name, aliases: let aliases):
+      case .aliased(proto: let name, aliases: let aliases):
         var names = [name]
         names.append(contentsOf: aliases)
         return names

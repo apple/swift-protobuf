@@ -220,8 +220,8 @@ struct ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProt
     static let bar2 = bar1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .aliased(primary: "FOO1", aliases: ["FOO2"]),
-      2: .aliased(primary: "BAR1", aliases: ["BAR2"]),
+      1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+      2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
     ]
 
     init() {

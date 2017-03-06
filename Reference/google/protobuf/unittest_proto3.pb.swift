@@ -109,8 +109,8 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePro
 
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "TEST_ENUM_WITH_DUP_VALUE_UNSPECIFIED"),
-    1: .aliased(primary: "FOO1", aliases: ["FOO2"]),
-    2: .aliased(primary: "BAR1", aliases: ["BAR2"]),
+    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
     3: .same(proto: "BAZ"),
   ]
 
@@ -156,13 +156,13 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding
   case UNRECOGNIZED(Int)
 
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -53452: .same(proto: "SPARSE_E"),
+    -15: .same(proto: "SPARSE_D"),
     0: .same(proto: "TEST_SPARSE_ENUM_UNSPECIFIED"),
+    2: .same(proto: "SPARSE_G"),
     123: .same(proto: "SPARSE_A"),
     62374: .same(proto: "SPARSE_B"),
     12589234: .same(proto: "SPARSE_C"),
-    -15: .same(proto: "SPARSE_D"),
-    -53452: .same(proto: "SPARSE_E"),
-    2: .same(proto: "SPARSE_G"),
   ]
 
   init() {
@@ -171,26 +171,26 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding
 
   init?(rawValue: Int) {
     switch rawValue {
+    case -53452: self = .sparseE
+    case -15: self = .sparseD
     case 0: self = .testSparseEnumUnspecified
+    case 2: self = .sparseG
     case 123: self = .sparseA
     case 62374: self = .sparseB
     case 12589234: self = .sparseC
-    case -15: self = .sparseD
-    case -53452: self = .sparseE
-    case 2: self = .sparseG
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
   var rawValue: Int {
     switch self {
+    case .sparseE: return -53452
+    case .sparseD: return -15
     case .testSparseEnumUnspecified: return 0
+    case .sparseG: return 2
     case .sparseA: return 123
     case .sparseB: return 62374
     case .sparseC: return 12589234
-    case .sparseD: return -15
-    case .sparseE: return -53452
-    case .sparseG: return 2
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -747,11 +747,11 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     case UNRECOGNIZED(Int)
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      -1: .same(proto: "NEG"),
       0: .same(proto: "NESTED_ENUM_UNSPECIFIED"),
       1: .same(proto: "FOO"),
       2: .same(proto: "BAR"),
       3: .same(proto: "BAZ"),
-      -1: .same(proto: "NEG"),
     ]
 
     init() {
@@ -760,22 +760,22 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
     init?(rawValue: Int) {
       switch rawValue {
+      case -1: self = .neg
       case 0: self = .nestedEnumUnspecified
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
-      case -1: self = .neg
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Int {
       switch self {
+      case .neg: return -1
       case .nestedEnumUnspecified: return 0
       case .foo: return 1
       case .bar: return 2
       case .baz: return 3
-      case .neg: return -1
       case .UNRECOGNIZED(let i): return i
       }
     }

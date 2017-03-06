@@ -1,6 +1,6 @@
-// Tests/SwiftProtobufTests/Test_Enum.swift - Exercise generated enums
+// Tests/SwiftProtobufTests/Test_EnumWithAliases.swift - Exercise generated enums
 //
-// Copyright (c) 2014 - 2016 Apple Inc. and the project authors
+// Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
 //
 // See LICENSE.txt for license information:

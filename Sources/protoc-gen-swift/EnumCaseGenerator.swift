@@ -105,7 +105,7 @@ class EnumCaseGenerator {
         "\"\($0.wrapped!.protoName)\""
       }.joined(separator: ", ")
 
-      p.print("\(number): .aliased(primary: \"\(protoName)\", aliases: [\(aliasNames)]),\n")
+      p.print("\(number): .aliased(proto: \"\(protoName)\", aliases: [\(aliasNames)]),\n")
     }
   }
 }
