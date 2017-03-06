@@ -689,11 +689,11 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     case UNRECOGNIZED(Int)
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      -1: .same(proto: "NEG"),
       0: .same(proto: "ZERO"),
       1: .same(proto: "FOO"),
       2: .same(proto: "BAR"),
       3: .same(proto: "BAZ"),
-      -1: .same(proto: "NEG"),
     ]
 
     init() {
@@ -702,22 +702,22 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
 
     init?(rawValue: Int) {
       switch rawValue {
+      case -1: self = .neg
       case 0: self = .zero
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
-      case -1: self = .neg
       default: self = .UNRECOGNIZED(rawValue)
       }
     }
 
     var rawValue: Int {
       switch self {
+      case .neg: return -1
       case .zero: return 0
       case .foo: return 1
       case .bar: return 2
       case .baz: return 3
-      case .neg: return -1
       case .UNRECOGNIZED(let i): return i
       }
     }

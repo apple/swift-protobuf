@@ -381,8 +381,8 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
     case testOptionEnumType2 // = -23
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      22: .same(proto: "TEST_OPTION_ENUM_TYPE1"),
       -23: .same(proto: "TEST_OPTION_ENUM_TYPE2"),
+      22: .same(proto: "TEST_OPTION_ENUM_TYPE1"),
     ]
 
     init() {
@@ -391,16 +391,16 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, Swift
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 22: self = .testOptionEnumType1
       case -23: self = .testOptionEnumType2
+      case 22: self = .testOptionEnumType1
       default: return nil
       }
     }
 
     var rawValue: Int {
       switch self {
-      case .testOptionEnumType1: return 22
       case .testOptionEnumType2: return -23
+      case .testOptionEnumType1: return 22
       }
     }
 

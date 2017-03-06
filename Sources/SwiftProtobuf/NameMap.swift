@@ -66,6 +66,11 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     /// other.
     case unique(proto: StaticString, json: StaticString)
 
+    /// Used for enum cases only to represent a value's primary proto name (the
+    /// first defined case) and its aliases. The JSON and text format names for
+    /// enums are always the same.
+    case aliased(proto: StaticString, aliases: [StaticString])
+
     // TODO: Add a case for JSON names that are computable from the proto name
     // using the same algorithm implemented by protoc; for example,
     // "foo_bar" -> "fooBar". This allows us to only store the string pointer
@@ -76,6 +81,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch self {
       case .same(proto: let name): return name
       case .unique(proto: let name, json: _): return name
+      case .aliased(proto: let name, aliases: _): return name
       }
     }
 
@@ -84,6 +90,33 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
       switch self {
       case .same(proto: let name): return name
       case .unique(proto: _, json: let name): return name
+      case .aliased(proto: let name, aliases: _): return name
+      }
+    }
+
+    /// Returns the array of all text format names in this bundle. Used when
+    /// building the name-to-number dictionary.
+    fileprivate var allProtoNames: [StaticString] {
+      switch self {
+      case .same(proto: let name): return [name]
+      case .unique(proto: let name, json: _): return [name]
+      case .aliased(proto: let name, aliases: let aliases):
+        var names = [name]
+        names.append(contentsOf: aliases)
+        return names
+      }
+    }
+
+    /// Returns the array of all text format names in this bundle. Used when
+    /// building the name-to-number dictionary.
+    fileprivate var allJSONNames: [StaticString] {
+      switch self {
+      case .same(proto: let name): return [name]
+      case .unique(proto: _, json: let name): return [name]
+      case .aliased(proto: let name, aliases: let aliases):
+        var names = [name]
+        names.append(contentsOf: aliases)
+        return names
       }
     }
   }
@@ -103,18 +136,20 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   /// Creates a new bidirectional field/enum-case name/number mapping from the
   /// dictionary literal.
   public init(dictionaryLiteral elements: (Int, Names)...) {
-    for (number, name) in elements {
-      numberToNameMap[number] = name
-      let s = name.protoStaticStringName
-      let p = ASCIIName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
-      protoToNumberMap[p] = number
+    for (number, names) in elements {
+      numberToNameMap[number] = names
+      for s in names.allProtoNames {
+        let p = ASCIIName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
+        protoToNumberMap[p] = number
+      }
     }
     // JSON map includes proto names as well.
     jsonToNumberMap = protoToNumberMap
-    for (number, name) in elements {
-      let s = name.jsonStaticStringName
-      let j = ASCIIName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
-      jsonToNumberMap[j] = number
+    for (number, names) in elements {
+      for s in names.allJSONNames {
+        let j = ASCIIName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
+        jsonToNumberMap[j] = number
+      }
     }
   }
 

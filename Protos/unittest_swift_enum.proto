@@ -50,3 +50,14 @@ message SwiftEnumTest {
         ENUM_TEST_RESERVED_WORD_NOT_RESERVED = 2;
     }
 }
+
+message SwiftEnumWithAliasTest {
+    enum EnumWithAlias {
+        option allow_alias = true;
+        FOO1 = 1;
+        FOO2 = 1;
+        BAR1 = 2;
+        BAR2 = 2;
+    }
+    repeated EnumWithAlias values = 1 [packed=true];
+}
