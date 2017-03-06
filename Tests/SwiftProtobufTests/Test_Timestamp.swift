@@ -352,11 +352,76 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         XCTAssertEqual(r7.nanos, 999999999)
     }
 
-
     // TODO: Should setter correct for out-of-range
     // nanos and other minor inconsistencies?
 
-    // TODO: Consider implementing convenience
-    // setters/getters/initializers that convert to
-    // common date/time types.
+    func testInitializationByTimestamps() throws {
+        // Negative timestamp
+        let t1 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.456)
+        XCTAssertEqual(t1.seconds, -124)
+        XCTAssertEqual(t1.nanos, 544000000)
+
+        // Full precision
+        let t2 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.999999999)
+        XCTAssertEqual(t2.seconds, -124)
+        XCTAssertEqual(t2.nanos, 1)
+
+        // Round up
+        let t3 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.9999999994)
+        XCTAssertEqual(t3.seconds, -124)
+        XCTAssertEqual(t3.nanos, 1)
+
+        // Round down
+        let t4 = Google_Protobuf_Timestamp(timeIntervalSince1970: -123.9999999996)
+        XCTAssertEqual(t4.seconds, -124)
+        XCTAssertEqual(t4.nanos, 0)
+
+        let t5 = Google_Protobuf_Timestamp(timeIntervalSince1970: 0)
+        XCTAssertEqual(t5.seconds, 0)
+        XCTAssertEqual(t5.nanos, 0)
+
+        // Positive timestamp
+        let t6 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.456)
+        XCTAssertEqual(t6.seconds, 123)
+        XCTAssertEqual(t6.nanos, 456000000)
+
+        // Full precision
+        let t7 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.999999999)
+        XCTAssertEqual(t7.seconds, 123)
+        XCTAssertEqual(t7.nanos, 999999999)
+
+        // Round down
+        let t8 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999994)
+        XCTAssertEqual(t8.seconds, 123)
+        XCTAssertEqual(t8.nanos, 999999999)
+
+        // Round up
+        let t9 = Google_Protobuf_Timestamp(timeIntervalSince1970: 123.9999999996)
+        XCTAssertEqual(t9.seconds, 124)
+        XCTAssertEqual(t9.nanos, 0)
+    }
+
+    func testInitializationByReferenceTimestamp() throws {
+        let t1 = Google_Protobuf_Timestamp(timeIntervalSinceReferenceDate: 123.456)
+        XCTAssertEqual(t1.seconds, 978307323)
+        XCTAssertEqual(t1.nanos, 456000000)
+    }
+
+    func testInitializationByDates() throws {
+        let t1 = Google_Protobuf_Timestamp(date: Date(timeIntervalSinceReferenceDate: 123.456))
+        XCTAssertEqual(t1.seconds, 978307323)
+        XCTAssertEqual(t1.nanos, 456000000)
+    }
+
+    func testTimestampGetters() throws {
+        let t1 = Google_Protobuf_Timestamp(seconds: 12345678, nanos: 12345678)
+        XCTAssertEqual(t1.seconds, 12345678)
+        XCTAssertEqual(t1.nanos, 12345678)
+        // There is a lot of double arithmetic here. These values are not going
+        // to be exact, of course.
+        XCTAssertEqualWithAccuracy(t1.timeIntervalSince1970, 12345678.012345678, accuracy: 1e-30)
+        XCTAssertEqualWithAccuracy(t1.timeIntervalSinceReferenceDate, -965961521.987654322, accuracy: 1e-30)
+        let d = t1.date
+        XCTAssertEqualWithAccuracy(d.timeIntervalSinceReferenceDate, -965961521.987654322, accuracy: 1e-30)
+    }
 }

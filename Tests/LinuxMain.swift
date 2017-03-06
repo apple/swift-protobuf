@@ -1027,7 +1027,11 @@ extension Test_Timestamp {
             ("testJSON_conformance", {try run_test(test:($0 as! Test_Timestamp).testJSON_conformance)}),
             ("testSerializationFailure", {try run_test(test:($0 as! Test_Timestamp).testSerializationFailure)}),
             ("testBasicArithmetic", {try run_test(test:($0 as! Test_Timestamp).testBasicArithmetic)}),
-            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)})
+            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)}),
+            ("testInitializationByTimestamps", {try run_test(test:($0 as! Test_Timestamp).testInitializationByTimestamps)}),
+            ("testInitializationByReferenceTimestamp", {try run_test(test:($0 as! Test_Timestamp).testInitializationByReferenceTimestamp)}),
+            ("testInitializationByDates", {try run_test(test:($0 as! Test_Timestamp).testInitializationByDates)}),
+            ("testTimestampGetters", {try run_test(test:($0 as! Test_Timestamp).testTimestampGetters)})
         ]
     }
 }
