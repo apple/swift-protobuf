@@ -118,9 +118,19 @@ public extension Google_Protobuf_FieldMask {
     // It would be nice if to have an initializer that accepted Swift property
     // names, but translating between swift and protobuf/json property
     // names is not entirely deterministic.
+}
 
-    // Custom hand-rolled JSON serializer
-    public func jsonString() throws -> String {
+extension Google_Protobuf_FieldMask: _CustomJSONCodable {
+    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+        let s = try decoder.scanner.nextQuotedString()
+        if let names = parseJSONFieldNames(names: s) {
+            paths = names
+        } else {
+            throw JSONDecodingError.malformedFieldMask
+        }
+    }
+
+    func encodedJSONString() throws -> String {
         // Note:  Proto requires alphanumeric field names, so there
         // cannot be a ',' or '"' character to mess up this formatting.
         var jsonPaths = [String]()
@@ -132,16 +142,5 @@ public extension Google_Protobuf_FieldMask {
             }
         }
         return "\"" + jsonPaths.joined(separator: ",") + "\""
-    }
-}
-
-extension Google_Protobuf_FieldMask: _CustomJSONCodable {
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        if let names = parseJSONFieldNames(names: s) {
-            paths = names
-        } else {
-            throw JSONDecodingError.malformedFieldMask
-        }
     }
 }

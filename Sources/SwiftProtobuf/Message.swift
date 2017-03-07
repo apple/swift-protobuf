@@ -92,13 +92,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// behaviors for specific encodings, but the general idea is quite simple.
   func traverse<V: Visitor>(visitor: inout V) throws
 
-  //
-  // JSON encoding/decoding support
-  //
-
-  /// Returns a JSON-coded representation of this object as a String.
-  func jsonString() throws -> String
-
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.
   // They are implemented in the protocol, not in the generated structs,

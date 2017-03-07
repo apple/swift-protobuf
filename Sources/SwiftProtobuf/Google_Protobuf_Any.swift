@@ -523,12 +523,12 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     //  * The protobuf field we were deserialized from.
     // The last case requires locating the type, deserializing
     // into an object, then reserializing back to JSON.
-    public func jsonString() throws -> String {
+    internal func encodedJSONString() throws -> String {
         if let message = _message {
             // We were initialized from a message object
-            if message is _CustomJSONCodable {
+            if let m = message as? _CustomJSONCodable {
                 // Serialize a Well-known type to JSON:
-                let value = try message.jsonString()
+                let value = try m.encodedJSONString()
                 return "{\"@type\":\"\(type(of: message).anyTypeURL)\",\"value\":\(value)}"
             } else {
                 // Serialize a regular message to JSON:

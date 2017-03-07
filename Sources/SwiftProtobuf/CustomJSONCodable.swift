@@ -14,7 +14,8 @@
 
 import Foundation
 
-// Allows WKTs to provide their custom JSON encodings. Type"
+/// Allows WKTs to provide their custom JSON encodings.
 internal protocol _CustomJSONCodable {
+    func encodedJSONString() throws -> String
     mutating func decodeJSON(from: inout JSONDecoder) throws
 }
