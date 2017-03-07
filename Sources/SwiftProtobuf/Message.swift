@@ -108,11 +108,6 @@ public protocol Message: CustomDebugStringConvertible {
   var debugDescription: String { get }
 }
 
-// This is essentially a synonym for "Well-Known Type"
-internal protocol _CustomJSONCodable {
-    mutating func decodeJSON(from: inout JSONDecoder) throws
-}
-
 public extension Message {
 
   var isInitialized: Bool {
