@@ -23,10 +23,10 @@ public extension Message {
     ///
     /// - Parameters:
     ///   - partial: The binary serialization format requires all `required` fields
-    ///     be present; when `partial` is `false`, `EncodingError.missingRequiredFields`
-    ///     is throw if any were missing. When `partial` is `true`, then partial
+    ///     be present; when `partial` is `false`, `BinaryEncodingError.missingRequiredFields`
+    ///     is thrown if any were missing. When `partial` is `true`, then partial
     ///     messages are allowed, and `Message.isRequired` is not checked.
-    /// - Throws: An instance of `EncodingError` on failure .
+    /// - Throws: An instance of `BinaryEncodingError` on failure.
     func serializedData(partial: Bool = false) throws -> Data {
         if !partial && !isInitialized {
             throw BinaryEncodingError.missingRequiredFields
