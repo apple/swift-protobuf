@@ -135,16 +135,10 @@ extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 
     public init(floatLiteral value: Double) {
-        // TODO: this rounds the nanos part towards zero, not to the nearest
-        // integer. So, 1.9999999999999... will get (1, 999999999), not 2. I
-        // believe this is OK in this case because the inputs are literals, so
-        // the programmer needed to actually type a lot of nines to get here,
-        // but it's a little weird that this is different than the conversion
-        // that happens for TimeInterval.
-        let seconds = Int64(value)  // rounded towards zero
-        let fractionalSeconds = value - Double(seconds)
-        let nanos = Int32(fractionalSeconds * Double(nanosPerSecond))
-        self.init(seconds: seconds, nanos: nanos)
+        let sd = trunc(value)
+        let nd = round((value - sd) * TimeInterval(nanosPerSecond))
+        let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
+        self.init(seconds: s, nanos: n)
     }
 }
 

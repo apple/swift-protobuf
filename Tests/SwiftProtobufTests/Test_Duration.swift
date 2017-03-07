@@ -193,9 +193,8 @@ class Test_Duration: XCTestCase, PBTestHelpers {
         XCTAssertEqual(a, Google_Protobuf_Duration(seconds: 100, nanos: 1))
         a = 1.9999999991
         XCTAssertEqual(a, Google_Protobuf_Duration(seconds: 1, nanos: 999999999))
-        // See TODO in code--should this be rounded to nearest instead?
         a = 1.9999999999
-        XCTAssertEqual(a, Google_Protobuf_Duration(seconds: 1, nanos: 999999999))
+        XCTAssertEqual(a, Google_Protobuf_Duration(seconds: 2, nanos: 0))
 
         var c = ProtobufTestMessages_Proto3_TestAllTypes()
         c.optionalDuration = 100.000000001
