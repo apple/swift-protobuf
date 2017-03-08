@@ -12,6 +12,12 @@
 ///
 // -----------------------------------------------------------------------------
 
+#if os(Linux)
+// Linux doesn't seem to define these by default.
+internal let FLT_DIG=6
+internal let DBL_DIG=15
+#endif
+
 /// Remainder in standard modular arithmetic (modulo). This coincides with (%)
 /// when a > 0.
 ///
