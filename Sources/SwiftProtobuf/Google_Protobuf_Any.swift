@@ -78,6 +78,19 @@ fileprivate func typeName(fromMessage message: Message) -> String {
     }
 }
 
+/// Traversal-based JSON encoding of a standard message type
+/// This mimics the standard JSON message encoding logic, but adds
+/// the additional `@type` field.
+fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
+    var visitor = JSONEncodingVisitor(message: message)
+    visitor.encoder.startObject()
+    visitor.encoder.startField(name: "@type")
+    visitor.encoder.putStringValue(value: typeURL)
+    try message.traverse(visitor: &visitor)
+    visitor.encoder.endObject()
+    return visitor.stringResult
+}
+
 public extension Message {
   /// Initialize this message from the provided `google.protobuf.Any`
   /// well-known type.
@@ -513,19 +526,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         }
     }
 
-    /// Traversal-based JSON encoding of a standard message type
-    /// This mimics the standard JSON message encoding logic, but adds
-    /// the additional `@type` field.
-    private func _serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
-        var visitor = JSONEncodingVisitor(message: message)
-        visitor.encoder.startObject()
-        visitor.encoder.startField(name: "@type")
-        visitor.encoder.putStringValue(value: typeURL)
-        try message.traverse(visitor: &visitor)
-        visitor.encoder.endObject()
-        return visitor.stringResult
-    }
-
     // Override the traversal-based JSON encoding
     // This builds an Any JSON representation from one of:
     //  * The message we were initialized with,
@@ -546,7 +546,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 return "{\"@type\":\"\(url)\",\"value\":\(value)}"
             } else {
                 // Serialize a regular message to JSON:
-                return try _serializeAnyJSON(for: message, typeURL: url)
+                return try serializeAnyJSON(for: message, typeURL: url)
             }
         } else if let typeURL = typeURL {
             if _value != nil {
@@ -564,7 +564,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 // Otherwise, it may be a registered type:
                 if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
                     let m = try messageType.init(unpackingAny: self)
-                    return try _serializeAnyJSON(for: m, typeURL: typeURL)
+                    return try serializeAnyJSON(for: m, typeURL: typeURL)
                 }
 
                 // If we don't have the type available, we can't decode the
