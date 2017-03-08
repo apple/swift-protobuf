@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAny"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestAny"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "int32_value", json: "int32Value"),
     2: .unique(proto: "any_value", json: "anyValue"),

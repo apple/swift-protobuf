@@ -95,8 +95,8 @@ enum Proto3MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
 
 ///   Tests maps.
 struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
     2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
@@ -376,8 +376,8 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 }
 
 struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMapSubmessage"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestMapSubmessage"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "test_map", json: "testMap"),
   ]
@@ -455,8 +455,8 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMessageMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestMessageMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_message", json: "mapInt32Message"),
   ]
@@ -496,8 +496,8 @@ struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
 ///   Two map fields share the same entry default instance.
 struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestSameTypeMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestSameTypeMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "map1"),
     2: .same(proto: "map2"),
@@ -544,8 +544,8 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestArenaMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestArenaMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
     2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
@@ -698,8 +698,8 @@ struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 ///   Previously, message containing enum called Type cannot be used as value of
 ///   map field.
 struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MessageContainingEnumCalledType"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "MessageContainingEnumCalledType"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
   ]
@@ -768,8 +768,8 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtob
 
 ///   Previously, message cannot contain map field called "entry".
 struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MessageContainingMapCalledEntry"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "MessageContainingMapCalledEntry"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entry"),
   ]

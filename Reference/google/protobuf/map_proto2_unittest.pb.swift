@@ -124,8 +124,8 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf.
 }
 
 struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestEnumMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestEnumMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .unique(proto: "known_map_field", json: "knownMapField"),
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
@@ -172,8 +172,8 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestEnumMapPlusExtra"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestEnumMapPlusExtra"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .unique(proto: "known_map_field", json: "knownMapField"),
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
@@ -220,8 +220,8 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
 }
 
 struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestImportEnumMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestImportEnumMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "import_enum_amp", json: "importEnumAmp"),
   ]
@@ -260,8 +260,8 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestIntIntMap"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestIntIntMap"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "m"),
   ]
@@ -301,8 +301,8 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 ///   Test all key types: string, plus the non-floating-point scalars.
 struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMaps"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestMaps"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "m_int32", json: "mInt32"),
     2: .unique(proto: "m_int64", json: "mInt64"),

@@ -36,8 +36,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestFieldOrderings"
-  static let protoPackageName: String = "swift.protobuf"
+  static let _protobuf_protoMessageName: String = "TestFieldOrderings"
+  static let _protobuf_protoPackageName: String = "swift.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .unique(proto: "my_string", json: "myString"),
     1: .unique(proto: "my_int", json: "myInt"),
@@ -254,8 +254,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "swift.protobuf"
+    static let _protobuf_protoMessageName: String = "NestedMessage"
+    static let _protobuf_protoPackageName: String = "swift.protobuf"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       2: .same(proto: "oo"),
       1: .same(proto: "bb"),

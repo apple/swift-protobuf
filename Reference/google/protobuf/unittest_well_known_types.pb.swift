@@ -23,8 +23,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
 struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestWellKnownTypes"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "TestWellKnownTypes"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "any_field", json: "anyField"),
     2: .unique(proto: "api_field", json: "apiField"),
@@ -446,8 +446,8 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 
 ///   A repeated field for each well-known type.
 struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "RepeatedWellKnownTypes"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "RepeatedWellKnownTypes"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "any_field", json: "anyField"),
     2: .unique(proto: "api_field", json: "apiField"),
@@ -741,8 +741,8 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 }
 
 struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "OneofWellKnownTypes"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "OneofWellKnownTypes"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "any_field", json: "anyField"),
     2: .unique(proto: "api_field", json: "apiField"),
@@ -1310,8 +1310,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
 struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MapWellKnownTypes"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "MapWellKnownTypes"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "any_field", json: "anyField"),
     2: .unique(proto: "api_field", json: "apiField"),

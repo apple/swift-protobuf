@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessageLite"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+  static let _protobuf_protoMessageName: String = "ForeignMessageLite"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest_no_arena"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]

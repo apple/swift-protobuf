@@ -49,8 +49,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Message2"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "Message2"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -1163,8 +1163,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "OptionalGroup"
-    static let protoPackageName: String = "protobuf_unittest"
+    static let _protobuf_protoMessageName: String = "OptionalGroup"
+    static let _protobuf_protoPackageName: String = "protobuf_unittest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       17: .same(proto: "a"),
     ]
@@ -1213,8 +1213,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "RepeatedGroup"
-    static let protoPackageName: String = "protobuf_unittest"
+    static let _protobuf_protoMessageName: String = "RepeatedGroup"
+    static let _protobuf_protoPackageName: String = "protobuf_unittest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       47: .same(proto: "a"),
     ]
@@ -1263,8 +1263,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 
   struct OneofGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "OneofGroup"
-    static let protoPackageName: String = "protobuf_unittest"
+    static let _protobuf_protoMessageName: String = "OneofGroup"
+    static let _protobuf_protoPackageName: String = "protobuf_unittest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       67: .same(proto: "a"),
       167: .same(proto: "b"),
@@ -1648,8 +1648,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 //  These allow testing where a StorageClass is and isn't used.
 
 struct ProtobufUnittest_Msg2NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Msg2NoStorage"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "Msg2NoStorage"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1676,8 +1676,8 @@ struct ProtobufUnittest_Msg2NoStorage: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Msg2UsesStorage"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let _protobuf_protoMessageName: String = "Msg2UsesStorage"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "y"),
   ]
