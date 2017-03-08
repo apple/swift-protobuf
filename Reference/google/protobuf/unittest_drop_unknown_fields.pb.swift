@@ -116,7 +116,7 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if int32Value != 0 {
       try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
     }
@@ -209,7 +209,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if int32Value != 0 {
       try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
     }

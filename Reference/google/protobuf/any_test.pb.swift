@@ -126,7 +126,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if _storage._int32Value != 0 {
         try visitor.visitSingularInt32Field(value: _storage._int32Value, fieldNumber: 1)

@@ -83,7 +83,7 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
       try visitor.visitSingularDoubleField(value: value, fieldNumber: 1)
     }
@@ -127,7 +127,7 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
       try visitor.visitSingularFloatField(value: value, fieldNumber: 1)
     }
@@ -171,7 +171,7 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
       try visitor.visitSingularInt64Field(value: value, fieldNumber: 1)
     }
@@ -215,7 +215,7 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
       try visitor.visitSingularUInt64Field(value: value, fieldNumber: 1)
     }
@@ -259,7 +259,7 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
       try visitor.visitSingularInt32Field(value: value, fieldNumber: 1)
     }
@@ -303,7 +303,7 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != 0 {
       try visitor.visitSingularUInt32Field(value: value, fieldNumber: 1)
     }
@@ -347,7 +347,7 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if value != false {
       try visitor.visitSingularBoolField(value: value, fieldNumber: 1)
     }
@@ -391,7 +391,7 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !value.isEmpty {
       try visitor.visitSingularStringField(value: value, fieldNumber: 1)
     }
@@ -435,7 +435,7 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !value.isEmpty {
       try visitor.visitSingularBytesField(value: value, fieldNumber: 1)
     }

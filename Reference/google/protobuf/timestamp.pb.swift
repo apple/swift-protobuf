@@ -136,7 +136,7 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if seconds != 0 {
       try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
     }
