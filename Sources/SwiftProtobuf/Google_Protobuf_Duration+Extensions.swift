@@ -113,20 +113,19 @@ public extension Google_Protobuf_Duration {
         self.seconds = seconds
         self.nanos = nanos
     }
-
-    public func jsonString() throws -> String {
-        if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
-            return "\"\(formatted)\""
-        } else {
-            throw JSONEncodingError.durationRange
-        }
-    }
 }
 
 extension Google_Protobuf_Duration: _CustomJSONCodable {
     mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         let s = try decoder.scanner.nextQuotedString()
         (seconds, nanos) = try parseDuration(text: s)
+    }
+    func encodedJSONString() throws -> String {
+        if let formatted = formatDuration(seconds: seconds, nanos: nanos) {
+            return "\"\(formatted)\""
+        } else {
+            throw JSONEncodingError.durationRange
+        }
     }
 }
 

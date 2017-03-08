@@ -44,6 +44,16 @@ public enum AnyUnpackError: Error {
     case missingFieldNames
 }
 
+fileprivate let defaultTypePrefix: String = "type.googleapis.com"
+
+fileprivate func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
+  var url = typePrefix
+  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
+    url += "/"
+  }
+  return url + typeName(fromMessage: message)
+}
+
 fileprivate func typeName(fromURL s: String) -> String {
     var typeStart = s.startIndex
     var i = typeStart
@@ -61,11 +71,24 @@ fileprivate func typeName(fromURL s: String) -> String {
 fileprivate func typeName(fromMessage message: Message) -> String {
     let msgType = type(of: message)
     let protoPackageName = msgType.protoPackageName
-    if protoPackageName == "" {
+    if protoPackageName.isEmpty {
         return msgType.protoMessageName
     } else {
         return "\(protoPackageName).\(msgType.protoMessageName)"
     }
+}
+
+/// Traversal-based JSON encoding of a standard message type
+/// This mimics the standard JSON message encoding logic, but adds
+/// the additional `@type` field.
+fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
+    var visitor = JSONEncodingVisitor(message: message)
+    visitor.encoder.startObject()
+    visitor.encoder.startField(name: "@type")
+    visitor.encoder.putStringValue(value: typeURL)
+    try message.traverse(visitor: &visitor)
+    visitor.encoder.endObject()
+    return visitor.stringResult
 }
 
 public extension Message {
@@ -308,9 +331,9 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     /// needs to be serialized.  This design avoids unnecessary
     /// decoding/recoding when writing JSON format.
     ///
-    public init(message: Message) {
+    public init(message: Message, typePrefix: String = defaultTypePrefix) {
         _message = message
-        typeURL = type(of: message).anyTypeURL
+        typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
     }
 
     /// Decode an Any object from Protobuf Text Format.
@@ -427,7 +450,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
             throw AnyUnpackError.emptyAnyField
         }
         let encodedType = typeName(fromURL: typeURL!)
-        if encodedType == "" {
+        if encodedType.isEmpty {
             throw AnyUnpackError.malformedTypeURL
         }
         let messageType = typeName(fromMessage: target)
@@ -506,19 +529,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         }
     }
 
-    /// Traversal-based JSON encoding of a standard message type
-    /// This mimics the standard JSON message encoding logic, but adds
-    /// the additional `@type` field.
-    private func _serializeAnyJSON(for message: Message) throws -> String {
-        var visitor = JSONEncodingVisitor(message: message)
-        visitor.encoder.startObject()
-        visitor.encoder.startField(name: "@type")
-        visitor.encoder.putStringValue(value: type(of: message).anyTypeURL)
-        try message.traverse(visitor: &visitor)
-        visitor.encoder.endObject()
-        return visitor.stringResult
-    }
-
     // Override the traversal-based JSON encoding
     // This builds an Any JSON representation from one of:
     //  * The message we were initialized with,
@@ -526,16 +536,20 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     //  * The protobuf field we were deserialized from.
     // The last case requires locating the type, deserializing
     // into an object, then reserializing back to JSON.
-    public func jsonString() throws -> String {
+    internal func encodedJSONString() throws -> String {
         if let message = _message {
-            // We were initialized from a message object
-            if message is _CustomJSONCodable {
+            // We were initialized from a message object.
+
+            // We should have been initialized with a typeURL, but
+            // ensure it wasn't cleared.
+            let url = typeURL ?? buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+            if let m = message as? _CustomJSONCodable {
                 // Serialize a Well-known type to JSON:
-                let value = try message.jsonString()
-                return "{\"@type\":\"\(type(of: message).anyTypeURL)\",\"value\":\(value)}"
+                let value = try m.encodedJSONString()
+                return "{\"@type\":\"\(url)\",\"value\":\(value)}"
             } else {
                 // Serialize a regular message to JSON:
-                return try _serializeAnyJSON(for: message)
+                return try serializeAnyJSON(for: message, typeURL: url)
             }
         } else if let typeURL = typeURL {
             if _value != nil {
@@ -548,12 +562,12 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
                     let m = try messageType.init(unpackingAny: self)
                     let value = try m.jsonString()
-                    return "{\"@type\":\"\(type(of: m).anyTypeURL)\",\"value\":\(value)}"
+                    return "{\"@type\":\"\(typeURL)\",\"value\":\(value)}"
                 }
                 // Otherwise, it may be a registered type:
                 if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
                     let m = try messageType.init(unpackingAny: self)
-                    return try _serializeAnyJSON(for: m)
+                    return try serializeAnyJSON(for: m, typeURL: typeURL)
                 }
 
                 // If we don't have the type available, we can't decode the
@@ -598,7 +612,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     // Caveat:  This can be very expensive.  We should consider organizing
     // the code generation so that generated equality tests check Any fields last.
     public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
-        if ((typeURL != nil && typeURL != "") || (other.typeURL != nil && other.typeURL != "")) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
+        if ((typeURL != nil && !typeURL!.isEmpty) || (other.typeURL != nil && !other.typeURL!.isEmpty)) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
             return false
         }
 

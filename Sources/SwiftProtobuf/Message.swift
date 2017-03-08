@@ -48,13 +48,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// The name of the protobuf package from the original .proto file.
   static var protoPackageName: String { get }
 
-  /// The prefix used for this message's type when encoded as an `Any`.
-  static var anyTypePrefix: String { get }
-
-  /// The fully qualifed name used for this message's type when encoded as an
-  /// `Any`.
-  static var anyTypeURL: String { get }
-
   /// Check if all required fields (if any) have values set on this message,
   /// including any messages within this message.
   var isInitialized: Bool { get }
@@ -118,13 +111,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// behaviors for specific encodings, but the general idea is quite simple.
   func traverse<V: Visitor>(visitor: inout V) throws
 
-  //
-  // JSON encoding/decoding support
-  //
-
-  /// Returns a JSON-encoded representation of this object as a `String`.
-  func jsonString() throws -> String
-
   // Standard utility properties and methods.
   // Most of these are simple wrappers on top of the visitor machinery.
   // They are implemented in the protocol, not in the generated structs,
@@ -139,11 +125,6 @@ public protocol Message: CustomDebugStringConvertible {
   /// debugging, for conformance with the `CustomDebugStringConvertible`
   /// protocol.
   var debugDescription: String { get }
-}
-
-// This is essentially a synonym for "Well-Known Type"
-internal protocol _CustomJSONCodable {
-    mutating func decodeJSON(from: inout JSONDecoder) throws
 }
 
 public extension Message {
@@ -187,25 +168,6 @@ public extension Message {
       result += "<internal error>"
     }
     return result
-  }
-
-  /// The literal `type.googleapis.com`; may be overridden if your
-  /// message's type should be encoded differently.
-  static var anyTypePrefix: String { return "type.googleapis.com" }
-
-  /// A type URL of the form `anyTypePrefix/protoPackageName.protoMessageName`;
-  /// may be overridden if your message's type should be encoded differently.
-  static var anyTypeURL: String {
-    var url = anyTypePrefix
-    if anyTypePrefix == "" || anyTypePrefix.characters.last! != "/" {
-      url += "/"
-    }
-    if protoPackageName != "" {
-      url += protoPackageName
-      url += "."
-    }
-    url += protoMessageName
-    return url
   }
 
   /// Creates an instance of the message type on which this method is called,
