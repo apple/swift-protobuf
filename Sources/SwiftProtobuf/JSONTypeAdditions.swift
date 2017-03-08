@@ -36,8 +36,11 @@ public extension Message {
     /// - Throws: an instance of `JSONDecodingError` if the JSON cannot be
     ///   decoded.
     public init(jsonString: String) throws {
-        let data = jsonString.data(using: String.Encoding.utf8)!
-        try self.init(jsonUTF8Data: data)
+        if let data = jsonString.data(using: String.Encoding.utf8) {
+            try self.init(jsonUTF8Data: data)
+        } else {
+            throw JSONDecodingError.truncated
+        }
     }
 
     /// Creates an instance of the message by deserializing the given
