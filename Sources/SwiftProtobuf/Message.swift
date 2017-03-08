@@ -71,7 +71,9 @@ public protocol Message: CustomDebugStringConvertible {
   /// The `Message` will call the Decoder method corresponding
   /// to the declared type of the field.
   ///
-  /// This is the core method used by the deserialization machinery.
+  /// This is the core method used by the deserialization machinery. It is
+  /// `public` to enable users to implement their own encoding formats; it
+  /// should not be called otherwise.
   ///
   /// Note that this is not specific to protobuf encoding; formats that use
   /// textual identifiers translate those to fieldNumbers and then invoke
@@ -94,6 +96,9 @@ public protocol Message: CustomDebugStringConvertible {
   /// This is generally a simple loop that repeatedly gets the next
   /// field number from `decoder.nextFieldNumber()` and
   /// then invokes `decodeField` above.
+  ///
+  /// If you're not implementing a custom encoding format, you probably
+  /// shouldn't call this.
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
   /// Traverses the fields of the message, calling the appropriate methods
