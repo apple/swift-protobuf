@@ -6,41 +6,50 @@
 // See LICENSE.txt for license information:
 // https://github.com/apple/swift-protobuf/blob/master/LICENSE.txt
 //
-// -----------------------------------------------------------------------------
-///
-/// All messages implement some of these protocols:  Generated messages output
-/// by protoc implement ProtobufGeneratedMessageType, hand-coded messages often
-/// implement ProtobufAbstractMessage.  The protocol heirarchy here is
-/// a little involved due to the variety of requirements and the need to
-/// mix in JSON and binary support (see ProtobufBinaryTypes and
-/// ProtobufJSONTypes for extensions that support binary and JSON coding).
-///
-// -----------------------------------------------------------------------------
 
-
-///
-/// See ProtobufBinaryTypes and ProtobufJSONTypes for extensions
-/// to these protocols for supporting binary and JSON coding.
-///
-
-///
-/// ProtobufMessage is the protocol type you should use whenever
+/// The protocol which all generated protobuf messages implement.
+/// `Message` is the protocol type you should use whenever
 /// you need an argument or variable which holds "some message".
 ///
-/// In particular, this has no associated types or self references so can be
-/// used as a variable or argument type.
+/// Generated messages also implement `Hashable`, and thus `Equatable`.
+/// However, the protocol conformance is declared on a different protocol.
+/// This allows you to use `Message` as a type directly:
 ///
+///     func consume(message: Message) { ... }
+///
+/// Instead of needing to use it as a type constraint on a generic declaration:
+///
+///     func consume<M: Message>(message: M) { ... }
+///
+/// If you need to convince the compiler that your message is `Hashable` so
+/// you can insert it into a `Set` or use it as a `Dictionary` key, use
+/// a generic declaration with a type constraint:
+///
+///     func insertIntoSet<M: Message & Hashable>(message: M) {
+///         mySet.insert(message)
+///     }
+///
+/// The actual functionality is implemented either in the generated code or in
+/// default implementations of the below methods and properties. Some of them,
+/// including `hashValue` and `debugDescription`, are designed to let you
+/// override the functionality in custom extensions to the generated code.
 public protocol Message: CustomDebugStringConvertible {
+  /// Creates an instance of the message with all fields initialized to
+  /// their default values.
   init()
 
   // Metadata
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
+
+  /// The name of the message from the original .proto file.
   static var protoMessageName: String { get }
+
+  /// The name of the protobuf package from the original .proto file.
   static var protoPackageName: String { get }
 
-  /// Check if all required fields (if any) have values set on this message
-  /// on any messages withing this message.
+  /// Check if all required fields (if any) have values set on this message,
+  /// including any messages within this message.
   var isInitialized: Bool { get }
 
   /// Some formats include enough information to transport fields that were
@@ -52,10 +61,12 @@ public protocol Message: CustomDebugStringConvertible {
   //
 
   /// Decode a field identified by a field number (as given in the .proto file).
-  /// The Message will call the Decoder method corresponding
+  /// The `Message` will call the Decoder method corresponding
   /// to the declared type of the field.
   ///
-  /// This is the core method used by the deserialization machinery.
+  /// This is the core method used by the deserialization machinery. It is
+  /// `public` to enable users to implement their own encoding formats; it
+  /// should not be called otherwise.
   ///
   /// Note that this is not specific to protobuf encoding; formats that use
   /// textual identifiers translate those to fieldNumbers and then invoke
@@ -65,6 +76,12 @@ public protocol Message: CustomDebugStringConvertible {
   /// semantics for messages with heap storage; it should only be called on
   /// newly-created messages or messages where the storage has been ensured
   /// unique.
+  ///
+  /// - Parameters:
+  ///   - decoder: a `Decoder`; the `Message` will call the method
+  ///     corresponding to the type of this field.
+  ///   - protoFieldNumber: the number of the field to decode.
+  /// - Throws: an error on failure or type mismatch.
   mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
 
   /// Decode all of the fields from the given decoder.
@@ -72,20 +89,24 @@ public protocol Message: CustomDebugStringConvertible {
   /// This is generally a simple loop that repeatedly gets the next
   /// field number from `decoder.nextFieldNumber()` and
   /// then invokes `decodeField` above.
+  ///
+  /// If you're not implementing a custom encoding format, you probably
+  /// shouldn't call this.
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
-  /// Support for traversing the object tree.
+  /// Traverses the fields of the message, calling the appropriate methods
+  /// of the passed `Visitor` object.
   ///
-  /// This is used by:
-  /// = Protobuf binary serialization
-  /// = JSON serialization (with some twists to account for specialty JSON
-  ///   encodings)
-  /// = Protouf Text serialization
-  /// = hashValue computation
+  /// This is used internally by:
+  ///
+  /// * Protobuf binary serialization
+  /// * JSON serialization (with some twists to account for specialty JSON
+  /// * Protobuf Text serialization
+  /// * `hashValue` computation
   ///
   /// Conceptually, serializers create visitor objects that are
   /// then passed recursively to every message and field via generated
-  /// 'traverse' methods.  The details get a little involved due to
+  /// `traverse` methods.  The details get a little involved due to
   /// the need to allow particular messages to override particular
   /// behaviors for specific encodings, but the general idea is quite simple.
   func traverse<V: Visitor>(visitor: inout V) throws
@@ -95,23 +116,44 @@ public protocol Message: CustomDebugStringConvertible {
   // They are implemented in the protocol, not in the generated structs,
   // so can be overridden in user code by defining custom extensions to
   // the generated struct.
+
+  /// The hash value generated from this message's contents, for conformance
+  /// with the `Hashable` protocol.
   var hashValue: Int { get }
+
+  /// A textual representation of this message's contents suitable for
+  /// debugging, for conformance with the `CustomDebugStringConvertible`
+  /// protocol.
   var debugDescription: String { get }
 }
 
 public extension Message {
 
+  /// If the generated code needs to provide its own implementation, usually
+  /// because the underlying `.proto` file uses proto2 syntax, it will provide
+  /// its own implementation. Generally, users of the generated code should
+  /// not.
   var isInitialized: Bool {
     // The generated code will include a specialization as needed.
     return true;
   }
 
+  /// A hash based on the message's full contents. Can be overridden
+  /// to improve performance and/or remove some values from being used for the
+  /// hash.
+  ///
+  /// If you override this, make sure you maintain the property that values
+  /// which are `==` to each other have identical `hashValues`, providing a
+  /// custom implementation of `==` if necessary.
   var hashValue: Int {
     var visitor = HashVisitor()
     try? traverse(visitor: &visitor)
     return visitor.hashValue
   }
 
+  /// A description generated by recursively visiting all fields in the message,
+  /// including messages. May be overridden to improve readability and/or
+  /// performance.
   var debugDescription: String {
     // TODO Ideally there would be something like serializeText() that can
     // take a prefix so we could do something like:

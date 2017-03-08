@@ -106,6 +106,9 @@ public extension Message {
   ///
   /// See `Google_Protobuf_Any.unpackTo()` for more discussion.
   ///
+  /// - Parameter unpackingAny: the message to decode.
+  /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
+  ///   `BinaryDecodingError` on failure.
   public init(unpackingAny: Google_Protobuf_Any) throws {
     self.init()
     try unpackingAny.unpackTo(target: &self)

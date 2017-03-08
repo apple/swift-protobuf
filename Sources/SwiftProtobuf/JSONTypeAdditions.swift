@@ -15,9 +15,9 @@
 
 import Foundation
 
-///
-/// Messages
-///
+//
+// Messages
+//
 public extension Message {
     func jsonString() throws -> String {
         if let m = self as? _CustomJSONCodable {
@@ -30,11 +30,21 @@ public extension Message {
         return visitor.stringResult
     }
 
+    /// Creates an instance of the message by deserializing the given
+    /// JSON-format `String`.
+    ///
+    /// - Throws: an instance of `JSONDecodingError` if the JSON cannot be
+    ///   decoded.
     public init(jsonString: String) throws {
         let data = jsonString.data(using: String.Encoding.utf8)!
         try self.init(jsonUTF8Data: data)
     }
 
+    /// Creates an instance of the message by deserializing the given
+    /// `Data` as UTF-8 encoded JSON.
+    ///
+    /// - Throws: an instance of `JSONDecodingError` if the JSON cannot be
+    ///   decoded.
     public init(jsonUTF8Data: Data) throws {
         self.init()
         try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
