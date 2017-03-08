@@ -276,7 +276,7 @@ struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !paths.isEmpty {
       try visitor.visitRepeatedStringField(value: paths, fieldNumber: 1)
     }

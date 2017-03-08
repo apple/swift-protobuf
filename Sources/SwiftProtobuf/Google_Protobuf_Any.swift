@@ -650,7 +650,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         return false
     }
 
-    public func _protobuf_generated_traverse<V: Visitor>(visitor: inout V) throws {
+    public func traverse<V: Visitor>(visitor: inout V) throws {
         if let typeURL = typeURL {
             try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
             // Try to generate bytes for this field...

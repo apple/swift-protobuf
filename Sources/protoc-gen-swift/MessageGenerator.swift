@@ -438,11 +438,11 @@ class MessageGenerator {
     return "\(first)...\(last)"
   }
 
-  /// Generates the `_protobuf_generated_traverse` method for the message.
+  /// Generates the `traverse` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    p.print("\(visibility)func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
+    p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
       var ranges = descriptor.extensionRange.makeIterator()

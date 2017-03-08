@@ -214,7 +214,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try payload?.traverse(visitor: &visitor, start: 1, end: 3)
     if requestedOutputFormat != Conformance_WireFormat.unspecified {
       try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
@@ -443,7 +443,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try result?.traverse(visitor: &visitor, start: 1, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }

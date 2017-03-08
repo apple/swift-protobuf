@@ -197,7 +197,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -502,7 +502,7 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if kind != Google_Protobuf_Field.Kind.typeUnknown {
       try visitor.visitSingularEnumField(value: kind, fieldNumber: 1)
     }
@@ -653,7 +653,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)
@@ -727,7 +727,7 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !name.isEmpty {
       try visitor.visitSingularStringField(value: name, fieldNumber: 1)
     }
@@ -827,7 +827,7 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._name.isEmpty {
         try visitor.visitSingularStringField(value: _storage._name, fieldNumber: 1)

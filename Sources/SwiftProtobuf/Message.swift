@@ -213,19 +213,12 @@ public protocol _MessageImplementationBase: Message, Hashable {
   mutating func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T,
                                                           fieldNumber: Int) throws
 
-  func _protobuf_generated_traverse<V: Visitor>(visitor: inout V) throws
-
   func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
   public static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs._protobuf_generated_isEqualTo(other: rhs)
-  }
-
-  // Default implementations simply redirect to the generated versions.
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-    try _protobuf_generated_traverse(visitor: &visitor)
   }
 
   mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {

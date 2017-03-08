@@ -85,7 +85,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }

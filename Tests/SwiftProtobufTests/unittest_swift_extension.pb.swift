@@ -92,7 +92,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf._Messag
         }
       }
 
-      func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if let v = _a {
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
@@ -143,7 +143,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf._Messag
     mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     }
 
-    func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       try unknownFields.traverse(visitor: &visitor)
     }
 
@@ -164,7 +164,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf._Messag
   mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -211,7 +211,7 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 999)
     }
@@ -259,7 +259,7 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Extens
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -321,7 +321,7 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Extens
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -402,7 +402,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _x {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -527,7 +527,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._x {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)

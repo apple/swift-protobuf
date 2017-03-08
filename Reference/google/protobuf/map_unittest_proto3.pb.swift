@@ -291,7 +291,7 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 1)
@@ -434,7 +434,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._testMap {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -480,7 +480,7 @@ struct Proto3TestMessageMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !mapInt32Message.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3TestAllTypes>.self, value: mapInt32Message, fieldNumber: 1)
     }
@@ -525,7 +525,7 @@ struct Proto3TestSameTypeMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !map1.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: map1, fieldNumber: 1)
     }
@@ -625,7 +625,7 @@ struct Proto3TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !mapInt32Int32.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: mapInt32Int32, fieldNumber: 1)
     }
@@ -752,7 +752,7 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !type.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3MessageContainingEnumCalledType>.self, value: type, fieldNumber: 1)
     }
@@ -793,7 +793,7 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !entry.isEmpty {
       try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: entry, fieldNumber: 1)
     }

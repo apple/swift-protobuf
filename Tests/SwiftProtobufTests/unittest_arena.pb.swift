@@ -85,7 +85,7 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = _d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
@@ -129,7 +129,7 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !repeatedNestedMessage.isEmpty {
       try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, fieldNumber: 1)
     }
