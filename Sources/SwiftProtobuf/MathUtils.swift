@@ -14,6 +14,7 @@
 
 #if os(Linux)
 // Linux doesn't seem to define these by default.
+// https://bugs.swift.org/browse/SR-4198
 internal let FLT_DIG=6
 internal let DBL_DIG=15
 #endif
