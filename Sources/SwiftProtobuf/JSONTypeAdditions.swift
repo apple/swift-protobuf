@@ -20,6 +20,9 @@ import Foundation
 ///
 public extension Message {
     func jsonString() throws -> String {
+        if let m = self as? _CustomJSONCodable {
+            return try m.encodedJSONString()
+        }
         var visitor = JSONEncodingVisitor(message: self)
         visitor.encoder.startObject()
         try traverse(visitor: &visitor)
