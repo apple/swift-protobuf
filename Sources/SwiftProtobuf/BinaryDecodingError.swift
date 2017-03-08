@@ -21,8 +21,6 @@ public enum BinaryDecodingError: Error {
     case invalidUTF8
     /// Protobuf data could not be parsed
     case malformedProtobuf
-    /// The data being parsed does not match the type specified in the proto file
-    case schemaMismatch
     /// The message or nested messages definitions have required fields, and the
     /// binary data did not include values for them. The `partial` support will
     /// allow this incomplete data to be decoded.

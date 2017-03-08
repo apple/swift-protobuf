@@ -94,7 +94,7 @@ public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, Expre
         }
     }
 
-    public func jsonString() throws -> String {
+    internal func encodedJSONString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.startObject()
         var mapVisitor = JSONMapEncodingVisitor(encoder: jsonEncoder)
@@ -252,7 +252,7 @@ public struct Google_Protobuf_Value: Message, _MessageImplementationBase, Expres
         }
     }
 
-    public func jsonString() throws -> String {
+    internal func encodedJSONString() throws -> String {
         var jsonEncoder = JSONEncoder()
         try serializeJSONValue(jsonEncoder: &jsonEncoder)
         return jsonEncoder.stringResult
@@ -550,7 +550,7 @@ public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, Ex
         set(newValue) {values[index] = newValue}
     }
 
-    public func jsonString() throws -> String {
+    internal func encodedJSONString() throws -> String {
         var jsonEncoder = JSONEncoder()
         jsonEncoder.append(text: "[")
         var separator: StaticString = ""

@@ -96,15 +96,13 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._P
   case foo1 // = 1
   case bar1 // = 2
   case baz // = 3
-  case foo2 // = 1
-  case bar2 // = 2
+  static let foo2 = foo1
+  static let bar2 = bar1
 
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "FOO1"),
-    2: .same(proto: "BAR1"),
+    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
     3: .same(proto: "BAZ"),
-    1: .same(proto: "FOO2"),
-    2: .same(proto: "BAR2"),
   ]
 
   init() {
@@ -125,8 +123,6 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._P
     case .foo1: return 1
     case .bar1: return 2
     case .baz: return 3
-    case .foo2: return 1
-    case .bar2: return 2
     }
   }
 
@@ -144,13 +140,13 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNa
   case sparseG // = 2
 
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -53452: .same(proto: "SPARSE_E"),
+    -15: .same(proto: "SPARSE_D"),
+    0: .same(proto: "SPARSE_F"),
+    2: .same(proto: "SPARSE_G"),
     123: .same(proto: "SPARSE_A"),
     62374: .same(proto: "SPARSE_B"),
     12589234: .same(proto: "SPARSE_C"),
-    -15: .same(proto: "SPARSE_D"),
-    -53452: .same(proto: "SPARSE_E"),
-    0: .same(proto: "SPARSE_F"),
-    2: .same(proto: "SPARSE_G"),
   ]
 
   init() {
@@ -159,26 +155,26 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNa
 
   init?(rawValue: Int) {
     switch rawValue {
+    case -53452: self = .sparseE
+    case -15: self = .sparseD
+    case 0: self = .sparseF
+    case 2: self = .sparseG
     case 123: self = .sparseA
     case 62374: self = .sparseB
     case 12589234: self = .sparseC
-    case -15: self = .sparseD
-    case -53452: self = .sparseE
-    case 0: self = .sparseF
-    case 2: self = .sparseG
     default: return nil
     }
   }
 
   var rawValue: Int {
     switch self {
+    case .sparseE: return -53452
+    case .sparseD: return -15
+    case .sparseF: return 0
+    case .sparseG: return 2
     case .sparseA: return 123
     case .sparseB: return 62374
     case .sparseC: return 12589234
-    case .sparseD: return -15
-    case .sparseE: return -53452
-    case .sparseF: return 0
-    case .sparseG: return 2
     }
   }
 
@@ -1206,10 +1202,10 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
     case neg // = -1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      -1: .same(proto: "NEG"),
       1: .same(proto: "FOO"),
       2: .same(proto: "BAR"),
       3: .same(proto: "BAZ"),
-      -1: .same(proto: "NEG"),
     ]
 
     init() {
@@ -1218,20 +1214,20 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     init?(rawValue: Int) {
       switch rawValue {
+      case -1: self = .neg
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
-      case -1: self = .neg
       default: return nil
       }
     }
 
     var rawValue: Int {
       switch self {
+      case .neg: return -1
       case .foo: return 1
       case .bar: return 2
       case .baz: return 3
-      case .neg: return -1
       }
     }
 

@@ -91,17 +91,17 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([8, 99]) {$0.ProtobufUnittest_optionalInt32Extension == 99}
         assertDecodeFails([9])
         assertDecodeFails([9, 0])
-        assertDecodeFails([9, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodesAsUnknownFields([9, 0, 0, 0, 0, 0, 0, 0, 0])  // Wrong wire type (fixed64), valid as an unknown field
         assertDecodeFails([10])
-        assertDecodeFails([10, 0])
+        assertDecodesAsUnknownFields([10, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([11])
         assertDecodeFails([11, 0])
-        assertDecodeFails([11, 12])
+        assertDecodesAsUnknownFields([11, 12])  // Wrong wire type (startGroup, endGroup), valid as an unknown field
         assertDecodeFails([12])
         assertDecodeFails([12, 0])
         assertDecodeFails([13])
         assertDecodeFails([13, 0])
-        assertDecodeFails([13, 0, 0, 0, 0])
+        assertDecodesAsUnknownFields([13, 0, 0, 0, 0])  // Wrong wire type (fixed32), valid as an unknown field
         assertDecodeFails([14])
         assertDecodeFails([14, 0])
         assertDecodeFails([15])

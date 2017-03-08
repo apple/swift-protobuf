@@ -73,7 +73,13 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
     }
 
-  func assertDecodeSucceeds(inputBytes bytes: [UInt8], recodedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
+    func assertDecodesAsUnknownFields(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+        assertDecodeSucceeds(bytes, file: file, line: line) {
+            $0.unknownFields.data == Data(bytes: bytes)
+        }
+    }
+
+    func assertDecodeSucceeds(inputBytes bytes: [UInt8], recodedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
             let decoded = try MessageTestType(serializedData: Data(bytes: bytes))
             XCTAssert(check(decoded), "Condition failed for \(decoded)", file: file, line: line)

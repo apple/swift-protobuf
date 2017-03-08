@@ -1140,10 +1140,10 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
     case neg // = -1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+      -1: .same(proto: "NEG"),
       1: .same(proto: "FOO"),
       2: .same(proto: "BAR"),
       3: .same(proto: "BAZ"),
-      -1: .same(proto: "NEG"),
     ]
 
     init() {
@@ -1152,20 +1152,20 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init?(rawValue: Int) {
       switch rawValue {
+      case -1: self = .neg
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
-      case -1: self = .neg
       default: return nil
       }
     }
 
     var rawValue: Int {
       switch self {
+      case .neg: return -1
       case .foo: return 1
       case .bar: return 2
       case .baz: return 3
-      case .neg: return -1
       }
     }
 

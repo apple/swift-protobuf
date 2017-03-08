@@ -406,6 +406,17 @@ extension Test_Enum {
     }
 }
 
+extension Test_EnumWithAliases {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testJSONEncodeUsesOriginalNames", {try run_test(test:($0 as! Test_EnumWithAliases).testJSONEncodeUsesOriginalNames)}),
+            ("testJSONDecodeAcceptsAllNames", {try run_test(test:($0 as! Test_EnumWithAliases).testJSONDecodeAcceptsAllNames)}),
+            ("testTextFormatEncodeUsesOriginalNames", {try run_test(test:($0 as! Test_EnumWithAliases).testTextFormatEncodeUsesOriginalNames)}),
+            ("testTextFormatDecodeAcceptsAllNames", {try run_test(test:($0 as! Test_EnumWithAliases).testTextFormatDecodeAcceptsAllNames)})
+        ]
+    }
+}
+
 extension Test_Enum_Proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -486,6 +497,15 @@ extension Test_FieldOrdering {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_FieldOrdering", {try run_test(test:($0 as! Test_FieldOrdering).test_FieldOrdering)})
+        ]
+    }
+}
+
+extension Test_GroupWithinGroup {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testGroupWithGroup_Single", {try run_test(test:($0 as! Test_GroupWithinGroup).testGroupWithGroup_Single)}),
+            ("testGroupWithGroup_Repeated", {try run_test(test:($0 as! Test_GroupWithinGroup).testGroupWithGroup_Repeated)})
         ]
     }
 }
@@ -1007,7 +1027,11 @@ extension Test_Timestamp {
             ("testJSON_conformance", {try run_test(test:($0 as! Test_Timestamp).testJSON_conformance)}),
             ("testSerializationFailure", {try run_test(test:($0 as! Test_Timestamp).testSerializationFailure)}),
             ("testBasicArithmetic", {try run_test(test:($0 as! Test_Timestamp).testBasicArithmetic)}),
-            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)})
+            ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Timestamp).testArithmeticNormalizes)}),
+            ("testInitializationByTimestamps", {try run_test(test:($0 as! Test_Timestamp).testInitializationByTimestamps)}),
+            ("testInitializationByReferenceTimestamp", {try run_test(test:($0 as! Test_Timestamp).testInitializationByReferenceTimestamp)}),
+            ("testInitializationByDates", {try run_test(test:($0 as! Test_Timestamp).testInitializationByDates)}),
+            ("testTimestampGetters", {try run_test(test:($0 as! Test_Timestamp).testTimestampGetters)})
         ]
     }
 }
@@ -1071,11 +1095,13 @@ XCTMain(
         (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
         (testCaseClass: Test_Empty.self, allTests: Test_Empty.allTests),
         (testCaseClass: Test_Enum.self, allTests: Test_Enum.allTests),
+        (testCaseClass: Test_EnumWithAliases.self, allTests: Test_EnumWithAliases.allTests),
         (testCaseClass: Test_Enum_Proto2.self, allTests: Test_Enum_Proto2.allTests),
         (testCaseClass: Test_Extensions.self, allTests: Test_Extensions.allTests),
         (testCaseClass: Test_ExtremeDefaultValues.self, allTests: Test_ExtremeDefaultValues.allTests),
         (testCaseClass: Test_FieldMask.self, allTests: Test_FieldMask.allTests),
         (testCaseClass: Test_FieldOrdering.self, allTests: Test_FieldOrdering.allTests),
+        (testCaseClass: Test_GroupWithinGroup.self, allTests: Test_GroupWithinGroup.allTests),
         (testCaseClass: Test_JSON.self, allTests: Test_JSON.allTests),
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),

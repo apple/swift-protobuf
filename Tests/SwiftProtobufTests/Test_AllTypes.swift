@@ -179,7 +179,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([33, 0])
         assertDecodeFails([33, 8, 0])
         assertDecodeFails([34])
-        assertDecodeFails([34, 0])
+        assertDecodesAsUnknownFields([34, 0]) // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([34, 8, 0])
         assertDecodeFails([35])
         assertDecodeFails([35, 0])
@@ -226,7 +226,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([41])
         assertDecodeFails([41, 0])
         assertDecodeFails([42])
-        assertDecodeFails([42, 0])
+        assertDecodesAsUnknownFields([42, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([43])
         assertDecodeFails([43, 0])
         assertDecodeFails([44])
@@ -261,7 +261,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([49])
         assertDecodeFails([49, 0])
         assertDecodeFails([50])
-        assertDecodeFails([50, 0])
+        assertDecodesAsUnknownFields([50, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([51])
         assertDecodeFails([51, 0])
         assertDecodeFails([52])
@@ -296,13 +296,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([61, 255, 255])
         assertDecodeFails([61, 255, 255, 255])
         assertDecodeFails([56])
-        assertDecodeFails([56, 0])
+        assertDecodesAsUnknownFields([56, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([56, 0, 0, 0, 0])
         assertDecodeFails([57])
         assertDecodeFails([57, 0])
         assertDecodeFails([57, 0, 0, 0, 0])
         assertDecodeFails([58])
-        assertDecodeFails([58, 0])
+        assertDecodesAsUnknownFields([58, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([58, 0, 0, 0, 0])
         assertDecodeFails([59])
         assertDecodeFails([59, 0])
@@ -344,10 +344,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([65, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([65, 255, 255, 255, 255, 255, 255, 255])
         assertDecodeFails([64])
-        assertDecodeFails([64, 0])
+        assertDecodesAsUnknownFields([64, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([64, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([66])
-        assertDecodeFails([66, 0])
+        assertDecodesAsUnknownFields([66, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([66, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([67])
         assertDecodeFails([67, 0])
@@ -390,13 +390,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([77, 0, 0])
         assertDecodeFails([77, 0, 0, 0])
         assertDecodeFails([72])
-        assertDecodeFails([72, 0])
+        assertDecodesAsUnknownFields([72, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([72, 0, 0, 0, 0])
         assertDecodeFails([73])
         assertDecodeFails([73, 0])
         assertDecodeFails([73, 0, 0, 0, 0])
         assertDecodeFails([74])
-        assertDecodeFails([74, 0])
+        assertDecodesAsUnknownFields([74, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([74, 0, 0, 0, 0])
         assertDecodeFails([75])
         assertDecodeFails([75, 0])
@@ -436,10 +436,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([81, 0, 0, 0, 0])
         assertDecodeFails([81, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([80])
-        assertDecodeFails([80, 0])
+        assertDecodesAsUnknownFields([80, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([80, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([82])
-        assertDecodeFails([82, 0])
+        assertDecodesAsUnknownFields([82, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([82, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([83])
         assertDecodeFails([83, 0])
@@ -488,11 +488,11 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([93, 0])
         assertDecodeFails([93])
         assertDecodeFails([88]) // Float cannot use wire type 0
-        assertDecodeFails([88, 0, 0, 0, 0]) // Float cannot use wire type 0
+        assertDecodesAsUnknownFields([88, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([89]) // Float cannot use wire type 1
         assertDecodeFails([89, 0, 0, 0, 0]) // Float cannot use wire type 1
         assertDecodeFails([90]) // Float cannot use wire type 2
-        assertDecodeFails([90, 0, 0, 0, 0]) // Float cannot use wire type 2
+        assertDecodesAsUnknownFields([90, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([91]) // Float cannot use wire type 3
         assertDecodeFails([91, 0, 0, 0, 0]) // Float cannot use wire type 3
         assertDecodeFails([92]) // Float cannot use wire type 4
@@ -524,10 +524,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([97, 0, 0, 0, 0, 0, 0, 224])
         assertDecodeFails([97])
         assertDecodeFails([96])
-        assertDecodeFails([96, 0])
+        assertDecodesAsUnknownFields([96, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([96, 10, 10, 10, 10, 10, 10, 10, 10])
         assertDecodeFails([98])
-        assertDecodeFails([98, 0])
+        assertDecodesAsUnknownFields([98, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([98, 10, 10, 10, 10, 10, 10, 10, 10])
         assertDecodeFails([99])
         assertDecodeFails([99, 0])
@@ -576,7 +576,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([105])
         assertDecodeFails([105, 0])
         assertDecodeFails([106])
-        assertDecodeFails([106, 0])
+        assertDecodesAsUnknownFields([106, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([107])
         assertDecodeFails([107, 0])
         assertDecodeFails([108])
@@ -631,7 +631,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([114, 2, 65])
         assertDecodeFails([114, 1, 193]) // Invalid UTF-8
         assertDecodeFails([112])
-        assertDecodeFails([112, 0])
+        assertDecodesAsUnknownFields([112, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([113])
         assertDecodeFails([113, 0])
         assertDecodeFails([115])
@@ -686,12 +686,12 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([131, 1, 136, 1, 159, 141, 6, 132, 2]) // Wrong end group.
 
         assertDecodeFails([128, 1]) // Bad wire type
-        assertDecodeFails([128, 1, 0]) // Bad wire type
-        assertDecodeFails([128, 1, 132, 1]) // Bad wire type
+        assertDecodesAsUnknownFields([128, 1, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([128, 1, 132, 1])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([129, 1]) // Bad wire type
         assertDecodeFails([129, 1, 0]) // Bad wire type
         assertDecodeFails([130, 1]) // Bad wire type
-        assertDecodeFails([130, 1, 0]) // Bad wire type
+        assertDecodesAsUnknownFields([130, 1, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([131, 1]) // Lone start marker should fail
         assertDecodeFails([132, 1]) // Lone stop marker should fail
         assertDecodeFails([133, 1]) // Bad wire type
@@ -720,7 +720,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([122, 2, 0])
         assertDecodeFails([122, 3, 0, 0])
         assertDecodeFails([120])
-        assertDecodeFails([120, 0])
+        assertDecodesAsUnknownFields([120, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([121])
         assertDecodeFails([121, 0])
         assertDecodeFails([123])
@@ -860,18 +860,18 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.optionalForeignMessage = foreign
         }
 
-        assertDecodeFails([152, 1, 0]) // Wire type 0
+        assertDecodesAsUnknownFields([152, 1, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([153, 1]) // Wire type 1
         assertDecodeFails([153, 1, 0])
-        assertDecodeFails([153, 1, 0, 0, 0, 0, 0, 0, 0, 0])
+        assertDecodesAsUnknownFields([153, 1, 0, 0, 0, 0, 0, 0, 0, 0])  // Wrong wire type (fixed64), valid as an unknown field
         assertDecodeFails([155, 1]) // Wire type 3
         assertDecodeFails([155, 1, 0])
-        assertDecodeFails([155, 1, 156, 1])
+        assertDecodesAsUnknownFields([155, 1, 156, 1]) // Wrong wire type (start group, end group), valid as an unknown field
         assertDecodeFails([156, 1]) // Wire type 4
         assertDecodeFails([156, 1, 0])
         assertDecodeFails([157, 1]) // Wire type 5
         assertDecodeFails([157, 1, 0])
-        assertDecodeFails([157, 1, 0, 0, 0, 0])
+        assertDecodesAsUnknownFields([157, 1, 0, 0, 0, 0])  // Wrong wire type (fixed32), valid as an unknown field
         assertDecodeFails([158, 1]) // Wire type 6
         assertDecodeFails([158, 1, 0])
         assertDecodeFails([159, 1]) // Wire type 7
@@ -1123,7 +1123,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([173, 2, 255, 255, 255, 127, 173, 2, 255, 255])
         assertDecodeFails([173, 2, 255, 255, 255, 127, 173, 2, 255, 255, 255])
         assertDecodeFails([168, 2])
-        assertDecodeFails([168, 2, 0])
+        assertDecodesAsUnknownFields([168, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([168, 2, 0, 0, 0, 0])
         assertDecodeFails([169, 2])
         assertDecodeFails([169, 2, 0])
@@ -1155,7 +1155,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([177, 2, 255, 255, 255, 127])
         assertDecodeFails([177, 2, 255, 255, 255, 127, 0, 0, 0])
         assertDecodeFails([176, 2])
-        assertDecodeFails([176, 2, 0])
+        assertDecodesAsUnknownFields([176, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([176, 2, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([179, 2])
         assertDecodeFails([179, 2, 0])
@@ -1184,7 +1184,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([189, 2, 0, 0])
         assertDecodeFails([189, 2, 0, 0, 0])
         assertDecodeFails([184, 2])
-        assertDecodeFails([184, 2, 0])
+        assertDecodesAsUnknownFields([184, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([184, 2, 0, 0, 0, 0])
         assertDecodeFails([185, 2])
         assertDecodeFails([185, 2, 0])
@@ -1217,7 +1217,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([193, 2, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([193, 2, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([192, 2])
-        assertDecodeFails([192, 2, 0])
+        assertDecodesAsUnknownFields([192, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([192, 2, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([195, 2])
         assertDecodeFails([195, 2, 0])
@@ -1242,18 +1242,18 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([202, 2, 8, 0, 0, 0, 63, 0, 0, 0, 63]) {$0.repeatedFloat == [0.5, 0.5]}
         assertDecodeFails([205, 2, 0, 0, 0, 63, 205, 2, 0, 0, 128])
         assertDecodeFails([205, 2, 0, 0, 0, 63, 205, 2])
-        assertDecodeFails([200, 2]) // Float cannot use wire type 0
-        assertDecodeFails([200, 2, 0, 0, 0, 0]) // Float cannot use wire type 0
-        assertDecodeFails([201, 2]) // Float cannot use wire type 1
-        assertDecodeFails([201, 2, 0, 0, 0, 0]) // Float cannot use wire type 1
-        assertDecodeFails([203, 2]) // Float cannot use wire type 3
-        assertDecodeFails([203, 2, 0, 0, 0, 0]) // Float cannot use wire type 3
-        assertDecodeFails([204, 2]) // Float cannot use wire type 4
-        assertDecodeFails([204, 2, 0, 0, 0, 0]) // Float cannot use wire type 4
-        assertDecodeFails([206, 2]) // Float cannot use wire type 6
-        assertDecodeFails([206, 2, 0, 0, 0, 0]) // Float cannot use wire type 6
-        assertDecodeFails([207, 2]) // Float cannot use wire type 6
-        assertDecodeFails([207, 2, 0, 0, 0, 0]) // Float cannot use wire type 7
+        assertDecodeFails([200, 2]) // Bad byte sequence
+        assertDecodeFails([200, 2, 0, 0, 0, 0]) // Bad byte sequence
+        assertDecodeFails([201, 2]) // Bad byte sequence
+        assertDecodeFails([201, 2, 0, 0, 0, 0]) // Bad byte sequence
+        assertDecodeFails([203, 2]) // Bad byte sequence
+        assertDecodeFails([203, 2, 0, 0, 0, 0]) // Bad byte sequence
+        assertDecodeFails([204, 2]) // Bad byte sequence
+        assertDecodeFails([204, 2, 0, 0, 0, 0]) // Bad byte sequence
+        assertDecodeFails([206, 2]) // Bad byte sequence
+        assertDecodeFails([206, 2, 0, 0, 0, 0]) // Bad byte sequence
+        assertDecodeFails([207, 2]) // Bad byte sequence
+        assertDecodeFails([207, 2, 0, 0, 0, 0]) // Bad byte sequence
     }
 
     func testEncoding_repeatedDouble() {
@@ -1266,7 +1266,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([209, 2, 0, 0, 0, 0])
         assertDecodeFails([209, 2, 0, 0, 0, 0, 0, 0, 224, 63, 209, 2])
         assertDecodeFails([208, 2])
-        assertDecodeFails([208, 2, 0])
+        assertDecodesAsUnknownFields([208, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([208, 2, 0, 0, 0, 0, 0, 0, 0, 0])
         assertDecodeFails([211, 2])
         assertDecodeFails([211, 2, 0])
@@ -1316,7 +1316,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([226, 2, 2, 65])
         assertDecodeFails([226, 2, 1, 193]) // Invalid UTF-8
         assertDecodeFails([224, 2])
-        assertDecodeFails([224, 2, 0])
+        assertDecodesAsUnknownFields([224, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([225, 2])
         assertDecodeFails([225, 2, 0])
         assertDecodeFails([227, 2])
@@ -1343,7 +1343,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([234, 2])
         assertDecodeFails([234, 2, 1])
         assertDecodeFails([232, 2])
-        assertDecodeFails([232, 2, 0])
+        assertDecodesAsUnknownFields([232, 2, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([233, 2])
         assertDecodeFails([233, 2, 0])
         assertDecodeFails([235, 2])
@@ -1369,8 +1369,8 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([243, 2, 248, 2, 1]) // End group missing.
         assertDecodeFails([243, 2, 248, 2, 1, 244, 3]) // Wrong end group.
         assertDecodeFails([240, 2]) // Wire type 0
-        assertDecodeFails([240, 2, 0])
-        assertDecodeFails([240, 2, 244, 2])
+        assertDecodesAsUnknownFields([240, 2, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([240, 2, 244, 2])  // Wrong wire type (varint), valid as an unknown field
         /*
         assertJSONEncode("{\"repeatedGroup\":[{\"a\":1},{\"a\":2}]}") {(o: inout MessageTestType) in
             var g1 = MessageTestType.RepeatedGroup()
@@ -1406,7 +1406,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             o.repeatedNestedMessage = [m1, m2]
         }
         assertDecodeFails([128, 3])
-        assertDecodeFails([128, 3, 0])
+        assertDecodesAsUnknownFields([128, 3, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDebugDescription("SwiftProtobufTests.ProtobufUnittest_TestAllTypes:\nrepeated_nested_message {\n  bb: 1\n}\nrepeated_nested_message {\n  bb: 2\n}\n") {(o: inout MessageTestType) in
             var m1 = MessageTestType.NestedMessage()
             m1.bb = 1
@@ -1953,7 +1953,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([249, 6])
         assertDecodeFails([249, 6, 0])
         assertDecodeFails([250, 6])
-        assertDecodeFails([250, 6, 0])
+        assertDecodesAsUnknownFields([250, 6, 0])  // Wrong wire type (length delimited), valid as an unknown field
         assertDecodeFails([251, 6])
         assertDecodeFails([251, 6, 0])
         assertDecodeFails([252, 6])
@@ -2026,7 +2026,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
 
     func testEncoding_oneofNestedMessage9() {
         assertDecodeFails([128, 7])
-        assertDecodeFails([128, 7, 0])
+        assertDecodesAsUnknownFields([128, 7, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([129, 7])
         assertDecodeFails([129, 7, 0])
         assertDecodeFails([131, 7])
@@ -2054,13 +2054,13 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([138, 7, 1]) // Truncated body
         assertDecodeFails([138, 7, 1, 192]) // Malformed UTF-8
         // Bad wire types:
-        assertDecodeFails([136, 7, 0]) // Wire type 0
-        assertDecodeFails([136, 7, 1]) // Wire type 0
-        assertDecodeFails([137, 7, 1, 1, 1, 1, 1, 1, 1, 1]) // Wire type 1
+        assertDecodesAsUnknownFields([136, 7, 0])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([136, 7, 1])  // Wrong wire type (varint), valid as an unknown field
+        assertDecodesAsUnknownFields([137, 7, 1, 1, 1, 1, 1, 1, 1, 1])  // Wrong wire type (fixed64), valid as an unknown field
         assertDecodeFails([139, 7]) // Wire type 3
         assertDecodeFails([140, 7]) // Wire type 4
         assertDecodeFails([141, 7, 0])  // Wire type 5
-        assertDecodeFails([141, 7, 0, 0, 0, 0])  // Wire type 5
+        assertDecodesAsUnknownFields([141, 7, 0, 0, 0, 0])  // Wrong wire type (fixed32), valid as an unknown field
         assertDecodeFails([142, 7]) // Wire type 6
         assertDecodeFails([142, 7, 0]) // Wire type 6
         assertDecodeFails([143, 7]) // Wire type 7
@@ -2117,7 +2117,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([146, 7, 1])
         // Bad wire types:
         assertDecodeFails([144, 7])
-        assertDecodeFails([144, 7, 0])
+        assertDecodesAsUnknownFields([144, 7, 0])  // Wrong wire type (varint), valid as an unknown field
         assertDecodeFails([145, 7])
         assertDecodeFails([145, 7, 0])
         assertDecodeFails([147, 7])
@@ -2256,7 +2256,25 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
         }
 
-        // TODO: UnknownFields appearing within a group field (currently doesn't work).
+        // Fields appearing within a group field.
+        for (bytes, expectedTextFormat) in testInputs {
+            // Hang it in the 'OptionalGroup' field of TestAllTypes
+            let fullBytes = [131, 1] + bytes + [132, 1]
+            var fullExpectedTextFormat = "OptionalGroup {\n"
+            for line in expectedTextFormat.components(separatedBy: "\n") {
+                fullExpectedTextFormat.append("  \(line)\n")
+            }
+            fullExpectedTextFormat.append("}\n")
+            do {
+                let msg = try ProtobufUnittest_TestAllTypes(serializedBytes: fullBytes)
+                XCTAssertTrue(msg.unknownFields.data.isEmpty)
+                XCTAssertEqual(msg.optionalGroup.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
+                XCTAssertEqual(try msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
+                XCTAssertEqual(try msg.serializedData(), Data(bytes: fullBytes), "Decoding \(bytes)")
+            } catch let e {
+                XCTFail("Decoding \(bytes) failed with error: \(e)")
+            }
+        }
     }
 
     func testUnknownFields_Failures() throws {
@@ -2299,6 +2317,16 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             }
         }
 
-        // TODO: UnknownFields appearing within a group field (currently doesn't work).
+        // Fields appearing within a group field.
+        for bytes in testInputs {
+            // Hang it after the start of the 'OptionalGroup' field of TestAllTypes
+            let fullBytes = [131, 1] + bytes
+            do {
+                _ = try ProtobufUnittest_TestAllTypes(serializedBytes: fullBytes)
+                XCTFail("Decode of \(bytes) should have failed.")
+            } catch {
+                // Nothing should error!
+            }
+       }
     }
 }
