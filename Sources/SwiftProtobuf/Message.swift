@@ -43,10 +43,10 @@ public protocol Message: CustomDebugStringConvertible {
   // Used by various encoders and decoders
 
   /// The name of the message from the original .proto file.
-  static var protoMessageName: String { get }
+  static var _protobuf_protoMessageName: String { get }
 
   /// The name of the protobuf package from the original .proto file.
-  static var protoPackageName: String { get }
+  static var _protobuf_protoPackageName: String { get }
 
   /// Check if all required fields (if any) have values set on this message,
   /// including any messages within this message.

@@ -100,8 +100,8 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf.
 ///   could trigger bugs that occur in any message type in this file.  We verify
 ///   this stays true in a unit test.
 struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAllTypes"
-  static let protoPackageName: String = "protobuf_test_messages.proto3"
+  static let _protobuf_protoMessageName: String = "TestAllTypes"
+  static let _protobuf_protoPackageName: String = "protobuf_test_messages.proto3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -1413,8 +1413,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "protobuf_test_messages.proto3"
+    static let _protobuf_protoMessageName: String = "NestedMessage"
+    static let _protobuf_protoPackageName: String = "protobuf_test_messages.proto3"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "a"),
       2: .same(proto: "corecursive"),
@@ -2095,8 +2095,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 }
 
 struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessage"
-  static let protoPackageName: String = "protobuf_test_messages.proto3"
+  static let _protobuf_protoMessageName: String = "ForeignMessage"
+  static let _protobuf_protoPackageName: String = "protobuf_test_messages.proto3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]

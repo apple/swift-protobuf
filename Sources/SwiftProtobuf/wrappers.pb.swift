@@ -57,8 +57,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///  
 ///   The JSON representation for `DoubleValue` is JSON number.
 public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "DoubleValue"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "DoubleValue"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -101,8 +101,8 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf.
 ///  
 ///   The JSON representation for `FloatValue` is JSON number.
 public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "FloatValue"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "FloatValue"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -145,8 +145,8 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf._
 ///  
 ///   The JSON representation for `Int64Value` is JSON string.
 public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Int64Value"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "Int64Value"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -189,8 +189,8 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf._
 ///  
 ///   The JSON representation for `UInt64Value` is JSON string.
 public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "UInt64Value"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "UInt64Value"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -233,8 +233,8 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf.
 ///  
 ///   The JSON representation for `Int32Value` is JSON number.
 public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Int32Value"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "Int32Value"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -277,8 +277,8 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf._
 ///  
 ///   The JSON representation for `UInt32Value` is JSON number.
 public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "UInt32Value"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "UInt32Value"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -321,8 +321,8 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf.
 ///  
 ///   The JSON representation for `BoolValue` is JSON `true` and `false`.
 public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "BoolValue"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "BoolValue"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -365,8 +365,8 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf._M
 ///  
 ///   The JSON representation for `StringValue` is JSON string.
 public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "StringValue"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "StringValue"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
@@ -409,8 +409,8 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf.
 ///  
 ///   The JSON representation for `BytesValue` is JSON string.
 public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "BytesValue"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let _protobuf_protoMessageName: String = "BytesValue"
+  public static let _protobuf_protoPackageName: String = "google.protobuf"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
