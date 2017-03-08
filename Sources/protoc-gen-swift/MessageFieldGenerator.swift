@@ -374,7 +374,7 @@ struct MessageFieldGenerator {
 
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         if let oneof = oneof {
@@ -412,7 +412,7 @@ struct MessageFieldGenerator {
 
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print("\n")
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")

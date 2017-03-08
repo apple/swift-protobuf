@@ -154,7 +154,7 @@ class MessageGenerator {
 
   func generateNested(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print("\n")
-    if comments != "" {
+    if !comments.isEmpty {
       p.print(comments)
     }
 

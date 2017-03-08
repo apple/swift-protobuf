@@ -106,7 +106,7 @@ struct ExtensionGenerator {
 
     func generateNested(printer p: inout CodePrinter) {
         p.print("\n")
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         let scope = swiftDeclaringMessageName == nil ? "" : "static "
@@ -132,7 +132,7 @@ struct ExtensionGenerator {
         p.print("\n")
         p.print("extension \(swiftExtendedMessageName) {\n")
         p.indent()
-        if comments != "" {
+        if !comments.isEmpty {
             p.print(comments)
         }
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(apiType) {\n")
