@@ -120,7 +120,7 @@ public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, Expre
         }
     }
 
-    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !fields.isEmpty {
             try visitor.visitMapField(fieldType: _ProtobufMessageMap<ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
         }
@@ -293,7 +293,7 @@ public struct Google_Protobuf_Value: Message, _MessageImplementationBase, Expres
         return kind == other.kind
     }
 
-    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         try kind?.traverse(visitor: &visitor, start:1, end: 7)
     }
 
@@ -595,7 +595,7 @@ public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, Ex
         }
     }
 
-    public func _protobuf_generated_traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
         if !values.isEmpty {
             try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
         }
