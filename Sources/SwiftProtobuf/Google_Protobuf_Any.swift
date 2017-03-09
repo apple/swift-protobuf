@@ -417,10 +417,14 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     // message type available), so the deferred logic here is still needed.
     mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
         try decoder.scanner.skipRequiredObjectStart()
+        // Reset state
+        typeURL = nil
+        _jsonFields = nil
+        _message = nil
+        _value = nil
         if decoder.scanner.skipOptionalObjectEnd() {
             return
         }
-        _jsonFields = nil
         var jsonFields = [String:String]()
         while true {
             let key = try decoder.scanner.nextQuotedString()
