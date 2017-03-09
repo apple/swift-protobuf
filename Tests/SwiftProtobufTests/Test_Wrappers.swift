@@ -21,6 +21,19 @@ import SwiftProtobuf
 
 class Test_Wrappers: XCTestCase {
 
+    /// Asserts that decoding the JSON "null" literal for the given message type
+    /// throws `illegalNull`.
+    private func assertJSONDecodeNullFails<M: Message>(for type: M.Type) {
+        do {
+            _ = try type.init(jsonString: "null")
+            XCTFail("Expected decode to throw .illegalNull, but it succeeded")
+        } catch JSONDecodingError.illegalNull {
+            // Nothing to do; this is the expected error.
+        } catch {
+            XCTFail("Expected decode to throw .illegalNull, but instead it threw: \(error)")
+        }
+    }
+
     func testDoubleValue() throws {
         var m = Google_Protobuf_DoubleValue()
         XCTAssertEqual("0", try m.jsonString())
@@ -31,6 +44,8 @@ class Test_Wrappers: XCTestCase {
         let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
           jsonString: "{\"optionalDoubleWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalDoubleWrapper)
+
+        assertJSONDecodeNullFails(for: Google_Protobuf_DoubleValue.self)
 
         // Check that we can rely on object equality
         var m2 = Google_Protobuf_DoubleValue(1.0)
@@ -67,6 +82,8 @@ class Test_Wrappers: XCTestCase {
         let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
           jsonString: "{\"optionalFloatWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalFloatWrapper)
+
+        assertJSONDecodeNullFails(for: Google_Protobuf_FloatValue.self)
 
         // Check that we can rely on object equality
         var m2 = Google_Protobuf_FloatValue(1.0)
@@ -110,6 +127,8 @@ class Test_Wrappers: XCTestCase {
           jsonString: "{\"optionalInt64Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalInt64Wrapper)
 
+        assertJSONDecodeNullFails(for: Google_Protobuf_Int64Value.self)
+
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString:"777").hashValue)
         XCTAssertNotEqual(m.hashValue, try Google_Protobuf_Int64Value(jsonString:"778").hashValue)
@@ -126,6 +145,8 @@ class Test_Wrappers: XCTestCase {
         let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
           jsonString: "{\"optionalUInt64Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalUint64Wrapper)
+
+        assertJSONDecodeNullFails(for: Google_Protobuf_UInt64Value.self)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt64Value(jsonString:"777").hashValue)
@@ -144,6 +165,8 @@ class Test_Wrappers: XCTestCase {
           jsonString: "{\"optionalInt32Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalInt32Wrapper)
 
+        assertJSONDecodeNullFails(for: Google_Protobuf_Int32Value.self)
+
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString:"777").hashValue)
         XCTAssertNotEqual(m.hashValue, try Google_Protobuf_Int32Value(jsonString:"778").hashValue)
@@ -160,6 +183,8 @@ class Test_Wrappers: XCTestCase {
         let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
           jsonString: "{\"optionalUInt32Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalUint32Wrapper)
+
+        assertJSONDecodeNullFails(for: Google_Protobuf_UInt32Value.self)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_UInt32Value(jsonString:"777").hashValue)
@@ -178,6 +203,8 @@ class Test_Wrappers: XCTestCase {
           jsonString: "{\"optionalBoolWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalBoolWrapper)
 
+        assertJSONDecodeNullFails(for: Google_Protobuf_BoolValue.self)
+
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString:"true").hashValue)
         XCTAssertNotEqual(m.hashValue, try Google_Protobuf_BoolValue(jsonString:"false").hashValue)
@@ -194,6 +221,8 @@ class Test_Wrappers: XCTestCase {
         let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
           jsonString: "{\"optionalStringWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalStringWrapper)
+
+        assertJSONDecodeNullFails(for: Google_Protobuf_StringValue.self)
 
         XCTAssertThrowsError(try Google_Protobuf_StringValue(jsonString: "\"\\UABCD\""))
         XCTAssertEqual(try Google_Protobuf_StringValue(jsonString: "\"\\uABCD\""), Google_Protobuf_StringValue("\u{ABCD}"))
@@ -215,6 +244,8 @@ class Test_Wrappers: XCTestCase {
         let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
           jsonString: "{\"optionalBytesWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalBytesWrapper)
+
+        assertJSONDecodeNullFails(for: Google_Protobuf_BytesValue.self)
 
         // hash
         XCTAssertEqual(m.hashValue, try Google_Protobuf_BytesValue(jsonString:"\"AAEC\"").hashValue)

@@ -49,6 +49,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
 
     func test_JSON() {
         assertJSONDecodeSucceeds("{}") {$0.fields == [:]}
+        assertJSONDecodeFails("null")
         assertJSONDecodeFails("false")
         assertJSONDecodeFails("true")
         assertJSONDecodeFails("[]")
@@ -157,6 +158,24 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
 }
 
 
+class Test_Value: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = Google_Protobuf_Value
+
+    func testValue_empty() throws {
+        let empty = Google_Protobuf_Value()
+
+        // Serializing an empty value (kind not set) in binary or text is ok;
+        // it is only an error in JSON.
+        XCTAssertEqual(try empty.serializedBytes(), [])
+        XCTAssertEqual(try empty.textFormatString(), "")
+
+        // Make sure an empty value is not equal to a nullValue value.
+        let null: Google_Protobuf_Value = nil
+        XCTAssertNotEqual(empty, null)
+    }
+}
+
+
 // TODO: Should have convenience initializers on Google_Protobuf_Value
 class Test_JSON_Value: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Value
@@ -166,8 +185,8 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         do {
             _ = try empty.jsonString()
             XCTFail("Encoding should have thrown .missingValue, but it succeeded")
-        } catch let e as JSONEncodingError {
-            XCTAssertEqual(e, JSONEncodingError.missingValue)
+        } catch JSONEncodingError.missingValue {
+            // Nothing to do here; this is the expected error.
         } catch {
             XCTFail("Encoding should have thrown .missingValue, but instead it threw: \(error)")
         }
