@@ -36,22 +36,22 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Foo"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+  static let _protobuf_protoMessageName: String = "Foo"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct Bar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "Bar"
-    static let protoPackageName: String = "protobuf_unittest.extend"
+    static let _protobuf_protoMessageName: String = "Bar"
+    static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
     static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     struct Baz: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-      static let protoMessageName: String = "Baz"
-      static let protoPackageName: String = "protobuf_unittest.extend"
+      static let _protobuf_protoMessageName: String = "Baz"
+      static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
       static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "a"),
       ]
@@ -175,8 +175,8 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message, SwiftProtobuf._Messag
 }
 
 struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "C"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+  static let _protobuf_protoMessageName: String = "C"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "c"),
   ]
@@ -234,8 +234,8 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 //  could end up with naming collisions when remapped to Swifty names.
 
 struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Msg1"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+  static let _protobuf_protoMessageName: String = "Msg1"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -296,8 +296,8 @@ struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.Extens
 }
 
 struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Msg2"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+  static let _protobuf_protoMessageName: String = "Msg2"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -360,8 +360,8 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Extens
 //  These allow testing where a StorageClass is and isn't used.
 
 struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MsgNoStorage"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+  static let _protobuf_protoMessageName: String = "MsgNoStorage"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
   ]
@@ -443,8 +443,8 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
 }
 
 struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MsgUsesStorage"
-  static let protoPackageName: String = "protobuf_unittest.extend"
+  static let _protobuf_protoMessageName: String = "MsgUsesStorage"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest.extend"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
     2: .same(proto: "y"),

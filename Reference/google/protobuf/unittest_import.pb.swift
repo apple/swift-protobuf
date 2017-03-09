@@ -127,8 +127,8 @@ enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum, SwiftProtobuf.
 }
 
 struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ImportMessage"
-  static let protoPackageName: String = "protobuf_unittest_import"
+  static let _protobuf_protoMessageName: String = "ImportMessage"
+  static let _protobuf_protoPackageName: String = "protobuf_unittest_import"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]

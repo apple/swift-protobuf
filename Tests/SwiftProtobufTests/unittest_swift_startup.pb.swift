@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestObjCStartupMessage"
-  static let protoPackageName: String = "protobuf_objc_unittest"
+  static let _protobuf_protoMessageName: String = "TestObjCStartupMessage"
+  static let _protobuf_protoPackageName: String = "protobuf_objc_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -112,8 +112,8 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
 }
 
 struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestObjCStartupNested"
-  static let protoPackageName: String = "protobuf_objc_unittest"
+  static let _protobuf_protoMessageName: String = "TestObjCStartupNested"
+  static let _protobuf_protoPackageName: String = "protobuf_objc_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

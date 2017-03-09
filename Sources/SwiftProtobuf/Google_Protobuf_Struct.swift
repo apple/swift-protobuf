@@ -46,8 +46,8 @@ public enum Google_Protobuf_NullValue: Enum, _ProtoNameProviding {
 // Should Google_Protobuf_Struct be a synonym for [String: Any]?
 // TODO: Implement CollectionType
 public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, ExpressibleByDictionaryLiteral, _ProtoNameProviding, _CustomJSONCodable {
-    public static let protoMessageName: String = "Struct"
-    public static let protoPackageName: String = "google.protobuf"
+    public static let _protobuf_protoMessageName: String = "Struct"
+    public static let _protobuf_protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
         1: .same(proto: "fields"),
     ]
@@ -139,8 +139,8 @@ public struct Google_Protobuf_Struct: Message, _MessageImplementationBase, Expre
 ///
 ///   The JSON representation for `Value` is JSON value.
 public struct Google_Protobuf_Value: Message, _MessageImplementationBase, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral, ExpressibleByStringLiteral, ExpressibleByBooleanLiteral, ExpressibleByNilLiteral, _ProtoNameProviding, _CustomJSONCodable {
-    public static let protoMessageName: String = "Value"
-    public static let protoPackageName: String = "google.protobuf"
+    public static let _protobuf_protoMessageName: String = "Value"
+    public static let _protobuf_protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
         1: .unique(proto: "null_value", json: "nullValue"),
         2: .unique(proto: "number_value", json: "numberValue"),
@@ -517,8 +517,8 @@ public struct Google_Protobuf_Value: Message, _MessageImplementationBase, Expres
 ///
 ///   The JSON representation for `ListValue` is JSON array.
 public struct Google_Protobuf_ListValue: Message, _MessageImplementationBase, ExpressibleByArrayLiteral, _ProtoNameProviding, _CustomJSONCodable {
-    public static let protoMessageName: String = "ListValue"
-    public static let protoPackageName: String = "google.protobuf"
+    public static let _protobuf_protoMessageName: String = "ListValue"
+    public static let _protobuf_protoPackageName: String = "google.protobuf"
     public static let _protobuf_nameMap: _NameMap = [
         1: .same(proto: "values"),
     ]

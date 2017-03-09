@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
 struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Api"
-  static let protoPackageName: String = "google.protobuf"
+  static let _protobuf_protoMessageName: String = "Api"
+  static let _protobuf_protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "methods"),
@@ -236,8 +236,8 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 
 ///   Method represents a method of an api.
 struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Method"
-  static let protoPackageName: String = "google.protobuf"
+  static let _protobuf_protoMessageName: String = "Method"
+  static let _protobuf_protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .unique(proto: "request_type_url", json: "requestTypeUrl"),
@@ -408,8 +408,8 @@ struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 ///         ...
 ///       }
 struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Mixin"
-  static let protoPackageName: String = "google.protobuf"
+  static let _protobuf_protoMessageName: String = "Mixin"
+  static let _protobuf_protoPackageName: String = "google.protobuf"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "root"),

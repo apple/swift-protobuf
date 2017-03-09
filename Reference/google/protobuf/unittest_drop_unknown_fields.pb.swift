@@ -50,8 +50,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Foo"
-  static let protoPackageName: String = "unittest_drop_unknown_fields"
+  static let _protobuf_protoMessageName: String = "Foo"
+  static let _protobuf_protoPackageName: String = "unittest_drop_unknown_fields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "int32_value", json: "int32Value"),
     2: .unique(proto: "enum_value", json: "enumValue"),
@@ -135,8 +135,8 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "FooWithExtraFields"
-  static let protoPackageName: String = "unittest_drop_unknown_fields"
+  static let _protobuf_protoMessageName: String = "FooWithExtraFields"
+  static let _protobuf_protoPackageName: String = "unittest_drop_unknown_fields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "int32_value", json: "int32Value"),
     2: .unique(proto: "enum_value", json: "enumValue"),

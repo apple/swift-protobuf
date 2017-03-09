@@ -70,11 +70,11 @@ fileprivate func typeName(fromURL s: String) -> String {
 
 fileprivate func typeName(fromMessage message: Message) -> String {
     let msgType = type(of: message)
-    let protoPackageName = msgType.protoPackageName
+    let protoPackageName = msgType._protobuf_protoPackageName
     if protoPackageName.isEmpty {
-        return msgType.protoMessageName
+        return msgType._protobuf_protoMessageName
     } else {
-        return "\(protoPackageName).\(msgType.protoMessageName)"
+        return "\(protoPackageName).\(msgType._protobuf_protoMessageName)"
     }
 }
 
@@ -185,8 +185,8 @@ public extension Message {
 /// limitation of Google's spec for google.protobuf.Any.
 ///
 public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding, _CustomJSONCodable {
-    public static let protoPackageName: String = "google.protobuf"
-    public static let protoMessageName: String = "Any"
+    public static let _protobuf_protoPackageName: String = "google.protobuf"
+    public static let _protobuf_protoMessageName: String = "Any"
     public static let _protobuf_nameMap: _NameMap = [
         1: .unique(proto: "type_url", json: "@type"),
         2: .same(proto: "value"),

@@ -91,8 +91,8 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobu
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAllTypes"
-  static let protoPackageName: String = "proto2_nofieldpresence_unittest"
+  static let _protobuf_protoMessageName: String = "TestAllTypes"
+  static let _protobuf_protoPackageName: String = "proto2_nofieldpresence_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -683,8 +683,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "proto2_nofieldpresence_unittest"
+    static let _protobuf_protoMessageName: String = "NestedMessage"
+    static let _protobuf_protoPackageName: String = "proto2_nofieldpresence_unittest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "bb"),
     ]
@@ -993,8 +993,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
 }
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestProto2Required"
-  static let protoPackageName: String = "proto2_nofieldpresence_unittest"
+  static let _protobuf_protoMessageName: String = "TestProto2Required"
+  static let _protobuf_protoPackageName: String = "proto2_nofieldpresence_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "proto2"),
   ]
@@ -1081,8 +1081,8 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessage"
-  static let protoPackageName: String = "proto2_nofieldpresence_unittest"
+  static let _protobuf_protoMessageName: String = "ForeignMessage"
+  static let _protobuf_protoPackageName: String = "proto2_nofieldpresence_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]

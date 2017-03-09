@@ -57,8 +57,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 ///   A message with message_set_wire_format.
 struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMessageSet"
-  static let protoPackageName: String = "proto2_wireformat_unittest"
+  static let _protobuf_protoMessageName: String = "TestMessageSet"
+  static let _protobuf_protoPackageName: String = "proto2_wireformat_unittest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -119,8 +119,8 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
 }
 
 struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMessageSetWireFormatContainer"
-  static let protoPackageName: String = "proto2_wireformat_unittest"
+  static let _protobuf_protoMessageName: String = "TestMessageSetWireFormatContainer"
+  static let _protobuf_protoPackageName: String = "proto2_wireformat_unittest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "message_set", json: "messageSet"),
   ]

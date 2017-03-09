@@ -160,8 +160,8 @@ class MessageGenerator {
 
     p.print("\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
-    p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
-    p.print("\(visibility)static let protoPackageName: String = \"\(protoPackageName)\"\n")
+    p.print("\(visibility)static let _protobuf_protoMessageName: String = \"\(protoMessageName)\"\n")
+    p.print("\(visibility)static let _protobuf_protoPackageName: String = \"\(protoPackageName)\"\n")
 
     // Map proto field names to field number
     if fields.isEmpty {
