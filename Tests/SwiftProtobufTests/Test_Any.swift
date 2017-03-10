@@ -638,4 +638,22 @@ class Test_Any: XCTestCase {
             XCTFail("Decode failed for \(start)")
         }
     }
+
+    func test_Any_OddTypeURL_FromValue() throws {
+      var msg = ProtobufTestMessages_Proto3_TestAllTypes()
+      msg.optionalAny.value = Data(bytes: [0x1a, 0x03, 0x61, 0x62, 0x63])
+      msg.optionalAny.typeURL = "Odd\nType\" prefix/google.protobuf.Value"
+      let newJSON = try msg.jsonString()
+      XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nType\\\" prefix/google.protobuf.Value\",\"value\":\"abc\"}}")
+    }
+
+    func test_Any_OddTypeURL_FromMessage() throws {
+      let valueMsg = Google_Protobuf_Value.with {
+        $0.stringValue = "abc"
+      }
+      var msg = ProtobufTestMessages_Proto3_TestAllTypes()
+      msg.optionalAny = Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
+      let newJSON = try msg.jsonString()
+      XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
+    }
 }
