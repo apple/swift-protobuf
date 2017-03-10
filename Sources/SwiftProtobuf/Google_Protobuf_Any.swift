@@ -91,6 +91,17 @@ fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws 
     return visitor.stringResult
 }
 
+fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) throws -> String {
+    var jsonEncoder = JSONEncoder()
+    jsonEncoder.startObject()
+    jsonEncoder.startField(name: "@type")
+    jsonEncoder.putStringValue(value: typeURL)
+    jsonEncoder.startField(name: "value")
+    jsonEncoder.append(text: value)
+    jsonEncoder.endObject()
+    return jsonEncoder.stringResult
+}
+
 public extension Message {
   /// Initialize this message from the provided `google.protobuf.Any`
   /// well-known type.
@@ -550,7 +561,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
             if let m = message as? _CustomJSONCodable {
                 // Serialize a Well-known type to JSON:
                 let value = try m.encodedJSONString()
-                return "{\"@type\":\"\(url)\",\"value\":\(value)}"
+                return try serializeAnyJSON(wktValueJSON: value, typeURL: url)
             } else {
                 // Serialize a regular message to JSON:
                 return try serializeAnyJSON(for: message, typeURL: url)
@@ -566,7 +577,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
                     let m = try messageType.init(unpackingAny: self)
                     let value = try m.jsonString()
-                    return "{\"@type\":\"\(typeURL)\",\"value\":\(value)}"
+                    return try serializeAnyJSON(wktValueJSON: value, typeURL: typeURL)
                 }
                 // Otherwise, it may be a registered type:
                 if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
