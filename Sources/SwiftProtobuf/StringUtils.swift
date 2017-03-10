@@ -44,10 +44,7 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
     // initializer incorrectly stops at the first zero character for
     // Linux versions of Swift.  So test for the presence of a zero byte
     // and fall back to a slow-but-correct conversion in that case:
-    if count > Int(Int32.max) {
-        return nil
-    }
-    if let zeroLocation = memchr(bytes, Int32(truncatingBitPattern: count), 0) {
+    if memchr(bytes, 0, count) != nil {
         return slowUtf8ToString(bytes: bytes, count: count)
     }
 #endif
