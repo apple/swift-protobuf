@@ -14,6 +14,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 private let minDurationSeconds: Int64 = -maxDurationSeconds
 private let maxDurationSeconds: Int64 = 315576000000
 
@@ -129,15 +131,37 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
     }
 }
 
-
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 
+    /// Returns a `Google_Protobuf_Duration` initialized to have the same
+    /// meaning as the given literal, when interpreted as a duration in seconds.
+    /// The result will be rounded to the nearest nano if the input has
+    /// precision beyond 1e-9.
     public init(floatLiteral value: Double) {
-        let seconds = Int64(value)  // rounded towards zero
-        let fractionalSeconds = value - Double(seconds)
-        let nanos = Int32(fractionalSeconds * Double(nanosPerSecond))
-        self.init(seconds: seconds, nanos: nanos)
+        let sd = trunc(value)
+        let nd = round((value - sd) * TimeInterval(nanosPerSecond))
+        let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
+        self.init(seconds: s, nanos: n)
+    }
+}
+
+extension Google_Protobuf_Duration {
+    /// Returns a `Google_Protobuf_Duration` initialized to have the same
+    /// meaning as the given `TimeInterval`, when interpreted as a duration in
+    /// seconds. The result will be rounded to the nearest nano if the input
+    /// has precision beyond 1e-9.
+    public init(timeInterval: TimeInterval) {
+        let sd = trunc(timeInterval)
+        let nd = round((timeInterval - sd) * TimeInterval(nanosPerSecond))
+        let (s, n) = normalizeForDuration(seconds: Int64(sd), nanos: Int32(nd))
+        self.init(seconds: s, nanos: n)
+    }
+
+    /// The `TimeInterval`, as a duration in seconds, with the same meaning as
+    /// this duration.
+    public var timeInterval: TimeInterval {
+        return TimeInterval(self.seconds) + TimeInterval(self.nanos) / TimeInterval(nanosPerSecond)
     }
 }
 

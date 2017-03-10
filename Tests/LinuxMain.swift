@@ -383,7 +383,9 @@ extension Test_Duration {
             ("testConformance", {try run_test(test:($0 as! Test_Duration).testConformance)}),
             ("testBasicArithmetic", {try run_test(test:($0 as! Test_Duration).testBasicArithmetic)}),
             ("testArithmeticNormalizes", {try run_test(test:($0 as! Test_Duration).testArithmeticNormalizes)}),
-            ("testFloatLiteralConvertible", {try run_test(test:($0 as! Test_Duration).testFloatLiteralConvertible)})
+            ("testFloatLiteralConvertible", {try run_test(test:($0 as! Test_Duration).testFloatLiteralConvertible)}),
+            ("testInitializationByTimeIntervals", {try run_test(test:($0 as! Test_Duration).testInitializationByTimeIntervals)}),
+            ("testGetters", {try run_test(test:($0 as! Test_Duration).testGetters)})
         ]
     }
 }
