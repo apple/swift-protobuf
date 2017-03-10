@@ -31,7 +31,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
     func testStruct_pbdecode() {
         assertDecodeSucceeds([10, 7, 10, 1, 97, 18, 2, 32, 1, 10, 7, 10, 1, 98, 18, 2, 8, 0]) { (m) in
             let vTrue = Google_Protobuf_Value(boolValue: true)
-            let vNull = Google_Protobuf_Value(nullValue: ())
+            let vNull: Google_Protobuf_Value = nil
             var same = Google_Protobuf_Struct()
             same.fields = ["a": vTrue, "b": vNull]
             var different = Google_Protobuf_Struct()
@@ -49,7 +49,7 @@ class Test_Struct: XCTestCase, PBTestHelpers {
 
     func test_JSON() {
         assertJSONDecodeSucceeds("{}") {$0.fields == [:]}
-        assertJSONDecodeSucceeds("null") {$0.fields == [:]}
+        assertJSONDecodeFails("null")
         assertJSONDecodeFails("false")
         assertJSONDecodeFails("true")
         assertJSONDecodeFails("[]")
@@ -71,14 +71,6 @@ class Test_Struct: XCTestCase, PBTestHelpers {
             XCTAssertEqual(try c1.jsonString(), "{}")
         } catch let e {
             XCTFail("Didn't decode c1: \(e)")
-        }
-
-        do {
-            // But contrast the behavior when we parse a "null" directly:
-            let c2 = try Google_Protobuf_Struct(jsonString: "null")
-            XCTAssertEqual(c2.fields, [:])
-        } catch let e {
-            XCTFail("Didn't decode null: \(e)")
         }
 
         do {
@@ -135,11 +127,10 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
             o.values.append(Google_Protobuf_Value(numberValue: 1))
             o.values.append(Google_Protobuf_Value(stringValue: "abc"))
             o.values.append(Google_Protobuf_Value(boolValue: true))
-            o.values.append(Google_Protobuf_Value(anyArray: [1, Google_Protobuf_NullValue()]))
-            o.values.append(Google_Protobuf_Value(anyArray: []))
+            o.values.append(Google_Protobuf_Value(listValue: [1, nil]))
+            o.values.append(Google_Protobuf_Value(listValue: []))
         }
         assertJSONDecodeSucceeds("[]") {$0.values == []}
-        assertJSONDecodeSucceeds("null") {$0.values == []}
         assertJSONDecodeFails("")
         assertJSONDecodeFails("true")
         assertJSONDecodeFails("false")
@@ -167,22 +158,43 @@ class Test_JSON_ListValue: XCTestCase, PBTestHelpers {
 }
 
 
+class Test_Value: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = Google_Protobuf_Value
+
+    func testValue_empty() throws {
+        let empty = Google_Protobuf_Value()
+
+        // Serializing an empty value (kind not set) in binary or text is ok;
+        // it is only an error in JSON.
+        XCTAssertEqual(try empty.serializedBytes(), [])
+        XCTAssertEqual(try empty.textFormatString(), "")
+
+        // Make sure an empty value is not equal to a nullValue value.
+        let null: Google_Protobuf_Value = nil
+        XCTAssertNotEqual(empty, null)
+    }
+}
+
+
 // TODO: Should have convenience initializers on Google_Protobuf_Value
 class Test_JSON_Value: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Google_Protobuf_Value
 
-    func testValue_default() throws {
+    func testValue_emptyShouldThrow() throws {
         let empty = Google_Protobuf_Value()
-        let emptyJSON = try empty.jsonString()
-        XCTAssertEqual("null", emptyJSON)
-
-        XCTAssertEqual(empty, Google_Protobuf_Value(nullValue: ()))
-        XCTAssertNotEqual(empty, Google_Protobuf_Value(numberValue: 1))
+        do {
+            _ = try empty.jsonString()
+            XCTFail("Encoding should have thrown .missingValue, but it succeeded")
+        } catch JSONEncodingError.missingValue {
+            // Nothing to do here; this is the expected error.
+        } catch {
+            XCTFail("Encoding should have thrown .missingValue, but instead it threw: \(error)")
+        }
     }
 
     func testValue_null() throws {
         let nullFromLiteral: Google_Protobuf_Value = nil
-        let null = Google_Protobuf_Value(nullValue: ())
+        let null: Google_Protobuf_Value = nil
         XCTAssertEqual("null", try null.jsonString())
         XCTAssertEqual([8, 0], try null.serializedBytes())
         XCTAssertEqual(nullFromLiteral, null)
@@ -288,18 +300,6 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
     }
 
     func testValue_list() throws {
-        XCTAssertEqual(Google_Protobuf_ListValue(any: [1]),
-            Google_Protobuf_ListValue(values: [Google_Protobuf_Value(numberValue: 1)]))
-        XCTAssertNotEqual(Google_Protobuf_ListValue(any: [1]),
-            Google_Protobuf_ListValue(values: [Google_Protobuf_Value(numberValue: 2)]))
-        assertJSONEncode("[true,1]") {(o: inout MessageTestType) in
-            o.listValue = Google_Protobuf_ListValue(any:[true, 1])
-        }
-        assertJSONDecodeSucceeds("[1, 2, \"abc\"]") {
-            return ($0 == Google_Protobuf_Value(anyArray:[1, 2, "abc"])
-                && $0 != Google_Protobuf_Value(anyArray:[1, 3, "def"]))
-        }
-
         let listValue = try Google_Protobuf_Value(jsonString: "[1, true, \"abc\"]")
         let d = listValue.debugDescription
         XCTAssertEqual(d, "SwiftProtobuf.Google_Protobuf_Value:\nlist_value {\n  values {\n    number_value: 1\n  }\n  values {\n    bool_value: true\n  }\n  values {\n    string_value: \"abc\"\n  }\n}\n")
@@ -308,15 +308,15 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
 
     func testValue_complex() {
         assertJSONDecodeSucceeds("{\"a\": {\"b\": 1.0}, \"c\": [ 7, true, null, {\"d\": false}]}") {
-            let outer = $0.structValue?.fields ?? [:]
-            let a = outer["a"]?.structValue?.fields ?? [:]
-            let c = outer["c"]?.listValue?.values ?? []
-            return (a["b"]?.numberValue == 1.0
-                && c.count == 4
-                && c[0].numberValue == 7
-                && c[1].boolValue == true
-                && c[2].nullValue == Google_Protobuf_NullValue()
-                && c[3].structValue?.fields["d"]?.boolValue == false)
+            let outer = $0.structValue.fields
+            let a = outer["a"]?.structValue.fields
+            let c = outer["c"]?.listValue.values
+            return (a?["b"]?.numberValue == 1.0
+                && c?.count == 4
+                && c?[0].numberValue == 7
+                && c?[1].boolValue == true
+                && c?[2].nullValue == Google_Protobuf_NullValue()
+                && c?[3].structValue.fields["d"]?.boolValue == false)
         }
     }
 
@@ -375,8 +375,8 @@ class Test_JSON_Value: XCTestCase, PBTestHelpers {
         }
         XCTAssertNotNil(s.fields["objectValue"])
         if let ov = s.fields["objectValue"] {
-            XCTAssertNotNil(ov.structValue?.fields["value"])
-            if let inner = s.fields["objectValue"]?.structValue?.fields["value"] {
+            XCTAssertNotNil(ov.structValue.fields["value"])
+            if let inner = s.fields["objectValue"]?.structValue.fields["value"] {
                 XCTAssertEqual(inner, Google_Protobuf_Value(numberValue: 0))
                 XCTAssertEqual(inner.numberValue, 0)
             }

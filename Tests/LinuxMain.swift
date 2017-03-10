@@ -871,10 +871,18 @@ extension Test_JSON_ListValue {
     }
 }
 
+extension Test_Value {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testValue_empty", {try run_test(test:($0 as! Test_Value).testValue_empty)})
+        ]
+    }
+}
+
 extension Test_JSON_Value {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testValue_default", {try run_test(test:($0 as! Test_JSON_Value).testValue_default)}),
+            ("testValue_emptyShouldThrow", {try run_test(test:($0 as! Test_JSON_Value).testValue_emptyShouldThrow)}),
             ("testValue_null", {try run_test(test:($0 as! Test_JSON_Value).testValue_null)}),
             ("testValue_number", {try run_test(test:($0 as! Test_JSON_Value).testValue_number)}),
             ("testValue_string", {try run_test(test:($0 as! Test_JSON_Value).testValue_string)}),
@@ -1126,6 +1134,7 @@ XCTMain(
         (testCaseClass: Test_Reserved.self, allTests: Test_Reserved.allTests),
         (testCaseClass: Test_Struct.self, allTests: Test_Struct.allTests),
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
+        (testCaseClass: Test_Value.self, allTests: Test_Value.allTests),
         (testCaseClass: Test_JSON_Value.self, allTests: Test_JSON_Value.allTests),
         (testCaseClass: Test_TextFormat_Map_proto3.self, allTests: Test_TextFormat_Map_proto3.allTests),
         (testCaseClass: Test_TextFormat_Unknown.self, allTests: Test_TextFormat_Unknown.allTests),

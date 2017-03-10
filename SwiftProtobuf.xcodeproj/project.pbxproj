@@ -21,7 +21,7 @@
 		9C2F237F1D7780D1008524F2 /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		9C2F23801D7780D1008524F2 /* Google_Protobuf_Duration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */; };
 		9C2F23811D7780D1008524F2 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */; };
-		9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
+		9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift */; };
 		9C2F23831D7780D1008524F2 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift */; };
 		9C2F23851D7780D1008524F2 /* BinaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* BinaryDecoder.swift */; };
 		9C2F23861D7780D1008524F2 /* BinaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* BinaryEncoder.swift */; };
@@ -216,6 +216,10 @@
 		AA28A4AA1DA40B0900C866D9 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
 		AA28A4AC1DA454DA00C866D9 /* BinaryEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* BinaryEncodingSizeVisitor.swift */; };
 		AA28A4AD1DA454DA00C866D9 /* BinaryEncodingSizeVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4AB1DA454DA00C866D9 /* BinaryEncodingSizeVisitor.swift */; };
+		AA3640911E60D043000C3CF4 /* struct.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640901E60D043000C3CF4 /* struct.pb.swift */; };
+		AA3640921E60D592000C3CF4 /* struct.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640901E60D043000C3CF4 /* struct.pb.swift */; };
+		AA3640931E60D593000C3CF4 /* struct.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640901E60D043000C3CF4 /* struct.pb.swift */; };
+		AA3640941E60D593000C3CF4 /* struct.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640901E60D043000C3CF4 /* struct.pb.swift */; };
 		AA3640961E60EBB0000C3CF4 /* Test_Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640951E60EBB0000C3CF4 /* Test_Merge.swift */; };
 		AA3640971E60EBB0000C3CF4 /* Test_Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640951E60EBB0000C3CF4 /* Test_Merge.swift */; };
 		AA3640981E60EBB0000C3CF4 /* Test_Merge.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3640951E60EBB0000C3CF4 /* Test_Merge.swift */; };
@@ -230,9 +234,17 @@
 		AAABA40C1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */; };
 		AAABA40D1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */; };
 		AAABA40E1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */; };
+		AAB979F51E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */; };
+		AAB979F61E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */; };
+		AAB979F71E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */; };
+		AAB979F81E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */; };
 		AAE0F4DF1E6A3886005240E0 /* Test_EnumWithAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4DE1E6A3886005240E0 /* Test_EnumWithAliases.swift */; };
 		AAE0F4E01E6A3886005240E0 /* Test_EnumWithAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4DE1E6A3886005240E0 /* Test_EnumWithAliases.swift */; };
 		AAE0F4E11E6A3886005240E0 /* Test_EnumWithAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4DE1E6A3886005240E0 /* Test_EnumWithAliases.swift */; };
+		AAE0F4E31E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4E21E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift */; };
+		AAE0F4E41E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4E21E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift */; };
+		AAE0F4E51E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4E21E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift */; };
+		AAE0F4E61E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE0F4E21E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift */; };
 		AAEA52201DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift */; };
 		AAEA52211DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA521F1DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift */; };
 		AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
@@ -259,7 +271,7 @@
 		BCCA0E6B1DB1210E00957D74 /* TextFormatTypeAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E681DB1210E00957D74 /* TextFormatTypeAdditions.swift */; };
 		BCCA0E7A1DB124B800957D74 /* Test_TextFormat_proto3.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCA0E751DB123F800957D74 /* Test_TextFormat_proto3.swift */; };
 		ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
-		ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
+		ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift */; };
 		ECBC5C4B1DF6ABC500F658E8 /* timestamp.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift */; };
 		ECBC5C4C1DF6ABC500F658E8 /* Varint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A81DA40B0900C866D9 /* Varint.swift */; };
 		ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift */; };
@@ -275,7 +287,7 @@
 		F44F937B1DAEA76700BC5B85 /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		F44F937C1DAEA76700BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */; };
 		F44F937D1DAEA76700BC5B85 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */; };
-		F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
+		F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift */; };
 		F44F937F1DAEA76700BC5B85 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift */; };
 		F44F93801DAEA76700BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		F44F93811DAEA76700BC5B85 /* BinaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* BinaryDecoder.swift */; };
@@ -460,7 +472,7 @@
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */; };
-		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */; };
+		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift */; };
 		__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufBinaryDecoding.swift /* BinaryDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* BinaryDecoder.swift */; };
 		__src_cc_ref_Sources/Protobuf/ProtobufBinaryEncoding.swift /* BinaryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* BinaryEncoder.swift */; };
@@ -614,11 +626,14 @@
 		AA28A4A51DA30E5900C866D9 /* ZigZag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZigZag.swift; sourceTree = "<group>"; };
 		AA28A4A81DA40B0900C866D9 /* Varint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Varint.swift; sourceTree = "<group>"; };
 		AA28A4AB1DA454DA00C866D9 /* BinaryEncodingSizeVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryEncodingSizeVisitor.swift; sourceTree = "<group>"; };
+		AA3640901E60D043000C3CF4 /* struct.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = struct.pb.swift; sourceTree = "<group>"; };
 		AA3640951E60EBB0000C3CF4 /* Test_Merge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Merge.swift; sourceTree = "<group>"; };
 		AA6CF6F01DB6D1F8007DF26B /* Test_Enum_Proto2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Enum_Proto2.swift; sourceTree = "<group>"; };
 		AA86F6F91E0A0F0B006CC38A /* JSONEncodingVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingVisitor.swift; sourceTree = "<group>"; };
 		AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufAPIVersionCheck.swift; sourceTree = "<group>"; };
+		AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_ListValue+Extensions.swift"; sourceTree = "<group>"; };
 		AAE0F4DE1E6A3886005240E0 /* Test_EnumWithAliases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_EnumWithAliases.swift; sourceTree = "<group>"; };
+		AAE0F4E21E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Value+Extensions.swift"; sourceTree = "<group>"; };
 		AAEA521F1DA5BB81003F318F /* Message+UInt8ArrayHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Message+UInt8ArrayHelpers.swift"; sourceTree = "<group>"; };
 		AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Wrappers+Extensions.swift"; sourceTree = "<group>"; };
 		AAEA52731DA80DEA003F318F /* wrappers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wrappers.pb.swift; sourceTree = "<group>"; };
@@ -654,7 +669,7 @@
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_Any.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Duration+Extensions.swift"; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_FieldMask+Extensions.swift"; sourceTree = "<group>"; };
-		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Google_Protobuf_Struct.swift; sourceTree = "<group>"; };
+		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Struct+Extensions.swift"; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Timestamp+Extensions.swift"; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufBinaryDecoding.swift /* BinaryDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryDecoder.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Sources/Protobuf/ProtobufBinaryEncoding.swift /* BinaryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryEncoder.swift; sourceTree = "<group>"; };
@@ -852,8 +867,10 @@
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */,
-				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift */,
+				AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */,
+				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift */,
+				AAE0F4E21E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift */,
 				AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift */,
 				F47138951E4E56AC00C8492C /* Internal.swift */,
@@ -876,6 +893,7 @@
 				AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
 				9CA424411E286D4E00C0E5B4 /* StringUtils.swift */,
+				AA3640901E60D043000C3CF4 /* struct.pb.swift */,
 				BCCA0E661DB1210E00957D74 /* TextFormatDecoder.swift */,
 				9C667A901E4C203D008B974F /* TextFormatDecodingError.swift */,
 				BCCA0E671DB1210E00957D74 /* TextFormatEncoder.swift */,
@@ -1294,16 +1312,18 @@
 				9C2F237D1D7780D1008524F2 /* empty.pb.swift in Sources */,
 				9C75F89F1DDD3FA3005CCFF2 /* JSONDecoder.swift in Sources */,
 				9C2F237E1D7780D1008524F2 /* field_mask.pb.swift in Sources */,
+				AAE0F4E41E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */,
 				9C2F237F1D7780D1008524F2 /* Google_Protobuf_Any.swift in Sources */,
 				9C2F23801D7780D1008524F2 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				9C2F23811D7780D1008524F2 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
 				F47138971E4E56AC00C8492C /* Internal.swift in Sources */,
 				AAF2EE001DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
 				AA28A4AD1DA454DA00C866D9 /* BinaryEncodingSizeVisitor.swift in Sources */,
-				9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct.swift in Sources */,
+				9C2F23821D7780D1008524F2 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				9CA424431E286D4E00C0E5B4 /* StringUtils.swift in Sources */,
 				9C2F23831D7780D1008524F2 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				9C2F23851D7780D1008524F2 /* BinaryDecoder.swift in Sources */,
+				AA3640921E60D592000C3CF4 /* struct.pb.swift in Sources */,
 				9C2F23861D7780D1008524F2 /* BinaryEncoder.swift in Sources */,
 				9C2F23871D7780D1008524F2 /* BinaryTypeAdditions.swift in Sources */,
 				9C2F23891D7780D1008524F2 /* Enum.swift in Sources */,
@@ -1347,6 +1367,7 @@
 				AA28A4A71DA30E5900C866D9 /* ZigZag.swift in Sources */,
 				9C2F239D1D7780D1008524F2 /* type.pb.swift in Sources */,
 				9C75F8951DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
+				AAB979F61E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */,
 				AA05BF4B1DAEB7E400619042 /* WireFormat.swift in Sources */,
 				9C667A921E4C203D008B974F /* JSONDecodingError.swift in Sources */,
 				F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
@@ -1364,6 +1385,7 @@
 				__src_cc_ref_Sources/Protobuf/empty.pb.swift /* empty.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufEnum.swift /* Enum.swift in Sources */,
 				9C75F88F1DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
+				AAE0F4E31E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */,
 				8DC1CA0F1E54B81400CA8A26 /* TimeUtils.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufExtensionFields.swift /* ExtensionFields.swift in Sources */,
 				9C75F88A1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
@@ -1374,11 +1396,12 @@
 				9CA424421E286D4E00C0E5B4 /* StringUtils.swift in Sources */,
 				AA05BF4F1DAEB7E800619042 /* FieldTag.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */,
+				AA3640911E60D043000C3CF4 /* struct.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
-				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct.swift in Sources */,
+				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				9C84E4931E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
 				8DC1CA0D1E54B80800CA8A26 /* MathUtils.swift in Sources */,
@@ -1417,6 +1440,7 @@
 				__src_cc_ref_Sources/Protobuf/timestamp.pb.swift /* timestamp.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/type.pb.swift /* type.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufUnknown.swift /* UnknownStorage.swift in Sources */,
+				AAB979F51E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */,
 				AA28A4A91DA40B0900C866D9 /* Varint.swift in Sources */,
 				9C75F8801DDBE0DE005CCFF2 /* Visitor.swift in Sources */,
 				AA05BF4A1DAEB7E400619042 /* WireFormat.swift in Sources */,
@@ -1539,6 +1563,7 @@
 				F44F93951DAEA76700BC5B85 /* source_context.pb.swift in Sources */,
 				9C75F8A01DDD3FA3005CCFF2 /* JSONDecoder.swift in Sources */,
 				F44F939A1DAEA76700BC5B85 /* ZigZag.swift in Sources */,
+				AAE0F4E51E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */,
 				F44F93971DAEA76700BC5B85 /* type.pb.swift in Sources */,
 				F44F937F1DAEA76700BC5B85 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				F44F938E1DAEA76700BC5B85 /* JSONTypeAdditions.swift in Sources */,
@@ -1549,6 +1574,7 @@
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
 				F44F938A1DAEA76700BC5B85 /* Decoder.swift in Sources */,
+				AA3640931E60D593000C3CF4 /* struct.pb.swift in Sources */,
 				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
 				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
@@ -1557,7 +1583,7 @@
 				AAF2ED3C1DEF3FBC007B510F /* NameMap.swift in Sources */,
 				9C84E4951E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
 				F4F4F11F1E5C7563006C6CAD /* MathUtils.swift in Sources */,
-				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct.swift in Sources */,
+				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				9C667A971E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */,
 				9C84E4991E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */,
@@ -1592,6 +1618,7 @@
 				F44F93791DAEA76700BC5B85 /* empty.pb.swift in Sources */,
 				F44F93891DAEA76700BC5B85 /* MessageExtension.swift in Sources */,
 				9C75F8961DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
+				AAB979F71E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */,
 				AA05BF4C1DAEB7E400619042 /* WireFormat.swift in Sources */,
 				9C667A931E4C203D008B974F /* JSONDecodingError.swift in Sources */,
 				F44F93881DAEA76700BC5B85 /* ExtensionFields.swift in Sources */,
@@ -1714,6 +1741,7 @@
 				F44F94081DAEB23500BC5B85 /* empty.pb.swift in Sources */,
 				F44F94151DAEB23500BC5B85 /* Enum.swift in Sources */,
 				9C75F8921DDD3108005CCFF2 /* ExtensibleMessage.swift in Sources */,
+				AAE0F4E61E6F5CB9005240E0 /* Google_Protobuf_Value+Extensions.swift in Sources */,
 				F44F94171DAEB23500BC5B85 /* ExtensionFields.swift in Sources */,
 				9C75F88D1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				F47138991E4E56AC00C8492C /* Internal.swift in Sources */,
@@ -1724,10 +1752,11 @@
 				AA05BF521DAEB7E800619042 /* FieldTag.swift in Sources */,
 				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
 				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
+				AA3640941E60D593000C3CF4 /* struct.pb.swift in Sources */,
 				F44F940A1DAEB23500BC5B85 /* Google_Protobuf_Any.swift in Sources */,
 				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
-				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct.swift in Sources */,
+				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				F4F4F1201E5C7565006C6CAD /* MathUtils.swift in Sources */,
 				9C84E4961E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
@@ -1767,6 +1796,7 @@
 				F44F94231DAEB23500BC5B85 /* UnknownStorage.swift in Sources */,
 				ECBC5C4C1DF6ABC500F658E8 /* Varint.swift in Sources */,
 				9C75F8831DDBE118005CCFF2 /* Visitor.swift in Sources */,
+				AAB979F81E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift in Sources */,
 				AA05BF4D1DAEB7E400619042 /* WireFormat.swift in Sources */,
 				9C667A941E4C203D008B974F /* JSONDecodingError.swift in Sources */,
 				ECBC5C511DF6ABC500F658E8 /* wrappers.pb.swift in Sources */,
