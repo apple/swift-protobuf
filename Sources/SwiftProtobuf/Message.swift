@@ -42,11 +42,9 @@ public protocol Message: CustomDebugStringConvertible {
   // Basic facts about this class and the proto message it was generated from
   // Used by various encoders and decoders
 
-  /// The name of the message from the original .proto file.
+  /// The fully-scoped name of the message from the original .proto file,
+  /// including any relevant package name.
   static var protoMessageName: String { get }
-
-  /// The name of the protobuf package from the original .proto file.
-  static var protoPackageName: String { get }
 
   /// Check if all required fields (if any) have values set on this message,
   /// including any messages within this message.
