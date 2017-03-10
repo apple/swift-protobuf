@@ -236,7 +236,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 } catch {
                     return nil
                 }
-            } else if let _ = _jsonFields, let typeURL = typeURL {
+            } else if let _ = _contentJSON, let typeURL = typeURL {
                 // Transcode JSON-to-protobuf by decoding/recoding:
                 // Well-known types are always available:
                 let encodedTypeName = typeName(fromURL: typeURL)
@@ -271,13 +271,13 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         set {
             _value = newValue
             _message = nil
-            _jsonFields = nil
+            _contentJSON = nil
         }
     }
     private var _value: Data?
 
     private var _message: Message?
-    private var _jsonFields: [String:String]?
+    private var _contentJSON: Data?  // Any json parsed from with the @type removed.
 
     static private var wellKnownTypes: [String:Message.Type] = [
         "google.protobuf.Any": Google_Protobuf_Any.self,
@@ -430,23 +430,26 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         try decoder.scanner.skipRequiredObjectStart()
         // Reset state
         typeURL = nil
-        _jsonFields = nil
+        _contentJSON = nil
         _message = nil
         _value = nil
         if decoder.scanner.skipOptionalObjectEnd() {
             return
         }
-        var jsonFields = [String:String]()
+
+        var jsonEncoder = JSONEncoder()
         while true {
             let key = try decoder.scanner.nextQuotedString()
             try decoder.scanner.skipRequiredColon()
             if key == "@type" {
                 typeURL = try decoder.scanner.nextQuotedString()
             } else {
-                jsonFields[key] = try decoder.scanner.skip()
+                jsonEncoder.startField(name: key)
+                let keyValueJSON = try decoder.scanner.skip()
+                jsonEncoder.append(text: keyValueJSON)
             }
             if decoder.scanner.skipOptionalObjectEnd() {
-                _jsonFields = jsonFields
+                _contentJSON = jsonEncoder.dataResult
                 return
             }
             try decoder.scanner.skipRequiredComma()
@@ -491,36 +494,52 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 }
             }
             return
-        } else if let jsonFields = _jsonFields {
+        } else if let contentJSON = _contentJSON {
             let targetType = typeName(fromMessage: target)
             if Google_Protobuf_Any.wellKnownTypes[targetType] != nil {
-                // If it's a well-known type, the JSON coding must have a single 'value' field
-                if jsonFields.count != 1 {
-                    throw AnyUnpackError.malformedWellKnownTypeJSON
-                }
-                if let v = jsonFields["value"], !v.isEmpty {
-                    target = try M(jsonString: v)
-                } else {
-                    throw AnyUnpackError.malformedWellKnownTypeJSON
+                try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+                    var scanner = JSONScanner(utf8Pointer: bytes,
+                                              count: contentJSON.count)
+                    let key = try scanner.nextQuotedString()
+                    if key != "value" {
+                        // The only thing within a WKT should be "value".
+                        throw AnyUnpackError.malformedWellKnownTypeJSON
+                    }
+                    try scanner.skipRequiredColon()  // Can't fail
+                    let value = try scanner.skip()
+                    if !scanner.complete {
+                        // If that wasn't the end, then there was another key,
+                        // and WKTs should only have the one.
+                        throw AnyUnpackError.malformedWellKnownTypeJSON
+                    }
+                    // Note: This api is unpackTo(target:) so it really should be
+                    // a merge and not a replace (the non WKT case next is a merge).
+                    // The only WKTs where there would seem to be a difference are:
+                    //   Struct - It is a map, so it would merge into any existing
+                    //     enties.
+                    //   ValueList - Repeated, so values should append to the
+                    //       existing ones instead of instead of replace.
+                    //   FieldMask - Repeated, so values should append to the
+                    //       existing ones instead of instead of replace.
+                    //   Value - Interesting case, it is a oneof, so currently
+                    //       that would error if it was already set, so maybe
+                    //       replace is ok.
+                    target = try M(jsonString: value)
                 }
             } else {
-                // Decode JSON from the stored tokens for generated messages
-                guard let nameProviding = (target as? _ProtoNameProviding) else {
-                    throw JSONDecodingError.missingFieldNames
-                }
-                let fieldNames = type(of: nameProviding)._protobuf_nameMap
-                for (k,v) in jsonFields {
-                    if let fieldNumber = fieldNames.number(forJSONName: k) {
-                        let raw = v.data(using: String.Encoding.utf8)!
-                        try raw.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-                            var decoder = JSONDecoder(utf8Pointer: bytes, count: raw.count)
-                            try target.decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-                            if !decoder.scanner.complete {
-                                throw JSONDecodingError.trailingGarbage
-                            }
-                        }
+                let asciiOpenCurlyBracket = UInt8(ascii: "{")
+                let asciiCloseCurlyBracket = UInt8(ascii: "}")
+                var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
+                contentJSONAsObject.append(contentJSON)
+                contentJSONAsObject.append(asciiCloseCurlyBracket)
+
+                try contentJSONAsObject.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+                    var decoder = JSONDecoder(utf8Pointer: bytes,
+                                              count: contentJSONAsObject.count)
+                    try decoder.decodeFullObject(message: &target)
+                    if !decoder.scanner.complete {
+                        throw JSONDecodingError.trailingGarbage
                     }
-                    // Ignore unrecognized field names (as per usual with JSON decoding)
                 }
             }
             return
@@ -602,19 +621,15 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 // corresponding type.
                 throw JSONEncodingError.anyTranscodeFailure
             } else {
-                // We don't have binary data:  If we were parsed from JSON,
-                // we can just write the fields back out.  If not, then
-                // our output is just the `@type` and nothing more...
+                // We don't have binary data, so include the typeURL and
+                // any other contentJSON this Any was created from.
                 var jsonEncoder = JSONEncoder()
                 jsonEncoder.startObject()
                 jsonEncoder.startField(name: "@type")
                 jsonEncoder.putStringValue(value: typeURL)
-                if let jsonFields = _jsonFields {
-                    // JSON-to-JSON case, just recode the stored tokens
-                    for (k,v) in jsonFields {
-                        jsonEncoder.startField(name: k)
-                        jsonEncoder.append(text: v)
-                    }
+                if let contentJSON = _contentJSON, !contentJSON.isEmpty {
+                  jsonEncoder.append(staticText: ",")
+                  jsonEncoder.append(utf8Data: contentJSON)
                 }
                 jsonEncoder.endObject()
                 return jsonEncoder.stringResult
@@ -657,10 +672,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
             return true
         }
 
-        // If we were both deserialized from JSON, compare the JSON token streams:
-        //if let myJSON = _jsonFields, let otherJSON = other._jsonFields, myJSON == otherJSON {
-        //    return true
-        //}
+        // If we were both deserialized from JSON, compare content of the JSON?
 
         return false
     }
