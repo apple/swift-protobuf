@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   A Timestamp represents a point in time independent of any time zone
 ///   or calendar, represented as seconds and fractions of seconds at
 ///   nanosecond resolution in UTC Epoch time. It is encoded using the
@@ -100,8 +102,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
 public struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Timestamp"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let protoMessageName: String = _protobuf_package + ".Timestamp"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),

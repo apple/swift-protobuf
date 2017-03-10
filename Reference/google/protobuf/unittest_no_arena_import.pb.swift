@@ -49,9 +49,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "proto2_arena_unittest"
+
 struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ImportNoArenaNestedMessage"
-  static let protoPackageName: String = "proto2_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".ImportNoArenaNestedMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]

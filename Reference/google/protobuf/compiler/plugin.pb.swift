@@ -65,10 +65,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf.compiler"
+
 ///   The version number of protocol compiler.
 struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Version"
-  static let protoPackageName: String = "google.protobuf.compiler"
+  static let protoMessageName: String = _protobuf_package + ".Version"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "major"),
     2: .same(proto: "minor"),
@@ -174,8 +175,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._M
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
 struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CodeGeneratorRequest"
-  static let protoPackageName: String = "google.protobuf.compiler"
+  static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "file_to_generate", json: "fileToGenerate"),
     2: .same(proto: "parameter"),
@@ -322,8 +322,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, Swi
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
 struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CodeGeneratorResponse"
-  static let protoPackageName: String = "google.protobuf.compiler"
+  static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
     15: .same(proto: "file"),
@@ -355,8 +354,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
 
   ///   Represents a single generated file.
   struct File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "File"
-    static let protoPackageName: String = "google.protobuf.compiler"
+    static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "name"),
       2: .unique(proto: "insertion_point", json: "insertionPoint"),

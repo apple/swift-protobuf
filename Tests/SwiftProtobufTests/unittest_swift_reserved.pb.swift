@@ -35,9 +35,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest"
+
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftReservedTest"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     10: .unique(proto: "proto_message_name", json: "protoMessageName"),
     11: .unique(proto: "proto_package_name", json: "protoPackageName"),
@@ -211,8 +212,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "class"
-    static let protoPackageName: String = "protobuf_unittest"
+    static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".class"
     static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -273,8 +273,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "Type"
-    static let protoPackageName: String = "protobuf_unittest"
+    static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".Type"
     static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -301,8 +300,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "isEqual"
-    static let protoPackageName: String = "protobuf_unittest"
+    static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".isEqual"
     static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -388,8 +386,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftReservedTestExt"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".SwiftReservedTestExt"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

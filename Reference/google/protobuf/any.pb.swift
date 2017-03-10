@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   `Any` contains an arbitrary serialized protocol buffer message along with a
 ///   URL that describes the type of the serialized message.
 ///  
@@ -118,8 +120,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///         "value": "1.212s"
 ///       }
 struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Any"
-  static let protoPackageName: String = "google.protobuf"
+  static let protoMessageName: String = _protobuf_package + ".Any"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "type_url", json: "typeUrl"),
     2: .same(proto: "value"),

@@ -49,6 +49,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest"
+
 enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case proto2MapEnumFooLite // = 0
@@ -159,8 +161,7 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameP
 }
 
 struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMapLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
     2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
@@ -453,8 +454,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestArenaMapLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestArenaMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
     2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
@@ -748,8 +748,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._
 
 ///   Test embedded message with required fields
 struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestRequiredMessageMapLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_field", json: "mapField"),
   ]
@@ -793,8 +792,7 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
 }
 
 struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestEnumMapLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestEnumMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .unique(proto: "known_map_field", json: "knownMapField"),
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
@@ -841,8 +839,7 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestEnumMapPlusExtraLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtraLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .unique(proto: "known_map_field", json: "knownMapField"),
     102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
@@ -889,8 +886,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
 }
 
 struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestMessageMapLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestMessageMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "map_int32_message", json: "mapInt32Message"),
   ]
@@ -929,8 +925,7 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestRequiredLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestRequiredLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
     2: .same(proto: "b"),
@@ -1022,8 +1017,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessageArenaLite"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".ForeignMessageArenaLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]

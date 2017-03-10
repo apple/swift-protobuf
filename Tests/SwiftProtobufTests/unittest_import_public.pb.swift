@@ -51,9 +51,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest_import"
+
 struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "PublicImportMessage"
-  static let protoPackageName: String = "protobuf_unittest_import"
+  static let protoMessageName: String = _protobuf_package + ".PublicImportMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
   ]

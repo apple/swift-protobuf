@@ -37,16 +37,16 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest.extend4"
+
 struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MyMessage"
-  static let protoPackageName: String = "protobuf_unittest.extend4"
+  static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "C"
-    static let protoPackageName: String = "protobuf_unittest.extend4"
+    static let protoMessageName: String = Ext4MyMessage.protoMessageName + ".C"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1410: .same(proto: "c"),
     ]
@@ -131,8 +131,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 }
 
 struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "C"
-  static let protoPackageName: String = "protobuf_unittest.extend4"
+  static let protoMessageName: String = _protobuf_package + ".C"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1420: .same(proto: "c"),
   ]

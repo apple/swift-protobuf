@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   A Duration represents a signed, fixed-length span of time represented
 ///   as a count of seconds and fractions of seconds at nanosecond
 ///   resolution. It is independent of any calendar and concepts like "day"
@@ -95,8 +97,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///       duration = Duration()
 ///       duration.FromTimedelta(td)
 struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Duration"
-  static let protoPackageName: String = "google.protobuf"
+  static let protoMessageName: String = _protobuf_package + ".Duration"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),

@@ -57,6 +57,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest_no_arena"
+
 enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foreignFoo // = 4
@@ -95,8 +97,7 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._Pro
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAllTypes"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+  static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -1172,8 +1173,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "protobuf_unittest_no_arena"
+    static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "bb"),
     ]
@@ -1225,8 +1225,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct OptionalGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "OptionalGroup"
-    static let protoPackageName: String = "protobuf_unittest_no_arena"
+    static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".OptionalGroup"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       17: .same(proto: "a"),
     ]
@@ -1275,8 +1274,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "RepeatedGroup"
-    static let protoPackageName: String = "protobuf_unittest_no_arena"
+    static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".RepeatedGroup"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       47: .same(proto: "a"),
     ]
@@ -1722,8 +1720,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessage"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+  static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
@@ -1772,8 +1769,7 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message, SwiftProto
 }
 
 struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestNoArenaMessage"
-  static let protoPackageName: String = "protobuf_unittest_no_arena"
+  static let protoMessageName: String = _protobuf_package + ".TestNoArenaMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "arena_message", json: "arenaMessage"),
   ]

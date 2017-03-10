@@ -49,6 +49,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "conformance"
+
 //  This defines the conformance testing protocol.  This protocol exists between
 //  the conformance test suite itself and the code being tested.  For each test,
 //  the suite will send a ConformanceRequest message and expect a
@@ -111,8 +113,7 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProvidi
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ConformanceRequest"
-  static let protoPackageName: String = "conformance"
+  static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "protobuf_payload", json: "protobufPayload"),
     2: .unique(proto: "json_payload", json: "jsonPayload"),
@@ -232,8 +233,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
 ///   Represents a single test case's output.
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ConformanceResponse"
-  static let protoPackageName: String = "conformance"
+  static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "parse_error", json: "parseError"),
     6: .unique(proto: "serialize_error", json: "serializeError"),

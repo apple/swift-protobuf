@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest"
+
 //  Cycles in the Message graph can cause problems for the mutable classes
 //  since the properties on the mutable class change types. This file just
 //  needs to generate source, and that source must compile, to ensure the
@@ -57,8 +59,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 //  within a single proto file.
 
 struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CycleFoo"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".CycleFoo"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "a_foo", json: "aFoo"),
     2: .unique(proto: "a_bar", json: "aBar"),
@@ -174,8 +175,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CycleBar"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".CycleBar"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "a_bar", json: "aBar"),
     2: .unique(proto: "a_baz", json: "aBaz"),
@@ -291,8 +291,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "CycleBaz"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".CycleBaz"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "a_baz", json: "aBaz"),
     2: .unique(proto: "a_foo", json: "aFoo"),
