@@ -134,6 +134,10 @@ extension Google_Protobuf_Duration: _CustomJSONCodable {
 extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
     public typealias FloatLiteralType = Double
 
+    /// Returns a `Google_Protobuf_Duration` initialized to have the same
+    /// meaning as the given literal, when interpreted as a duration in seconds.
+    /// The result will be rounded to the nearest nano if the input has
+    /// precision beyond 1e-9.
     public init(floatLiteral value: Double) {
         let sd = trunc(value)
         let nd = round((value - sd) * TimeInterval(nanosPerSecond))
@@ -145,7 +149,8 @@ extension Google_Protobuf_Duration: ExpressibleByFloatLiteral {
 extension Google_Protobuf_Duration {
     /// Returns a `Google_Protobuf_Duration` initialized to have the same
     /// meaning as the given `TimeInterval`, when interpreted as a duration in
-    /// seconds.
+    /// seconds. The result will be rounded to the nearest nano if the input
+    /// has precision beyond 1e-9.
     public init(timeInterval: TimeInterval) {
         let sd = trunc(timeInterval)
         let nd = round((timeInterval - sd) * TimeInterval(nanosPerSecond))
