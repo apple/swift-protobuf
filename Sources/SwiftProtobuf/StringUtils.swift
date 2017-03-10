@@ -22,14 +22,16 @@ import Foundation
 // This is painfully slow but seems to work correctly on every platform.
 // We currently only use it on Linux.  See below.
 fileprivate func slowUtf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
-    var s = ""
-    let buffer = UnsafeBufferPointer<UInt8>(start: bytes, count: count)
-    var bytes = buffer.makeIterator()
-    var utf8Decoder = UTF8()
+    let buffer = UnsafeBufferPointer(start: bytes, count: count)
+    var it = buffer.makeIterator()
+    var utf8Codec = UTF8()
+    var output = String.UnicodeScalarView()
+    output.reserveCapacity(count)
+
     while true {
-        switch utf8Decoder.decode(&bytes) {
-        case .scalarValue(let scalar): s.append(String(scalar))
-        case .emptyInput: return s
+        switch utf8Codec.decode(&it) {
+        case .scalarValue(let scalar): output.append(scalar)
+        case .emptyInput: return String(output)
         case .error: return nil
         }
     }
