@@ -38,12 +38,19 @@ public extension Message {
     /// - Throws: an instance of `TextFormatDecodingError` on failure.
     public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
         self.init()
-        var textDecoder = try TextFormatDecoder(messageType: Self.self,
-                                                text: textFormatString,
-                                                extensions: extensions)
-        try decodeMessage(decoder: &textDecoder)
-        if !textDecoder.complete {
-            throw TextFormatDecodingError.trailingGarbage
+        if !textFormatString.isEmpty {
+            if let data = textFormatString.data(using: String.Encoding.utf8) {
+                try data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+                    var decoder = try TextFormatDecoder(messageType: Self.self,
+                                                    utf8Pointer: bytes,
+                                                    count: data.count,
+                                                    extensions: extensions)
+                    try decodeMessage(decoder: &decoder)
+                    if !decoder.complete {
+                        throw TextFormatDecodingError.trailingGarbage
+                    }
+                }
+            }
         }
     }
 }

@@ -62,12 +62,19 @@ public extension Google_Protobuf_Any {
   /// Decode an Any object from Protobuf Text Format.
   public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
     self.init()
-    var textDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self,
-                                            text: textFormatString,
-                                            extensions: extensions)
-    try decodeTextFormat(decoder: &textDecoder)
-    if !textDecoder.complete {
-      throw TextFormatDecodingError.trailingGarbage
+    if !textFormatString.isEmpty {
+      if let data = textFormatString.data(using: String.Encoding.utf8) {
+        try data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
+          var textDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self,
+                                                  utf8Pointer: bytes,
+                                                  count: data.count,
+                                                  extensions: extensions)
+          try decodeTextFormat(decoder: &textDecoder)
+          if !textDecoder.complete {
+            throw TextFormatDecodingError.trailingGarbage
+          }
+        }
+      }
     }
   }
 

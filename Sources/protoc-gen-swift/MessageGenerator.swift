@@ -728,7 +728,7 @@ class MessageGenerator {
     alsoCapturing capturedVariable: String? = nil,
     body: (inout CodePrinter) -> Void
   ) {
-    if let storage = storage {
+    if storage != nil {
       let prefixKeywords = "\(returns ? "return " : "")" +
         "\(canThrow ? "try " : "")"
 

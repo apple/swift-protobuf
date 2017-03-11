@@ -149,7 +149,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
                 let decoded = try MessageTestType(textFormatString: encoded, extensions: extensions)
                 XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)
             } catch {
-                XCTFail("Encode/decode cycle should not throw error, decoding: \(error)", file: file, line: line)
+                XCTFail("Encode/decode cycle should not throw error but got \(error) while decoding \(encoded)", file: file, line: line)
             }
         } catch let e {
             XCTFail("Failed to serialize Text: \(e)\n    \(configured)", file: file, line: line)
@@ -205,8 +205,8 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
             } catch let e {
                 XCTFail("Swift should have recoded without error but got \(e)\n    \(decoded)", file: file, line: line)
             }
-        } catch {
-            XCTFail("Swift should have decoded without error: \(text)", file: file, line: line)
+        } catch let e {
+            XCTFail("Swift should have decoded without error but got \(e) decoding: \(text)", file: file, line: line)
             return
         }
     }
