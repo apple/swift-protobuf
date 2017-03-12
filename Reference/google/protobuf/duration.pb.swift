@@ -120,15 +120,11 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt64Field(value: &seconds)
-    case 2: try decoder.decodeSingularInt32Field(value: &nanos)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt64Field(value: &seconds)
+      case 2: try decoder.decodeSingularInt32Field(value: &nanos)
+      default: break
+      }
     }
   }
 

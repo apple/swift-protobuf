@@ -157,15 +157,11 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &typeURL)
-    case 2: try decoder.decodeSingularBytesField(value: &value)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &typeURL)
+      case 2: try decoder.decodeSingularBytesField(value: &value)
+      default: break
+      }
     }
   }
 

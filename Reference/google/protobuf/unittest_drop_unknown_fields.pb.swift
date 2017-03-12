@@ -104,15 +104,11 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
-    case 2: try decoder.decodeSingularEnumField(value: &enumValue)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &enumValue)
+      default: break
+      }
     }
   }
 
@@ -196,16 +192,12 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
-    case 2: try decoder.decodeSingularEnumField(value: &enumValue)
-    case 3: try decoder.decodeSingularInt32Field(value: &extraInt32Value)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &enumValue)
+      case 3: try decoder.decodeSingularInt32Field(value: &extraInt32Value)
+      default: break
+      }
     }
   }
 
