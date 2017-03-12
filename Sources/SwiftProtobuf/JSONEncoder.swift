@@ -88,6 +88,11 @@ internal struct JSONEncoder {
         data.append(contentsOf: text.utf8)
     }
 
+    /// Append a raw utf8 in a `Data` to the JSON text.
+    internal mutating func append(utf8Data: Data) {
+        data.append(contentsOf: utf8Data)
+    }
+
     /// Begin a new field whose name is given as a `StaticString`.
     internal mutating func startField(name: StaticString) {
         if let s = separator {
