@@ -195,22 +195,18 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
 
   mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularEnumField(value: &_e)
-    case 2: try decoder.decodeRepeatedEnumField(value: &repeatedE)
-    case 3: try decoder.decodeRepeatedEnumField(value: &repeatedPackedE)
-    case 4: try decoder.decodeRepeatedEnumField(value: &repeatedPackedUnexpectedE)
-    case 5, 6:
-      if o != nil {
-        try decoder.handleConflictingOneOf()
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularEnumField(value: &_e)
+      case 2: try decoder.decodeRepeatedEnumField(value: &repeatedE)
+      case 3: try decoder.decodeRepeatedEnumField(value: &repeatedPackedE)
+      case 4: try decoder.decodeRepeatedEnumField(value: &repeatedPackedUnexpectedE)
+      case 5, 6:
+        if o != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        o = try Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      default: break
       }
-      o = try Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: break
     }
   }
 

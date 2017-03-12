@@ -322,33 +322,29 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._anyField)
+        case 2: try decoder.decodeSingularMessageField(value: &_storage._apiField)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._durationField)
+        case 4: try decoder.decodeSingularMessageField(value: &_storage._emptyField)
+        case 5: try decoder.decodeSingularMessageField(value: &_storage._fieldMaskField)
+        case 6: try decoder.decodeSingularMessageField(value: &_storage._sourceContextField)
+        case 7: try decoder.decodeSingularMessageField(value: &_storage._structField)
+        case 8: try decoder.decodeSingularMessageField(value: &_storage._timestampField)
+        case 9: try decoder.decodeSingularMessageField(value: &_storage._typeField)
+        case 10: try decoder.decodeSingularMessageField(value: &_storage._doubleField)
+        case 11: try decoder.decodeSingularMessageField(value: &_storage._floatField)
+        case 12: try decoder.decodeSingularMessageField(value: &_storage._int64Field)
+        case 13: try decoder.decodeSingularMessageField(value: &_storage._uint64Field)
+        case 14: try decoder.decodeSingularMessageField(value: &_storage._int32Field)
+        case 15: try decoder.decodeSingularMessageField(value: &_storage._uint32Field)
+        case 16: try decoder.decodeSingularMessageField(value: &_storage._boolField)
+        case 17: try decoder.decodeSingularMessageField(value: &_storage._stringField)
+        case 18: try decoder.decodeSingularMessageField(value: &_storage._bytesField)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._valueField)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularMessageField(value: &_storage._anyField)
-    case 2: try decoder.decodeSingularMessageField(value: &_storage._apiField)
-    case 3: try decoder.decodeSingularMessageField(value: &_storage._durationField)
-    case 4: try decoder.decodeSingularMessageField(value: &_storage._emptyField)
-    case 5: try decoder.decodeSingularMessageField(value: &_storage._fieldMaskField)
-    case 6: try decoder.decodeSingularMessageField(value: &_storage._sourceContextField)
-    case 7: try decoder.decodeSingularMessageField(value: &_storage._structField)
-    case 8: try decoder.decodeSingularMessageField(value: &_storage._timestampField)
-    case 9: try decoder.decodeSingularMessageField(value: &_storage._typeField)
-    case 10: try decoder.decodeSingularMessageField(value: &_storage._doubleField)
-    case 11: try decoder.decodeSingularMessageField(value: &_storage._floatField)
-    case 12: try decoder.decodeSingularMessageField(value: &_storage._int64Field)
-    case 13: try decoder.decodeSingularMessageField(value: &_storage._uint64Field)
-    case 14: try decoder.decodeSingularMessageField(value: &_storage._int32Field)
-    case 15: try decoder.decodeSingularMessageField(value: &_storage._uint32Field)
-    case 16: try decoder.decodeSingularMessageField(value: &_storage._boolField)
-    case 17: try decoder.decodeSingularMessageField(value: &_storage._stringField)
-    case 18: try decoder.decodeSingularMessageField(value: &_storage._bytesField)
-    case 19: try decoder.decodeSingularMessageField(value: &_storage._valueField)
-    default: break
     }
   }
 
@@ -623,32 +619,28 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedMessageField(value: &_storage._anyField)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._apiField)
+        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._durationField)
+        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._emptyField)
+        case 5: try decoder.decodeRepeatedMessageField(value: &_storage._fieldMaskField)
+        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._sourceContextField)
+        case 7: try decoder.decodeRepeatedMessageField(value: &_storage._structField)
+        case 8: try decoder.decodeRepeatedMessageField(value: &_storage._timestampField)
+        case 9: try decoder.decodeRepeatedMessageField(value: &_storage._typeField)
+        case 10: try decoder.decodeRepeatedMessageField(value: &_storage._doubleField)
+        case 11: try decoder.decodeRepeatedMessageField(value: &_storage._floatField)
+        case 12: try decoder.decodeRepeatedMessageField(value: &_storage._int64Field)
+        case 13: try decoder.decodeRepeatedMessageField(value: &_storage._uint64Field)
+        case 14: try decoder.decodeRepeatedMessageField(value: &_storage._int32Field)
+        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._uint32Field)
+        case 16: try decoder.decodeRepeatedMessageField(value: &_storage._boolField)
+        case 17: try decoder.decodeRepeatedMessageField(value: &_storage._stringField)
+        case 18: try decoder.decodeRepeatedMessageField(value: &_storage._bytesField)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedMessageField(value: &_storage._anyField)
-    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._apiField)
-    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._durationField)
-    case 4: try decoder.decodeRepeatedMessageField(value: &_storage._emptyField)
-    case 5: try decoder.decodeRepeatedMessageField(value: &_storage._fieldMaskField)
-    case 6: try decoder.decodeRepeatedMessageField(value: &_storage._sourceContextField)
-    case 7: try decoder.decodeRepeatedMessageField(value: &_storage._structField)
-    case 8: try decoder.decodeRepeatedMessageField(value: &_storage._timestampField)
-    case 9: try decoder.decodeRepeatedMessageField(value: &_storage._typeField)
-    case 10: try decoder.decodeRepeatedMessageField(value: &_storage._doubleField)
-    case 11: try decoder.decodeRepeatedMessageField(value: &_storage._floatField)
-    case 12: try decoder.decodeRepeatedMessageField(value: &_storage._int64Field)
-    case 13: try decoder.decodeRepeatedMessageField(value: &_storage._uint64Field)
-    case 14: try decoder.decodeRepeatedMessageField(value: &_storage._int32Field)
-    case 15: try decoder.decodeRepeatedMessageField(value: &_storage._uint32Field)
-    case 16: try decoder.decodeRepeatedMessageField(value: &_storage._boolField)
-    case 17: try decoder.decodeRepeatedMessageField(value: &_storage._stringField)
-    case 18: try decoder.decodeRepeatedMessageField(value: &_storage._bytesField)
-    default: break
     }
   }
 
@@ -1272,19 +1264,15 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1...18:
+          if _storage._oneofField != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._oneofField = try ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1...18:
-      if _storage._oneofField != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._oneofField = try ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: break
     }
   }
 
@@ -1486,32 +1474,28 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Any>.self, value: &_storage._anyField)
+        case 2: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Api>.self, value: &_storage._apiField)
+        case 3: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Duration>.self, value: &_storage._durationField)
+        case 4: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Empty>.self, value: &_storage._emptyField)
+        case 5: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FieldMask>.self, value: &_storage._fieldMaskField)
+        case 6: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_SourceContext>.self, value: &_storage._sourceContextField)
+        case 7: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Struct>.self, value: &_storage._structField)
+        case 8: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Timestamp>.self, value: &_storage._timestampField)
+        case 9: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Type>.self, value: &_storage._typeField)
+        case 10: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: &_storage._doubleField)
+        case 11: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FloatValue>.self, value: &_storage._floatField)
+        case 12: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int64Value>.self, value: &_storage._int64Field)
+        case 13: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: &_storage._uint64Field)
+        case 14: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int32Value>.self, value: &_storage._int32Field)
+        case 15: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: &_storage._uint32Field)
+        case 16: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BoolValue>.self, value: &_storage._boolField)
+        case 17: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_storage._stringField)
+        case 18: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_storage._bytesField)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Any>.self, value: &_storage._anyField)
-    case 2: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Api>.self, value: &_storage._apiField)
-    case 3: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Duration>.self, value: &_storage._durationField)
-    case 4: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Empty>.self, value: &_storage._emptyField)
-    case 5: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FieldMask>.self, value: &_storage._fieldMaskField)
-    case 6: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_SourceContext>.self, value: &_storage._sourceContextField)
-    case 7: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Struct>.self, value: &_storage._structField)
-    case 8: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Timestamp>.self, value: &_storage._timestampField)
-    case 9: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Type>.self, value: &_storage._typeField)
-    case 10: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_DoubleValue>.self, value: &_storage._doubleField)
-    case 11: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_FloatValue>.self, value: &_storage._floatField)
-    case 12: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int64Value>.self, value: &_storage._int64Field)
-    case 13: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt64Value>.self, value: &_storage._uint64Field)
-    case 14: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_Int32Value>.self, value: &_storage._int32Field)
-    case 15: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_UInt32Value>.self, value: &_storage._uint32Field)
-    case 16: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BoolValue>.self, value: &_storage._boolField)
-    case 17: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_StringValue>.self, value: &_storage._stringField)
-    case 18: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: &_storage._bytesField)
-    default: break
     }
   }
 

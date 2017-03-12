@@ -291,15 +291,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
     mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 2: try decoder.decodeSingularInt64Field(value: &_oo)
-      case 1: try decoder.decodeSingularInt32Field(value: &_bb)
-      default: break
+        switch fieldNumber {
+        case 2: try decoder.decodeSingularInt64Field(value: &_oo)
+        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        default: break
+        }
       }
     }
 
@@ -334,25 +330,21 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
+        case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
+        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
+        case 9, 10, 60, 150:
+          if _storage._options != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
+        case 2..<9, 12..<56:
+          try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
-    case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
-    case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
-    case 9, 10, 60, 150:
-      if _storage._options != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-    case 2..<9, 12..<56:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
-    default: break
     }
   }
 

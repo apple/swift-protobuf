@@ -112,17 +112,13 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._int32Value)
+        case 2: try decoder.decodeSingularMessageField(value: &_storage._anyValue)
+        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAnyValue)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_storage._int32Value)
-    case 2: try decoder.decodeSingularMessageField(value: &_storage._anyValue)
-    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAnyValue)
-    default: break
     }
   }
 

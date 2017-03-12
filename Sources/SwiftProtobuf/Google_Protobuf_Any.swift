@@ -363,15 +363,11 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
 
     mutating public func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
-            try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-        }
-    }
-
-    mutating public func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &typeURL)
-        case 2: try decoder.decodeSingularBytesField(value: &_value)
-        default: break
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularStringField(value: &typeURL)
+          case 2: try decoder.decodeSingularBytesField(value: &_value)
+          default: break
+          }
         }
     }
 
