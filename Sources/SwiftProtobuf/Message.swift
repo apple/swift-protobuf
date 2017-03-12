@@ -181,20 +181,11 @@ public extension Message {
 /// tests or put it in a `Set<>`.
 ///
 public protocol _MessageImplementationBase: Message, Hashable {
-  // The compiler actually generates the following methods. Default
-  // implementations below redirect the standard names. This allows developers
-  // to override the standard names to customize the behavior.
-  mutating func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws
-
   func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
   public static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs._protobuf_generated_isEqualTo(other: rhs)
-  }
-
-  mutating func decodeMessage<T: Decoder>(decoder: inout T) throws {
-      try _protobuf_generated_decodeMessage(decoder: &decoder)
   }
 }

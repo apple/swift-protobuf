@@ -315,11 +315,11 @@ class MessageGenerator {
     }
   }
 
-  /// Generates the `_protobuf_generated_decodeMessage` method for the message.
+  /// Generates the `decodeMessage` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
+    p.print("\(visibility)mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
     p.indent()
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")

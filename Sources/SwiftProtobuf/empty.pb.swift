@@ -66,7 +66,7 @@ public struct Google_Protobuf_Empty: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
