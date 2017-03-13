@@ -62,12 +62,25 @@ public protocol Message: CustomDebugStringConvertible {
 
   /// Decode all of the fields from the given decoder.
   ///
-  /// This is generally a simple loop that repeatedly gets the next
-  /// field number from `decoder.nextFieldNumber()` and
-  /// then invokes `decodeField` above.
+  /// This is a simple loop that repeatedly gets the next field number
+  /// from `decoder.nextFieldNumber()` and then uses the number returned
+  /// and the type information from the original .proto file to decide
+  /// what type of data should be decoded for that field.  The corresponding
+  /// method on the decoder is then called to get the field value.
   ///
-  /// If you're not implementing a custom encoding format, you probably
-  /// shouldn't call this.
+  /// This is the core method used by the deserialization machinery. It is
+  /// `public` to enable users to implement their own encoding formats by
+  /// conforming to `Decoder`; it should not be called otherwise.
+  ///
+  /// Note that this is not specific to binary encodng; formats that use
+  /// textual identifiers translate those to field numbers and also go
+  /// through this to decode messages.
+  ///
+  /// - Parameters:
+  ///   - decoder: a `Decoder`; the `Message` will call the method
+  ///     corresponding to the type of this field.
+  /// - Throws: an error on failure or type mismatch.  The type of error
+  ///     thrown depends on which decoder is used.
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
   /// Traverses the fields of the message, calling the appropriate methods
