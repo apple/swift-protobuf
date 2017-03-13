@@ -73,10 +73,6 @@ fileprivate func typeName(fromMessage message: Message) -> String {
     return messageType.protoMessageName
 }
 
-fileprivate func typeName(fromMessageType messageType: Message.Type) -> String {
-    return messageType.protoMessageName
-}
-
 /// Traversal-based JSON encoding of a standard message type
 /// This mimics the standard JSON message encoding logic, but adds
 /// the additional `@type` field.
@@ -238,16 +234,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 // Transcode JSON-to-protobuf by decoding/recoding:
                 // Well-known types are always available:
                 let encodedTypeName = typeName(fromURL: typeURL)
-                if let messageType = Google_Protobuf_Any.wellKnownTypes[encodedTypeName] {
-                    do {
-                        let m = try messageType.init(unpackingAny: self)
-                        return try m.serializedData()
-                    } catch {
-                        return nil
-                    }
-                }
-                // See if the user has registered the type:
-                if let messageType = Google_Protobuf_Any.knownTypes[encodedTypeName] {
+                if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) {
                     do {
                         let m = try messageType.init(unpackingAny: self)
                         return try m.serializedData()
@@ -276,57 +263,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
 
     private var _message: Message?
     private var _contentJSON: Data?  // Any json parsed from with the @type removed.
-
-    static private var wellKnownTypes: [String:Message.Type] = [
-        "google.protobuf.Any": Google_Protobuf_Any.self,
-        "google.protobuf.BoolValue": Google_Protobuf_BoolValue.self,
-        "google.protobuf.BytesValue": Google_Protobuf_BytesValue.self,
-        "google.protobuf.DoubleValue": Google_Protobuf_DoubleValue.self,
-        "google.protobuf.Duration": Google_Protobuf_Duration.self,
-        "google.protobuf.FieldMask": Google_Protobuf_FieldMask.self,
-        "google.protobuf.FloatValue": Google_Protobuf_FloatValue.self,
-        "google.protobuf.Int32Value": Google_Protobuf_Int32Value.self,
-        "google.protobuf.Int64Value": Google_Protobuf_Int64Value.self,
-        "google.protobuf.ListValue": Google_Protobuf_ListValue.self,
-        "google.protobuf.StringValue": Google_Protobuf_StringValue.self,
-        "google.protobuf.Struct": Google_Protobuf_Struct.self,
-        "google.protobuf.Timestamp": Google_Protobuf_Timestamp.self,
-        "google.protobuf.UInt32Value": Google_Protobuf_UInt32Value.self,
-        "google.protobuf.UInt64Value": Google_Protobuf_UInt64Value.self,
-        "google.protobuf.Value": Google_Protobuf_Value.self,
-    ]
-
-    static private var knownTypes = [String:Message.Type]()
-
-    /// Register a message type so that Any objects can use
-    /// them for decoding contents.
-    ///
-    /// This is currently only required in two cases:
-    ///
-    /// * When decoding Protobuf Text format.  Currently,
-    ///   Any objects do not defer deserialization from Text
-    ///   format.  Depending on how the Any objects are stored
-    ///   in text format, the Any object may need to look up
-    ///   the message type in order to deserialize itself.
-    ///
-    /// * When re-encoding an Any object into a different
-    ///   format than it was decoded from.  For example, if
-    ///   you decode a message containing an Any object from
-    ///   JSON format and then re-encode the message into Protobuf
-    ///   Binary format, the Any object will need to complete the
-    ///   deferred deserialization of the JSON object before it
-    ///   can re-encode.
-    ///
-    /// Note that well-known types are pre-registered for you and
-    /// you do not need to register them from your code.
-    ///
-    /// Also note that this is not needed if you only decode and encode
-    /// to and from the same format.
-    ///
-    static public func register(messageType: Message.Type) {
-        let messageTypeName = typeName(fromMessageType: messageType)
-        knownTypes[messageTypeName] = messageType
-    }
 
     public init() {}
 
@@ -391,8 +327,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 }
                 _message = any
                 return
-            } else if let messageType = (Google_Protobuf_Any.wellKnownTypes[messageTypeName]
-                ?? Google_Protobuf_Any.knownTypes[messageTypeName]) {
+            } else if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
                 var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
                 _message = messageType.init()
                 try _message!.decodeMessage(decoder: &subDecoder)
@@ -489,7 +424,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
             return
         } else if let contentJSON = _contentJSON {
             let targetType = typeName(fromMessage: target)
-            if Google_Protobuf_Any.wellKnownTypes[targetType] != nil {
+            if Google_Protobuf_Any.isWellKnownType(messageName: targetType) {
                 try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
                     var scanner = JSONScanner(utf8Pointer: bytes,
                                               count: contentJSON.count)
@@ -586,13 +521,13 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
 
                 // If it's a well-known type, we can always do this:
                 let messageTypeName = typeName(fromURL: typeURL)
-                if let messageType = Google_Protobuf_Any.wellKnownTypes[messageTypeName] {
+                if let messageType = Google_Protobuf_Any.wellKnownType(forMessageName: messageTypeName) {
                     let m = try messageType.init(unpackingAny: self)
                     let value = try m.jsonString()
                     return try serializeAnyJSON(wktValueJSON: value, typeURL: typeURL)
                 }
                 // Otherwise, it may be a registered type:
-                if let messageType = Google_Protobuf_Any.knownTypes[messageTypeName] {
+                if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
                     let m = try messageType.init(unpackingAny: self)
                     return try serializeAnyJSON(for: m, typeURL: typeURL)
                 }
