@@ -932,16 +932,12 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       return true
     }
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_bb)
-      default: break
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        default: break
+        }
       }
     }
 
@@ -986,16 +982,12 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       return true
     }
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 17: try decoder.decodeSingularInt32Field(value: &_a)
-      default: break
+        switch fieldNumber {
+        case 17: try decoder.decodeSingularInt32Field(value: &_a)
+        default: break
+        }
       }
     }
 
@@ -1076,69 +1068,65 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._requiredInt32)
+        case 2: try decoder.decodeSingularInt64Field(value: &_storage._requiredInt64)
+        case 3: try decoder.decodeSingularUInt32Field(value: &_storage._requiredUint32)
+        case 4: try decoder.decodeSingularUInt64Field(value: &_storage._requiredUint64)
+        case 5: try decoder.decodeSingularSInt32Field(value: &_storage._requiredSint32)
+        case 6: try decoder.decodeSingularSInt64Field(value: &_storage._requiredSint64)
+        case 7: try decoder.decodeSingularFixed32Field(value: &_storage._requiredFixed32)
+        case 8: try decoder.decodeSingularFixed64Field(value: &_storage._requiredFixed64)
+        case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._requiredSfixed32)
+        case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._requiredSfixed64)
+        case 11: try decoder.decodeSingularFloatField(value: &_storage._requiredFloat)
+        case 12: try decoder.decodeSingularDoubleField(value: &_storage._requiredDouble)
+        case 13: try decoder.decodeSingularBoolField(value: &_storage._requiredBool)
+        case 14: try decoder.decodeSingularStringField(value: &_storage._requiredString)
+        case 15: try decoder.decodeSingularBytesField(value: &_storage._requiredBytes)
+        case 16: try decoder.decodeSingularGroupField(value: &_storage._requiredGroup)
+        case 18: try decoder.decodeSingularMessageField(value: &_storage._requiredNestedMessage)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._requiredForeignMessage)
+        case 20: try decoder.decodeSingularMessageField(value: &_storage._requiredImportMessage)
+        case 21: try decoder.decodeSingularEnumField(value: &_storage._requiredNestedEnum)
+        case 22: try decoder.decodeSingularEnumField(value: &_storage._requiredForeignEnum)
+        case 23: try decoder.decodeSingularEnumField(value: &_storage._requiredImportEnum)
+        case 24: try decoder.decodeSingularStringField(value: &_storage._requiredStringPiece)
+        case 25: try decoder.decodeSingularStringField(value: &_storage._requiredCord)
+        case 26: try decoder.decodeSingularMessageField(value: &_storage._requiredPublicImportMessage)
+        case 27: try decoder.decodeSingularMessageField(value: &_storage._requiredLazyMessage)
+        case 61: try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32)
+        case 62: try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64)
+        case 63: try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32)
+        case 64: try decoder.decodeSingularUInt64Field(value: &_storage._defaultUint64)
+        case 65: try decoder.decodeSingularSInt32Field(value: &_storage._defaultSint32)
+        case 66: try decoder.decodeSingularSInt64Field(value: &_storage._defaultSint64)
+        case 67: try decoder.decodeSingularFixed32Field(value: &_storage._defaultFixed32)
+        case 68: try decoder.decodeSingularFixed64Field(value: &_storage._defaultFixed64)
+        case 69: try decoder.decodeSingularSFixed32Field(value: &_storage._defaultSfixed32)
+        case 70: try decoder.decodeSingularSFixed64Field(value: &_storage._defaultSfixed64)
+        case 71: try decoder.decodeSingularFloatField(value: &_storage._defaultFloat)
+        case 72: try decoder.decodeSingularDoubleField(value: &_storage._defaultDouble)
+        case 73: try decoder.decodeSingularBoolField(value: &_storage._defaultBool)
+        case 74: try decoder.decodeSingularStringField(value: &_storage._defaultString)
+        case 75: try decoder.decodeSingularBytesField(value: &_storage._defaultBytes)
+        case 81: try decoder.decodeSingularEnumField(value: &_storage._defaultNestedEnum)
+        case 82: try decoder.decodeSingularEnumField(value: &_storage._defaultForeignEnum)
+        case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
+        case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
+        case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
+        case 111...114:
+          if _storage._oneofField != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._oneofField = try ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_storage._requiredInt32)
-    case 2: try decoder.decodeSingularInt64Field(value: &_storage._requiredInt64)
-    case 3: try decoder.decodeSingularUInt32Field(value: &_storage._requiredUint32)
-    case 4: try decoder.decodeSingularUInt64Field(value: &_storage._requiredUint64)
-    case 5: try decoder.decodeSingularSInt32Field(value: &_storage._requiredSint32)
-    case 6: try decoder.decodeSingularSInt64Field(value: &_storage._requiredSint64)
-    case 7: try decoder.decodeSingularFixed32Field(value: &_storage._requiredFixed32)
-    case 8: try decoder.decodeSingularFixed64Field(value: &_storage._requiredFixed64)
-    case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._requiredSfixed32)
-    case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._requiredSfixed64)
-    case 11: try decoder.decodeSingularFloatField(value: &_storage._requiredFloat)
-    case 12: try decoder.decodeSingularDoubleField(value: &_storage._requiredDouble)
-    case 13: try decoder.decodeSingularBoolField(value: &_storage._requiredBool)
-    case 14: try decoder.decodeSingularStringField(value: &_storage._requiredString)
-    case 15: try decoder.decodeSingularBytesField(value: &_storage._requiredBytes)
-    case 16: try decoder.decodeSingularGroupField(value: &_storage._requiredGroup)
-    case 18: try decoder.decodeSingularMessageField(value: &_storage._requiredNestedMessage)
-    case 19: try decoder.decodeSingularMessageField(value: &_storage._requiredForeignMessage)
-    case 20: try decoder.decodeSingularMessageField(value: &_storage._requiredImportMessage)
-    case 21: try decoder.decodeSingularEnumField(value: &_storage._requiredNestedEnum)
-    case 22: try decoder.decodeSingularEnumField(value: &_storage._requiredForeignEnum)
-    case 23: try decoder.decodeSingularEnumField(value: &_storage._requiredImportEnum)
-    case 24: try decoder.decodeSingularStringField(value: &_storage._requiredStringPiece)
-    case 25: try decoder.decodeSingularStringField(value: &_storage._requiredCord)
-    case 26: try decoder.decodeSingularMessageField(value: &_storage._requiredPublicImportMessage)
-    case 27: try decoder.decodeSingularMessageField(value: &_storage._requiredLazyMessage)
-    case 61: try decoder.decodeSingularInt32Field(value: &_storage._defaultInt32)
-    case 62: try decoder.decodeSingularInt64Field(value: &_storage._defaultInt64)
-    case 63: try decoder.decodeSingularUInt32Field(value: &_storage._defaultUint32)
-    case 64: try decoder.decodeSingularUInt64Field(value: &_storage._defaultUint64)
-    case 65: try decoder.decodeSingularSInt32Field(value: &_storage._defaultSint32)
-    case 66: try decoder.decodeSingularSInt64Field(value: &_storage._defaultSint64)
-    case 67: try decoder.decodeSingularFixed32Field(value: &_storage._defaultFixed32)
-    case 68: try decoder.decodeSingularFixed64Field(value: &_storage._defaultFixed64)
-    case 69: try decoder.decodeSingularSFixed32Field(value: &_storage._defaultSfixed32)
-    case 70: try decoder.decodeSingularSFixed64Field(value: &_storage._defaultSfixed64)
-    case 71: try decoder.decodeSingularFloatField(value: &_storage._defaultFloat)
-    case 72: try decoder.decodeSingularDoubleField(value: &_storage._defaultDouble)
-    case 73: try decoder.decodeSingularBoolField(value: &_storage._defaultBool)
-    case 74: try decoder.decodeSingularStringField(value: &_storage._defaultString)
-    case 75: try decoder.decodeSingularBytesField(value: &_storage._defaultBytes)
-    case 81: try decoder.decodeSingularEnumField(value: &_storage._defaultNestedEnum)
-    case 82: try decoder.decodeSingularEnumField(value: &_storage._defaultForeignEnum)
-    case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
-    case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
-    case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-    case 111...114:
-      if _storage._oneofField != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._oneofField = try ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: break
     }
   }
 
@@ -1469,21 +1457,17 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     return true
   }
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_requiredInt32)
-    case 2: try decoder.decodeSingularFloatField(value: &_requiredFloat)
-    case 3: try decoder.decodeSingularBoolField(value: &_requiredBool)
-    case 4: try decoder.decodeSingularStringField(value: &_requiredString)
-    case 5: try decoder.decodeSingularBytesField(value: &_requiredBytes)
-    case 6: try decoder.decodeSingularEnumField(value: &_requiredNestedEnum)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &_requiredInt32)
+      case 2: try decoder.decodeSingularFloatField(value: &_requiredFloat)
+      case 3: try decoder.decodeSingularBoolField(value: &_requiredBool)
+      case 4: try decoder.decodeSingularStringField(value: &_requiredString)
+      case 5: try decoder.decodeSingularBytesField(value: &_requiredBytes)
+      case 6: try decoder.decodeSingularEnumField(value: &_requiredNestedEnum)
+      default: break
+      }
     }
   }
 

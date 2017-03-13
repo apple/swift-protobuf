@@ -197,21 +197,17 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1, 2:
-      if payload != nil {
-        try decoder.handleConflictingOneOf()
+      switch fieldNumber {
+      case 1, 2:
+        if payload != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        payload = try Conformance_ConformanceRequest.OneOf_Payload(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 3: try decoder.decodeSingularEnumField(value: &requestedOutputFormat)
+      default: break
       }
-      payload = try Conformance_ConformanceRequest.OneOf_Payload(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    case 3: try decoder.decodeSingularEnumField(value: &requestedOutputFormat)
-    default: break
     }
   }
 
@@ -426,20 +422,16 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1...6:
-      if result != nil {
-        try decoder.handleConflictingOneOf()
+      switch fieldNumber {
+      case 1...6:
+        if result != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        result = try Conformance_ConformanceResponse.OneOf_Result(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      default: break
       }
-      result = try Conformance_ConformanceResponse.OneOf_Result(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    default: break
     }
   }
 
