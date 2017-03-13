@@ -60,38 +60,27 @@ public protocol Message: CustomDebugStringConvertible {
   // General serialization/deserialization machinery
   //
 
-  /// Decode a field identified by a field number (as given in the .proto file).
-  /// The `Message` will call the Decoder method corresponding
-  /// to the declared type of the field.
+  /// Decode all of the fields from the given decoder.
+  ///
+  /// This is a simple loop that repeatedly gets the next field number
+  /// from `decoder.nextFieldNumber()` and then uses the number returned
+  /// and the type information from the original .proto file to decide
+  /// what type of data should be decoded for that field.  The corresponding
+  /// method on the decoder is then called to get the field value.
   ///
   /// This is the core method used by the deserialization machinery. It is
-  /// `public` to enable users to implement their own encoding formats; it
-  /// should not be called otherwise.
+  /// `public` to enable users to implement their own encoding formats by
+  /// conforming to `Decoder`; it should not be called otherwise.
   ///
-  /// Note that this is not specific to protobuf encoding; formats that use
-  /// textual identifiers translate those to fieldNumbers and then invoke
-  /// this to decode the field value.
-  ///
-  /// Warning: This method does NOT take precautions to preserve copy-on-write
-  /// semantics for messages with heap storage; it should only be called on
-  /// newly-created messages or messages where the storage has been ensured
-  /// unique.
+  /// Note that this is not specific to binary encodng; formats that use
+  /// textual identifiers translate those to field numbers and also go
+  /// through this to decode messages.
   ///
   /// - Parameters:
   ///   - decoder: a `Decoder`; the `Message` will call the method
   ///     corresponding to the type of this field.
-  ///   - protoFieldNumber: the number of the field to decode.
-  /// - Throws: an error on failure or type mismatch.
-  mutating func decodeField<D: Decoder>(decoder: inout D, fieldNumber: Int) throws
-
-  /// Decode all of the fields from the given decoder.
-  ///
-  /// This is generally a simple loop that repeatedly gets the next
-  /// field number from `decoder.nextFieldNumber()` and
-  /// then invokes `decodeField` above.
-  ///
-  /// If you're not implementing a custom encoding format, you probably
-  /// shouldn't call this.
+  /// - Throws: an error on failure or type mismatch.  The type of error
+  ///     thrown depends on which decoder is used.
   mutating func decodeMessage<D: Decoder>(decoder: inout D) throws
 
   /// Traverses the fields of the message, calling the appropriate methods
@@ -205,28 +194,11 @@ public extension Message {
 /// tests or put it in a `Set<>`.
 ///
 public protocol _MessageImplementationBase: Message, Hashable {
-  // The compiler actually generates the following methods. Default
-  // implementations below redirect the standard names. This allows developers
-  // to override the standard names to customize the behavior.
-  mutating func _protobuf_generated_decodeMessage<T: Decoder>(decoder: inout T) throws
-
-  mutating func _protobuf_generated_decodeField<T: Decoder>(decoder: inout T,
-                                                          fieldNumber: Int) throws
-
   func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
   public static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs._protobuf_generated_isEqualTo(other: rhs)
-  }
-
-  mutating func decodeField<T: Decoder>(decoder: inout T, fieldNumber: Int) throws {
-    try _protobuf_generated_decodeField(decoder: &decoder,
-                                      fieldNumber: fieldNumber)
-  }
-
-  mutating func decodeMessage<T: Decoder>(decoder: inout T) throws {
-      try _protobuf_generated_decodeMessage(decoder: &decoder)
   }
 }

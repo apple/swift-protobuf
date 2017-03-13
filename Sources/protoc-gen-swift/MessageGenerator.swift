@@ -257,9 +257,6 @@ class MessageGenerator {
     generateDecodeMessage(printer: &p)
 
     p.print("\n")
-    generateDecodeField(printer: &p)
-
-    p.print("\n")
     generateTraverse(printer: &p)
 
     p.print("\n")
@@ -318,80 +315,67 @@ class MessageGenerator {
     }
   }
 
-  /// Generates the `_protobuf_generated_decodeMessage` method for the message.
+  /// Generates the `decodeMessage` method for the message.
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
+    p.print("\(visibility)mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
     p.indent()
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")
     }
-    // We can't extend the lifetime of _storage in decodeField because it will
-    // get executed for every field, instead of once per message, canceling out
-    // all the benefits. Fortunately the optimizer is able to recognize that
-    // this lifetime applies to the same _storage used within decodeField (even
-    // though it's not passed directly in) and we avoid the extra
-    // retains/releases.
+    let varName: String
+    if fields.isEmpty && !isExtensible {
+      varName = "_"
+    } else {
+      varName = "fieldNumber"
+    }
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
-      p.print("while let fieldNumber = try decoder.nextFieldNumber() {\n")
+      p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
       p.indent()
-      p.print("try decodeField(decoder: &decoder, fieldNumber: fieldNumber)\n")
-      p.outdent()
-      p.print("}\n")
-    }
-    p.outdent()
-    p.print("}\n")
-  }
-
-  /// Generates the `_protobuf_generated_decodeField` method for the message.
-  ///
-  /// - Parameter p: The code printer.
-  private func generateDecodeField(printer p: inout CodePrinter) {
-    p.print("\(visibility)mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {\n")
-    p.indent()
-
-    if !fields.isEmpty {
-      p.print("switch fieldNumber {\n")
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        if f.descriptor.hasOneofIndex {
-          let oneofIndex = f.descriptor.oneofIndex
-          if !oneofHandled.contains(oneofIndex) {
-            p.print("case \(oneofFieldNumbersPattern(index: oneofIndex)):\n")
-            let oneof = f.oneof!
-            p.indent()
-            p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
-            p.print("  try decoder.handleConflictingOneOf()\n")
-            p.print("}\n")
-            p.print("\(storedProperty(forOneof: oneof)) = try \(swiftFullName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
-            p.outdent()
-            oneofHandled.insert(oneofIndex)
+      if !fields.isEmpty {
+        p.print("switch fieldNumber {\n")
+        var oneofHandled = Set<Int32>()
+        for f in fields {
+          if f.descriptor.hasOneofIndex {
+            let oneofIndex = f.descriptor.oneofIndex
+            if !oneofHandled.contains(oneofIndex) {
+              p.print("case \(oneofFieldNumbersPattern(index: oneofIndex)):\n")
+              let oneof = f.oneof!
+              p.indent()
+              p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
+              p.print("  try decoder.handleConflictingOneOf()\n")
+              p.print("}\n")
+              p.print("\(storedProperty(forOneof: oneof)) = try \(swiftFullName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
+              p.outdent()
+              oneofHandled.insert(oneofIndex)
+            }
+          } else {
+            f.generateDecodeFieldCase(printer: &p, usesStorage: storage != nil)
           }
-        } else {
-          f.generateDecodeFieldCase(printer: &p, usesStorage: storage != nil)
         }
+        if isExtensible {
+          p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+          p.print("  try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        }
+        p.print("default: break\n")
+      } else if isExtensible {
+        // Just output a simple if-statement if the message had no fields of its
+        // own but we still need to generate a decode statement for extensions.
+        p.print("if ")
+        p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
+        p.print(" {\n")
+        p.indent()
+        p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        p.outdent()
+        p.print("}\n")
       }
-      if isExtensible {
-        p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
-        p.print("  try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+      if !fields.isEmpty {
+        p.print("}\n")
       }
-      p.print("default: break\n")
-    } else if isExtensible {
-      // Just output a simple if-statement if the message had no fields of its
-      // own but we still need to generate a decode statement for extensions.
-      p.print("if ")
-      p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
-      p.print(" {\n")
-      p.indent()
-      p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
       p.outdent()
       p.print("}\n")
     }
-    if !fields.isEmpty {
-      p.print("}\n")
-    }
-
     p.outdent()
     p.print("}\n")
   }

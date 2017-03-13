@@ -65,16 +65,12 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobu
 
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &fileName)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &fileName)
+      default: break
+      }
     }
   }
 

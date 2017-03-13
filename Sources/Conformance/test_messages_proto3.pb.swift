@@ -1463,20 +1463,16 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       _ = _uniqueStorage()
       try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
         while let fieldNumber = try decoder.nextFieldNumber() {
-          try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularInt32Field(value: &_storage._a)
+          case 2: try decoder.decodeSingularMessageField(value: &_storage._corecursive)
+          default: break
+          }
         }
-      }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_storage._a)
-      case 2: try decoder.decodeSingularMessageField(value: &_storage._corecursive)
-      default: break
       }
     }
 
@@ -1506,133 +1502,129 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
+        case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
+        case 3: try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint32)
+        case 4: try decoder.decodeSingularUInt64Field(value: &_storage._optionalUint64)
+        case 5: try decoder.decodeSingularSInt32Field(value: &_storage._optionalSint32)
+        case 6: try decoder.decodeSingularSInt64Field(value: &_storage._optionalSint64)
+        case 7: try decoder.decodeSingularFixed32Field(value: &_storage._optionalFixed32)
+        case 8: try decoder.decodeSingularFixed64Field(value: &_storage._optionalFixed64)
+        case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._optionalSfixed32)
+        case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._optionalSfixed64)
+        case 11: try decoder.decodeSingularFloatField(value: &_storage._optionalFloat)
+        case 12: try decoder.decodeSingularDoubleField(value: &_storage._optionalDouble)
+        case 13: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
+        case 14: try decoder.decodeSingularStringField(value: &_storage._optionalString)
+        case 15: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
+        case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage)
+        case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
+        case 22: try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum)
+        case 24: try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece)
+        case 25: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
+        case 27: try decoder.decodeSingularMessageField(value: &_storage._recursiveMessage)
+        case 31: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
+        case 32: try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64)
+        case 33: try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32)
+        case 34: try decoder.decodeRepeatedUInt64Field(value: &_storage._repeatedUint64)
+        case 35: try decoder.decodeRepeatedSInt32Field(value: &_storage._repeatedSint32)
+        case 36: try decoder.decodeRepeatedSInt64Field(value: &_storage._repeatedSint64)
+        case 37: try decoder.decodeRepeatedFixed32Field(value: &_storage._repeatedFixed32)
+        case 38: try decoder.decodeRepeatedFixed64Field(value: &_storage._repeatedFixed64)
+        case 39: try decoder.decodeRepeatedSFixed32Field(value: &_storage._repeatedSfixed32)
+        case 40: try decoder.decodeRepeatedSFixed64Field(value: &_storage._repeatedSfixed64)
+        case 41: try decoder.decodeRepeatedFloatField(value: &_storage._repeatedFloat)
+        case 42: try decoder.decodeRepeatedDoubleField(value: &_storage._repeatedDouble)
+        case 43: try decoder.decodeRepeatedBoolField(value: &_storage._repeatedBool)
+        case 44: try decoder.decodeRepeatedStringField(value: &_storage._repeatedString)
+        case 45: try decoder.decodeRepeatedBytesField(value: &_storage._repeatedBytes)
+        case 48: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedNestedMessage)
+        case 49: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedForeignMessage)
+        case 51: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedNestedEnum)
+        case 52: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum)
+        case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
+        case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
+        case 56: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._mapInt32Int32)
+        case 57: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_storage._mapInt64Int64)
+        case 58: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: &_storage._mapUint32Uint32)
+        case 59: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: &_storage._mapUint64Uint64)
+        case 60: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: &_storage._mapSint32Sint32)
+        case 61: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: &_storage._mapSint64Sint64)
+        case 62: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: &_storage._mapFixed32Fixed32)
+        case 63: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: &_storage._mapFixed64Fixed64)
+        case 64: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: &_storage._mapSfixed32Sfixed32)
+        case 65: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: &_storage._mapSfixed64Sfixed64)
+        case 66: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: &_storage._mapInt32Float)
+        case 67: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: &_storage._mapInt32Double)
+        case 68: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool)
+        case 69: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString)
+        case 70: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapStringBytes)
+        case 71: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage>.self, value: &_storage._mapStringNestedMessage)
+        case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: &_storage._mapStringForeignMessage)
+        case 73: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: &_storage._mapStringNestedEnum)
+        case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: &_storage._mapStringForeignEnum)
+        case 111...119:
+          if _storage._oneofField != nil {
+            try decoder.handleConflictingOneOf()
+          }
+          _storage._oneofField = try ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 201: try decoder.decodeSingularMessageField(value: &_storage._optionalBoolWrapper)
+        case 202: try decoder.decodeSingularMessageField(value: &_storage._optionalInt32Wrapper)
+        case 203: try decoder.decodeSingularMessageField(value: &_storage._optionalInt64Wrapper)
+        case 204: try decoder.decodeSingularMessageField(value: &_storage._optionalUint32Wrapper)
+        case 205: try decoder.decodeSingularMessageField(value: &_storage._optionalUint64Wrapper)
+        case 206: try decoder.decodeSingularMessageField(value: &_storage._optionalFloatWrapper)
+        case 207: try decoder.decodeSingularMessageField(value: &_storage._optionalDoubleWrapper)
+        case 208: try decoder.decodeSingularMessageField(value: &_storage._optionalStringWrapper)
+        case 209: try decoder.decodeSingularMessageField(value: &_storage._optionalBytesWrapper)
+        case 211: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedBoolWrapper)
+        case 212: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedInt32Wrapper)
+        case 213: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedInt64Wrapper)
+        case 214: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedUint32Wrapper)
+        case 215: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedUint64Wrapper)
+        case 216: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFloatWrapper)
+        case 217: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDoubleWrapper)
+        case 218: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStringWrapper)
+        case 219: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedBytesWrapper)
+        case 301: try decoder.decodeSingularMessageField(value: &_storage._optionalDuration)
+        case 302: try decoder.decodeSingularMessageField(value: &_storage._optionalTimestamp)
+        case 303: try decoder.decodeSingularMessageField(value: &_storage._optionalFieldMask)
+        case 304: try decoder.decodeSingularMessageField(value: &_storage._optionalStruct)
+        case 305: try decoder.decodeSingularMessageField(value: &_storage._optionalAny)
+        case 306: try decoder.decodeSingularMessageField(value: &_storage._optionalValue)
+        case 311: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDuration)
+        case 312: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedTimestamp)
+        case 313: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask)
+        case 324: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct)
+        case 315: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAny)
+        case 316: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedValue)
+        case 401: try decoder.decodeSingularInt32Field(value: &_storage._fieldname1)
+        case 402: try decoder.decodeSingularInt32Field(value: &_storage._fieldName2)
+        case 403: try decoder.decodeSingularInt32Field(value: &_storage._fieldName3)
+        case 404: try decoder.decodeSingularInt32Field(value: &_storage._field_Name4_)
+        case 405: try decoder.decodeSingularInt32Field(value: &_storage._field0Name5)
+        case 406: try decoder.decodeSingularInt32Field(value: &_storage._field0Name6)
+        case 407: try decoder.decodeSingularInt32Field(value: &_storage._fieldName7)
+        case 408: try decoder.decodeSingularInt32Field(value: &_storage._fieldName8)
+        case 409: try decoder.decodeSingularInt32Field(value: &_storage._fieldName9)
+        case 410: try decoder.decodeSingularInt32Field(value: &_storage._fieldName10)
+        case 411: try decoder.decodeSingularInt32Field(value: &_storage._fieldName11)
+        case 412: try decoder.decodeSingularInt32Field(value: &_storage._fieldName12)
+        case 413: try decoder.decodeSingularInt32Field(value: &_storage.__FieldName13)
+        case 414: try decoder.decodeSingularInt32Field(value: &_storage.__FieldName14)
+        case 415: try decoder.decodeSingularInt32Field(value: &_storage._field_Name15)
+        case 416: try decoder.decodeSingularInt32Field(value: &_storage._field_Name16)
+        case 417: try decoder.decodeSingularInt32Field(value: &_storage._fieldName17__)
+        case 418: try decoder.decodeSingularInt32Field(value: &_storage._fieldName18__)
+        default: break
+        }
       }
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &_storage._optionalInt32)
-    case 2: try decoder.decodeSingularInt64Field(value: &_storage._optionalInt64)
-    case 3: try decoder.decodeSingularUInt32Field(value: &_storage._optionalUint32)
-    case 4: try decoder.decodeSingularUInt64Field(value: &_storage._optionalUint64)
-    case 5: try decoder.decodeSingularSInt32Field(value: &_storage._optionalSint32)
-    case 6: try decoder.decodeSingularSInt64Field(value: &_storage._optionalSint64)
-    case 7: try decoder.decodeSingularFixed32Field(value: &_storage._optionalFixed32)
-    case 8: try decoder.decodeSingularFixed64Field(value: &_storage._optionalFixed64)
-    case 9: try decoder.decodeSingularSFixed32Field(value: &_storage._optionalSfixed32)
-    case 10: try decoder.decodeSingularSFixed64Field(value: &_storage._optionalSfixed64)
-    case 11: try decoder.decodeSingularFloatField(value: &_storage._optionalFloat)
-    case 12: try decoder.decodeSingularDoubleField(value: &_storage._optionalDouble)
-    case 13: try decoder.decodeSingularBoolField(value: &_storage._optionalBool)
-    case 14: try decoder.decodeSingularStringField(value: &_storage._optionalString)
-    case 15: try decoder.decodeSingularBytesField(value: &_storage._optionalBytes)
-    case 18: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
-    case 19: try decoder.decodeSingularMessageField(value: &_storage._optionalForeignMessage)
-    case 21: try decoder.decodeSingularEnumField(value: &_storage._optionalNestedEnum)
-    case 22: try decoder.decodeSingularEnumField(value: &_storage._optionalForeignEnum)
-    case 24: try decoder.decodeSingularStringField(value: &_storage._optionalStringPiece)
-    case 25: try decoder.decodeSingularStringField(value: &_storage._optionalCord)
-    case 27: try decoder.decodeSingularMessageField(value: &_storage._recursiveMessage)
-    case 31: try decoder.decodeRepeatedInt32Field(value: &_storage._repeatedInt32)
-    case 32: try decoder.decodeRepeatedInt64Field(value: &_storage._repeatedInt64)
-    case 33: try decoder.decodeRepeatedUInt32Field(value: &_storage._repeatedUint32)
-    case 34: try decoder.decodeRepeatedUInt64Field(value: &_storage._repeatedUint64)
-    case 35: try decoder.decodeRepeatedSInt32Field(value: &_storage._repeatedSint32)
-    case 36: try decoder.decodeRepeatedSInt64Field(value: &_storage._repeatedSint64)
-    case 37: try decoder.decodeRepeatedFixed32Field(value: &_storage._repeatedFixed32)
-    case 38: try decoder.decodeRepeatedFixed64Field(value: &_storage._repeatedFixed64)
-    case 39: try decoder.decodeRepeatedSFixed32Field(value: &_storage._repeatedSfixed32)
-    case 40: try decoder.decodeRepeatedSFixed64Field(value: &_storage._repeatedSfixed64)
-    case 41: try decoder.decodeRepeatedFloatField(value: &_storage._repeatedFloat)
-    case 42: try decoder.decodeRepeatedDoubleField(value: &_storage._repeatedDouble)
-    case 43: try decoder.decodeRepeatedBoolField(value: &_storage._repeatedBool)
-    case 44: try decoder.decodeRepeatedStringField(value: &_storage._repeatedString)
-    case 45: try decoder.decodeRepeatedBytesField(value: &_storage._repeatedBytes)
-    case 48: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedNestedMessage)
-    case 49: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedForeignMessage)
-    case 51: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedNestedEnum)
-    case 52: try decoder.decodeRepeatedEnumField(value: &_storage._repeatedForeignEnum)
-    case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
-    case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
-    case 56: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: &_storage._mapInt32Int32)
-    case 57: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt64,SwiftProtobuf.ProtobufInt64>.self, value: &_storage._mapInt64Int64)
-    case 58: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt32,SwiftProtobuf.ProtobufUInt32>.self, value: &_storage._mapUint32Uint32)
-    case 59: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufUInt64,SwiftProtobuf.ProtobufUInt64>.self, value: &_storage._mapUint64Uint64)
-    case 60: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt32,SwiftProtobuf.ProtobufSInt32>.self, value: &_storage._mapSint32Sint32)
-    case 61: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSInt64,SwiftProtobuf.ProtobufSInt64>.self, value: &_storage._mapSint64Sint64)
-    case 62: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed32,SwiftProtobuf.ProtobufFixed32>.self, value: &_storage._mapFixed32Fixed32)
-    case 63: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufFixed64,SwiftProtobuf.ProtobufFixed64>.self, value: &_storage._mapFixed64Fixed64)
-    case 64: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed32,SwiftProtobuf.ProtobufSFixed32>.self, value: &_storage._mapSfixed32Sfixed32)
-    case 65: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufSFixed64,SwiftProtobuf.ProtobufSFixed64>.self, value: &_storage._mapSfixed64Sfixed64)
-    case 66: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufFloat>.self, value: &_storage._mapInt32Float)
-    case 67: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufDouble>.self, value: &_storage._mapInt32Double)
-    case 68: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufBool,SwiftProtobuf.ProtobufBool>.self, value: &_storage._mapBoolBool)
-    case 69: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString)
-    case 70: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapStringBytes)
-    case 71: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage>.self, value: &_storage._mapStringNestedMessage)
-    case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignMessage>.self, value: &_storage._mapStringForeignMessage)
-    case 73: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum>.self, value: &_storage._mapStringNestedEnum)
-    case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto3_ForeignEnum>.self, value: &_storage._mapStringForeignEnum)
-    case 111...119:
-      if _storage._oneofField != nil {
-        try decoder.handleConflictingOneOf()
-      }
-      _storage._oneofField = try ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-    case 201: try decoder.decodeSingularMessageField(value: &_storage._optionalBoolWrapper)
-    case 202: try decoder.decodeSingularMessageField(value: &_storage._optionalInt32Wrapper)
-    case 203: try decoder.decodeSingularMessageField(value: &_storage._optionalInt64Wrapper)
-    case 204: try decoder.decodeSingularMessageField(value: &_storage._optionalUint32Wrapper)
-    case 205: try decoder.decodeSingularMessageField(value: &_storage._optionalUint64Wrapper)
-    case 206: try decoder.decodeSingularMessageField(value: &_storage._optionalFloatWrapper)
-    case 207: try decoder.decodeSingularMessageField(value: &_storage._optionalDoubleWrapper)
-    case 208: try decoder.decodeSingularMessageField(value: &_storage._optionalStringWrapper)
-    case 209: try decoder.decodeSingularMessageField(value: &_storage._optionalBytesWrapper)
-    case 211: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedBoolWrapper)
-    case 212: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedInt32Wrapper)
-    case 213: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedInt64Wrapper)
-    case 214: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedUint32Wrapper)
-    case 215: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedUint64Wrapper)
-    case 216: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFloatWrapper)
-    case 217: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDoubleWrapper)
-    case 218: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStringWrapper)
-    case 219: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedBytesWrapper)
-    case 301: try decoder.decodeSingularMessageField(value: &_storage._optionalDuration)
-    case 302: try decoder.decodeSingularMessageField(value: &_storage._optionalTimestamp)
-    case 303: try decoder.decodeSingularMessageField(value: &_storage._optionalFieldMask)
-    case 304: try decoder.decodeSingularMessageField(value: &_storage._optionalStruct)
-    case 305: try decoder.decodeSingularMessageField(value: &_storage._optionalAny)
-    case 306: try decoder.decodeSingularMessageField(value: &_storage._optionalValue)
-    case 311: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedDuration)
-    case 312: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedTimestamp)
-    case 313: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedFieldmask)
-    case 324: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedStruct)
-    case 315: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedAny)
-    case 316: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedValue)
-    case 401: try decoder.decodeSingularInt32Field(value: &_storage._fieldname1)
-    case 402: try decoder.decodeSingularInt32Field(value: &_storage._fieldName2)
-    case 403: try decoder.decodeSingularInt32Field(value: &_storage._fieldName3)
-    case 404: try decoder.decodeSingularInt32Field(value: &_storage._field_Name4_)
-    case 405: try decoder.decodeSingularInt32Field(value: &_storage._field0Name5)
-    case 406: try decoder.decodeSingularInt32Field(value: &_storage._field0Name6)
-    case 407: try decoder.decodeSingularInt32Field(value: &_storage._fieldName7)
-    case 408: try decoder.decodeSingularInt32Field(value: &_storage._fieldName8)
-    case 409: try decoder.decodeSingularInt32Field(value: &_storage._fieldName9)
-    case 410: try decoder.decodeSingularInt32Field(value: &_storage._fieldName10)
-    case 411: try decoder.decodeSingularInt32Field(value: &_storage._fieldName11)
-    case 412: try decoder.decodeSingularInt32Field(value: &_storage._fieldName12)
-    case 413: try decoder.decodeSingularInt32Field(value: &_storage.__FieldName13)
-    case 414: try decoder.decodeSingularInt32Field(value: &_storage.__FieldName14)
-    case 415: try decoder.decodeSingularInt32Field(value: &_storage._field_Name15)
-    case 416: try decoder.decodeSingularInt32Field(value: &_storage._field_Name16)
-    case 417: try decoder.decodeSingularInt32Field(value: &_storage._fieldName17__)
-    case 418: try decoder.decodeSingularInt32Field(value: &_storage._fieldName18__)
-    default: break
     }
   }
 
@@ -2107,16 +2099,12 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message, SwiftP
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularInt32Field(value: &c)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &c)
+      default: break
+      }
     }
   }
 

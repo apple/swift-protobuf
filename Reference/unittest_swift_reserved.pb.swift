@@ -224,15 +224,11 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       return true
     }
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      if (1000 <= fieldNumber && fieldNumber < 2001) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: classMessage.self, fieldNumber: fieldNumber)
+        if (1000 <= fieldNumber && fieldNumber < 2001) {
+          try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: classMessage.self, fieldNumber: fieldNumber)
+        }
       }
     }
 
@@ -281,13 +277,9 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let _ = try decoder.nextFieldNumber() {
       }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -309,13 +301,9 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
     init() {}
 
-    mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let _ = try decoder.nextFieldNumber() {
       }
-    }
-
-    mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
@@ -330,22 +318,18 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 10: try decoder.decodeSingularInt32Field(value: &_protoMessageName)
-    case 11: try decoder.decodeSingularInt32Field(value: &_protoPackageName)
-    case 12: try decoder.decodeSingularInt32Field(value: &_anyTypePrefix)
-    case 13: try decoder.decodeSingularInt32Field(value: &_anyTypeURL)
-    case 20: try decoder.decodeSingularStringField(value: &_isInitialized_p)
-    case 21: try decoder.decodeSingularStringField(value: &_hashValue_p)
-    case 22: try decoder.decodeSingularInt32Field(value: &_debugDescription_p)
-    default: break
+      switch fieldNumber {
+      case 10: try decoder.decodeSingularInt32Field(value: &_protoMessageName)
+      case 11: try decoder.decodeSingularInt32Field(value: &_protoPackageName)
+      case 12: try decoder.decodeSingularInt32Field(value: &_anyTypePrefix)
+      case 13: try decoder.decodeSingularInt32Field(value: &_anyTypeURL)
+      case 20: try decoder.decodeSingularStringField(value: &_isInitialized_p)
+      case 21: try decoder.decodeSingularStringField(value: &_hashValue_p)
+      case 22: try decoder.decodeSingularInt32Field(value: &_debugDescription_p)
+      default: break
+      }
     }
   }
 
@@ -408,13 +392,9 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
 
   init() {}
 
-  mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
     }
-  }
-
-  mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {

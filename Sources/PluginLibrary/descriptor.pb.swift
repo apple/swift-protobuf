@@ -77,16 +77,12 @@ public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message, SwiftPro
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedMessageField(value: &file)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &file)
+      default: break
+      }
     }
   }
 
@@ -284,30 +280,26 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._package)
+        case 3: try decoder.decodeRepeatedStringField(value: &_storage._dependency)
+        case 10: try decoder.decodeRepeatedInt32Field(value: &_storage._publicDependency)
+        case 11: try decoder.decodeRepeatedInt32Field(value: &_storage._weakDependency)
+        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._messageType)
+        case 5: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
+        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._service)
+        case 7: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
+        case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
+        case 9: try decoder.decodeSingularMessageField(value: &_storage._sourceCodeInfo)
+        case 12: try decoder.decodeSingularStringField(value: &_storage._syntax)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeSingularStringField(value: &_storage._package)
-    case 3: try decoder.decodeRepeatedStringField(value: &_storage._dependency)
-    case 10: try decoder.decodeRepeatedInt32Field(value: &_storage._publicDependency)
-    case 11: try decoder.decodeRepeatedInt32Field(value: &_storage._weakDependency)
-    case 4: try decoder.decodeRepeatedMessageField(value: &_storage._messageType)
-    case 5: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
-    case 6: try decoder.decodeRepeatedMessageField(value: &_storage._service)
-    case 7: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
-    case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
-    case 9: try decoder.decodeSingularMessageField(value: &_storage._sourceCodeInfo)
-    case 12: try decoder.decodeSingularStringField(value: &_storage._syntax)
-    default: break
     }
   }
 
@@ -533,17 +525,13 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
 
     public init() {}
 
-    public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_start)
-      case 2: try decoder.decodeSingularInt32Field(value: &_end)
-      default: break
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_start)
+        case 2: try decoder.decodeSingularInt32Field(value: &_end)
+        default: break
+        }
       }
     }
 
@@ -606,17 +594,13 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
 
     public init() {}
 
-    public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_start)
-      case 2: try decoder.decodeSingularInt32Field(value: &_end)
-      default: break
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_start)
+        case 2: try decoder.decodeSingularInt32Field(value: &_end)
+        default: break
+        }
       }
     }
 
@@ -652,28 +636,24 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._field)
+        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
+        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._nestedType)
+        case 4: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
+        case 5: try decoder.decodeRepeatedMessageField(value: &_storage._extensionRange)
+        case 8: try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl)
+        case 7: try decoder.decodeSingularMessageField(value: &_storage._options)
+        case 9: try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange)
+        case 10: try decoder.decodeRepeatedStringField(value: &_storage._reservedName)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._field)
-    case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
-    case 3: try decoder.decodeRepeatedMessageField(value: &_storage._nestedType)
-    case 4: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
-    case 5: try decoder.decodeRepeatedMessageField(value: &_storage._extensionRange)
-    case 8: try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl)
-    case 7: try decoder.decodeSingularMessageField(value: &_storage._options)
-    case 9: try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange)
-    case 10: try decoder.decodeRepeatedStringField(value: &_storage._reservedName)
-    default: break
     }
   }
 
@@ -1084,28 +1064,24 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 3: try decoder.decodeSingularInt32Field(value: &_storage._number)
+        case 4: try decoder.decodeSingularEnumField(value: &_storage._label)
+        case 5: try decoder.decodeSingularEnumField(value: &_storage._type)
+        case 6: try decoder.decodeSingularStringField(value: &_storage._typeName)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._extendee)
+        case 7: try decoder.decodeSingularStringField(value: &_storage._defaultValue)
+        case 9: try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex)
+        case 10: try decoder.decodeSingularStringField(value: &_storage._jsonName)
+        case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 3: try decoder.decodeSingularInt32Field(value: &_storage._number)
-    case 4: try decoder.decodeSingularEnumField(value: &_storage._label)
-    case 5: try decoder.decodeSingularEnumField(value: &_storage._type)
-    case 6: try decoder.decodeSingularStringField(value: &_storage._typeName)
-    case 2: try decoder.decodeSingularStringField(value: &_storage._extendee)
-    case 7: try decoder.decodeSingularStringField(value: &_storage._defaultValue)
-    case 9: try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex)
-    case 10: try decoder.decodeSingularStringField(value: &_storage._jsonName)
-    case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
-    default: break
     }
   }
 
@@ -1230,20 +1206,16 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, Swift
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeSingularMessageField(value: &_storage._options)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeSingularMessageField(value: &_storage._options)
-    default: break
     }
   }
 
@@ -1345,21 +1317,17 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._value)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._value)
-    case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
-    default: break
     }
   }
 
@@ -1470,21 +1438,17 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, S
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeSingularInt32Field(value: &_storage._number)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeSingularInt32Field(value: &_storage._number)
-    case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
-    default: break
     }
   }
 
@@ -1590,21 +1554,17 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, Swi
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeRepeatedMessageField(value: &_storage._method)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeRepeatedMessageField(value: &_storage._method)
-    case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
-    default: break
     }
   }
 
@@ -1761,24 +1721,20 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, Swif
     }
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._inputType)
+        case 3: try decoder.decodeSingularStringField(value: &_storage._outputType)
+        case 4: try decoder.decodeSingularMessageField(value: &_storage._options)
+        case 5: try decoder.decodeSingularBoolField(value: &_storage._clientStreaming)
+        case 6: try decoder.decodeSingularBoolField(value: &_storage._serverStreaming)
+        default: break
+        }
       }
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_storage._name)
-    case 2: try decoder.decodeSingularStringField(value: &_storage._inputType)
-    case 3: try decoder.decodeSingularStringField(value: &_storage._outputType)
-    case 4: try decoder.decodeSingularMessageField(value: &_storage._options)
-    case 5: try decoder.decodeSingularBoolField(value: &_storage._clientStreaming)
-    case 6: try decoder.decodeSingularBoolField(value: &_storage._serverStreaming)
-    default: break
     }
   }
 
@@ -2161,33 +2117,29 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularStringField(value: &_javaPackage)
-    case 8: try decoder.decodeSingularStringField(value: &_javaOuterClassname)
-    case 10: try decoder.decodeSingularBoolField(value: &_javaMultipleFiles)
-    case 20: try decoder.decodeSingularBoolField(value: &_javaGenerateEqualsAndHash)
-    case 27: try decoder.decodeSingularBoolField(value: &_javaStringCheckUtf8)
-    case 9: try decoder.decodeSingularEnumField(value: &_optimizeFor)
-    case 11: try decoder.decodeSingularStringField(value: &_goPackage)
-    case 16: try decoder.decodeSingularBoolField(value: &_ccGenericServices)
-    case 17: try decoder.decodeSingularBoolField(value: &_javaGenericServices)
-    case 18: try decoder.decodeSingularBoolField(value: &_pyGenericServices)
-    case 23: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 31: try decoder.decodeSingularBoolField(value: &_ccEnableArenas)
-    case 36: try decoder.decodeSingularStringField(value: &_objcClassPrefix)
-    case 37: try decoder.decodeSingularStringField(value: &_csharpNamespace)
-    case 39: try decoder.decodeSingularStringField(value: &_swiftPrefix)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &_javaPackage)
+      case 8: try decoder.decodeSingularStringField(value: &_javaOuterClassname)
+      case 10: try decoder.decodeSingularBoolField(value: &_javaMultipleFiles)
+      case 20: try decoder.decodeSingularBoolField(value: &_javaGenerateEqualsAndHash)
+      case 27: try decoder.decodeSingularBoolField(value: &_javaStringCheckUtf8)
+      case 9: try decoder.decodeSingularEnumField(value: &_optimizeFor)
+      case 11: try decoder.decodeSingularStringField(value: &_goPackage)
+      case 16: try decoder.decodeSingularBoolField(value: &_ccGenericServices)
+      case 17: try decoder.decodeSingularBoolField(value: &_javaGenericServices)
+      case 18: try decoder.decodeSingularBoolField(value: &_pyGenericServices)
+      case 23: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 31: try decoder.decodeSingularBoolField(value: &_ccEnableArenas)
+      case 36: try decoder.decodeSingularStringField(value: &_objcClassPrefix)
+      case 37: try decoder.decodeSingularStringField(value: &_csharpNamespace)
+      case 39: try decoder.decodeSingularStringField(value: &_swiftPrefix)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -2409,22 +2361,18 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularBoolField(value: &_messageSetWireFormat)
-    case 2: try decoder.decodeSingularBoolField(value: &_noStandardDescriptorAccessor)
-    case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 7: try decoder.decodeSingularBoolField(value: &_mapEntry)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularBoolField(value: &_messageSetWireFormat)
+      case 2: try decoder.decodeSingularBoolField(value: &_noStandardDescriptorAccessor)
+      case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 7: try decoder.decodeSingularBoolField(value: &_mapEntry)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -2711,24 +2659,20 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularEnumField(value: &_ctype)
-    case 2: try decoder.decodeSingularBoolField(value: &_packed)
-    case 6: try decoder.decodeSingularEnumField(value: &_jstype)
-    case 5: try decoder.decodeSingularBoolField(value: &_lazy)
-    case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 10: try decoder.decodeSingularBoolField(value: &_weak)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularEnumField(value: &_ctype)
+      case 2: try decoder.decodeSingularBoolField(value: &_packed)
+      case 6: try decoder.decodeSingularEnumField(value: &_jstype)
+      case 5: try decoder.decodeSingularBoolField(value: &_lazy)
+      case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 10: try decoder.decodeSingularBoolField(value: &_weak)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -2816,18 +2760,14 @@ public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -2923,20 +2863,16 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 2: try decoder.decodeSingularBoolField(value: &_allowAlias)
-    case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 2: try decoder.decodeSingularBoolField(value: &_allowAlias)
+      case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -3025,19 +2961,15 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -3127,19 +3059,15 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -3284,20 +3212,16 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
-    case 34: try decoder.decodeSingularEnumField(value: &_idempotencyLevel)
-    case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-    case 1000..<536870912:
-      try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber)
-    default: break
+      switch fieldNumber {
+      case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 34: try decoder.decodeSingularEnumField(value: &_idempotencyLevel)
+      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
     }
   }
 
@@ -3493,17 +3417,13 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftP
       return true
     }
 
-    public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_namePart)
-      case 2: try decoder.decodeSingularBoolField(value: &_isExtension)
-      default: break
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_namePart)
+        case 2: try decoder.decodeSingularBoolField(value: &_isExtension)
+        default: break
+        }
       }
     }
 
@@ -3532,22 +3452,18 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftP
     return true
   }
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 2: try decoder.decodeRepeatedMessageField(value: &name)
-    case 3: try decoder.decodeSingularStringField(value: &_identifierValue)
-    case 4: try decoder.decodeSingularUInt64Field(value: &_positiveIntValue)
-    case 5: try decoder.decodeSingularInt64Field(value: &_negativeIntValue)
-    case 6: try decoder.decodeSingularDoubleField(value: &_doubleValue)
-    case 7: try decoder.decodeSingularBytesField(value: &_stringValue)
-    case 8: try decoder.decodeSingularStringField(value: &_aggregateValue)
-    default: break
+      switch fieldNumber {
+      case 2: try decoder.decodeRepeatedMessageField(value: &name)
+      case 3: try decoder.decodeSingularStringField(value: &_identifierValue)
+      case 4: try decoder.decodeSingularUInt64Field(value: &_positiveIntValue)
+      case 5: try decoder.decodeSingularInt64Field(value: &_negativeIntValue)
+      case 6: try decoder.decodeSingularDoubleField(value: &_doubleValue)
+      case 7: try decoder.decodeSingularBytesField(value: &_stringValue)
+      case 8: try decoder.decodeSingularStringField(value: &_aggregateValue)
+      default: break
+      }
     }
   }
 
@@ -3768,20 +3684,16 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtob
 
     public init() {}
 
-    public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeRepeatedInt32Field(value: &path)
-      case 2: try decoder.decodeRepeatedInt32Field(value: &span)
-      case 3: try decoder.decodeSingularStringField(value: &_leadingComments)
-      case 4: try decoder.decodeSingularStringField(value: &_trailingComments)
-      case 6: try decoder.decodeRepeatedStringField(value: &leadingDetachedComments)
-      default: break
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedInt32Field(value: &path)
+        case 2: try decoder.decodeRepeatedInt32Field(value: &span)
+        case 3: try decoder.decodeSingularStringField(value: &_leadingComments)
+        case 4: try decoder.decodeSingularStringField(value: &_trailingComments)
+        case 6: try decoder.decodeRepeatedStringField(value: &leadingDetachedComments)
+        default: break
+        }
       }
     }
 
@@ -3817,16 +3729,12 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtob
 
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedMessageField(value: &location)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &location)
+      default: break
+      }
     }
   }
 
@@ -3920,19 +3828,15 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftPro
 
     public init() {}
 
-    public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
-        try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-      }
-    }
-
-    public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1: try decoder.decodeRepeatedInt32Field(value: &path)
-      case 2: try decoder.decodeSingularStringField(value: &_sourceFile)
-      case 3: try decoder.decodeSingularInt32Field(value: &_begin)
-      case 4: try decoder.decodeSingularInt32Field(value: &_end)
-      default: break
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedInt32Field(value: &path)
+        case 2: try decoder.decodeSingularStringField(value: &_sourceFile)
+        case 3: try decoder.decodeSingularInt32Field(value: &_begin)
+        case 4: try decoder.decodeSingularInt32Field(value: &_end)
+        default: break
+        }
       }
     }
 
@@ -3964,16 +3868,12 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftPro
 
   public init() {}
 
-  public mutating func _protobuf_generated_decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
-      try decodeField(decoder: &decoder, fieldNumber: fieldNumber)
-    }
-  }
-
-  public mutating func _protobuf_generated_decodeField<D: SwiftProtobuf.Decoder>(decoder: inout D, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1: try decoder.decodeRepeatedMessageField(value: &annotation)
-    default: break
+      switch fieldNumber {
+      case 1: try decoder.decodeRepeatedMessageField(value: &annotation)
+      default: break
+      }
     }
   }
 
