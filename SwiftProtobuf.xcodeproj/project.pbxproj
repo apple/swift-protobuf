@@ -279,6 +279,10 @@
 		ECBC5C4F1DF6ABC500F658E8 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
 		ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		ECBC5C511DF6ABC500F658E8 /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
+		F41BA3FC1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
+		F41BA3FD1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
+		F41BA3FE1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
+		F41BA3FF1E76F63A004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
 		F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		F44F93771DAEA76700BC5B85 /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
 		F44F93781DAEA76700BC5B85 /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
@@ -645,6 +649,7 @@
 		BCCA0E671DB1210E00957D74 /* TextFormatEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatEncoder.swift; sourceTree = "<group>"; };
 		BCCA0E681DB1210E00957D74 /* TextFormatTypeAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatTypeAdditions.swift; sourceTree = "<group>"; };
 		BCCA0E751DB123F800957D74 /* Test_TextFormat_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_TextFormat_proto3.swift; sourceTree = "<group>"; };
+		F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Any+Registry.swift"; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -865,6 +870,7 @@
 				AA05BF4E1DAEB7E800619042 /* FieldTag.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */,
+				F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */,
 				AAB979F41E7066D8003DC2F4 /* Google_Protobuf_ListValue+Extensions.swift */,
@@ -1328,6 +1334,7 @@
 				9C2F23871D7780D1008524F2 /* BinaryTypeAdditions.swift in Sources */,
 				9C2F23891D7780D1008524F2 /* Enum.swift in Sources */,
 				9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */,
+				F41BA3FD1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */,
 				9C75F88B1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				F4F4F11E1E5C7562006C6CAD /* MathUtils.swift in Sources */,
 				9C84E4941E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
@@ -1401,6 +1408,7 @@
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
+				F41BA3FC1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Struct.swift /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				9C84E4931E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
@@ -1579,6 +1587,7 @@
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
 				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
 				AA86F6FC1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
+				F41BA3FE1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */,
 				AAF2ED411DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
 				AAF2ED3C1DEF3FBC007B510F /* NameMap.swift in Sources */,
 				9C84E4951E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
@@ -1757,6 +1766,7 @@
 				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
 				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
+				F41BA3FF1E76F63A004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */,
 				ECBC5C4D1DF6ABC500F658E8 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				F4F4F1201E5C7565006C6CAD /* MathUtils.swift in Sources */,
 				9C84E4961E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
