@@ -48,9 +48,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest"
+
 struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Message3"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".Message3"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -1295,8 +1296,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 //  These allow testing where a StorageClass is and isn't used.
 
 struct ProtobufUnittest_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Msg3NoStorage"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".Msg3NoStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1319,8 +1319,7 @@ struct ProtobufUnittest_Msg3NoStorage: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "Msg3UsesStorage"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".Msg3UsesStorage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "y"),
   ]

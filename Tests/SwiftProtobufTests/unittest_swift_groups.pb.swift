@@ -52,7 +52,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///   Same field number appears inside and outside of the group.
 struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestGroupExtensions"
-  static let protoPackageName: String = ""
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
   ]
@@ -131,7 +130,6 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
 
 struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "ExtensionGroup"
-  static let protoPackageName: String = ""
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
   ]
@@ -177,7 +175,6 @@ struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 
 struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "RepeatedExtensionGroup"
-  static let protoPackageName: String = ""
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
   ]
@@ -223,7 +220,6 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
 struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestGroupUnextended"
-  static let protoPackageName: String = ""
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
   ]
@@ -269,7 +265,6 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
 struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
-  static let protoPackageName: String = ""
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "outer_a", json: "outerA"),
     2: .unique(proto: "SubGroup1", json: "subgroup1"),
@@ -331,8 +326,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   struct SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "SubGroup1"
-    static let protoPackageName: String = ""
+    static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .unique(proto: "sub1_a", json: "sub1A"),
       2: .unique(proto: "SubGroup2", json: "subgroup2"),
@@ -386,8 +380,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     struct SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-      static let protoMessageName: String = "SubGroup2"
-      static let protoPackageName: String = ""
+      static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
       static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .unique(proto: "sub2_a", json: "sub2A"),
       ]
@@ -471,8 +464,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
   }
 
   struct SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "SubGroup3"
-    static let protoPackageName: String = ""
+    static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .unique(proto: "sub3_a", json: "sub3A"),
       2: .unique(proto: "SubGroup4", json: "subgroup4"),
@@ -495,8 +487,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     struct SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-      static let protoMessageName: String = "SubGroup4"
-      static let protoPackageName: String = ""
+      static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
       static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .unique(proto: "sub4_a", json: "sub4A"),
       ]

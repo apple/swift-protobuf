@@ -49,6 +49,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
+
 enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foo // = 0
@@ -128,8 +130,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, Swif
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MyMessage"
-  static let protoPackageName: String = "proto3_preserve_unknown_enum_unittest"
+  static let protoMessageName: String = _protobuf_package + ".MyMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .unique(proto: "repeated_e", json: "repeatedE"),
@@ -268,8 +269,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
 }
 
 struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "MyMessagePlusExtra"
-  static let protoPackageName: String = "proto3_preserve_unknown_enum_unittest"
+  static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
     2: .unique(proto: "repeated_e", json: "repeatedE"),

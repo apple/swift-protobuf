@@ -49,9 +49,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "protobuf_unittest"
+
 struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftEnumTest"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".SwiftEnumTest"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -198,8 +199,7 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 struct ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "SwiftEnumWithAliasTest"
-  static let protoPackageName: String = "protobuf_unittest"
+  static let protoMessageName: String = _protobuf_package + ".SwiftEnumWithAliasTest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]

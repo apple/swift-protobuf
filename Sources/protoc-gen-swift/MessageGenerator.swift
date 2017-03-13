@@ -160,8 +160,13 @@ class MessageGenerator {
 
     p.print("\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
-    p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
-    p.print("\(visibility)static let protoPackageName: String = \"\(protoPackageName)\"\n")
+    if let parent = parent {
+        p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(protoMessageName)\"\n")
+    } else if !protoPackageName.isEmpty {
+        p.print("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(protoMessageName)\"\n")
+    } else {
+        p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
+    }
 
     // Map proto field names to field number
     if fields.isEmpty {

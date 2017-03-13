@@ -48,6 +48,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "google.protobuf"
+
 ///   `NullValue` is a singleton enumeration to represent the null value for the
 ///   `Value` type union.
 ///  
@@ -92,8 +94,7 @@ public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoN
 ///  
 ///   The JSON representation for `Struct` is JSON object.
 public struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Struct"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let protoMessageName: String = _protobuf_package + ".Struct"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fields"),
   ]
@@ -135,8 +136,7 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._Mess
 ///  
 ///   The JSON representation for `Value` is JSON value.
 public struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "Value"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let protoMessageName: String = _protobuf_package + ".Value"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "null_value", json: "nullValue"),
     2: .unique(proto: "number_value", json: "numberValue"),
@@ -386,8 +386,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
 public struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let protoMessageName: String = "ListValue"
-  public static let protoPackageName: String = "google.protobuf"
+  public static let protoMessageName: String = _protobuf_package + ".ListValue"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
   ]

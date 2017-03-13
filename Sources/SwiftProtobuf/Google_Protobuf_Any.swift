@@ -68,17 +68,13 @@ fileprivate func typeName(fromURL s: String) -> String {
     return s[typeStart..<s.endIndex]
 }
 
-fileprivate func typeName(fromMessageType messageType: Message.Type) -> String {
-    let protoPackageName = messageType.protoPackageName
-    if protoPackageName.isEmpty {
-        return messageType.protoMessageName
-    } else {
-        return "\(protoPackageName).\(messageType.protoMessageName)"
-    }
-}
 fileprivate func typeName(fromMessage message: Message) -> String {
-    let msgType = type(of: message)
-    return typeName(fromMessageType: msgType)
+    let messageType = type(of: message)
+    return messageType.protoMessageName
+}
+
+fileprivate func typeName(fromMessageType messageType: Message.Type) -> String {
+    return messageType.protoMessageName
 }
 
 /// Traversal-based JSON encoding of a standard message type
@@ -199,8 +195,7 @@ public extension Message {
 /// limitation of Google's spec for google.protobuf.Any.
 ///
 public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding, _CustomJSONCodable {
-    public static let protoPackageName: String = "google.protobuf"
-    public static let protoMessageName: String = "Any"
+    public static let protoMessageName: String = "google.protobuf.Any"
     public static let _protobuf_nameMap: _NameMap = [
         1: .unique(proto: "type_url", json: "@type"),
         2: .same(proto: "value"),

@@ -49,6 +49,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
+fileprivate let _protobuf_package = "proto3_arena_unittest"
+
 enum Proto3ArenaUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foreignZero // = 0
@@ -93,8 +95,7 @@ enum Proto3ArenaUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNa
 ///   This proto includes every type of field in both singular and repeated
 ///   forms.
 struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestAllTypes"
-  static let protoPackageName: String = "proto3_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "optional_int32", json: "optionalInt32"),
     2: .unique(proto: "optional_int64", json: "optionalInt64"),
@@ -725,8 +726,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
   }
 
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-    static let protoMessageName: String = "NestedMessage"
-    static let protoPackageName: String = "proto3_arena_unittest"
+    static let protoMessageName: String = Proto3ArenaUnittest_TestAllTypes.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "bb"),
     ]
@@ -1037,8 +1037,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
 //  Test messages for packed fields
 
 struct Proto3ArenaUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestPackedTypes"
-  static let protoPackageName: String = "proto3_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     90: .unique(proto: "packed_int32", json: "packedInt32"),
     91: .unique(proto: "packed_int64", json: "packedInt64"),
@@ -1178,8 +1177,7 @@ struct Proto3ArenaUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf
 
 ///   Explicitly set packed to false
 struct Proto3ArenaUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestUnpackedTypes"
-  static let protoPackageName: String = "proto3_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "repeated_int32", json: "repeatedInt32"),
     2: .unique(proto: "repeated_int64", json: "repeatedInt64"),
@@ -1319,8 +1317,7 @@ struct Proto3ArenaUnittest_TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtob
 
 ///   This proto includes a recusively nested message.
 struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "NestedTestAllTypes"
-  static let protoPackageName: String = "proto3_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
@@ -1415,8 +1412,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct Proto3ArenaUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "ForeignMessage"
-  static let protoPackageName: String = "proto3_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
@@ -1452,8 +1448,7 @@ struct Proto3ArenaUnittest_ForeignMessage: SwiftProtobuf.Message, SwiftProtobuf.
 
 ///   TestEmptyMessage is used to test behavior of unknown fields.
 struct Proto3ArenaUnittest_TestEmptyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = "TestEmptyMessage"
-  static let protoPackageName: String = "proto3_arena_unittest"
+  static let protoMessageName: String = _protobuf_package + ".TestEmptyMessage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -301,9 +301,14 @@ class FileGenerator {
           // to import the runtime.
           p.print("import SwiftProtobuf\n")
         }
-        p.print("\n")
 
+        p.print("\n")
         generateVersionCheck(printer: &p)
+
+        if !protoPackageName.isEmpty {
+            p.print("\n")
+            p.print("fileprivate let _protobuf_package = \"\(protoPackageName)\"\n")
+        }
 
         var enums = [EnumGenerator]()
         let path = [Int32]()
