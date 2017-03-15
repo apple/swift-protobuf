@@ -8,10 +8,8 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// This is pretty much completely hand-built.
-///
-/// Generating it from any.proto -- even just partially -- is
-/// probably not feasible.
+/// Support for registering and looking up Message types. Used
+/// in support of Google_Protobuf_Any.
 ///
 // -----------------------------------------------------------------------------
 

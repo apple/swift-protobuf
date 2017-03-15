@@ -283,6 +283,10 @@
 		F41BA3FD1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
 		F41BA3FE1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
 		F41BA3FF1E76F63A004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
+		F41BA4131E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4121E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift */; };
+		F41BA4141E79BE54004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4121E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift */; };
+		F41BA4151E79BE55004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4121E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift */; };
+		F41BA4161E79BE56004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4121E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift */; };
 		F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		F44F93771DAEA76700BC5B85 /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
 		F44F93781DAEA76700BC5B85 /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
@@ -650,6 +654,7 @@
 		BCCA0E681DB1210E00957D74 /* TextFormatTypeAdditions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatTypeAdditions.swift; sourceTree = "<group>"; };
 		BCCA0E751DB123F800957D74 /* Test_TextFormat_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_TextFormat_proto3.swift; sourceTree = "<group>"; };
 		F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Any+Registry.swift"; sourceTree = "<group>"; };
+		F41BA4121E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Google_Protobuf_Any+Extensions.swift"; sourceTree = "<group>"; };
 		F44F936F1DAEA53900BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F939F1DAEA7C500BC5B85 /* SwiftProtobufTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtobufTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44F93FE1DAEB13F00BC5B85 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtobuf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -870,6 +875,7 @@
 				AA05BF4E1DAEB7E800619042 /* FieldTag.swift */,
 				__PBXFileRef_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Any.swift /* Google_Protobuf_Any.swift */,
+				F41BA4121E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift */,
 				F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift */,
 				__PBXFileRef_Sources/Protobuf/Google_Protobuf_FieldMask_Extensions.swift /* Google_Protobuf_FieldMask+Extensions.swift */,
@@ -1339,6 +1345,7 @@
 				F4F4F11E1E5C7562006C6CAD /* MathUtils.swift in Sources */,
 				9C84E4941E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
 				AA86F6FB1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
+				F41BA4141E79BE54004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */,
 				9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */,
 				9C667A961E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				9C2F238D1D7780D1008524F2 /* Decoder.swift in Sources */,
@@ -1413,6 +1420,7 @@
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Timestamp_Extensions.swift /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
 				9C84E4931E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
 				8DC1CA0D1E54B80800CA8A26 /* MathUtils.swift in Sources */,
+				F41BA4131E79BDCA004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */,
 				AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				AAABA40B1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */,
 				9C667A951E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
@@ -1592,6 +1600,7 @@
 				AAF2ED3C1DEF3FBC007B510F /* NameMap.swift in Sources */,
 				9C84E4951E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
 				F4F4F11F1E5C7563006C6CAD /* MathUtils.swift in Sources */,
+				F41BA4151E79BE55004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */,
 				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				9C667A971E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */,
@@ -1771,6 +1780,7 @@
 				F4F4F1201E5C7565006C6CAD /* MathUtils.swift in Sources */,
 				9C84E4961E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */,
 				ECBC5C491DF6ABC500F658E8 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
+				F41BA4161E79BE56004F6E95 /* Google_Protobuf_Any+Extensions.swift in Sources */,
 				AA86F6FD1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				9C667A981E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */,

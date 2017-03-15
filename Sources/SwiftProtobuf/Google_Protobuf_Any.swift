@@ -97,30 +97,6 @@ fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) t
     return jsonEncoder.stringResult
 }
 
-public extension Message {
-  /// Initialize this message from the provided `google.protobuf.Any`
-  /// well-known type.
-  ///
-  /// This corresponds to the `unpack` method in the Google C++ API.
-  ///
-  /// If the Any object was decoded from Protobuf Binary or JSON
-  /// format, then the enclosed field data was stored and is not
-  /// fully decoded until you unpack the Any object into a message.
-  /// As such, this method will typically need to perform a full
-  /// deserialization of the enclosed data and can fail for any
-  /// reason that deserialization can fail.
-  ///
-  /// See `Google_Protobuf_Any.unpackTo()` for more discussion.
-  ///
-  /// - Parameter unpackingAny: the message to decode.
-  /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
-  ///   `BinaryDecodingError` on failure.
-  public init(unpackingAny: Google_Protobuf_Any) throws {
-    self.init()
-    try unpackingAny.unpackTo(target: &self)
-  }
-}
-
 ///   `Any` contains an arbitrary serialized message along with a URL
 ///   that describes the type of the serialized message.
 ///
