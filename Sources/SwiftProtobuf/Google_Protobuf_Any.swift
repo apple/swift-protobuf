@@ -17,16 +17,6 @@
 
 import Foundation
 
-internal let defaultTypePrefix: String = "type.googleapis.com"
-
-internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
-  var url = typePrefix
-  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
-    url += "/"
-  }
-  return url + typeName(fromMessage: message)
-}
-
 internal func typeName(fromURL s: String) -> String {
     var typeStart = s.startIndex
     var i = typeStart
@@ -44,30 +34,6 @@ internal func typeName(fromURL s: String) -> String {
 internal func typeName(fromMessage message: Message) -> String {
     let messageType = type(of: message)
     return messageType.protoMessageName
-}
-
-/// Traversal-based JSON encoding of a standard message type
-/// This mimics the standard JSON message encoding logic, but adds
-/// the additional `@type` field.
-fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
-    var visitor = try JSONEncodingVisitor(message: message)
-    visitor.encoder.startObject()
-    visitor.encoder.startField(name: "@type")
-    visitor.encoder.putStringValue(value: typeURL)
-    try message.traverse(visitor: &visitor)
-    visitor.encoder.endObject()
-    return visitor.stringResult
-}
-
-fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) throws -> String {
-    var jsonEncoder = JSONEncoder()
-    jsonEncoder.startObject()
-    jsonEncoder.startField(name: "@type")
-    jsonEncoder.putStringValue(value: typeURL)
-    jsonEncoder.startField(name: "value")
-    jsonEncoder.append(text: value)
-    jsonEncoder.endObject()
-    return jsonEncoder.stringResult
 }
 
 ///   `Any` contains an arbitrary serialized message along with a URL
@@ -139,7 +105,7 @@ fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) t
 /// without having the type information available.  This is a basic
 /// limitation of Google's spec for google.protobuf.Any.
 ///
-public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding, _CustomJSONCodable {
+public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNameProviding {
     public static let protoMessageName: String = "google.protobuf.Any"
     public static let _protobuf_nameMap: _NameMap = [
         1: .unique(proto: "type_url", json: "@type"),
@@ -225,42 +191,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         }
     }
 
-    // TODO: If the type is well-known or has already been registered,
-    // we should consider decoding eagerly.  Eager decoding would
-    // catch certain errors earlier (good) but would probably be
-    // a performance hit if the Any contents were never accessed (bad).
-    // Of course, we can't always decode eagerly (we don't always have the
-    // message type available), so the deferred logic here is still needed.
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        try decoder.scanner.skipRequiredObjectStart()
-        // Reset state
-        typeURL = nil
-        _contentJSON = nil
-        _message = nil
-        _value = nil
-        if decoder.scanner.skipOptionalObjectEnd() {
-            return
-        }
-
-        var jsonEncoder = JSONEncoder()
-        while true {
-            let key = try decoder.scanner.nextQuotedString()
-            try decoder.scanner.skipRequiredColon()
-            if key == "@type" {
-                typeURL = try decoder.scanner.nextQuotedString()
-            } else {
-                jsonEncoder.startField(name: key)
-                let keyValueJSON = try decoder.scanner.skip()
-                jsonEncoder.append(text: keyValueJSON)
-            }
-            if decoder.scanner.skipOptionalObjectEnd() {
-                _contentJSON = jsonEncoder.dataResult
-                return
-            }
-            try decoder.scanner.skipRequiredComma()
-        }
-    }
-
     public var hashValue: Int {
         get {
             var hash: Int = 0
@@ -274,82 +204,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 hash = (hash &* 16777619) ^ m.hashValue
             }
             return hash
-        }
-    }
-
-    // Override the traversal-based JSON encoding
-    // This builds an Any JSON representation from one of:
-    //  * The message we were initialized with,
-    //  * The JSON fields we last deserialized, or
-    //  * The protobuf field we were deserialized from.
-    // The last case requires locating the type, deserializing
-    // into an object, then reserializing back to JSON.
-    internal func encodedJSONString() throws -> String {
-        if let message = _message {
-            // We were initialized from a message object.
-
-            // We should have been initialized with a typeURL, but
-            // ensure it wasn't cleared.
-            let url = typeURL ?? buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
-            if let m = message as? _CustomJSONCodable {
-                // Serialize a Well-known type to JSON:
-                let value = try m.encodedJSONString()
-                return try serializeAnyJSON(wktValueJSON: value, typeURL: url)
-            } else {
-                // Serialize a regular message to JSON:
-                return try serializeAnyJSON(for: message, typeURL: url)
-            }
-        } else if let typeURL = typeURL {
-            if _value != nil {
-                // We have protobuf binary data and want to build JSON,
-                // transcode by decoding the binary data to a message object
-                // and then recode back into JSON:
-
-                // If it's a well-known type, we can always do this:
-                let messageTypeName = typeName(fromURL: typeURL)
-                if let messageType = Google_Protobuf_Any.wellKnownType(forMessageName: messageTypeName) {
-                    let m = try messageType.init(unpackingAny: self)
-                    let value = try m.jsonString()
-                    return try serializeAnyJSON(wktValueJSON: value, typeURL: typeURL)
-                }
-                // Otherwise, it may be a registered type:
-                if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
-                    let m = try messageType.init(unpackingAny: self)
-                    return try serializeAnyJSON(for: m, typeURL: typeURL)
-                }
-
-                // If we don't have the type available, we can't decode the
-                // binary value, so we're stuck.  (The Google spec does not
-                // provide a way to just package the binary value for someone
-                // else to decode later.)
-
-                // TODO: Google spec requires more work in the general case:
-                // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
-                // let type = Google_Protobuf_Type(protobuf: encodedType)
-                // return ProtobufDynamicMessage(type: type, any: self)?.serializeAnyJSON()
-
-                // ProtobufDynamicMessage() is non-trivial to write
-                // but desirable for other reasons.  It's a class that
-                // can be instantiated with any protobuf type or
-                // descriptor and provides access to protos of the
-                // corresponding type.
-                throw JSONEncodingError.anyTranscodeFailure
-            } else {
-                // We don't have binary data, so include the typeURL and
-                // any other contentJSON this Any was created from.
-                var jsonEncoder = JSONEncoder()
-                jsonEncoder.startObject()
-                jsonEncoder.startField(name: "@type")
-                jsonEncoder.putStringValue(value: typeURL)
-                if let contentJSON = _contentJSON, !contentJSON.isEmpty {
-                  jsonEncoder.append(staticText: ",")
-                  jsonEncoder.append(utf8Data: contentJSON)
-                }
-                jsonEncoder.endObject()
-                return jsonEncoder.stringResult
-            }
-        } else {
-            return "{}"
         }
     }
 
