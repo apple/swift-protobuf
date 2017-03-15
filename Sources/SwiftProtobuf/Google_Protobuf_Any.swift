@@ -27,7 +27,7 @@ fileprivate func buildTypeURL(forMessage message: Message, typePrefix: String) -
   return url + typeName(fromMessage: message)
 }
 
-fileprivate func typeName(fromURL s: String) -> String {
+internal func typeName(fromURL s: String) -> String {
     var typeStart = s.startIndex
     var i = typeStart
     while i < s.endIndex {
@@ -41,7 +41,7 @@ fileprivate func typeName(fromURL s: String) -> String {
     return s[typeStart..<s.endIndex]
 }
 
-fileprivate func typeName(fromMessage message: Message) -> String {
+internal func typeName(fromMessage message: Message) -> String {
     let messageType = type(of: message)
     return messageType.protoMessageName
 }
@@ -208,10 +208,10 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
             _contentJSON = nil
         }
     }
-    private var _value: Data?
+    internal var _value: Data?
 
-    private var _message: Message?
-    private var _contentJSON: Data?  // Any json parsed from with the @type removed.
+    internal var _message: Message?
+    internal var _contentJSON: Data?  // Any json parsed from with the @type removed.
 
     public init() {}
 
@@ -229,18 +229,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
     }
 
-    /// Decode an Any object from Protobuf Text Format.
-    public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
-        self.init()
-        var textDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self,
-                                                text: textFormatString,
-                                                extensions: extensions)
-        try decodeTextFormat(decoder: &textDecoder)
-        if !textDecoder.complete {
-            throw TextFormatDecodingError.trailingGarbage
-        }
-    }
-
     mutating public func decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           switch fieldNumber {
@@ -249,52 +237,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
           default: break
           }
         }
-    }
-
-    // Custom text format decoding support for Any objects.
-    // (Note: This is not a part of any protocol; it's invoked
-    // directly from TextFormatDecoder whenever it sees an attempt
-    // to decode an Any object)
-    mutating func decodeTextFormat(decoder: inout TextFormatDecoder) throws {
-        // First, check if this uses the "verbose" Any encoding.
-        // If it does, and we have the type available, we can
-        // eagerly decode the contained Message object.
-        if let url = try decoder.scanner.nextOptionalAnyURL() {
-            // Decoding the verbose form requires knowing the type:
-            typeURL = url
-            let messageTypeName = typeName(fromURL: url)
-            let terminator = try decoder.scanner.skipObjectStart()
-            // Is it a well-known type? Or a user-registered type?
-            if messageTypeName == "google.protobuf.Any" {
-                var subDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self, scanner: decoder.scanner, terminator: terminator)
-                var any = Google_Protobuf_Any()
-                try any.decodeTextFormat(decoder: &subDecoder)
-                decoder.scanner = subDecoder.scanner
-                if let _ = try decoder.nextFieldNumber() {
-                    // Verbose any can never have additional keys
-                    throw TextFormatDecodingError.malformedText
-                }
-                _message = any
-                return
-            } else if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
-                var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-                _message = messageType.init()
-                try _message!.decodeMessage(decoder: &subDecoder)
-                decoder.scanner = subDecoder.scanner
-                if let _ = try decoder.nextFieldNumber() {
-                    // Verbose any can never have additional keys
-                    throw TextFormatDecodingError.malformedText
-                }
-                return
-            }
-            // TODO: If we don't know the type, we should consider deferring the
-            // decode as we do for JSON and Protobuf binary.
-            throw TextFormatDecodingError.malformedText
-        }
-
-        // This is not using the specialized encoding, so we can use the
-        // standard path to decode the binary value.
-        try decodeMessage(decoder: &decoder)
     }
 
     // TODO: If the type is well-known or has already been registered,
