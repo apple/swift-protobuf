@@ -321,9 +321,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
   public var isInitialized: Bool {
     if !_extensionFieldValues.isInitialized {return false}
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      return true
-    }
+    return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
