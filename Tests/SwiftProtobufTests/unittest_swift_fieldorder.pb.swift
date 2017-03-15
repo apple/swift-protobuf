@@ -386,40 +386,18 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     }
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, Swift_Protobuf_TestFieldOrderings>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return Swift_Protobuf_TestFieldOrderings._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
-  fieldNames: .same(proto: "swift.protobuf.my_extension_string"),
+  fieldName: "swift.protobuf.my_extension_string",
   defaultValue: ""
 )
 
 let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
   _protobuf_fieldNumber: 5,
-  fieldNames: .same(proto: "swift.protobuf.my_extension_int"),
+  fieldName: "swift.protobuf.my_extension_int",
   defaultValue: 0
 )
 

@@ -637,29 +637,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType1>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType1._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -762,7 +740,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
 
       static let complex_opt4 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType2.ComplexOptionType4>, Google_Protobuf_MessageOptions>(
         _protobuf_fieldNumber: 7633546,
-        fieldNames: .same(proto: "protobuf_unittest.ComplexOptionType2.ComplexOptionType4.complex_opt4"),
+        fieldName: "protobuf_unittest.ComplexOptionType2.ComplexOptionType4.complex_opt4",
         defaultValue: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()
       )
     }
@@ -852,29 +830,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_ComplexOptionType2>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_ComplexOptionType2._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1120,29 +1076,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
     return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, ProtobufUnittest_AggregateMessageSet>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return ProtobufUnittest_AggregateMessageSet._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1169,7 +1103,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, Swift
 
     static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_AggregateMessageSetElement>, ProtobufUnittest_AggregateMessageSet>(
       _protobuf_fieldNumber: 15447542,
-      fieldNames: .same(proto: "protobuf_unittest.AggregateMessageSetElement.message_set_extension"),
+      fieldName: "protobuf_unittest.AggregateMessageSetElement.message_set_extension",
       defaultValue: ProtobufUnittest_AggregateMessageSetElement()
     )
   }
@@ -1303,7 +1237,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     static let nested = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 15476903,
-      fieldNames: .same(proto: "protobuf_unittest.Aggregate.nested"),
+      fieldName: "protobuf_unittest.Aggregate.nested",
       defaultValue: ProtobufUnittest_Aggregate()
     )
   }
@@ -1499,7 +1433,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf._
 
     static let nested_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 7912573,
-      fieldNames: .same(proto: "protobuf_unittest.NestedOptionType.nested_extension"),
+      fieldName: "protobuf_unittest.NestedOptionType.nested_extension",
       defaultValue: 0
     )
   }
@@ -1708,19 +1642,19 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message
 
 let ProtobufUnittest_Extensions_file_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 7736974,
-  fieldNames: .same(proto: "protobuf_unittest.file_opt1"),
+  fieldName: "protobuf_unittest.file_opt1",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_message_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7739036,
-  fieldNames: .same(proto: "protobuf_unittest.message_opt1"),
+  fieldName: "protobuf_unittest.message_opt1",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 7740936,
-  fieldNames: .same(proto: "protobuf_unittest.field_opt1"),
+  fieldName: "protobuf_unittest.field_opt1",
   defaultValue: 0
 )
 
@@ -1728,235 +1662,235 @@ let ProtobufUnittest_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<Opti
 ///   extension options.
 let ProtobufUnittest_Extensions_field_opt2 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 7753913,
-  fieldNames: .same(proto: "protobuf_unittest.field_opt2"),
+  fieldName: "protobuf_unittest.field_opt2",
   defaultValue: 42
 )
 
 let ProtobufUnittest_Extensions_oneof_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_OneofOptions>(
   _protobuf_fieldNumber: 7740111,
-  fieldNames: .same(proto: "protobuf_unittest.oneof_opt1"),
+  fieldName: "protobuf_unittest.oneof_opt1",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_enum_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, Google_Protobuf_EnumOptions>(
   _protobuf_fieldNumber: 7753576,
-  fieldNames: .same(proto: "protobuf_unittest.enum_opt1"),
+  fieldName: "protobuf_unittest.enum_opt1",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_enum_value_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_EnumValueOptions>(
   _protobuf_fieldNumber: 1560678,
-  fieldNames: .same(proto: "protobuf_unittest.enum_value_opt1"),
+  fieldName: "protobuf_unittest.enum_value_opt1",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_service_opt1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 7887650,
-  fieldNames: .same(proto: "protobuf_unittest.service_opt1"),
+  fieldName: "protobuf_unittest.service_opt1",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_method_opt1 = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_MethodOpt1>, Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 7890860,
-  fieldNames: .same(proto: "protobuf_unittest.method_opt1"),
+  fieldName: "protobuf_unittest.method_opt1",
   defaultValue: ProtobufUnittest_MethodOpt1.val1
 )
 
 let ProtobufUnittest_Extensions_bool_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7706090,
-  fieldNames: .same(proto: "protobuf_unittest.bool_opt"),
+  fieldName: "protobuf_unittest.bool_opt",
   defaultValue: false
 )
 
 let ProtobufUnittest_Extensions_int32_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7705709,
-  fieldNames: .same(proto: "protobuf_unittest.int32_opt"),
+  fieldName: "protobuf_unittest.int32_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_int64_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7705542,
-  fieldNames: .same(proto: "protobuf_unittest.int64_opt"),
+  fieldName: "protobuf_unittest.int64_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_uint32_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7704880,
-  fieldNames: .same(proto: "protobuf_unittest.uint32_opt"),
+  fieldName: "protobuf_unittest.uint32_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_uint64_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7702367,
-  fieldNames: .same(proto: "protobuf_unittest.uint64_opt"),
+  fieldName: "protobuf_unittest.uint64_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_sint32_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7701568,
-  fieldNames: .same(proto: "protobuf_unittest.sint32_opt"),
+  fieldName: "protobuf_unittest.sint32_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_sint64_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7700863,
-  fieldNames: .same(proto: "protobuf_unittest.sint64_opt"),
+  fieldName: "protobuf_unittest.sint64_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_fixed32_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7700307,
-  fieldNames: .same(proto: "protobuf_unittest.fixed32_opt"),
+  fieldName: "protobuf_unittest.fixed32_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_fixed64_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7700194,
-  fieldNames: .same(proto: "protobuf_unittest.fixed64_opt"),
+  fieldName: "protobuf_unittest.fixed64_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_sfixed32_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7698645,
-  fieldNames: .same(proto: "protobuf_unittest.sfixed32_opt"),
+  fieldName: "protobuf_unittest.sfixed32_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_sfixed64_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7685475,
-  fieldNames: .same(proto: "protobuf_unittest.sfixed64_opt"),
+  fieldName: "protobuf_unittest.sfixed64_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_float_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7675390,
-  fieldNames: .same(proto: "protobuf_unittest.float_opt"),
+  fieldName: "protobuf_unittest.float_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_double_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673293,
-  fieldNames: .same(proto: "protobuf_unittest.double_opt"),
+  fieldName: "protobuf_unittest.double_opt",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_string_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673285,
-  fieldNames: .same(proto: "protobuf_unittest.string_opt"),
+  fieldName: "protobuf_unittest.string_opt",
   defaultValue: ""
 )
 
 let ProtobufUnittest_Extensions_bytes_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673238,
-  fieldNames: .same(proto: "protobuf_unittest.bytes_opt"),
+  fieldName: "protobuf_unittest.bytes_opt",
   defaultValue: Data()
 )
 
 let ProtobufUnittest_Extensions_enum_opt = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_DummyMessageContainingEnum.TestEnumType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673233,
-  fieldNames: .same(proto: "protobuf_unittest.enum_opt"),
+  fieldName: "protobuf_unittest.enum_opt",
   defaultValue: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType.testOptionEnumType1
 )
 
 let ProtobufUnittest_Extensions_message_type_opt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_DummyMessageInvalidAsOptionType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7665967,
-  fieldNames: .same(proto: "protobuf_unittest.message_type_opt"),
+  fieldName: "protobuf_unittest.message_type_opt",
   defaultValue: ProtobufUnittest_DummyMessageInvalidAsOptionType()
 )
 
 let ProtobufUnittest_Extensions_quux = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_ComplexOptionType1>(
   _protobuf_fieldNumber: 7663707,
-  fieldNames: .same(proto: "protobuf_unittest.quux"),
+  fieldName: "protobuf_unittest.quux",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_corge = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType3>, ProtobufUnittest_ComplexOptionType1>(
   _protobuf_fieldNumber: 7663442,
-  fieldNames: .same(proto: "protobuf_unittest.corge"),
+  fieldName: "protobuf_unittest.corge",
   defaultValue: ProtobufUnittest_ComplexOptionType3()
 )
 
 let ProtobufUnittest_Extensions_grault = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_ComplexOptionType2>(
   _protobuf_fieldNumber: 7650927,
-  fieldNames: .same(proto: "protobuf_unittest.grault"),
+  fieldName: "protobuf_unittest.grault",
   defaultValue: 0
 )
 
 let ProtobufUnittest_Extensions_garply = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType1>, ProtobufUnittest_ComplexOptionType2>(
   _protobuf_fieldNumber: 7649992,
-  fieldNames: .same(proto: "protobuf_unittest.garply"),
+  fieldName: "protobuf_unittest.garply",
   defaultValue: ProtobufUnittest_ComplexOptionType1()
 )
 
 let ProtobufUnittest_Extensions_complex_opt1 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType1>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7646756,
-  fieldNames: .same(proto: "protobuf_unittest.complex_opt1"),
+  fieldName: "protobuf_unittest.complex_opt1",
   defaultValue: ProtobufUnittest_ComplexOptionType1()
 )
 
 let ProtobufUnittest_Extensions_complex_opt2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType2>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7636949,
-  fieldNames: .same(proto: "protobuf_unittest.complex_opt2"),
+  fieldName: "protobuf_unittest.complex_opt2",
   defaultValue: ProtobufUnittest_ComplexOptionType2()
 )
 
 let ProtobufUnittest_Extensions_complex_opt3 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType3>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7636463,
-  fieldNames: .same(proto: "protobuf_unittest.complex_opt3"),
+  fieldName: "protobuf_unittest.complex_opt3",
   defaultValue: ProtobufUnittest_ComplexOptionType3()
 )
 
 let ProtobufUnittest_Extensions_ComplexOpt6 = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_ComplexOpt6>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7595468,
-  fieldNames: .same(proto: "protobuf_unittest.ComplexOpt6"),
+  fieldName: "protobuf_unittest.ComplexOpt6",
   defaultValue: ProtobufUnittest_ComplexOpt6()
 )
 
 let ProtobufUnittest_Extensions_fileopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 15478479,
-  fieldNames: .same(proto: "protobuf_unittest.fileopt"),
+  fieldName: "protobuf_unittest.fileopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_msgopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 15480088,
-  fieldNames: .same(proto: "protobuf_unittest.msgopt"),
+  fieldName: "protobuf_unittest.msgopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_fieldopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 15481374,
-  fieldNames: .same(proto: "protobuf_unittest.fieldopt"),
+  fieldName: "protobuf_unittest.fieldopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_enumopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_EnumOptions>(
   _protobuf_fieldNumber: 15483218,
-  fieldNames: .same(proto: "protobuf_unittest.enumopt"),
+  fieldName: "protobuf_unittest.enumopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_enumvalopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_EnumValueOptions>(
   _protobuf_fieldNumber: 15486921,
-  fieldNames: .same(proto: "protobuf_unittest.enumvalopt"),
+  fieldName: "protobuf_unittest.enumvalopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_serviceopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 15497145,
-  fieldNames: .same(proto: "protobuf_unittest.serviceopt"),
+  fieldName: "protobuf_unittest.serviceopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_methodopt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 15512713,
-  fieldNames: .same(proto: "protobuf_unittest.methodopt"),
+  fieldName: "protobuf_unittest.methodopt",
   defaultValue: ProtobufUnittest_Aggregate()
 )
 
 let ProtobufUnittest_Extensions_required_enum_opt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_OldOptionType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 106161807,
-  fieldNames: .same(proto: "protobuf_unittest.required_enum_opt"),
+  fieldName: "protobuf_unittest.required_enum_opt",
   defaultValue: ProtobufUnittest_OldOptionType()
 )
 

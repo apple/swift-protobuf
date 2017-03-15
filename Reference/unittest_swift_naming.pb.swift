@@ -20841,29 +20841,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Swift
     return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitials>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitials>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitials>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitials>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitials._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -20876,79 +20854,79 @@ struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     static let http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 1,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.http"),
+      fieldName: "swift_unittest.names.Lowers.http",
       defaultValue: 0
     )
 
     static let http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 2,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.http_request"),
+      fieldName: "swift_unittest.names.Lowers.http_request",
       defaultValue: 0
     )
 
     static let the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 3,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.the_http_request"),
+      fieldName: "swift_unittest.names.Lowers.the_http_request",
       defaultValue: 0
     )
 
     static let the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 4,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.the_http"),
+      fieldName: "swift_unittest.names.Lowers.the_http",
       defaultValue: 0
     )
 
     static let https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 11,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.https"),
+      fieldName: "swift_unittest.names.Lowers.https",
       defaultValue: 0
     )
 
     static let https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 12,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.https_request"),
+      fieldName: "swift_unittest.names.Lowers.https_request",
       defaultValue: 0
     )
 
     static let the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 13,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.the_https_request"),
+      fieldName: "swift_unittest.names.Lowers.the_https_request",
       defaultValue: 0
     )
 
     static let the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 14,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.the_https"),
+      fieldName: "swift_unittest.names.Lowers.the_https",
       defaultValue: 0
     )
 
     static let url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 21,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.url"),
+      fieldName: "swift_unittest.names.Lowers.url",
       defaultValue: 0
     )
 
     static let url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 22,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.url_value"),
+      fieldName: "swift_unittest.names.Lowers.url_value",
       defaultValue: 0
     )
 
     static let the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 23,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.the_url_value"),
+      fieldName: "swift_unittest.names.Lowers.the_url_value",
       defaultValue: 0
     )
 
     static let the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 24,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.the_url"),
+      fieldName: "swift_unittest.names.Lowers.the_url",
       defaultValue: 0
     )
 
     static let a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 31,
-      fieldNames: .same(proto: "swift_unittest.names.Lowers.a_b_c"),
+      fieldName: "swift_unittest.names.Lowers.a_b_c",
       defaultValue: 0
     )
   }
@@ -20980,73 +20958,73 @@ struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     static let HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 101,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.HTTP"),
+      fieldName: "swift_unittest.names.Uppers.HTTP",
       defaultValue: 0
     )
 
     static let HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 102,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.HTTP_request"),
+      fieldName: "swift_unittest.names.Uppers.HTTP_request",
       defaultValue: 0
     )
 
     static let the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 103,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.the_HTTP_request"),
+      fieldName: "swift_unittest.names.Uppers.the_HTTP_request",
       defaultValue: 0
     )
 
     static let the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 104,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.the_HTTP"),
+      fieldName: "swift_unittest.names.Uppers.the_HTTP",
       defaultValue: 0
     )
 
     static let HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 111,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.HTTPS"),
+      fieldName: "swift_unittest.names.Uppers.HTTPS",
       defaultValue: 0
     )
 
     static let HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 112,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.HTTPS_request"),
+      fieldName: "swift_unittest.names.Uppers.HTTPS_request",
       defaultValue: 0
     )
 
     static let the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 113,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.the_HTTPS_request"),
+      fieldName: "swift_unittest.names.Uppers.the_HTTPS_request",
       defaultValue: 0
     )
 
     static let the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 114,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.the_HTTPS"),
+      fieldName: "swift_unittest.names.Uppers.the_HTTPS",
       defaultValue: 0
     )
 
     static let URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 121,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.URL"),
+      fieldName: "swift_unittest.names.Uppers.URL",
       defaultValue: 0
     )
 
     static let URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 122,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.URL_value"),
+      fieldName: "swift_unittest.names.Uppers.URL_value",
       defaultValue: 0
     )
 
     static let the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 123,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.the_URL_value"),
+      fieldName: "swift_unittest.names.Uppers.the_URL_value",
       defaultValue: 0
     )
 
     static let the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 124,
-      fieldNames: .same(proto: "swift_unittest.names.Uppers.the_URL"),
+      fieldName: "swift_unittest.names.Uppers.the_URL",
       defaultValue: 0
     )
   }
@@ -21078,73 +21056,73 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
     static let Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 201,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.Http"),
+      fieldName: "swift_unittest.names.WordCase.Http",
       defaultValue: 0
     )
 
     static let HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 202,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.HttpRequest"),
+      fieldName: "swift_unittest.names.WordCase.HttpRequest",
       defaultValue: 0
     )
 
     static let TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 203,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.TheHttpRequest"),
+      fieldName: "swift_unittest.names.WordCase.TheHttpRequest",
       defaultValue: 0
     )
 
     static let TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 204,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.TheHttp"),
+      fieldName: "swift_unittest.names.WordCase.TheHttp",
       defaultValue: 0
     )
 
     static let Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 211,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.Https"),
+      fieldName: "swift_unittest.names.WordCase.Https",
       defaultValue: 0
     )
 
     static let HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 212,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.HttpsRequest"),
+      fieldName: "swift_unittest.names.WordCase.HttpsRequest",
       defaultValue: 0
     )
 
     static let TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 213,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.TheHttpsRequest"),
+      fieldName: "swift_unittest.names.WordCase.TheHttpsRequest",
       defaultValue: 0
     )
 
     static let TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 214,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.TheHttps"),
+      fieldName: "swift_unittest.names.WordCase.TheHttps",
       defaultValue: 0
     )
 
     static let Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 221,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.Url"),
+      fieldName: "swift_unittest.names.WordCase.Url",
       defaultValue: 0
     )
 
     static let UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 222,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.UrlValue"),
+      fieldName: "swift_unittest.names.WordCase.UrlValue",
       defaultValue: 0
     )
 
     static let TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 223,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.TheUrlValue"),
+      fieldName: "swift_unittest.names.WordCase.TheUrlValue",
       defaultValue: 0
     )
 
     static let TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 224,
-      fieldNames: .same(proto: "swift_unittest.names.WordCase.TheUrl"),
+      fieldName: "swift_unittest.names.WordCase.TheUrl",
       defaultValue: 0
     )
   }
@@ -21200,29 +21178,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message,
     return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsLowers>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsLowers>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsLowers>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsLowers>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitialsLowers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -21257,29 +21213,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message,
     return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsUppers>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsUppers>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsUppers>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsUppers>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitialsUppers._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -21314,250 +21248,228 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Messag
     return true
   }
 
-  private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-  mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>, value: F.ValueType) {
-    _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-  }
-
-  mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>) {
-    _extensionFieldValues[ext.fieldNumber] = nil
-  }
-
-  func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>) -> F.ValueType {
-    if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-      return fieldValue.value
-    }
-    return ext.defaultValue
-  }
-
-  func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>) -> Bool {
-    return _extensionFieldValues[ext.fieldNumber] is F
-  }
-  func _protobuf_names(for number: Int) -> _NameMap.Names? {
-    return SwiftUnittest_Names_ExtensionNamingInitialsWordCase._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-  }
+  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 1,
-  fieldNames: .same(proto: "swift_unittest.names.http"),
+  fieldName: "swift_unittest.names.http",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 2,
-  fieldNames: .same(proto: "swift_unittest.names.http_request"),
+  fieldName: "swift_unittest.names.http_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 3,
-  fieldNames: .same(proto: "swift_unittest.names.the_http_request"),
+  fieldName: "swift_unittest.names.the_http_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 4,
-  fieldNames: .same(proto: "swift_unittest.names.the_http"),
+  fieldName: "swift_unittest.names.the_http",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 11,
-  fieldNames: .same(proto: "swift_unittest.names.https"),
+  fieldName: "swift_unittest.names.https",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 12,
-  fieldNames: .same(proto: "swift_unittest.names.https_request"),
+  fieldName: "swift_unittest.names.https_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 13,
-  fieldNames: .same(proto: "swift_unittest.names.the_https_request"),
+  fieldName: "swift_unittest.names.the_https_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 14,
-  fieldNames: .same(proto: "swift_unittest.names.the_https"),
+  fieldName: "swift_unittest.names.the_https",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 21,
-  fieldNames: .same(proto: "swift_unittest.names.url"),
+  fieldName: "swift_unittest.names.url",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 22,
-  fieldNames: .same(proto: "swift_unittest.names.url_value"),
+  fieldName: "swift_unittest.names.url_value",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 23,
-  fieldNames: .same(proto: "swift_unittest.names.the_url_value"),
+  fieldName: "swift_unittest.names.the_url_value",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 24,
-  fieldNames: .same(proto: "swift_unittest.names.the_url"),
+  fieldName: "swift_unittest.names.the_url",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 31,
-  fieldNames: .same(proto: "swift_unittest.names.a_b_c"),
+  fieldName: "swift_unittest.names.a_b_c",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 1,
-  fieldNames: .same(proto: "swift_unittest.names.HTTP"),
+  fieldName: "swift_unittest.names.HTTP",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 2,
-  fieldNames: .same(proto: "swift_unittest.names.HTTP_request"),
+  fieldName: "swift_unittest.names.HTTP_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 3,
-  fieldNames: .same(proto: "swift_unittest.names.the_HTTP_request"),
+  fieldName: "swift_unittest.names.the_HTTP_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 4,
-  fieldNames: .same(proto: "swift_unittest.names.the_HTTP"),
+  fieldName: "swift_unittest.names.the_HTTP",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 11,
-  fieldNames: .same(proto: "swift_unittest.names.HTTPS"),
+  fieldName: "swift_unittest.names.HTTPS",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 12,
-  fieldNames: .same(proto: "swift_unittest.names.HTTPS_request"),
+  fieldName: "swift_unittest.names.HTTPS_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 13,
-  fieldNames: .same(proto: "swift_unittest.names.the_HTTPS_request"),
+  fieldName: "swift_unittest.names.the_HTTPS_request",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 14,
-  fieldNames: .same(proto: "swift_unittest.names.the_HTTPS"),
+  fieldName: "swift_unittest.names.the_HTTPS",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 21,
-  fieldNames: .same(proto: "swift_unittest.names.URL"),
+  fieldName: "swift_unittest.names.URL",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 22,
-  fieldNames: .same(proto: "swift_unittest.names.URL_value"),
+  fieldName: "swift_unittest.names.URL_value",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 23,
-  fieldNames: .same(proto: "swift_unittest.names.the_URL_value"),
+  fieldName: "swift_unittest.names.the_URL_value",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 24,
-  fieldNames: .same(proto: "swift_unittest.names.the_URL"),
+  fieldName: "swift_unittest.names.the_URL",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 1,
-  fieldNames: .same(proto: "swift_unittest.names.Http"),
+  fieldName: "swift_unittest.names.Http",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 2,
-  fieldNames: .same(proto: "swift_unittest.names.HttpRequest"),
+  fieldName: "swift_unittest.names.HttpRequest",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 3,
-  fieldNames: .same(proto: "swift_unittest.names.TheHttpRequest"),
+  fieldName: "swift_unittest.names.TheHttpRequest",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 4,
-  fieldNames: .same(proto: "swift_unittest.names.TheHttp"),
+  fieldName: "swift_unittest.names.TheHttp",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 11,
-  fieldNames: .same(proto: "swift_unittest.names.Https"),
+  fieldName: "swift_unittest.names.Https",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 12,
-  fieldNames: .same(proto: "swift_unittest.names.HttpsRequest"),
+  fieldName: "swift_unittest.names.HttpsRequest",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 13,
-  fieldNames: .same(proto: "swift_unittest.names.TheHttpsRequest"),
+  fieldName: "swift_unittest.names.TheHttpsRequest",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 14,
-  fieldNames: .same(proto: "swift_unittest.names.TheHttps"),
+  fieldName: "swift_unittest.names.TheHttps",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 21,
-  fieldNames: .same(proto: "swift_unittest.names.Url"),
+  fieldName: "swift_unittest.names.Url",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 22,
-  fieldNames: .same(proto: "swift_unittest.names.UrlValue"),
+  fieldName: "swift_unittest.names.UrlValue",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 23,
-  fieldNames: .same(proto: "swift_unittest.names.TheUrlValue"),
+  fieldName: "swift_unittest.names.TheUrlValue",
   defaultValue: 0
 )
 
 let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 24,
-  fieldNames: .same(proto: "swift_unittest.names.TheUrl"),
+  fieldName: "swift_unittest.names.TheUrl",
   defaultValue: 0
 )
 
