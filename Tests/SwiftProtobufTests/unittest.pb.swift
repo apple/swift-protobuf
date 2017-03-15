@@ -4465,8 +4465,8 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       return true
     }
   }
@@ -8203,8 +8203,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       if _storage._requiredAllTypes == nil {return false}
       return true
     }
@@ -8943,8 +8943,8 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       return true
     }
   }

@@ -795,8 +795,8 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       if let v = _storage._bar, !v.isInitialized {return false}
       return true
     }

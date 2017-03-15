@@ -212,8 +212,8 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       return true
     }
   }

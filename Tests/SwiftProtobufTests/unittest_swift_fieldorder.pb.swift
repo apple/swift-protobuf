@@ -320,8 +320,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       return true
     }
   }

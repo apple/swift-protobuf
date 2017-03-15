@@ -2742,8 +2742,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       if _storage._requiredAllTypes == nil {return false}
       return true
     }
@@ -3381,8 +3381,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       return true
     }
   }

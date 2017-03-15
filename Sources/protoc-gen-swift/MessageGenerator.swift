@@ -568,11 +568,10 @@ class MessageGenerator {
 
     p.print("\npublic var isInitialized: Bool {\n")
     p.indent()
+    if isExtensible {
+      p.print("if !_extensionFieldValues.isInitialized {return false}\n")
+    }
     generateWithLifetimeExtension(printer: &p, returns: true) { p in
-      if isExtensible {
-        p.print("if !_extensionFieldValues.isInitialized {return false}\n")
-      }
-
       if !isProto3 {
         // Only proto2 syntax can have field presence (required fields); ensure required
         // fields have values.

@@ -467,8 +467,8 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
   init() {}
 
   public var isInitialized: Bool {
+    if !_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
       if let v = _storage._y, !v.isInitialized {return false}
       return true
     }
