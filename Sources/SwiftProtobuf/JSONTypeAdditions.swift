@@ -23,7 +23,7 @@ public extension Message {
         if let m = self as? _CustomJSONCodable {
             return try m.encodedJSONString()
         }
-        var visitor = JSONEncodingVisitor(message: self)
+        var visitor = try JSONEncodingVisitor(message: self)
         visitor.encoder.startObject()
         try traverse(visitor: &visitor)
         visitor.encoder.endObject()

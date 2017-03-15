@@ -30,22 +30,4 @@ internal enum ProtoNameResolvers {
       return { _ in nil }
     }
   }
-
-  /// Returns a function that resolves the JSON name for fields defined on the
-  /// given message or in any set extensions.
-  ///
-  /// If the name cannot be resolved (because the field number is not defined
-  /// on the message or any of its extensions, or names were not compiled into
-  /// the binary), then the resolver returns nil.
-  static func jsonFieldNameResolver(
-    for message: Message
-  ) -> (Int) -> StaticString? {
-    if let nameProviding = message as? _ProtoNameProviding {
-      return { number in
-        nameProviding._protobuf_names(for: number)?.jsonStaticStringName
-      }
-    } else {
-      return { _ in nil }
-    }
-  }
 }

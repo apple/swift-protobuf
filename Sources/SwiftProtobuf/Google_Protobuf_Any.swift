@@ -77,7 +77,7 @@ fileprivate func typeName(fromMessage message: Message) -> String {
 /// This mimics the standard JSON message encoding logic, but adds
 /// the additional `@type` field.
 fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
-    var visitor = JSONEncodingVisitor(message: message)
+    var visitor = try JSONEncodingVisitor(message: message)
     visitor.encoder.startObject()
     visitor.encoder.startField(name: "@type")
     visitor.encoder.putStringValue(value: typeURL)
