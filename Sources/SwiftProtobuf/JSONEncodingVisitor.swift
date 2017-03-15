@@ -20,7 +20,7 @@ import Foundation
 internal struct JSONEncodingVisitor: Visitor {
 
   internal var encoder = JSONEncoder()
-  private var nameResolver: (Int) -> StaticString?
+  private var nameMap: _NameMap
 
   /// The JSON text produced by the visitor, as raw UTF8 bytes.
   var dataResult: Data {
@@ -33,9 +33,12 @@ internal struct JSONEncodingVisitor: Visitor {
   }
 
   /// Creates a new visitor that serializes the given message to JSON format.
-  init(message: Message) {
-    self.nameResolver =
-      ProtoNameResolvers.jsonFieldNameResolver(for: message)
+  init(message: Message) throws {
+    if let nameProviding = message as? _ProtoNameProviding {
+        self.nameMap = type(of: nameProviding)._protobuf_nameMap
+    } else {
+        throw JSONEncodingError.missingFieldNames
+    }
   }
 
   mutating func visitUnknown(bytes: Data) throws {
@@ -283,7 +286,7 @@ internal struct JSONEncodingVisitor: Visitor {
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private mutating func startField(for number: Int) throws {
-    if let jsonName = nameResolver(number) {
+    if let jsonName = nameMap.names(for: number)?.jsonStaticStringName {
         encoder.startField(name: jsonName)
     } else {
         throw JSONEncodingError.missingFieldNames
