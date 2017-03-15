@@ -172,6 +172,18 @@ public extension Google_Protobuf_Any {
     throw AnyUnpackError.malformedAnyField
   }
 
+  public var hashValue: Int {
+    var hash: Int = 0
+    hash = (hash &* 16777619) ^ typeURL.hashValue
+    if let v = _value {
+      hash = (hash &* 16777619) ^ v.hashValue
+    }
+    if let m = _message {
+      hash = (hash &* 16777619) ^ m.hashValue
+    }
+    return hash
+  }
+
 }
 
 

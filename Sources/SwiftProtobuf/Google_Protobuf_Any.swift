@@ -191,20 +191,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
         }
     }
 
-    public var hashValue: Int {
-        get {
-            var hash: Int = 0
-            hash = (hash &* 16777619) ^ typeURL.hashValue
-            if let v = _value {
-                hash = (hash &* 16777619) ^ v.hashValue
-            }
-            if let m = _message {
-                hash = (hash &* 16777619) ^ m.hashValue
-            }
-            return hash
-        }
-    }
-
     // Caveat:  This can be very expensive.  We should consider organizing
     // the code generation so that generated equality tests check Any fields last.
     public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
