@@ -89,10 +89,10 @@ public extension Google_Protobuf_Any {
   /// was itself deserialized.
   ///
   public func unpackTo<M: Message>(target: inout M) throws {
-    if typeURL == nil {
+    if typeURL.isEmpty {
       throw AnyUnpackError.emptyAnyField
     }
-    let encodedType = typeName(fromURL: typeURL!)
+    let encodedType = typeName(fromURL: typeURL)
     if encodedType.isEmpty {
       throw AnyUnpackError.malformedTypeURL
     }
@@ -257,7 +257,12 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
 
       // We should have been initialized with a typeURL, but
       // ensure it wasn't cleared.
-      let url = typeURL ?? buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+      let url: String
+      if !typeURL.isEmpty {
+        url = typeURL
+      } else {
+        url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+      }
       if let m = message as? _CustomJSONCodable {
         // Serialize a Well-known type to JSON:
         let value = try m.encodedJSONString()
@@ -266,7 +271,7 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
         // Serialize a regular message to JSON:
         return try serializeAnyJSON(for: message, typeURL: url)
       }
-    } else if let typeURL = typeURL {
+    } else if !typeURL.isEmpty {
       if _value != nil {
         // We have protobuf binary data and want to build JSON,
         // transcode by decoding the binary data to a message object
@@ -329,7 +334,7 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
-    typeURL = nil
+    typeURL = ""
     _contentJSON = nil
     _message = nil
     _value = nil

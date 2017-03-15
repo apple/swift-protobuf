@@ -132,7 +132,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     ///
     ///   Schemas other than `http`, `https` (or the empty schema) might be
     ///   used with implementation specific semantics.
-    public var typeURL: String?
+    public var typeURL: String = ""
 
     ///   Must be valid serialized data of the above specified type.
     public var value: Data? {
@@ -145,7 +145,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
                 } catch {
                     return nil
                 }
-            } else if let _ = _contentJSON, let typeURL = typeURL {
+            } else if _contentJSON != nil && !typeURL.isEmpty {
                 // Transcode JSON-to-protobuf by decoding/recoding:
                 // Well-known types are always available:
                 let encodedTypeName = typeName(fromURL: typeURL)
@@ -194,9 +194,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     public var hashValue: Int {
         get {
             var hash: Int = 0
-            if let t = typeURL {
-                hash = (hash &* 16777619) ^ t.hashValue
-            }
+            hash = (hash &* 16777619) ^ typeURL.hashValue
             if let v = _value {
                 hash = (hash &* 16777619) ^ v.hashValue
             }
@@ -210,7 +208,7 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     // Caveat:  This can be very expensive.  We should consider organizing
     // the code generation so that generated equality tests check Any fields last.
     public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
-        if ((typeURL != nil && !typeURL!.isEmpty) || (other.typeURL != nil && !other.typeURL!.isEmpty)) && (typeURL == nil || other.typeURL == nil || typeURL! != other.typeURL!) {
+        if (typeURL != other.typeURL) {
             return false
         }
 
@@ -246,14 +244,12 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     }
 
     public func traverse<V: Visitor>(visitor: inout V) throws {
-        if let typeURL = typeURL {
-            try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
-            // Try to generate bytes for this field...
-            if let value = value {
-                try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
-            } else {
-                throw BinaryEncodingError.anyTranscodeFailure
-            }
+        try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
+        // Try to generate bytes for this field...
+        if let value = value {
+            try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
+        } else {
+            throw BinaryEncodingError.anyTranscodeFailure
         }
     }
 }
