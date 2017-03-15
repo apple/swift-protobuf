@@ -38,6 +38,7 @@ class MessageGenerator {
   private let isProto3: Bool
   private let isExtensible: Bool
   private let isGroup: Bool
+  private let isAnyMessage: Bool
 
   private let path: [Int32]
   private let comments: String
@@ -67,6 +68,9 @@ class MessageGenerator {
       swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
       swiftFullName = swiftRelativeName
     }
+    self.isAnyMessage = (isProto3 &&
+                         descriptor.name == "Any" &&
+                         file.descriptor.name == "google/protobuf/any.proto")
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
@@ -139,7 +143,15 @@ class MessageGenerator {
     // storage yet.
     let useHeapStorage = fields.count > 16 ||
       hasMessageField(descriptor: descriptor, context: context)
-    if useHeapStorage {
+    if isAnyMessage {
+      self.storage = AnyMessageStorageClassGenerator(
+        descriptor: descriptor,
+        fields: fields,
+        oneofs: oneofs,
+        file: file,
+        messageSwiftName: swiftFullName,
+        context: context)
+    } else if useHeapStorage {
       self.storage = MessageStorageClassGenerator(
         descriptor: descriptor,
         fields: fields,
@@ -184,10 +196,9 @@ class MessageGenerator {
     if let storage = storage {
       // Storage class, if needed
       storage.generateNested(printer: &p)
+      p.print("\(storage.storageVisibility) var _storage = \(storage.typeName)()\n")
       p.print("\n")
-      p.print("private var _storage = _StorageClass()\n")
-      p.print("\n")
-      p.print("private mutating func _uniqueStorage() -> _StorageClass {\n")
+      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> \(storage.typeName) {\n")
       p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
       p.print("    _storage = _storage.copy()\n")
       p.print("  }\n")
@@ -431,6 +442,19 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
+    // TODO: Hack and forward to storage any.
+    if isAnyMessage {
+        p.print("public func traverse<V: Visitor>(visitor: inout V) throws {\n")
+        p.print("    try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)\n")
+        p.print("    // Try to generate bytes for this field...\n")
+        p.print("    if let value = _value {\n")
+        p.print("        try visitor.visitSingularBytesField(value: value, fieldNumber: 2)\n")
+        p.print("    } else {\n")
+        p.print("        throw BinaryEncodingError.anyTranscodeFailure\n")
+        p.print("    }\n")
+        p.print("}\n")
+        return
+    }
     p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
@@ -727,7 +751,7 @@ class MessageGenerator {
     alsoCapturing capturedVariable: String? = nil,
     body: (inout CodePrinter) -> Void
   ) {
-    if storage != nil {
+    if let storage = storage {
       let prefixKeywords = "\(returns ? "return " : "")" +
         "\(canThrow ? "try " : "")"
 
@@ -741,7 +765,7 @@ class MessageGenerator {
         // The way withExtendedLifetime is defined causes ambiguities in the
         // singleton argument case, which we have to resolve by writing out
         // the explicit type of the closure argument.
-        formalArgs = "(_storage: _StorageClass)"
+        formalArgs = "(_storage: \(storage.typeName))"
       }
       p.print(prefixKeywords +
         "withExtendedLifetime(\(actualArgs)) { \(formalArgs) in\n")

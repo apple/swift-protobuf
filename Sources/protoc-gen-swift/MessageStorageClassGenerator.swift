@@ -41,12 +41,22 @@ class MessageStorageClassGenerator {
     self.context = context
   }
 
+  /// The name of the storage class.
+  var typeName: String {
+    return "_StorageClass"
+  }
+
+  /// Visibility of the property within the Message.
+  var storageVisibility: String {
+    return "private"
+  }
+
   /// Generates the full code for the storage class.
   ///
   /// - Parameter p: The code printer.
   func generateNested(printer p: inout CodePrinter) {
     p.print("\n")
-    p.print("private class _StorageClass {\n")
+    p.print("private class \(typeName) {\n")
     p.indent()
 
     generateStoredProperties(printer: &p)
@@ -62,6 +72,7 @@ class MessageStorageClassGenerator {
 
     p.outdent()
     p.print("}\n")
+    p.print("\n")
   }
 
   /// Generates the stored properties for the storage class.
@@ -87,9 +98,9 @@ class MessageStorageClassGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateCopy(printer p: inout CodePrinter) {
-    p.print("func copy() -> _StorageClass {\n")
+    p.print("func copy() -> \(typeName) {\n")
     p.indent()
-    p.print("let clone = _StorageClass()\n")
+    p.print("let clone = \(typeName)()\n")
 
     var oneofsHandled = Set<Int32>()
     for f in fields {
@@ -105,5 +116,17 @@ class MessageStorageClassGenerator {
     p.print("return clone\n")
     p.outdent()
     p.print("}\n")
+  }
+}
+
+/// Cusotm generator for storage of an google.protobuf.Any.
+class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
+
+  override var typeName: String { return "AnyMessageStorage" }
+  override var storageVisibility: String { return "internal" }
+
+  override func generateNested(printer p: inout CodePrinter) {
+    // Nothing.  It is hand coded in another file along with
+    // the extension on the message.
   }
 }

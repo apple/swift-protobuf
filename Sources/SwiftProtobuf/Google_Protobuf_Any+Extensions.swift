@@ -70,7 +70,7 @@ public extension Google_Protobuf_Any {
   ///
   public init(message: Message, typePrefix: String = defaultTypePrefix) {
     self.init()
-    _message = message
+    _storage._message = message
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
   }
 
@@ -106,14 +106,14 @@ public extension Google_Protobuf_Any {
       throw AnyUnpackError.typeMismatch
     }
     var protobuf: Data?
-    if let message = _message as? M {
+    if let message = _storage._message as? M {
       target = message
       return
     }
 
-    if let message = _message {
+    if let message = _storage._message {
       protobuf = try message.serializedData()
-    } else if let value = _value {
+    } else if let value = _storage._valueData {
       protobuf = value
     }
     if let protobuf = protobuf {
@@ -124,7 +124,7 @@ public extension Google_Protobuf_Any {
         }
       }
       return
-    } else if let contentJSON = _contentJSON {
+    } else if let contentJSON = _storage._contentJSON {
       let targetType = typeName(fromMessage: target)
       if Google_Protobuf_Any.isWellKnownType(messageName: targetType) {
         try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
@@ -180,10 +180,10 @@ public extension Google_Protobuf_Any {
   public var hashValue: Int {
     var hash: Int = 0
     hash = (hash &* 16777619) ^ typeURL.hashValue
-    if let v = _value {
+    if let v = _storage._valueData {
       hash = (hash &* 16777619) ^ v.hashValue
     }
-    if let m = _message {
+    if let m = _storage._message {
       hash = (hash &* 16777619) ^ m.hashValue
     }
     return hash
@@ -215,6 +215,48 @@ fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) t
 
 extension Google_Protobuf_Any: _CustomJSONCodable {
 
+  // _value is computed be on demand conversions.
+  public var _value: Data? {
+    get {
+      if let value = _storage._valueData {
+        return value
+      } else if let message = _storage._message {
+        do {
+          return try message.serializedData()
+        } catch {
+          return nil
+        }
+      } else if _storage._contentJSON != nil && !_storage._typeURL.isEmpty {
+        // Transcode JSON-to-protobuf by decoding/recoding:
+        // Well-known types are always available:
+        let encodedTypeName = typeName(fromURL: _storage._typeURL)
+        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) {
+          do {
+            let m = try messageType.init(unpackingAny: self)
+            return try m.serializedData()
+          } catch {
+            return nil
+          }
+        }
+        // TODO: Google spec requires a lot more work in the general case:
+        // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
+        // let type = Google_Protobuf_Type(protobuf: encodedType)
+        // return ProtobufDynamic(type: type, any: self)?.serializeProtobuf()
+
+        // See the comments in serializeJSON() above for more discussion of what would be needed to fully implement this.
+        return nil
+      } else {
+        return nil
+      }
+    }
+    set {
+      _ = _uniqueStorage()
+      _storage._valueData = newValue
+      _storage._message = nil
+      _storage._contentJSON = nil
+    }
+  }
+
   // Custom text format decoding support for Any objects.
   // (Note: This is not a part of any protocol; it's invoked
   // directly from TextFormatDecoder whenever it sees an attempt
@@ -238,12 +280,12 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
           // Verbose any can never have additional keys
           throw TextFormatDecodingError.malformedText
         }
-        _message = any
+        _uniqueStorage()._message = any
         return
       } else if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
         var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-        _message = messageType.init()
-        try _message!.decodeMessage(decoder: &subDecoder)
+        _uniqueStorage()._message = messageType.init()
+        try _storage._message!.decodeMessage(decoder: &subDecoder)
         decoder.scanner = subDecoder.scanner
         if let _ = try decoder.nextFieldNumber() {
           // Verbose any can never have additional keys
@@ -269,7 +311,7 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
   // The last case requires locating the type, deserializing
   // into an object, then reserializing back to JSON.
   internal func encodedJSONString() throws -> String {
-    if let message = _message {
+    if let message = _storage._message {
       // We were initialized from a message object.
 
       // We should have been initialized with a typeURL, but
@@ -289,7 +331,7 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
         return try serializeAnyJSON(for: message, typeURL: url)
       }
     } else if !typeURL.isEmpty {
-      if _value != nil {
+      if _storage._valueData != nil {
         // We have protobuf binary data and want to build JSON,
         // transcode by decoding the binary data to a message object
         // and then recode back into JSON:
@@ -330,7 +372,7 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
         jsonEncoder.startObject()
         jsonEncoder.startField(name: "@type")
         jsonEncoder.putStringValue(value: typeURL)
-        if let contentJSON = _contentJSON, !contentJSON.isEmpty {
+        if let contentJSON = _storage._contentJSON, !contentJSON.isEmpty {
           jsonEncoder.append(staticText: ",")
           jsonEncoder.append(utf8Data: contentJSON)
         }
@@ -351,10 +393,11 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
-    typeURL = ""
-    _contentJSON = nil
-    _message = nil
-    _value = nil
+    _ = _uniqueStorage()
+    _storage._typeURL = ""
+    _storage._contentJSON = nil
+    _storage._message = nil
+    _storage._valueData = nil
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }
@@ -371,7 +414,7 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
         jsonEncoder.append(text: keyValueJSON)
       }
       if decoder.scanner.skipOptionalObjectEnd() {
-        _contentJSON = jsonEncoder.dataResult
+        _storage._contentJSON = jsonEncoder.dataResult
         return
       }
       try decoder.scanner.skipRequiredComma()
