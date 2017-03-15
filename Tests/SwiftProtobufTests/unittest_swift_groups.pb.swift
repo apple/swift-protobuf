@@ -447,8 +447,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
         if let v = _storage._subGroup2 {
           try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
@@ -588,8 +588,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if !_storage._subGroup3.isEmpty {
         try visitor.visitRepeatedGroupField(value: _storage._subGroup3, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage) -> Bool {

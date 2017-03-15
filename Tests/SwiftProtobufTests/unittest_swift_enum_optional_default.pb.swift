@@ -149,8 +149,8 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
         if let v = _storage._optionalEnum {
           try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {

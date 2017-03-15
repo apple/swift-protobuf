@@ -114,8 +114,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
       if let v = _storage._message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {

@@ -1615,8 +1615,8 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message, SwiftProtobu
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 116)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes) -> Bool {
@@ -1807,8 +1807,8 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message, SwiftP
       if let v = _storage._arenaMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestNoArenaMessage) -> Bool {

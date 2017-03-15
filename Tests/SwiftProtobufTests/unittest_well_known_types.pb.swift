@@ -408,8 +408,8 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._valueField {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
@@ -700,8 +700,8 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
       if !_storage._bytesField.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._bytesField, fieldNumber: 18)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
@@ -1278,8 +1278,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._oneofField?.traverse(visitor: &visitor, start: 1, end: 19)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
@@ -1553,8 +1553,8 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
       if !_storage._bytesField.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Google_Protobuf_BytesValue>.self, value: _storage._bytesField, fieldNumber: 18)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {

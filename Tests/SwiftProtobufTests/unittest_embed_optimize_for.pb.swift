@@ -138,8 +138,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
       if !_storage._repeatedMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessage, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {

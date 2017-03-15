@@ -341,8 +341,8 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._syntax {
         try visitor.visitSingularStringField(value: v, fieldNumber: 12)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
@@ -686,8 +686,8 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._Me
       if !_storage._reservedName.isEmpty {
         try visitor.visitRepeatedStringField(value: _storage._reservedName, fieldNumber: 10)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
@@ -1113,8 +1113,8 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       if let v = _storage._jsonName {
         try visitor.visitSingularStringField(value: v, fieldNumber: 10)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
@@ -1222,8 +1222,8 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
       if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
@@ -1336,8 +1336,8 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
@@ -1456,8 +1456,8 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, SwiftPro
       if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
@@ -1571,8 +1571,8 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, SwiftProto
       if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
@@ -1749,8 +1749,8 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
       if let v = _storage._serverStreaming {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 6)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {

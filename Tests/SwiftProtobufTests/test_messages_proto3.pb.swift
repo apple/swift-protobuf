@@ -1484,8 +1484,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
         if let v = _storage._corecursive {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage) -> Bool {
@@ -1961,8 +1961,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
       if _storage._fieldName18__ != 0 {
         try visitor.visitSingularInt32Field(value: _storage._fieldName18__, fieldNumber: 418)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_TestAllTypes) -> Bool {

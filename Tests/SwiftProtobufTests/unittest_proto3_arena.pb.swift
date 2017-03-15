@@ -972,8 +972,8 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaUnittest_TestAllTypes) -> Bool {
@@ -1393,8 +1393,8 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProto
       if let v = _storage._payload {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaUnittest_NestedTestAllTypes) -> Bool {

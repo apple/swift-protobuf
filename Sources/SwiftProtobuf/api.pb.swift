@@ -210,8 +210,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
       if _storage._syntax != Google_Protobuf_Syntax.proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 7)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {

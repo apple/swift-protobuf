@@ -134,8 +134,8 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       if !_storage._repeatedAnyValue.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedAnyValue, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {

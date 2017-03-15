@@ -1018,8 +1018,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
         try visitor.visitRepeatedMessageField(value: _storage._repeatedPublicImportMessage, fieldNumber: 54)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestAllTypes) -> Bool {
@@ -1167,8 +1167,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       if !_storage._repeatedChild.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3NestedTestAllTypes) -> Bool {
@@ -1339,8 +1339,8 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if let v = _storage._foreignNested {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestForeignNested) -> Bool {
@@ -1471,8 +1471,8 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._Message
       if _storage._i != 0 {
         try visitor.visitSingularInt32Field(value: _storage._i, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestRecursiveMessage) -> Bool {
@@ -1547,8 +1547,8 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf._Message
       if let v = _storage._bb {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMutualRecursionA) -> Bool {
@@ -1633,8 +1633,8 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf._Message
       if _storage._optionalInt32 != 0 {
         try visitor.visitSingularInt32Field(value: _storage._optionalInt32, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMutualRecursionB) -> Bool {
@@ -1794,8 +1794,8 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if !_storage._repeatedMessageField.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessageField, fieldNumber: 10)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestCamelCaseFieldNames) -> Bool {
@@ -1959,8 +1959,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       if let v = _storage._singleNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestFieldOrderings) -> Bool {
@@ -2482,8 +2482,8 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._foo?.traverse(visitor: &visitor, start: 1, end: 4)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestOneof) -> Bool {

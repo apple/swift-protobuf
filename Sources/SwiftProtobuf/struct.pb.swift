@@ -367,8 +367,8 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._kind?.traverse(visitor: &visitor, start: 1, end: 7)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {

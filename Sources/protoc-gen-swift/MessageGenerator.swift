@@ -467,8 +467,8 @@ class MessageGenerator {
         p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
         nextRange = ranges.next()
       }
-      p.print("try unknownFields.traverse(visitor: &visitor)\n")
     }
+    p.print("try unknownFields.traverse(visitor: &visitor)\n")
     p.outdent()
     p.print("}\n")
   }

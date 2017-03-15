@@ -1225,8 +1225,8 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       if !_storage._mapInt32Message.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Message3>.self, value: _storage._mapInt32Message, fieldNumber: 88)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Message3) -> Bool {
@@ -1378,8 +1378,8 @@ struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message, SwiftProtobuf._M
       if let v = _storage._y {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 999)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Msg3UsesStorage) -> Bool {

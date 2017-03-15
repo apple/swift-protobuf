@@ -1696,8 +1696,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._
       if let v = _storage._deceptivelyNamedList {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypesLite) -> Bool {
@@ -2422,8 +2422,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
           if let v = _storage._field1 {
             try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
           }
-          try unknownFields.traverse(visitor: &visitor)
         }
+        try unknownFields.traverse(visitor: &visitor)
       }
 
       func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1) -> Bool {
@@ -2496,8 +2496,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
           if let v = _storage._field1 {
             try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
           }
-          try unknownFields.traverse(visitor: &visitor)
         }
+        try unknownFields.traverse(visitor: &visitor)
       }
 
       func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2) -> Bool {
@@ -2625,8 +2625,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         if let v = _storage._optionalGroupAllTypes {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMergeLite.OptionalGroup) -> Bool {
@@ -2699,8 +2699,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         if let v = _storage._repeatedGroupAllTypes {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMergeLite.RepeatedGroup) -> Bool {
@@ -2775,8 +2775,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitRepeatedGroupField(value: _storage._repeatedGroup, fieldNumber: 20)
       }
       try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMergeLite) -> Bool {
@@ -3437,8 +3437,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._stringStringMap, fieldNumber: 536870010)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 536870011, end: 536870015)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestHugeFieldNumbersLite) -> Bool {

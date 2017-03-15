@@ -923,8 +923,8 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto2NofieldpresenceUnittest_TestAllTypes) -> Bool {
@@ -1050,8 +1050,8 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
       if let v = _storage._proto2 {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto2NofieldpresenceUnittest_TestProto2Required) -> Bool {

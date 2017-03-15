@@ -124,8 +124,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
       if let v = _storage._messageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {

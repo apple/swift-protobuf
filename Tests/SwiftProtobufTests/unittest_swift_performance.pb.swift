@@ -479,8 +479,8 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if !_storage._mapStringMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Swift_Performance_TestAllTypes>.self, value: _storage._mapStringMessage, fieldNumber: 71)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Swift_Performance_TestAllTypes) -> Bool {

@@ -153,8 +153,8 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       if let v = _storage._aBaz {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
@@ -265,8 +265,8 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       if let v = _storage._aFoo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
@@ -377,8 +377,8 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
       if let v = _storage._aBar {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {

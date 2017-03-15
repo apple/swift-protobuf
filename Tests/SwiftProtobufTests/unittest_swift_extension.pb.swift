@@ -498,8 +498,8 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
       try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 201)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgUsesStorage) -> Bool {

@@ -294,8 +294,8 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
       if !_storage._protoFile.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._protoFile, fieldNumber: 15)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {

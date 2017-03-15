@@ -4721,8 +4721,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if let v = _storage._jsonShouldBeOverriden {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {

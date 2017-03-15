@@ -367,8 +367,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings) -> Bool {

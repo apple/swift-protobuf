@@ -834,8 +834,8 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
         try visitor.visitRepeatedMessageField(value: _storage._barney, fieldNumber: 4)
       }
       try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 536870912)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2) -> Bool {
@@ -999,8 +999,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._complexOptionType5 {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3) -> Bool {
@@ -1352,8 +1352,8 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Message
       if let v = _storage._mset {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Aggregate) -> Bool {

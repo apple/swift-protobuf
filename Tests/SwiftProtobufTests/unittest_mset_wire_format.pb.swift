@@ -181,8 +181,8 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
       if let v = _storage._messageSet {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSetWireFormatContainer) -> Bool {

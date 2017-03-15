@@ -346,8 +346,8 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
       if !_storage._mapStringForeignMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_ForeignMessage>.self, value: _storage._mapStringForeignMessage, fieldNumber: 18)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMap) -> Bool {
@@ -437,8 +437,8 @@ struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf.
       if let v = _storage._testMap {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMapSubmessage) -> Bool {
@@ -829,8 +829,8 @@ struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if !_storage._mapInt32ForeignMessageNoArena.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittestNoArena_ForeignMessage>.self, value: _storage._mapInt32ForeignMessageNoArena, fieldNumber: 18)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestArenaMap) -> Bool {

@@ -1677,8 +1677,8 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypes) -> Bool {
@@ -1853,8 +1853,8 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
       if !_storage._repeatedChild.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_NestedTestAllTypes) -> Bool {
@@ -2858,8 +2858,8 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if let v = _storage._c {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 33)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequired) -> Bool {
@@ -3002,8 +3002,8 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
       if let v = _storage._dummy {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredForeign) -> Bool {
@@ -3079,8 +3079,8 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
       if let v = _storage._foreignNested {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestForeignNested) -> Bool {
@@ -3379,8 +3379,8 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
       if let v = _storage._i {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRecursiveMessage) -> Bool {
@@ -3455,8 +3455,8 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
       if let v = _storage._bb {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA) -> Bool {
@@ -3547,8 +3547,8 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
       if let v = _storage._optionalInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionB) -> Bool {
@@ -3753,8 +3753,8 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._bar {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDupFieldNumber) -> Bool {
@@ -3830,8 +3830,8 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf._
       if let v = _storage._subMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEagerMessage) -> Bool {
@@ -3904,8 +3904,8 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._M
       if let v = _storage._subMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLazyMessage) -> Bool {
@@ -4022,8 +4022,8 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
       if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestNestedMessageHasBits) -> Bool {
@@ -4260,8 +4260,8 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
       if !_storage._repeatedCordField.isEmpty {
         try visitor.visitRepeatedStringField(value: _storage._repeatedCordField, fieldNumber: 12)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestCamelCaseFieldNames) -> Bool {
@@ -4478,8 +4478,8 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
       if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestFieldOrderings) -> Bool {
@@ -5060,8 +5060,8 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
       if let v = _storage._replacementString {
         try visitor.visitSingularStringField(value: v, fieldNumber: 27)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestExtremeDefaultValues) -> Bool {
@@ -5779,8 +5779,8 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Message
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._foo?.traverse(visitor: &visitor, start: 1, end: 5)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneof) -> Bool {
@@ -5970,8 +5970,8 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
       if let v = _storage._fooGroup {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneofBackwardsCompatible) -> Bool {
@@ -6680,8 +6680,8 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Messag
       if let v = _storage._bazString {
         try visitor.visitSingularStringField(value: v, fieldNumber: 19)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneof2) -> Bool {
@@ -6916,8 +6916,8 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage._foo?.traverse(visitor: &visitor, start: 1, end: 4)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOneof) -> Bool {
@@ -7565,8 +7565,8 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
       if !_storage._packedExtension.isEmpty {
         try visitor.visitPackedSInt32Field(value: _storage._packedExtension, fieldNumber: 2006)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDynamicExtensions) -> Bool {
@@ -7845,8 +7845,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
           if let v = _storage._field1 {
             try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
           }
-          try unknownFields.traverse(visitor: &visitor)
         }
+        try unknownFields.traverse(visitor: &visitor)
       }
 
       func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
@@ -7919,8 +7919,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
           if let v = _storage._field1 {
             try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
           }
-          try unknownFields.traverse(visitor: &visitor)
         }
+        try unknownFields.traverse(visitor: &visitor)
       }
 
       func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
@@ -8048,8 +8048,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         if let v = _storage._optionalGroupAllTypes {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.OptionalGroup) -> Bool {
@@ -8122,8 +8122,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         if let v = _storage._repeatedGroupAllTypes {
           try visitor.visitSingularMessageField(value: v, fieldNumber: 21)
         }
-        try unknownFields.traverse(visitor: &visitor)
       }
+      try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedGroup) -> Bool {
@@ -8198,8 +8198,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         try visitor.visitRepeatedGroupField(value: _storage._repeatedGroup, fieldNumber: 20)
       }
       try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge) -> Bool {
@@ -8961,8 +8961,8 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._stringStringMap, fieldNumber: 536870010)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 536870011, end: 536870015)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestHugeFieldNumbers) -> Bool {

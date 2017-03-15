@@ -214,8 +214,8 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._Messag
       if _storage._syntax != Google_Protobuf_Syntax.proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 6)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
@@ -657,8 +657,8 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._Messag
       if _storage._syntax != Google_Protobuf_Syntax.proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 5)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
@@ -812,8 +812,8 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._Mess
       if let v = _storage._value {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {

@@ -1271,8 +1271,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
       try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
