@@ -42,6 +42,23 @@ public extension Message {
 
 
 public extension Google_Protobuf_Any {
+
+  /// Initialize an Any object from the provided message.
+  ///
+  /// This corresponds to the `pack` operation in the C++ API.
+  ///
+  /// Unlike the C++ implementation, the message is not immediately
+  /// serialized; it is merely stored until the Any object itself
+  /// needs to be serialized.  This design avoids unnecessary
+  /// decoding/recoding when writing JSON format.
+  ///
+  public init(message: Message, typePrefix: String = defaultTypePrefix) {
+    self.init()
+    _message = message
+    typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
+  }
+
+
   /// Decode an Any object from Protobuf Text Format.
   public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
     self.init()

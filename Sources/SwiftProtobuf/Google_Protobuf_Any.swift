@@ -17,9 +17,9 @@
 
 import Foundation
 
-fileprivate let defaultTypePrefix: String = "type.googleapis.com"
+internal let defaultTypePrefix: String = "type.googleapis.com"
 
-fileprivate func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
+internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
   var url = typePrefix
   if typePrefix.isEmpty || typePrefix.characters.last != "/" {
     url += "/"
@@ -214,20 +214,6 @@ public struct Google_Protobuf_Any: Message, _MessageImplementationBase, _ProtoNa
     internal var _contentJSON: Data?  // Any json parsed from with the @type removed.
 
     public init() {}
-
-    /// Initialize an Any object from the provided message.
-    ///
-    /// This corresponds to the `pack` operation in the C++ API.
-    ///
-    /// Unlike the C++ implementation, the message is not immediately
-    /// serialized; it is merely stored until the Any object itself
-    /// needs to be serialized.  This design avoids unnecessary
-    /// decoding/recoding when writing JSON format.
-    ///
-    public init(message: Message, typePrefix: String = defaultTypePrefix) {
-        _message = message
-        typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
-    }
 
     mutating public func decodeMessage<T: Decoder>(decoder: inout T) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
