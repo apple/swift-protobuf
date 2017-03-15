@@ -479,18 +479,14 @@ class MessageGenerator {
   private func generateIsEqualTo(printer p: inout CodePrinter) {
     p.print("\(visibility)func _protobuf_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
     p.indent()
-    generateWithLifetimeExtension(printer: &p,
-                                  returns: true,
-                                  alsoCapturing: "other") { p in
-      // We can't short-circuit the entire equality test if the storage objects
-      // have the same identity because the unknown fields and extension values
-      // might still be different, but we can at least save some time by only
-      // testing the individual fields in storage when they're different.
-      if storage != nil {
-        p.print("if _storage !== other_storage {\n")
-        p.indent()
-      }
+    if storage != nil {
+      p.print("if _storage !== other._storage {\n")
+      p.indent()
+      p.print("let storagesAreEqual: Bool = ")
+    }
 
+    generateWithLifetimeExtension(printer: &p,
+                                  alsoCapturing: "other") { p in
       var oneofHandled = Set<Int32>()
       for f in fields {
         if let o = f.oneof {
@@ -508,18 +504,20 @@ class MessageGenerator {
           p.print("if \(notEqualClause) {return false}\n")
         }
       }
-
       if storage != nil {
-        p.outdent()
-        p.print("}\n")
+        p.print("return true\n")
       }
-
-      p.print("if unknownFields != other.unknownFields {return false}\n")
-      if isExtensible {
-        p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
-      }
-      p.print("return true\n")
     }
+    if storage != nil {
+      p.print("if !storagesAreEqual {return false}\n")
+      p.outdent()
+      p.print("}\n")
+    }
+    p.print("if unknownFields != other.unknownFields {return false}\n")
+    if isExtensible {
+      p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
+    }
+    p.print("return true\n")
     p.outdent()
     p.print("}\n")
   }

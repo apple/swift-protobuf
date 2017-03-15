@@ -484,8 +484,8 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mes
   }
 
   func _protobuf_generated_isEqualTo(other: Swift_Performance_TestAllTypes) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
         if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
@@ -518,9 +518,11 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mes
         if _storage._repeatedString != other_storage._repeatedString {return false}
         if _storage._repeatedBytes != other_storage._repeatedBytes {return false}
         if _storage._mapStringMessage != other_storage._mapStringMessage {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }

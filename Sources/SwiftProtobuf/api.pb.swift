@@ -215,8 +215,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._name != other_storage._name {return false}
         if _storage._methods != other_storage._methods {return false}
         if _storage._options != other_storage._options {return false}
@@ -224,10 +224,12 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
         if _storage._sourceContext != other_storage._sourceContext {return false}
         if _storage._mixins != other_storage._mixins {return false}
         if _storage._syntax != other_storage._syntax {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
