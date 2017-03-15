@@ -117,12 +117,11 @@ struct ExtensionGenerator {
         if protoPath.hasPrefix(".") {
             protoPath.remove(at: protoPath.startIndex)
         }
-        let nameCase = ".same(proto: \"\(protoPath)\")"
 
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
         p.indent()
         p.print("_protobuf_fieldNumber: \(descriptor.number),\n")
-        p.print("fieldNames: \(nameCase),\n")
+        p.print("fieldName: \"\(protoPath)\",\n")
         p.print("defaultValue: \(defaultValue)\n")
         p.outdent()
         p.print(")\n")

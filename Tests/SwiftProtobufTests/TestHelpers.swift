@@ -152,7 +152,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
                 XCTFail("Encode/decode cycle should not throw error, decoding: \(error)", file: file, line: line)
             }
         } catch let e {
-            XCTFail("Failed to serialize JSON: \(e)\n    \(configured)", file: file, line: line)
+            XCTFail("Failed to serialize Text: \(e)\n    \(configured)", file: file, line: line)
         }
     }
 

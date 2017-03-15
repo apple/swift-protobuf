@@ -61,8 +61,8 @@ public struct ExtensionFieldValueSet: Equatable {
   }
 
   /// SwiftProtobuf Internal: Common support for decoding/encoding.
-  public func _protobuf_fieldNames(for number: Int) -> _NameMap.Names? {
-    return values[number]?.protobufExtension._protobuf_fieldNames
+  internal func _protobuf_fieldName(for number: Int) -> StaticString? {
+    return values[number]?.protobufExtension.fieldName
   }
 
   public var isInitialized: Bool {

@@ -14,7 +14,6 @@
 ///
 // -----------------------------------------------------------------------------
 
-// TODO: Make this more Set-like
 // Note: The generated code only relies on ExpressibleByArrayLiteral
 public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLiteral {
     public typealias Element = MessageExtensionBase
@@ -28,7 +27,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         insert(contentsOf: arrayLiteral)
     }
 
-    public subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? {
+    internal subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? {
         get {
             if let l = fields[fieldNumber] {
                 for (t, e) in l {
@@ -57,11 +56,11 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         }
     }
 
-    public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
+    internal func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
             for (t, e) in list {
-                let extensionName = e._protobuf_fieldNames.protoStaticStringName.description
+                let extensionName = e.fieldName.description
                 if extensionName == protoFieldName && t == messageType {
                     return e.fieldNumber
                 }
@@ -84,7 +83,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         var names = [String]()
         for (_, list) in fields {
             for (_, e) in list {
-                let extensionName = e._protobuf_fieldNames.protoStaticStringName.description
+                let extensionName = e.fieldName
                 names.append("\(extensionName)(\(e.fieldNumber))")
             }
         }
