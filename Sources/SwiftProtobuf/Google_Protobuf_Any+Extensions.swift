@@ -18,7 +18,7 @@ import Foundation
 
 fileprivate let defaultTypePrefix: String = "type.googleapis.com"
 
-fileprivate func typeName(fromMessage message: Message) -> String {
+internal func typeName(fromMessage message: Message) -> String {
   let messageType = type(of: message)
   return messageType.protoMessageName
 }
@@ -94,87 +94,7 @@ public extension Google_Protobuf_Any {
   /// was itself deserialized.
   ///
   public func unpackTo<M: Message>(target: inout M) throws {
-    if typeURL.isEmpty {
-      throw AnyUnpackError.emptyAnyField
-    }
-    let encodedType = typeName(fromURL: typeURL)
-    if encodedType.isEmpty {
-      throw AnyUnpackError.malformedTypeURL
-    }
-    let messageType = typeName(fromMessage: target)
-    if encodedType != messageType {
-      throw AnyUnpackError.typeMismatch
-    }
-    var protobuf: Data?
-    if let message = _storage._message as? M {
-      target = message
-      return
-    }
-
-    if let message = _storage._message {
-      protobuf = try message.serializedData()
-    } else if let value = _storage._valueData {
-      protobuf = value
-    }
-    if let protobuf = protobuf {
-      // Decode protobuf from the stored bytes
-      if protobuf.count > 0 {
-        try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-          try target._protobuf_mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
-        }
-      }
-      return
-    } else if let contentJSON = _storage._contentJSON {
-      let targetType = typeName(fromMessage: target)
-      if Google_Protobuf_Any.isWellKnownType(messageName: targetType) {
-        try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-          var scanner = JSONScanner(utf8Pointer: bytes,
-                                    count: contentJSON.count)
-          let key = try scanner.nextQuotedString()
-          if key != "value" {
-            // The only thing within a WKT should be "value".
-            throw AnyUnpackError.malformedWellKnownTypeJSON
-          }
-          try scanner.skipRequiredColon()  // Can't fail
-          let value = try scanner.skip()
-          if !scanner.complete {
-            // If that wasn't the end, then there was another key,
-            // and WKTs should only have the one.
-            throw AnyUnpackError.malformedWellKnownTypeJSON
-          }
-          // Note: This api is unpackTo(target:) so it really should be
-          // a merge and not a replace (the non WKT case next is a merge).
-          // The only WKTs where there would seem to be a difference are:
-          //   Struct - It is a map, so it would merge into any existing
-          //     enties.
-          //   ValueList - Repeated, so values should append to the
-          //       existing ones instead of instead of replace.
-          //   FieldMask - Repeated, so values should append to the
-          //       existing ones instead of instead of replace.
-          //   Value - Interesting case, it is a oneof, so currently
-          //       that would error if it was already set, so maybe
-          //       replace is ok.
-          target = try M(jsonString: value)
-        }
-      } else {
-        let asciiOpenCurlyBracket = UInt8(ascii: "{")
-        let asciiCloseCurlyBracket = UInt8(ascii: "}")
-        var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
-        contentJSONAsObject.append(contentJSON)
-        contentJSONAsObject.append(asciiCloseCurlyBracket)
-
-        try contentJSONAsObject.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-          var decoder = JSONDecoder(utf8Pointer: bytes,
-                                    count: contentJSONAsObject.count)
-          try decoder.decodeFullObject(message: &target)
-          if !decoder.scanner.complete {
-            throw JSONDecodingError.trailingGarbage
-          }
-        }
-      }
-      return
-    }
-    throw AnyUnpackError.malformedAnyField
+    try _storage.unpackTo(target: &target)
   }
 
   public var hashValue: Int {
