@@ -31,11 +31,6 @@ internal func typeName(fromURL s: String) -> String {
     return s[typeStart..<s.endIndex]
 }
 
-internal func typeName(fromMessage message: Message) -> String {
-    let messageType = type(of: message)
-    return messageType.protoMessageName
-}
-
 ///   `Any` contains an arbitrary serialized message along with a URL
 ///   that describes the type of the serialized message.
 ///

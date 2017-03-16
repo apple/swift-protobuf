@@ -18,6 +18,11 @@ import Foundation
 
 fileprivate let defaultTypePrefix: String = "type.googleapis.com"
 
+fileprivate func typeName(fromMessage message: Message) -> String {
+  let messageType = type(of: message)
+  return messageType.protoMessageName
+}
+
 fileprivate func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
   var url = typePrefix
   if typePrefix.isEmpty || typePrefix.characters.last != "/" {
