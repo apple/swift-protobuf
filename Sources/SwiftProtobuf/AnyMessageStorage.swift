@@ -41,7 +41,7 @@ internal class AnyMessageStorage {
 
       if let message = _message {
         do {
-          return try message.serializedData()
+          return try message.serializedData(partial: true)
         } catch {
           return Data()
         }
@@ -57,7 +57,7 @@ internal class AnyMessageStorage {
             any._storage._contentJSON = contentJSON
             any._storage._valueData = nil
             let m = try messageType.init(unpackingAny: any)
-            return try m.serializedData()
+            return try m.serializedData(partial: true)
           } catch {
             return Data()
           }
@@ -74,6 +74,7 @@ internal class AnyMessageStorage {
   }
 
   // The possible internal states for _value.
+  //
   // Note: It might make sense to shift to using an enum for internal
   // state instead to better enforce this; but that also means we could
   // never got a model were we might also be able to cache the things
@@ -112,7 +113,7 @@ internal class AnyMessageStorage {
     }
 
     if let message = _message {
-      protobuf = try message.serializedData()
+      protobuf = try message.serializedData(partial: true)
     } else if let value = _valueData {
       protobuf = value
     }
@@ -211,6 +212,32 @@ internal class AnyMessageStorage {
     throw TextFormatDecodingError.malformedText
   }
 
+  // Called before the message is traversed to do any error preflights.
+  // Since traverse() will use _value, this is our chance to throw
+  // when _value can't.
+  func preTraverse() throws {
+    // 1. if _valueData is set, it will be used, nothing to check.
+
+    // 2. _message could be checked when set, but that isn't always
+    //    clean in the places it gets decoded from some other form, so
+    //    validate it here.
+    if let msg = _message, !msg.isInitialized {
+      throw BinaryEncodingError.missingRequiredFields
+    }
+
+    // 3. _contentJSON requires a good URL and our ability to look up
+    //    the message type to transcode.
+    if _contentJSON != nil {
+      if _typeURL.isEmpty {
+        throw BinaryEncodingError.anyTranscodeFailure
+      }
+      let encodedTypeName = typeName(fromURL: _typeURL)
+      if Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) == nil {
+        // Isn't registered, we can't transform it for binary.
+        throw BinaryEncodingError.anyTranscodeFailure
+      }
+    }
+  }
 }
 
 // Since things are decoded on demand, hashValue and Equality are a little

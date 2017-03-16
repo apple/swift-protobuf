@@ -445,6 +445,9 @@ class MessageGenerator {
     p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
+      if let storage = storage {
+        storage.generatePreTraverse(printer: &p)
+      }
       var ranges = descriptor.extensionRange.makeIterator()
       var nextRange = ranges.next()
       var currentOneof: Google_Protobuf_OneofDescriptorProto?

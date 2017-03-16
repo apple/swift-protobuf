@@ -78,6 +78,10 @@ class MessageStorageClassGenerator {
     p.print("\n")
   }
 
+  func generatePreTraverse(printer p: inout CodePrinter) {
+    // Nothing
+  }
+
   /// Generates the stored properties for the storage class.
   ///
   /// - Parameter p: The code printer.
@@ -132,5 +136,9 @@ class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
   override func generateNested(printer p: inout CodePrinter) {
     // Nothing.  It is hand coded in another file along with
     // the extension on the message.
+  }
+
+  override func generatePreTraverse(printer p: inout CodePrinter) {
+    p.print("try _storage.preTraverse()\n")
   }
 }
