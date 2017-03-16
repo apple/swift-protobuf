@@ -48,7 +48,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
         let nameMap = type(of: nameProviding)._protobuf_nameMap
         let nameResolver: (Int) -> StaticString?
         if let extensibleMessage = message as? ExtensibleMessage {
-            let extensions = extensibleMessage._extensionFieldValues
+            let extensions = extensibleMessage._protobuf_extensionFieldValues
             nameResolver = { (number: Int) -> StaticString? in
                 return extensions._protobuf_fieldName(for: number)
             }
