@@ -60,8 +60,8 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEmbedOptimizedForSize"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "optional_message", json: "optionalMessage"),
-    2: .unique(proto: "repeated_message", json: "repeatedMessage"),
+    1: .standard(proto: "optional_message"),
+    2: .standard(proto: "repeated_message"),
   ]
 
   private class _StorageClass {

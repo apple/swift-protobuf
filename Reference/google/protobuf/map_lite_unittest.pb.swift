@@ -163,23 +163,23 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameP
 struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
-    2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
-    3: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32"),
-    4: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64"),
-    5: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32"),
-    6: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64"),
-    7: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32"),
-    8: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64"),
-    9: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32"),
-    10: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64"),
-    11: .unique(proto: "map_int32_float", json: "mapInt32Float"),
-    12: .unique(proto: "map_int32_double", json: "mapInt32Double"),
-    13: .unique(proto: "map_bool_bool", json: "mapBoolBool"),
-    14: .unique(proto: "map_string_string", json: "mapStringString"),
-    15: .unique(proto: "map_int32_bytes", json: "mapInt32Bytes"),
-    16: .unique(proto: "map_int32_enum", json: "mapInt32Enum"),
-    17: .unique(proto: "map_int32_foreign_message", json: "mapInt32ForeignMessage"),
+    1: .standard(proto: "map_int32_int32"),
+    2: .standard(proto: "map_int64_int64"),
+    3: .standard(proto: "map_uint32_uint32"),
+    4: .standard(proto: "map_uint64_uint64"),
+    5: .standard(proto: "map_sint32_sint32"),
+    6: .standard(proto: "map_sint64_sint64"),
+    7: .standard(proto: "map_fixed32_fixed32"),
+    8: .standard(proto: "map_fixed64_fixed64"),
+    9: .standard(proto: "map_sfixed32_sfixed32"),
+    10: .standard(proto: "map_sfixed64_sfixed64"),
+    11: .standard(proto: "map_int32_float"),
+    12: .standard(proto: "map_int32_double"),
+    13: .standard(proto: "map_bool_bool"),
+    14: .standard(proto: "map_string_string"),
+    15: .standard(proto: "map_int32_bytes"),
+    16: .standard(proto: "map_int32_enum"),
+    17: .standard(proto: "map_int32_foreign_message"),
     18: .same(proto: "teboring"),
   ]
 
@@ -452,24 +452,24 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Messa
 struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestArenaMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "map_int32_int32", json: "mapInt32Int32"),
-    2: .unique(proto: "map_int64_int64", json: "mapInt64Int64"),
-    3: .unique(proto: "map_uint32_uint32", json: "mapUint32Uint32"),
-    4: .unique(proto: "map_uint64_uint64", json: "mapUint64Uint64"),
-    5: .unique(proto: "map_sint32_sint32", json: "mapSint32Sint32"),
-    6: .unique(proto: "map_sint64_sint64", json: "mapSint64Sint64"),
-    7: .unique(proto: "map_fixed32_fixed32", json: "mapFixed32Fixed32"),
-    8: .unique(proto: "map_fixed64_fixed64", json: "mapFixed64Fixed64"),
-    9: .unique(proto: "map_sfixed32_sfixed32", json: "mapSfixed32Sfixed32"),
-    10: .unique(proto: "map_sfixed64_sfixed64", json: "mapSfixed64Sfixed64"),
-    11: .unique(proto: "map_int32_float", json: "mapInt32Float"),
-    12: .unique(proto: "map_int32_double", json: "mapInt32Double"),
-    13: .unique(proto: "map_bool_bool", json: "mapBoolBool"),
-    14: .unique(proto: "map_string_string", json: "mapStringString"),
-    15: .unique(proto: "map_int32_bytes", json: "mapInt32Bytes"),
-    16: .unique(proto: "map_int32_enum", json: "mapInt32Enum"),
-    17: .unique(proto: "map_int32_foreign_message", json: "mapInt32ForeignMessage"),
-    18: .unique(proto: "map_int32_foreign_message_no_arena", json: "mapInt32ForeignMessageNoArena"),
+    1: .standard(proto: "map_int32_int32"),
+    2: .standard(proto: "map_int64_int64"),
+    3: .standard(proto: "map_uint32_uint32"),
+    4: .standard(proto: "map_uint64_uint64"),
+    5: .standard(proto: "map_sint32_sint32"),
+    6: .standard(proto: "map_sint64_sint64"),
+    7: .standard(proto: "map_fixed32_fixed32"),
+    8: .standard(proto: "map_fixed64_fixed64"),
+    9: .standard(proto: "map_sfixed32_sfixed32"),
+    10: .standard(proto: "map_sfixed64_sfixed64"),
+    11: .standard(proto: "map_int32_float"),
+    12: .standard(proto: "map_int32_double"),
+    13: .standard(proto: "map_bool_bool"),
+    14: .standard(proto: "map_string_string"),
+    15: .standard(proto: "map_int32_bytes"),
+    16: .standard(proto: "map_int32_enum"),
+    17: .standard(proto: "map_int32_foreign_message"),
+    18: .standard(proto: "map_int32_foreign_message_no_arena"),
   ]
 
   private class _StorageClass {
@@ -742,7 +742,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._
 struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "map_field", json: "mapField"),
+    1: .standard(proto: "map_field"),
   ]
 
   var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
@@ -782,8 +782,8 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
 struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .unique(proto: "known_map_field", json: "knownMapField"),
-    102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
   ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
@@ -825,8 +825,8 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._M
 struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtraLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .unique(proto: "known_map_field", json: "knownMapField"),
-    102: .unique(proto: "unknown_map_field", json: "unknownMapField"),
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
   ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
@@ -868,7 +868,7 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
 struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageMapLite"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "map_int32_message", json: "mapInt32Message"),
+    1: .standard(proto: "map_int32_message"),
   ]
 
   var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]

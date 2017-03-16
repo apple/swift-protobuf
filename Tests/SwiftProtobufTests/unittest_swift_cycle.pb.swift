@@ -61,9 +61,9 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "a_foo", json: "aFoo"),
-    2: .unique(proto: "a_bar", json: "aBar"),
-    3: .unique(proto: "a_baz", json: "aBaz"),
+    1: .standard(proto: "a_foo"),
+    2: .standard(proto: "a_bar"),
+    3: .standard(proto: "a_baz"),
   ]
 
   private class _StorageClass {
@@ -173,9 +173,9 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "a_bar", json: "aBar"),
-    2: .unique(proto: "a_baz", json: "aBaz"),
-    3: .unique(proto: "a_foo", json: "aFoo"),
+    1: .standard(proto: "a_bar"),
+    2: .standard(proto: "a_baz"),
+    3: .standard(proto: "a_foo"),
   ]
 
   private class _StorageClass {
@@ -285,9 +285,9 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "a_baz", json: "aBaz"),
-    2: .unique(proto: "a_foo", json: "aFoo"),
-    3: .unique(proto: "a_bar", json: "aBar"),
+    1: .standard(proto: "a_baz"),
+    2: .standard(proto: "a_foo"),
+    3: .standard(proto: "a_bar"),
   ]
 
   private class _StorageClass {

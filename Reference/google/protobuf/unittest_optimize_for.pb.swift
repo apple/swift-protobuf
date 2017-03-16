@@ -62,8 +62,8 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
     19: .same(proto: "msg"),
-    2: .unique(proto: "integer_field", json: "integerField"),
-    3: .unique(proto: "string_field", json: "stringField"),
+    2: .standard(proto: "integer_field"),
+    3: .standard(proto: "string_field"),
   ]
 
   private class _StorageClass {
@@ -213,7 +213,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
+      if !_protobuf_extensionFieldValues.isInitialized {return false}
       return true
     }
   }
@@ -231,7 +231,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
           }
           _storage._foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
         case 1000..<536870912:
-          try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
         default: break
         }
       }
@@ -247,7 +247,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       if let v = _storage._msg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
       try unknownFields.traverse(visitor: &visitor)
     }
   }
@@ -260,12 +260,12 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
         if _storage._foo != other_storage._foo {return false}
       }
       if unknownFields != other.unknownFields {return false}
-      if _extensionFieldValues != other._extensionFieldValues {return false}
+      if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
       return true
     }
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

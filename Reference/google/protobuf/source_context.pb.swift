@@ -55,7 +55,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SourceContext"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "file_name", json: "fileName"),
+    1: .standard(proto: "file_name"),
   ]
 
   ///   The path-qualified name of the .proto file that contained the associated

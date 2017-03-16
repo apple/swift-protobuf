@@ -105,7 +105,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
@@ -114,7 +114,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &_a)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -124,18 +124,18 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
     if let v = _a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_NoGenericServicesTest_TestMessage) -> Bool {
     if _a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(

@@ -998,11 +998,11 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     58: .same(proto: "throws"),
     59: .same(proto: "true"),
     60: .same(proto: "try"),
-    61: .unique(proto: "__COLUMN__", json: "COLUMN"),
-    62: .unique(proto: "__FILE__", json: "FILE"),
-    63: .unique(proto: "__FUNCTION__", json: "FUNCTION"),
-    64: .unique(proto: "__LINE__", json: "LINE"),
-    65: .unique(proto: "_", json: ""),
+    61: .standard(proto: "__COLUMN__"),
+    62: .standard(proto: "__FILE__"),
+    63: .standard(proto: "__FUNCTION__"),
+    64: .standard(proto: "__LINE__"),
+    65: .standard(proto: "_"),
     66: .same(proto: "associativity"),
     67: .same(proto: "convenience"),
     68: .same(proto: "dynamic"),
@@ -1029,13 +1029,13 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     90: .same(proto: "weak"),
     91: .same(proto: "willSet"),
     92: .same(proto: "id"),
-    93: .unique(proto: "_cmd", json: "Cmd"),
+    93: .standard(proto: "_cmd"),
     96: .same(proto: "out"),
     98: .same(proto: "bycopy"),
     99: .same(proto: "byref"),
     100: .same(proto: "oneway"),
     102: .same(proto: "and"),
-    103: .unique(proto: "and_eq", json: "andEq"),
+    103: .standard(proto: "and_eq"),
     104: .same(proto: "alignas"),
     105: .same(proto: "alignof"),
     106: .same(proto: "asm"),
@@ -1044,15 +1044,15 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     109: .same(proto: "bitor"),
     110: .same(proto: "bool"),
     114: .same(proto: "char"),
-    115: .unique(proto: "char16_t", json: "char16T"),
-    116: .unique(proto: "char32_t", json: "char32T"),
+    115: .standard(proto: "char16_t"),
+    116: .standard(proto: "char32_t"),
     118: .same(proto: "compl"),
     119: .same(proto: "const"),
     120: .same(proto: "constexpr"),
-    121: .unique(proto: "const_cast", json: "constCast"),
+    121: .standard(proto: "const_cast"),
     123: .same(proto: "decltype"),
     125: .same(proto: "delete"),
-    127: .unique(proto: "dynamic_cast", json: "dynamicCast"),
+    127: .standard(proto: "dynamic_cast"),
     130: .same(proto: "explicit"),
     131: .same(proto: "export"),
     132: .same(proto: "extern"),
@@ -1065,21 +1065,21 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     144: .same(proto: "new"),
     145: .same(proto: "noexcept"),
     146: .same(proto: "not"),
-    147: .unique(proto: "not_eq", json: "notEq"),
+    147: .standard(proto: "not_eq"),
     148: .same(proto: "nullptr"),
     150: .same(proto: "or"),
-    151: .unique(proto: "or_eq", json: "orEq"),
+    151: .standard(proto: "or_eq"),
     153: .same(proto: "protected"),
     155: .same(proto: "register"),
-    156: .unique(proto: "reinterpret_cast", json: "reinterpretCast"),
+    156: .standard(proto: "reinterpret_cast"),
     158: .same(proto: "short"),
     159: .same(proto: "signed"),
     160: .same(proto: "sizeof"),
-    162: .unique(proto: "static_assert", json: "staticAssert"),
-    163: .unique(proto: "static_cast", json: "staticCast"),
+    162: .standard(proto: "static_assert"),
+    163: .standard(proto: "static_cast"),
     166: .same(proto: "template"),
     167: .same(proto: "this"),
-    168: .unique(proto: "thread_local", json: "threadLocal"),
+    168: .standard(proto: "thread_local"),
     172: .same(proto: "typedef"),
     173: .same(proto: "typeid"),
     174: .same(proto: "typename"),
@@ -1089,9 +1089,9 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     178: .same(proto: "virtual"),
     179: .same(proto: "void"),
     180: .same(proto: "volatile"),
-    181: .unique(proto: "wchar_t", json: "wcharT"),
+    181: .standard(proto: "wchar_t"),
     183: .same(proto: "xor"),
-    184: .unique(proto: "xor_eq", json: "xorEq"),
+    184: .standard(proto: "xor_eq"),
     185: .same(proto: "restrict"),
     186: .same(proto: "Category"),
     187: .same(proto: "Ivar"),
@@ -20047,18 +20047,18 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "http"),
-      2: .unique(proto: "http_request", json: "httpRequest"),
-      3: .unique(proto: "the_http_request", json: "theHttpRequest"),
-      4: .unique(proto: "the_http", json: "theHttp"),
+      2: .standard(proto: "http_request"),
+      3: .standard(proto: "the_http_request"),
+      4: .standard(proto: "the_http"),
       11: .same(proto: "https"),
-      12: .unique(proto: "https_request", json: "httpsRequest"),
-      13: .unique(proto: "the_https_request", json: "theHttpsRequest"),
-      14: .unique(proto: "the_https", json: "theHttps"),
+      12: .standard(proto: "https_request"),
+      13: .standard(proto: "the_https_request"),
+      14: .standard(proto: "the_https"),
       21: .same(proto: "url"),
-      22: .unique(proto: "url_value", json: "urlValue"),
-      23: .unique(proto: "the_url_value", json: "theUrlValue"),
-      24: .unique(proto: "the_url", json: "theUrl"),
-      31: .unique(proto: "a_b_c", json: "aBC"),
+      22: .standard(proto: "url_value"),
+      23: .standard(proto: "the_url_value"),
+      24: .standard(proto: "the_url"),
+      31: .standard(proto: "a_b_c"),
     ]
 
     private var _http: Int32? = nil
@@ -20308,17 +20308,17 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "HTTP"),
-      2: .unique(proto: "HTTP_request", json: "HTTPRequest"),
-      3: .unique(proto: "the_HTTP_request", json: "theHTTPRequest"),
-      4: .unique(proto: "the_HTTP", json: "theHTTP"),
+      2: .standard(proto: "HTTP_request"),
+      3: .standard(proto: "the_HTTP_request"),
+      4: .standard(proto: "the_HTTP"),
       11: .same(proto: "HTTPS"),
-      12: .unique(proto: "HTTPS_request", json: "HTTPSRequest"),
-      13: .unique(proto: "the_HTTPS_request", json: "theHTTPSRequest"),
-      14: .unique(proto: "the_HTTPS", json: "theHTTPS"),
+      12: .standard(proto: "HTTPS_request"),
+      13: .standard(proto: "the_HTTPS_request"),
+      14: .standard(proto: "the_HTTPS"),
       21: .same(proto: "URL"),
-      22: .unique(proto: "URL_value", json: "URLValue"),
-      23: .unique(proto: "the_URL_value", json: "theURLValue"),
-      24: .unique(proto: "the_URL", json: "theURL"),
+      22: .standard(proto: "URL_value"),
+      23: .standard(proto: "the_URL_value"),
+      24: .standard(proto: "the_URL"),
     ]
 
     private var _http: Int32? = nil
@@ -20818,30 +20818,30 @@ struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, Swift
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitials.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitials.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitials) -> Bool {
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -21155,30 +21155,30 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message,
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsLowers.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsLowers.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsLowers) -> Bool {
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -21190,30 +21190,30 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsUppers: SwiftProtobuf.Message,
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsUppers.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsUppers.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsUppers) -> Bool {
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -21225,30 +21225,30 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Messag
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 1001) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsWordCase.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_ExtensionNamingInitialsWordCase.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 1001)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 1001)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_ExtensionNamingInitialsWordCase) -> Bool {
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(

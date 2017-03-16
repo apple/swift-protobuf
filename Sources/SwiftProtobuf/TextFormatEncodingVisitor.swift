@@ -42,7 +42,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     if let nameProviding = message as? _ProtoNameProviding {
         let nameMap = type(of: nameProviding)._protobuf_nameMap
         if let extensibleMessage = message as? ExtensibleMessage {
-            let extensions = extensibleMessage._extensionFieldValues
+            let extensions = extensibleMessage._protobuf_extensionFieldValues
             self.init(nameMap: nameMap, nameResolver: [:], extensions: extensions, encoder: encoder)
         } else {
             self.init(nameMap: nameMap, nameResolver: [:], extensions: nil, encoder: encoder)

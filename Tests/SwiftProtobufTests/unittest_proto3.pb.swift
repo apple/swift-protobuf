@@ -204,54 +204,54 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding
 struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "single_int32", json: "singleInt32"),
-    2: .unique(proto: "single_int64", json: "singleInt64"),
-    3: .unique(proto: "single_uint32", json: "singleUint32"),
-    4: .unique(proto: "single_uint64", json: "singleUint64"),
-    5: .unique(proto: "single_sint32", json: "singleSint32"),
-    6: .unique(proto: "single_sint64", json: "singleSint64"),
-    7: .unique(proto: "single_fixed32", json: "singleFixed32"),
-    8: .unique(proto: "single_fixed64", json: "singleFixed64"),
-    9: .unique(proto: "single_sfixed32", json: "singleSfixed32"),
-    10: .unique(proto: "single_sfixed64", json: "singleSfixed64"),
-    11: .unique(proto: "single_float", json: "singleFloat"),
-    12: .unique(proto: "single_double", json: "singleDouble"),
-    13: .unique(proto: "single_bool", json: "singleBool"),
-    14: .unique(proto: "single_string", json: "singleString"),
-    15: .unique(proto: "single_bytes", json: "singleBytes"),
-    18: .unique(proto: "single_nested_message", json: "singleNestedMessage"),
-    19: .unique(proto: "single_foreign_message", json: "singleForeignMessage"),
-    20: .unique(proto: "single_import_message", json: "singleImportMessage"),
-    21: .unique(proto: "single_nested_enum", json: "singleNestedEnum"),
-    22: .unique(proto: "single_foreign_enum", json: "singleForeignEnum"),
-    23: .unique(proto: "single_import_enum", json: "singleImportEnum"),
-    26: .unique(proto: "single_public_import_message", json: "singlePublicImportMessage"),
-    31: .unique(proto: "repeated_int32", json: "repeatedInt32"),
-    32: .unique(proto: "repeated_int64", json: "repeatedInt64"),
-    33: .unique(proto: "repeated_uint32", json: "repeatedUint32"),
-    34: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
-    35: .unique(proto: "repeated_sint32", json: "repeatedSint32"),
-    36: .unique(proto: "repeated_sint64", json: "repeatedSint64"),
-    37: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
-    38: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
-    39: .unique(proto: "repeated_sfixed32", json: "repeatedSfixed32"),
-    40: .unique(proto: "repeated_sfixed64", json: "repeatedSfixed64"),
-    41: .unique(proto: "repeated_float", json: "repeatedFloat"),
-    42: .unique(proto: "repeated_double", json: "repeatedDouble"),
-    43: .unique(proto: "repeated_bool", json: "repeatedBool"),
-    44: .unique(proto: "repeated_string", json: "repeatedString"),
-    45: .unique(proto: "repeated_bytes", json: "repeatedBytes"),
-    48: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
-    49: .unique(proto: "repeated_foreign_message", json: "repeatedForeignMessage"),
-    50: .unique(proto: "repeated_import_message", json: "repeatedImportMessage"),
-    51: .unique(proto: "repeated_nested_enum", json: "repeatedNestedEnum"),
-    52: .unique(proto: "repeated_foreign_enum", json: "repeatedForeignEnum"),
-    53: .unique(proto: "repeated_import_enum", json: "repeatedImportEnum"),
-    54: .unique(proto: "repeated_public_import_message", json: "repeatedPublicImportMessage"),
-    111: .unique(proto: "oneof_uint32", json: "oneofUint32"),
-    112: .unique(proto: "oneof_nested_message", json: "oneofNestedMessage"),
-    113: .unique(proto: "oneof_string", json: "oneofString"),
-    114: .unique(proto: "oneof_bytes", json: "oneofBytes"),
+    1: .standard(proto: "single_int32"),
+    2: .standard(proto: "single_int64"),
+    3: .standard(proto: "single_uint32"),
+    4: .standard(proto: "single_uint64"),
+    5: .standard(proto: "single_sint32"),
+    6: .standard(proto: "single_sint64"),
+    7: .standard(proto: "single_fixed32"),
+    8: .standard(proto: "single_fixed64"),
+    9: .standard(proto: "single_sfixed32"),
+    10: .standard(proto: "single_sfixed64"),
+    11: .standard(proto: "single_float"),
+    12: .standard(proto: "single_double"),
+    13: .standard(proto: "single_bool"),
+    14: .standard(proto: "single_string"),
+    15: .standard(proto: "single_bytes"),
+    18: .standard(proto: "single_nested_message"),
+    19: .standard(proto: "single_foreign_message"),
+    20: .standard(proto: "single_import_message"),
+    21: .standard(proto: "single_nested_enum"),
+    22: .standard(proto: "single_foreign_enum"),
+    23: .standard(proto: "single_import_enum"),
+    26: .standard(proto: "single_public_import_message"),
+    31: .standard(proto: "repeated_int32"),
+    32: .standard(proto: "repeated_int64"),
+    33: .standard(proto: "repeated_uint32"),
+    34: .standard(proto: "repeated_uint64"),
+    35: .standard(proto: "repeated_sint32"),
+    36: .standard(proto: "repeated_sint64"),
+    37: .standard(proto: "repeated_fixed32"),
+    38: .standard(proto: "repeated_fixed64"),
+    39: .standard(proto: "repeated_sfixed32"),
+    40: .standard(proto: "repeated_sfixed64"),
+    41: .standard(proto: "repeated_float"),
+    42: .standard(proto: "repeated_double"),
+    43: .standard(proto: "repeated_bool"),
+    44: .standard(proto: "repeated_string"),
+    45: .standard(proto: "repeated_bytes"),
+    48: .standard(proto: "repeated_nested_message"),
+    49: .standard(proto: "repeated_foreign_message"),
+    50: .standard(proto: "repeated_import_message"),
+    51: .standard(proto: "repeated_nested_enum"),
+    52: .standard(proto: "repeated_foreign_enum"),
+    53: .standard(proto: "repeated_import_enum"),
+    54: .standard(proto: "repeated_public_import_message"),
+    111: .standard(proto: "oneof_uint32"),
+    112: .standard(proto: "oneof_nested_message"),
+    113: .standard(proto: "oneof_string"),
+    114: .standard(proto: "oneof_bytes"),
   ]
 
   private class _StorageClass {
@@ -1083,7 +1083,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
-    3: .unique(proto: "repeated_child", json: "repeatedChild"),
+    3: .standard(proto: "repeated_child"),
   ]
 
   private class _StorageClass {
@@ -1187,7 +1187,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 struct Proto3TestDeprecatedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedFields"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "deprecated_int32", json: "deprecatedInt32"),
+    1: .standard(proto: "deprecated_int32"),
   ]
 
   var deprecatedInt32: Int32 = 0
@@ -1283,7 +1283,7 @@ struct Proto3TestReservedFields: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "foreign_nested", json: "foreignNested"),
+    1: .standard(proto: "foreign_nested"),
   ]
 
   private class _StorageClass {
@@ -1566,7 +1566,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf._Message
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionB"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
-    2: .unique(proto: "optional_int32", json: "optionalInt32"),
+    2: .standard(proto: "optional_int32"),
   ]
 
   private class _StorageClass {
@@ -1821,10 +1821,10 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    11: .unique(proto: "my_string", json: "myString"),
-    1: .unique(proto: "my_int", json: "myInt"),
-    101: .unique(proto: "my_float", json: "myFloat"),
-    200: .unique(proto: "single_nested_message", json: "singleNestedMessage"),
+    11: .standard(proto: "my_string"),
+    1: .standard(proto: "my_int"),
+    101: .standard(proto: "my_float"),
+    200: .standard(proto: "single_nested_message"),
   ]
 
   private class _StorageClass {
@@ -1980,7 +1980,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SparseEnumMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "sparse_enum", json: "sparseEnum"),
+    1: .standard(proto: "sparse_enum"),
   ]
 
   var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.testSparseEnumUnspecified
@@ -2333,9 +2333,9 @@ struct Proto3BoolMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "foo_int", json: "fooInt"),
-    2: .unique(proto: "foo_string", json: "fooString"),
-    3: .unique(proto: "foo_message", json: "fooMessage"),
+    1: .standard(proto: "foo_int"),
+    2: .standard(proto: "foo_string"),
+    3: .standard(proto: "foo_message"),
   ]
 
   private class _StorageClass {
@@ -2502,20 +2502,20 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 struct Proto3TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    90: .unique(proto: "packed_int32", json: "packedInt32"),
-    91: .unique(proto: "packed_int64", json: "packedInt64"),
-    92: .unique(proto: "packed_uint32", json: "packedUint32"),
-    93: .unique(proto: "packed_uint64", json: "packedUint64"),
-    94: .unique(proto: "packed_sint32", json: "packedSint32"),
-    95: .unique(proto: "packed_sint64", json: "packedSint64"),
-    96: .unique(proto: "packed_fixed32", json: "packedFixed32"),
-    97: .unique(proto: "packed_fixed64", json: "packedFixed64"),
-    98: .unique(proto: "packed_sfixed32", json: "packedSfixed32"),
-    99: .unique(proto: "packed_sfixed64", json: "packedSfixed64"),
-    100: .unique(proto: "packed_float", json: "packedFloat"),
-    101: .unique(proto: "packed_double", json: "packedDouble"),
-    102: .unique(proto: "packed_bool", json: "packedBool"),
-    103: .unique(proto: "packed_enum", json: "packedEnum"),
+    90: .standard(proto: "packed_int32"),
+    91: .standard(proto: "packed_int64"),
+    92: .standard(proto: "packed_uint32"),
+    93: .standard(proto: "packed_uint64"),
+    94: .standard(proto: "packed_sint32"),
+    95: .standard(proto: "packed_sint64"),
+    96: .standard(proto: "packed_fixed32"),
+    97: .standard(proto: "packed_fixed64"),
+    98: .standard(proto: "packed_sfixed32"),
+    99: .standard(proto: "packed_sfixed64"),
+    100: .standard(proto: "packed_float"),
+    101: .standard(proto: "packed_double"),
+    102: .standard(proto: "packed_bool"),
+    103: .standard(proto: "packed_enum"),
   ]
 
   var packedInt32: [Int32] = []
@@ -2643,20 +2643,20 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 struct Proto3TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    90: .unique(proto: "unpacked_int32", json: "unpackedInt32"),
-    91: .unique(proto: "unpacked_int64", json: "unpackedInt64"),
-    92: .unique(proto: "unpacked_uint32", json: "unpackedUint32"),
-    93: .unique(proto: "unpacked_uint64", json: "unpackedUint64"),
-    94: .unique(proto: "unpacked_sint32", json: "unpackedSint32"),
-    95: .unique(proto: "unpacked_sint64", json: "unpackedSint64"),
-    96: .unique(proto: "unpacked_fixed32", json: "unpackedFixed32"),
-    97: .unique(proto: "unpacked_fixed64", json: "unpackedFixed64"),
-    98: .unique(proto: "unpacked_sfixed32", json: "unpackedSfixed32"),
-    99: .unique(proto: "unpacked_sfixed64", json: "unpackedSfixed64"),
-    100: .unique(proto: "unpacked_float", json: "unpackedFloat"),
-    101: .unique(proto: "unpacked_double", json: "unpackedDouble"),
-    102: .unique(proto: "unpacked_bool", json: "unpackedBool"),
-    103: .unique(proto: "unpacked_enum", json: "unpackedEnum"),
+    90: .standard(proto: "unpacked_int32"),
+    91: .standard(proto: "unpacked_int64"),
+    92: .standard(proto: "unpacked_uint32"),
+    93: .standard(proto: "unpacked_uint64"),
+    94: .standard(proto: "unpacked_sint32"),
+    95: .standard(proto: "unpacked_sint64"),
+    96: .standard(proto: "unpacked_fixed32"),
+    97: .standard(proto: "unpacked_fixed64"),
+    98: .standard(proto: "unpacked_sfixed32"),
+    99: .standard(proto: "unpacked_sfixed64"),
+    100: .standard(proto: "unpacked_float"),
+    101: .standard(proto: "unpacked_double"),
+    102: .standard(proto: "unpacked_bool"),
+    103: .standard(proto: "unpacked_enum"),
   ]
 
   var unpackedInt32: [Int32] = []
@@ -2782,12 +2782,12 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedScalarDifferentTagSizes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    12: .unique(proto: "repeated_fixed32", json: "repeatedFixed32"),
-    13: .unique(proto: "repeated_int32", json: "repeatedInt32"),
-    2046: .unique(proto: "repeated_fixed64", json: "repeatedFixed64"),
-    2047: .unique(proto: "repeated_int64", json: "repeatedInt64"),
-    262142: .unique(proto: "repeated_float", json: "repeatedFloat"),
-    262143: .unique(proto: "repeated_uint64", json: "repeatedUint64"),
+    12: .standard(proto: "repeated_fixed32"),
+    13: .standard(proto: "repeated_int32"),
+    2046: .standard(proto: "repeated_fixed64"),
+    2047: .standard(proto: "repeated_int64"),
+    262142: .standard(proto: "repeated_float"),
+    262143: .standard(proto: "repeated_uint64"),
   ]
 
   ///   Parsing repeated fixed size values used to fail. This message needs to be

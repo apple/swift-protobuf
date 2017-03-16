@@ -60,30 +60,30 @@ struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, Swift
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (1 <= fieldNumber && fieldNumber < 536870912) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufObjcUnittest_TestObjCStartupMessage.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufObjcUnittest_TestObjCStartupMessage.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufObjcUnittest_TestObjCStartupMessage) -> Bool {
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

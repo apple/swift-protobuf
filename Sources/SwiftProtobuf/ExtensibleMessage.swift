@@ -14,26 +14,26 @@
 
 // Messages that support extensions implement this protocol
 public protocol ExtensibleMessage: Message {
-    var _extensionFieldValues: ExtensionFieldValueSet { get set }
+    var _protobuf_extensionFieldValues: ExtensionFieldValueSet { get set }
 }
 
 public extension ExtensibleMessage {
     mutating func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>, value: F.ValueType) {
-        _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
+        _protobuf_extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
     }
 
     func getExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>) -> F.ValueType {
-     if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
+     if let fieldValue = _protobuf_extensionFieldValues[ext.fieldNumber] as? F {
        return fieldValue.value
      }
      return ext.defaultValue
     }
 
     func hasExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>) -> Bool {
-      return _extensionFieldValues[ext.fieldNumber] is F
+      return _protobuf_extensionFieldValues[ext.fieldNumber] is F
     }
 
     mutating func clearExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>) {
-        _extensionFieldValues[ext.fieldNumber] = nil
+        _protobuf_extensionFieldValues[ext.fieldNumber] = nil
     }
 }

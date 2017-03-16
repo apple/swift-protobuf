@@ -270,7 +270,7 @@ class MessageGenerator {
     // Optional extension support
     if isExtensible {
       p.print("\n")
-      p.print("\(visibility)var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
+      p.print("\(visibility)var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
     }
 
     p.outdent()
@@ -339,7 +339,7 @@ class MessageGenerator {
         }
         if isExtensible {
           p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
-          p.print("  try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+          p.print("  try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
         }
         p.print("default: break\n")
       } else if isExtensible {
@@ -349,7 +349,7 @@ class MessageGenerator {
         p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
         p.print(" {\n")
         p.indent()
-        p.print("try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
         p.outdent()
         p.print("}\n")
       }
@@ -419,7 +419,7 @@ class MessageGenerator {
       var oneofEnd = 0
       for f in (fields.sorted {$0.number < $1.number}) {
         while nextRange != nil && Int(nextRange!.start) < f.number {
-          p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+          p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
           nextRange = ranges.next()
         }
         if let c = currentOneof, let n = f.oneof, n.name == c.name {
@@ -442,7 +442,7 @@ class MessageGenerator {
         p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
       }
       while nextRange != nil {
-        p.print("try visitor.visitExtensionFields(fields: _extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+        p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
         nextRange = ranges.next()
       }
       p.print("try unknownFields.traverse(visitor: &visitor)\n")
@@ -494,7 +494,7 @@ class MessageGenerator {
 
       p.print("if unknownFields != other.unknownFields {return false}\n")
       if isExtensible {
-        p.print("if _extensionFieldValues != other._extensionFieldValues {return false}\n")
+        p.print("if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}\n")
       }
       p.print("return true\n")
     }
@@ -550,7 +550,7 @@ class MessageGenerator {
     p.indent()
     generateWithLifetimeExtension(printer: &p, returns: true) { p in
       if isExtensible {
-        p.print("if !_extensionFieldValues.isInitialized {return false}\n")
+        p.print("if !_protobuf_extensionFieldValues.isInitialized {return false}\n")
       }
 
       if !isProto3 {

@@ -73,7 +73,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
@@ -82,7 +82,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt32Field(value: &_a)
       case 2..<11:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -92,18 +92,18 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
     if let v = _a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 2, end: 11)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 11)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
     if _a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ExtensionGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -244,7 +244,7 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "outer_a", json: "outerA"),
+    1: .standard(proto: "outer_a"),
     2: .unique(proto: "SubGroup1", json: "subgroup1"),
     3: .unique(proto: "SubGroup3", json: "subgroup3"),
   ]
@@ -306,7 +306,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
   struct SubGroup1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .unique(proto: "sub1_a", json: "sub1A"),
+      1: .standard(proto: "sub1_a"),
       2: .unique(proto: "SubGroup2", json: "subgroup2"),
     ]
 
@@ -360,7 +360,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     struct SubGroup2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
       static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .unique(proto: "sub2_a", json: "sub2A"),
+        1: .standard(proto: "sub2_a"),
       ]
 
       private var _sub2A: Int32? = nil
@@ -444,7 +444,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
   struct SubGroup3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .unique(proto: "sub3_a", json: "sub3A"),
+      1: .standard(proto: "sub3_a"),
       2: .unique(proto: "SubGroup4", json: "subgroup4"),
     ]
 
@@ -467,7 +467,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
     struct SubGroup4: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
       static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .unique(proto: "sub4_a", json: "sub4A"),
+        1: .standard(proto: "sub4_a"),
       ]
 
       private var _sub4A: Int32? = nil

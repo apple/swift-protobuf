@@ -121,7 +121,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithCustomOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
-    2: .unique(proto: "oneof_field", json: "oneofField"),
+    2: .standard(proto: "oneof_field"),
   ]
 
   private var _field1: String? = nil
@@ -592,7 +592,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
@@ -604,7 +604,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
       case 3: try decoder.decodeSingularInt32Field(value: &_foo3)
       case 4: try decoder.decodeRepeatedInt32Field(value: &foo4)
       case 100..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType1.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType1.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -623,7 +623,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     if !foo4.isEmpty {
       try visitor.visitRepeatedInt32Field(value: foo4, fieldNumber: 4)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -633,11 +633,11 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     if _foo3 != other._foo3 {return false}
     if foo4 != other.foo4 {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -774,7 +774,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_extensionFieldValues.isInitialized {return false}
+      if !_protobuf_extensionFieldValues.isInitialized {return false}
       if let v = _storage._bar, !v.isInitialized {return false}
       return true
     }
@@ -790,7 +790,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
         case 3: try decoder.decodeSingularMessageField(value: &_storage._fred)
         case 4: try decoder.decodeRepeatedMessageField(value: &_storage._barney)
         case 100..<536870912:
-          try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType2.self, fieldNumber: fieldNumber)
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType2.self, fieldNumber: fieldNumber)
         default: break
         }
       }
@@ -811,7 +811,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       if !_storage._barney.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._barney, fieldNumber: 4)
       }
-      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 100, end: 536870912)
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
       try unknownFields.traverse(visitor: &visitor)
     }
   }
@@ -825,12 +825,12 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
         if _storage._barney != other_storage._barney {return false}
       }
       if unknownFields != other.unknownFields {return false}
-      if _extensionFieldValues != other._extensionFieldValues {return false}
+      if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
       return true
     }
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1053,30 +1053,30 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       if (4 <= fieldNumber && fieldNumber < 2147483647) {
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self, fieldNumber: fieldNumber)
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 4, end: 2147483647)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 4, end: 2147483647)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_AggregateMessageSet) -> Bool {
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -1387,7 +1387,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf._
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = ProtobufUnittest_NestedOptionType.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .unique(proto: "nested_field", json: "nestedField"),
+      1: .standard(proto: "nested_field"),
     ]
 
     private var _nestedField: Int32? = nil

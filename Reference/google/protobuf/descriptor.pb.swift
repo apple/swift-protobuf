@@ -108,14 +108,14 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftProtobuf
     1: .same(proto: "name"),
     2: .same(proto: "package"),
     3: .same(proto: "dependency"),
-    10: .unique(proto: "public_dependency", json: "publicDependency"),
-    11: .unique(proto: "weak_dependency", json: "weakDependency"),
-    4: .unique(proto: "message_type", json: "messageType"),
-    5: .unique(proto: "enum_type", json: "enumType"),
+    10: .standard(proto: "public_dependency"),
+    11: .standard(proto: "weak_dependency"),
+    4: .standard(proto: "message_type"),
+    5: .standard(proto: "enum_type"),
     6: .same(proto: "service"),
     7: .same(proto: "extension"),
     8: .same(proto: "options"),
-    9: .unique(proto: "source_code_info", json: "sourceCodeInfo"),
+    9: .standard(proto: "source_code_info"),
     12: .same(proto: "syntax"),
   ]
 
@@ -374,13 +374,13 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProtobuf._Me
     1: .same(proto: "name"),
     2: .same(proto: "field"),
     6: .same(proto: "extension"),
-    3: .unique(proto: "nested_type", json: "nestedType"),
-    4: .unique(proto: "enum_type", json: "enumType"),
-    5: .unique(proto: "extension_range", json: "extensionRange"),
-    8: .unique(proto: "oneof_decl", json: "oneofDecl"),
+    3: .standard(proto: "nested_type"),
+    4: .standard(proto: "enum_type"),
+    5: .standard(proto: "extension_range"),
+    8: .standard(proto: "oneof_decl"),
     7: .same(proto: "options"),
-    9: .unique(proto: "reserved_range", json: "reservedRange"),
-    10: .unique(proto: "reserved_name", json: "reservedName"),
+    9: .standard(proto: "reserved_range"),
+    10: .standard(proto: "reserved_name"),
   ]
 
   private class _StorageClass {
@@ -718,11 +718,11 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, SwiftProtobu
     3: .same(proto: "number"),
     4: .same(proto: "label"),
     5: .same(proto: "type"),
-    6: .unique(proto: "type_name", json: "typeName"),
+    6: .standard(proto: "type_name"),
     2: .same(proto: "extendee"),
-    7: .unique(proto: "default_value", json: "defaultValue"),
-    9: .unique(proto: "oneof_index", json: "oneofIndex"),
-    10: .unique(proto: "json_name", json: "jsonName"),
+    7: .standard(proto: "default_value"),
+    9: .standard(proto: "oneof_index"),
+    10: .standard(proto: "json_name"),
     8: .same(proto: "options"),
   ]
 
@@ -1593,11 +1593,11 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
   static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
-    2: .unique(proto: "input_type", json: "inputType"),
-    3: .unique(proto: "output_type", json: "outputType"),
+    2: .standard(proto: "input_type"),
+    3: .standard(proto: "output_type"),
     4: .same(proto: "options"),
-    5: .unique(proto: "client_streaming", json: "clientStreaming"),
-    6: .unique(proto: "server_streaming", json: "serverStreaming"),
+    5: .standard(proto: "client_streaming"),
+    6: .standard(proto: "server_streaming"),
   ]
 
   private class _StorageClass {
@@ -1804,22 +1804,22 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
 struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "java_package", json: "javaPackage"),
-    8: .unique(proto: "java_outer_classname", json: "javaOuterClassname"),
-    10: .unique(proto: "java_multiple_files", json: "javaMultipleFiles"),
-    20: .unique(proto: "java_generate_equals_and_hash", json: "javaGenerateEqualsAndHash"),
-    27: .unique(proto: "java_string_check_utf8", json: "javaStringCheckUtf8"),
-    9: .unique(proto: "optimize_for", json: "optimizeFor"),
-    11: .unique(proto: "go_package", json: "goPackage"),
-    16: .unique(proto: "cc_generic_services", json: "ccGenericServices"),
-    17: .unique(proto: "java_generic_services", json: "javaGenericServices"),
-    18: .unique(proto: "py_generic_services", json: "pyGenericServices"),
+    1: .standard(proto: "java_package"),
+    8: .standard(proto: "java_outer_classname"),
+    10: .standard(proto: "java_multiple_files"),
+    20: .standard(proto: "java_generate_equals_and_hash"),
+    27: .standard(proto: "java_string_check_utf8"),
+    9: .standard(proto: "optimize_for"),
+    11: .standard(proto: "go_package"),
+    16: .standard(proto: "cc_generic_services"),
+    17: .standard(proto: "java_generic_services"),
+    18: .standard(proto: "py_generic_services"),
     23: .same(proto: "deprecated"),
-    31: .unique(proto: "cc_enable_arenas", json: "ccEnableArenas"),
-    36: .unique(proto: "objc_class_prefix", json: "objcClassPrefix"),
-    37: .unique(proto: "csharp_namespace", json: "csharpNamespace"),
-    39: .unique(proto: "swift_prefix", json: "swiftPrefix"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    31: .standard(proto: "cc_enable_arenas"),
+    36: .standard(proto: "objc_class_prefix"),
+    37: .standard(proto: "csharp_namespace"),
+    39: .standard(proto: "swift_prefix"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   ///   Sets the Java package where classes generated from this .proto will be
@@ -2102,7 +2102,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2127,7 +2127,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
       case 39: try decoder.decodeSingularStringField(value: &_swiftPrefix)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2182,7 +2182,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2204,21 +2204,21 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     if _swiftPrefix != other._swiftPrefix {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MessageOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "message_set_wire_format", json: "messageSetWireFormat"),
-    2: .unique(proto: "no_standard_descriptor_accessor", json: "noStandardDescriptorAccessor"),
+    1: .standard(proto: "message_set_wire_format"),
+    2: .standard(proto: "no_standard_descriptor_accessor"),
     3: .same(proto: "deprecated"),
-    7: .unique(proto: "map_entry", json: "mapEntry"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    7: .standard(proto: "map_entry"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   ///   Set true to use the old proto1 MessageSet wire format for extensions.
@@ -2323,7 +2323,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2337,7 +2337,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
       case 7: try decoder.decodeSingularBoolField(value: &_mapEntry)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MessageOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2359,7 +2359,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2370,11 +2370,11 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     if _mapEntry != other._mapEntry {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -2386,7 +2386,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     5: .same(proto: "lazy"),
     3: .same(proto: "deprecated"),
     10: .same(proto: "weak"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   ///   The ctype option instructs the C++ code generator to use a different
@@ -2598,7 +2598,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2614,7 +2614,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
       case 10: try decoder.decodeSingularBoolField(value: &_weak)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FieldOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2642,7 +2642,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2655,17 +2655,17 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     if _weak != other._weak {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".OneofOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2676,7 +2676,7 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2686,7 +2686,7 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
       switch fieldNumber {
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_OneofOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2696,26 +2696,26 @@ struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofOptions) -> Bool {
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    2: .unique(proto: "allow_alias", json: "allowAlias"),
+    2: .standard(proto: "allow_alias"),
     3: .same(proto: "deprecated"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   ///   Set this option to true to allow mapping different tag names to the same
@@ -2756,7 +2756,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2768,7 +2768,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
       case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2784,7 +2784,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2793,18 +2793,18 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".EnumValueOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deprecated"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   ///   Is this enum value deprecated?
@@ -2831,7 +2831,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Ex
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2842,7 +2842,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Ex
       case 1: try decoder.decodeSingularBoolField(value: &_deprecated)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_EnumValueOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2855,7 +2855,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Ex
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2863,18 +2863,18 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Ex
     if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     33: .same(proto: "deprecated"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
@@ -2906,7 +2906,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -2917,7 +2917,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
       case 33: try decoder.decodeSingularBoolField(value: &_deprecated)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ServiceOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -2930,7 +2930,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2938,19 +2938,19 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     if _deprecated != other._deprecated {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MethodOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     33: .same(proto: "deprecated"),
-    34: .unique(proto: "idempotency_level", json: "idempotencyLevel"),
-    999: .unique(proto: "uninterpreted_option", json: "uninterpretedOption"),
+    34: .standard(proto: "idempotency_level"),
+    999: .standard(proto: "uninterpreted_option"),
   ]
 
   //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
@@ -3036,7 +3036,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
   init() {}
 
   public var isInitialized: Bool {
-    if !_extensionFieldValues.isInitialized {return false}
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
     if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
     return true
   }
@@ -3048,7 +3048,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
       case 34: try decoder.decodeSingularEnumField(value: &_idempotencyLevel)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber)
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_MethodOptions.self, fieldNumber: fieldNumber)
       default: break
       }
     }
@@ -3064,7 +3064,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
     if !uninterpretedOption.isEmpty {
       try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
     }
-    try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 536870912)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3073,11 +3073,11 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
     if _idempotencyLevel != other._idempotencyLevel {return false}
     if uninterpretedOption != other.uninterpretedOption {return false}
     if unknownFields != other.unknownFields {return false}
-    if _extensionFieldValues != other._extensionFieldValues {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 
-  var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 ///   A message representing a option the parser does not recognize. This only
@@ -3090,12 +3090,12 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
   static let protoMessageName: String = _protobuf_package + ".UninterpretedOption"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "name"),
-    3: .unique(proto: "identifier_value", json: "identifierValue"),
-    4: .unique(proto: "positive_int_value", json: "positiveIntValue"),
-    5: .unique(proto: "negative_int_value", json: "negativeIntValue"),
-    6: .unique(proto: "double_value", json: "doubleValue"),
-    7: .unique(proto: "string_value", json: "stringValue"),
-    8: .unique(proto: "aggregate_value", json: "aggregateValue"),
+    3: .standard(proto: "identifier_value"),
+    4: .standard(proto: "positive_int_value"),
+    5: .standard(proto: "negative_int_value"),
+    6: .standard(proto: "double_value"),
+    7: .standard(proto: "string_value"),
+    8: .standard(proto: "aggregate_value"),
   ]
 
   var name: [Google_Protobuf_UninterpretedOption.NamePart] = []
@@ -3184,8 +3184,8 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
   struct NamePart: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = Google_Protobuf_UninterpretedOption.protoMessageName + ".NamePart"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .unique(proto: "name_part", json: "namePart"),
-      2: .unique(proto: "is_extension", json: "isExtension"),
+      1: .standard(proto: "name_part"),
+      2: .standard(proto: "is_extension"),
     ]
 
     private var _namePart: String? = nil
@@ -3373,9 +3373,9 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._Mes
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "path"),
       2: .same(proto: "span"),
-      3: .unique(proto: "leading_comments", json: "leadingComments"),
-      4: .unique(proto: "trailing_comments", json: "trailingComments"),
-      6: .unique(proto: "leading_detached_comments", json: "leadingDetachedComments"),
+      3: .standard(proto: "leading_comments"),
+      4: .standard(proto: "trailing_comments"),
+      6: .standard(proto: "leading_detached_comments"),
     ]
 
     ///   Identifies which part of the FileDescriptorProto was defined at this
@@ -3574,7 +3574,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message, SwiftProtobuf._
     static let protoMessageName: String = Google_Protobuf_GeneratedCodeInfo.protoMessageName + ".Annotation"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "path"),
-      2: .unique(proto: "source_file", json: "sourceFile"),
+      2: .standard(proto: "source_file"),
       3: .same(proto: "begin"),
       4: .same(proto: "end"),
     ]

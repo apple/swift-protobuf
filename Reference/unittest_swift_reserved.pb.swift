@@ -40,13 +40,13 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    10: .unique(proto: "proto_message_name", json: "protoMessageName"),
-    11: .unique(proto: "proto_package_name", json: "protoPackageName"),
-    12: .unique(proto: "any_type_prefix", json: "anyTypePrefix"),
-    13: .unique(proto: "any_type_url", json: "anyTypeUrl"),
-    20: .unique(proto: "is_initialized", json: "isInitialized"),
-    21: .unique(proto: "hash_value", json: "hashValue"),
-    22: .unique(proto: "debug_description", json: "debugDescription"),
+    10: .standard(proto: "proto_message_name"),
+    11: .standard(proto: "proto_package_name"),
+    12: .standard(proto: "any_type_prefix"),
+    13: .standard(proto: "any_type_url"),
+    20: .standard(proto: "is_initialized"),
+    21: .standard(proto: "hash_value"),
+    22: .standard(proto: "debug_description"),
   ]
 
   ///   static r/o properties on Message, ensure they still work as fields.
@@ -220,30 +220,30 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     init() {}
 
     public var isInitialized: Bool {
-      if !_extensionFieldValues.isInitialized {return false}
+      if !_protobuf_extensionFieldValues.isInitialized {return false}
       return true
     }
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         if (1000 <= fieldNumber && fieldNumber < 2001) {
-          try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: classMessage.self, fieldNumber: fieldNumber)
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: classMessage.self, fieldNumber: fieldNumber)
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 2001)
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
       try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
       if unknownFields != other.unknownFields {return false}
-      if _extensionFieldValues != other._extensionFieldValues {return false}
+      if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
       return true
     }
 
-    var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+    var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

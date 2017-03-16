@@ -99,8 +99,8 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._
 struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ArenaMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "repeated_nested_message", json: "repeatedNestedMessage"),
-    2: .unique(proto: "repeated_import_no_arena_message", json: "repeatedImportNoArenaMessage"),
+    1: .standard(proto: "repeated_nested_message"),
+    2: .standard(proto: "repeated_import_no_arena_message"),
   ]
 
   var repeatedNestedMessage: [Proto2ArenaUnittest_NestedMessage] = []

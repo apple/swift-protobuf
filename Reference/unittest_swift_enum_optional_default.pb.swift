@@ -47,7 +47,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "message"),
-      17: .unique(proto: "optional_enum", json: "optionalEnum"),
+      17: .standard(proto: "optional_enum"),
     ]
 
     private class _StorageClass {
@@ -168,7 +168,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
   struct NestedMessage2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      17: .unique(proto: "optional_enum", json: "optionalEnum"),
+      17: .standard(proto: "optional_enum"),
     ]
 
     private var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
