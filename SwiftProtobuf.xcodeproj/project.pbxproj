@@ -258,10 +258,6 @@
 		AAF2ED401DEF4D94007B510F /* ProtoNameProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */; };
 		AAF2ED411DEF4D94007B510F /* ProtoNameProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */; };
 		AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */; };
-		AAF2ED441DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
-		AAF2ED451DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
-		AAF2ED461DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
-		AAF2ED471DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */; };
 		AAF2EDFF1DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
 		AAF2EE001DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
 		AAF2EE011DFB1450007B510F /* JSONIntegerConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */; };
@@ -643,7 +639,6 @@
 		AAEA52731DA80DEA003F318F /* wrappers.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = wrappers.pb.swift; sourceTree = "<group>"; };
 		AAF2ED391DEF3FBC007B510F /* NameMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMap.swift; sourceTree = "<group>"; };
 		AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoNameProviding.swift; sourceTree = "<group>"; };
-		AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtoNameResolvers.swift; sourceTree = "<group>"; };
 		AAF2EDFE1DFB1450007B510F /* JSONIntegerConverting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONIntegerConverting.swift; sourceTree = "<group>"; };
 		BCCA0E661DB1210E00957D74 /* TextFormatDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatDecoder.swift; sourceTree = "<group>"; };
 		BCCA0E671DB1210E00957D74 /* TextFormatEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatEncoder.swift; sourceTree = "<group>"; };
@@ -896,7 +891,6 @@
 				AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */,
 				9C75F8A21DDD44A1005CCFF2 /* ProtobufMap.swift */,
 				AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */,
-				AAF2ED431DEF6C48007B510F /* ProtoNameResolvers.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
 				9CA424411E286D4E00C0E5B4 /* StringUtils.swift */,
 				AA3640901E60D043000C3CF4 /* struct.pb.swift */,
@@ -1368,7 +1362,6 @@
 				9C84E4901E5E3ABD00513BE0 /* BinaryEncodingError.swift in Sources */,
 				9C75F8811DDBE0FC005CCFF2 /* Visitor.swift in Sources */,
 				9C0B366C1E5FAB910094E128 /* JSONMapEncodingVisitor.swift in Sources */,
-				AAF2ED451DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				9C2F239B1D7780D1008524F2 /* source_context.pb.swift in Sources */,
 				9C2F239C1D7780D1008524F2 /* timestamp.pb.swift in Sources */,
 				AA28A4A71DA30E5900C866D9 /* ZigZag.swift in Sources */,
@@ -1433,7 +1426,6 @@
 				9C75F8941DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufBinaryTypes.swift /* BinaryTypeAdditions.swift in Sources */,
 				AAF2ED3F1DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				AAF2ED441DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift in Sources */,
 				BCCA0E691DB1210E00957D74 /* TextFormatDecoder.swift in Sources */,
 				BCCA0E6A1DB1210E00957D74 /* TextFormatEncoder.swift in Sources */,
@@ -1608,7 +1600,6 @@
 				F4539D2C1E6F5DD50076251F /* CustomJSONCodable.swift in Sources */,
 				F44F93991DAEA76700BC5B85 /* wrappers.pb.swift in Sources */,
 				F44F93811DAEA76700BC5B85 /* BinaryDecoder.swift in Sources */,
-				AAF2ED461DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				F4F4F11C1E5C7556006C6CAD /* TimeUtils.swift in Sources */,
 				F44F93981DAEA76700BC5B85 /* Varint.swift in Sources */,
 				F44F937C1DAEA76700BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
@@ -1791,7 +1782,6 @@
 				9C75F8971DDD3D20005CCFF2 /* BinaryEncodingVisitor.swift in Sources */,
 				F44F94131DAEB23500BC5B85 /* BinaryTypeAdditions.swift in Sources */,
 				AAF2ED421DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
-				AAF2ED471DEF6C48007B510F /* ProtoNameResolvers.swift in Sources */,
 				ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */,
 				9C5890A81DFF6375001CFC34 /* TextFormatDecoder.swift in Sources */,
 				9C5890A91DFF6375001CFC34 /* TextFormatEncoder.swift in Sources */,

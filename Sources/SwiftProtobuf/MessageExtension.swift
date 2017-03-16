@@ -19,7 +19,7 @@
 /// pieces.
 public protocol MessageExtensionBase {
     var fieldNumber: Int { get }
-    var _protobuf_fieldNames: _NameMap.Names { get }
+    var fieldName: StaticString { get }
     var messageType: Message.Type { get }
     func _protobuf_newField() -> AnyExtensionField
 }
@@ -29,12 +29,12 @@ public protocol MessageExtensionBase {
 /// compile-time compatibility checks.
 public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: MessageExtensionBase {
     public let fieldNumber: Int
-    public var _protobuf_fieldNames: _NameMap.Names
+    public let fieldName: StaticString
     public let messageType: Message.Type
     public let defaultValue: FieldType.ValueType
-    public init(_protobuf_fieldNumber: Int, fieldNames: _NameMap.Names, defaultValue: FieldType.ValueType) {
+    public init(_protobuf_fieldNumber: Int, fieldName: StaticString, defaultValue: FieldType.ValueType) {
         self.fieldNumber = _protobuf_fieldNumber
-        self._protobuf_fieldNames = fieldNames
+        self.fieldName = fieldName
         self.messageType = MessageType.self
         self.defaultValue = defaultValue
     }

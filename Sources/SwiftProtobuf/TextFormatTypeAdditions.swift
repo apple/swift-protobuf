@@ -23,7 +23,7 @@ public extension Message {
     ///
     /// - Throws: an instance of `TextFormatEncodingError` if encoding fails.
     public func textFormatString() throws -> String {
-        var visitor = TextFormatEncodingVisitor(message: self)
+        var visitor = try TextFormatEncodingVisitor(message: self)
         try traverse(visitor: &visitor)
         return visitor.result
     }

@@ -27,6 +27,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   private var encoder: TextFormatEncoder
   private var inExtension = false
+  private var nameMap: _NameMap?
   private var nameResolver: (Int) -> StaticString?
 
   /// The protobuf text produced by the visitor.
@@ -36,29 +37,47 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format.
-  init(message: Message) {
-    self.init(message: message, encoder: TextFormatEncoder())
+  init(message: Message) throws {
+    try self.init(message: message, encoder: TextFormatEncoder())
   }
 
   /// Creates a new visitor that serializes the given message to protobuf text
   /// format, using an existing encoder.
-  private init(message: Message, encoder: TextFormatEncoder) {
-    self.init(nameResolver: ProtoNameResolvers.protoFieldNameResolver(for: message), encoder: encoder)
+  private init(message: Message, encoder: TextFormatEncoder) throws {
+    if let nameProviding = message as? _ProtoNameProviding {
+        let nameMap = type(of: nameProviding)._protobuf_nameMap
+        let nameResolver: (Int) -> StaticString?
+        if let extensibleMessage = message as? ExtensibleMessage {
+            let extensions = extensibleMessage._protobuf_extensionFieldValues
+            nameResolver = { (number: Int) -> StaticString? in
+                return extensions._protobuf_fieldName(for: number)
+            }
+        } else {
+            nameResolver = { (number: Int) -> StaticString? in return nil }
+        }
+        self.init(nameMap: nameMap, nameResolver: nameResolver, encoder: encoder)
+    } else {
+        throw TextFormatEncodingError.missingFieldNames
+    }
   }
 
-  private init(nameResolver: @escaping (Int) -> StaticString?, encoder: TextFormatEncoder) {
+  private init(nameMap: _NameMap?, nameResolver: @escaping (Int) -> StaticString?, encoder: TextFormatEncoder) {
+    self.nameMap = nameMap
     self.nameResolver = nameResolver
     self.encoder = encoder
   }
 
-  private func protoFieldName(for number: Int) throws -> StaticString {
+  private func protoFieldName(for number: Int) throws -> UnsafeBufferPointer<UInt8> {
+    if let protoName = nameMap?.names(for: number)?.protoStaticStringName {
+      return UnsafeBufferPointer<UInt8>(start: protoName.utf8Start, count: protoName.utf8CodeUnitCount)
+    }
     if let protoName = nameResolver(number) {
-      return protoName
+      return UnsafeBufferPointer<UInt8>(start: protoName.utf8Start, count: protoName.utf8CodeUnitCount)
     }
     throw TextFormatEncodingError.missingFieldNames
   }
 
-  private mutating func startField(name: StaticString) {
+  private mutating func startField(name: UnsafeBufferPointer<UInt8>) {
       encoder.startField(name: name, inExtension: inExtension)
   }
 
@@ -179,7 +198,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
                                              fieldNumber: Int) throws {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-    var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
+    var visitor = try TextFormatEncodingVisitor(message: value, encoder: encoder)
     try value.traverse(visitor: &visitor)
     encoder = visitor.encoder
     encoder.endMessageField()
@@ -304,7 +323,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for v in value {
       encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-      var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
+      var visitor = try TextFormatEncodingVisitor(message: v, encoder: encoder)
       try v.traverse(visitor: &visitor)
       encoder = visitor.encoder
       encoder.endMessageField()
@@ -421,7 +440,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
     let protoFieldName = try self.protoFieldName(for: fieldNumber)
     for (k,v) in map {
       encoder.startMessageField(name: protoFieldName, inExtension: inExtension)
-      var visitor = TextFormatEncodingVisitor(nameResolver: mapNameResolver, encoder: encoder)
+      var visitor = TextFormatEncodingVisitor(nameMap: nil, nameResolver: mapNameResolver, encoder: encoder)
       try coder(&visitor, k, v)
       encoder = visitor.encoder
       encoder.endMessageField()

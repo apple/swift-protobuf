@@ -55,13 +55,12 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    private mutating func appendFieldName(name: StaticString, inExtension: Bool) {
+    private mutating func appendFieldName(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
         indent()
         if inExtension {
             data.append(asciiOpenSquareBracket)
         }
-        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        data.append(contentsOf: buff)
+        data.append(contentsOf: name)
         if inExtension {
             data.append(asciiCloseSquareBracket)
         }
@@ -70,7 +69,7 @@ internal struct TextFormatEncoder {
     // In Text format, fields with simple types write the name with
     // a trailing colon:
     //    name_of_field: value
-    mutating func startField(name: StaticString, inExtension: Bool) {
+    mutating func startField(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
         appendFieldName(name: name, inExtension: inExtension)
         append(staticText: ": ")
     }
@@ -88,7 +87,7 @@ internal struct TextFormatEncoder {
     // In Text format, a message-valued field writes the name
     // without a trailing colon:
     //    name_of_field {key: value key2: value2}
-    mutating func startMessageField(name: StaticString, inExtension: Bool) {
+    mutating func startMessageField(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
         appendFieldName(name: name, inExtension: inExtension)
         append(staticText: " {\n")
         for _ in 1...tabSize {

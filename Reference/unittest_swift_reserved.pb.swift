@@ -220,52 +220,30 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     init() {}
 
     public var isInitialized: Bool {
-      if !_extensionFieldValues.isInitialized {return false}
+      if !_protobuf_extensionFieldValues.isInitialized {return false}
       return true
     }
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         if (1000 <= fieldNumber && fieldNumber < 2001) {
-          try decoder.decodeExtensionField(values: &_extensionFieldValues, messageType: classMessage.self, fieldNumber: fieldNumber)
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: classMessage.self, fieldNumber: fieldNumber)
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      try visitor.visitExtensionFields(fields: _extensionFieldValues, start: 1000, end: 2001)
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 2001)
       try unknownFields.traverse(visitor: &visitor)
     }
 
     func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
       if unknownFields != other.unknownFields {return false}
-      if _extensionFieldValues != other._extensionFieldValues {return false}
+      if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
       return true
     }
 
-    private var _extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-
-    mutating func setExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>, value: F.ValueType) {
-      _extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
-    }
-
-    mutating func clearExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>) {
-      _extensionFieldValues[ext.fieldNumber] = nil
-    }
-
-    func getExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>) -> F.ValueType {
-      if let fieldValue = _extensionFieldValues[ext.fieldNumber] as? F {
-        return fieldValue.value
-      }
-      return ext.defaultValue
-    }
-
-    func hasExtensionValue<F: SwiftProtobuf.ExtensionField>(ext: SwiftProtobuf.MessageExtension<F, classMessage>) -> Bool {
-      return _extensionFieldValues[ext.fieldNumber] is F
-    }
-    func _protobuf_names(for number: Int) -> _NameMap.Names? {
-      return classMessage._protobuf_nameMap.names(for: number) ?? _extensionFieldValues._protobuf_fieldNames(for: number)
-    }
+    var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
   struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -382,7 +360,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
     ///   that struct has to conform to, so collisions there don't matter.
     static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
       _protobuf_fieldNumber: 1001,
-      fieldNames: .same(proto: "protobuf_unittest.SwiftReservedTestExt.hash_value"),
+      fieldName: "protobuf_unittest.SwiftReservedTestExt.hash_value",
       defaultValue: false
     )
   }
@@ -407,7 +385,7 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
 ///   Won't get _p added because it is fully qualified.
 let ProtobufUnittest_Extensions_debug_description = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1000,
-  fieldNames: .same(proto: "protobuf_unittest.debug_description"),
+  fieldName: "protobuf_unittest.debug_description",
   defaultValue: false
 )
 
