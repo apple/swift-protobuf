@@ -34,7 +34,38 @@ internal class AnyMessageStorage {
 
   // Computed to do on demand work.
   var _value: Data {
-    get { return _valueData ?? Data() }
+    get {
+      if let value = _valueData {
+        return value
+      }
+
+      if let message = _message {
+        do {
+          return try message.serializedData()
+        } catch {
+          return Data()
+        }
+      }
+
+      if let contentJSON = _contentJSON, !_typeURL.isEmpty {
+        let encodedTypeName = typeName(fromURL: _typeURL)
+        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) {
+          do {
+            // Hack, make an any to use init(unpackingAny:)
+            var any = Google_Protobuf_Any()
+            any.typeURL = _typeURL
+            any._storage._contentJSON = contentJSON
+            any._storage._valueData = nil
+            let m = try messageType.init(unpackingAny: any)
+            return try m.serializedData()
+          } catch {
+            return Data()
+          }
+        }
+      }
+
+      return Data()
+    }
     set {
       _valueData = newValue
       _message = nil
@@ -43,7 +74,11 @@ internal class AnyMessageStorage {
   }
 
   // The possible internal states for _value.
-  var _valueData: Data?
+  // Note: It might make sense to shift to using an enum for internal
+  // state instead to better enforce this; but that also means we could
+  // never got a model were we might also be able to cache the things
+  // we have.
+  var _valueData: Data? = Data()
   var _message: Message?
   var _contentJSON: Data?  // Any json parsed from with the @type removed.
 
@@ -144,6 +179,7 @@ internal class AnyMessageStorage {
 
   func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
     // Decoding the verbose form requires knowing the type:
+    _valueData = nil
     _typeURL = url
     let messageTypeName = typeName(fromURL: url)
     let terminator = try decoder.scanner.skipObjectStart()
@@ -311,7 +347,7 @@ extension AnyMessageStorage {
     _typeURL = ""
     _contentJSON = nil
     _message = nil
-    _valueData = nil
+    _valueData = Data()
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }
@@ -329,6 +365,7 @@ extension AnyMessageStorage {
       }
       if decoder.scanner.skipOptionalObjectEnd() {
         _contentJSON = jsonEncoder.dataResult
+        _valueData = nil
         return
       }
       try decoder.scanner.skipRequiredComma()

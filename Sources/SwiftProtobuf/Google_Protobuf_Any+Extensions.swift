@@ -70,6 +70,7 @@ public extension Google_Protobuf_Any {
   ///
   public init(message: Message, typePrefix: String = defaultTypePrefix) {
     self.init()
+    _storage._valueData = nil
     _storage._message = message
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
   }
@@ -105,48 +106,6 @@ public extension Google_Protobuf_Any {
 
 
 extension Google_Protobuf_Any: _CustomJSONCodable {
-
-  // _value is computed be on demand conversions.
-  public var _value: Data? {
-    get {
-      if let value = _storage._valueData {
-        return value
-      } else if let message = _storage._message {
-        do {
-          return try message.serializedData()
-        } catch {
-          return nil
-        }
-      } else if _storage._contentJSON != nil && !_storage._typeURL.isEmpty {
-        // Transcode JSON-to-protobuf by decoding/recoding:
-        // Well-known types are always available:
-        let encodedTypeName = typeName(fromURL: _storage._typeURL)
-        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) {
-          do {
-            let m = try messageType.init(unpackingAny: self)
-            return try m.serializedData()
-          } catch {
-            return nil
-          }
-        }
-        // TODO: Google spec requires a lot more work in the general case:
-        // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
-        // let type = Google_Protobuf_Type(protobuf: encodedType)
-        // return ProtobufDynamic(type: type, any: self)?.serializeProtobuf()
-
-        // See the comments in serializeJSON() above for more discussion of what would be needed to fully implement this.
-        return nil
-      } else {
-        return nil
-      }
-    }
-    set {
-      _ = _uniqueStorage()
-      _storage._valueData = newValue
-      _storage._message = nil
-      _storage._contentJSON = nil
-    }
-  }
 
   // Custom text format decoding support for Any objects.
   // (Note: This is not a part of any protocol; it's invoked

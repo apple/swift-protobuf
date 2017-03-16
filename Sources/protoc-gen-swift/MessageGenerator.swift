@@ -442,19 +442,6 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
-    // TODO: Hack and forward to storage any.
-    if isAnyMessage {
-        p.print("public func traverse<V: Visitor>(visitor: inout V) throws {\n")
-        p.print("    try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)\n")
-        p.print("    // Try to generate bytes for this field...\n")
-        p.print("    if let value = _value {\n")
-        p.print("        try visitor.visitSingularBytesField(value: value, fieldNumber: 2)\n")
-        p.print("    } else {\n")
-        p.print("        throw BinaryEncodingError.anyTranscodeFailure\n")
-        p.print("    }\n")
-        p.print("}\n")
-        return
-    }
     p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in

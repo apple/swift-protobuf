@@ -46,7 +46,7 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
         assertAnyTest(Google_Protobuf_Duration(seconds: 123, nanos: 123456789),
                       expected: "any_field {\n  type_url: \"type.googleapis.com/google.protobuf.Duration\"\n  value: \"\\b{\\020\\225\\232\\357:\"\n}\n")
         assertAnyTest(Google_Protobuf_Empty(),
-                      expected: "any_field {\n  type_url: \"type.googleapis.com/google.protobuf.Empty\"\n  value: \"\"\n}\n")
+                      expected: "any_field {\n  type_url: \"type.googleapis.com/google.protobuf.Empty\"\n}\n")
 
         // Nested any
         let a = ProtobufUnittest_TestWellKnownTypes.with {

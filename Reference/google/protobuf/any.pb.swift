@@ -183,14 +183,16 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  public func traverse<V: Visitor>(visitor: inout V) throws {
-      try visitor.visitSingularStringField(value: typeURL, fieldNumber: 1)
-      // Try to generate bytes for this field...
-      if let value = _value {
-          try visitor.visitSingularBytesField(value: value, fieldNumber: 2)
-      } else {
-          throw BinaryEncodingError.anyTranscodeFailure
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: AnyMessageStorage) in
+      if !_storage._typeURL.isEmpty {
+        try visitor.visitSingularStringField(value: _storage._typeURL, fieldNumber: 1)
       }
+      if !_storage._value.isEmpty {
+        try visitor.visitSingularBytesField(value: _storage._value, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
