@@ -144,6 +144,24 @@ internal class AnyMessageStorage {
 
 }
 
+// Since things are decoded on demand, hashValue and Equality are a little
+// messy.  Message could be equal, but do to how they are currected, we
+// currently end up with different hashValue and equalty could come back
+// false.
+extension AnyMessageStorage {
+  var hashValue: Int {
+    var hash: Int = 0
+    hash = (hash &* 16777619) ^ _typeURL.hashValue
+    if let v = _valueData {
+      hash = (hash &* 16777619) ^ v.hashValue
+    }
+    if let m = _message {
+      hash = (hash &* 16777619) ^ m.hashValue
+    }
+    return hash
+  }
+}
+
 // _CustomJSONCodable support for Google_Protobuf_Any
 extension AnyMessageStorage {
   // TODO: If the type is well-known or has already been registered,

@@ -98,15 +98,7 @@ public extension Google_Protobuf_Any {
   }
 
   public var hashValue: Int {
-    var hash: Int = 0
-    hash = (hash &* 16777619) ^ typeURL.hashValue
-    if let v = _storage._valueData {
-      hash = (hash &* 16777619) ^ v.hashValue
-    }
-    if let m = _storage._message {
-      hash = (hash &* 16777619) ^ m.hashValue
-    }
-    return hash
+    return _storage.hashValue
   }
 
 }
