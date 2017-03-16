@@ -42,6 +42,20 @@ fileprivate func typeName(fromURL s: String) -> String {
     return s[typeStart..<s.endIndex]
 }
 
+fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
+  var visitor = try JSONEncodingVisitor(message: message)
+  visitor.startObject()
+  visitor.encodeField(name: "@type", stringValue: typeURL)
+  if let m = message as? _CustomJSONCodable {
+    let value = try m.encodedJSONString()
+    visitor.encodeField(name: "value", jsonText: value)
+  } else {
+    try message.traverse(visitor: &visitor)
+  }
+  visitor.endObject()
+  return visitor.stringResult
+}
+
 internal class AnyMessageStorage {
   var _typeURL: String = ""
 
@@ -304,27 +318,6 @@ extension AnyMessageStorage {
   }
 }
 
-fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
-  var visitor = try JSONEncodingVisitor(message: message)
-  visitor.encoder.startObject()
-  visitor.encoder.startField(name: "@type")
-  visitor.encoder.putStringValue(value: typeURL)
-  try message.traverse(visitor: &visitor)
-  visitor.encoder.endObject()
-  return visitor.stringResult
-}
-
-fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) throws -> String {
-  var jsonEncoder = JSONEncoder()
-  jsonEncoder.startObject()
-  jsonEncoder.startField(name: "@type")
-  jsonEncoder.putStringValue(value: typeURL)
-  jsonEncoder.startField(name: "value")
-  jsonEncoder.append(text: value)
-  jsonEncoder.endObject()
-  return jsonEncoder.stringResult
-}
-
 // _CustomJSONCodable support for Google_Protobuf_Any
 extension AnyMessageStorage {
   // Override the traversal-based JSON encoding
@@ -340,34 +333,14 @@ extension AnyMessageStorage {
 
       // We should have been initialized with a typeURL, but
       // ensure it wasn't cleared.
-      let url: String
-      if !_typeURL.isEmpty {
-        url = _typeURL
-      } else {
-        url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
-      }
-      if let m = message as? _CustomJSONCodable {
-        // Serialize a Well-known type to JSON:
-        let value = try m.encodedJSONString()
-        return try serializeAnyJSON(wktValueJSON: value, typeURL: url)
-      } else {
-        // Serialize a regular message to JSON:
-        return try serializeAnyJSON(for: message, typeURL: url)
-      }
+      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+      return try serializeAnyJSON(for: message, typeURL: url)
     } else if !_typeURL.isEmpty {
       if let valueData = _valueData {
         // We have protobuf binary data and want to build JSON,
         // transcode by decoding the binary data to a message object
         // and then recode back into JSON:
-
-        // If it's a well-known type, we can always do this:
         let messageTypeName = typeName(fromURL: _typeURL)
-        if let messageType = Google_Protobuf_Any.wellKnownType(forMessageName: messageTypeName) {
-          let m = try messageType.init(serializedData: valueData)
-          let value = try m.jsonString()
-          return try serializeAnyJSON(wktValueJSON: value, typeURL: _typeURL)
-        }
-        // Otherwise, it may be a registered type:
         if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
           let m = try messageType.init(serializedData: valueData)
           return try serializeAnyJSON(for: m, typeURL: _typeURL)

@@ -24,9 +24,9 @@ public extension Message {
             return try m.encodedJSONString()
         }
         var visitor = try JSONEncodingVisitor(message: self)
-        visitor.encoder.startObject()
+        visitor.startObject()
         try traverse(visitor: &visitor)
-        visitor.encoder.endObject()
+        visitor.endObject()
         return visitor.stringResult
     }
 
