@@ -178,41 +178,12 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
     // If it does, and we have the type available, we can
     // eagerly decode the contained Message object.
     if let url = try decoder.scanner.nextOptionalAnyURL() {
-      // Decoding the verbose form requires knowing the type:
-      typeURL = url
-      let messageTypeName = typeName(fromURL: url)
-      let terminator = try decoder.scanner.skipObjectStart()
-      // Is it a well-known type? Or a user-registered type?
-      if messageTypeName == "google.protobuf.Any" {
-        var subDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self, scanner: decoder.scanner, terminator: terminator)
-        var any = Google_Protobuf_Any()
-        try any.decodeTextFormat(decoder: &subDecoder)
-        decoder.scanner = subDecoder.scanner
-        if let _ = try decoder.nextFieldNumber() {
-          // Verbose any can never have additional keys
-          throw TextFormatDecodingError.malformedText
-        }
-        _uniqueStorage()._message = any
-        return
-      } else if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
-        var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-        _uniqueStorage()._message = messageType.init()
-        try _storage._message!.decodeMessage(decoder: &subDecoder)
-        decoder.scanner = subDecoder.scanner
-        if let _ = try decoder.nextFieldNumber() {
-          // Verbose any can never have additional keys
-          throw TextFormatDecodingError.malformedText
-        }
-        return
-      }
-      // TODO: If we don't know the type, we should consider deferring the
-      // decode as we do for JSON and Protobuf binary.
-      throw TextFormatDecodingError.malformedText
+      try _uniqueStorage().decodeTextFormat(typeURL: url, decoder: &decoder)
+    } else {
+      // This is not using the specialized encoding, so we can use the
+      // standard path to decode the binary value.
+      try decodeMessage(decoder: &decoder)
     }
-
-    // This is not using the specialized encoding, so we can use the
-    // standard path to decode the binary value.
-    try decodeMessage(decoder: &decoder)
   }
 
   // Override the traversal-based JSON encoding
