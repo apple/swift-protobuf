@@ -292,6 +292,9 @@
 		F41BA41B1E79C59B004F6E95 /* Google_Protobuf_Any+AnyUnpackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4171E79C568004F6E95 /* Google_Protobuf_Any+AnyUnpackError.swift */; };
 		F41BA4401E7AE4AC004F6E95 /* any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA43F1E7AE4AC004F6E95 /* any.pb.swift */; };
 		F41BA4421E7AE53C004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
+		F41BA4431E7B35C6004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
+		F41BA4441E7B35C7004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
+		F41BA4451E7B35C8004F6E95 /* AnyMessageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA4411E7AE53C004F6E95 /* AnyMessageStorage.swift */; };
 		F44F93691DAD7FA500BC5B85 /* Google_Protobuf_Wrappers+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52711DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift */; };
 		F44F93771DAEA76700BC5B85 /* api.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/api.pb.swift /* api.pb.swift */; };
 		F44F93781DAEA76700BC5B85 /* duration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/duration.pb.swift /* duration.pb.swift */; };
@@ -1342,6 +1345,7 @@
 				9C2F23851D7780D1008524F2 /* BinaryDecoder.swift in Sources */,
 				AA3640921E60D592000C3CF4 /* struct.pb.swift in Sources */,
 				9C2F23861D7780D1008524F2 /* BinaryEncoder.swift in Sources */,
+				F41BA4431E7B35C6004F6E95 /* AnyMessageStorage.swift in Sources */,
 				9C2F23871D7780D1008524F2 /* BinaryTypeAdditions.swift in Sources */,
 				9C2F23891D7780D1008524F2 /* Enum.swift in Sources */,
 				9C2F238B1D7780D1008524F2 /* ExtensionFields.swift in Sources */,
@@ -1599,6 +1603,7 @@
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
 				F44F938A1DAEA76700BC5B85 /* Decoder.swift in Sources */,
 				AA3640931E60D593000C3CF4 /* struct.pb.swift in Sources */,
+				F41BA4441E7B35C7004F6E95 /* AnyMessageStorage.swift in Sources */,
 				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
 				9C75F88C1DDD30A5005CCFF2 /* ExtensionFieldValueSet.swift in Sources */,
@@ -1779,6 +1784,7 @@
 				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
 				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
 				AA3640941E60D593000C3CF4 /* struct.pb.swift in Sources */,
+				F41BA4451E7B35C8004F6E95 /* AnyMessageStorage.swift in Sources */,
 				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,
 				ECBC5C4A1DF6ABC500F658E8 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
