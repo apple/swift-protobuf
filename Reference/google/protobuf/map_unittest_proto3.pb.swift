@@ -341,13 +341,13 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
       if !_storage._mapInt32ForeignMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,Proto3ForeignMessage>.self, value: _storage._mapInt32ForeignMessage, fieldNumber: 17)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMap) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
         if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
         if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
@@ -365,10 +365,12 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
         if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
         if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
         if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
@@ -431,18 +433,20 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
       if let v = _storage._testMap {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMapSubmessage) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._testMap != other_storage._testMap {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
