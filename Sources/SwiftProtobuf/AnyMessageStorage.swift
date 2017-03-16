@@ -229,6 +229,39 @@ extension AnyMessageStorage {
     }
     return hash
   }
+
+  func isEqualTo(other: AnyMessageStorage) -> Bool {
+    if (_typeURL != other._typeURL) {
+      return false
+    }
+
+    // If we have both data's, compare those.
+    // The best option is to decode and compare the messages; this
+    // insulates us from variations in serialization details.  For
+    // example, one Any might hold protobuf binary bytes from one
+    // language implementation and the other from another language
+    // implementation.  But of course this only works if we
+    // actually know the message type.
+    //if let myMessage = _message {
+    //    if let otherMessage = other._message {
+    //        ... compare them directly
+    //    } else {
+    //        ... try to decode other and compare
+    //    }
+    //} else if let otherMessage = other._message {
+    //    ... try to decode ourselves and compare
+    //} else {
+    //    ... try to decode both and compare
+    //}
+    // If we don't know the message type, we have few options:
+    // If we were both deserialized from proto, compare the binary value:
+    // If we were both deserialized from JSON, compare content of the JSON?
+    if let myValue = _valueData, let otherValue = other._valueData, myValue == otherValue {
+      return true
+    }
+
+    return false
+  }
 }
 
 fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {

@@ -46,10 +46,13 @@ class MessageStorageClassGenerator {
     return "_StorageClass"
   }
 
-  /// Visibility of the property within the Message.
+  /// Visibility of the storage within the Message.
   var storageVisibility: String {
     return "private"
   }
+
+  /// If the storage wants to manually implement equality.
+  var storageProvidesEqualTo: Bool { return false }
 
   /// Generates the full code for the storage class.
   ///
@@ -124,6 +127,7 @@ class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
 
   override var typeName: String { return "AnyMessageStorage" }
   override var storageVisibility: String { return "internal" }
+  override var storageProvidesEqualTo: Bool { return true }
 
   override func generateNested(printer p: inout CodePrinter) {
     // Nothing.  It is hand coded in another file along with

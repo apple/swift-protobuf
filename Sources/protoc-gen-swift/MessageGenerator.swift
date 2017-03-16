@@ -490,33 +490,39 @@ class MessageGenerator {
   private func generateIsEqualTo(printer p: inout CodePrinter) {
     p.print("\(visibility)func _protobuf_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
     p.indent()
-    if storage != nil {
+    var compareFields = true
+    if let storage = storage {
       p.print("if _storage !== other._storage {\n")
       p.indent()
       p.print("let storagesAreEqual: Bool = ")
-    }
-
-    generateWithLifetimeExtension(printer: &p,
-                                  alsoCapturing: "other") { p in
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        if let o = f.oneof {
-          if !oneofHandled.contains(f.descriptor.oneofIndex) {
-            p.print("if \(storedProperty(forOneof: o)) != \(storedProperty(forOneof: o, in: "other")) {return false}\n")
-            oneofHandled.insert(f.descriptor.oneofIndex)
-          }
-        } else {
-          let notEqualClause: String
-          if isProto3 || f.isRepeated {
-            notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
-          } else {
-            notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
-          }
-          p.print("if \(notEqualClause) {return false}\n")
-        }
+      if storage.storageProvidesEqualTo {
+        p.print("_storage.isEqualTo(other: other._storage)\n")
+        compareFields = false
       }
-      if storage != nil {
-        p.print("return true\n")
+    }
+    if compareFields {
+      generateWithLifetimeExtension(printer: &p,
+                                    alsoCapturing: "other") { p in
+        var oneofHandled = Set<Int32>()
+        for f in fields {
+          if let o = f.oneof {
+            if !oneofHandled.contains(f.descriptor.oneofIndex) {
+              p.print("if \(storedProperty(forOneof: o)) != \(storedProperty(forOneof: o, in: "other")) {return false}\n")
+              oneofHandled.insert(f.descriptor.oneofIndex)
+            }
+          } else {
+            let notEqualClause: String
+            if isProto3 || f.isRepeated {
+              notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            } else {
+              notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            }
+            p.print("if \(notEqualClause) {return false}\n")
+          }
+        }
+        if storage != nil {
+          p.print("return true\n")
+        }
       }
     }
     if storage != nil {

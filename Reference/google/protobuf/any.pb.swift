@@ -197,11 +197,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._typeURL != other_storage._typeURL {return false}
-        if _storage._value != other_storage._value {return false}
-        return true
-      }
+      let storagesAreEqual: Bool = _storage.isEqualTo(other: other._storage)
       if !storagesAreEqual {return false}
     }
     if unknownFields != other.unknownFields {return false}
