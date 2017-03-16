@@ -294,21 +294,23 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
       if !_storage._protoFile.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._protoFile, fieldNumber: 15)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
         if _storage._parameter != other_storage._parameter {return false}
         if _storage._protoFile != other_storage._protoFile {return false}
         if _storage._compilerVersion != other_storage._compilerVersion {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
 
