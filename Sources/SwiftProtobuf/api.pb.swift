@@ -58,7 +58,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
     2: .same(proto: "methods"),
     3: .same(proto: "options"),
     4: .same(proto: "version"),
-    5: .unique(proto: "source_context", json: "sourceContext"),
+    5: .standard(proto: "source_context"),
     6: .same(proto: "mixins"),
     7: .same(proto: "syntax"),
   ]
@@ -236,10 +236,10 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._Mess
   public static let protoMessageName: String = _protobuf_package + ".Method"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
-    2: .unique(proto: "request_type_url", json: "requestTypeUrl"),
-    3: .unique(proto: "request_streaming", json: "requestStreaming"),
-    4: .unique(proto: "response_type_url", json: "responseTypeUrl"),
-    5: .unique(proto: "response_streaming", json: "responseStreaming"),
+    2: .standard(proto: "request_type_url"),
+    3: .standard(proto: "request_streaming"),
+    4: .standard(proto: "response_type_url"),
+    5: .standard(proto: "response_streaming"),
     6: .same(proto: "options"),
     7: .same(proto: "syntax"),
   ]
