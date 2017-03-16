@@ -15,7 +15,20 @@
 
 import Foundation
 
-internal func typeName(fromURL s: String) -> String {
+internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
+  var url = typePrefix
+  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
+    url += "/"
+  }
+  return url + typeName(fromMessage: message)
+}
+
+fileprivate func typeName(fromMessage message: Message) -> String {
+  let messageType = type(of: message)
+  return messageType.protoMessageName
+}
+
+fileprivate func typeName(fromURL s: String) -> String {
     var typeStart = s.startIndex
     var i = typeStart
     while i < s.endIndex {

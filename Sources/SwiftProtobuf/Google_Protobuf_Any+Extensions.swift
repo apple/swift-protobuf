@@ -15,22 +15,7 @@
 
 import Foundation
 
-
 internal let defaultTypePrefix: String = "type.googleapis.com"
-
-internal func typeName(fromMessage message: Message) -> String {
-  let messageType = type(of: message)
-  return messageType.protoMessageName
-}
-
-internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
-  var url = typePrefix
-  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
-    url += "/"
-  }
-  return url + typeName(fromMessage: message)
-}
-
 
 public extension Message {
   /// Initialize this message from the provided `google.protobuf.Any`
@@ -70,9 +55,9 @@ public extension Google_Protobuf_Any {
   ///
   public init(message: Message, typePrefix: String = defaultTypePrefix) {
     self.init()
+    typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
     _storage._valueData = nil
     _storage._message = message
-    typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
   }
 
 
