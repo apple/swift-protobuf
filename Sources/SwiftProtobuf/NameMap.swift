@@ -10,6 +10,12 @@
 
 import Darwin
 
+/// TODO: Right now, only the NameMap and the NameDescription enum
+/// (which are directly used by the generated code) are public.
+/// This means that code outside the library has no way to actually
+/// use this data.  We should develop and publicize a suitable API
+/// for that purpose.  (Which might be the same as the internal API.)
+
 /// This must be exactly the same as the corresponding code in the
 /// protoc-gen-swift code generator.  Changing it will break
 /// compatibility of the library with older generated code.
@@ -77,7 +83,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   /// block of UTF-8 data) where possible.  In cases where the string
   /// has to be computed, it caches the UTF-8 bytes in an
   /// unmovable and immutable heap area.
-  public struct Name: Hashable, CustomStringConvertible {
+  internal struct Name: Hashable, CustomStringConvertible {
     // This is safe to use elsewhere in this library
     internal init(staticString: StaticString) {
         self.nameString = .staticString(staticString)
@@ -134,7 +140,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   }
 
   /// The JSON and proto names for a particular field, enum case, or extension.
-  public struct Names {
+  internal struct Names {
     private(set) var json: Name?
     private(set) var proto: Name
   }
@@ -225,7 +231,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
   /// Returns the name bundle for the field/enum-case with the given number, or
   /// `nil` if there is no match.
-  public func names(for number: Int) -> Names? {
+  internal func names(for number: Int) -> Names? {
     return numberToNameMap[number]
   }
 
