@@ -384,41 +384,8 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
     }
   }
 
-  // TODO: If the type is well-known or has already been registered,
-  // we should consider decoding eagerly.  Eager decoding would
-  // catch certain errors earlier (good) but would probably be
-  // a performance hit if the Any contents were never accessed (bad).
-  // Of course, we can't always decode eagerly (we don't always have the
-  // message type available), so the deferred logic here is still needed.
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-    try decoder.scanner.skipRequiredObjectStart()
-    // Reset state
-    _ = _uniqueStorage()
-    _storage._typeURL = ""
-    _storage._contentJSON = nil
-    _storage._message = nil
-    _storage._valueData = nil
-    if decoder.scanner.skipOptionalObjectEnd() {
-      return
-    }
-
-    var jsonEncoder = JSONEncoder()
-    while true {
-      let key = try decoder.scanner.nextQuotedString()
-      try decoder.scanner.skipRequiredColon()
-      if key == "@type" {
-        typeURL = try decoder.scanner.nextQuotedString()
-      } else {
-        jsonEncoder.startField(name: key)
-        let keyValueJSON = try decoder.scanner.skip()
-        jsonEncoder.append(text: keyValueJSON)
-      }
-      if decoder.scanner.skipOptionalObjectEnd() {
-        _storage._contentJSON = jsonEncoder.dataResult
-        return
-      }
-      try decoder.scanner.skipRequiredComma()
-    }
+    try _uniqueStorage().decodeJSON(from: &decoder)
   }
 
 }
