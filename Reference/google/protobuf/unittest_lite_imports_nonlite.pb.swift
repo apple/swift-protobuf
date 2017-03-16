@@ -114,17 +114,19 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message, SwiftProt
       if let v = _storage._message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._message != other_storage._message {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }

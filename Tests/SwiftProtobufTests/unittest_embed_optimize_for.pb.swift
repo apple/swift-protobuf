@@ -138,18 +138,20 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
       if !_storage._repeatedMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedMessage, fieldNumber: 2)
       }
-      try unknownFields.traverse(visitor: &visitor)
     }
+    try unknownFields.traverse(visitor: &visitor)
   }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
-    return withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-      if _storage !== other_storage {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._optionalMessage != other_storage._optionalMessage {return false}
         if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
+        return true
       }
-      if unknownFields != other.unknownFields {return false}
-      return true
+      if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
