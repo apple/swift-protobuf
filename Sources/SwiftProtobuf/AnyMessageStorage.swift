@@ -125,8 +125,7 @@ internal class AnyMessageStorage {
       }
       return
     } else if let contentJSON = _contentJSON {
-      let targetType = typeName(fromMessage: target)
-      if Google_Protobuf_Any.isWellKnownType(messageName: targetType) {
+      if let _ = target as? _CustomJSONCodable {
         try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
           var scanner = JSONScanner(utf8Pointer: bytes,
                                     count: contentJSON.count)
