@@ -125,9 +125,12 @@ public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._Message
     1: .unique(proto: "type_url", json: "typeUrl"),
     2: .same(proto: "value"),
   ]
-  internal var _storage = AnyMessageStorage()
 
-  internal mutating func _uniqueStorage() -> AnyMessageStorage {
+  typealias _StorageClass = AnyMessageStorage
+
+  internal var _storage = _StorageClass()
+
+  internal mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _storage.copy()
     }
@@ -172,7 +175,7 @@ public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: AnyMessageStorage) in
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &_storage._typeURL)
@@ -184,7 +187,7 @@ public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._Message
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: AnyMessageStorage) in
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage.preTraverse()
       if !_storage._typeURL.isEmpty {
         try visitor.visitSingularStringField(value: _storage._typeURL, fieldNumber: 1)

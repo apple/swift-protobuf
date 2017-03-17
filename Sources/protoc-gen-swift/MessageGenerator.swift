@@ -196,10 +196,12 @@ class MessageGenerator {
 
     if let storage = storage {
       // Storage class, if needed
-      storage.generateNested(printer: &p)
-      p.print("\(storage.storageVisibility) var _storage = \(storage.typeName)()\n")
       p.print("\n")
-      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> \(storage.typeName) {\n")
+      storage.generateNested(printer: &p)
+      p.print("\n")
+      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
+      p.print("\n")
+      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
       p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
       p.print("    _storage = _storage.copy()\n")
       p.print("  }\n")
@@ -762,7 +764,7 @@ class MessageGenerator {
         // The way withExtendedLifetime is defined causes ambiguities in the
         // singleton argument case, which we have to resolve by writing out
         // the explicit type of the closure argument.
-        formalArgs = "(_storage: \(storage.typeName))"
+        formalArgs = "(_storage: _StorageClass)"
       }
       p.print(prefixKeywords +
         "withExtendedLifetime(\(actualArgs)) { \(formalArgs) in\n")
