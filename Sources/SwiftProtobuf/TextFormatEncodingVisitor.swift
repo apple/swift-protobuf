@@ -59,6 +59,24 @@ internal struct TextFormatEncodingVisitor: Visitor {
     self.encoder = encoder
   }
 
+  private mutating func startField(lookingUp fieldNumber: Int) throws {
+      // This compact form of startField(lookingUp:) slows the entire
+      // TextFormat encoding process by over 2x.
+      //let buff = try protoFieldName(for: fieldNumber)
+      //startField(name: buff)
+
+      // This manually unrolled version is *much* faster.
+      if let protoName = nameMap?.names(for: fieldNumber)?.proto {
+          encoder.startField(name: protoName.utf8Buffer, inExtension: inExtension)
+      } else if let protoName = nameResolver[fieldNumber] {
+          encoder.startField(name: protoName, inExtension: inExtension)
+      } else if let extensionName = extensions?[fieldNumber]?.protobufExtension.fieldName {
+          encoder.startField(name: extensionName, inExtension: inExtension)
+      } else {
+          throw TextFormatEncodingError.missingFieldNames
+      }
+  }
+
   private func protoFieldName(for number: Int) throws -> UnsafeBufferPointer<UInt8> {
     if let protoName = nameMap?.names(for: number)?.proto {
         return protoName.utf8Buffer
@@ -73,11 +91,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   private mutating func startField(name: UnsafeBufferPointer<UInt8>) {
       encoder.startField(name: name, inExtension: inExtension)
-  }
-
-  private mutating func startField(fieldNumber: Int) throws {
-      let protoFieldName = try self.protoFieldName(for: fieldNumber)
-      encoder.startField(name: protoFieldName, inExtension: inExtension)
   }
 
   mutating func visitUnknown(bytes: Data) throws {
@@ -147,43 +160,43 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // does not distinguish e.g., Fixed64 vs. UInt64, this is sufficient.
 
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putDoubleValue(value: value)
       encoder.endField()
   }
 
   mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putInt64(value: value)
       encoder.endField()
   }
 
   mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putUInt64(value: value)
       encoder.endField()
   }
 
   mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putBoolValue(value: value)
       encoder.endField()
   }
 
   mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putStringValue(value: value)
       encoder.endField()
   }
 
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putBytesValue(value: value)
       encoder.endField()
   }
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       encoder.putEnumValue(value: value)
       encoder.endField()
   }
@@ -338,7 +351,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // introducing the baggage of a separate option.
 
   private mutating func _visitPacked<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
-      try startField(fieldNumber: fieldNumber)
+      try startField(lookingUp: fieldNumber)
       var firstItem = true
       encoder.startArray()
       for v in value {

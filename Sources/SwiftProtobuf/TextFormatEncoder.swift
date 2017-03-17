@@ -78,6 +78,12 @@ internal struct TextFormatEncoder {
         append(staticText: ": ")
     }
 
+    mutating func startField(name: StaticString, inExtension: Bool) {
+        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
+        appendFieldName(name: buff, inExtension: inExtension)
+        append(staticText: ": ")
+    }
+
     mutating func startField(number: Int) {
         indent()
         appendUInt(value: UInt64(number))
