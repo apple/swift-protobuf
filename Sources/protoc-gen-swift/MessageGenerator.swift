@@ -70,6 +70,7 @@ class MessageGenerator {
     }
     self.isAnyMessage = (isProto3 &&
                          descriptor.name == "Any" &&
+                         file.descriptor.package == "google.protobuf" &&
                          file.descriptor.name == "google/protobuf/any.proto")
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
