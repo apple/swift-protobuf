@@ -135,6 +135,7 @@ TEST_PROTOS= \
 
 # Protos that are embedded into the SwiftProtobuf runtime library module
 LIBRARY_PROTOS= \
+	Protos/google/protobuf/any.proto \
 	Protos/google/protobuf/api.proto \
 	Protos/google/protobuf/duration.proto \
 	Protos/google/protobuf/empty.proto \

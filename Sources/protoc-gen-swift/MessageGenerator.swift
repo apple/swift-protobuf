@@ -38,6 +38,7 @@ class MessageGenerator {
   private let isProto3: Bool
   private let isExtensible: Bool
   private let isGroup: Bool
+  private let isAnyMessage: Bool
 
   private let path: [Int32]
   private let comments: String
@@ -67,6 +68,10 @@ class MessageGenerator {
       swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
       swiftFullName = swiftRelativeName
     }
+    self.isAnyMessage = (isProto3 &&
+                         descriptor.name == "Any" &&
+                         file.descriptor.package == "google.protobuf" &&
+                         file.descriptor.name == "google/protobuf/any.proto")
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
@@ -139,7 +144,15 @@ class MessageGenerator {
     // storage yet.
     let useHeapStorage = fields.count > 16 ||
       hasMessageField(descriptor: descriptor, context: context)
-    if useHeapStorage {
+    if isAnyMessage {
+      self.storage = AnyMessageStorageClassGenerator(
+        descriptor: descriptor,
+        fields: fields,
+        oneofs: oneofs,
+        file: file,
+        messageSwiftName: swiftFullName,
+        context: context)
+    } else if useHeapStorage {
       self.storage = MessageStorageClassGenerator(
         descriptor: descriptor,
         fields: fields,
@@ -183,11 +196,12 @@ class MessageGenerator {
 
     if let storage = storage {
       // Storage class, if needed
+      p.print("\n")
       storage.generateNested(printer: &p)
       p.print("\n")
-      p.print("private var _storage = _StorageClass()\n")
+      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
       p.print("\n")
-      p.print("private mutating func _uniqueStorage() -> _StorageClass {\n")
+      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
       p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
       p.print("    _storage = _storage.copy()\n")
       p.print("  }\n")
@@ -412,6 +426,9 @@ class MessageGenerator {
     p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
+      if let storage = storage {
+        storage.generatePreTraverse(printer: &p)
+      }
       var ranges = descriptor.extensionRange.makeIterator()
       var nextRange = ranges.next()
       var currentOneof: Google_Protobuf_OneofDescriptorProto?
@@ -457,33 +474,39 @@ class MessageGenerator {
   private func generateIsEqualTo(printer p: inout CodePrinter) {
     p.print("\(visibility)func _protobuf_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
     p.indent()
-    if storage != nil {
+    var compareFields = true
+    if let storage = storage {
       p.print("if _storage !== other._storage {\n")
       p.indent()
       p.print("let storagesAreEqual: Bool = ")
-    }
-
-    generateWithLifetimeExtension(printer: &p,
-                                  alsoCapturing: "other") { p in
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        if let o = f.oneof {
-          if !oneofHandled.contains(f.descriptor.oneofIndex) {
-            p.print("if \(storedProperty(forOneof: o)) != \(storedProperty(forOneof: o, in: "other")) {return false}\n")
-            oneofHandled.insert(f.descriptor.oneofIndex)
-          }
-        } else {
-          let notEqualClause: String
-          if isProto3 || f.isRepeated {
-            notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
-          } else {
-            notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
-          }
-          p.print("if \(notEqualClause) {return false}\n")
-        }
+      if storage.storageProvidesEqualTo {
+        p.print("_storage.isEqualTo(other: other._storage)\n")
+        compareFields = false
       }
-      if storage != nil {
-        p.print("return true\n")
+    }
+    if compareFields {
+      generateWithLifetimeExtension(printer: &p,
+                                    alsoCapturing: "other") { p in
+        var oneofHandled = Set<Int32>()
+        for f in fields {
+          if let o = f.oneof {
+            if !oneofHandled.contains(f.descriptor.oneofIndex) {
+              p.print("if \(storedProperty(forOneof: o)) != \(storedProperty(forOneof: o, in: "other")) {return false}\n")
+              oneofHandled.insert(f.descriptor.oneofIndex)
+            }
+          } else {
+            let notEqualClause: String
+            if isProto3 || f.isRepeated {
+              notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            } else {
+              notEqualClause = "\(storedProperty(forField: f)) != \(storedProperty(forField: f, in: "other"))"
+            }
+            p.print("if \(notEqualClause) {return false}\n")
+          }
+        }
+        if storage != nil {
+          p.print("return true\n")
+        }
       }
     }
     if storage != nil {
@@ -705,7 +728,7 @@ class MessageGenerator {
     alsoCapturing capturedVariable: String? = nil,
     body: (inout CodePrinter) -> Void
   ) {
-    if storage != nil {
+    if let storage = storage {
       let prefixKeywords = "\(returns ? "return " : "")" +
         "\(canThrow ? "try " : "")"
 

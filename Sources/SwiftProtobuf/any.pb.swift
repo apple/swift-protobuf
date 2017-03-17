@@ -119,9 +119,9 @@ fileprivate let _protobuf_package = "google.protobuf"
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Any"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Any"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "type_url", json: "typeUrl"),
     2: .same(proto: "value"),
   ]
@@ -158,22 +158,22 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   ///  
   ///   Schemes other than `http`, `https` (or the empty scheme) might be
   ///   used with implementation specific semantics.
-  var typeURL: String {
+  public var typeURL: String {
     get {return _storage._typeURL}
     set {_uniqueStorage()._typeURL = newValue}
   }
 
   ///   Must be a valid serialized protocol buffer of the above specified type.
-  var value: Data {
+  public var value: Data {
     get {return _storage._value}
     set {_uniqueStorage()._value = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -186,7 +186,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       try _storage.preTraverse()
       if !_storage._typeURL.isEmpty {
@@ -199,7 +199,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = _storage.isEqualTo(other: other._storage)
       if !storagesAreEqual {return false}

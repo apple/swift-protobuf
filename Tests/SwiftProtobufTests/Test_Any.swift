@@ -36,10 +36,7 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(encoded, [8, 12, 18, 56, 10, 50, 116, 121, 112, 101, 46, 103, 111, 111, 103, 108, 101, 97, 112, 105, 115, 46, 99, 111, 109, 47, 112, 114, 111, 116, 111, 98, 117, 102, 95, 117, 110, 105, 116, 116, 101, 115, 116, 46, 84, 101, 115, 116, 65, 108, 108, 84, 121, 112, 101, 115, 18, 2, 8, 7])
         let decoded = try ProtobufUnittest_TestAny(serializedBytes: encoded)
         XCTAssertEqual(decoded.anyValue.typeURL, "type.googleapis.com/protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -70,10 +67,7 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "X/Y/protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -104,10 +98,7 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "/protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -135,10 +126,7 @@ class Test_Any: XCTestCase {
             return
         }
         XCTAssertEqual(decoded.anyValue.typeURL, "protobuf_unittest.TestAllTypes")
-        let decoded_value = decoded.anyValue.value
-        if let decoded_value = decoded_value {
-            XCTAssertEqual(decoded_value, Data(bytes: [8, 7]))
-        }
+        XCTAssertEqual(decoded.anyValue.value, Data(bytes: [8, 7]))
         XCTAssertEqual(decoded.int32Value, 12)
         XCTAssertNotNil(decoded.anyValue)
         let any = decoded.anyValue
@@ -168,11 +156,7 @@ class Test_Any: XCTestCase {
         do {
             let decoded = try ProtobufUnittest_TestAny(jsonString: encoded)
             XCTAssertNotNil(decoded.anyValue)
-            let decoded_value = decoded.anyValue.value
-            XCTAssertNotNil(decoded_value)
-            if let decoded_value = decoded_value {
-                XCTAssertEqual(Data(bytes: [8, 7]), decoded_value)
-            }
+            XCTAssertEqual(Data(bytes: [8, 7]), decoded.anyValue.value)
             XCTAssertEqual(decoded.int32Value, 12)
             XCTAssertNotNil(decoded.anyValue)
             let any = decoded.anyValue
@@ -203,7 +187,7 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertNil(anyValue.value)
+        XCTAssertEqual(anyValue.value, Data())
 
         // Verify:  JSON-to-protobuf transcoding should fail here
         // since the Any does not have type information
@@ -223,7 +207,7 @@ class Test_Any: XCTestCase {
         let anyValue = decoded.anyValue
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
-        XCTAssertEqual(anyValue.value!, Data(bytes: [8, 7]))
+        XCTAssertEqual(anyValue.value, Data(bytes: [8, 7]))
 
         // Protobuf-to-JSON transcoding fails
         XCTAssertThrowsError(try decoded.jsonString())
