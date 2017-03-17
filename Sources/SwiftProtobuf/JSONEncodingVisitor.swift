@@ -63,6 +63,11 @@ internal struct JSONEncodingVisitor: Visitor {
     // JSON encoding has no provision for carrying proto2 unknown fields.
   }
 
+  mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
+    try startField(for: fieldNumber)
+    encoder.putFloatValue(value: value)
+  }
+
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.putDoubleValue(value: value)

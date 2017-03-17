@@ -308,7 +308,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             let json = try original.jsonString()
             do {
                 let decoded = try MessageTestType(jsonString: json)
-                XCTAssertEqual(original, decoded)
+                XCTAssertEqual(original, decoded, file: file, line: line)
             } catch let e {
                 XCTFail("Failed to decode \(e): \(json)", file: file, line: line)
             }

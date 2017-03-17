@@ -64,6 +64,7 @@ private let hexDigits: [UInt8] = {
 internal struct JSONEncoder {
     private var data = [UInt8]()
     private var separator: UInt8?
+    private let doubleFormatter = DoubleFormatter()
 
     internal init() {}
 
@@ -159,16 +160,8 @@ internal struct JSONEncoder {
             if let v = Int64(safely: Double(value)) {
                 appendInt(value: v)
             } else {
-                let s = String(value)
-                let reparsed = Float(s)
-                // If exact match, then default precision is sufficient:
-                if value == reparsed {
-                    append(text: s)
-                } else {
-                    let precision = FLT_DIG + 2
-                    let s = String(format: "%.*g", precision, Double(value))
-                    append(text: s)
-                }
+                let formatted = doubleFormatter.floatToUtf8(value)
+                data.append(contentsOf: formatted)
             }
         }
     }
@@ -189,16 +182,8 @@ internal struct JSONEncoder {
             if let v = Int64(safely: value) {
                 appendInt(value: v)
             } else {
-                let s = String(value)
-                let reparsed = Double(s)
-                // If exact match, then default precision is sufficient:
-                if value == reparsed {
-                    append(text: s)
-                } else {
-                    let precision = DBL_DIG + 2
-                    let s = String(format: "%.*g", precision, value)
-                    append(text: s)
-                }
+                let formatted = doubleFormatter.doubleToUtf8(value)
+                data.append(contentsOf: formatted)
             }
         }
     }

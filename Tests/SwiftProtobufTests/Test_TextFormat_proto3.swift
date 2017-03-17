@@ -36,6 +36,29 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("single_int32: 41\n", try a.textFormatString())
 
+        assertTextFormatEncode("single_int32: 1\n") {(o: inout MessageTestType) in o.singleInt32 = 1 }
+        assertTextFormatEncode("single_int32: 12\n") {(o: inout MessageTestType) in o.singleInt32 = 12 }
+        assertTextFormatEncode("single_int32: 123\n") {(o: inout MessageTestType) in o.singleInt32 = 123 }
+        assertTextFormatEncode("single_int32: 1234\n") {(o: inout MessageTestType) in o.singleInt32 = 1234 }
+        assertTextFormatEncode("single_int32: 12345\n") {(o: inout MessageTestType) in o.singleInt32 = 12345 }
+        assertTextFormatEncode("single_int32: 123456\n") {(o: inout MessageTestType) in o.singleInt32 = 123456 }
+        assertTextFormatEncode("single_int32: 1234567\n") {(o: inout MessageTestType) in o.singleInt32 = 1234567 }
+        assertTextFormatEncode("single_int32: 12345678\n") {(o: inout MessageTestType) in o.singleInt32 = 12345678 }
+        assertTextFormatEncode("single_int32: 123456789\n") {(o: inout MessageTestType) in o.singleInt32 = 123456789 }
+        assertTextFormatEncode("single_int32: 1234567890\n") {(o: inout MessageTestType) in o.singleInt32 = 1234567890 }
+
+        assertTextFormatEncode("single_int32: 1\n") {(o: inout MessageTestType) in o.singleInt32 = 1 }
+        assertTextFormatEncode("single_int32: 10\n") {(o: inout MessageTestType) in o.singleInt32 = 10 }
+        assertTextFormatEncode("single_int32: 100\n") {(o: inout MessageTestType) in o.singleInt32 = 100 }
+        assertTextFormatEncode("single_int32: 1000\n") {(o: inout MessageTestType) in o.singleInt32 = 1000 }
+        assertTextFormatEncode("single_int32: 10000\n") {(o: inout MessageTestType) in o.singleInt32 = 10000 }
+        assertTextFormatEncode("single_int32: 100000\n") {(o: inout MessageTestType) in o.singleInt32 = 100000 }
+        assertTextFormatEncode("single_int32: 1000000\n") {(o: inout MessageTestType) in o.singleInt32 = 1000000 }
+        assertTextFormatEncode("single_int32: 10000000\n") {(o: inout MessageTestType) in o.singleInt32 = 10000000 }
+        assertTextFormatEncode("single_int32: 100000000\n") {(o: inout MessageTestType) in o.singleInt32 = 100000000 }
+        assertTextFormatEncode("single_int32: 1000000000\n") {(o: inout MessageTestType) in o.singleInt32 = 1000000000 }
+
+
         assertTextFormatEncode("single_int32: 41\n") {(o: inout MessageTestType) in
             o.singleInt32 = 41 }
         assertTextFormatEncode("single_int32: 1\n") {(o: inout MessageTestType) in
@@ -78,7 +101,28 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("single_int64: 2\n", try a.textFormatString())
 
-        assertTextFormatEncode("single_int64: 2\n") {(o: inout MessageTestType) in o.singleInt64 = 2 }
+        assertTextFormatEncode("single_int64: 1\n") {(o: inout MessageTestType) in o.singleInt64 = 1 }
+        assertTextFormatEncode("single_int64: 12\n") {(o: inout MessageTestType) in o.singleInt64 = 12 }
+        assertTextFormatEncode("single_int64: 123\n") {(o: inout MessageTestType) in o.singleInt64 = 123 }
+        assertTextFormatEncode("single_int64: 1234\n") {(o: inout MessageTestType) in o.singleInt64 = 1234 }
+        assertTextFormatEncode("single_int64: 12345\n") {(o: inout MessageTestType) in o.singleInt64 = 12345 }
+        assertTextFormatEncode("single_int64: 123456\n") {(o: inout MessageTestType) in o.singleInt64 = 123456 }
+        assertTextFormatEncode("single_int64: 1234567\n") {(o: inout MessageTestType) in o.singleInt64 = 1234567 }
+        assertTextFormatEncode("single_int64: 12345678\n") {(o: inout MessageTestType) in o.singleInt64 = 12345678 }
+        assertTextFormatEncode("single_int64: 123456789\n") {(o: inout MessageTestType) in o.singleInt64 = 123456789 }
+        assertTextFormatEncode("single_int64: 1234567890\n") {(o: inout MessageTestType) in o.singleInt64 = 1234567890 }
+
+        assertTextFormatEncode("single_int64: 1\n") {(o: inout MessageTestType) in o.singleInt64 = 1 }
+        assertTextFormatEncode("single_int64: 10\n") {(o: inout MessageTestType) in o.singleInt64 = 10 }
+        assertTextFormatEncode("single_int64: 100\n") {(o: inout MessageTestType) in o.singleInt64 = 100 }
+        assertTextFormatEncode("single_int64: 1000\n") {(o: inout MessageTestType) in o.singleInt64 = 1000 }
+        assertTextFormatEncode("single_int64: 10000\n") {(o: inout MessageTestType) in o.singleInt64 = 10000 }
+        assertTextFormatEncode("single_int64: 100000\n") {(o: inout MessageTestType) in o.singleInt64 = 100000 }
+        assertTextFormatEncode("single_int64: 1000000\n") {(o: inout MessageTestType) in o.singleInt64 = 1000000 }
+        assertTextFormatEncode("single_int64: 10000000\n") {(o: inout MessageTestType) in o.singleInt64 = 10000000 }
+        assertTextFormatEncode("single_int64: 100000000\n") {(o: inout MessageTestType) in o.singleInt64 = 100000000 }
+        assertTextFormatEncode("single_int64: 1000000000\n") {(o: inout MessageTestType) in o.singleInt64 = 1000000000 }
+
         assertTextFormatEncode("single_int64: -2\n") {(o: inout MessageTestType) in o.singleInt64 = -2 }
         assertTextFormatDecodeSucceeds("single_int64: 0x1234567812345678\n") {(o: MessageTestType) in
             return o.singleInt64 == 0x1234567812345678
@@ -226,7 +270,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             let json = try original.textFormatString()
             do {
                 let decoded = try MessageTestType(textFormatString: json)
-                XCTAssertEqual(original, decoded)
+                XCTAssertEqual(original, decoded, file: file, line: line)
             } catch let e {
                 XCTFail("Failed to decode \(e): \(json)", file: file, line: line)
             }
