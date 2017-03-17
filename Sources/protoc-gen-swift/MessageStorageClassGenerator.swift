@@ -126,7 +126,7 @@ class MessageStorageClassGenerator {
   }
 }
 
-/// Cusotm generator for storage of an google.protobuf.Any.
+/// Custom generator for storage of an google.protobuf.Any.
 class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
 
   override var typeName: String { return "AnyMessageStorage" }
