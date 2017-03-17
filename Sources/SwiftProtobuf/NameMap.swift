@@ -8,8 +8,6 @@
 //
 // -----------------------------------------------------------------------------
 
-import Darwin
-
 /// TODO: Right now, only the NameMap and the NameDescription enum
 /// (which are directly used by the generated code) are public.
 /// This means that code outside the library has no way to actually
@@ -43,21 +41,24 @@ private func toJsonFieldName(_ s: String) -> String {
 /// string data.  Track the buffers and release all of those buffers
 /// in case we ever get deallocated.
 fileprivate class InternPool {
-  private var interned = Set<UnsafePointer<UInt8>>()
+  private var interned = [UnsafeBufferPointer<UInt8>]()
 
   func intern(utf8: String.UTF8View) -> UnsafeBufferPointer<UInt8> {
     let count = utf8.count
-    let raw = malloc(count)!
+    let raw = UnsafeMutableRawPointer.allocate(bytes: count, alignedTo: 1)
     let bytePointer = raw.bindMemory(to: UInt8.self, capacity: count)
-    interned.insert(bytePointer)
     let buff = UnsafeMutableBufferPointer<UInt8>(start: bytePointer, count: count)
     _ = buff.initialize(from: utf8)
-    return UnsafeBufferPointer<UInt8>(start: bytePointer, count: count)
+
+    let immutable = UnsafeBufferPointer<UInt8>(start: bytePointer, count: count)
+    interned.append(immutable)
+    return immutable
   }
 
   deinit {
-    for p in interned {
-      free(UnsafeMutableRawPointer(mutating:p))
+    for buff in interned {
+        let p = UnsafeMutableRawPointer(mutating: buff.baseAddress)!
+        p.deallocate(bytes: buff.count, alignedTo: 1)
     }
   }
 }
