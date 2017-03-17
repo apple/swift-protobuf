@@ -54,9 +54,9 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "int32_value", json: "int32Value"),
-    2: .unique(proto: "any_value", json: "anyValue"),
-    3: .unique(proto: "repeated_any_value", json: "repeatedAnyValue"),
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "any_value"),
+    3: .standard(proto: "repeated_any_value"),
   ]
 
   private class _StorageClass {

@@ -173,10 +173,10 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._M
 struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "file_to_generate", json: "fileToGenerate"),
+    1: .standard(proto: "file_to_generate"),
     2: .same(proto: "parameter"),
-    15: .unique(proto: "proto_file", json: "protoFile"),
-    3: .unique(proto: "compiler_version", json: "compilerVersion"),
+    15: .standard(proto: "proto_file"),
+    3: .standard(proto: "compiler_version"),
   ]
 
   private class _StorageClass {
@@ -351,7 +351,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, Sw
     static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
       1: .same(proto: "name"),
-      2: .unique(proto: "insertion_point", json: "insertionPoint"),
+      2: .standard(proto: "insertion_point"),
       15: .same(proto: "content"),
     ]
 

@@ -138,12 +138,12 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Value"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "null_value", json: "nullValue"),
-    2: .unique(proto: "number_value", json: "numberValue"),
-    3: .unique(proto: "string_value", json: "stringValue"),
-    4: .unique(proto: "bool_value", json: "boolValue"),
-    5: .unique(proto: "struct_value", json: "structValue"),
-    6: .unique(proto: "list_value", json: "listValue"),
+    1: .standard(proto: "null_value"),
+    2: .standard(proto: "number_value"),
+    3: .standard(proto: "string_value"),
+    4: .standard(proto: "bool_value"),
+    5: .standard(proto: "struct_value"),
+    6: .standard(proto: "list_value"),
   ]
 
   private class _StorageClass {

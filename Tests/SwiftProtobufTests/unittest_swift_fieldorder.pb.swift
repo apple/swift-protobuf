@@ -40,14 +40,14 @@ fileprivate let _protobuf_package = "swift.protobuf"
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    11: .unique(proto: "my_string", json: "myString"),
-    1: .unique(proto: "my_int", json: "myInt"),
-    101: .unique(proto: "my_float", json: "myFloat"),
-    60: .unique(proto: "oneof_int64", json: "oneofInt64"),
-    9: .unique(proto: "oneof_bool", json: "oneofBool"),
-    150: .unique(proto: "oneof_string", json: "oneofString"),
-    10: .unique(proto: "oneof_int32", json: "oneofInt32"),
-    200: .unique(proto: "optional_nested_message", json: "optionalNestedMessage"),
+    11: .standard(proto: "my_string"),
+    1: .standard(proto: "my_int"),
+    101: .standard(proto: "my_float"),
+    60: .standard(proto: "oneof_int64"),
+    9: .standard(proto: "oneof_bool"),
+    150: .standard(proto: "oneof_string"),
+    10: .standard(proto: "oneof_int32"),
+    200: .standard(proto: "optional_nested_message"),
   ]
 
   private class _StorageClass {

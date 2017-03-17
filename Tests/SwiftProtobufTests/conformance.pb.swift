@@ -115,9 +115,9 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProvidi
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "protobuf_payload", json: "protobufPayload"),
-    2: .unique(proto: "json_payload", json: "jsonPayload"),
-    3: .unique(proto: "requested_output_format", json: "requestedOutputFormat"),
+    1: .standard(proto: "protobuf_payload"),
+    2: .standard(proto: "json_payload"),
+    3: .standard(proto: "requested_output_format"),
   ]
 
   var protobufPayload: Data {
@@ -231,11 +231,11 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "parse_error", json: "parseError"),
-    6: .unique(proto: "serialize_error", json: "serializeError"),
-    2: .unique(proto: "runtime_error", json: "runtimeError"),
-    3: .unique(proto: "protobuf_payload", json: "protobufPayload"),
-    4: .unique(proto: "json_payload", json: "jsonPayload"),
+    1: .standard(proto: "parse_error"),
+    6: .standard(proto: "serialize_error"),
+    2: .standard(proto: "runtime_error"),
+    3: .standard(proto: "protobuf_payload"),
+    4: .standard(proto: "json_payload"),
     5: .same(proto: "skipped"),
   ]
 

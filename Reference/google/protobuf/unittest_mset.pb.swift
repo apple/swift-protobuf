@@ -61,7 +61,7 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "message_set", json: "messageSet"),
+    1: .standard(proto: "message_set"),
   ]
 
   private class _StorageClass {
@@ -274,7 +274,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._Mes
   struct Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = ProtobufUnittest_RawMessageSet.protoMessageName + ".Item"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      2: .unique(proto: "type_id", json: "typeId"),
+      2: .standard(proto: "type_id"),
       3: .same(proto: "message"),
     ]
 

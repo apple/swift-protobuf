@@ -35,9 +35,9 @@ internal struct JSONEncodingVisitor: Visitor {
   /// Creates a new visitor that serializes the given message to JSON format.
   init(message: Message) throws {
     if let nameProviding = message as? _ProtoNameProviding {
-        self.nameMap = type(of: nameProviding)._protobuf_nameMap
+      self.nameMap = type(of: nameProviding)._protobuf_nameMap
     } else {
-        throw JSONEncodingError.missingFieldNames
+      throw JSONEncodingError.missingFieldNames
     }
   }
 
@@ -304,7 +304,7 @@ internal struct JSONEncodingVisitor: Visitor {
   /// Helper function that throws an error if the field number could not be
   /// resolved.
   private mutating func startField(for number: Int) throws {
-    if let jsonName = nameMap.names(for: number)?.jsonStaticStringName {
+    if let jsonName = nameMap.names(for: number)?.json {
         encoder.startField(name: jsonName)
     } else {
         throw JSONEncodingError.missingFieldNames

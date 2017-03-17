@@ -96,7 +96,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._Messag
     2: .same(proto: "fields"),
     3: .same(proto: "oneofs"),
     4: .same(proto: "options"),
-    5: .unique(proto: "source_context", json: "sourceContext"),
+    5: .standard(proto: "source_context"),
     6: .same(proto: "syntax"),
   ]
 
@@ -244,12 +244,12 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message, SwiftProtobuf._Messa
     2: .same(proto: "cardinality"),
     3: .same(proto: "number"),
     4: .same(proto: "name"),
-    6: .unique(proto: "type_url", json: "typeUrl"),
-    7: .unique(proto: "oneof_index", json: "oneofIndex"),
+    6: .standard(proto: "type_url"),
+    7: .standard(proto: "oneof_index"),
     8: .same(proto: "packed"),
     9: .same(proto: "options"),
-    10: .unique(proto: "json_name", json: "jsonName"),
-    11: .unique(proto: "default_value", json: "defaultValue"),
+    10: .standard(proto: "json_name"),
+    11: .standard(proto: "default_value"),
   ]
 
   ///   The field type.
@@ -553,7 +553,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._Messag
     1: .same(proto: "name"),
     2: .same(proto: "enumvalue"),
     3: .same(proto: "options"),
-    4: .unique(proto: "source_context", json: "sourceContext"),
+    4: .standard(proto: "source_context"),
     5: .same(proto: "syntax"),
   ]
 

@@ -121,7 +121,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message, Swi
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithCustomOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
-    2: .unique(proto: "oneof_field", json: "oneofField"),
+    2: .standard(proto: "oneof_field"),
   ]
 
   private var _field1: String? = nil
@@ -1393,7 +1393,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message, SwiftProtobuf._
   struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = ProtobufUnittest_NestedOptionType.protoMessageName + ".NestedMessage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .unique(proto: "nested_field", json: "nestedField"),
+      1: .standard(proto: "nested_field"),
     ]
 
     private var _nestedField: Int32? = nil

@@ -45,6 +45,10 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: buff)
     }
 
+    internal mutating func append(name: _NameMap.Name) {
+        data.append(contentsOf: name.utf8Buffer)
+    }
+
     private mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
     }
@@ -126,9 +130,7 @@ internal struct TextFormatEncoder {
 
     mutating func putEnumValue<E: Enum>(value: E) {
         if let name = value.name {
-            let buff = UnsafeBufferPointer(start: name.utf8Start,
-                                           count: name.utf8CodeUnitCount)
-            data.append(contentsOf: buff)
+            data.append(contentsOf: name.utf8Buffer)
         } else {
             appendInt(value: Int64(value.rawValue))
         }

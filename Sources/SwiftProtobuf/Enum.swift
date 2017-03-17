@@ -38,11 +38,11 @@ extension Enum {
   ///
   /// Since the text format and JSON names are always identical, we don't need
   /// to distinguish them.
-  internal var name: StaticString? {
-    guard let nameProviding = self as? _ProtoNameProviding else {
+  internal var name: _NameMap.Name? {
+    guard let nameProviding = Self.self as? _ProtoNameProviding.Type else {
       return nil
     }
-    return nameProviding._protobuf_names(for: rawValue)?.protoStaticStringName
+    return nameProviding._protobuf_nameMap.names(for: rawValue)?.proto
   }
 
   /// Internal convenience initializer that returns the enum value with the

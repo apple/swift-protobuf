@@ -8,183 +8,266 @@
 //
 // -----------------------------------------------------------------------------
 
-// Proto names are always ASCII and are always literals, so we can improve the
-// performance of some of our parsing by storing them as pointers to the
-// underlying bytes of a StaticString to avoid the overhead of creating and
-// comparing Unicode Strings.
+/// TODO: Right now, only the NameMap and the NameDescription enum
+/// (which are directly used by the generated code) are public.
+/// This means that code outside the library has no way to actually
+/// use this data.  We should develop and publicize a suitable API
+/// for that purpose.  (Which might be the same as the internal API.)
+
+/// This must be exactly the same as the corresponding code in the
+/// protoc-gen-swift code generator.  Changing it will break
+/// compatibility of the library with older generated code.
+///
+/// It does not necessarily need to match protoc's JSON field naming
+/// logic, however.
+private func toJsonFieldName(_ s: String) -> String {
+    var result = ""
+    var capitalizeNext = false
+
+    for c in s.characters {
+        if c == "_" {
+            capitalizeNext = true
+        } else if capitalizeNext {
+            result.append(String(c).uppercased())
+            capitalizeNext = false
+        } else {
+            result.append(String(c))
+        }
+    }
+    return result;
+}
+
+/// Allocate static memory buffers to intern UTF-8
+/// string data.  Track the buffers and release all of those buffers
+/// in case we ever get deallocated.
+fileprivate class InternPool {
+  private var interned = [UnsafeBufferPointer<UInt8>]()
+
+  func intern(utf8: String.UTF8View) -> UnsafeBufferPointer<UInt8> {
+    let bytePointer = UnsafeMutablePointer<UInt8>.allocate(capacity: utf8.count)
+    let mutable = UnsafeMutableBufferPointer<UInt8>(start: bytePointer, count: utf8.count)
+    _ = mutable.initialize(from: utf8)
+    let immutable = UnsafeBufferPointer<UInt8>(start: bytePointer, count: utf8.count)
+    interned.append(immutable)
+    return immutable
+  }
+
+  deinit {
+    for buff in interned {
+        let p = UnsafeMutableRawPointer(mutating: buff.baseAddress)!
+        p.deallocate(bytes: buff.count, alignedTo: 1)
+    }
+  }
+}
 
 // Constants for FNV hash http://tools.ietf.org/html/draft-eastlake-fnv-03
 private let i_2166136261 = Int(bitPattern: 2166136261)
 private let i_16777619 = Int(16777619)
 
-/// A simple byte wrapper than can hold (and hash/compare) either a
-/// pointer/count to bytes in memory. We don't worry about retention because the
-/// data is assumed to either (1) come from literal strings in the data segment
-/// or (2) not escape the lifetime of the `String` object from which the data
-/// was taken. This is inherently unsafe; use caution when using this type.
-private struct ASCIIName: Hashable {
-
-  private let buffer: UnsafeBufferPointer<UInt8>
-
-  init(buffer: UnsafeBufferPointer<UInt8>) {
-    self.buffer = buffer
-  }
-
-  init(bytes: UnsafePointer<UInt8>, count: Int) {
-    self.init(buffer: UnsafeBufferPointer<UInt8>(start: bytes, count: count))
-  }
-
-  var hashValue: Int {
-    var h = i_2166136261
-    for byte in buffer {
-      h = (h ^ Int(byte)) &* i_16777619
-    }
-    return h
-  }
-
-  static func ==(lhs: ASCIIName, rhs: ASCIIName) -> Bool {
-    if lhs.buffer.count != rhs.buffer.count {
-      return false
-    }
-    return lhs.buffer.elementsEqual(rhs.buffer)
-  }
-}
-
-/// An immutable bidirectional mapping between field/enum-case names and
-/// numbers, used for various text-based serialization (JSON and text).
+/// An immutable bidirectional mapping between field/enum-case names
+/// and numbers, used to record field names for text-based
+/// serialization (JSON and text).  These maps are lazily instantiated
+/// for each message as needed, so there is no run-time overhead for
+/// users who do not use text-based serialization formats.
 public struct _NameMap: ExpressibleByDictionaryLiteral {
 
-  /// A "bundle" of names for a particular field or enum case. We use different
-  /// "packed" representations to minimize the amount of string data that we
-  /// store in the binary.
-  public enum Names {
+  /// An immutable interned string container.  The `utf8Start` pointer
+  /// is guaranteed valid for the lifetime of the `NameMap` that you
+  /// fetched it from.  Since `NameMap`s are only instantiated as
+  /// immutable static values, that should be the lifetime of the
+  /// program.
+  ///
+  /// Internally, this uses `StaticString` (which refers to a fixed
+  /// block of UTF-8 data) where possible.  In cases where the string
+  /// has to be computed, it caches the UTF-8 bytes in an
+  /// unmovable and immutable heap area.
+  internal struct Name: Hashable, CustomStringConvertible {
+    // This is safe to use elsewhere in this library
+    internal init(staticString: StaticString) {
+        self.nameString = .staticString(staticString)
+        self.utf8Buffer = UnsafeBufferPointer<UInt8>(start: staticString.utf8Start, count: staticString.utf8CodeUnitCount)
+    }
+
+    // This should not be used outside of this file, as it requires
+    // coordinating the lifecycle with the lifecycle of the pool
+    // where the raw UTF8 gets interned.
+    fileprivate init(string: String, pool: InternPool) {
+      let utf8 = string.utf8
+      self.utf8Buffer = pool.intern(utf8: utf8)
+      self.nameString = .string(string)
+    }
+
+    // This is for building a transient `Name` object sufficient for lookup purposes.
+    // It MUST NOT be exposed outside of this file.
+    fileprivate init(transientUtf8Buffer: UnsafeBufferPointer<UInt8>) {
+        self.nameString = .staticString("")
+        self.utf8Buffer = transientUtf8Buffer
+    }
+
+    internal var utf8Buffer: UnsafeBufferPointer<UInt8>
+
+    private enum NameString {
+      case string(String)
+      case staticString(StaticString)
+    }
+    private var nameString: NameString
+
+    public var description: String {
+      switch nameString {
+      case .string(let s): return s
+      case .staticString(let s): return s.description
+      }
+    }
+
+    public var hashValue: Int {
+      var h = i_2166136261
+      for byte in utf8Buffer {
+        h = (h ^ Int(byte)) &* i_16777619
+      }
+      return h
+    }
+
+    public static func ==(lhs: Name, rhs: Name) -> Bool {
+      if lhs.utf8Buffer.count != rhs.utf8Buffer.count {
+        return false
+      }
+      return lhs.utf8Buffer.elementsEqual(rhs.utf8Buffer)
+    }
+  }
+
+  /// The JSON and proto names for a particular field, enum case, or extension.
+  internal struct Names {
+    private(set) var json: Name?
+    private(set) var proto: Name
+  }
+
+  /// A description of the names for a particular field or enum case.
+  /// The different forms here let us minimize the amount of string
+  /// data that we store in the binary.
+  ///
+  /// These are only used in the generated code to initialize a NameMap.
+  public enum NameDescription {
 
     /// The proto (text format) name and the JSON name are the same string.
     case same(proto: StaticString)
 
-    /// The JSON and text format names are different and not derivable from each
-    /// other.
+    /// The JSON name can be computed from the proto string
+    case standard(proto: StaticString)
+
+    /// The JSON and text format names are just different.
     case unique(proto: StaticString, json: StaticString)
 
     /// Used for enum cases only to represent a value's primary proto name (the
     /// first defined case) and its aliases. The JSON and text format names for
     /// enums are always the same.
     case aliased(proto: StaticString, aliases: [StaticString])
-
-    // TODO: Add a case for JSON names that are computable from the proto name
-    // using the same algorithm implemented by protoc; for example,
-    // "foo_bar" -> "fooBar". This allows us to only store the string pointer
-    // in the payload once.
-
-    /// Returns the proto (text format) name in the bundle.
-    internal var protoStaticStringName: StaticString {
-      switch self {
-      case .same(proto: let name): return name
-      case .unique(proto: let name, json: _): return name
-      case .aliased(proto: let name, aliases: _): return name
-      }
-    }
-
-    /// Returns the JSON name in the bundle.
-    internal var jsonStaticStringName: StaticString {
-      switch self {
-      case .same(proto: let name): return name
-      case .unique(proto: _, json: let name): return name
-      case .aliased(proto: let name, aliases: _): return name
-      }
-    }
-
-    /// Returns the array of all text format names in this bundle. Used when
-    /// building the name-to-number dictionary.
-    fileprivate var allProtoNames: [StaticString] {
-      switch self {
-      case .same(proto: let name): return [name]
-      case .unique(proto: let name, json: _): return [name]
-      case .aliased(proto: let name, aliases: let aliases):
-        var names = [name]
-        names.append(contentsOf: aliases)
-        return names
-      }
-    }
-
-    /// Returns the array of all text format names in this bundle. Used when
-    /// building the name-to-number dictionary.
-    fileprivate var allJSONNames: [StaticString] {
-      switch self {
-      case .same(proto: let name): return [name]
-      case .unique(proto: _, json: let name): return [name]
-      case .aliased(proto: let name, aliases: let aliases):
-        var names = [name]
-        names.append(contentsOf: aliases)
-        return names
-      }
-    }
   }
 
-  /// The mapping from field/enum-case numbers to name bundles.
+  private var internPool = InternPool()
+
+  /// The mapping from field/enum-case numbers to names.
   private var numberToNameMap: [Int: Names] = [:]
 
   /// The mapping from proto/text names to field/enum-case numbers.
-  private var protoToNumberMap: [ASCIIName: Int] = [:]
+  private var protoToNumberMap: [Name: Int] = [:]
 
   /// The mapping from JSON names to field/enum-case numbers.
-  private var jsonToNumberMap: [ASCIIName: Int] = [:]
+  /// Note that this also contains all of the proto/text names,
+  /// as required by Google's spec for protobuf JSON.
+  private var jsonToNumberMap: [Name: Int] = [:]
 
   /// Creates a new empty field/enum-case name/number mapping.
   public init() {}
 
-  /// Creates a new bidirectional field/enum-case name/number mapping from the
-  /// dictionary literal.
-  public init(dictionaryLiteral elements: (Int, Names)...) {
-    for (number, names) in elements {
-      numberToNameMap[number] = names
-      for s in names.allProtoNames {
-        let p = ASCIIName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
-        protoToNumberMap[p] = number
-      }
-    }
-    // JSON map includes proto names as well.
-    jsonToNumberMap = protoToNumberMap
-    for (number, names) in elements {
-      for s in names.allJSONNames {
-        let j = ASCIIName(bytes: s.utf8Start, count: s.utf8CodeUnitCount)
-        jsonToNumberMap[j] = number
+  /// Build the bidirectional maps between numbers and proto/JSON names.
+  public init(dictionaryLiteral elements: (Int, NameDescription)...) {
+    for (number, description) in elements {
+      switch description {
+
+      case .same(proto: let p):
+        let protoName = Name(staticString: p)
+        let names = Names(json: protoName, proto: protoName)
+        numberToNameMap[number] = names
+        protoToNumberMap[protoName] = number
+        jsonToNumberMap[protoName] = number
+
+      case .standard(proto: let p):
+        let protoName = Name(staticString: p)
+        let jsonString = toJsonFieldName(protoName.description)
+        let jsonName = Name(string: jsonString, pool: internPool)
+        let names = Names(json: jsonName, proto: protoName)
+        numberToNameMap[number] = names
+        protoToNumberMap[protoName] = number
+        jsonToNumberMap[protoName] = number
+        jsonToNumberMap[jsonName] = number
+
+      case .unique(proto: let p, json: let j):
+        let jsonName = Name(staticString: j)
+        let protoName = Name(staticString: p)
+        let names = Names(json: jsonName, proto: protoName)
+        numberToNameMap[number] = names
+        protoToNumberMap[protoName] = number
+        jsonToNumberMap[protoName] = number
+        jsonToNumberMap[jsonName] = number
+
+      case .aliased(proto: let p, aliases: let aliases):
+        let protoName = Name(staticString: p)
+        let names = Names(json: protoName, proto: protoName)
+        numberToNameMap[number] = names
+        protoToNumberMap[protoName] = number
+        jsonToNumberMap[protoName] = number
+        for alias in aliases {
+            let protoName = Name(staticString: alias)
+            protoToNumberMap[protoName] = number
+            jsonToNumberMap[protoName] = number
+        }
       }
     }
   }
 
   /// Returns the name bundle for the field/enum-case with the given number, or
   /// `nil` if there is no match.
-  public func names(for number: Int) -> Names? {
+  internal func names(for number: Int) -> Names? {
     return numberToNameMap[number]
   }
 
+  /// Returns the field/enum-case number that has the given JSON name,
+  /// or `nil` if there is no match.
+  ///
+  /// This is used by the Text format parser to look up field or enum
+  /// names using a direct reference to the un-decoded UTF8 bytes.
   internal func number(forProtoName raw: UnsafeBufferPointer<UInt8>) -> Int? {
-    let n = ASCIIName(buffer: raw)
+    let n = Name(transientUtf8Buffer: raw)
     return protoToNumberMap[n]
   }
 
-  /// Returns the field/enum-case number that has the given JSON name, or `nil`
-  /// if there is no match.
+  /// Returns the field/enum-case number that has the given JSON name,
+  /// or `nil` if there is no match.
   ///
-  /// JSON parsing must interpret *both* the JSON name of the field/enum-case
-  /// provided by the descriptor *as well as* its original proto/text name.
-  /// Because of this, this function checks both mappings -- first the JSON
-  /// mapping, then the proto mapping.
+  /// This accepts a regular `String` and is used in JSON parsing
+  /// only when a field name or enum name was decoded from a string
+  /// containing backslash escapes.
+  ///
+  /// JSON parsing must interpret *both* the JSON name of the
+  /// field/enum-case provided by the descriptor *as well as* its
+  /// original proto/text name.
   internal func number(forJSONName name: String) -> Int? {
     let utf8 = Array(name.utf8)
     return utf8.withUnsafeBufferPointer { (buffer: UnsafeBufferPointer<UInt8>) in
-      let n = ASCIIName(buffer: buffer)
+      let n = Name(transientUtf8Buffer: buffer)
       return jsonToNumberMap[n]
     }
   }
 
-  /// Private version of fieldNumber(forJSONName:) that accepts a
-  /// pointer/size to a block of memory holding UTF8 text.  This is
-  /// used by the JSON decoder to avoid the overhead of creating a new
-  /// String object for every field name.
+  /// Returns the field/enum-case number that has the given JSON name,
+  /// or `nil` if there is no match.
+  ///
+  /// This is used by the JSON parser when a field name or enum name
+  /// required no special processing.  As a result, we can avoid
+  /// copying the name and look up the number using a direct reference
+  /// to the un-decoded UTF8 bytes.
   internal func number(forJSONName raw: UnsafeBufferPointer<UInt8>) -> Int? {
-    let n = ASCIIName(buffer: raw)
+    let n = Name(transientUtf8Buffer: raw)
     return jsonToNumberMap[n]
   }
 }

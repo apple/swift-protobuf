@@ -60,11 +60,6 @@ public struct ExtensionFieldValueSet: Equatable {
     set { values[index] = newValue }
   }
 
-  /// SwiftProtobuf Internal: Common support for decoding/encoding.
-  internal func _protobuf_fieldName(for number: Int) -> StaticString? {
-    return values[number]?.protobufExtension.fieldName
-  }
-
   public var isInitialized: Bool {
     for (_, v) in values {
       if !v.isInitialized {

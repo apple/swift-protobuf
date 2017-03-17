@@ -62,8 +62,8 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
     19: .same(proto: "msg"),
-    2: .unique(proto: "integer_field", json: "integerField"),
-    3: .unique(proto: "string_field", json: "stringField"),
+    2: .standard(proto: "integer_field"),
+    3: .standard(proto: "string_field"),
   ]
 
   private class _StorageClass {

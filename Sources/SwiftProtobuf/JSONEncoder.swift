@@ -76,11 +76,19 @@ internal struct JSONEncoder {
     }
 
     /// Append a `StaticString` to the JSON text.  Because
-    /// `StaticString` is UTF8 internally, this is faster
+    /// `StaticString` is already UTF8 internally, this is faster
     /// than appending a regular `String`.
     internal mutating func append(staticText: StaticString) {
         let buff = UnsafeBufferPointer(start: staticText.utf8Start, count: staticText.utf8CodeUnitCount)
         data.append(contentsOf: buff)
+    }
+
+    /// Append a `_NameMap.Name` to the JSON text.  As with
+    /// StaticString above, a `_NameMap.Name` provides pre-converted
+    /// UTF8 bytes, so this is much faster than appending a regular
+    /// `String`.
+    internal mutating func append(name: _NameMap.Name) {
+        data.append(contentsOf: name.utf8Buffer)
     }
 
     /// Append a `String` to the JSON text.
@@ -93,14 +101,14 @@ internal struct JSONEncoder {
         data.append(contentsOf: utf8Data)
     }
 
-    /// Begin a new field whose name is given as a `StaticString`.
-    internal mutating func startField(name: StaticString) {
+    /// Begin a new field whose name is given as a `_NameMap.Name`
+    internal mutating func startField(name: _NameMap.Name) {
         if let s = separator {
             data.append(s)
         }
         data.append(asciiDoubleQuote)
         // Append the StaticString's utf8 contents directly
-        append(staticText: name)
+        append(name: name)
         append(staticText: "\":")
         separator = asciiComma
     }
