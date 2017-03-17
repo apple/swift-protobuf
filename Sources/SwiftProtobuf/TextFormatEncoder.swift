@@ -59,7 +59,7 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    private mutating func appendFieldName(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
+    mutating func emitFieldName(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
         indent()
         if inExtension {
             data.append(asciiOpenSquareBracket)
@@ -70,38 +70,27 @@ internal struct TextFormatEncoder {
         }
     }
 
-    // In Text format, fields with simple types write the name with
-    // a trailing colon:
-    //    name_of_field: value
-    mutating func startField(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
-        appendFieldName(name: name, inExtension: inExtension)
-        append(staticText: ": ")
+    mutating func emitFieldName(name: StaticString, inExtension: Bool) {
+        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
+        emitFieldName(name: buff, inExtension: inExtension)
     }
 
-    mutating func startField(number: Int) {
+    mutating func emitFieldNumber(number: Int) {
         indent()
         appendUInt(value: UInt64(number))
-        append(staticText: ": ")
     }
 
-    mutating func endField() {
+    mutating func startRegularField() {
+        append(staticText: ": ")
+    }
+    mutating func endRegularField() {
         data.append(asciiNewline)
     }
 
     // In Text format, a message-valued field writes the name
     // without a trailing colon:
     //    name_of_field {key: value key2: value2}
-    mutating func startMessageField(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
-        appendFieldName(name: name, inExtension: inExtension)
-        append(staticText: " {\n")
-        for _ in 1...tabSize {
-            indentString.append(asciiSpace)
-        }
-    }
-
-    mutating func startMessageField(number: Int) {
-        indent()
-        appendUInt(value: UInt64(number))
+    mutating func startMessageField() {
         append(staticText: " {\n")
         for _ in 1...tabSize {
             indentString.append(asciiSpace)

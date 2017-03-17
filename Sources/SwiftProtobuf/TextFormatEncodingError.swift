@@ -13,6 +13,4 @@
 // -----------------------------------------------------------------------------
 
 public enum TextFormatEncodingError: Error {
-    /// Field names were not compiled into the binary
-    case missingFieldNames
 }

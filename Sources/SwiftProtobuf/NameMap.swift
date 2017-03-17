@@ -104,7 +104,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
         self.utf8Buffer = transientUtf8Buffer
     }
 
-    internal var utf8Buffer: UnsafeBufferPointer<UInt8>
+    private(set) var utf8Buffer: UnsafeBufferPointer<UInt8>
 
     private enum NameString {
       case string(String)

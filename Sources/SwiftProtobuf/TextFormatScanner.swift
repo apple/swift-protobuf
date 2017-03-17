@@ -261,38 +261,38 @@ private func decodeString(_ s: String) -> String? {
 ///
 internal struct TextFormatScanner {
     internal var extensions: ExtensionSet?
-    private var utf8: String.UTF8View
-    private var index: String.UTF8View.Index
+    private var p: UnsafePointer<UInt8>
+    private var end: UnsafePointer<UInt8>
 
     internal var complete: Bool {
         mutating get {
-            skipWhitespace()
-            return index == utf8.endIndex
+            return p == end
         }
     }
 
-    internal init(text: String, extensions: ExtensionSet? = nil) {
-        utf8 = text.utf8
-        index = utf8.startIndex
+    internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet? = nil) {
+        p = utf8Pointer
+        end = p + count
         self.extensions = extensions
+        skipWhitespace()
     }
 
     /// Skip whitespace
     private mutating func skipWhitespace() {
-        while index != utf8.endIndex {
-            let u = utf8[index]
+        while p != end {
+            let u = p[0]
             switch u {
             case asciiSpace,
                  asciiTab,
                  asciiNewLine,
                  asciiCarriageReturn: // space, tab, NL, CR
-                index = utf8.index(after: index)
-            case asciiHash: // #
-                index = utf8.index(after: index)
-                while index != utf8.endIndex {
+                p += 1
+            case asciiHash: // # comment
+                p += 1
+                while p != end {
                     // Skip until end of line
-                    let c = utf8[index]
-                    index = utf8.index(after: index)
+                    let c = p[0]
+                    p += 1
                     if c == asciiNewLine || c == asciiCarriageReturn {
                         break
                     }
@@ -304,39 +304,41 @@ internal struct TextFormatScanner {
     }
 
     private mutating func parseIdentifier() -> String? {
-        let start = index
-        while index != utf8.endIndex {
-            let c = utf8[index]
+        let start = p
+        loop: while p != end {
+            let c = p[0]
             switch c {
             case asciiLowerA...asciiLowerZ,
                  asciiUpperA...asciiUpperZ,
                  asciiZero...asciiNine,
                  asciiUnderscore:
-                index = utf8.index(after: index)
+                p += 1
             default:
-                return String(utf8[start..<index])
+                break loop
             }
         }
-        return String(utf8[start..<index])
+        let s = utf8ToString(bytes: start, count: p - start)
+        skipWhitespace()
+        return s
     }
 
     /// Parse the rest of an [extension_field_name] in the input, assuming the
     /// initial "[" character has already been read (and is in the prefix)
     /// This is also used for AnyURL, so we include "/", "."
     private mutating func parseExtensionKey() -> String? {
-        let start = index
-        if index == utf8.endIndex {
+        let start = p
+        if p == end {
             return nil
         }
-        let c = utf8[index]
+        let c = p[0]
         switch c {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
-            index = utf8.index(after: index)
+            p += 1
         default:
             return nil
         }
-        while index != utf8.endIndex {
-            let c = utf8[index]
+        while p != end {
+            let c = p[0]
             switch c {
             case asciiLowerA...asciiLowerZ,
                  asciiUpperA...asciiUpperZ,
@@ -344,10 +346,9 @@ internal struct TextFormatScanner {
                  asciiUnderscore,
                  asciiPeriod,
                  asciiForwardSlash:
-                index = utf8.index(after: index)
+                p += 1
             case asciiCloseSquareBracket: // ]
-                let s = String(utf8[start..<index])
-                return s
+                return utf8ToString(bytes: start, count: p - start)
             default:
                 return nil
             }
@@ -357,20 +358,21 @@ internal struct TextFormatScanner {
 
     /// Assumes the leading quote has already been consumed
     private mutating func parseQuotedString(terminator: UInt8) -> String? {
-        let start = index
-        while index != utf8.endIndex {
-            let c = utf8[index]
+        let start = p
+        while p != end {
+            let c = p[0]
             if c == terminator {
-                let s = String(utf8[start..<index])
-                index = utf8.index(after: index)
+                let s = utf8ToString(bytes: start, count: p - start)
+                p += 1
+                skipWhitespace()
                 return s
             }
-            index = utf8.index(after: index)
+            p += 1
             if c == asciiBackslash { //  \
-                if index == utf8.endIndex {
+                if p == end {
                     return nil
                 }
-                index = utf8.index(after: index)
+                p += 1
             }
         }
         return nil // Unterminated quoted string
@@ -378,44 +380,44 @@ internal struct TextFormatScanner {
 
     /// Assumes the leading quote has already been consumed
     private mutating func parseStringSegment(terminator: UInt8) -> String? {
-        let start = index
+        let start = p
         var sawBackslash = false
-        while index != utf8.endIndex {
-            let c = utf8[index]
+        while p != end {
+            let c = p[0]
             if c == terminator {
-                let s = String(utf8[start..<index])
-                index = utf8.index(after: index)
+                let s = utf8ToString(bytes: start, count: p - start)
+                p += 1
+                skipWhitespace()
                 if let s = s, sawBackslash {
                     return decodeString(s)
                 } else {
                     return s
                 }
             }
-            index = utf8.index(after: index)
+            p += 1
             if c == asciiBackslash { //  \
-                if index == utf8.endIndex {
+                if p == end {
                     return nil
                 }
                 sawBackslash = true
-                index = utf8.index(after: index)
+                p += 1
             }
         }
         return nil // Unterminated quoted string
     }
 
     internal mutating func nextUInt() throws -> UInt64 {
-        skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             throw TextFormatDecodingError.malformedNumber
         }
-        let c = utf8[index]
-        index = utf8.index(after: index)
+        let c = p[0]
+        p += 1
         if c == asciiZero { // leading '0' precedes octal or hex
-            if utf8[index] == asciiLowerX { // 'x' => hex
-                index = utf8.index(after: index)
+            if p[0] == asciiLowerX { // 'x' => hex
+                p += 1
                 var n: UInt64 = 0
-                while index != utf8.endIndex {
-                    let digit = utf8[index]
+                while p != end {
+                    let digit = p[0]
                     let val: UInt64
                     switch digit {
                     case asciiZero...asciiNine: // 0...9
@@ -425,47 +427,55 @@ internal struct TextFormatScanner {
                     case asciiUpperA...asciiUpperF:
                         val = UInt64(digit - asciiUpperA + 10)
                     case asciiLowerU: // trailing 'u'
-                        index = utf8.index(after: index)
+                        p += 1
+                        skipWhitespace()
                         return n
                     default:
+                        skipWhitespace()
                         return n
                     }
                     if n > UInt64.max / 16 {
                         throw TextFormatDecodingError.malformedNumber
                     }
-                    index = utf8.index(after: index)
+                    p += 1
                     n = n * 16 + val
                 }
+                skipWhitespace()
                 return n
             } else { // octal
                 var n: UInt64 = 0
-                while index != utf8.endIndex {
-                    let digit = utf8[index]
+                while p != end {
+                    let digit = p[0]
                     if digit == asciiLowerU { // trailing 'u'
-                        index = utf8.index(after: index)
+                        p += 1
+                        skipWhitespace()
                         return n
                     }
                     if digit < asciiZero || digit > asciiSeven {
+                        skipWhitespace()
                         return n // not octal digit
                     }
                     let val = UInt64(digit - asciiZero)
                     if n > UInt64.max / 8 {
                         throw TextFormatDecodingError.malformedNumber
                     }
-                    index = utf8.index(after: index)
+                    p += 1
                     n = n * 8 + val
                 }
+                skipWhitespace()
                 return n
             }
         } else if c > asciiZero && c <= asciiNine { // 1...9
             var n = UInt64(c - asciiZero)
-            while index != utf8.endIndex {
-                let digit = utf8[index]
+            while p != end {
+                let digit = p[0]
                 if digit == asciiLowerU { // trailing 'u'
-                    index = utf8.index(after: index)
+                    p += 1
+                    skipWhitespace()
                     return n
                 }
                 if digit < asciiZero || digit > asciiNine {
+                    skipWhitespace()
                     return n // not a digit
                 }
                 let val = UInt64(digit - asciiZero)
@@ -474,24 +484,24 @@ internal struct TextFormatScanner {
                         throw TextFormatDecodingError.malformedNumber
                     }
                 }
-                index = utf8.index(after: index)
+                p += 1
                 n = n * 10 + val
             }
+            skipWhitespace()
             return n
         }
         throw TextFormatDecodingError.malformedNumber
     }
 
     internal mutating func nextSInt() throws -> Int64 {
-        skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             throw TextFormatDecodingError.malformedNumber
         }
-        let c = utf8[index]
+        let c = p[0]
         if c == asciiMinus { // -
-            index = utf8.index(after: index)
+            p += 1
             // character after '-' must be digit
-            let digit = utf8[index]
+            let digit = p[0]
             if digit < asciiZero || digit > asciiNine {
                 throw TextFormatDecodingError.malformedNumber
             }
@@ -517,14 +527,14 @@ internal struct TextFormatScanner {
     internal mutating func nextStringValue() throws -> String {
         var result: String
         skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let c = utf8[index]
+        let c = p[0]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
             throw TextFormatDecodingError.malformedText
         }
-        index = utf8.index(after: index)
+        p += 1
         if let s = parseStringSegment(terminator: c) {
             result = s
         } else {
@@ -532,15 +542,14 @@ internal struct TextFormatScanner {
         }
 
         while true {
-            skipWhitespace()
-            if index == utf8.endIndex {
+            if p == end {
                 return result
             }
-            let c = utf8[index]
+            let c = p[0]
             if c != asciiSingleQuote && c != asciiDoubleQuote {
                 return result
             }
-            index = utf8.index(after: index)
+            p += 1
             if let s = parseStringSegment(terminator: c) {
                 result.append(s)
             } else {
@@ -552,14 +561,14 @@ internal struct TextFormatScanner {
     internal mutating func nextBytesValue() throws -> Data {
         var result: Data
         skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let c = utf8[index]
+        let c = p[0]
         if c != asciiSingleQuote && c != asciiDoubleQuote {
             throw TextFormatDecodingError.malformedText
         }
-        index = utf8.index(after: index)
+        p += 1
         if let s = parseQuotedString(terminator: c), let b = decodeBytes(s) {
             result = b
         } else {
@@ -568,14 +577,14 @@ internal struct TextFormatScanner {
 
         while true {
             skipWhitespace()
-            if index == utf8.endIndex {
+            if p == end {
                 return result
             }
-            let c = utf8[index]
+            let c = p[0]
             if c != asciiSingleQuote && c != asciiDoubleQuote {
                 return result
             }
-            index = utf8.index(after: index)
+            p += 1
             if let s = parseQuotedString(terminator: c),
                let b = decodeBytes(s) {
                 result.append(b)
@@ -588,40 +597,39 @@ internal struct TextFormatScanner {
     // Tries to identify a sequence of UTF8 characters
     // that represent a numeric floating-point value.
     private mutating func tryParseFloatString() -> String? {
-        skipWhitespace()
-        guard index != utf8.endIndex else {return nil}
-        let start = index
-        var c = utf8[index]
+        guard p != end else {return nil}
+        let start = p
+        var c = p[0]
         if c == asciiMinus {
-            index = utf8.index(after: index)
-            guard index != utf8.endIndex else {index = start; return nil}
-            c = utf8[index]
+            p += 1
+            guard p != end else {p = start; return nil}
+            c = p[0]
         }
         switch c {
         case asciiZero: // '0' as first character only if followed by '.'
-            index = utf8.index(after: index)
-            guard index != utf8.endIndex else {index = start; return nil}
-            c = utf8[index]
+            p += 1
+            guard p != end else {p = start; return nil}
+            c = p[0]
             if c != asciiPeriod {
-                index = start
+                p = start
                 return nil
             }
         case asciiPeriod: // '.' as first char only if followed by digit
-            index = utf8.index(after: index)
-            guard index != utf8.endIndex else {index = start; return nil}
-            c = utf8[index]
+            p += 1
+            guard p != end else {p = start; return nil}
+            c = p[0]
             if c < asciiZero || c > asciiNine {
-                index = start
+                p = start
                 return nil
             }
         case asciiOne...asciiNine:
             break
         default:
-            index = start
+            p = start
             return nil
         }
-        while index != utf8.endIndex {
-            let c = utf8[index]
+        loop: while p != end {
+            let c = p[0]
             switch c {
             case asciiZero...asciiNine,
                  asciiPeriod,
@@ -629,50 +637,52 @@ internal struct TextFormatScanner {
                  asciiMinus,
                  asciiLowerE,
                  asciiUpperE: // 0...9, ., +, -, e, E
-                index = utf8.index(after: index)
+                p += 1
             case asciiLowerF: // f
                 // proto1 allowed floats to be suffixed with 'f'
-                let s = String(utf8[start..<index])!
+                let s = utf8ToString(bytes: start, count: p - start)!
                 // Just skip the 'f'
-                index = utf8.index(after: index)
+                p += 1
+                skipWhitespace()
                 return s
             default:
-                return String(utf8[start..<index])!
+                break loop
             }
         }
-        return String(utf8[start..<index])!
+        let s = utf8ToString(bytes: start, count: p - start)!
+        skipWhitespace()
+        return s
     }
 
     private mutating func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
-        skipWhitespace()
-        let start = index
+        let start = p
         for b in bytes {
-            if index == utf8.endIndex {
-                index = start
+            if p == end {
+                p = start
                 return false
             }
-            var c = utf8[index]
+            var c = p[0]
             if c >= asciiUpperA && c <= asciiUpperZ {
                 // Convert to lower case
                 // (Protobuf text keywords are case insensitive)
                 c += asciiLowerA - asciiUpperA
             }
             if c != b {
-                index = start
+                p = start
                 return false
             }
-            index = utf8.index(after: index)
+            p += 1
         }
-        if index == utf8.endIndex {
-            index = start
+        if p == end {
             return true
         }
-        let c = utf8[index]
+        let c = p[0]
         if ((c >= asciiUpperA && c <= asciiUpperZ)
             || (c >= asciiLowerA && c <= asciiLowerZ)) {
-            index = start
+            p = start
             return false
         }
+        skipWhitespace()
         return true
     }
 
@@ -685,15 +695,14 @@ internal struct TextFormatScanner {
     // If the next token is a recognized spelling of "infinity",
     // return Float.infinity or -Float.infinity
     private mutating func skipOptionalInfinity() -> Float? {
-        skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             return nil
         }
-        let c = utf8[index]
+        let c = p[0]
         let negated: Bool
         if c == asciiMinus {
             negated = true
-            index = utf8.index(after: index)
+            p += 1
         } else {
             negated = false
         }
@@ -739,16 +748,16 @@ internal struct TextFormatScanner {
 
     internal mutating func nextBool() throws -> Bool {
         skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let c = utf8[index]
+        let c = p[0]
         switch c {
         case asciiZero: // 0
-            index = utf8.index(after: index)
+            p += 1
             return false
         case asciiOne: // 1
-            index = utf8.index(after: index)
+            p += 1
             return true
         default:
             if let s = parseIdentifier() {
@@ -767,11 +776,11 @@ internal struct TextFormatScanner {
 
     internal mutating func nextOptionalEnumName() throws -> String? {
         skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let c = utf8[index]
-        let start = index
+        let c = p[0]
+        let start = p
         switch c {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
             if let s = parseIdentifier() {
@@ -780,7 +789,7 @@ internal struct TextFormatScanner {
         default:
             break
         }
-        index = start
+        p = start
         return nil
     }
 
@@ -803,20 +812,20 @@ internal struct TextFormatScanner {
     /// when the key is looked up.
     internal mutating func nextOptionalExtensionKey() throws -> String? {
         skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             return nil
         }
-        if utf8[index] == asciiOpenSquareBracket { // [
-            index = utf8.index(after: index)
+        if p[0] == asciiOpenSquareBracket { // [
+            p += 1
             if let s = parseExtensionKey() {
-                if index == utf8.endIndex || utf8[index] != asciiCloseSquareBracket {
+                if p == end || p[0] != asciiCloseSquareBracket {
                     throw TextFormatDecodingError.malformedText
                 }
                 // Skip ]
-                index = utf8.index(after: index)
+                p += 1
+                skipWhitespace()
                 return s
             } else {
-                print("Error parsing extension identifier")
                 throw TextFormatDecodingError.malformedText
             }
         }
@@ -832,10 +841,10 @@ internal struct TextFormatScanner {
     /// rework that to use nextFieldNumber instead.
     internal mutating func nextKey() throws -> String? {
         skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             return nil
         }
-        let c = utf8[index]
+        let c = p[0]
         switch c {
         case asciiOpenSquareBracket: // [
             throw TextFormatDecodingError.malformedText
@@ -862,35 +871,33 @@ internal struct TextFormatScanner {
     /// This function accounts for as much as 2/3 of the total run
     /// time of the entire parse.
     internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
-        skipWhitespace()
-        if index == utf8.endIndex {
+        if p == end {
             return nil
         }
-        let c = utf8[index]
+        let c = p[0]
         switch c {
         case asciiLowerA...asciiLowerZ,
              asciiUpperA...asciiUpperZ: // a...z, A...Z
-            let start = index
-            index = utf8.index(after: index)
-            scanKeyLoop: while index != utf8.endIndex {
-                let c = utf8[index]
+            let start = p
+            p += 1
+            scanKeyLoop: while p != end {
+                let c = p[0]
                 switch c {
                 case asciiLowerA...asciiLowerZ,
                      asciiUpperA...asciiUpperZ,
                      asciiZero...asciiNine,
                      asciiUnderscore: // a...z, A...Z, 0...9, _
-                    index = utf8.index(after: index)
+                    p += 1
                 default:
                     break scanKeyLoop
                 }
             }
-            let key = Array(utf8[start..<index])
-            return try key.withUnsafeBufferPointer { buff in
-                if let fieldNumber = names.number(forProtoName: buff) {
-                    return fieldNumber
-                } else {
-                    throw TextFormatDecodingError.unknownField
-                }
+            let key = UnsafeBufferPointer(start: start, count: p - start)
+            skipWhitespace()
+            if let fieldNumber = names.number(forProtoName: key) {
+                return fieldNumber
+            } else {
+                throw TextFormatDecodingError.unknownField
             }
         default:
             break
@@ -900,8 +907,9 @@ internal struct TextFormatScanner {
 
     private mutating func skipRequiredCharacter(_ c: UInt8) throws {
         skipWhitespace()
-        if index != utf8.endIndex && utf8[index] == c {
-            index = utf8.index(after: index)
+        if p != end && p[0] == c {
+            p += 1
+            skipWhitespace()
         } else {
             throw TextFormatDecodingError.malformedText
         }
@@ -916,9 +924,9 @@ internal struct TextFormatScanner {
     }
 
     private mutating func skipOptionalCharacter(_ c: UInt8) -> Bool {
-        skipWhitespace()
-        if index != utf8.endIndex && utf8[index] == c {
-            index = utf8.index(after: index)
+        if p != end && p[0] == c {
+            p += 1
+            skipWhitespace()
             return true
         }
         return false
@@ -941,11 +949,11 @@ internal struct TextFormatScanner {
     }
 
     internal mutating func skipOptionalSeparator() {
-        skipWhitespace()
-        if index != utf8.endIndex {
-            let c = utf8[index]
+        if p != end {
+            let c = p[0]
             if c == asciiComma || c == asciiSemicolon { // comma or semicolon
-                index = utf8.index(after: index)
+                p += 1
+                skipWhitespace()
             }
         }
     }
@@ -953,10 +961,10 @@ internal struct TextFormatScanner {
     /// Returns the character that should end this field.
     /// E.g., if object starts with "{", returns "}"
     internal mutating func skipObjectStart() throws -> UInt8 {
-        skipWhitespace()
-        if index != utf8.endIndex {
-            let c = utf8[index]
-            index = utf8.index(after: index)
+        if p != end {
+            let c = p[0]
+            p += 1
+            skipWhitespace()
             switch c {
             case asciiOpenCurlyBracket: // {
                 return asciiCloseCurlyBracket // }
