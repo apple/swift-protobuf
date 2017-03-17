@@ -57,12 +57,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   private mutating func emitFieldName(lookingUp fieldNumber: Int) {
-      // This compact form of startField(lookingUp:) slows the entire
-      // TextFormat encoding process by over 2x.
-      //let buff = try protoFieldName(for: fieldNumber)
-      //startField(name: buff)
-
-      // This manually unrolled version is *much* faster.
       if let protoName = nameMap?.names(for: fieldNumber)?.proto {
           encoder.emitFieldName(name: protoName.utf8Buffer, inExtension: inExtension)
       } else if let protoName = nameResolver[fieldNumber] {
