@@ -87,7 +87,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     // This is safe to use elsewhere in this library
     internal init(staticString: StaticString) {
         self.nameString = .staticString(staticString)
-        self.buffer = UnsafeBufferPointer<UInt8>(start: staticString.utf8Start, count: staticString.utf8CodeUnitCount)
+        self.utf8Buffer = UnsafeBufferPointer<UInt8>(start: staticString.utf8Start, count: staticString.utf8CodeUnitCount)
     }
 
     // This should not be used outside of this file, as it requires
@@ -95,20 +95,18 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
     // where the raw UTF8 gets interned.
     fileprivate init(string: String, pool: InternPool) {
       let utf8 = string.utf8
-      self.buffer = pool.intern(utf8: utf8)
+      self.utf8Buffer = pool.intern(utf8: utf8)
       self.nameString = .string(string)
     }
 
     // This is for building a transient `Name` object sufficient for lookup purposes.
     // It MUST NOT be exposed outside of this file.
-    fileprivate init(transientUtf8Start: UnsafePointer<UInt8>, utf8CodeUnitCount: Int) {
+    fileprivate init(transientUtf8Buffer: UnsafeBufferPointer<UInt8>) {
         self.nameString = .staticString("")
-        self.buffer = UnsafeBufferPointer<UInt8>(start: transientUtf8Start, count: utf8CodeUnitCount)
+        self.utf8Buffer = transientUtf8Buffer
     }
 
-    private var buffer: UnsafeBufferPointer<UInt8>
-    public var utf8Start: UnsafePointer<UInt8> {return buffer.baseAddress!}
-    public var utf8CodeUnitCount: Int {return buffer.count}
+    internal var utf8Buffer: UnsafeBufferPointer<UInt8>
 
     private enum NameString {
       case string(String)
@@ -125,17 +123,17 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
 
     public var hashValue: Int {
       var h = i_2166136261
-      for byte in buffer {
+      for byte in utf8Buffer {
         h = (h ^ Int(byte)) &* i_16777619
       }
       return h
     }
 
     public static func ==(lhs: Name, rhs: Name) -> Bool {
-      if lhs.buffer.count != rhs.buffer.count {
+      if lhs.utf8Buffer.count != rhs.utf8Buffer.count {
         return false
       }
-      return lhs.buffer.elementsEqual(rhs.buffer)
+      return lhs.utf8Buffer.elementsEqual(rhs.utf8Buffer)
     }
   }
 
@@ -241,7 +239,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   /// This is used by the Text format parser to look up field or enum
   /// names using a direct reference to the un-decoded UTF8 bytes.
   internal func number(forProtoName raw: UnsafeBufferPointer<UInt8>) -> Int? {
-    let n = Name(transientUtf8Start: raw.baseAddress!, utf8CodeUnitCount: raw.count)
+    let n = Name(transientUtf8Buffer: raw)
     return protoToNumberMap[n]
   }
 
@@ -258,7 +256,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   internal func number(forJSONName name: String) -> Int? {
     let utf8 = Array(name.utf8)
     return utf8.withUnsafeBufferPointer { (buffer: UnsafeBufferPointer<UInt8>) in
-      let n = Name(transientUtf8Start: buffer.baseAddress!, utf8CodeUnitCount: buffer.count)
+      let n = Name(transientUtf8Buffer: buffer)
       return jsonToNumberMap[n]
     }
   }
@@ -271,7 +269,7 @@ public struct _NameMap: ExpressibleByDictionaryLiteral {
   /// copying the name and look up the number using a direct reference
   /// to the un-decoded UTF8 bytes.
   internal func number(forJSONName raw: UnsafeBufferPointer<UInt8>) -> Int? {
-    let n = Name(transientUtf8Start: raw.baseAddress!, utf8CodeUnitCount: raw.count)
+    let n = Name(transientUtf8Buffer: raw)
     return jsonToNumberMap[n]
   }
 }

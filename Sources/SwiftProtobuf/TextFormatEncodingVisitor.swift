@@ -61,7 +61,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   private func protoFieldName(for number: Int) throws -> UnsafeBufferPointer<UInt8> {
     if let protoName = nameMap?.names(for: number)?.proto {
-        return UnsafeBufferPointer<UInt8>(start: protoName.utf8Start, count: protoName.utf8CodeUnitCount)
+        return protoName.utf8Buffer
     } else if let protoName = nameResolver[number] {
         return UnsafeBufferPointer<UInt8>(start: protoName.utf8Start, count: protoName.utf8CodeUnitCount)
     } else if let extensionName = extensions?[number]?.protobufExtension.fieldName {

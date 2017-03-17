@@ -88,8 +88,7 @@ internal struct JSONEncoder {
     /// UTF8 bytes, so this is much faster than appending a regular
     /// `String`.
     internal mutating func append(name: _NameMap.Name) {
-        let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        data.append(contentsOf: buff)
+        data.append(contentsOf: name.utf8Buffer)
     }
 
     /// Append a `String` to the JSON text.
