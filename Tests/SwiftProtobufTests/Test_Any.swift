@@ -176,7 +176,7 @@ class Test_Any: XCTestCase {
     }
 
     func test_Any_UnknownUserMessage_JSON() throws {
-        Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self )
+        Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self)
         let start = "{\"int32Value\":12,\"anyValue\":{\"@type\":\"type.googleapis.com/UNKNOWN\",\"optionalInt32\":7}}"
         let decoded = try ProtobufUnittest_TestAny(jsonString: start)
 
@@ -639,5 +639,46 @@ class Test_Any: XCTestCase {
       msg.optionalAny = Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
       let newJSON = try msg.jsonString()
       XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
+    }
+
+    func test_Any_Registery() {
+      // Registering the same type multiple times is ok.
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))
+
+      // Registering a different type with the same messageName will fail.
+      XCTAssertFalse(Google_Protobuf_Any.register(messageType: Proto3TestAllTypes.self))
+
+      // Sanity check that the .proto files weren't changed, and they do have the same name.
+      XCTAssertEqual(Proto3TestAllTypes.protoMessageName, ProtobufUnittest_TestAllTypes.protoMessageName)
+
+      // Lookup
+      XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestAllTypes.protoMessageName) == ProtobufUnittest_TestAllTypes.self)
+      XCTAssertNil(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestAllTypes.OptionalGroup.protoMessageName))
+
+      // All the WKTs should be registered.
+      let wkts: [Message.Type] = [
+        Google_Protobuf_Any.self,
+        Google_Protobuf_BoolValue.self,
+        Google_Protobuf_BytesValue.self,
+        Google_Protobuf_DoubleValue.self,
+        Google_Protobuf_Duration.self,
+        Google_Protobuf_Empty.self,
+        Google_Protobuf_FieldMask.self,
+        Google_Protobuf_FloatValue.self,
+        Google_Protobuf_Int32Value.self,
+        Google_Protobuf_Int64Value.self,
+        Google_Protobuf_ListValue.self,
+        Google_Protobuf_StringValue.self,
+        Google_Protobuf_Struct.self,
+        Google_Protobuf_Timestamp.self,
+        Google_Protobuf_UInt32Value.self,
+        Google_Protobuf_UInt64Value.self,
+        Google_Protobuf_Value.self,
+      ]
+      for t in wkts {
+        XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: t.protoMessageName) == t,
+                      "Looking up \(t.protoMessageName)")
+      }
     }
 }

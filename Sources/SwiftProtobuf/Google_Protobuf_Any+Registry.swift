@@ -47,12 +47,14 @@ internal func typeName(fromURL s: String) -> String {
   return s[typeStart..<s.endIndex]
 }
 
-fileprivate let wktToMessageType: [String:Message.Type] = [
+fileprivate var knownTypes: [String:Message.Type] = [
+  // Seeded with the Well Known Types.
   "google.protobuf.Any": Google_Protobuf_Any.self,
   "google.protobuf.BoolValue": Google_Protobuf_BoolValue.self,
   "google.protobuf.BytesValue": Google_Protobuf_BytesValue.self,
   "google.protobuf.DoubleValue": Google_Protobuf_DoubleValue.self,
   "google.protobuf.Duration": Google_Protobuf_Duration.self,
+  "google.protobuf.Empty": Google_Protobuf_Empty.self,
   "google.protobuf.FieldMask": Google_Protobuf_FieldMask.self,
   "google.protobuf.FloatValue": Google_Protobuf_FloatValue.self,
   "google.protobuf.Int32Value": Google_Protobuf_Int32Value.self,
@@ -65,8 +67,6 @@ fileprivate let wktToMessageType: [String:Message.Type] = [
   "google.protobuf.UInt64Value": Google_Protobuf_UInt64Value.self,
   "google.protobuf.Value": Google_Protobuf_Value.self,
 ]
-
-fileprivate var knownTypes = [String:Message.Type]()
 
 public extension Google_Protobuf_Any {
 
@@ -94,10 +94,19 @@ public extension Google_Protobuf_Any {
     ///
     /// Also note that this is not needed if you only decode and encode
     /// to and from the same format.
-    static public func register(messageType: Message.Type) {
+    ///
+    /// Returns: true if the type was registered, false if something
+    ///   else was already registered for the messageName.
+    @discardableResult static public func register(messageType: Message.Type) -> Bool {
         let messageTypeName = messageType.protoMessageName
-        assert(!isWellKnownType(messageName: messageTypeName))
+        if let alreadyRegistered = knownTypes[messageTypeName] {
+            // Success/failure when something was already registered is
+            // based on if they are registering the same class or trying
+            // to register a different type
+            return alreadyRegistered == messageType
+        }
         knownTypes[messageTypeName] = messageType
+        return true
     }
 
     /// Returns the Message.Type expected for the given proto message name.
@@ -108,14 +117,7 @@ public extension Google_Protobuf_Any {
 
     /// Returns the Message.Type expected for the given proto message name.
     static public func messageType(forMessageName name: String) -> Message.Type? {
-        if let messageType = wktToMessageType[name] {
-            return messageType
-        }
         return knownTypes[name]
-    }
-
-    static internal func isWellKnownType(messageName name: String) -> Bool {
-        return wktToMessageType[name] != nil
     }
 
 }
