@@ -15,31 +15,18 @@
 
 import Foundation
 
-internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
-  var url = typePrefix
-  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
-    url += "/"
+fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
+  var visitor = try JSONEncodingVisitor(message: message)
+  visitor.startObject()
+  visitor.encodeField(name: "@type", stringValue: typeURL)
+  if let m = message as? _CustomJSONCodable {
+    let value = try m.encodedJSONString()
+    visitor.encodeField(name: "value", jsonText: value)
+  } else {
+    try message.traverse(visitor: &visitor)
   }
-  return url + typeName(fromMessage: message)
-}
-
-fileprivate func typeName(fromMessage message: Message) -> String {
-  let messageType = type(of: message)
-  return messageType.protoMessageName
-}
-
-fileprivate func typeName(fromURL s: String) -> String {
-    var typeStart = s.startIndex
-    var i = typeStart
-    while i < s.endIndex {
-        let c = s[i]
-        i = s.index(after: i)
-        if c == "/" {
-            typeStart = i
-        }
-    }
-
-    return s[typeStart..<s.endIndex]
+  visitor.endObject()
+  return visitor.stringResult
 }
 
 internal class AnyMessageStorage {
@@ -61,8 +48,7 @@ internal class AnyMessageStorage {
       }
 
       if let contentJSON = _contentJSON, !_typeURL.isEmpty {
-        let encodedTypeName = typeName(fromURL: _typeURL)
-        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) {
+        if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
           do {
             // Hack, make an any to use init(unpackingAny:)
             var any = Google_Protobuf_Any()
@@ -139,8 +125,7 @@ internal class AnyMessageStorage {
       }
       return
     } else if let contentJSON = _contentJSON {
-      let targetType = typeName(fromMessage: target)
-      if Google_Protobuf_Any.isWellKnownType(messageName: targetType) {
+      if let _ = target as? _CustomJSONCodable {
         try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
           var scanner = JSONScanner(utf8Pointer: bytes,
                                     count: contentJSON.count)
@@ -209,7 +194,7 @@ internal class AnyMessageStorage {
       }
       _message = any
       return
-    } else if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
+    } else if let messageType = Google_Protobuf_Any.messageType(forMessageName: messageTypeName) {
       var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
       _message = messageType.init()
       try _message!.decodeMessage(decoder: &subDecoder)
@@ -244,8 +229,7 @@ internal class AnyMessageStorage {
       if _typeURL.isEmpty {
         throw BinaryEncodingError.anyTranscodeFailure
       }
-      let encodedTypeName = typeName(fromURL: _typeURL)
-      if Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) == nil {
+      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
         // Isn't registered, we can't transform it for binary.
         throw BinaryEncodingError.anyTranscodeFailure
       }
@@ -304,27 +288,6 @@ extension AnyMessageStorage {
   }
 }
 
-fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
-  var visitor = try JSONEncodingVisitor(message: message)
-  visitor.encoder.startObject()
-  visitor.encoder.startField(name: "@type")
-  visitor.encoder.putStringValue(value: typeURL)
-  try message.traverse(visitor: &visitor)
-  visitor.encoder.endObject()
-  return visitor.stringResult
-}
-
-fileprivate func serializeAnyJSON(wktValueJSON value: String, typeURL: String) throws -> String {
-  var jsonEncoder = JSONEncoder()
-  jsonEncoder.startObject()
-  jsonEncoder.startField(name: "@type")
-  jsonEncoder.putStringValue(value: typeURL)
-  jsonEncoder.startField(name: "value")
-  jsonEncoder.append(text: value)
-  jsonEncoder.endObject()
-  return jsonEncoder.stringResult
-}
-
 // _CustomJSONCodable support for Google_Protobuf_Any
 extension AnyMessageStorage {
   // Override the traversal-based JSON encoding
@@ -340,35 +303,14 @@ extension AnyMessageStorage {
 
       // We should have been initialized with a typeURL, but
       // ensure it wasn't cleared.
-      let url: String
-      if !_typeURL.isEmpty {
-        url = _typeURL
-      } else {
-        url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
-      }
-      if let m = message as? _CustomJSONCodable {
-        // Serialize a Well-known type to JSON:
-        let value = try m.encodedJSONString()
-        return try serializeAnyJSON(wktValueJSON: value, typeURL: url)
-      } else {
-        // Serialize a regular message to JSON:
-        return try serializeAnyJSON(for: message, typeURL: url)
-      }
+      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+      return try serializeAnyJSON(for: message, typeURL: url)
     } else if !_typeURL.isEmpty {
       if let valueData = _valueData {
         // We have protobuf binary data and want to build JSON,
         // transcode by decoding the binary data to a message object
         // and then recode back into JSON:
-
-        // If it's a well-known type, we can always do this:
-        let messageTypeName = typeName(fromURL: _typeURL)
-        if let messageType = Google_Protobuf_Any.wellKnownType(forMessageName: messageTypeName) {
-          let m = try messageType.init(serializedData: valueData)
-          let value = try m.jsonString()
-          return try serializeAnyJSON(wktValueJSON: value, typeURL: _typeURL)
-        }
-        // Otherwise, it may be a registered type:
-        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
+        if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
           let m = try messageType.init(serializedData: valueData)
           return try serializeAnyJSON(for: m, typeURL: _typeURL)
         }

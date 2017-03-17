@@ -19,7 +19,7 @@ import Foundation
 /// Visitor that serializes a message into JSON format.
 internal struct JSONEncodingVisitor: Visitor {
 
-  internal var encoder = JSONEncoder()
+  private var encoder = JSONEncoder()
   private var nameMap: _NameMap
 
   /// The JSON text produced by the visitor, as raw UTF8 bytes.
@@ -39,6 +39,24 @@ internal struct JSONEncodingVisitor: Visitor {
     } else {
         throw JSONEncodingError.missingFieldNames
     }
+  }
+
+  mutating func startObject() {
+    encoder.startObject()
+  }
+
+  mutating func endObject() {
+    encoder.endObject()
+  }
+
+  mutating func encodeField(name: String, stringValue value: String) {
+    encoder.startField(name: name)
+    encoder.putStringValue(value: value)
+  }
+
+  mutating func encodeField(name: String, jsonText text: String) {
+    encoder.startField(name: name)
+    encoder.append(text: text)
   }
 
   mutating func visitUnknown(bytes: Data) throws {
