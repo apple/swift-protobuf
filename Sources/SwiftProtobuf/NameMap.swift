@@ -44,13 +44,10 @@ fileprivate class InternPool {
   private var interned = [UnsafeBufferPointer<UInt8>]()
 
   func intern(utf8: String.UTF8View) -> UnsafeBufferPointer<UInt8> {
-    let count = utf8.count
-    let raw = UnsafeMutableRawPointer.allocate(bytes: count, alignedTo: 1)
-    let bytePointer = raw.bindMemory(to: UInt8.self, capacity: count)
-    let buff = UnsafeMutableBufferPointer<UInt8>(start: bytePointer, count: count)
-    _ = buff.initialize(from: utf8)
-
-    let immutable = UnsafeBufferPointer<UInt8>(start: bytePointer, count: count)
+    let bytePointer = UnsafeMutablePointer<UInt8>.allocate(capacity: utf8.count)
+    let mutable = UnsafeMutableBufferPointer<UInt8>(start: bytePointer, count: utf8.count)
+    _ = mutable.initialize(from: utf8)
+    let immutable = UnsafeBufferPointer<UInt8>(start: bytePointer, count: utf8.count)
     interned.append(immutable)
     return immutable
   }
