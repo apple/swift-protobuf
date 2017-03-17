@@ -15,33 +15,6 @@
 
 import Foundation
 
-internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
-  var url = typePrefix
-  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
-    url += "/"
-  }
-  return url + typeName(fromMessage: message)
-}
-
-fileprivate func typeName(fromMessage message: Message) -> String {
-  let messageType = type(of: message)
-  return messageType.protoMessageName
-}
-
-fileprivate func typeName(fromURL s: String) -> String {
-    var typeStart = s.startIndex
-    var i = typeStart
-    while i < s.endIndex {
-        let c = s[i]
-        i = s.index(after: i)
-        if c == "/" {
-            typeStart = i
-        }
-    }
-
-    return s[typeStart..<s.endIndex]
-}
-
 fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws -> String {
   var visitor = try JSONEncodingVisitor(message: message)
   visitor.startObject()
@@ -75,8 +48,7 @@ internal class AnyMessageStorage {
       }
 
       if let contentJSON = _contentJSON, !_typeURL.isEmpty {
-        let encodedTypeName = typeName(fromURL: _typeURL)
-        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) {
+        if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
           do {
             // Hack, make an any to use init(unpackingAny:)
             var any = Google_Protobuf_Any()
@@ -223,7 +195,7 @@ internal class AnyMessageStorage {
       }
       _message = any
       return
-    } else if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
+    } else if let messageType = Google_Protobuf_Any.messageType(forMessageName: messageTypeName) {
       var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
       _message = messageType.init()
       try _message!.decodeMessage(decoder: &subDecoder)
@@ -258,8 +230,7 @@ internal class AnyMessageStorage {
       if _typeURL.isEmpty {
         throw BinaryEncodingError.anyTranscodeFailure
       }
-      let encodedTypeName = typeName(fromURL: _typeURL)
-      if Google_Protobuf_Any.lookupMessageType(forMessageName: encodedTypeName) == nil {
+      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
         // Isn't registered, we can't transform it for binary.
         throw BinaryEncodingError.anyTranscodeFailure
       }
@@ -340,8 +311,7 @@ extension AnyMessageStorage {
         // We have protobuf binary data and want to build JSON,
         // transcode by decoding the binary data to a message object
         // and then recode back into JSON:
-        let messageTypeName = typeName(fromURL: _typeURL)
-        if let messageType = Google_Protobuf_Any.lookupMessageType(forMessageName: messageTypeName) {
+        if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
           let m = try messageType.init(serializedData: valueData)
           return try serializeAnyJSON(for: m, typeURL: _typeURL)
         }

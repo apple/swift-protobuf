@@ -15,6 +15,38 @@
 
 import Foundation
 
+// TODO: Should these first four be exposed as methods to go with
+// the general registry support?
+
+internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
+  var url = typePrefix
+  if typePrefix.isEmpty || typePrefix.characters.last != "/" {
+    url += "/"
+  }
+  return url + typeName(fromMessage: message)
+}
+
+internal func typeName(fromMessage message: Message) -> String {
+  let messageType = type(of: message)
+  return messageType.protoMessageName
+}
+
+internal let defaultTypePrefix: String = "type.googleapis.com"
+
+internal func typeName(fromURL s: String) -> String {
+  var typeStart = s.startIndex
+  var i = typeStart
+  while i < s.endIndex {
+    let c = s[i]
+    i = s.index(after: i)
+    if c == "/" {
+      typeStart = i
+    }
+  }
+
+  return s[typeStart..<s.endIndex]
+}
+
 fileprivate let wktToMessageType: [String:Message.Type] = [
   "google.protobuf.Any": Google_Protobuf_Any.self,
   "google.protobuf.BoolValue": Google_Protobuf_BoolValue.self,
@@ -68,20 +100,22 @@ public extension Google_Protobuf_Any {
         knownTypes[messageTypeName] = messageType
     }
 
-    /// Returns the Message.type expected for the given proto message name.
-    static public func lookupMessageType(forMessageName name: String) -> Message.Type? {
-        if let messageType = wellKnownType(forMessageName: name) {
+    /// Returns the Message.Type expected for the given proto message name.
+    static public func messageType(forTypeURL url: String) -> Message.Type? {
+      let messageTypeName = typeName(fromURL: url)
+      return messageType(forMessageName: messageTypeName)
+    }
+
+    /// Returns the Message.Type expected for the given proto message name.
+    static public func messageType(forMessageName name: String) -> Message.Type? {
+        if let messageType = wktToMessageType[name] {
             return messageType
         }
         return knownTypes[name]
     }
 
-    static internal func wellKnownType(forMessageName name: String) -> Message.Type? {
-        return wktToMessageType[name]
-    }
-
     static internal func isWellKnownType(messageName name: String) -> Bool {
-        return wellKnownType(forMessageName: name) != nil
+        return wktToMessageType[name] != nil
     }
 
 }

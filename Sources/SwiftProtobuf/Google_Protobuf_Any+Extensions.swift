@@ -15,8 +15,6 @@
 
 import Foundation
 
-internal let defaultTypePrefix: String = "type.googleapis.com"
-
 public extension Message {
   /// Initialize this message from the provided `google.protobuf.Any`
   /// well-known type.
