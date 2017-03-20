@@ -177,37 +177,28 @@ internal class AnyMessageStorage {
   }
 
   func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
-    // Decoding the verbose form requires knowing the type:
-    _valueData = nil
+    // Decoding the verbose form requires knowing the type.
     _typeURL = url
-    let messageTypeName = typeName(fromURL: url)
+    guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
+      // The type wasn't registered, can't parse it.
+      throw TextFormatDecodingError.malformedText
+    }
+    _valueData = nil
     let terminator = try decoder.scanner.skipObjectStart()
-    // Is it a well-known type? Or a user-registered type?
-    if messageTypeName == "google.protobuf.Any" {
-      var subDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self, scanner: decoder.scanner, terminator: terminator)
+    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+    if messageType == Google_Protobuf_Any.self {
       var any = Google_Protobuf_Any()
       try any.decodeTextFormat(decoder: &subDecoder)
-      decoder.scanner = subDecoder.scanner
-      if let _ = try decoder.nextFieldNumber() {
-        // Verbose any can never have additional keys
-        throw TextFormatDecodingError.malformedText
-      }
       _message = any
-      return
-    } else if let messageType = Google_Protobuf_Any.messageType(forMessageName: messageTypeName) {
-      var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+    } else {
       _message = messageType.init()
       try _message!.decodeMessage(decoder: &subDecoder)
-      decoder.scanner = subDecoder.scanner
-      if let _ = try decoder.nextFieldNumber() {
-        // Verbose any can never have additional keys
-        throw TextFormatDecodingError.malformedText
-      }
-      return
     }
-    // TODO: If we don't know the type, we should consider deferring the
-    // decode as we do for JSON and Protobuf binary.
-    throw TextFormatDecodingError.malformedText
+    decoder.scanner = subDecoder.scanner
+    if try decoder.nextFieldNumber() != nil {
+      // Verbose any can never have additional keys.
+      throw TextFormatDecodingError.malformedText
+    }
   }
 
   // Called before the message is traversed to do any error preflights.
