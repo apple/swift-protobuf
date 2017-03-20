@@ -78,6 +78,13 @@ public extension Google_Protobuf_Any {
     }
   }
 
+  /// Check if this Any message contains the given type. The check is
+  /// done by looking at the passed `Message.Type` and the `typeURL`
+  /// of this message.
+  public func isA<M: Message>(_ type: M.Type) -> Bool {
+    return _storage.isA(type)
+  }
+
   ///
   /// Update the provided object from the data in the Any container.
   /// This is essentially just a deferred deserialization; the Any

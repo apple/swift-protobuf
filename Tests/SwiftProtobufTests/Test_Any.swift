@@ -641,6 +641,27 @@ class Test_Any: XCTestCase {
       XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
     }
 
+    func test_IsA() {
+      var msg = Google_Protobuf_Any()
+
+      msg.typeURL = "type.googleapis.com/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "random.site.org/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+
+      msg.typeURL = ""
+      XCTAssertFalse(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+    }
+
     func test_Any_Registery() {
       // Registering the same type multiple times is ok.
       XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))

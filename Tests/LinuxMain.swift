@@ -207,6 +207,7 @@ extension Test_Any {
             ("test_Any_Value_string_transcode", {try run_test(test:($0 as! Test_Any).test_Any_Value_string_transcode)}),
             ("test_Any_OddTypeURL_FromValue", {try run_test(test:($0 as! Test_Any).test_Any_OddTypeURL_FromValue)}),
             ("test_Any_OddTypeURL_FromMessage", {try run_test(test:($0 as! Test_Any).test_Any_OddTypeURL_FromMessage)}),
+            ("test_IsA", {try run_test(test:($0 as! Test_Any).test_IsA)}),
             ("test_Any_Registery", {try run_test(test:($0 as! Test_Any).test_Any_Registery)})
         ]
     }
