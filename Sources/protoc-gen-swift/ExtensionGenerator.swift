@@ -115,10 +115,13 @@ struct ExtensionGenerator {
         let scope = swiftDeclaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
 
-        var fieldNamePath = self.protoPath
-        if fieldNamePath.hasPrefix(".") {
-            fieldNamePath.remove(at: fieldNamePath.startIndex)
-            fieldNamePath = "\"\(fieldNamePath)\""
+        let fieldNamePath: String
+        if let message = swiftDeclaringMessageName {
+            fieldNamePath = "\(message).protoMessageName + \".\(fieldName)\""
+        } else if !protoPackageName.isEmpty {
+            fieldNamePath = "_protobuf_package + \".\(fieldName)\""
+        } else {
+            fieldNamePath = "\"\(fieldName)\""
         }
 
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
