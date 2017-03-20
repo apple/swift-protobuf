@@ -91,8 +91,14 @@ public extension Google_Protobuf_Any {
   /// may hold protobuf bytes or JSON fields depending on how the Any
   /// was itself deserialized.
   ///
-  public func unpackTo<M: Message>(target: inout M) throws {
-    try _storage.unpackTo(target: &target)
+  /// NOTE: The content of `target` is replaced with the result of
+  /// decoding this Any message.  It is *not* a merge.
+  ///
+  ///   - target: The `Message` to update to contain what was in this Any message.
+  ///   - extensions: An `ExtensionSet` to look up and decode any extensions in this
+  ///     message or messages nested within this message's fields.
+  public func unpackTo<M: Message>(target: inout M, extensions: ExtensionSet? = nil) throws {
+    try _storage.unpackTo(target: &target, extensions: extensions)
   }
 
   public var hashValue: Int {
