@@ -36,7 +36,7 @@ internal struct BinaryDecoder: Decoder {
     // Field number for last-parsed field tag
     private var fieldNumber: Int = 0
     // Collection of extension fields for this decode
-    private var extensions: ExtensionSet?
+    private var extensions: ExtensionMap?
     // The current group number. See decodeFullGroup(group:fieldNumber:) for how
     // this is used.
     private var groupFieldNumber: Int?
@@ -45,7 +45,7 @@ internal struct BinaryDecoder: Decoder {
 
     internal var complete: Bool {return available == 0}
 
-    internal init(forReadingFrom pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet? = nil) {
+    internal init(forReadingFrom pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap? = nil) {
         // Assuming baseAddress is not nil.
         p = pointer
         available = count

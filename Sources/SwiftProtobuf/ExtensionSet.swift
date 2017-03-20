@@ -8,14 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// A set of extensions that can be passed into deserializers
-/// to provide details of the particular extensions that should
-/// be recognized.
+/// A default implementation of ExtensionMap.
 ///
 // -----------------------------------------------------------------------------
 
+
 // Note: The generated code only relies on ExpressibleByArrayLiteral
-public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLiteral {
+public struct ExtensionSet: ExtensionMap, ExpressibleByArrayLiteral, CustomDebugStringConvertible {
     public typealias Element = MessageExtensionBase
 
     // Since type objects aren't Hashable, we can't do much better than this...
@@ -27,7 +26,7 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         insert(contentsOf: arrayLiteral)
     }
 
-    internal subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? {
+    public subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? {
         get {
             if let l = fields[fieldNumber] {
                 for (t, e) in l {
@@ -38,25 +37,9 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
             }
             return nil
         }
-        set(newValue) {
-            if let l = fields[fieldNumber] {
-                var newL = l.flatMap {
-                    pair -> (Message.Type, MessageExtensionBase)? in
-                    if pair.0 == messageType { return nil }
-                    else { return pair }
-                }
-                if let newValue = newValue {
-                    newL.append((messageType, newValue))
-                    fields[fieldNumber] = newL
-                }
-                fields[fieldNumber] = newL
-            } else if let newValue = newValue {
-                fields[fieldNumber] = [(messageType, newValue)]
-            }
-        }
     }
 
-    internal func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
+    public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
             for (t, e) in list {
@@ -69,14 +52,36 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         return nil
     }
 
-    public mutating func insert(_ e: Element) {
-        self[e.messageType, e.fieldNumber] = e
+    public mutating func insert(_ newValue: Element) {
+        let messageType = newValue.messageType
+        let fieldNumber = newValue.fieldNumber
+        if let l = fields[fieldNumber] {
+            var newL = l.flatMap {
+                pair -> (Message.Type, MessageExtensionBase)? in
+                if pair.0 == messageType { return nil }
+                else { return pair }
+            }
+            newL.append((messageType, newValue))
+            fields[fieldNumber] = newL
+        } else {
+            fields[fieldNumber] = [(messageType, newValue)]
+        }
     }
 
     public mutating func insert(contentsOf: [Element]) {
         for e in contentsOf {
             insert(e)
         }
+    }
+
+    public mutating func union(_ other: ExtensionSet) -> ExtensionSet {
+        var out = self
+        for (_, list) in other.fields {
+            for (_, e) in list {
+                out.insert(e)
+            }
+        }
+        return out
     }
 
     public var debugDescription: String {
@@ -91,13 +96,4 @@ public struct ExtensionSet: CustomDebugStringConvertible, ExpressibleByArrayLite
         return "ExtensionSet(\(d))"
     }
 
-    public mutating func union(_ other: ExtensionSet) -> ExtensionSet {
-        var out = self
-        for (_, list) in other.fields {
-            for (_, e) in list {
-                out.insert(e)
-            }
-        }
-        return out
-    }
 }

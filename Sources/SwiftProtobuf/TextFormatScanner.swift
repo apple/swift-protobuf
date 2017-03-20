@@ -260,7 +260,7 @@ private func decodeString(_ s: String) -> String? {
 /// TextFormatScanner has no public members.
 ///
 internal struct TextFormatScanner {
-    internal var extensions: ExtensionSet?
+    internal var extensions: ExtensionMap?
     private var p: UnsafePointer<UInt8>
     private var end: UnsafePointer<UInt8>
 
@@ -270,7 +270,7 @@ internal struct TextFormatScanner {
         }
     }
 
-    internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet? = nil) {
+    internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap? = nil) {
         p = utf8Pointer
         end = p + count
         self.extensions = extensions
