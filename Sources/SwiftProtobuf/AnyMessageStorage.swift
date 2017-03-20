@@ -101,6 +101,8 @@ internal class AnyMessageStorage {
     return encodedType == M.protoMessageName
   }
 
+  // This is only ever called with the expactation that target will be fully
+  // replaced during the unpacking and never as a merge.
   func unpackTo<M: Message>(target: inout M, extensions: ExtensionSet?) throws {
     guard isA(M.self) else {
       throw AnyUnpackError.typeMismatch
