@@ -101,30 +101,34 @@ internal class AnyMessageStorage {
     return encodedType == M.protoMessageName
   }
 
-  func unpackTo<M: Message>(target: inout M) throws {
+  // This is only ever called with the expactation that target will be fully
+  // replaced during the unpacking and never as a merge.
+  func unpackTo<M: Message>(target: inout M, extensions: ExtensionSet?) throws {
     guard isA(M.self) else {
       throw AnyUnpackError.typeMismatch
     }
-    var protobuf: Data?
+
+    // Cached message is correct type, copy it over.
     if let message = _message as? M {
       target = message
       return
     }
 
+    // If internal state is a message (of different type), get serializedData
+    // from it. If state was binary, use that serialized data.
+    var protobuf: Data?
     if let message = _message {
       protobuf = try message.serializedData(partial: true)
     } else if let value = _valueData {
       protobuf = value
     }
     if let protobuf = protobuf {
-      // Decode protobuf from the stored bytes
-      if protobuf.count > 0 {
-        try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-          try target._protobuf_mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
-        }
-      }
+      target = try M(serializedData: protobuf, extensions: extensions)
       return
-    } else if let contentJSON = _contentJSON {
+    }
+
+    // If internal state is JSON, do the decode now.
+    if let contentJSON = _contentJSON {
       if let _ = target as? _CustomJSONCodable {
         try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
           var scanner = JSONScanner(utf8Pointer: bytes,
@@ -141,18 +145,6 @@ internal class AnyMessageStorage {
             // and WKTs should only have the one.
             throw AnyUnpackError.malformedWellKnownTypeJSON
           }
-          // Note: This api is unpackTo(target:) so it really should be
-          // a merge and not a replace (the non WKT case next is a merge).
-          // The only WKTs where there would seem to be a difference are:
-          //   Struct - It is a map, so it would merge into any existing
-          //     enties.
-          //   ValueList - Repeated, so values should append to the
-          //       existing ones instead of instead of replace.
-          //   FieldMask - Repeated, so values should append to the
-          //       existing ones instead of instead of replace.
-          //   Value - Interesting case, it is a oneof, so currently
-          //       that would error if it was already set, so maybe
-          //       replace is ok.
           target = try M(jsonString: value)
         }
       } else {
@@ -161,18 +153,12 @@ internal class AnyMessageStorage {
         var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
         contentJSONAsObject.append(contentJSON)
         contentJSONAsObject.append(asciiCloseCurlyBracket)
-
-        try contentJSONAsObject.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-          var decoder = JSONDecoder(utf8Pointer: bytes,
-                                    count: contentJSONAsObject.count)
-          try decoder.decodeFullObject(message: &target)
-          if !decoder.scanner.complete {
-            throw JSONDecodingError.trailingGarbage
-          }
-        }
+        target = try M(jsonUTF8Data: contentJSONAsObject)
       }
       return
     }
+
+    // Didn't have any of the three internal states?
     throw AnyUnpackError.malformedAnyField
   }
 

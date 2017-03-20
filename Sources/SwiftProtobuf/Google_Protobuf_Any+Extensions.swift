@@ -33,9 +33,9 @@ public extension Message {
   /// - Parameter unpackingAny: the message to decode.
   /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
   ///   `BinaryDecodingError` on failure.
-  public init(unpackingAny: Google_Protobuf_Any) throws {
+  public init(unpackingAny: Google_Protobuf_Any, extensions: ExtensionSet? = nil) throws {
     self.init()
-    try unpackingAny.unpackTo(target: &self)
+    try unpackingAny._storage.unpackTo(target: &self, extensions: extensions)
   }
 }
 
@@ -83,16 +83,6 @@ public extension Google_Protobuf_Any {
   /// of this message.
   public func isA<M: Message>(_ type: M.Type) -> Bool {
     return _storage.isA(type)
-  }
-
-  ///
-  /// Update the provided object from the data in the Any container.
-  /// This is essentially just a deferred deserialization; the Any
-  /// may hold protobuf bytes or JSON fields depending on how the Any
-  /// was itself deserialized.
-  ///
-  public func unpackTo<M: Message>(target: inout M) throws {
-    try _storage.unpackTo(target: &target)
   }
 
   public var hashValue: Int {
