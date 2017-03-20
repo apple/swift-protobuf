@@ -114,10 +114,6 @@
 		9C84E4941E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48D1E5E3ABD00513BE0 /* JSONEncodingError.swift */; };
 		9C84E4951E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48D1E5E3ABD00513BE0 /* JSONEncodingError.swift */; };
 		9C84E4961E5E3ABD00513BE0 /* JSONEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48D1E5E3ABD00513BE0 /* JSONEncodingError.swift */; };
-		9C84E4971E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48E1E5E3ABD00513BE0 /* TextFormatEncodingError.swift */; };
-		9C84E4981E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48E1E5E3ABD00513BE0 /* TextFormatEncodingError.swift */; };
-		9C84E4991E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48E1E5E3ABD00513BE0 /* TextFormatEncodingError.swift */; };
-		9C84E49A1E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C84E48E1E5E3ABD00513BE0 /* TextFormatEncodingError.swift */; };
 		9C8CDA171D7A288E00E207CA /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "_____Product_Protobuf_iOS" /* SwiftProtobuf.framework */; };
 		9C8CDA1D1D7A28F600E207CA /* any_test.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/any_test.pb.swift /* any_test.pb.swift */; };
 		9C8CDA1E1D7A28F600E207CA /* conformance.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Tests/ProtobufTests/conformance.pb.swift /* conformance.pb.swift */; };
@@ -627,7 +623,6 @@
 		9C75F8A21DDD44A1005CCFF2 /* ProtobufMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProtobufMap.swift; sourceTree = "<group>"; };
 		9C84E48C1E5E3ABD00513BE0 /* BinaryEncodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryEncodingError.swift; sourceTree = "<group>"; };
 		9C84E48D1E5E3ABD00513BE0 /* JSONEncodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONEncodingError.swift; sourceTree = "<group>"; };
-		9C84E48E1E5E3ABD00513BE0 /* TextFormatEncodingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFormatEncodingError.swift; sourceTree = "<group>"; };
 		9CA424411E286D4E00C0E5B4 /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		9CCD5F921E008203002D1940 /* Test_TextFormat_WKT_proto3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_TextFormat_WKT_proto3.swift; sourceTree = "<group>"; };
 		9CE9CF361E32C9F8004FBED6 /* JSONScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONScanner.swift; sourceTree = "<group>"; };
@@ -915,7 +910,6 @@
 				BCCA0E661DB1210E00957D74 /* TextFormatDecoder.swift */,
 				9C667A901E4C203D008B974F /* TextFormatDecodingError.swift */,
 				BCCA0E671DB1210E00957D74 /* TextFormatEncoder.swift */,
-				9C84E48E1E5E3ABD00513BE0 /* TextFormatEncodingError.swift */,
 				9CEB0D671DF5E934002D80F0 /* TextFormatEncodingVisitor.swift */,
 				9CEB0D6B1DF5F921002D80F0 /* TextFormatScanner.swift */,
 				BCCA0E681DB1210E00957D74 /* TextFormatTypeAdditions.swift */,
@@ -1356,7 +1350,6 @@
 				9C2F238C1D7780D1008524F2 /* MessageExtension.swift in Sources */,
 				9C667A961E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				9C2F238D1D7780D1008524F2 /* Decoder.swift in Sources */,
-				9C84E4981E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */,
 				9C2F238F1D7780D1008524F2 /* HashVisitor.swift in Sources */,
 				AAABA40C1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */,
 				AAF2ED401DEF4D94007B510F /* ProtoNameProviding.swift in Sources */,
@@ -1431,7 +1424,6 @@
 				AAEA52721DA80DD4003F318F /* Google_Protobuf_Wrappers+Extensions.swift in Sources */,
 				AAABA40B1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */,
 				9C667A951E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
-				9C84E4971E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */,
 				AA86F6FA1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufHash.swift /* HashVisitor.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufJSONEncoding.swift /* JSONEncoder.swift in Sources */,
@@ -1614,7 +1606,6 @@
 				F44F937E1DAEA76700BC5B85 /* Google_Protobuf_Struct+Extensions.swift in Sources */,
 				9C667A971E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				F44F93941DAEA76700BC5B85 /* UnknownStorage.swift in Sources */,
-				9C84E4991E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */,
 				9C75F8821DDBE10D005CCFF2 /* Visitor.swift in Sources */,
 				AAABA40D1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */,
 				F44F93781DAEA76700BC5B85 /* duration.pb.swift in Sources */,
@@ -1794,7 +1785,6 @@
 				AA86F6FD1E0A0F0B006CC38A /* JSONEncodingVisitor.swift in Sources */,
 				9C667A981E4C203D008B974F /* BinaryDecodingError.swift in Sources */,
 				F44F941A1DAEB23500BC5B85 /* HashVisitor.swift in Sources */,
-				9C84E49A1E5E3ABD00513BE0 /* TextFormatEncodingError.swift in Sources */,
 				F44F941C1DAEB23500BC5B85 /* JSONEncoder.swift in Sources */,
 				AAABA40E1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift in Sources */,
 				AAF2EE021DFB1450007B510F /* JSONIntegerConverting.swift in Sources */,
