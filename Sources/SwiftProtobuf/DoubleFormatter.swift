@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Generally useful mathematical and arithmetic functions.
+/// Formatting/parsing helper for float and double strings
 ///
 // -----------------------------------------------------------------------------
 
@@ -40,26 +40,41 @@ private func wrapped_vsnprintf(destination: UnsafeMutableRawBufferPointer,
     }
 }
 
+/// Support parsing and formatting float/double values to/from UTF-8
 internal class DoubleFormatter {
-    var work = UnsafeMutableRawBufferPointer.allocate(count: 128)
+    private var doubleFormatString: UnsafeMutableRawBufferPointer
+    private var work = UnsafeMutableRawBufferPointer.allocate(count: 128)
 
-    init() {}
+    init() {
+        let format: StaticString = "%.*g"
+        let formatBytes = UnsafeBufferPointer(start: format.utf8Start, count: format.utf8CodeUnitCount)
+        doubleFormatString = UnsafeMutableRawBufferPointer.allocate(count: formatBytes.count + 1)
+        doubleFormatString.copyBytes(from: formatBytes)
+        doubleFormatString[formatBytes.count] = 0
+    }
 
     deinit {
         work.deallocate()
+        doubleFormatString.deallocate()
     }
 
     func utf8ToDouble(bytes: UnsafePointer<UInt8>, count: Int) -> Double? {
+        // Reject unreasonably large UTF8 number
         if work.count <= count {
             return nil
         }
+        // Copy it to the work buffer and null-terminate it
         let source = UnsafeRawBufferPointer(start: bytes, count: count)
         work.copyBytes(from:source)
         work[count] = 0
 
+        // Use C library strtod() to parse it
         let start = work.baseAddress!.assumingMemoryBound(to: Int8.self)
         var e: UnsafeMutablePointer<Int8>? = start
         let d = strtod(start, &e)
+
+        // Fail if strtod() did not consume everything we expected
+        // or if strtod() thought the number was out of range.
         if e != start + count || !d.isFinite {
             return nil
         }
@@ -75,21 +90,9 @@ internal class DoubleFormatter {
     }
 
     private func _doubleToUtf8(_ d: Double, digits: Int32) -> UnsafeBufferPointer<UInt8> {
-        // Split work area into an area to hold the (null-terminated) format string
-        // and an area to receive the formatted text:
-        let fmt = work.prefix(8)
-        let dest = work.dropFirst(8)
-
-        // Initialize the format string:
-        fmt[0] = UInt8(ascii: "%")
-        fmt[1] = UInt8(ascii: ".")
-        fmt[2] = UInt8(ascii: "*")
-        fmt[3] = UInt8(ascii: "g")
-        fmt[4] = 0
-
-        // Format and return a UBP with the result
-        let count = wrapped_vsnprintf(destination: dest, format: fmt, digits, d)
-        let start = dest.baseAddress!.assumingMemoryBound(to: UInt8.self)
+        // Format into the work buffer, return a UBP with the result
+        let count = wrapped_vsnprintf(destination: work, format: doubleFormatString, digits, d)
+        let start = work.baseAddress!.assumingMemoryBound(to: UInt8.self)
         return UnsafeBufferPointer<UInt8>(start: start, count: count)
     }
 }
