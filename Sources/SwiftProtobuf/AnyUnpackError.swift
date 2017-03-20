@@ -28,14 +28,8 @@ public enum AnyUnpackError: Error {
   /// fields:  the `@type` field and a `value` field containing
   /// the specialized JSON coding of the well-known type.
   case malformedWellKnownTypeJSON
-  /// The `typeURL` field could not be parsed.
-  case malformedTypeURL
   /// There was something else wrong...
   case malformedAnyField
-  /// The Any field is empty.  You can only `unpack()` an Any
-  /// field if it contains an object (either from an initializer
-  /// or from having been decoded).
-  case emptyAnyField
   /// Decoding JSON or Text format requires the message type
   /// to have been compiled with textual field names.
   case missingFieldNames

@@ -93,16 +93,16 @@ internal class AnyMessageStorage {
     return clone
   }
 
-  func unpackTo<M: Message>(target: inout M) throws {
+  func isA<M: Message>(_ type: M.Type) -> Bool {
     if _typeURL.isEmpty {
-      throw AnyUnpackError.emptyAnyField
+      return false
     }
     let encodedType = typeName(fromURL: _typeURL)
-    if encodedType.isEmpty {
-      throw AnyUnpackError.malformedTypeURL
-    }
-    let messageType = typeName(fromMessage: target)
-    if encodedType != messageType {
+    return encodedType == M.protoMessageName
+  }
+
+  func unpackTo<M: Message>(target: inout M) throws {
+    guard isA(M.self) else {
       throw AnyUnpackError.typeMismatch
     }
     var protobuf: Data?
