@@ -50,14 +50,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-//  Cycles in the Message graph can cause problems for the mutable classes
-//  since the properties on the mutable class change types. This file just
-//  needs to generate source, and that source must compile, to ensure the
-//  generated source works for this sort of case.
-
-//  You can't make a object graph that spans files, so this can only be done
-//  within a single proto file.
-
 struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

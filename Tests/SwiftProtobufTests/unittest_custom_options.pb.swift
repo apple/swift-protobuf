@@ -343,8 +343,6 @@ struct ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf.Message, Swi
   }
 }
 
-//  Options of every possible field type, so we can test them all exhaustively.
-
 struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".DummyMessageContainingEnum"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -536,9 +534,6 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Message, Swi
     return true
   }
 }
-
-//  Options of complex message types, themselves combined and extended in
-//  various ways.
 
 struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType1"
@@ -1043,10 +1038,6 @@ struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Message, SwiftProto
     return true
   }
 }
-
-//  ------------------------------------------------------
-//  Definitions for testing aggregate option parsing.
-//  See descriptor_unittest.cc.
 
 struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".AggregateMessageSet"

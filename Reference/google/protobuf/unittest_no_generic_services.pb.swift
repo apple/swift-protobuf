@@ -80,8 +80,6 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum, SwiftPr
 
 }
 
-//  *_generic_services are false by default.
-
 struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

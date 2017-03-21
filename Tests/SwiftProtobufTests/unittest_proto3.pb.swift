@@ -2515,8 +2515,6 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   }
 }
 
-//  Test messages for packed fields
-
 struct Proto3TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

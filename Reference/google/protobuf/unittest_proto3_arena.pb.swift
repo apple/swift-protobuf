@@ -341,11 +341,6 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
-  //  Groups are not allowed in proto3.
-  //  optional group OptionalGroup = 16 {
-  //    optional int32 a = 17;
-  //  }
-
   var optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage {
     get {return _storage._optionalNestedMessage ?? Proto3ArenaUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
@@ -388,11 +383,6 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
-
-  //  Omitted (compared to unittest.proto) because proto2 enums are not allowed
-  //  inside proto2 messages.
-  // 
-  //  optional protobuf_unittest_import.ImportEnum    optional_import_enum  = 23;
 
   var optionalStringPiece: String {
     get {return _storage._optionalStringPiece}
@@ -503,11 +493,6 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  //  Groups are not allowed in proto3.
-  //  repeated group RepeatedGroup = 46 {
-  //    optional int32 a = 47;
-  //  }
-
   var repeatedNestedMessage: [Proto3ArenaUnittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
@@ -532,11 +517,6 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
-
-  //  Omitted (compared to unittest.proto) because proto2 enums are not allowed
-  //  inside proto2 messages.
-  // 
-  //  repeated protobuf_unittest_import.ImportEnum    repeated_import_enum  = 53;
 
   var repeatedStringPiece: [String] {
     get {return _storage._repeatedStringPiece}
@@ -1035,8 +1015,6 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._M
     return true
   }
 }
-
-//  Test messages for packed fields
 
 struct Proto3ArenaUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"

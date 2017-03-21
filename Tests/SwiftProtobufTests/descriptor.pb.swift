@@ -1785,38 +1785,6 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, SwiftProtob
   }
 }
 
-//  ===================================================================
-//  Options
-
-//  Each of the definitions above may have "options" attached.  These are
-//  just annotations which may cause code to be generated slightly differently
-//  or may contain hints for code that manipulates protocol messages.
-// 
-//  Clients may define custom options as extensions of the *Options messages.
-//  These extensions may not yet be known at parsing time, so the parser cannot
-//  store the values in them.  Instead it stores them in a field in the *Options
-//  message called uninterpreted_option. This field must have the same name
-//  across all *Options messages. We then use this field to populate the
-//  extensions when we build a descriptor, at which point all protos have been
-//  parsed and so all extensions are known.
-// 
-//  Extension numbers for custom options may be chosen as follows:
-//  * For options which will only be used within a single application or
-//    organization, or for experimental options, use field numbers 50000
-//    through 99999.  It is up to you to ensure that you do not use the
-//    same number for multiple options.
-//  * For options which will be published and used publicly by multiple
-//    independent entities, e-mail protobuf-global-extension-registry@google.com
-//    to reserve extension numbers. Simply provide your project name (e.g.
-//    Objective-C plugin) and your project website (if available) -- there's no
-//    need to explain how you intend to use them. Usually you only need one
-//    extension number. You can declare multiple options with only one extension
-//    number by putting them in a sub-message. See the Custom Options section of
-//    the docs for examples:
-//    https://developers.google.com/protocol-buffers/docs/proto#options
-//    If this turns out to be popular, a web service will be set up
-//    to automatically assign option numbers.
-
 struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FileOptions"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2893,11 +2861,6 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     999: .standard(proto: "uninterpreted_option"),
   ]
 
-  //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
-  //    framework.  We apologize for hoarding these numbers to ourselves, but
-  //    we were already using them long before we decided to release Protocol
-  //    Buffers.
-
   ///   Is this service deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for the service, or it will be completely ignored; in the very least,
@@ -2968,11 +2931,6 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
     34: .standard(proto: "idempotency_level"),
     999: .standard(proto: "uninterpreted_option"),
   ]
-
-  //  Note:  Field numbers 1 through 32 are reserved for Google's internal RPC
-  //    framework.  We apologize for hoarding these numbers to ourselves, but
-  //    we were already using them long before we decided to release Protocol
-  //    Buffers.
 
   ///   Is this method deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
@@ -3325,9 +3283,6 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message, SwiftProtobuf
     return true
   }
 }
-
-//  ===================================================================
-//  Optional source code info
 
 ///   Encapsulates information about the original source file from which a
 ///   FileDescriptorProto was generated.
