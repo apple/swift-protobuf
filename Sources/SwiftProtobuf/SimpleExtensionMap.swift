@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/ExtensionSet.swift - Extension support
+// Sources/SwiftProtobuf/SimpleExtensionMap.swift - Extension support
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -14,7 +14,7 @@
 
 
 // Note: The generated code only relies on ExpressibleByArrayLiteral
-public struct ExtensionSet: ExtensionMap, ExpressibleByArrayLiteral, CustomDebugStringConvertible {
+public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, CustomDebugStringConvertible {
     public typealias Element = MessageExtensionBase
 
     // Since type objects aren't Hashable, we can't do much better than this...
@@ -74,7 +74,7 @@ public struct ExtensionSet: ExtensionMap, ExpressibleByArrayLiteral, CustomDebug
         }
     }
 
-    public mutating func union(_ other: ExtensionSet) -> ExtensionSet {
+    public mutating func union(_ other: SimpleExtensionMap) -> SimpleExtensionMap {
         var out = self
         for (_, list) in other.fields {
             for (_, e) in list {
@@ -93,7 +93,7 @@ public struct ExtensionSet: ExtensionMap, ExpressibleByArrayLiteral, CustomDebug
             }
         }
         let d = names.joined(separator: ",")
-        return "ExtensionSet(\(d))"
+        return "SimpleExtensionMap(\(d))"
     }
 
 }

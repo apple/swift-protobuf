@@ -22437,7 +22437,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   }
 }
 
-let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.ExtensionSet = [
+let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftUnittest_Names_Extensions_http,
   SwiftUnittest_Names_Extensions_http_request,
   SwiftUnittest_Names_Extensions_the_http_request,
