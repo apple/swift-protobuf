@@ -30,6 +30,7 @@ class MessageGenerator {
   private let protoMessageName: String
   private let protoPackageName: String
   private let fields: [MessageFieldGenerator]
+  private let fieldsSortedByNumber: [MessageFieldGenerator]
   private let oneofs: [OneofGenerator]
   private let extensions: [ExtensionGenerator]
   private let storage: MessageStorageClassGenerator?
@@ -91,6 +92,7 @@ class MessageGenerator {
       fields.append(MessageFieldGenerator(descriptor: f, path: fieldPath, messageDescriptor: descriptor, file: file, context: context))
     }
     self.fields = fields
+    fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
     i = 0
     var extensions = [ExtensionGenerator]()
@@ -434,7 +436,7 @@ class MessageGenerator {
       var currentOneof: Google_Protobuf_OneofDescriptorProto?
       var oneofStart = 0
       var oneofEnd = 0
-      for f in (fields.sorted {$0.number < $1.number}) {
+      for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {
           p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
           nextRange = ranges.next()
