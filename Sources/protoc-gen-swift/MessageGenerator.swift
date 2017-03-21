@@ -427,42 +427,43 @@ class MessageGenerator {
   private func generateTraverse(printer p: inout CodePrinter) {
     p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
-    generateWithLifetimeExtension(printer: &p, throws: true) { p in
-      if let storage = storage {
-        storage.generatePreTraverse(printer: &p)
-      }
-      var ranges = descriptor.extensionRange.makeIterator()
-      var nextRange = ranges.next()
-      var currentOneof: Google_Protobuf_OneofDescriptorProto?
-      var oneofStart = 0
-      var oneofEnd = 0
-      for f in fieldsSortedByNumber {
-        while nextRange != nil && Int(nextRange!.start) < f.number {
+    if storage?.simpleTraverseStorage() ?? false {
+      p.print("try _storage.traverse(visitor: &visitor)\n")
+    } else {
+      generateWithLifetimeExtension(printer: &p, throws: true) { p in
+        var ranges = descriptor.extensionRange.makeIterator()
+        var nextRange = ranges.next()
+        var currentOneof: Google_Protobuf_OneofDescriptorProto?
+        var oneofStart = 0
+        var oneofEnd = 0
+        for f in fieldsSortedByNumber {
+          while nextRange != nil && Int(nextRange!.start) < f.number {
+            p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+            nextRange = ranges.next()
+          }
+          if let c = currentOneof, let n = f.oneof, n.name == c.name {
+            oneofEnd = f.number + 1
+          } else {
+            if let oneof = currentOneof {
+              p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+              currentOneof = nil
+            }
+            if let newOneof = f.oneof {
+              oneofStart = f.number
+              oneofEnd = f.number + 1
+              currentOneof = newOneof
+            } else {
+              f.generateTraverse(printer: &p, usesStorage: storage != nil)
+            }
+          }
+        }
+        if let oneof = currentOneof {
+          p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+        }
+        while nextRange != nil {
           p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
           nextRange = ranges.next()
         }
-        if let c = currentOneof, let n = f.oneof, n.name == c.name {
-          oneofEnd = f.number + 1
-        } else {
-          if let oneof = currentOneof {
-            p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
-            currentOneof = nil
-          }
-          if let newOneof = f.oneof {
-            oneofStart = f.number
-            oneofEnd = f.number + 1
-            currentOneof = newOneof
-          } else {
-            f.generateTraverse(printer: &p, usesStorage: storage != nil)
-          }
-        }
-      }
-      if let oneof = currentOneof {
-        p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
-      }
-      while nextRange != nil {
-        p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
-        nextRange = ranges.next()
       }
     }
     p.print("try unknownFields.traverse(visitor: &visitor)\n")

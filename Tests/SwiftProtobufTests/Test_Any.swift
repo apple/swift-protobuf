@@ -189,6 +189,8 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
         XCTAssertEqual(anyValue.value, Data())
 
+        XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\n#json: \"{\\\"optionalInt32\\\":7}\"\n")
+
         // Verify:  JSON-to-protobuf transcoding should fail here
         // since the Any does not have type information
         XCTAssertThrowsError(try decoded.serializedBytes())
@@ -208,6 +210,8 @@ class Test_Any: XCTestCase {
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
         XCTAssertEqual(anyValue.value, Data(bytes: [8, 7]))
+
+        XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\nvalue: \"\\b\\007\"\n")
 
         // Protobuf-to-JSON transcoding fails
         XCTAssertThrowsError(try decoded.jsonString())

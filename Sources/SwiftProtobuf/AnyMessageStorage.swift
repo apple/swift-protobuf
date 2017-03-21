@@ -162,6 +162,112 @@ internal class AnyMessageStorage {
     throw AnyUnpackError.malformedAnyField
   }
 
+  private func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
+    let url: String
+    if typeURL.isEmpty {
+      url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+    } else {
+      url = _typeURL
+    }
+    visitor.visitAnyVerbose(value: message, typeURL: url)
+  }
+
+  // Specialized traverse for writing out a Text form of the Any.
+  // This prefers the more-legible "verbose" format if it can
+  // use it, otherwise will fall back to simpler forms.
+  private func textTraverse(visitor: inout TextFormatEncodingVisitor) {
+    if let msg = _message {
+      emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
+    } else if let valueData = _valueData {
+      if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+        // If we can decode it, we can write the readable verbose form:
+        do {
+          let m = try messageType.init(serializedData: valueData)
+          emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+          return
+        } catch {
+          // Fall through to just print the type and raw binary data
+        }
+      }
+      if !_typeURL.isEmpty {
+        try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+      }
+      if !valueData.isEmpty {
+        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
+      }
+    } else if let contentJSON = _contentJSON {
+      // Build a readable form of the JSON:
+      let asciiOpenCurlyBracket = UInt8(ascii: "{")
+      let asciiCloseCurlyBracket = UInt8(ascii: "}")
+      var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
+      contentJSONAsObject.append(contentJSON)
+      contentJSONAsObject.append(asciiCloseCurlyBracket)
+      // If we can decode it, we can write the readable verbose form:
+      if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+        var any = Google_Protobuf_Any()
+        any.typeURL = _typeURL
+        any._storage._contentJSON = contentJSON
+        any._storage._valueData = nil
+        do {
+          let m = try messageType.init(unpackingAny: any)
+          emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+          return
+        } catch {
+          // Fall through to just print the raw JSON data
+        }
+      }
+      if !_typeURL.isEmpty {
+        try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+      }
+      visitor.visitAnyJSONDataField(value: contentJSONAsObject)
+    } else if !_typeURL.isEmpty {
+      try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+    }
+  }
+
+  // Specialized traverse() implementation for Any
+  // This does various checks depending on the output format
+  // and contents, then traverses the storage fields.
+  func traverse<V: Visitor>(visitor: inout V) throws {
+    // Encoding to Text format for debugging is special:
+    if visitor is TextFormatEncodingVisitor {
+      var textVisitor = visitor as! TextFormatEncodingVisitor
+      textTraverse(visitor: &textVisitor)
+      visitor = textVisitor as! V
+      return
+    }
+
+    // 1. if _valueData is set, it will be used, nothing to check.
+
+    // 2. _message could be checked when set, but that isn't always
+    //    clean in the places it gets decoded from some other form, so
+    //    validate it here.
+    if let msg = _message, !msg.isInitialized {
+      throw BinaryEncodingError.missingRequiredFields
+    }
+
+    // 3. _contentJSON requires a good URL and our ability to look up
+    //    the message type to transcode.
+    if _contentJSON != nil {
+      if _typeURL.isEmpty {
+        throw BinaryEncodingError.anyTranscodeFailure
+      }
+      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
+        // Isn't registered, we can't transform it for binary.
+        throw BinaryEncodingError.anyTranscodeFailure
+      }
+    }
+    if !_typeURL.isEmpty {
+      try visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+    }
+    if !_value.isEmpty {
+      try visitor.visitSingularBytesField(value: _value, fieldNumber: 2)
+    }
+  }
+}
+
+/// Custom handling for Text format.
+extension AnyMessageStorage {
   func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
     // Decoding the verbose form requires knowing the type.
     _typeURL = url
@@ -186,38 +292,23 @@ internal class AnyMessageStorage {
       throw TextFormatDecodingError.malformedText
     }
   }
-
-  // Called before the message is traversed to do any error preflights.
-  // Since traverse() will use _value, this is our chance to throw
-  // when _value can't.
-  func preTraverse() throws {
-    // 1. if _valueData is set, it will be used, nothing to check.
-
-    // 2. _message could be checked when set, but that isn't always
-    //    clean in the places it gets decoded from some other form, so
-    //    validate it here.
-    if let msg = _message, !msg.isInitialized {
-      throw BinaryEncodingError.missingRequiredFields
-    }
-
-    // 3. _contentJSON requires a good URL and our ability to look up
-    //    the message type to transcode.
-    if _contentJSON != nil {
-      if _typeURL.isEmpty {
-        throw BinaryEncodingError.anyTranscodeFailure
-      }
-      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
-        // Isn't registered, we can't transform it for binary.
-        throw BinaryEncodingError.anyTranscodeFailure
-      }
-    }
-  }
 }
 
-// Since things are decoded on demand, hashValue and Equality are a little
-// messy.  Message could be equal, but do to how they are currected, we
-// currently end up with different hashValue and equalty could come back
-// false.
+/// Hashable and Equatable conformance
+///
+/// The obvious goal for Hashable/Equatable conformance would be for
+/// hash and equality to behave as if we always decoded the inner
+/// object and hashed or compared that.  Unfortunately, Any typically
+/// stores serialized contents and we don't always have the ability to
+/// deserialize it.  Since none of our supported serializations are
+/// fully deterministic, we can't even ensure that equality will
+/// behave this way when the Any contents are in the same
+/// serialization.
+///
+/// As a result, we can only really perform a "best effort" equality
+/// test.  Of course, regardless of the above, we must guarantee that
+/// hashValue is compatible with equality.
+///
 extension AnyMessageStorage {
   var hashValue: Int {
     var hash: Int = 0

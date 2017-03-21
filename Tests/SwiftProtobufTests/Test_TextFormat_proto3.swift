@@ -34,7 +34,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleInt32 = 41
 
-        XCTAssertEqual("single_int32: 41\n", try a.textFormatString())
+        XCTAssertEqual("single_int32: 41\n", a.textFormatString())
 
         assertTextFormatEncode("single_int32: 41\n") {(o: inout MessageTestType) in
             o.singleInt32 = 41 }
@@ -76,7 +76,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleInt64 = 2
 
-        XCTAssertEqual("single_int64: 2\n", try a.textFormatString())
+        XCTAssertEqual("single_int64: 2\n", a.textFormatString())
 
         assertTextFormatEncode("single_int64: 2\n") {(o: inout MessageTestType) in o.singleInt64 = 2 }
         assertTextFormatEncode("single_int64: -2\n") {(o: inout MessageTestType) in o.singleInt64 = -2 }
@@ -93,7 +93,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleUint32 = 3
 
-        XCTAssertEqual("single_uint32: 3\n", try a.textFormatString())
+        XCTAssertEqual("single_uint32: 3\n", a.textFormatString())
 
         assertTextFormatEncode("single_uint32: 3\n") {(o: inout MessageTestType) in
             o.singleUint32 = 3
@@ -120,7 +120,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleUint64 = 4
 
-        XCTAssertEqual("single_uint64: 4\n", try a.textFormatString())
+        XCTAssertEqual("single_uint64: 4\n", a.textFormatString())
 
         assertTextFormatEncode("single_uint64: 4\n") {(o: inout MessageTestType) in
             o.singleUint64 = 4
@@ -139,7 +139,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleSint32 = 5
 
-        XCTAssertEqual("single_sint32: 5\n", try a.textFormatString())
+        XCTAssertEqual("single_sint32: 5\n", a.textFormatString())
 
         assertTextFormatEncode("single_sint32: 5\n") {(o: inout MessageTestType) in
             o.singleSint32 = 5
@@ -159,7 +159,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleSint64 = 6
 
-        XCTAssertEqual("single_sint64: 6\n", try a.textFormatString())
+        XCTAssertEqual("single_sint64: 6\n", a.textFormatString())
 
         assertTextFormatEncode("single_sint64: 6\n") {(o: inout MessageTestType) in
             o.singleSint64 = 6
@@ -171,7 +171,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleFixed32 = 7
 
-        XCTAssertEqual("single_fixed32: 7\n", try a.textFormatString())
+        XCTAssertEqual("single_fixed32: 7\n", a.textFormatString())
 
         assertTextFormatEncode("single_fixed32: 7\n") {(o: inout MessageTestType) in
             o.singleFixed32 = 7
@@ -184,7 +184,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleFixed64 = 8
 
-        XCTAssertEqual("single_fixed64: 8\n", try a.textFormatString())
+        XCTAssertEqual("single_fixed64: 8\n", a.textFormatString())
 
         assertTextFormatEncode("single_fixed64: 8\n") {(o: inout MessageTestType) in
             o.singleFixed64 = 8
@@ -197,7 +197,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleSfixed32 = 9
 
-        XCTAssertEqual("single_sfixed32: 9\n", try a.textFormatString())
+        XCTAssertEqual("single_sfixed32: 9\n", a.textFormatString())
 
         assertTextFormatEncode("single_sfixed32: 9\n") {(o: inout MessageTestType) in
             o.singleSfixed32 = 9
@@ -210,7 +210,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleSfixed64 = 10
 
-        XCTAssertEqual("single_sfixed64: 10\n", try a.textFormatString())
+        XCTAssertEqual("single_sfixed64: 10\n", a.textFormatString())
 
         assertTextFormatEncode("single_sfixed64: 10\n") {(o: inout MessageTestType) in
             o.singleSfixed64 = 10
@@ -222,16 +222,12 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     private func assertRoundTripText(file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         var original = MessageTestType()
         configure(&original)
+        let text = original.textFormatString()
         do {
-            let json = try original.textFormatString()
-            do {
-                let decoded = try MessageTestType(textFormatString: json)
-                XCTAssertEqual(original, decoded)
-            } catch let e {
-                XCTFail("Failed to decode \(e): \(json)", file: file, line: line)
-            }
+            let decoded = try MessageTestType(textFormatString: text)
+            XCTAssertEqual(original, decoded)
         } catch let e {
-            XCTFail("Failed to encode \(e)", file: file, line: line)
+            XCTFail("Failed to decode \(e): \(text)", file: file, line: line)
         }
     }
 
@@ -239,7 +235,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleFloat = 11
 
-        XCTAssertEqual("single_float: 11\n", try a.textFormatString())
+        XCTAssertEqual("single_float: 11\n", a.textFormatString())
 
         assertTextFormatEncode("single_float: 11\n") {(o: inout MessageTestType) in
             o.singleFloat = 11
@@ -272,7 +268,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatEncode("single_float: -inf\n") {(o: inout MessageTestType) in o.singleFloat = -Float.infinity}
 
         let b = Proto3TestAllTypes.with {$0.singleFloat = Float.nan}
-        XCTAssertEqual("single_float: nan\n", try b.textFormatString())
+        XCTAssertEqual("single_float: nan\n", b.textFormatString())
 
         do {
             let nan1 = try Proto3TestAllTypes(textFormatString: "single_float: nan\n")
@@ -339,13 +335,13 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleDouble = 12
 
-        XCTAssertEqual("single_double: 12\n", try a.textFormatString())
+        XCTAssertEqual("single_double: 12\n", a.textFormatString())
 
         assertTextFormatEncode("single_double: 12\n") {(o: inout MessageTestType) in o.singleDouble = 12 }
         assertTextFormatEncode("single_double: inf\n") {(o: inout MessageTestType) in o.singleDouble = Double.infinity}
         assertTextFormatEncode("single_double: -inf\n") {(o: inout MessageTestType) in o.singleDouble = -Double.infinity}
         let b = Proto3TestAllTypes.with {$0.singleDouble = Double.nan}
-        XCTAssertEqual("single_double: nan\n", try b.textFormatString())
+        XCTAssertEqual("single_double: nan\n", b.textFormatString())
 
         assertTextFormatDecodeSucceeds("single_double: INFINITY\n") {(o: MessageTestType) in
             return o.singleDouble == Double.infinity
@@ -390,10 +386,10 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     func testEncoding_singleBool() {
         var a = MessageTestType()
         a.singleBool = true
-        XCTAssertEqual("single_bool: true\n", try a.textFormatString())
+        XCTAssertEqual("single_bool: true\n", a.textFormatString())
 
         a.singleBool = false
-        XCTAssertEqual("", try a.textFormatString())
+        XCTAssertEqual("", a.textFormatString())
 
         assertTextFormatEncode("single_bool: true\n") {(o: inout MessageTestType) in
             o.singleBool = true
@@ -448,7 +444,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleString = "abc"
 
-        XCTAssertEqual("single_string: \"abc\"\n", try a.textFormatString())
+        XCTAssertEqual("single_string: \"abc\"\n", a.textFormatString())
 
         assertTextFormatEncode("single_string: \"\\001\\002\\003\\004\\005\\006\\007\"\n") {
             (o: inout MessageTestType) in
@@ -569,7 +565,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
     func testEncoding_singleBytes() throws {
         let o = Proto3TestAllTypes.with { $0.singleBytes = Data() }
-        XCTAssertEqual("", try o.textFormatString())
+        XCTAssertEqual("", o.textFormatString())
 
         assertTextFormatEncode("single_bytes: \"AB\"\n") {(o: inout MessageTestType) in
             o.singleBytes = Data(bytes: [65, 66])
@@ -613,7 +609,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         for i in UInt8(0)...UInt8(255) {
             let d = Data(bytes: [i])
             let message = Proto3TestAllTypes.with { $0.singleBytes = d }
-            let text = try message.textFormatString()
+            let text = message.textFormatString()
             let decoded = try Proto3TestAllTypes(textFormatString: text)
             XCTAssertEqual(decoded, message)
             XCTAssertEqual(message.singleBytes[0], i)
@@ -627,7 +623,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleNestedMessage = nested
 
-        XCTAssertEqual("single_nested_message {\n  bb: 7\n}\n", try a.textFormatString())
+        XCTAssertEqual("single_nested_message {\n  bb: 7\n}\n", a.textFormatString())
 
         assertTextFormatEncode("single_nested_message {\n  bb: 7\n}\n") {(o: inout MessageTestType) in
             o.singleNestedMessage = nested
@@ -655,7 +651,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleForeignMessage = foreign
 
-        XCTAssertEqual("single_foreign_message {\n  c: 88\n}\n", try a.textFormatString())
+        XCTAssertEqual("single_foreign_message {\n  c: 88\n}\n", a.textFormatString())
 
         assertTextFormatEncode("single_foreign_message {\n  c: 88\n}\n") {(o: inout MessageTestType) in o.singleForeignMessage = foreign }
 
@@ -676,7 +672,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleImportMessage = importMessage
 
-        XCTAssertEqual("single_import_message {\n  d: -9\n}\n", try a.textFormatString())
+        XCTAssertEqual("single_import_message {\n  d: -9\n}\n", a.textFormatString())
 
         assertTextFormatEncode("single_import_message {\n  d: -9\n}\n") {(o: inout MessageTestType) in o.singleImportMessage = importMessage }
 
@@ -694,7 +690,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleNestedEnum = .baz
 
-        XCTAssertEqual("single_nested_enum: BAZ\n", try a.textFormatString())
+        XCTAssertEqual("single_nested_enum: BAZ\n", a.textFormatString())
 
         assertTextFormatEncode("single_nested_enum: BAZ\n") {(o: inout MessageTestType) in
             o.singleNestedEnum = .baz
@@ -716,14 +712,14 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         // enum values, unlike Google's C++ implementation, which considers
         // it a parse error.
         let b = try Proto3TestAllTypes(textFormatString: "single_nested_enum: 999\n")
-        XCTAssertEqual("single_nested_enum: 999\n", try b.textFormatString())
+        XCTAssertEqual("single_nested_enum: 999\n", b.textFormatString())
     }
 
     func testEncoding_singleForeignEnum() {
         var a = MessageTestType()
         a.singleForeignEnum = .foreignBaz
 
-        XCTAssertEqual("single_foreign_enum: FOREIGN_BAZ\n", try a.textFormatString())
+        XCTAssertEqual("single_foreign_enum: FOREIGN_BAZ\n", a.textFormatString())
 
         assertTextFormatEncode("single_foreign_enum: FOREIGN_BAZ\n") {(o: inout MessageTestType) in o.singleForeignEnum = .foreignBaz }
 
@@ -734,7 +730,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singleImportEnum = .importBaz
 
-        XCTAssertEqual("single_import_enum: IMPORT_BAZ\n", try a.textFormatString())
+        XCTAssertEqual("single_import_enum: IMPORT_BAZ\n", a.textFormatString())
 
         assertTextFormatEncode("single_import_enum: IMPORT_BAZ\n") {(o: inout MessageTestType) in o.singleImportEnum = .importBaz }
 
@@ -748,7 +744,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.singlePublicImportMessage = publicImportMessage
 
-        XCTAssertEqual("single_public_import_message {\n  e: -999999\n}\n", try a.textFormatString())
+        XCTAssertEqual("single_public_import_message {\n  e: -999999\n}\n", a.textFormatString())
 
         assertTextFormatEncode("single_public_import_message {\n  e: -999999\n}\n") {(o: inout MessageTestType) in o.singlePublicImportMessage = publicImportMessage }
 
@@ -769,7 +765,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     func testEncoding_repeatedInt32() {
         var a = MessageTestType()
         a.repeatedInt32 = [1, 2]
-        XCTAssertEqual("repeated_int32: [1, 2]\n", try a.textFormatString())
+        XCTAssertEqual("repeated_int32: [1, 2]\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_int32: [1, 2]\n") {(o: inout MessageTestType) in
             o.repeatedInt32 = [1, 2]
@@ -959,7 +955,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
     func testEncoding_repeatedBytes() {
         var a = MessageTestType()
         a.repeatedBytes = [Data(), Data(bytes: [65, 66])]
-        XCTAssertEqual("repeated_bytes: \"\"\nrepeated_bytes: \"AB\"\n", try a.textFormatString())
+        XCTAssertEqual("repeated_bytes: \"\"\nrepeated_bytes: \"AB\"\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_bytes: \"\"\nrepeated_bytes: \"AB\"\n") {(o: inout MessageTestType) in
             o.repeatedBytes = [Data(), Data(bytes: [65, 66])]
@@ -985,7 +981,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.repeatedNestedMessage = [nested, nested2]
 
-        XCTAssertEqual("repeated_nested_message {\n  bb: 7\n}\nrepeated_nested_message {\n  bb: -7\n}\n", try a.textFormatString())
+        XCTAssertEqual("repeated_nested_message {\n  bb: 7\n}\nrepeated_nested_message {\n  bb: -7\n}\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_nested_message {\n  bb: 7\n}\nrepeated_nested_message {\n  bb: -7\n}\n") {(o: inout MessageTestType) in o.repeatedNestedMessage = [nested, nested2] }
 
@@ -1017,7 +1013,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.repeatedForeignMessage = [foreign, foreign2]
 
-        XCTAssertEqual("repeated_foreign_message {\n  c: 88\n}\nrepeated_foreign_message {\n  c: -88\n}\n", try a.textFormatString())
+        XCTAssertEqual("repeated_foreign_message {\n  c: 88\n}\nrepeated_foreign_message {\n  c: -88\n}\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_foreign_message {\n  c: 88\n}\nrepeated_foreign_message {\n  c: -88\n}\n") {(o: inout MessageTestType) in o.repeatedForeignMessage = [foreign, foreign2] }
 
@@ -1043,7 +1039,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.repeatedImportMessage = [importMessage, importMessage2]
 
-        XCTAssertEqual("repeated_import_message {\n  d: -9\n}\nrepeated_import_message {\n  d: 999999\n}\n", try a.textFormatString())
+        XCTAssertEqual("repeated_import_message {\n  d: -9\n}\nrepeated_import_message {\n  d: 999999\n}\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_import_message {\n  d: -9\n}\nrepeated_import_message {\n  d: 999999\n}\n") {(o: inout MessageTestType) in o.repeatedImportMessage = [importMessage, importMessage2] }
 
@@ -1106,7 +1102,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2]
 
-        XCTAssertEqual("repeated_public_import_message {\n  e: -999999\n}\nrepeated_public_import_message {\n  e: 999999\n}\n", try a.textFormatString())
+        XCTAssertEqual("repeated_public_import_message {\n  e: -999999\n}\nrepeated_public_import_message {\n  e: 999999\n}\n", a.textFormatString())
 
         assertTextFormatEncode("repeated_public_import_message {\n  e: -999999\n}\nrepeated_public_import_message {\n  e: 999999\n}\n") {(o: inout MessageTestType) in o.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2] }
         assertTextFormatDecodeSucceeds("repeated_public_import_message <e: -999999> repeated_public_import_message <\n  e: 999999\n>\n") {
@@ -1145,7 +1141,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         var a = MessageTestType()
         a.oneofUint32 = 99
 
-        XCTAssertEqual("oneof_uint32: 99\n", try a.textFormatString())
+        XCTAssertEqual("oneof_uint32: 99\n", a.textFormatString())
 
         assertTextFormatEncode("oneof_uint32: 99\n") {(o: inout MessageTestType) in o.oneofUint32 = 99 }
 
