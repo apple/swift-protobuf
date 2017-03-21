@@ -315,22 +315,14 @@ extension AnyMessageStorage {
     // implementation details/bugs around serialized form order, etc.; but that
     // would also greatly slow down equality tests.
     //
-    // Despite the problems with binary serialization, that may be the best bet
-    // as looking at most other language implementations around Any they don't
-    // do lazy decode and instead keep all the `value` fields in binary form and
-    // end up just comparing those binary fields when comparing Anys.
+    // Do our best to compare what is present have...
 
     // If both have messages, check if they are the same.
-//    if let myMsg = _message, let otherMsg = other._message, type(of: myMsg) == type(of: otherMsg) {
-//      // There doesn't seem to be a way to use `==` or `_protobuf_generated_isEqualTo`
-//      // since _MessageImplementationBase has a constraint one can't do
-//      // `as? _MessageImplementationBase`.
-//      if let myMsg = myMsg as? _MessageImplementationBase, let otherMsg = otherMsg as? _MessageImplementationBase {
-//        if (myMsg._protobuf_generated_isEqualTo(other: otherMsg)) {
-//          return true
-//        }
-//      }
-//    }
+    if let myMsg = _message, let otherMsg = other._message, type(of: myMsg) == type(of: otherMsg) {
+      // Since the messages are known to be same type, we can claim both equal and
+      // not equal based on the equality comparison.
+      return myMsg.isEqualTo(message: otherMsg)
+    }
 
     // If both have serialized data, and they exactly match; the messages are equal.
     // Because there could be map in the message, the fact that the data isn't the
