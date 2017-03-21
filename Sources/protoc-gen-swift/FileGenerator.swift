@@ -365,7 +365,7 @@ class FileGenerator {
         if !registry.isEmpty {
             let filename = toUpperCamelCase(baseFilename)
             p.print("\n")
-            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filename)_Extensions: SwiftProtobuf.ExtensionSet = [\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filename)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
             p.indent()
             var separator = ""
             for e in registry {

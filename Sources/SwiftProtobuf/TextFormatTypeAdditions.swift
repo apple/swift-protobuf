@@ -33,10 +33,10 @@ public extension Message {
     ///
     /// - Parameters:
     ///   - textFormatString: the text serialization string to decode.
-    ///   - extensions: an `ExtensionSet` to look up and decode any extensions
+    ///   - extensions: an `ExtensionMap` to look up and decode any extensions
     ///     in this message or messages nested within this message's fields.
     /// - Throws: an instance of `TextFormatDecodingError` on failure.
-    public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
+    public init(textFormatString: String, extensions: ExtensionMap? = nil) throws {
         self.init()
         if !textFormatString.isEmpty {
             if let data = textFormatString.data(using: String.Encoding.utf8) {

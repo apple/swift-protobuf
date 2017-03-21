@@ -427,7 +427,7 @@ extension ProtobufUnittest_TestOptimizedForSize {
   }
 }
 
-let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension,
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
 ]

@@ -5146,7 +5146,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite {
   }
 }
 
-let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_optional_int32_extension_lite,
   ProtobufUnittest_Extensions_optional_int64_extension_lite,
   ProtobufUnittest_Extensions_optional_uint32_extension_lite,

@@ -2500,7 +2500,7 @@ extension Google_Protobuf_MessageOptions {
   }
 }
 
-let ProtobufUnittest_UnittestCustomOptions_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_UnittestCustomOptions_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_file_opt1,
   ProtobufUnittest_Extensions_message_opt1,
   ProtobufUnittest_Extensions_field_opt1,

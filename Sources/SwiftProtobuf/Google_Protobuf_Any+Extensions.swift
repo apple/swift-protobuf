@@ -33,7 +33,7 @@ public extension Message {
   /// - Parameter unpackingAny: the message to decode.
   /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
   ///   `BinaryDecodingError` on failure.
-  public init(unpackingAny: Google_Protobuf_Any, extensions: ExtensionSet? = nil) throws {
+  public init(unpackingAny: Google_Protobuf_Any, extensions: ExtensionMap? = nil) throws {
     self.init()
     try unpackingAny._storage.unpackTo(target: &self, extensions: extensions)
   }
@@ -60,7 +60,7 @@ public extension Google_Protobuf_Any {
 
 
   /// Decode an Any object from Protobuf Text Format.
-  public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
+  public init(textFormatString: String, extensions: ExtensionMap? = nil) throws {
     self.init()
     if !textFormatString.isEmpty {
       if let data = textFormatString.data(using: String.Encoding.utf8) {

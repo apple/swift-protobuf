@@ -419,7 +419,7 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
   }
 }
 
-let ProtobufUnittest_UnittestSwiftReserved_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_debug_description,
   ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value
 ]

@@ -171,7 +171,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
   }
 }
 
-let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufObjcUnittest_Extensions_optional_int32_extension,
   ProtobufObjcUnittest_Extensions_repeated_int32_extension,
   ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension
