@@ -22,12 +22,12 @@ struct ExtensionGenerator {
     let descriptor: Google_Protobuf_FieldDescriptorProto
     let generatorOptions: GeneratorOptions
     let path: [Int32]
-    let protoPath: String
     let protoPackageName: String
     let swiftDeclaringMessageName: String?
     let context: Context
     let comments: String
     let fieldName: String
+    let fieldNamePath: String
     let apiType: String
     let swiftFieldName: String
     let swiftHasPropertyName: String
@@ -78,10 +78,13 @@ struct ExtensionGenerator {
         self.apiType = descriptor.getSwiftApiType(context: context, isProto3: false)
         self.comments = file.commentsFor(path: path)
         self.fieldName = descriptor.isGroup ? descriptor.bareTypeName : descriptor.name
-        if let parentProtoPath = parentProtoPath {
-            self.protoPath = parentProtoPath + "." + fieldName
+        if let parentProtoPath = parentProtoPath, !parentProtoPath.isEmpty {
+            var p = parentProtoPath
+            assert(p.hasPrefix("."))
+            p.remove(at: p.startIndex)
+            self.fieldNamePath = p + "." + fieldName
         } else {
-            self.protoPath = fieldName
+            self.fieldNamePath = fieldName
         }
 
         let baseName: String
@@ -115,19 +118,10 @@ struct ExtensionGenerator {
         let scope = swiftDeclaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
 
-        let fieldNamePath: String
-        if let message = swiftDeclaringMessageName {
-            fieldNamePath = "\(message).protoMessageName + \".\(fieldName)\""
-        } else if !protoPackageName.isEmpty {
-            fieldNamePath = "_protobuf_package + \".\(fieldName)\""
-        } else {
-            fieldNamePath = "\"\(fieldName)\""
-        }
-
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
         p.indent()
         p.print("_protobuf_fieldNumber: \(descriptor.number),\n")
-        p.print("fieldName: \(fieldNamePath),\n")
+        p.print("fieldName: \"\(fieldNamePath)\",\n")
         p.print("defaultValue: \(defaultValue)\n")
         p.outdent()
         p.print(")\n")
