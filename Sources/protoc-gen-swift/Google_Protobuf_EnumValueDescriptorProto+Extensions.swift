@@ -18,6 +18,11 @@ import PluginLibrary
 import SwiftProtobuf
 
 extension Google_Protobuf_EnumValueDescriptorProto {
+    // Field numbers used to collect .proto file comments.
+    struct FieldNumbers {
+      static let number: Int32 = 2
+    }
+
     func getSwiftName(stripLength: Int) -> String {
         return sanitizeEnumCase(getSwiftBareName(stripLength: stripLength))
     }

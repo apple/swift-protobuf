@@ -57,7 +57,7 @@ class EnumGenerator {
     var enumCases = [EnumCaseGenerator]()
     for v in descriptor.value {
       var casePath = path
-      casePath.append(2)
+      casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
       casePath.append(i)
       i += 1
 

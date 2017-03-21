@@ -86,7 +86,7 @@ class MessageGenerator {
     var fields = [MessageFieldGenerator]()
     for f in descriptor.field {
       var fieldPath = path
-      fieldPath.append(2)
+      fieldPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
       fieldPath.append(i)
       i += 1
       fields.append(MessageFieldGenerator(descriptor: f, path: fieldPath, messageDescriptor: descriptor, file: file, context: context))
@@ -98,7 +98,7 @@ class MessageGenerator {
     var extensions = [ExtensionGenerator]()
     for e in descriptor.extension_p {
       var extPath = path
-      extPath.append(6)
+      extPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.extension)
       extPath.append(i)
       i += 1
       extensions.append(ExtensionGenerator(descriptor: e, path: extPath, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
@@ -119,7 +119,7 @@ class MessageGenerator {
     var enums = [EnumGenerator]()
     for e in descriptor.enumType {
       var enumPath = path
-      enumPath.append(4)
+      enumPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
       enumPath.append(i)
       i += 1
       enums.append(EnumGenerator(descriptor: e, path: enumPath, parentSwiftName: swiftFullName, file: file))
@@ -130,7 +130,7 @@ class MessageGenerator {
     var messages = [MessageGenerator]()
     for m in descriptor.nestedType where m.options.mapEntry != true {
       var msgPath = path
-      msgPath.append(3)
+      msgPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.nestedType)
       msgPath.append(i)
       i += 1
       messages.append(MessageGenerator(descriptor: m, path: msgPath, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))

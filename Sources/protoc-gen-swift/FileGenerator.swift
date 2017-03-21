@@ -285,7 +285,7 @@ class FileGenerator {
         // the file is an empty path. That never seems to have comments on it.
         // https://github.com/google/protobuf/issues/2249 opened to figure out
         // the right way to do this since the syntax entry is optional.
-        let comments = commentsFor(path: [12])
+        let comments = commentsFor(path: [Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax])
         if !comments.isEmpty {
             p.print(comments)
             // If the was a leading or tailing comment it won't have a blank
