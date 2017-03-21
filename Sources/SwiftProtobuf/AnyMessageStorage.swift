@@ -331,6 +331,16 @@ extension AnyMessageStorage {
       return true
     }
 
+    // If both have contentJSON, and they exactly match; the messages are equal.
+    // Because there could be map in the message (or the JSON could just be in a different
+    // order), the fact that the JSON isn't the same doesn't always mean the messages
+    // aren't equal.
+    if let myJSON = _contentJSON, let otherJSON = other._contentJSON, myJSON == otherJSON {
+      return true
+    }
+
+    // Out of options; to do more compares, the states conversions would have to be
+    // done to do comparisions.  Give up and say they aren't equal.
     return false
   }
 }
