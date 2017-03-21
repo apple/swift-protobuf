@@ -1629,8 +1629,6 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-//  These allow testing where a StorageClass is and isn't used.
-
 struct ProtobufUnittest_Msg2NoStorage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg2NoStorage"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
