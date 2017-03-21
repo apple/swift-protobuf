@@ -20,7 +20,6 @@ private let mapNameResolver: [Int:StaticString] = [1: "key", 2: "value"]
 internal struct TextFormatEncodingVisitor: Visitor {
 
   private var encoder: TextFormatEncoder
-  private var inExtension = false
   private var nameMap: _NameMap?
   private var nameResolver: [Int:StaticString]
   private var extensions: ExtensionFieldValueSet?
@@ -58,11 +57,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   private mutating func emitFieldName(lookingUp fieldNumber: Int) {
       if let protoName = nameMap?.names(for: fieldNumber)?.proto {
-          encoder.emitFieldName(name: protoName.utf8Buffer, inExtension: inExtension)
+          encoder.emitFieldName(name: protoName.utf8Buffer)
       } else if let protoName = nameResolver[fieldNumber] {
-          encoder.emitFieldName(name: protoName, inExtension: inExtension)
+          encoder.emitFieldName(name: protoName)
       } else if let extensionName = extensions?[fieldNumber]?.protobufExtension.fieldName {
-          encoder.emitFieldName(name: extensionName, inExtension: inExtension)
+          encoder.emitExtensionFieldName(name: extensionName)
       } else {
           encoder.emitFieldNumber(number: fieldNumber)
       }
@@ -480,8 +479,6 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   /// Called for each extension range.
   mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    inExtension = true
     try fields.traverse(visitor: &self, start: start, end: end)
-    inExtension = false
   }
 }
