@@ -18,6 +18,13 @@ import PluginLibrary
 import SwiftProtobuf
 
 extension Google_Protobuf_DescriptorProto {
+  // Field numbers used to collect .proto file comments.
+  struct FieldNumbers {
+    static let field: Int32 = 2
+    static let nestedType: Int32 = 3
+    static let enumType: Int32 = 4
+    static let `extension`: Int32 = 6
+  }
 
   /// A `String` containing a comma-delimited list of Swift range expressions
   /// covering the extension ranges for this message.
