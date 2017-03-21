@@ -40,9 +40,10 @@ public struct ExtensionFieldValueSet: Equatable {
   public init() {}
 
   public var hashValue: Int {
-    var hash: Int = 0
-    for i in values.keys.sorted() {
-      hash = (hash &* 16777619) ^ values[i]!.hashValue
+    var hash = 16777619
+    for (fieldNumber, v) in values {
+      // Note: This calculation cannot depend on the order of the items.
+      hash = hash &+ fieldNumber &+ v.hashValue
     }
     return hash
   }
