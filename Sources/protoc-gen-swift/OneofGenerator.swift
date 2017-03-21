@@ -32,6 +32,7 @@ class OneofGenerator {
     let descriptor: Google_Protobuf_OneofDescriptorProto
     let generatorOptions: GeneratorOptions
     let fields: [MessageFieldGenerator]
+    let fieldsSortedByNumber: [MessageFieldGenerator]
     let swiftRelativeName: String
     let swiftFullName: String
     let isProto3: Bool
@@ -40,6 +41,7 @@ class OneofGenerator {
         self.descriptor = descriptor
         self.generatorOptions = generatorOptions
         self.fields = fields
+        self.fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
         self.isProto3 = isProto3
         self.swiftRelativeName = sanitizeOneofTypeName(descriptor.swiftRelativeType)
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
@@ -81,7 +83,7 @@ class OneofGenerator {
         p.print("fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
         p.print("switch fieldNumber {\n")
-        for f in fields.sorted(by: {$0.number < $1.number}) {
+        for f in fieldsSortedByNumber {
             let modifier = "Singular"
             let special = f.isGroup ? "Group"
                         : f.isMessage ? "Message"
@@ -121,7 +123,7 @@ class OneofGenerator {
         p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
         p.indent()
         p.print("switch self {\n")
-        for f in fields.sorted(by: {$0.number < $1.number}) {
+        for f in fieldsSortedByNumber {
             p.print("case .\(f.swiftName)(let v):\n")
             p.indent()
             p.print("if start <= \(f.number) && \(f.number) < end {\n")
