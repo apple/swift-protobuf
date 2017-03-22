@@ -192,7 +192,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startMessageField()
       var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
-      try! value.traverse(visitor: &visitor)
+      if let any = value as? Google_Protobuf_Any {
+          any.textTraverse(visitor: &visitor)
+      } else {
+          try! value.traverse(visitor: &visitor)
+      }
       encoder = visitor.encoder
       encoder.endMessageField()
   }
@@ -204,7 +208,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
       encoder.emitExtensionFieldName(name: typeURL)
       encoder.startMessageField()
       var visitor = TextFormatEncodingVisitor(message: value, encoder: encoder)
-      try! value.traverse(visitor: &visitor)
+      if let any = value as? Google_Protobuf_Any {
+          any.textTraverse(visitor: &visitor)
+      } else {
+          try! value.traverse(visitor: &visitor)
+      }
       encoder = visitor.encoder
       encoder.endMessageField()
   }
@@ -338,7 +346,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
           emitFieldName(lookingUp: fieldNumber)
           encoder.startMessageField()
           var visitor = TextFormatEncodingVisitor(message: v, encoder: encoder)
-          try! v.traverse(visitor: &visitor)
+          if let any = v as? Google_Protobuf_Any {
+              any.textTraverse(visitor: &visitor)
+          } else {
+              try! v.traverse(visitor: &visitor)
+          }
           encoder = visitor.encoder
           encoder.endMessageField()
       }

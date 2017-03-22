@@ -71,8 +71,8 @@ class MessageStorageClassGenerator {
     p.print("}\n")
   }
 
-  func simpleTraverseStorage() -> Bool {
-    return false // Generate the full traverse method
+  func generatePreTraverse(printer p: inout CodePrinter) {
+    // Nothing
   }
 
   /// Generates the stored properties for the storage class.
@@ -130,7 +130,7 @@ class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
     p.print("typealias _StorageClass = AnyMessageStorage\n")
   }
 
-  override func simpleTraverseStorage() -> Bool {
-    return true // Just defer everything to storage
+  override func generatePreTraverse(printer p: inout CodePrinter) {
+    p.print("try _storage.preTraverse()\n")
   }
 }

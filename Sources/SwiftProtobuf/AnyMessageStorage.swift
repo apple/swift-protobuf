@@ -162,6 +162,61 @@ internal class AnyMessageStorage {
     throw AnyUnpackError.malformedAnyField
   }
 
+
+  // Called before the message is traversed to do any error preflights.
+  // Since traverse() will use _value, this is our chance to throw
+  // when _value can't.
+  func preTraverse() throws {
+    // 1. if _valueData is set, it will be used, nothing to check.
+
+    // 2. _message could be checked when set, but that isn't always
+    //    clean in the places it gets decoded from some other form, so
+    //    validate it here.
+    if let msg = _message, !msg.isInitialized {
+      throw BinaryEncodingError.missingRequiredFields
+    }
+
+    // 3. _contentJSON requires a good URL and our ability to look up
+    //    the message type to transcode.
+    if _contentJSON != nil {
+      if _typeURL.isEmpty {
+        throw BinaryEncodingError.anyTranscodeFailure
+      }
+      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
+        // Isn't registered, we can't transform it for binary.
+        throw BinaryEncodingError.anyTranscodeFailure
+      }
+    }
+  }
+}
+
+/// Custom handling for Text format.
+extension AnyMessageStorage {
+  func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
+    // Decoding the verbose form requires knowing the type.
+    _typeURL = url
+    guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
+      // The type wasn't registered, can't parse it.
+      throw TextFormatDecodingError.malformedText
+    }
+    _valueData = nil
+    let terminator = try decoder.scanner.skipObjectStart()
+    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+    if messageType == Google_Protobuf_Any.self {
+      var any = Google_Protobuf_Any()
+      try any.decodeTextFormat(decoder: &subDecoder)
+      _message = any
+    } else {
+      _message = messageType.init()
+      try _message!.decodeMessage(decoder: &subDecoder)
+    }
+    decoder.scanner = subDecoder.scanner
+    if try decoder.nextFieldNumber() != nil {
+      // Verbose any can never have additional keys.
+      throw TextFormatDecodingError.malformedText
+    }
+  }
+
   private func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
     let url: String
     if typeURL.isEmpty {
@@ -175,7 +230,7 @@ internal class AnyMessageStorage {
   // Specialized traverse for writing out a Text form of the Any.
   // This prefers the more-legible "verbose" format if it can
   // use it, otherwise will fall back to simpler forms.
-  private func textTraverse(visitor: inout TextFormatEncodingVisitor) {
+  internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
     if let msg = _message {
       emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
     } else if let valueData = _valueData {
@@ -222,74 +277,6 @@ internal class AnyMessageStorage {
       visitor.visitAnyJSONDataField(value: contentJSONAsObject)
     } else if !_typeURL.isEmpty {
       try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
-    }
-  }
-
-  // Specialized traverse() implementation for Any
-  // This does various checks depending on the output format
-  // and contents, then traverses the storage fields.
-  func traverse<V: Visitor>(visitor: inout V) throws {
-    // Encoding to Text format for debugging is special:
-    if visitor is TextFormatEncodingVisitor {
-      var textVisitor = visitor as! TextFormatEncodingVisitor
-      textTraverse(visitor: &textVisitor)
-      visitor = textVisitor as! V
-      return
-    }
-
-    // 1. if _valueData is set, it will be used, nothing to check.
-
-    // 2. _message could be checked when set, but that isn't always
-    //    clean in the places it gets decoded from some other form, so
-    //    validate it here.
-    if let msg = _message, !msg.isInitialized {
-      throw BinaryEncodingError.missingRequiredFields
-    }
-
-    // 3. _contentJSON requires a good URL and our ability to look up
-    //    the message type to transcode.
-    if _contentJSON != nil {
-      if _typeURL.isEmpty {
-        throw BinaryEncodingError.anyTranscodeFailure
-      }
-      if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
-        // Isn't registered, we can't transform it for binary.
-        throw BinaryEncodingError.anyTranscodeFailure
-      }
-    }
-    if !_typeURL.isEmpty {
-      try visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
-    }
-    if !_value.isEmpty {
-      try visitor.visitSingularBytesField(value: _value, fieldNumber: 2)
-    }
-  }
-}
-
-/// Custom handling for Text format.
-extension AnyMessageStorage {
-  func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
-    // Decoding the verbose form requires knowing the type.
-    _typeURL = url
-    guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
-      // The type wasn't registered, can't parse it.
-      throw TextFormatDecodingError.malformedText
-    }
-    _valueData = nil
-    let terminator = try decoder.scanner.skipObjectStart()
-    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-    if messageType == Google_Protobuf_Any.self {
-      var any = Google_Protobuf_Any()
-      try any.decodeTextFormat(decoder: &subDecoder)
-      _message = any
-    } else {
-      _message = messageType.init()
-      try _message!.decodeMessage(decoder: &subDecoder)
-    }
-    decoder.scanner = subDecoder.scanner
-    if try decoder.nextFieldNumber() != nil {
-      // Verbose any can never have additional keys.
-      throw TextFormatDecodingError.malformedText
     }
   }
 }
