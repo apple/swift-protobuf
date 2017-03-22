@@ -281,21 +281,6 @@ extension AnyMessageStorage {
   }
 }
 
-/// Hashable and Equatable conformance
-///
-/// The obvious goal for Hashable/Equatable conformance would be for
-/// hash and equality to behave as if we always decoded the inner
-/// object and hashed or compared that.  Unfortunately, Any typically
-/// stores serialized contents and we don't always have the ability to
-/// deserialize it.  Since none of our supported serializations are
-/// fully deterministic, we can't even ensure that equality will
-/// behave this way when the Any contents are in the same
-/// serialization.
-///
-/// As a result, we can only really perform a "best effort" equality
-/// test.  Of course, regardless of the above, we must guarantee that
-/// hashValue is compatible with equality.
-///
 extension AnyMessageStorage {
   var hashValue: Int {
     var hash: Int = 0
