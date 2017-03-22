@@ -2228,7 +2228,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
             do {
                 let msg = try ProtobufUnittest_TestAllTypes(serializedBytes: bytes)
                 XCTAssertEqual(msg.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
-                XCTAssertEqual(try msg.textFormatString(), expectedTextFormat + "\n", "Decoding \(bytes)")
+                XCTAssertEqual(msg.textFormatString(), expectedTextFormat + "\n", "Decoding \(bytes)")
                 XCTAssertEqual(try msg.serializedData(), Data(bytes: bytes), "Decoding \(bytes)")
             } catch let e {
                 XCTFail("Decoding \(bytes) failed with error: \(e)")
@@ -2249,7 +2249,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                 let msg = try ProtobufUnittest_NestedTestAllTypes(serializedBytes: fullBytes)
                 XCTAssertTrue(msg.unknownFields.data.isEmpty)
                 XCTAssertEqual(msg.payload.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
-                XCTAssertEqual(try msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
+                XCTAssertEqual(msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
                 XCTAssertEqual(try msg.serializedData(), Data(bytes: fullBytes), "Decoding \(bytes)")
             } catch let e {
                 XCTFail("Decoding \(bytes) failed with error: \(e)")
@@ -2269,7 +2269,7 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
                 let msg = try ProtobufUnittest_TestAllTypes(serializedBytes: fullBytes)
                 XCTAssertTrue(msg.unknownFields.data.isEmpty)
                 XCTAssertEqual(msg.optionalGroup.unknownFields.data, Data(bytes: bytes), "Decoding \(bytes)")
-                XCTAssertEqual(try msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
+                XCTAssertEqual(msg.textFormatString(), fullExpectedTextFormat, "Decoding \(bytes)")
                 XCTAssertEqual(try msg.serializedData(), Data(bytes: fullBytes), "Decoding \(bytes)")
             } catch let e {
                 XCTFail("Decoding \(bytes) failed with error: \(e)")

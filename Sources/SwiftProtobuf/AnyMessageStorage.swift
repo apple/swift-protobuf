@@ -162,30 +162,6 @@ internal class AnyMessageStorage {
     throw AnyUnpackError.malformedAnyField
   }
 
-  func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
-    // Decoding the verbose form requires knowing the type.
-    _typeURL = url
-    guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
-      // The type wasn't registered, can't parse it.
-      throw TextFormatDecodingError.malformedText
-    }
-    _valueData = nil
-    let terminator = try decoder.scanner.skipObjectStart()
-    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-    if messageType == Google_Protobuf_Any.self {
-      var any = Google_Protobuf_Any()
-      try any.decodeTextFormat(decoder: &subDecoder)
-      _message = any
-    } else {
-      _message = messageType.init()
-      try _message!.decodeMessage(decoder: &subDecoder)
-    }
-    decoder.scanner = subDecoder.scanner
-    if try decoder.nextFieldNumber() != nil {
-      // Verbose any can never have additional keys.
-      throw TextFormatDecodingError.malformedText
-    }
-  }
 
   // Called before the message is traversed to do any error preflights.
   // Since traverse() will use _value, this is our chance to throw
@@ -214,10 +190,97 @@ internal class AnyMessageStorage {
   }
 }
 
-// Since things are decoded on demand, hashValue and Equality are a little
-// messy.  Message could be equal, but do to how they are currected, we
-// currently end up with different hashValue and equalty could come back
-// false.
+/// Custom handling for Text format.
+extension AnyMessageStorage {
+  func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
+    // Decoding the verbose form requires knowing the type.
+    _typeURL = url
+    guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
+      // The type wasn't registered, can't parse it.
+      throw TextFormatDecodingError.malformedText
+    }
+    _valueData = nil
+    let terminator = try decoder.scanner.skipObjectStart()
+    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+    if messageType == Google_Protobuf_Any.self {
+      var any = Google_Protobuf_Any()
+      try any.decodeTextFormat(decoder: &subDecoder)
+      _message = any
+    } else {
+      _message = messageType.init()
+      try _message!.decodeMessage(decoder: &subDecoder)
+    }
+    decoder.scanner = subDecoder.scanner
+    if try decoder.nextFieldNumber() != nil {
+      // Verbose any can never have additional keys.
+      throw TextFormatDecodingError.malformedText
+    }
+  }
+
+  private func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
+    let url: String
+    if typeURL.isEmpty {
+      url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+    } else {
+      url = _typeURL
+    }
+    visitor.visitAnyVerbose(value: message, typeURL: url)
+  }
+
+  // Specialized traverse for writing out a Text form of the Any.
+  // This prefers the more-legible "verbose" format if it can
+  // use it, otherwise will fall back to simpler forms.
+  internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
+    if let msg = _message {
+      emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
+    } else if let valueData = _valueData {
+      if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+        // If we can decode it, we can write the readable verbose form:
+        do {
+          let m = try messageType.init(serializedData: valueData, partial: true)
+          emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+          return
+        } catch {
+          // Fall through to just print the type and raw binary data
+        }
+      }
+      if !_typeURL.isEmpty {
+        try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+      }
+      if !valueData.isEmpty {
+        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
+      }
+    } else if let contentJSON = _contentJSON {
+      // Build a readable form of the JSON:
+      let asciiOpenCurlyBracket = UInt8(ascii: "{")
+      let asciiCloseCurlyBracket = UInt8(ascii: "}")
+      var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
+      contentJSONAsObject.append(contentJSON)
+      contentJSONAsObject.append(asciiCloseCurlyBracket)
+      // If we can decode it, we can write the readable verbose form:
+      if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+        var any = Google_Protobuf_Any()
+        any.typeURL = _typeURL
+        any._storage._contentJSON = contentJSON
+        any._storage._valueData = nil
+        do {
+          let m = try messageType.init(unpackingAny: any)
+          emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+          return
+        } catch {
+          // Fall through to just print the raw JSON data
+        }
+      }
+      if !_typeURL.isEmpty {
+        try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+      }
+      visitor.visitAnyJSONDataField(value: contentJSONAsObject)
+    } else if !_typeURL.isEmpty {
+      try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+    }
+  }
+}
+
 extension AnyMessageStorage {
   var hashValue: Int {
     var hash: Int = 0

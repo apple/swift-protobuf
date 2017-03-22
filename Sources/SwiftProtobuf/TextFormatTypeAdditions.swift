@@ -22,9 +22,13 @@ public extension Message {
     /// Serializes the message to the Protocol Buffer text serialization format.
     ///
     /// - Throws: an instance of `TextFormatEncodingError` if encoding fails.
-    public func textFormatString() throws -> String {
-        var visitor = try TextFormatEncodingVisitor(message: self)
-        try traverse(visitor: &visitor)
+    public func textFormatString() -> String {
+        var visitor = TextFormatEncodingVisitor(message: self)
+        if let any = self as? Google_Protobuf_Any {
+            any._storage.textTraverse(visitor: &visitor)
+        } else {
+            try! traverse(visitor: &visitor)
+        }
         return visitor.result
     }
 

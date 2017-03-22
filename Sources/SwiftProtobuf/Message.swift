@@ -148,13 +148,8 @@ public extension Message {
     //      [text format]
     //   )
     let className = String(reflecting: type(of: self))
-    var result = "\(className):\n"
-    if let textFormat = try? textFormatString() {
-      result += textFormat
-    } else {
-      result += "<internal error>"
-    }
-    return result
+    let header = "\(className):\n"
+    return header + textFormatString()
   }
 
   /// Creates an instance of the message type on which this method is called,

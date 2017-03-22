@@ -91,6 +91,13 @@ public extension Google_Protobuf_Any {
 
 }
 
+extension Google_Protobuf_Any {
+  internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
+    _storage.textTraverse(visitor: &visitor)
+    try! unknownFields.traverse(visitor: &visitor)
+  }
+}
+
 
 extension Google_Protobuf_Any: _CustomJSONCodable {
 

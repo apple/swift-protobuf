@@ -167,7 +167,7 @@ class Test_Value: XCTestCase, PBTestHelpers {
         // Serializing an empty value (kind not set) in binary or text is ok;
         // it is only an error in JSON.
         XCTAssertEqual(try empty.serializedBytes(), [])
-        XCTAssertEqual(try empty.textFormatString(), "")
+        XCTAssertEqual(empty.textFormatString(), "")
 
         // Make sure an empty value is not equal to a nullValue value.
         let null: Google_Protobuf_Value = nil
