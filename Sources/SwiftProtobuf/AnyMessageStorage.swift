@@ -284,6 +284,18 @@ extension AnyMessageStorage {
   }
 }
 
+/// The obvious goal for Hashable/Equatable conformance would be for
+/// hash and equality to behave as if we always decoded the inner
+/// object and hashed or compared that.  Unfortunately, Any typically
+/// stores serialized contents and we don't always have the ability to
+/// deserialize it.  Since none of our supported serializations are
+/// fully deterministic, we can't even ensure that equality will
+/// behave this way when the Any contents are in the same
+/// serialization.
+///
+/// As a result, we can only really perform a "best effort" equality
+/// test.  Of course, regardless of the above, we must guarantee that
+/// hashValue is compatible with equality.
 extension AnyMessageStorage {
   var hashValue: Int {
     var hash: Int = i_2166136261
@@ -326,7 +338,9 @@ extension AnyMessageStorage {
 
     // If both have serialized data, and they exactly match; the messages are equal.
     // Because there could be map in the message, the fact that the data isn't the
-    // same doesn't always mean the messages aren't equal.
+    // same doesn't always mean the messages aren't equal. Likewise, the binary could
+    // have been created by a library that doesn't order the fields, or the binary was
+    // created using the appending ability in of the binary format.
     if let myValue = _valueData, let otherValue = other._valueData, myValue == otherValue {
       return true
     }
