@@ -230,6 +230,23 @@ message FieldNames {
   optional int32 TimeBase = 242;
   optional int32 TimeRecord = 243;
   optional int32 json_should_be_overriden = 244 [json_name = "json_was_overridden"];
+  optional int32 Any = 245;
+  optional int32 Int32 = 246;
+  optional int32 Int64 = 247;
+
+// TODO: protoc permits fields that differ only in capitalization, but
+// our conversion of protoc fields to Swift names is non-reversible,
+// and always forces the first character to lowercase, which causes
+// "protocol" and "Protocol" to collide.
+//
+//  optional int32 Protocol = 248;
+//  optional int32 Self = 249;
+
+  optional int32 UInt32 = 250;
+  optional int32 UInt64 = 251;
+  optional int32 associatedtype = 252;
+  optional int32 fileprivate = 253;
+  optional int32 open = 254;
 }
 
 message MessageNames {

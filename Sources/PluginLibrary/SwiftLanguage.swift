@@ -114,3 +114,53 @@ public func isValidSwiftIdentifier(_ s: String) -> Bool {
     }
     return isValidSwiftLoneIdentifier(s) || isValidSwiftQuotedIdentifier(s)
 }
+
+/// These lists of keywords are taken directly from the Swift language
+/// spec.  See:
+///
+/// https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html
+
+public let swiftKeywordsUsedInDeclarations: Set<String> = [
+    "associatedtype", "class", "deinit", "enum", "extension",
+    "fileprivate", "func", "import", "init", "inout", "internal",
+    "let", "open", "operator", "private", "protocol", "public",
+    "static", "struct", "subscript", "typealias", "var"
+]
+
+public let swiftKeywordsUsedInStatements: Set<String> = [ "break", "case",
+    "continue", "default", "defer", "do", "else", "fallthrough",
+    "for", "guard", "if", "in", "repeat", "return", "switch", "where",
+    "while"
+]
+
+public let swiftKeywordsUsedInExpressionsAndTypes: Set<String> = [ "as",
+    "Any", "catch", "false", "is", "nil", "rethrows", "super", "self",
+    "Self", "throw", "throws", "true", "try"
+]
+
+public let swiftKeywordsWithNumberSign: Set<String> = [ "#available",
+    "#colorLiteral", "#column", "#else", "#elseif", "#endif", "#file",
+    "#fileLiteral", "#function", "#if", "#imageLiteral", "#line",
+    "#selector", "#sourceLocation"
+]
+
+public let swiftKeywordsReservedInParticularContexts: Set<String> = [
+    "associativity", "convenience", "dynamic", "didSet", "final",
+    "get", "infix", "indirect", "lazy", "left", "mutating", "none",
+    "nonmutating", "optional", "override", "postfix", "precedence",
+    "prefix", "Protocol", "required", "right", "set", "Type",
+    "unowned", "weak", "willSet"
+]
+
+/// These are standard Swift types that are heavily used, although
+/// they are not technically reserved.  Defining fields or structs
+/// with these names would break our generated code quite badly:
+public let swiftCommonTypes: Set<String> = [ "Data", "Double", "Float", "Int",
+    "Int32", "Int64", "String", "UInt", "UInt32", "UInt64",
+]
+
+/// Special magic variables defined by the compiler that we don't
+/// really want to interfere with:
+public let swiftSpecialVariables: Set<String> = [ "__COLUMN__",
+    "__FILE__", "__FUNCTION__", "__LINE__",
+]
