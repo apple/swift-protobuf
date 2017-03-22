@@ -249,17 +249,6 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
   }
 }
 
-//  This message was used to generate
-//  //net/proto2/python/internal/testdata/message_set_message, but is commented
-//  out since it must not actually exist in code, to simulate an "unknown"
-//  extension.
-//  message TestMessageSetUnknownExtension {
-//    extend TestMessageSet {
-//      optional TestMessageSetUnknownExtension message_set_extension = 56141421;
-//    }
-//    optional int64 a = 1;
-//  }
-
 ///   MessageSet wire format is equivalent to this.
 struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".RawMessageSet"
@@ -396,7 +385,7 @@ extension Proto2WireformatUnittest_TestMessageSet {
   }
 }
 
-let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]

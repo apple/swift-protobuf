@@ -93,38 +93,42 @@ internal class AnyMessageStorage {
     return clone
   }
 
-  func unpackTo<M: Message>(target: inout M) throws {
+  func isA<M: Message>(_ type: M.Type) -> Bool {
     if _typeURL.isEmpty {
-      throw AnyUnpackError.emptyAnyField
+      return false
     }
     let encodedType = typeName(fromURL: _typeURL)
-    if encodedType.isEmpty {
-      throw AnyUnpackError.malformedTypeURL
-    }
-    let messageType = typeName(fromMessage: target)
-    if encodedType != messageType {
+    return encodedType == M.protoMessageName
+  }
+
+  // This is only ever called with the expactation that target will be fully
+  // replaced during the unpacking and never as a merge.
+  func unpackTo<M: Message>(target: inout M, extensions: ExtensionMap?) throws {
+    guard isA(M.self) else {
       throw AnyUnpackError.typeMismatch
     }
-    var protobuf: Data?
+
+    // Cached message is correct type, copy it over.
     if let message = _message as? M {
       target = message
       return
     }
 
+    // If internal state is a message (of different type), get serializedData
+    // from it. If state was binary, use that serialized data.
+    var protobuf: Data?
     if let message = _message {
       protobuf = try message.serializedData(partial: true)
     } else if let value = _valueData {
       protobuf = value
     }
     if let protobuf = protobuf {
-      // Decode protobuf from the stored bytes
-      if protobuf.count > 0 {
-        try protobuf.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
-          try target._protobuf_mergeSerializedBytes(from: p, count: protobuf.count, extensions: nil)
-        }
-      }
+      target = try M(serializedData: protobuf, extensions: extensions)
       return
-    } else if let contentJSON = _contentJSON {
+    }
+
+    // If internal state is JSON, do the decode now.
+    if let contentJSON = _contentJSON {
       if let _ = target as? _CustomJSONCodable {
         try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
           var scanner = JSONScanner(utf8Pointer: bytes,
@@ -141,18 +145,6 @@ internal class AnyMessageStorage {
             // and WKTs should only have the one.
             throw AnyUnpackError.malformedWellKnownTypeJSON
           }
-          // Note: This api is unpackTo(target:) so it really should be
-          // a merge and not a replace (the non WKT case next is a merge).
-          // The only WKTs where there would seem to be a difference are:
-          //   Struct - It is a map, so it would merge into any existing
-          //     enties.
-          //   ValueList - Repeated, so values should append to the
-          //       existing ones instead of instead of replace.
-          //   FieldMask - Repeated, so values should append to the
-          //       existing ones instead of instead of replace.
-          //   Value - Interesting case, it is a oneof, so currently
-          //       that would error if it was already set, so maybe
-          //       replace is ok.
           target = try M(jsonString: value)
         }
       } else {
@@ -161,54 +153,15 @@ internal class AnyMessageStorage {
         var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
         contentJSONAsObject.append(contentJSON)
         contentJSONAsObject.append(asciiCloseCurlyBracket)
-
-        try contentJSONAsObject.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-          var decoder = JSONDecoder(utf8Pointer: bytes,
-                                    count: contentJSONAsObject.count)
-          try decoder.decodeFullObject(message: &target)
-          if !decoder.scanner.complete {
-            throw JSONDecodingError.trailingGarbage
-          }
-        }
+        target = try M(jsonUTF8Data: contentJSONAsObject)
       }
       return
     }
+
+    // Didn't have any of the three internal states?
     throw AnyUnpackError.malformedAnyField
   }
 
-  func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
-    // Decoding the verbose form requires knowing the type:
-    _valueData = nil
-    _typeURL = url
-    let messageTypeName = typeName(fromURL: url)
-    let terminator = try decoder.scanner.skipObjectStart()
-    // Is it a well-known type? Or a user-registered type?
-    if messageTypeName == "google.protobuf.Any" {
-      var subDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self, scanner: decoder.scanner, terminator: terminator)
-      var any = Google_Protobuf_Any()
-      try any.decodeTextFormat(decoder: &subDecoder)
-      decoder.scanner = subDecoder.scanner
-      if let _ = try decoder.nextFieldNumber() {
-        // Verbose any can never have additional keys
-        throw TextFormatDecodingError.malformedText
-      }
-      _message = any
-      return
-    } else if let messageType = Google_Protobuf_Any.messageType(forMessageName: messageTypeName) {
-      var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
-      _message = messageType.init()
-      try _message!.decodeMessage(decoder: &subDecoder)
-      decoder.scanner = subDecoder.scanner
-      if let _ = try decoder.nextFieldNumber() {
-        // Verbose any can never have additional keys
-        throw TextFormatDecodingError.malformedText
-      }
-      return
-    }
-    // TODO: If we don't know the type, we should consider deferring the
-    // decode as we do for JSON and Protobuf binary.
-    throw TextFormatDecodingError.malformedText
-  }
 
   // Called before the message is traversed to do any error preflights.
   // Since traverse() will use _value, this is our chance to throw
@@ -237,10 +190,97 @@ internal class AnyMessageStorage {
   }
 }
 
-// Since things are decoded on demand, hashValue and Equality are a little
-// messy.  Message could be equal, but do to how they are currected, we
-// currently end up with different hashValue and equalty could come back
-// false.
+/// Custom handling for Text format.
+extension AnyMessageStorage {
+  func decodeTextFormat(typeURL url: String, decoder: inout TextFormatDecoder) throws {
+    // Decoding the verbose form requires knowing the type.
+    _typeURL = url
+    guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: url) else {
+      // The type wasn't registered, can't parse it.
+      throw TextFormatDecodingError.malformedText
+    }
+    _valueData = nil
+    let terminator = try decoder.scanner.skipObjectStart()
+    var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
+    if messageType == Google_Protobuf_Any.self {
+      var any = Google_Protobuf_Any()
+      try any.decodeTextFormat(decoder: &subDecoder)
+      _message = any
+    } else {
+      _message = messageType.init()
+      try _message!.decodeMessage(decoder: &subDecoder)
+    }
+    decoder.scanner = subDecoder.scanner
+    if try decoder.nextFieldNumber() != nil {
+      // Verbose any can never have additional keys.
+      throw TextFormatDecodingError.malformedText
+    }
+  }
+
+  private func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
+    let url: String
+    if typeURL.isEmpty {
+      url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+    } else {
+      url = _typeURL
+    }
+    visitor.visitAnyVerbose(value: message, typeURL: url)
+  }
+
+  // Specialized traverse for writing out a Text form of the Any.
+  // This prefers the more-legible "verbose" format if it can
+  // use it, otherwise will fall back to simpler forms.
+  internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
+    if let msg = _message {
+      emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
+    } else if let valueData = _valueData {
+      if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+        // If we can decode it, we can write the readable verbose form:
+        do {
+          let m = try messageType.init(serializedData: valueData, partial: true)
+          emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+          return
+        } catch {
+          // Fall through to just print the type and raw binary data
+        }
+      }
+      if !_typeURL.isEmpty {
+        try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+      }
+      if !valueData.isEmpty {
+        try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
+      }
+    } else if let contentJSON = _contentJSON {
+      // Build a readable form of the JSON:
+      let asciiOpenCurlyBracket = UInt8(ascii: "{")
+      let asciiCloseCurlyBracket = UInt8(ascii: "}")
+      var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
+      contentJSONAsObject.append(contentJSON)
+      contentJSONAsObject.append(asciiCloseCurlyBracket)
+      // If we can decode it, we can write the readable verbose form:
+      if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
+        var any = Google_Protobuf_Any()
+        any.typeURL = _typeURL
+        any._storage._contentJSON = contentJSON
+        any._storage._valueData = nil
+        do {
+          let m = try messageType.init(unpackingAny: any)
+          emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
+          return
+        } catch {
+          // Fall through to just print the raw JSON data
+        }
+      }
+      if !_typeURL.isEmpty {
+        try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+      }
+      visitor.visitAnyJSONDataField(value: contentJSONAsObject)
+    } else if !_typeURL.isEmpty {
+      try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
+    }
+  }
+}
+
 extension AnyMessageStorage {
   var hashValue: Int {
     var hash: Int = 0

@@ -231,7 +231,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   }
 }
 
-let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.ExtensionSet = [
+let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Ext4Extensions_b,
   Ext4Extensions_C,
   Ext4MyMessage.Extensions.b,

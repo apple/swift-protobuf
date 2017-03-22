@@ -933,9 +933,6 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum, SwiftProtobuf._Pro
 
 }
 
-//  TODO: Build a MessageNames message with a submessage of every name below
-//  TODO: Create tests that access every field, enum, message to verify the name is generated correctly
-
 struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".FieldNames"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -20809,8 +20806,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message, SwiftProt
   }
 }
 
-//  For message scoped extensions.
-
 struct SwiftUnittest_Names_ExtensionNamingInitials: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitials"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -21145,8 +21140,6 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message, SwiftProtobuf._Messa
     return true
   }
 }
-
-//  For global scoped extensions.
 
 struct SwiftUnittest_Names_ExtensionNamingInitialsLowers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".ExtensionNamingInitialsLowers"
@@ -22437,7 +22430,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   }
 }
 
-let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.ExtensionSet = [
+let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftUnittest_Names_Extensions_http,
   SwiftUnittest_Names_Extensions_http_request,
   SwiftUnittest_Names_Extensions_the_http_request,

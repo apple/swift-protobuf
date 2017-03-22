@@ -6879,8 +6879,6 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
   }
 }
 
-//  Test messages for packed fields
-
 struct ProtobufUnittest_TestPackedTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -10987,7 +10985,7 @@ extension ProtobufUnittest_TestHugeFieldNumbers {
   }
 }
 
-let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_optional_int32_extension,
   ProtobufUnittest_Extensions_optional_int64_extension,
   ProtobufUnittest_Extensions_optional_uint32_extension,

@@ -58,7 +58,7 @@ public extension Message {
     ///
     /// - Parameters:
     ///   - serializedData: The binary serialization data to decode.
-    ///   - extensions: An `ExtensionSet` to look up and decode any extensions in this
+    ///   - extensions: An `ExtensionMap` to look up and decode any extensions in this
     ///     message or messages nested within this message's fields.
     ///   - partial: By default, the binary serialization format requires all `required`
     ///     fields be present; when `partial` is `false`,
@@ -66,7 +66,7 @@ public extension Message {
     ///     When `partial` is `true`, then partial messages are allowed, and
     ///     `Message.isInitialized` is not checked.
     /// - Throws: An instance of `BinaryDecodingError` on failure.
-    init(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
+    init(serializedData data: Data, extensions: ExtensionMap? = nil, partial: Bool = false) throws {
         self.init()
         try merge(serializedData: data, extensions: extensions, partial: partial)
     }
@@ -79,7 +79,7 @@ public extension Message {
     ///
     /// - Parameters:
     ///   - serializedData: The binary serialization data to decode.
-    ///   - extensions: An `ExtensionSet` to look up and decode any extensions in this
+    ///   - extensions: An `ExtensionMap` to look up and decode any extensions in this
     ///     message or messages nested within this message's fields.
     ///   - partial: By default, the binary serialization format requires all `required`
     ///     fields be present; when `partial` is `false`,
@@ -87,7 +87,7 @@ public extension Message {
     ///     When `partial` is `true`, then partial messages are allowed, and
     ///     `Message.isInitialized` is not checked.
     /// - Throws: An instance of `BinaryDecodingError` on failure.
-    mutating func merge(serializedData data: Data, extensions: ExtensionSet? = nil, partial: Bool = false) throws {
+    mutating func merge(serializedData data: Data, extensions: ExtensionMap? = nil, partial: Bool = false) throws {
         if !data.isEmpty {
             try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
                 try _protobuf_mergeSerializedBytes(from: pointer,
@@ -101,7 +101,7 @@ public extension Message {
     }
 
     /// SwiftProtobuf Internal: Common support for decoding.
-    internal mutating func _protobuf_mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionSet?) throws {
+    internal mutating func _protobuf_mergeSerializedBytes(from bytes: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap?) throws {
         var decoder = BinaryDecoder(forReadingFrom: bytes, count: count, extensions: extensions)
         try decodeMessage(decoder: &decoder)
         guard decoder.complete else {

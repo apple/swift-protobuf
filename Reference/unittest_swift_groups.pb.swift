@@ -625,7 +625,7 @@ extension SwiftTestGroupExtensions {
   }
 }
 
-let UnittestSwiftGroups_Extensions: SwiftProtobuf.ExtensionSet = [
+let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_ExtensionGroup,
   Extensions_RepeatedExtensionGroup
 ]

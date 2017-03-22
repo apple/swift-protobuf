@@ -33,9 +33,9 @@ public extension Message {
   /// - Parameter unpackingAny: the message to decode.
   /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
   ///   `BinaryDecodingError` on failure.
-  public init(unpackingAny: Google_Protobuf_Any) throws {
+  public init(unpackingAny: Google_Protobuf_Any, extensions: ExtensionMap? = nil) throws {
     self.init()
-    try unpackingAny.unpackTo(target: &self)
+    try unpackingAny._storage.unpackTo(target: &self, extensions: extensions)
   }
 }
 
@@ -60,7 +60,7 @@ public extension Google_Protobuf_Any {
 
 
   /// Decode an Any object from Protobuf Text Format.
-  public init(textFormatString: String, extensions: ExtensionSet? = nil) throws {
+  public init(textFormatString: String, extensions: ExtensionMap? = nil) throws {
     self.init()
     if !textFormatString.isEmpty {
       if let data = textFormatString.data(using: String.Encoding.utf8) {
@@ -78,20 +78,24 @@ public extension Google_Protobuf_Any {
     }
   }
 
-  ///
-  /// Update the provided object from the data in the Any container.
-  /// This is essentially just a deferred deserialization; the Any
-  /// may hold protobuf bytes or JSON fields depending on how the Any
-  /// was itself deserialized.
-  ///
-  public func unpackTo<M: Message>(target: inout M) throws {
-    try _storage.unpackTo(target: &target)
+  /// Check if this Any message contains the given type. The check is
+  /// done by looking at the passed `Message.Type` and the `typeURL`
+  /// of this message.
+  public func isA<M: Message>(_ type: M.Type) -> Bool {
+    return _storage.isA(type)
   }
 
   public var hashValue: Int {
     return _storage.hashValue
   }
 
+}
+
+extension Google_Protobuf_Any {
+  internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
+    _storage.textTraverse(visitor: &visitor)
+    try! unknownFields.traverse(visitor: &visitor)
+  }
 }
 
 

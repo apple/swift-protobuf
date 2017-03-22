@@ -28,6 +28,7 @@ class EnumGenerator {
   private let swiftRelativeName: String
   private let swiftFullName: String
   private let enumCases: [EnumCaseGenerator]
+  private let enumCasesSortedByNumber: [EnumCaseGenerator]
   private let defaultCase: EnumCaseGenerator
   private let path: [Int32]
   private let comments: String
@@ -56,7 +57,7 @@ class EnumGenerator {
     var enumCases = [EnumCaseGenerator]()
     for v in descriptor.value {
       var casePath = path
-      casePath.append(2)
+      casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
       casePath.append(i)
       i += 1
 
@@ -76,6 +77,7 @@ class EnumGenerator {
       }
     }
     self.enumCases = enumCases
+    enumCasesSortedByNumber = enumCases.sorted {$0.number < $1.number}
     self.defaultCase = self.enumCases[0]
     self.path = path
     self.comments = file.commentsFor(path: path)
@@ -128,7 +130,7 @@ class EnumGenerator {
     } else {
       p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
       p.indent()
-      for c in enumCases.sorted(by: areCaseNumbersAscending) where !c.isAlias {
+      for c in enumCasesSortedByNumber where !c.isAlias {
         c.generateNameMapEntry(printer: &p)
       }
       p.outdent()
@@ -143,7 +145,7 @@ class EnumGenerator {
     p.print("\(visibility)init?(rawValue: Int) {\n")
     p.indent()
     p.print("switch rawValue {\n")
-    for c in enumCases.sorted(by: areCaseNumbersAscending) where !c.isAlias {
+    for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case \(c.number): self = .\(c.swiftName)\n")
     }
     if isProto3 {
@@ -163,7 +165,7 @@ class EnumGenerator {
     p.print("\(visibility)var rawValue: Int {\n")
     p.indent()
     p.print("switch self {\n")
-    for c in enumCases.sorted(by: areCaseNumbersAscending) where !c.isAlias {
+    for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case .\(c.swiftName): return \(c.number)\n")
     }
     if isProto3 {
@@ -173,14 +175,4 @@ class EnumGenerator {
     p.outdent()
     p.print("}\n")
   }
-}
-
-/// Comparison function used to sort the enum cases based on their number.
-///
-/// - Parameter first: A case generator.
-/// - Parameter second: A case generator.
-/// - Returns: True if the cases are in ascending order based on their number.
-private func areCaseNumbersAscending(_ first: EnumCaseGenerator,
-                                     _ second: EnumCaseGenerator) -> Bool {
-  return first.number < second.number
 }

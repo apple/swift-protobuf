@@ -51,25 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "conformance"
 
-//  This defines the conformance testing protocol.  This protocol exists between
-//  the conformance test suite itself and the code being tested.  For each test,
-//  the suite will send a ConformanceRequest message and expect a
-//  ConformanceResponse message.
-// 
-//  You can either run the tests in two different ways:
-// 
-//    1. in-process (using the interface in conformance_test.h).
-// 
-//    2. as a sub-process communicating over a pipe.  Information about how to
-//       do this is in conformance_test_runner.cc.
-// 
-//  Pros/cons of the two approaches:
-// 
-//    - running as a sub-process is much simpler for languages other than C/C++.
-// 
-//    - running as a sub-process may be more tricky in unusual environments like
-//      iOS apps, where fork/stdin/stdout are not available.
-
 enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case unspecified // = 0

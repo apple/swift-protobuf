@@ -312,11 +312,6 @@ struct MessageFieldGenerator {
     }
 
     var fieldMapNames: String {
-        // TODO: Add a check to see if the JSON name is just the text name
-        // transformed with protoc's algorithm; if so, use a new case to ask
-        // the runtime to do the same transformation instead of storing both
-        // strings.
-
         // Protobuf Text uses the unqualified group name for the field
         // name instead of the field name provided by protoc.  As far
         // as I can tell, no one uses the fieldname provided by protoc,

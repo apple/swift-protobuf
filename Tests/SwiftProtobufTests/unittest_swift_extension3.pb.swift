@@ -231,7 +231,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   }
 }
 
-let ProtobufUnittest_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extend3_Extensions_b,
   ProtobufUnittest_Extend3_Extensions_C,
   ProtobufUnittest_Extend3_MyMessage.Extensions.b,

@@ -122,7 +122,7 @@ fileprivate let _protobuf_package = "google.protobuf"
 public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Any"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "type_url", json: "typeUrl"),
+    1: .standard(proto: "type_url"),
     2: .same(proto: "value"),
   ]
 

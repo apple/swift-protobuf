@@ -47,6 +47,9 @@ internal func typeName(fromURL s: String) -> String {
   return s[typeStart..<s.endIndex]
 }
 
+fileprivate var serialQueue = DispatchQueue(label: "com.apple.swift.typeRegistry")
+
+// All access to this should be done on `serialQueue`.
 fileprivate var knownTypes: [String:Message.Type] = [
   // Seeded with the Well Known Types.
   "google.protobuf.Any": Google_Protobuf_Any.self,
@@ -99,17 +102,22 @@ public extension Google_Protobuf_Any {
     ///   else was already registered for the messageName.
     @discardableResult static public func register(messageType: Message.Type) -> Bool {
         let messageTypeName = messageType.protoMessageName
-        if let alreadyRegistered = knownTypes[messageTypeName] {
-            // Success/failure when something was already registered is
-            // based on if they are registering the same class or trying
-            // to register a different type
-            return alreadyRegistered == messageType
+        var result: Bool = false
+        serialQueue.sync {
+            if let alreadyRegistered = knownTypes[messageTypeName] {
+                // Success/failure when something was already registered is
+                // based on if they are registering the same class or trying
+                // to register a different type
+                result = alreadyRegistered == messageType
+            } else {
+                knownTypes[messageTypeName] = messageType
+                result = true
+            }
         }
-        knownTypes[messageTypeName] = messageType
-        return true
+        return result
     }
 
-    /// Returns the Message.Type expected for the given proto message name.
+    /// Returns the Message.Type expected for the given type URL.
     static public func messageType(forTypeURL url: String) -> Message.Type? {
       let messageTypeName = typeName(fromURL: url)
       return messageType(forMessageName: messageTypeName)
@@ -117,7 +125,11 @@ public extension Google_Protobuf_Any {
 
     /// Returns the Message.Type expected for the given proto message name.
     static public func messageType(forMessageName name: String) -> Message.Type? {
-        return knownTypes[name]
+        var result: Message.Type?
+        serialQueue.sync {
+            result = knownTypes[name]
+        }
+        return result
     }
 
 }

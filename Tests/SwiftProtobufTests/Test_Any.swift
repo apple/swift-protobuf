@@ -189,6 +189,8 @@ class Test_Any: XCTestCase {
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
         XCTAssertEqual(anyValue.value, Data())
 
+        XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\n#json: \"{\\\"optionalInt32\\\":7}\"\n")
+
         // Verify:  JSON-to-protobuf transcoding should fail here
         // since the Any does not have type information
         XCTAssertThrowsError(try decoded.serializedBytes())
@@ -208,6 +210,8 @@ class Test_Any: XCTestCase {
         XCTAssertNotNil(anyValue)
         XCTAssertEqual(anyValue.typeURL, "type.googleapis.com/UNKNOWN")
         XCTAssertEqual(anyValue.value, Data(bytes: [8, 7]))
+
+        XCTAssertEqual(anyValue.textFormatString(), "type_url: \"type.googleapis.com/UNKNOWN\"\nvalue: \"\\b\\007\"\n")
 
         // Protobuf-to-JSON transcoding fails
         XCTAssertThrowsError(try decoded.jsonString())
@@ -639,6 +643,27 @@ class Test_Any: XCTestCase {
       msg.optionalAny = Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
       let newJSON = try msg.jsonString()
       XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
+    }
+
+    func test_IsA() {
+      var msg = Google_Protobuf_Any()
+
+      msg.typeURL = "type.googleapis.com/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "random.site.org/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "/protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+      msg.typeURL = "protobuf_unittest.TestAllTypes"
+      XCTAssertTrue(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
+
+      msg.typeURL = ""
+      XCTAssertFalse(msg.isA(ProtobufUnittest_TestAllTypes.self))
+      XCTAssertFalse(msg.isA(Google_Protobuf_Empty.self))
     }
 
     func test_Any_Registery() {

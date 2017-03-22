@@ -20,7 +20,7 @@ import SwiftProtobuf
 
 class Test_Extensions: XCTestCase, PBTestHelpers {
     typealias MessageTestType = ProtobufUnittest_TestAllExtensions
-    var extensions = SwiftProtobuf.ExtensionSet()
+    var extensions = SwiftProtobuf.SimpleExtensionMap()
 
     func assertEncode(_ expected: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
         let empty = MessageTestType()
@@ -122,7 +122,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     func test_extensionMessageSpecificity() throws {
         // An extension set with two extensions for field #5, but for
         // different messages and with different types
-        var extensions = ExtensionSet()
+        var extensions = SimpleExtensionMap()
         extensions.insert(ProtobufUnittest_Extensions_optional_sint32_extension)
         extensions.insert(ProtobufUnittest_Extensions_my_extension_int)
 
@@ -192,7 +192,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
     ///
     func test_groupExtension() throws {
         var m = SwiftTestGroupExtensions()
-        var group = ExtensionGroup() // Bug: This should be in SwiftTestGroupExtensions
+        var group = ExtensionGroup()
         group.a = 7
         m.extensionGroup = group
         let coded = try m.serializedData()
@@ -219,9 +219,9 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
 
     func test_repeatedGroupExtension() throws {
         var m = SwiftTestGroupExtensions()
-        var group1 = RepeatedExtensionGroup() // Bug: This should be in SwiftTestGroupExtensions
+        var group1 = RepeatedExtensionGroup()
         group1.a = 7
-        var group2 = RepeatedExtensionGroup() // Bug: This should be in SwiftTestGroupExtensions
+        var group2 = RepeatedExtensionGroup()
         group2.a = 7
         m.repeatedExtensionGroup = [group1, group2]
         let coded = try m.serializedData()

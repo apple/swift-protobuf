@@ -185,14 +185,6 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message, SwiftProtobuf._MessageI
   }
 }
 
-// 
-// extend Foo.Bar.Baz.C {
-// optional bool d = 12;
-// }
-
-//  If this compiles then it means we deal with unique proto names that
-//  could end up with naming collisions when remapped to Swifty names.
-
 struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".Msg1"
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -262,8 +254,6 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Extens
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
-
-//  These allow testing where a StorageClass is and isn't used.
 
 struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".MsgNoStorage"
@@ -583,7 +573,7 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
   }
 }
 
-let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.ExtensionSet = [
+let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extend_Extensions_b,
   ProtobufUnittest_Extend_Extensions_C,
   ProtobufUnittest_Extend_Extensions_a_b,

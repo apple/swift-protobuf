@@ -80,8 +80,6 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum, SwiftPr
 
 }
 
-//  *_generic_services are false by default.
-
 struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -157,6 +155,6 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   }
 }
 
-let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.ExtensionSet = [
+let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]

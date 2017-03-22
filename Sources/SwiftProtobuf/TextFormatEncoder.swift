@@ -59,20 +59,21 @@ internal struct TextFormatEncoder {
         data.append(contentsOf: indentString)
     }
 
-    mutating func emitFieldName(name: UnsafeBufferPointer<UInt8>, inExtension: Bool) {
+    mutating func emitFieldName(name: UnsafeBufferPointer<UInt8>) {
         indent()
-        if inExtension {
-            data.append(asciiOpenSquareBracket)
-        }
         data.append(contentsOf: name)
-        if inExtension {
-            data.append(asciiCloseSquareBracket)
-        }
     }
 
-    mutating func emitFieldName(name: StaticString, inExtension: Bool) {
+    mutating func emitFieldName(name: StaticString) {
         let buff = UnsafeBufferPointer(start: name.utf8Start, count: name.utf8CodeUnitCount)
-        emitFieldName(name: buff, inExtension: inExtension)
+        emitFieldName(name: buff)
+    }
+
+    mutating func emitExtensionFieldName(name: String) {
+        indent()
+        data.append(asciiOpenSquareBracket)
+        append(text: name)
+        data.append(asciiCloseSquareBracket)
     }
 
     mutating func emitFieldNumber(number: Int) {

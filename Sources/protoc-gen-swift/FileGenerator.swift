@@ -218,7 +218,7 @@ class FileGenerator {
         }
     }
 
-    func commentsFor(path: [Int32]) -> String {
+    func commentsFor(path: [Int32], includeLeadingDetached: Bool = false) -> String {
         func escapeMarkup(_ text: String) -> String {
             // Proto file comments don't really have any markup associated with
             // them.  Swift uses something like MarkDown:
@@ -248,17 +248,15 @@ class FileGenerator {
         if let location = descriptor.locationFor(path: path) {
             var result = ""
 
-            // https://github.com/apple/swift-protobuf/issues/108 is opened to
-            // confirm that we really want the detached comments. Since file
-            // structure is lost, they might not make sense where we pull them
-            // over.
-            for detached in location.leadingDetachedComments {
-                let comment = prefixLines(text: detached, prefix: "// ")
-                if !comment.isEmpty {
-                    result += comment
-                    // Detached comments have blank lines between then (and
-                    // anything that follows them).
-                    result += "\n"
+            if includeLeadingDetached {
+                for detached in location.leadingDetachedComments {
+                    let comment = prefixLines(text: detached, prefix: "// ")
+                    if !comment.isEmpty {
+                        result += comment
+                        // Detached comments have blank lines between then (and
+                        // anything that follows them).
+                        result += "\n"
+                    }
                 }
             }
 
@@ -281,11 +279,15 @@ class FileGenerator {
             " */\n",
             "\n")
 
+        // Attempt to bring over the comments at the top of the .proto file as
+        // they likely contain copyrights/preamble/etc.
+        //
         // The C++ FileDescriptor::GetSourceLocation(), says the location for
         // the file is an empty path. That never seems to have comments on it.
         // https://github.com/google/protobuf/issues/2249 opened to figure out
         // the right way to do this since the syntax entry is optional.
-        let comments = commentsFor(path: [12])
+        let comments = commentsFor(path: [Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax],
+                                   includeLeadingDetached: true)
         if !comments.isEmpty {
             p.print(comments)
             // If the was a leading or tailing comment it won't have a blank
@@ -365,7 +367,7 @@ class FileGenerator {
         if !registry.isEmpty {
             let filename = toUpperCamelCase(baseFilename)
             p.print("\n")
-            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filename)_Extensions: SwiftProtobuf.ExtensionSet = [\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filename)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
             p.indent()
             var separator = ""
             for e in registry {
