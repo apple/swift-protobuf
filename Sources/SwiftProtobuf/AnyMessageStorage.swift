@@ -182,7 +182,7 @@ internal class AnyMessageStorage {
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         // If we can decode it, we can write the readable verbose form:
         do {
-          let m = try messageType.init(serializedData: valueData)
+          let m = try messageType.init(serializedData: valueData, partial: true)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
