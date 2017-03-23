@@ -42,6 +42,23 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
   visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
+fileprivate func asJSONObject(body: Data) -> Data {
+  let asciiOpenCurlyBracket = UInt8(ascii: "{")
+  let asciiCloseCurlyBracket = UInt8(ascii: "}")
+  var result = Data(bytes: [asciiOpenCurlyBracket])
+  result.append(body)
+  result.append(asciiCloseCurlyBracket)
+  return result
+}
+
+fileprivate func message(ofType messageType: Message.Type, typeURL: String, contentJSON: Data) throws -> Message {
+  var any = Google_Protobuf_Any()
+  any.typeURL = typeURL
+  any._storage._contentJSON = contentJSON
+  any._storage._valueData = nil
+  return try messageType.init(unpackingAny: any)
+}
+
 internal class AnyMessageStorage {
   var _typeURL: String = ""
 
@@ -63,12 +80,7 @@ internal class AnyMessageStorage {
       if let contentJSON = _contentJSON, !_typeURL.isEmpty {
         if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
           do {
-            // Hack, make an any to use init(unpackingAny:)
-            var any = Google_Protobuf_Any()
-            any.typeURL = _typeURL
-            any._storage._contentJSON = contentJSON
-            any._storage._valueData = nil
-            let m = try messageType.init(unpackingAny: any)
+            let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
             return try m.serializedData(partial: true)
           } catch {
             return Data()
@@ -161,11 +173,7 @@ internal class AnyMessageStorage {
           target = try M(jsonString: value)
         }
       } else {
-        let asciiOpenCurlyBracket = UInt8(ascii: "{")
-        let asciiCloseCurlyBracket = UInt8(ascii: "}")
-        var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
-        contentJSONAsObject.append(contentJSON)
-        contentJSONAsObject.append(asciiCloseCurlyBracket)
+        let contentJSONAsObject = asJSONObject(body: contentJSON)
         target = try M(jsonUTF8Data: contentJSONAsObject)
       }
       return
@@ -174,7 +182,6 @@ internal class AnyMessageStorage {
     // Didn't have any of the three internal states?
     throw AnyUnpackError.malformedAnyField
   }
-
 
   // Called before the message is traversed to do any error preflights.
   // Since traverse() will use _value, this is our chance to throw
@@ -254,20 +261,10 @@ extension AnyMessageStorage {
         try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
       }
     } else if let contentJSON = _contentJSON {
-      // Build a readable form of the JSON:
-      let asciiOpenCurlyBracket = UInt8(ascii: "{")
-      let asciiCloseCurlyBracket = UInt8(ascii: "}")
-      var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
-      contentJSONAsObject.append(contentJSON)
-      contentJSONAsObject.append(asciiCloseCurlyBracket)
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
-        var any = Google_Protobuf_Any()
-        any.typeURL = _typeURL
-        any._storage._contentJSON = contentJSON
-        any._storage._valueData = nil
         do {
-          let m = try messageType.init(unpackingAny: any)
+          let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
@@ -277,6 +274,8 @@ extension AnyMessageStorage {
       if !_typeURL.isEmpty {
         try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
       }
+      // Build a readable form of the JSON:
+      let contentJSONAsObject = asJSONObject(body: contentJSON)
       visitor.visitAnyJSONDataField(value: contentJSONAsObject)
     } else if !_typeURL.isEmpty {
       try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
@@ -353,8 +352,10 @@ extension AnyMessageStorage {
       return true
     }
 
-    // Out of options; to do more compares, the states conversions would have to be
-    // done to do comparisions.  Give up and say they aren't equal.
+    // Out of options. To do more compares, the states conversions would have to be
+    // done to do comparisions; and since equality can be used somewhat removed from
+    // a developer (if they put protos in a Set, use them as keys to a Dictionary, etc),
+    // the conversion cost might be to high for those uses.  Give up and say they aren't equal.
     return false
   }
 }
