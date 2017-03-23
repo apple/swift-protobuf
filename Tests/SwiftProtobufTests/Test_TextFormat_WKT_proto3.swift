@@ -22,7 +22,11 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
     func assertAnyTest<M: Message & Equatable>(_ message: M, expected: String, file: XCTestFileArgType = #file, line: UInt = #line) {
         let empty = MessageTestType()
         var configured = empty
-        configured.anyField = Google_Protobuf_Any(message: message)
+        do {
+            configured.anyField = try Google_Protobuf_Any(message: message)
+        } catch {
+            XCTFail("Assigning to any field failed: \(error)", file: file, line: line)
+        }
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         let encoded = configured.textFormatString()
         XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
@@ -45,8 +49,8 @@ class Test_TextFormat_WKT_proto3: XCTestCase, PBTestHelpers {
                       expected: "any_field {\n  [type.googleapis.com/google.protobuf.Empty] {\n  }\n}\n")
 
         // Nested any
-        let a = ProtobufUnittest_TestWellKnownTypes.with {
-            $0.anyField = Google_Protobuf_Any(message: Google_Protobuf_Any(message: Google_Protobuf_Duration(seconds: 123, nanos: 234567890)))
+        let a = try ProtobufUnittest_TestWellKnownTypes.with {
+            $0.anyField = try Google_Protobuf_Any(message: Google_Protobuf_Any(message: Google_Protobuf_Duration(seconds: 123, nanos: 234567890)))
         }
         let a_encoded = a.textFormatString()
         XCTAssertEqual(a_encoded, "any_field {\n  [type.googleapis.com/google.protobuf.Any] {\n    [type.googleapis.com/google.protobuf.Duration] {\n      seconds: 123\n      nanos: 234567890\n    }\n  }\n}\n")
