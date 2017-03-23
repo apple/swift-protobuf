@@ -261,8 +261,6 @@ extension AnyMessageStorage {
         try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
       }
     } else if let contentJSON = _contentJSON {
-      // Build a readable form of the JSON:
-      let contentJSONAsObject = asJSONObject(body: contentJSON)
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         do {
@@ -276,6 +274,8 @@ extension AnyMessageStorage {
       if !_typeURL.isEmpty {
         try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
       }
+      // Build a readable form of the JSON:
+      let contentJSONAsObject = asJSONObject(body: contentJSON)
       visitor.visitAnyJSONDataField(value: contentJSONAsObject)
     } else if !_typeURL.isEmpty {
       try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
