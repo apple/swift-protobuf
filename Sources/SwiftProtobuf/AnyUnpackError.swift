@@ -28,8 +28,6 @@ public enum AnyUnpackError: Error {
   /// fields:  the `@type` field and a `value` field containing
   /// the specialized JSON coding of the well-known type.
   case malformedWellKnownTypeJSON
-  /// There was something else wrong...
-  case malformedAnyField
   /// Decoding JSON or Text format requires the message type
   /// to have been compiled with textual field names.
   case missingFieldNames
