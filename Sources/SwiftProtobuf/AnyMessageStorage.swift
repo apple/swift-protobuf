@@ -42,6 +42,15 @@ fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, m
   visitor.visitAnyVerbose(value: message, typeURL: url)
 }
 
+fileprivate func asJSONObject(body: Data) -> Data {
+  let asciiOpenCurlyBracket = UInt8(ascii: "{")
+  let asciiCloseCurlyBracket = UInt8(ascii: "}")
+  var result = Data(bytes: [asciiOpenCurlyBracket])
+  result.append(body)
+  result.append(asciiCloseCurlyBracket)
+  return result
+}
+
 internal class AnyMessageStorage {
   var _typeURL: String = ""
 
@@ -161,11 +170,7 @@ internal class AnyMessageStorage {
           target = try M(jsonString: value)
         }
       } else {
-        let asciiOpenCurlyBracket = UInt8(ascii: "{")
-        let asciiCloseCurlyBracket = UInt8(ascii: "}")
-        var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
-        contentJSONAsObject.append(contentJSON)
-        contentJSONAsObject.append(asciiCloseCurlyBracket)
+        let contentJSONAsObject = asJSONObject(body: contentJSON)
         target = try M(jsonUTF8Data: contentJSONAsObject)
       }
       return
@@ -255,11 +260,7 @@ extension AnyMessageStorage {
       }
     } else if let contentJSON = _contentJSON {
       // Build a readable form of the JSON:
-      let asciiOpenCurlyBracket = UInt8(ascii: "{")
-      let asciiCloseCurlyBracket = UInt8(ascii: "}")
-      var contentJSONAsObject = Data(bytes: [asciiOpenCurlyBracket])
-      contentJSONAsObject.append(contentJSON)
-      contentJSONAsObject.append(asciiCloseCurlyBracket)
+      let contentJSONAsObject = asJSONObject(body: contentJSON)
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         var any = Google_Protobuf_Any()
