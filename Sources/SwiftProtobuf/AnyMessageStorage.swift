@@ -183,7 +183,6 @@ internal class AnyMessageStorage {
     throw AnyUnpackError.malformedAnyField
   }
 
-
   // Called before the message is traversed to do any error preflights.
   // Since traverse() will use _value, this is our chance to throw
   // when _value can't.
@@ -353,8 +352,10 @@ extension AnyMessageStorage {
       return true
     }
 
-    // Out of options; to do more compares, the states conversions would have to be
-    // done to do comparisions.  Give up and say they aren't equal.
+    // Out of options. To do more compares, the states conversions would have to be
+    // done to do comparisions; and since equality can be used somewhat removed from
+    // a developer (if they put protos in a Set, use them as keys to a Dictionary, etc),
+    // the conversion cost might be to high for those uses.  Give up and say they aren't equal.
     return false
   }
 }
