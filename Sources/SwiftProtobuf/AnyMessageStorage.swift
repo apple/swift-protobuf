@@ -51,11 +51,30 @@ fileprivate func asJSONObject(body: Data) -> Data {
   return result
 }
 
-fileprivate func message(ofType messageType: Message.Type, typeURL: String, contentJSON: Data) throws -> Message {
-  var any = Google_Protobuf_Any()
-  any.typeURL = typeURL
-  any._storage.state = .contentJSON(contentJSON)
-  return try messageType.init(unpackingAny: any)
+fileprivate func unpack(contentJSON: Data, as messageType: Message.Type) throws -> Message {
+  guard messageType is _CustomJSONCodable.Type else {
+    let contentJSONAsObject = asJSONObject(body: contentJSON)
+    return try messageType.init(jsonUTF8Data: contentJSONAsObject)
+  }
+
+  var value = String()
+  try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+    var scanner = JSONScanner(utf8Pointer: bytes,
+                              count: contentJSON.count)
+    let key = try scanner.nextQuotedString()
+    if key != "value" {
+      // The only thing within a WKT should be "value".
+      throw AnyUnpackError.malformedWellKnownTypeJSON
+    }
+    try scanner.skipRequiredColon()  // Can't fail
+    value = try scanner.skip()
+    if !scanner.complete {
+      // If that wasn't the end, then there was another key,
+      // and WKTs should only have the one.
+      throw AnyUnpackError.malformedWellKnownTypeJSON
+    }
+  }
+  return try messageType.init(jsonString: value)
 }
 
 internal class AnyMessageStorage {
@@ -78,7 +97,7 @@ internal class AnyMessageStorage {
           return Data()
         }
         do {
-          let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
+          let m = try unpack(contentJSON: contentJSON, as: messageType)
           return try m.serializedData(partial: true)
         } catch {
           return Data()
@@ -139,28 +158,7 @@ internal class AnyMessageStorage {
       }
 
     case .contentJSON(let contentJSON):
-      if let _ = target as? _CustomJSONCodable {
-        try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-          var scanner = JSONScanner(utf8Pointer: bytes,
-                                    count: contentJSON.count)
-          let key = try scanner.nextQuotedString()
-          if key != "value" {
-            // The only thing within a WKT should be "value".
-            throw AnyUnpackError.malformedWellKnownTypeJSON
-          }
-          try scanner.skipRequiredColon()  // Can't fail
-          let value = try scanner.skip()
-          if !scanner.complete {
-            // If that wasn't the end, then there was another key,
-            // and WKTs should only have the one.
-            throw AnyUnpackError.malformedWellKnownTypeJSON
-          }
-          target = try M(jsonString: value)
-        }
-      } else {
-        let contentJSONAsObject = asJSONObject(body: contentJSON)
-        target = try M(jsonUTF8Data: contentJSONAsObject)
-      }
+      target = try unpack(contentJSON: contentJSON, as: M.self) as! M
     }
   }
 
@@ -248,7 +246,7 @@ extension AnyMessageStorage {
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         do {
-          let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
+          let m = try unpack(contentJSON: contentJSON, as: messageType)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
