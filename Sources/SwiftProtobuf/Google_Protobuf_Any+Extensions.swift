@@ -54,8 +54,7 @@ public extension Google_Protobuf_Any {
   public init(message: Message, typePrefix: String = defaultTypePrefix) {
     self.init()
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
-    _storage._valueData = nil
-    _storage._message = message
+    _storage.state = .message(message)
   }
 
 

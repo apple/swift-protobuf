@@ -54,67 +54,58 @@ fileprivate func asJSONObject(body: Data) -> Data {
 fileprivate func message(ofType messageType: Message.Type, typeURL: String, contentJSON: Data) throws -> Message {
   var any = Google_Protobuf_Any()
   any.typeURL = typeURL
-  any._storage._contentJSON = contentJSON
-  any._storage._valueData = nil
+  any._storage.state = .contentJSON(contentJSON)
   return try messageType.init(unpackingAny: any)
 }
 
 internal class AnyMessageStorage {
+  // The two properties generated Google_Protobuf_Any will reference.
   var _typeURL: String = ""
-
-  // Computed to do on demand work.
   var _value: Data {
+    // Remapped to the internal `state`.
     get {
-      if let value = _valueData {
+      switch state {
+      case .binary(let value):
         return value
-      }
-
-      if let message = _message {
+      case .message(let message):
         do {
           return try message.serializedData(partial: true)
         } catch {
           return Data()
         }
-      }
-
-      if let contentJSON = _contentJSON, !_typeURL.isEmpty {
-        if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
-          do {
-            let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
-            return try m.serializedData(partial: true)
-          } catch {
-            return Data()
-          }
+      case .contentJSON(let contentJSON):
+        guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
+          return Data()
+        }
+        do {
+          let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
+          return try m.serializedData(partial: true)
+        } catch {
+          return Data()
         }
       }
-
-      return Data()
     }
     set {
-      _valueData = newValue
-      _message = nil
-      _contentJSON = nil
+      state = .binary(newValue)
     }
   }
 
-  // The possible internal states for _value.
-  //
-  // Note: It might make sense to shift to using an enum for internal
-  // state instead to better enforce this; but that also means we could
-  // never got a model were we might also be able to cache the things
-  // we have.
-  var _valueData: Data? = Data()
-  var _message: Message?
-  var _contentJSON: Data?  // Any json parsed from with the @type removed.
+  enum InternalState {
+    // a serialized binary
+    case binary(Data)
+    // a message
+    case message(Message)
+    // parsed JSON with the @type removed
+    case contentJSON(Data)
+  }
+  var state: InternalState = .binary(Data())
 
   init() {}
 
   func copy() -> AnyMessageStorage {
     let clone = AnyMessageStorage()
     clone._typeURL = _typeURL
-    clone._valueData = _valueData
-    clone._message = _message
-    clone._contentJSON = _contentJSON
+    clone.state = state
     return clone
   }
 
@@ -133,27 +124,21 @@ internal class AnyMessageStorage {
       throw AnyUnpackError.typeMismatch
     }
 
-    // Cached message is correct type, copy it over.
-    if let message = _message as? M {
-      target = message
-      return
-    }
+    switch state {
+    case .binary(let data):
+      target = try M(serializedData: data, extensions: extensions)
 
-    // If internal state is a message (of different type), get serializedData
-    // from it. If state was binary, use that serialized data.
-    var protobuf: Data?
-    if let message = _message {
-      protobuf = try message.serializedData(partial: true)
-    } else if let value = _valueData {
-      protobuf = value
-    }
-    if let protobuf = protobuf {
-      target = try M(serializedData: protobuf, extensions: extensions)
-      return
-    }
+    case .message(let msg):
+      if let message = msg as? M {
+        // Already right type, copy it over.
+        target = message
+      } else {
+        // Different type, serialize and parse.
+        let data = try msg.serializedData(partial: true)
+        target = try M(serializedData: data, extensions: extensions)
+      }
 
-    // If internal state is JSON, do the decode now.
-    if let contentJSON = _contentJSON {
+    case .contentJSON(let contentJSON):
       if let _ = target as? _CustomJSONCodable {
         try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
           var scanner = JSONScanner(utf8Pointer: bytes,
@@ -176,32 +161,29 @@ internal class AnyMessageStorage {
         let contentJSONAsObject = asJSONObject(body: contentJSON)
         target = try M(jsonUTF8Data: contentJSONAsObject)
       }
-      return
     }
-
-    // Didn't have any of the three internal states?
-    throw AnyUnpackError.malformedAnyField
   }
 
   // Called before the message is traversed to do any error preflights.
   // Since traverse() will use _value, this is our chance to throw
   // when _value can't.
   func preTraverse() throws {
-    // 1. if _valueData is set, it will be used, nothing to check.
+    switch state {
+    case .binary:
+      // Nothing to be checked.
+      break
 
-    // 2. _message could be checked when set, but that isn't always
-    //    clean in the places it gets decoded from some other form, so
-    //    validate it here.
-    if let msg = _message, !msg.isInitialized {
-      throw BinaryEncodingError.missingRequiredFields
-    }
-
-    // 3. _contentJSON requires a good URL and our ability to look up
-    //    the message type to transcode.
-    if _contentJSON != nil {
-      if _typeURL.isEmpty {
-        throw BinaryEncodingError.anyTranscodeFailure
+    case .message(let m):
+      // A message could be checked when set, but that isn't always
+      // clean in the places it gets decoded from some other form, so
+      // validate it here.
+      if !m.isInitialized {
+        throw BinaryEncodingError.missingRequiredFields
       }
+
+    case .contentJSON:
+      // contentJSON requires a good URL and our ability to look up
+      // the message type to transcode.
       if Google_Protobuf_Any.messageType(forTypeURL: _typeURL) == nil {
         // Isn't registered, we can't transform it for binary.
         throw BinaryEncodingError.anyTranscodeFailure
@@ -219,16 +201,16 @@ extension AnyMessageStorage {
       // The type wasn't registered, can't parse it.
       throw TextFormatDecodingError.malformedText
     }
-    _valueData = nil
     let terminator = try decoder.scanner.skipObjectStart()
     var subDecoder = try TextFormatDecoder(messageType: messageType, scanner: decoder.scanner, terminator: terminator)
     if messageType == Google_Protobuf_Any.self {
       var any = Google_Protobuf_Any()
       try any.decodeTextFormat(decoder: &subDecoder)
-      _message = any
+      state = .message(any)
     } else {
-      _message = messageType.init()
-      try _message!.decodeMessage(decoder: &subDecoder)
+      var m = messageType.init()
+      try m.decodeMessage(decoder: &subDecoder)
+      state = .message(m)
     }
     decoder.scanner = subDecoder.scanner
     if try decoder.nextFieldNumber() != nil {
@@ -241,9 +223,8 @@ extension AnyMessageStorage {
   // This prefers the more-legible "verbose" format if it can
   // use it, otherwise will fall back to simpler forms.
   internal func textTraverse(visitor: inout TextFormatEncodingVisitor) {
-    if let msg = _message {
-      emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
-    } else if let valueData = _valueData {
+    switch state {
+    case .binary(let valueData):
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         // If we can decode it, we can write the readable verbose form:
         do {
@@ -260,7 +241,11 @@ extension AnyMessageStorage {
       if !valueData.isEmpty {
         try! visitor.visitSingularBytesField(value: valueData, fieldNumber: 2)
       }
-    } else if let contentJSON = _contentJSON {
+
+    case .message(let msg):
+      emitVerboseTextForm(visitor: &visitor, message: msg, typeURL: _typeURL)
+
+    case .contentJSON(let contentJSON):
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
         do {
@@ -277,8 +262,6 @@ extension AnyMessageStorage {
       // Build a readable form of the JSON:
       let contentJSONAsObject = asJSONObject(body: contentJSON)
       visitor.visitAnyJSONDataField(value: contentJSONAsObject)
-    } else if !_typeURL.isEmpty {
-      try! visitor.visitSingularStringField(value: _typeURL, fieldNumber: 1)
     }
   }
 }
@@ -329,7 +312,7 @@ extension AnyMessageStorage {
     // Do our best to compare what is present have...
 
     // If both have messages, check if they are the same.
-    if let myMsg = _message, let otherMsg = other._message, type(of: myMsg) == type(of: otherMsg) {
+    if case .message(let myMsg) = state, case .message(let otherMsg) = other.state, type(of: myMsg) == type(of: otherMsg) {
       // Since the messages are known to be same type, we can claim both equal and
       // not equal based on the equality comparison.
       return myMsg.isEqualTo(message: otherMsg)
@@ -340,7 +323,7 @@ extension AnyMessageStorage {
     // same doesn't always mean the messages aren't equal. Likewise, the binary could
     // have been created by a library that doesn't order the fields, or the binary was
     // created using the appending ability in of the binary format.
-    if let myValue = _valueData, let otherValue = other._valueData, myValue == otherValue {
+    if case .binary(let myValue) = state, case .binary(let otherValue) = other.state, myValue == otherValue {
       return true
     }
 
@@ -348,7 +331,7 @@ extension AnyMessageStorage {
     // Because there could be map in the message (or the JSON could just be in a different
     // order), the fact that the JSON isn't the same doesn't always mean the messages
     // aren't equal.
-    if let myJSON = _contentJSON, let otherJSON = other._contentJSON, myJSON == otherJSON {
+    if case .contentJSON(let myJSON) = state, case .contentJSON(let otherJSON) = other.state, myJSON == otherJSON {
       return true
     }
 
@@ -370,55 +353,37 @@ extension AnyMessageStorage {
   // The last case requires locating the type, deserializing
   // into an object, then reserializing back to JSON.
   func encodedJSONString() throws -> String {
-    if let message = _message {
-      // We were initialized from a message object.
-
-      // We should have been initialized with a typeURL, but
-      // ensure it wasn't cleared.
-      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
-      return try serializeAnyJSON(for: message, typeURL: url)
-    } else if !_typeURL.isEmpty {
-      if let valueData = _valueData {
-        // We have protobuf binary data and want to build JSON,
-        // transcode by decoding the binary data to a message object
-        // and then recode back into JSON:
-        if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
-          let m = try messageType.init(serializedData: valueData)
-          return try serializeAnyJSON(for: m, typeURL: _typeURL)
-        }
-
+    switch state {
+    case .binary(let valueData):
+      // Transcode by decoding the binary data to a message object
+      // and then recode back into JSON.
+      guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
         // If we don't have the type available, we can't decode the
         // binary value, so we're stuck.  (The Google spec does not
         // provide a way to just package the binary value for someone
         // else to decode later.)
-
-        // TODO: Google spec requires more work in the general case:
-        // let encodedType = ... fetch google.protobuf.Type based on typeURL ...
-        // let type = Google_Protobuf_Type(protobuf: encodedType)
-        // return ProtobufDynamicMessage(type: type, any: self)?.serializeAnyJSON()
-
-        // ProtobufDynamicMessage() is non-trivial to write
-        // but desirable for other reasons.  It's a class that
-        // can be instantiated with any protobuf type or
-        // descriptor and provides access to protos of the
-        // corresponding type.
         throw JSONEncodingError.anyTranscodeFailure
-      } else {
-        // We don't have binary data, so include the typeURL and
-        // any other contentJSON this Any was created from.
-        var jsonEncoder = JSONEncoder()
-        jsonEncoder.startObject()
-        jsonEncoder.startField(name: "@type")
-        jsonEncoder.putStringValue(value: _typeURL)
-        if let contentJSON = _contentJSON, !contentJSON.isEmpty {
-          jsonEncoder.append(staticText: ",")
-          jsonEncoder.append(utf8Data: contentJSON)
-        }
-        jsonEncoder.endObject()
-        return jsonEncoder.stringResult
       }
-    } else {
-      return "{}"
+      let m = try messageType.init(serializedData: valueData)
+      return try serializeAnyJSON(for: m, typeURL: _typeURL)
+
+    case .message(let msg):
+      // We should have been initialized with a typeURL, but
+      // ensure it wasn't cleared.
+      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultTypePrefix)
+      return try serializeAnyJSON(for: msg, typeURL: url)
+
+    case .contentJSON(let contentJSON):
+      var jsonEncoder = JSONEncoder()
+      jsonEncoder.startObject()
+      jsonEncoder.startField(name: "@type")
+      jsonEncoder.putStringValue(value: _typeURL)
+      if !contentJSON.isEmpty {
+        jsonEncoder.append(staticText: ",")
+        jsonEncoder.append(utf8Data: contentJSON)
+      }
+      jsonEncoder.endObject()
+      return jsonEncoder.stringResult
     }
   }
 
@@ -432,9 +397,7 @@ extension AnyMessageStorage {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
     _typeURL = ""
-    _contentJSON = nil
-    _message = nil
-    _valueData = Data()
+    state = .binary(Data())
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }
@@ -451,8 +414,7 @@ extension AnyMessageStorage {
         jsonEncoder.append(text: keyValueJSON)
       }
       if decoder.scanner.skipOptionalObjectEnd() {
-        _contentJSON = jsonEncoder.dataResult
-        _valueData = nil
+        state = .contentJSON(jsonEncoder.dataResult)
         return
       }
       try decoder.scanner.skipRequiredComma()
