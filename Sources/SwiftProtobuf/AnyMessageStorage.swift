@@ -51,6 +51,14 @@ fileprivate func asJSONObject(body: Data) -> Data {
   return result
 }
 
+fileprivate func message(ofType messageType: Message.Type, typeURL: String, contentJSON: Data) throws -> Message {
+  var any = Google_Protobuf_Any()
+  any.typeURL = typeURL
+  any._storage._contentJSON = contentJSON
+  any._storage._valueData = nil
+  return try messageType.init(unpackingAny: any)
+}
+
 internal class AnyMessageStorage {
   var _typeURL: String = ""
 
@@ -72,12 +80,7 @@ internal class AnyMessageStorage {
       if let contentJSON = _contentJSON, !_typeURL.isEmpty {
         if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
           do {
-            // Hack, make an any to use init(unpackingAny:)
-            var any = Google_Protobuf_Any()
-            any.typeURL = _typeURL
-            any._storage._contentJSON = contentJSON
-            any._storage._valueData = nil
-            let m = try messageType.init(unpackingAny: any)
+            let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
             return try m.serializedData(partial: true)
           } catch {
             return Data()
@@ -263,12 +266,8 @@ extension AnyMessageStorage {
       let contentJSONAsObject = asJSONObject(body: contentJSON)
       // If we can decode it, we can write the readable verbose form:
       if let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) {
-        var any = Google_Protobuf_Any()
-        any.typeURL = _typeURL
-        any._storage._contentJSON = contentJSON
-        any._storage._valueData = nil
         do {
-          let m = try messageType.init(unpackingAny: any)
+          let m = try message(ofType: messageType, typeURL: _typeURL, contentJSON: contentJSON)
           emitVerboseTextForm(visitor: &visitor, message: m, typeURL: _typeURL)
           return
         } catch {
