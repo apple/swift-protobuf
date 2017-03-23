@@ -126,7 +126,7 @@ internal class AnyMessageStorage {
 
     switch state {
     case .binary(let data):
-      target = try M(serializedData: data, extensions: extensions)
+      target = try M(serializedData: data, extensions: extensions, partial: true)
 
     case .message(let msg):
       if let message = msg as? M {
@@ -135,7 +135,7 @@ internal class AnyMessageStorage {
       } else {
         // Different type, serialize and parse.
         let data = try msg.serializedData(partial: true)
-        target = try M(serializedData: data, extensions: extensions)
+        target = try M(serializedData: data, extensions: extensions, partial: true)
       }
 
     case .contentJSON(let contentJSON):
@@ -173,13 +173,12 @@ internal class AnyMessageStorage {
       // Nothing to be checked.
       break
 
-    case .message(let m):
-      // A message could be checked when set, but that isn't always
-      // clean in the places it gets decoded from some other form, so
-      // validate it here.
-      if !m.isInitialized {
-        throw BinaryEncodingError.missingRequiredFields
-      }
+    case .message:
+      // When set from a developer provided message, partial support
+      // is done. Any message that comes in from another format isn't
+      // checked, and transcoding the isInitialized requirement is
+      // never inserted.
+      break
 
     case .contentJSON:
       // contentJSON requires a good URL and our ability to look up
@@ -364,7 +363,7 @@ extension AnyMessageStorage {
         // else to decode later.)
         throw JSONEncodingError.anyTranscodeFailure
       }
-      let m = try messageType.init(serializedData: valueData)
+      let m = try messageType.init(serializedData: valueData, partial: true)
       return try serializeAnyJSON(for: m, typeURL: _typeURL)
 
     case .message(let msg):
