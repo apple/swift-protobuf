@@ -32,6 +32,16 @@ fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws 
   return visitor.stringResult
 }
 
+fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
+  let url: String
+  if typeURL.isEmpty {
+    url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+  } else {
+    url = typeURL
+  }
+  visitor.visitAnyVerbose(value: message, typeURL: url)
+}
+
 internal class AnyMessageStorage {
   var _typeURL: String = ""
 
@@ -218,16 +228,6 @@ extension AnyMessageStorage {
       // Verbose any can never have additional keys.
       throw TextFormatDecodingError.malformedText
     }
-  }
-
-  private func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
-    let url: String
-    if typeURL.isEmpty {
-      url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
-    } else {
-      url = _typeURL
-    }
-    visitor.visitAnyVerbose(value: message, typeURL: url)
   }
 
   // Specialized traverse for writing out a Text form of the Any.
