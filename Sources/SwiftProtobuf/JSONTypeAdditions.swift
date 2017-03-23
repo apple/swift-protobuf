@@ -15,61 +15,68 @@
 
 import Foundation
 
-//
-// Messages
-//
+/// JSON encoding and decoding methods for messages.
 public extension Message {
-    func jsonString() throws -> String {
-        if let m = self as? _CustomJSONCodable {
-            return try m.encodedJSONString()
-        }
-        var visitor = try JSONEncodingVisitor(message: self)
-        visitor.startObject()
-        try traverse(visitor: &visitor)
-        visitor.endObject()
-        return visitor.stringResult
+  /// Returns a string containing the JSON serialization of the message.
+  ///
+  /// Unlike binary encoding, presence of required fields is not enforced when
+  /// serializing to JSON.
+  ///
+  /// - Returns: A string containing the JSON serialization of the message.
+  /// - Throws: `JSONEncodingError` if encoding fails.
+  func jsonString() throws -> String {
+    if let m = self as? _CustomJSONCodable {
+      return try m.encodedJSONString()
     }
+    var visitor = try JSONEncodingVisitor(message: self)
+    visitor.startObject()
+    try traverse(visitor: &visitor)
+    visitor.endObject()
+    return visitor.stringResult
+  }
 
-    /// Creates an instance of the message by deserializing the given
-    /// JSON-format `String`.
-    ///
-    /// - Throws: an instance of `JSONDecodingError` if the JSON cannot be
-    ///   decoded.
-    public init(jsonString: String) throws {
-        if jsonString.isEmpty {
-            throw JSONDecodingError.truncated
-        }
-        if let data = jsonString.data(using: String.Encoding.utf8) {
-            try self.init(jsonUTF8Data: data)
+  /// Creates a new message by decoding the given string containing a
+  /// serialized message in JSON format.
+  ///
+  /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public init(jsonString: String) throws {
+    if jsonString.isEmpty {
+      throw JSONDecodingError.truncated
+    }
+    if let data = jsonString.data(using: String.Encoding.utf8) {
+      try self.init(jsonUTF8Data: data)
+    } else {
+      throw JSONDecodingError.truncated
+    }
+  }
+
+  /// Creates a new message by decoding the given `Data` containing a
+  /// serialized message in JSON format, interpreting the data as UTF-8 encoded
+  /// text.
+  ///
+  /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
+  ///   as UTF-8 encoded text.
+  /// - Throws: `JSONDecodingError` if decoding fails.
+  public init(jsonUTF8Data: Data) throws {
+    self.init()
+    try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+      var decoder = JSONDecoder(utf8Pointer: bytes,
+                                count: jsonUTF8Data.count)
+      if !decoder.scanner.skipOptionalNull() {
+        try decoder.decodeFullObject(message: &self)
+      } else if Self.self is _CustomJSONCodable.Type {
+        if let message = try (Self.self as! _CustomJSONCodable.Type)
+          .decodedFromJSONNull() {
+          self = message as! Self
         } else {
-            throw JSONDecodingError.truncated
+          throw JSONDecodingError.illegalNull
         }
+      }
+      if !decoder.scanner.complete {
+        throw JSONDecodingError.trailingGarbage
+      }
     }
-
-    /// Creates an instance of the message by deserializing the given
-    /// `Data` as UTF-8 encoded JSON.
-    ///
-    /// - Throws: an instance of `JSONDecodingError` if the JSON cannot be
-    ///   decoded.
-    public init(jsonUTF8Data: Data) throws {
-        self.init()
-        try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-            var decoder = JSONDecoder(utf8Pointer: bytes,
-                                      count: jsonUTF8Data.count)
-            if !decoder.scanner.skipOptionalNull() {
-                try decoder.decodeFullObject(message: &self)
-            } else if Self.self is _CustomJSONCodable.Type {
-                if let message = try (Self.self as! _CustomJSONCodable.Type)
-                    .decodedFromJSONNull() {
-                    self = message as! Self
-                } else {
-                    throw JSONDecodingError.illegalNull
-                }
-            }
-            if !decoder.scanner.complete {
-                throw JSONDecodingError.trailingGarbage
-            }
-        }
-    }
+  }
 }
 

@@ -12,17 +12,25 @@
 ///
 // -----------------------------------------------------------------------------
 
+/// Describes errors that can occur when decoding a message from binary format.
 public enum BinaryDecodingError: Error {
-    /// Extraneous data remained after decoding should have been complete
-    case trailingGarbage
-    /// The data stopped before we expected
-    case truncated
-    /// A string was not valid UTF8
-    case invalidUTF8
-    /// Protobuf data could not be parsed
-    case malformedProtobuf
-    /// The message or nested messages definitions have required fields, and the
-    /// binary data did not include values for them. The `partial` support will
-    /// allow this incomplete data to be decoded.
-    case missingRequiredFields
+  /// Extraneous data remained after decoding should have been complete.
+  case trailingGarbage
+
+  /// The decoder unexpectedly reached the end of the data before it was
+  /// expected.
+  case truncated
+
+  /// A string field was not encoded as valid UTF-8.
+  case invalidUTF8
+
+  /// The binary data was malformed in some way, such as an invalid wire format
+  /// or field tag.
+  case malformedProtobuf
+
+  /// The definition of the message or one of its nested messages has required
+  /// fields but the binary data did not include values for them. You must pass
+  /// `partial: true` during decoding if you wish to explicitly ignore missing
+  /// required fields.
+  case missingRequiredFields
 }

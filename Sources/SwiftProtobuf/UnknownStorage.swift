@@ -16,7 +16,12 @@
 
 import Foundation
 
+/// Contains any unknown fields in a decoded message (that is, fields that were
+/// sent on the wire but were not recognized by the generated message
+/// implementation).
 public struct UnknownStorage: Equatable {
+  /// The raw protocol buffer binary-encoded bytes that represent the unknown
+  /// fields of a decoded message.
   public private(set) var data = Data()
 
   public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
