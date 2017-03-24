@@ -17,130 +17,141 @@
 // message, intersect two fieldmasks, etc.
 
 private func ProtoToJSON(name: String) -> String? {
-    var jsonPath = ""
-    var chars = name.characters.makeIterator()
-    while let c = chars.next() {
-        switch c {
-        case "_":
-            if let toupper = chars.next() {
-                switch toupper {
-                case "a"..."z":
-                    jsonPath.append(String(toupper).uppercased())
-                default:
-                    return nil
-                }
-            } else {
-                return nil
-            }
-        case "A"..."Z":
-            return nil
+  var jsonPath = ""
+  var chars = name.characters.makeIterator()
+  while let c = chars.next() {
+    switch c {
+    case "_":
+      if let toupper = chars.next() {
+        switch toupper {
+        case "a"..."z":
+          jsonPath.append(String(toupper).uppercased())
         default:
-            jsonPath.append(c)
+          return nil
         }
+      } else {
+        return nil
+      }
+    case "A"..."Z":
+      return nil
+    default:
+      jsonPath.append(c)
     }
-    return jsonPath
+  }
+  return jsonPath
 }
 
 private func JSONToProto(name: String) -> String? {
-    var path = ""
-    for c in name.characters {
-        switch c {
-        case "_":
-            return nil
-        case "A"..."Z":
-            path.append(Character("_"))
-            path.append(String(c).lowercased())
-        default:
-            path.append(c)
-        }
+  var path = ""
+  for c in name.characters {
+    switch c {
+    case "_":
+      return nil
+    case "A"..."Z":
+      path.append(Character("_"))
+      path.append(String(c).lowercased())
+    default:
+      path.append(c)
     }
-    return path
+  }
+  return path
 }
 
 private func parseJSONFieldNames(names: String) -> [String]? {
-    var fieldNameCount = 0
-    var fieldName = ""
-    var split = [String]()
-    for c: Character in names.characters {
-        switch c {
-        case ",":
-            if fieldNameCount == 0 {
-                return nil
-            }
-            if let pbName = JSONToProto(name: fieldName) {
-                split.append(pbName)
-            } else {
-                return nil
-            }
-            fieldName = ""
-            fieldNameCount = 0
-        default:
-            fieldName.append(c)
-            fieldNameCount += 1
-        }
-    }
-    if fieldNameCount == 0 { // Last field name can't be empty
+  var fieldNameCount = 0
+  var fieldName = ""
+  var split = [String]()
+  for c: Character in names.characters {
+    switch c {
+    case ",":
+      if fieldNameCount == 0 {
         return nil
-    }
-    if let pbName = JSONToProto(name: fieldName) {
+      }
+      if let pbName = JSONToProto(name: fieldName) {
         split.append(pbName)
-    } else {
+      } else {
         return nil
+      }
+      fieldName = ""
+      fieldNameCount = 0
+    default:
+      fieldName.append(c)
+      fieldNameCount += 1
     }
-    return split
+  }
+  if fieldNameCount == 0 { // Last field name can't be empty
+    return nil
+  }
+  if let pbName = JSONToProto(name: fieldName) {
+    split.append(pbName)
+  } else {
+    return nil
+  }
+  return split
 }
 
 public extension Google_Protobuf_FieldMask {
-    /// Initialize a FieldMask object with an array of paths.
-    /// The paths should match the names used in the proto file (which
-    /// will be different than the corresponding Swift property names).
-    public init(protoPaths: [String]) {
-        self.init()
-        paths = protoPaths
-    }
+  /// Creates a new `Google_Protobuf_FieldMask` from the given array of paths.
+  ///
+  /// The paths should match the names used in the .proto file, which may be
+  /// different than the corresponding Swift property names.
+  ///
+  /// - Parameter protoPaths: The paths from which to create the field mask,
+  ///   defined using the .proto names for the fields.
+  public init(protoPaths: [String]) {
+    self.init()
+    paths = protoPaths
+  }
 
-    /// Initialize a FieldMask object with the provided paths.
-    /// The paths should match the names used in the proto file (which
-    /// will be different than the corresponding Swift property names).
-    public init(protoPaths: String...) {
-        self.init(protoPaths: protoPaths)
-    }
+  /// Creates a new `Google_Protobuf_FieldMask` from the given paths.
+  ///
+  /// The paths should match the names used in the .proto file, which may be
+  /// different than the corresponding Swift property names.
+  ///
+  /// - Parameter protoPaths: The paths from which to create the field mask,
+  ///   defined using the .proto names for the fields.
+  public init(protoPaths: String...) {
+    self.init(protoPaths: protoPaths)
+  }
 
-    /// Initialize a FieldMask object with the provided paths.
-    /// The paths should match the names used in the JSON serialization
-    /// (which will be different than the field names in the proto file
-    /// or the corresponding Swift property names).
-    public init?(jsonPaths: String...) {
-        // TODO: This should fail if any of the conversions from JSON fails
-        self.init(protoPaths: jsonPaths.flatMap(JSONToProto))
-    }
+  /// Creates a new `Google_Protobuf_FieldMask` from the given paths.
+  ///
+  /// The paths should match the JSON names of the fields, which may be
+  /// different than the corresponding Swift property names.
+  ///
+  /// - Parameter jsonPaths: The paths from which to create the field mask,
+  ///   defined using the JSON names for the fields.
+  public init?(jsonPaths: String...) {
+    // TODO: This should fail if any of the conversions from JSON fails
+    self.init(protoPaths: jsonPaths.flatMap(JSONToProto))
+  }
 
-    // It would be nice if to have an initializer that accepted Swift property
-    // names, but translating between swift and protobuf/json property
-    // names is not entirely deterministic.
+  // It would be nice if to have an initializer that accepted Swift property
+  // names, but translating between swift and protobuf/json property
+  // names is not entirely deterministic.
 }
 
 extension Google_Protobuf_FieldMask: _CustomJSONCodable {
-    mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
-        let s = try decoder.scanner.nextQuotedString()
-        if let names = parseJSONFieldNames(names: s) {
-            paths = names
-        } else {
-            throw JSONDecodingError.malformedFieldMask
-        }
+  mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
+    let s = try decoder.scanner.nextQuotedString()
+    if let names = parseJSONFieldNames(names: s) {
+      paths = names
+    } else {
+      throw JSONDecodingError.malformedFieldMask
     }
+  }
 
-    func encodedJSONString() throws -> String {
-        // Note:  Proto requires alphanumeric field names, so there
-        // cannot be a ',' or '"' character to mess up this formatting.
-        var jsonPaths = [String]()
-        for p in paths {
-            if let jsonPath = ProtoToJSON(name: p) {
-                jsonPaths.append(jsonPath)
-            } else {
-                throw JSONEncodingError.fieldMaskConversion
-            }
-        }
-        return "\"" + jsonPaths.joined(separator: ",") + "\""
+  func encodedJSONString() throws -> String {
+    // Note:  Proto requires alphanumeric field names, so there
+    // cannot be a ',' or '"' character to mess up this formatting.
+    var jsonPaths = [String]()
+    for p in paths {
+      if let jsonPath = ProtoToJSON(name: p) {
+        jsonPaths.append(jsonPath)
+      } else {
+        throw JSONEncodingError.fieldMaskConversion
+      }
     }
+    return "\"" + jsonPaths.joined(separator: ",") + "\""
+  }
 }
