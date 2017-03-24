@@ -87,14 +87,14 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  var debugDescription: Bool {
+  var debugDescription_p: Bool {
     get {return getExtensionValue(ext: Extensions_debugDescription) ?? false}
     set {setExtensionValue(ext: Extensions_debugDescription, value: newValue)}
   }
-  var hasDebugDescription: Bool {
+  var hasDebugDescription_p: Bool {
     return hasExtensionValue(ext: Extensions_debugDescription)
   }
-  mutating func clearDebugDescription() {
+  mutating func clearDebugDescription_p() {
     clearExtensionValue(ext: Extensions_debugDescription)
   }
 }

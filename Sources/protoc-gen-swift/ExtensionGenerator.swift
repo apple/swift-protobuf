@@ -104,7 +104,9 @@ struct ExtensionGenerator {
             let swiftPrefix = file.swiftPrefix
             self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
-            self.swiftFieldName = periodsToUnderscores(swiftPrefix + fieldBaseName)
+            // If there was no package and no prefix, fieldBaseName could be a reserved
+            // word, so sanitize.
+            self.swiftFieldName = sanitizeFieldName(swiftPrefix + fieldBaseName)
         }
         self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
         self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
