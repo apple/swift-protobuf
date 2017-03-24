@@ -98,8 +98,12 @@ struct ExtensionGenerator {
 
         if let msg = swiftDeclaringMessageName {
             self.swiftRelativeExtensionName = baseName
+            // The rest of these have enough things put together, we assume they
+            // can never run into reserved words.
             self.swiftFullExtensionName = msg + ".Extensions." + baseName
             self.swiftFieldName = periodsToUnderscores(msg + "_" + fieldBaseName)
+            self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
+            self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
         } else {
             let swiftPrefix = file.swiftPrefix
             self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
@@ -107,9 +111,19 @@ struct ExtensionGenerator {
             // If there was no package and no prefix, fieldBaseName could be a reserved
             // word, so sanitize.
             self.swiftFieldName = sanitizeFieldName(swiftPrefix + fieldBaseName)
+            if swiftPrefix.isEmpty {
+                // No prefix, so got back to UpperCamelCasing it, and then sanitize it like we did
+                // for the lower form.
+                let upperCleaned = sanitizeFieldName(toUpperCamelCase(baseName), basedOn: fieldBaseName)
+                self.swiftHasPropertyName = "has" + upperCleaned
+                self.swiftClearMethodName = "clear" + upperCleaned
+            } else {
+                // Since there was a prefix, just add has/clear and ensure the first letter
+                // was capitalized.
+                self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
+                self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
+            }
         }
-        self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
-        self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
     }
 
     func generateNested(printer p: inout CodePrinter) {

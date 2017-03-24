@@ -262,10 +262,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_http) ?? 0}
     set {setExtensionValue(ext: Extensions_http, value: newValue)}
   }
-  var hasHttp: Bool {
+  var hasHTTP: Bool {
     return hasExtensionValue(ext: Extensions_http)
   }
-  mutating func clearHttp() {
+  mutating func clearHTTP() {
     clearExtensionValue(ext: Extensions_http)
   }
 }
@@ -275,10 +275,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_http_request) ?? 0}
     set {setExtensionValue(ext: Extensions_http_request, value: newValue)}
   }
-  var hasHttpRequest: Bool {
+  var hasHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_http_request)
   }
-  mutating func clearHttpRequest() {
+  mutating func clearHTTPRequest() {
     clearExtensionValue(ext: Extensions_http_request)
   }
 }
@@ -314,10 +314,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_https) ?? 0}
     set {setExtensionValue(ext: Extensions_https, value: newValue)}
   }
-  var hasHttps: Bool {
+  var hasHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_https)
   }
-  mutating func clearHttps() {
+  mutating func clearHTTPS() {
     clearExtensionValue(ext: Extensions_https)
   }
 }
@@ -327,10 +327,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_https_request) ?? 0}
     set {setExtensionValue(ext: Extensions_https_request, value: newValue)}
   }
-  var hasHttpsRequest: Bool {
+  var hasHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_https_request)
   }
-  mutating func clearHttpsRequest() {
+  mutating func clearHTTPSRequest() {
     clearExtensionValue(ext: Extensions_https_request)
   }
 }
@@ -366,10 +366,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_url) ?? 0}
     set {setExtensionValue(ext: Extensions_url, value: newValue)}
   }
-  var hasUrl: Bool {
+  var hasURL: Bool {
     return hasExtensionValue(ext: Extensions_url)
   }
-  mutating func clearUrl() {
+  mutating func clearURL() {
     clearExtensionValue(ext: Extensions_url)
   }
 }
@@ -379,10 +379,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_url_value) ?? 0}
     set {setExtensionValue(ext: Extensions_url_value, value: newValue)}
   }
-  var hasUrlValue: Bool {
+  var hasURLValue: Bool {
     return hasExtensionValue(ext: Extensions_url_value)
   }
-  mutating func clearUrlValue() {
+  mutating func clearURLValue() {
     clearExtensionValue(ext: Extensions_url_value)
   }
 }
@@ -431,10 +431,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTP) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTP, value: newValue)}
   }
-  var hasHttp: Bool {
+  var hasHTTP: Bool {
     return hasExtensionValue(ext: Extensions_HTTP)
   }
-  mutating func clearHttp() {
+  mutating func clearHTTP() {
     clearExtensionValue(ext: Extensions_HTTP)
   }
 }
@@ -444,10 +444,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTP_request) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTP_request, value: newValue)}
   }
-  var hasHttpRequest: Bool {
+  var hasHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_HTTP_request)
   }
-  mutating func clearHttpRequest() {
+  mutating func clearHTTPRequest() {
     clearExtensionValue(ext: Extensions_HTTP_request)
   }
 }
@@ -483,10 +483,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTPS) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTPS, value: newValue)}
   }
-  var hasHttps: Bool {
+  var hasHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_HTTPS)
   }
-  mutating func clearHttps() {
+  mutating func clearHTTPS() {
     clearExtensionValue(ext: Extensions_HTTPS)
   }
 }
@@ -496,10 +496,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTPS_request) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTPS_request, value: newValue)}
   }
-  var hasHttpsRequest: Bool {
+  var hasHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_HTTPS_request)
   }
-  mutating func clearHttpsRequest() {
+  mutating func clearHTTPSRequest() {
     clearExtensionValue(ext: Extensions_HTTPS_request)
   }
 }
@@ -535,10 +535,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_URL) ?? 0}
     set {setExtensionValue(ext: Extensions_URL, value: newValue)}
   }
-  var hasUrl: Bool {
+  var hasURL: Bool {
     return hasExtensionValue(ext: Extensions_URL)
   }
-  mutating func clearUrl() {
+  mutating func clearURL() {
     clearExtensionValue(ext: Extensions_URL)
   }
 }
@@ -548,10 +548,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_URL_value) ?? 0}
     set {setExtensionValue(ext: Extensions_URL_value, value: newValue)}
   }
-  var hasUrlValue: Bool {
+  var hasURLValue: Bool {
     return hasExtensionValue(ext: Extensions_URL_value)
   }
-  mutating func clearUrlValue() {
+  mutating func clearURLValue() {
     clearExtensionValue(ext: Extensions_URL_value)
   }
 }
@@ -587,10 +587,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_Http) ?? 0}
     set {setExtensionValue(ext: Extensions_Http, value: newValue)}
   }
-  var hasHttp: Bool {
+  var hasHTTP: Bool {
     return hasExtensionValue(ext: Extensions_Http)
   }
-  mutating func clearHttp() {
+  mutating func clearHTTP() {
     clearExtensionValue(ext: Extensions_Http)
   }
 }
@@ -600,10 +600,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_HttpRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_HttpRequest, value: newValue)}
   }
-  var hasHttpRequest: Bool {
+  var hasHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_HttpRequest)
   }
-  mutating func clearHttpRequest() {
+  mutating func clearHTTPRequest() {
     clearExtensionValue(ext: Extensions_HttpRequest)
   }
 }
@@ -639,10 +639,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_Https) ?? 0}
     set {setExtensionValue(ext: Extensions_Https, value: newValue)}
   }
-  var hasHttps: Bool {
+  var hasHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_Https)
   }
-  mutating func clearHttps() {
+  mutating func clearHTTPS() {
     clearExtensionValue(ext: Extensions_Https)
   }
 }
@@ -652,10 +652,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_HttpsRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_HttpsRequest, value: newValue)}
   }
-  var hasHttpsRequest: Bool {
+  var hasHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_HttpsRequest)
   }
-  mutating func clearHttpsRequest() {
+  mutating func clearHTTPSRequest() {
     clearExtensionValue(ext: Extensions_HttpsRequest)
   }
 }
@@ -691,10 +691,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_Url) ?? 0}
     set {setExtensionValue(ext: Extensions_Url, value: newValue)}
   }
-  var hasUrl: Bool {
+  var hasURL: Bool {
     return hasExtensionValue(ext: Extensions_Url)
   }
-  mutating func clearUrl() {
+  mutating func clearURL() {
     clearExtensionValue(ext: Extensions_Url)
   }
 }
@@ -704,10 +704,10 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_UrlValue) ?? 0}
     set {setExtensionValue(ext: Extensions_UrlValue, value: newValue)}
   }
-  var hasUrlValue: Bool {
+  var hasURLValue: Bool {
     return hasExtensionValue(ext: Extensions_UrlValue)
   }
-  mutating func clearUrlValue() {
+  mutating func clearURLValue() {
     clearExtensionValue(ext: Extensions_UrlValue)
   }
 }
