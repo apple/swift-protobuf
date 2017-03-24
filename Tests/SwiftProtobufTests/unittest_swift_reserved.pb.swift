@@ -367,12 +367,44 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
 
   struct Extensions {
 
-    ///   Even though it is a raw name in the Extensions struct for the
-    ///   Message (SwiftReservedTestExt), the generation controls what
-    ///   that struct has to conform to, so collisions there don't matter.
+    ///   This will end up in the "struct Extensions" to scope it, but there
+    ///   the raw form is used ("hash_value", not the Swift one "hashValue"),
+    ///   so there is no conflict, and no renaming happens.
     static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
       _protobuf_fieldNumber: 1001,
       fieldName: "protobuf_unittest.SwiftReservedTestExt.hash_value",
+      defaultValue: false
+    )
+
+    ///   Reserved words, since these end up in the "struct Extensions", they
+    ///   can't just be get their names, and sanitation kicks.
+    static let as = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+      _protobuf_fieldNumber: 1022,
+      fieldName: "protobuf_unittest.SwiftReservedTestExt.as",
+      defaultValue: false
+    )
+
+    static let var = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+      _protobuf_fieldNumber: 1023,
+      fieldName: "protobuf_unittest.SwiftReservedTestExt.var",
+      defaultValue: false
+    )
+
+    static let try = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+      _protobuf_fieldNumber: 1024,
+      fieldName: "protobuf_unittest.SwiftReservedTestExt.try",
+      defaultValue: false
+    )
+
+    static let do = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+      _protobuf_fieldNumber: 1025,
+      fieldName: "protobuf_unittest.SwiftReservedTestExt.do",
+      defaultValue: false
+    )
+
+    static let nil = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+      _protobuf_fieldNumber: 1026,
+      fieldName: "protobuf_unittest.SwiftReservedTestExt.nil",
       defaultValue: false
     )
   }
@@ -401,10 +433,42 @@ let ProtobufUnittest_Extensions_debug_description = SwiftProtobuf.MessageExtensi
   defaultValue: false
 )
 
+///   These are scoped to the file, so the package prefix (or a Swift prefix)
+///   will get added to them to they aren't going to get renamed.
+let ProtobufUnittest_Extensions_as = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+  _protobuf_fieldNumber: 1012,
+  fieldName: "protobuf_unittest.as",
+  defaultValue: false
+)
+
+let ProtobufUnittest_Extensions_var = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+  _protobuf_fieldNumber: 1013,
+  fieldName: "protobuf_unittest.var",
+  defaultValue: false
+)
+
+let ProtobufUnittest_Extensions_try = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+  _protobuf_fieldNumber: 1014,
+  fieldName: "protobuf_unittest.try",
+  defaultValue: false
+)
+
+let ProtobufUnittest_Extensions_do = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+  _protobuf_fieldNumber: 1015,
+  fieldName: "protobuf_unittest.do",
+  defaultValue: false
+)
+
+let ProtobufUnittest_Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
+  _protobuf_fieldNumber: 1016,
+  fieldName: "protobuf_unittest.nil",
+  defaultValue: false
+)
+
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
-  ///   Even though it is a raw name in the Extensions struct for the
-  ///   Message (SwiftReservedTestExt), the generation controls what
-  ///   that struct has to conform to, so collisions there don't matter.
+  ///   This will end up in the "struct Extensions" to scope it, but there
+  ///   the raw form is used ("hash_value", not the Swift one "hashValue"),
+  ///   so there is no conflict, and no renaming happens.
   var ProtobufUnittest_SwiftReservedTestExt_hashValue: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value, value: newValue)}
@@ -414,6 +478,73 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
   }
   mutating func clearProtobufUnittest_SwiftReservedTestExt_hashValue() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  ///   Reserved words, since these end up in the "struct Extensions", they
+  ///   can't just be get their names, and sanitation kicks.
+  var ProtobufUnittest_SwiftReservedTestExt_as: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as, value: newValue)}
+  }
+  var hasProtobufUnittest_SwiftReservedTestExt_as: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as)
+  }
+  mutating func clearProtobufUnittest_SwiftReservedTestExt_as() {
+    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_SwiftReservedTestExt_var: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var, value: newValue)}
+  }
+  var hasProtobufUnittest_SwiftReservedTestExt_var: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var)
+  }
+  mutating func clearProtobufUnittest_SwiftReservedTestExt_var() {
+    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_SwiftReservedTestExt_try: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try, value: newValue)}
+  }
+  var hasProtobufUnittest_SwiftReservedTestExt_try: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try)
+  }
+  mutating func clearProtobufUnittest_SwiftReservedTestExt_try() {
+    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_SwiftReservedTestExt_do: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do, value: newValue)}
+  }
+  var hasProtobufUnittest_SwiftReservedTestExt_do: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do)
+  }
+  mutating func clearProtobufUnittest_SwiftReservedTestExt_do() {
+    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_SwiftReservedTestExt_nil: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil, value: newValue)}
+  }
+  var hasProtobufUnittest_SwiftReservedTestExt_nil: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil)
+  }
+  mutating func clearProtobufUnittest_SwiftReservedTestExt_nil() {
+    clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil)
   }
 }
 
@@ -431,7 +562,84 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
   }
 }
 
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  ///   These are scoped to the file, so the package prefix (or a Swift prefix)
+  ///   will get added to them to they aren't going to get renamed.
+  var ProtobufUnittest_as: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_as) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_as, value: newValue)}
+  }
+  var hasProtobufUnittest_as: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_as)
+  }
+  mutating func clearProtobufUnittest_as() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_as)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_var: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_var) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_var, value: newValue)}
+  }
+  var hasProtobufUnittest_var: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_var)
+  }
+  mutating func clearProtobufUnittest_var() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_var)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_try: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_try) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_try, value: newValue)}
+  }
+  var hasProtobufUnittest_try: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_try)
+  }
+  mutating func clearProtobufUnittest_try() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_try)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_do: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_do) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_do, value: newValue)}
+  }
+  var hasProtobufUnittest_do: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_do)
+  }
+  mutating func clearProtobufUnittest_do() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_do)
+  }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.classMessage {
+  var ProtobufUnittest_nil: Bool {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_nil) ?? false}
+    set {setExtensionValue(ext: ProtobufUnittest_Extensions_nil, value: newValue)}
+  }
+  var hasProtobufUnittest_nil: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extensions_nil)
+  }
+  mutating func clearProtobufUnittest_nil() {
+    clearExtensionValue(ext: ProtobufUnittest_Extensions_nil)
+  }
+}
+
 let ProtobufUnittest_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extensions_debug_description,
-  ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value
+  ProtobufUnittest_Extensions_as,
+  ProtobufUnittest_Extensions_var,
+  ProtobufUnittest_Extensions_try,
+  ProtobufUnittest_Extensions_do,
+  ProtobufUnittest_Extensions_nil,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.as,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.var,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.try,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.do,
+  ProtobufUnittest_SwiftReservedTestExt.Extensions.nil
 ]
