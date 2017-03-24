@@ -51,31 +51,31 @@ struct SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
     ///   Reserved words, since these end up in the "struct Extensions", they
     ///   can't just be get their names, and sanitation kicks.
-    static let as = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `as` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1022,
       fieldName: "SwiftReservedTestExt2.as",
       defaultValue: false
     )
 
-    static let var = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `var` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1023,
       fieldName: "SwiftReservedTestExt2.var",
       defaultValue: false
     )
 
-    static let try = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `try` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1024,
       fieldName: "SwiftReservedTestExt2.try",
       defaultValue: false
     )
 
-    static let do = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `do` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1025,
       fieldName: "SwiftReservedTestExt2.do",
       defaultValue: false
     )
 
-    static let nil = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let `nil` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1026,
       fieldName: "SwiftReservedTestExt2.nil",
       defaultValue: false

@@ -97,10 +97,16 @@ struct ExtensionGenerator {
         let fieldBaseName = toLowerCamelCase(baseName)
 
         if let msg = swiftDeclaringMessageName {
-            self.swiftRelativeExtensionName = baseName
+            // Since the name is used within the "Extensions" struct, reserved words
+            // could be a problem.  When declared, we might need backticks, but when
+            // using the qualified name, backticks aren't needed.
+            let cleanedBaseName = sanitizeMessageScopedExtensionName(baseName)
+            let cleanedBaseNameNoBackticks = sanitizeMessageScopedExtensionName(baseName, skipBackticks: true)
+            self.swiftRelativeExtensionName = cleanedBaseName
+            self.swiftFullExtensionName = msg + ".Extensions." + cleanedBaseNameNoBackticks
             // The rest of these have enough things put together, we assume they
             // can never run into reserved words.
-            self.swiftFullExtensionName = msg + ".Extensions." + baseName
+            //
             // fieldBaseName is the lowerCase name even though we put more on the
             // front, this seems to help make the field name stick out a little
             // compared to the message name scoping it on the front.
