@@ -112,6 +112,11 @@ public protocol Message: CustomDebugStringConvertible {
   /// debugging, for conformance with the `CustomDebugStringConvertible`
   /// protocol.
   var debugDescription: String { get }
+
+  /// Helper to compare `Message`s when not having a specific type to use
+  /// normal `Equatable`. `Equatable` is provided with specific generated
+  /// types.
+  func isEqualTo(message: Message) -> Bool
 }
 
 public extension Message {
@@ -187,6 +192,13 @@ public protocol _MessageImplementationBase: Message, Hashable {
 }
 
 public extension _MessageImplementationBase {
+  public func isEqualTo(message: Message) -> Bool {
+    guard let other = message as? Self else {
+      return false
+    }
+    return self == other
+  }
+
   public static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs._protobuf_generated_isEqualTo(other: rhs)
   }

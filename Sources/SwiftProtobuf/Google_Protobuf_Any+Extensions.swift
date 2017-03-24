@@ -24,11 +24,22 @@ public extension Google_Protobuf_Any {
   /// needs to be serialized.  This design avoids unnecessary
   /// decoding/recoding when writing JSON format.
   ///
-  public init(message: Message, typePrefix: String = defaultTypePrefix) {
+  /// - Parameters:
+  ///   - partial: The binary serialization format requires all `required` fields
+  ///     be present; when `partial` is `false`, `BinaryEncodingError.missingRequiredFields`
+  ///     is thrown if any were missing. When `partial` is `true`, then partial
+  ///     messages are allowed, and `Message.isRequired` is not checked.
+  ///   - typePrefix: The prefix to be used when building the `type_url`.  Defaults to
+  ///     "type.googleapis.com".
+  /// - Throws: `BinaryEncodingError.missingRequiredFields` if `partial` is false and
+  ///     `message` wasn't fully initialized.
+  public init(message: Message, partial: Bool = false, typePrefix: String = defaultTypePrefix) throws {
+    if !partial && !message.isInitialized {
+      throw BinaryEncodingError.missingRequiredFields
+    }
     self.init()
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
-    _storage._valueData = nil
-    _storage._message = message
+    _storage.state = .message(message)
   }
 
 
