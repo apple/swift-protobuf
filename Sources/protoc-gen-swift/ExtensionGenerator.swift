@@ -101,6 +101,9 @@ struct ExtensionGenerator {
             // The rest of these have enough things put together, we assume they
             // can never run into reserved words.
             self.swiftFullExtensionName = msg + ".Extensions." + baseName
+            // fieldBaseName is the lowerCase name even though we put more on the
+            // front, this seems to help make the field name stick out a little
+            // compared to the message name scoping it on the front.
             self.swiftFieldName = periodsToUnderscores(msg + "_" + fieldBaseName)
             self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
             self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
@@ -109,11 +112,13 @@ struct ExtensionGenerator {
             self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
             // If there was no package and no prefix, fieldBaseName could be a reserved
-            // word, so sanitize.
+            // word, so sanitize. These's also the slim chance the prefix plus the
+            // extension name resulted in a reserved word, so the sanitize is always
+            // needed.
             self.swiftFieldName = sanitizeFieldName(swiftPrefix + fieldBaseName)
             if swiftPrefix.isEmpty {
-                // No prefix, so got back to UpperCamelCasing it, and then sanitize it like we did
-                // for the lower form.
+                // No prefix, so got back to UpperCamelCasing the extension name, and then
+                // sanitize it like we did for the lower form.
                 let upperCleaned = sanitizeFieldName(toUpperCamelCase(baseName), basedOn: fieldBaseName)
                 self.swiftHasPropertyName = "has" + upperCleaned
                 self.swiftClearMethodName = "clear" + upperCleaned
