@@ -125,6 +125,7 @@ TEST_PROTOS= \
 	Protos/unittest_swift_naming.proto \
 	Protos/unittest_swift_performance.proto \
 	Protos/unittest_swift_reserved.proto \
+	Protos/unittest_swift_reserved_ext.proto \
 	Protos/unittest_swift_runtime_proto2.proto \
 	Protos/unittest_swift_runtime_proto3.proto \
 	Protos/unittest_swift_startup.proto

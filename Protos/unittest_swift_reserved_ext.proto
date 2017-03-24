@@ -1,0 +1,31 @@
+// Protos/unittest_swift_reserved_ext.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2017 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
+
+syntax = "proto2";
+
+// No package or swift prefix to control naming on these.
+
+import "unittest_swift_reserved.proto";
+
+extend protobuf_unittest.SwiftReservedTest.Type {
+    optional bool debugDescription = 1000;
+}
+
+message SwiftReservedTestExt2 {
+    extend protobuf_unittest.SwiftReservedTest.Type {
+        optional bool hashValue = 1001;
+    }
+}

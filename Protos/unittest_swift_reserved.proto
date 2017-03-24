@@ -33,7 +33,9 @@ message SwiftReservedTest {
     message class {
       extensions 1000 to 2000;
     }
-    message Type {}
+    message Type {
+      extensions 1000 to 2000;
+    }
     message isEqual {}
 
     // static r/o properties on Message, ensure they still work as fields.
