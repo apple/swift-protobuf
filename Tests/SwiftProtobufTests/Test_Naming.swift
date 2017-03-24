@@ -508,3 +508,165 @@ class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
     msg.clearSwiftUnittest_Names_theURL()
   }
 }
+
+class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
+  func testLowers() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitialsLowers()
+
+    msg.http = 1
+    XCTAssertTrue(msg.hasHTTP)
+    msg.clearHTTP()
+
+    msg.httpRequest = 1
+    XCTAssertTrue(msg.hasHTTPRequest)
+    msg.clearHTTPRequest()
+
+    msg.theHTTPRequest = 1
+    XCTAssertTrue(msg.hasTheHTTPRequest)
+    msg.clearTheHTTPRequest()
+
+    msg.theHTTP = 1
+    XCTAssertTrue(msg.hasTheHTTP)
+    msg.clearTheHTTP()
+
+    msg.https = 1
+    XCTAssertTrue(msg.hasHTTPS)
+    msg.clearHTTPS()
+
+    msg.httpsRequest = 1
+    XCTAssertTrue(msg.hasHTTPSRequest)
+    msg.clearHTTPSRequest()
+
+    msg.theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasTheHTTPSRequest)
+    msg.clearTheHTTPSRequest()
+
+    msg.theHTTPS = 1
+    XCTAssertTrue(msg.hasTheHTTPS)
+    msg.clearTheHTTPS()
+
+    msg.url = 1
+    XCTAssertTrue(msg.hasURL)
+    msg.clearURL()
+
+    msg.urlValue = 1
+    XCTAssertTrue(msg.hasURLValue)
+    msg.clearURLValue()
+
+    msg.theURLValue = 1
+    XCTAssertTrue(msg.hasTheURLValue)
+    msg.clearTheURLValue()
+
+    msg.theURL = 1
+    XCTAssertTrue(msg.hasTheURL)
+    msg.clearTheURL()
+
+    msg.aBC = 1
+    XCTAssertTrue(msg.hasABC)
+    msg.clearABC()
+  }
+
+  func testUppers() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitialsUppers()
+
+    msg.http = 1
+    XCTAssertTrue(msg.hasHTTP)
+    msg.clearHTTP()
+
+    msg.httpRequest = 1
+    XCTAssertTrue(msg.hasHTTPRequest)
+    msg.clearHTTPRequest()
+
+    msg.theHTTPRequest = 1
+    XCTAssertTrue(msg.hasTheHTTPRequest)
+    msg.clearTheHTTPRequest()
+
+    msg.theHTTP = 1
+    XCTAssertTrue(msg.hasTheHTTP)
+    msg.clearTheHTTP()
+
+    msg.https = 1
+    XCTAssertTrue(msg.hasHTTPS)
+    msg.clearHTTPS()
+
+    msg.httpsRequest = 1
+    XCTAssertTrue(msg.hasHTTPSRequest)
+    msg.clearHTTPSRequest()
+
+    msg.theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasTheHTTPSRequest)
+    msg.clearTheHTTPSRequest()
+
+    msg.theHTTPS = 1
+    XCTAssertTrue(msg.hasTheHTTPS)
+    msg.clearTheHTTPS()
+
+    msg.url = 1
+    XCTAssertTrue(msg.hasURL)
+    msg.clearURL()
+
+    msg.urlValue = 1
+    XCTAssertTrue(msg.hasURLValue)
+    msg.clearURLValue()
+
+    msg.theURLValue = 1
+    XCTAssertTrue(msg.hasTheURLValue)
+    msg.clearTheURLValue()
+
+    msg.theURL = 1
+    XCTAssertTrue(msg.hasTheURL)
+    msg.clearTheURL()
+  }
+
+  func testWordCase() {
+    var msg = SwiftUnittest_Names_ExtensionNamingInitialsWordCase()
+
+    msg.http = 1
+    XCTAssertTrue(msg.hasHTTP)
+    msg.clearHTTP()
+
+    msg.httpRequest = 1
+    XCTAssertTrue(msg.hasHTTPRequest)
+    msg.clearHTTPRequest()
+
+    msg.theHTTPRequest = 1
+    XCTAssertTrue(msg.hasTheHTTPRequest)
+    msg.clearTheHTTPRequest()
+
+    msg.theHTTP = 1
+    XCTAssertTrue(msg.hasTheHTTP)
+    msg.clearTheHTTP()
+
+    msg.https = 1
+    XCTAssertTrue(msg.hasHTTPS)
+    msg.clearHTTPS()
+
+    msg.httpsRequest = 1
+    XCTAssertTrue(msg.hasHTTPSRequest)
+    msg.clearHTTPSRequest()
+
+    msg.theHTTPSRequest = 1
+    XCTAssertTrue(msg.hasTheHTTPSRequest)
+    msg.clearTheHTTPSRequest()
+
+    msg.theHTTPS = 1
+    XCTAssertTrue(msg.hasTheHTTPS)
+    msg.clearTheHTTPS()
+
+    msg.url = 1
+    XCTAssertTrue(msg.hasURL)
+    msg.clearURL()
+
+    msg.urlValue = 1
+    XCTAssertTrue(msg.hasURLValue)
+    msg.clearURLValue()
+
+    msg.theURLValue = 1
+    XCTAssertTrue(msg.hasTheURLValue)
+    msg.clearTheURLValue()
+
+    msg.theURL = 1
+    XCTAssertTrue(msg.hasTheURL)
+    msg.clearTheURL()
+  }
+}
