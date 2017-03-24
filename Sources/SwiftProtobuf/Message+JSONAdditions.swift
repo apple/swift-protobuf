@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/JSONTypeAdditions.swift - JSON format primitive types
+// Sources/SwiftProtobuf/Message+JSONAdditions.swift - JSON format primitive types
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,8 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extend the type definitions from ProtobufTypes.swift with details
-/// of protobuf JSON format handling.
+/// Extensions to `Message` to support JSON encoding/decoding.
 ///
 // -----------------------------------------------------------------------------
 

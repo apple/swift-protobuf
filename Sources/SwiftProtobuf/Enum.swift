@@ -15,8 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Generated enum types conform to this protocol, which provides the
-/// hashability requirement for all protocol buffer enums.
+/// Generated enum types conform to this protocol.
 public protocol Enum: RawRepresentable, Hashable {
   /// Creates a new instance of the enum initialized to its default value.
   init()
@@ -32,6 +31,10 @@ public protocol Enum: RawRepresentable, Hashable {
   init?(rawValue: Int)
 
   /// The raw integer value of the enum value.
+  ///
+  /// For a recognized enum case, this is the integer value of the case as
+  /// defined in the .proto file. For `UNRECOGNIZED` cases in proto3, this is
+  /// the value that was originally decoded.
   var rawValue: Int { get }
 }
 

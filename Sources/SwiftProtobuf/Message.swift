@@ -115,10 +115,10 @@ public protocol Message: CustomDebugStringConvertible {
 }
 
 public extension Message {
-  /// Generated proto2 messages that contain required fields (or nested messages
-  /// that contain required fields) will provide their own implementation of
-  /// this property that tests that all required fields are set. Users of the
-  /// generated code SHOULD NOT override this property.
+  /// Generated proto2 messages that contain required fields, nested messages
+  /// that contain required fields, and/or extensions will provide their own
+  /// implementation of this property that tests that all required fields are
+  /// set. Users of the generated code SHOULD NOT override this property.
   var isInitialized: Bool {
     // The generated code will include a specialization as needed.
     return true;

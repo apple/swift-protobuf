@@ -30,31 +30,31 @@ import Foundation
 /// ```
 ///
 /// For performance, this is mostly broken out into a separate method
-/// for singular/repeated fields of every supported type.  Note that
+/// for singular/repeated fields of every supported type. Note that
 /// we don't distinguish "packed" here, since all existing decoders
-/// treat "packed" the same as "repeated" at this level.  (That is,
+/// treat "packed" the same as "repeated" at this level. (That is,
 /// even when the serializer distinguishes packed and non-packed
 /// forms, the deserializer always accepts both.)
 ///
-/// Generics come into play at only a few points: Enums and Messages
-/// use a generic type to locate the correct initializer.  Maps and
-/// Extensions use generics to avoid the method explosion of having to
-/// support a separate method for every map and extension type.  Maps
-/// do distinguish Enum-valued and Message-valued maps to avoid
-/// polluting the generated Enum and Message types with all of the
+/// Generics come into play at only a few points: `Enum`s and `Message`s
+/// use a generic type to locate the correct initializer. Maps and
+/// extensions use generics to avoid the method explosion of having to
+/// support a separate method for every map and extension type. Maps
+/// do distinguish `Enum`-valued and `Message`-valued maps to avoid
+/// polluting the generated `Enum` and `Message` types with all of the
 /// necessary generic methods to support this.
 public protocol Decoder {
-  // Called by a Oneof when it already has a value and is being
-  // asked to accept a new value.  Some decoders specify that oneof
-  // decoding must fail in this case.  Those decoders throw a
-  // suitable error from this function; other decoders make it a
-  // no-op.  No existing decoder actually needs this to be mutating,
-  // but someone might want to track OneOf conflicts in the future.
+  /// Called by a `oneof` when it already has a value and is being asked to
+  /// accept a new value. Some formats require `oneof` decoding to fail in this
+  /// case.
   mutating func handleConflictingOneOf() throws
 
-  // Get the next field number.  For JSON and Text, the decoder
-  // translates name to number at this point, based on information
-  // it obtained from the message when it was initialized.
+  /// Returns the next field number, or nil when the end of the input is
+  /// reached.
+  ///
+  /// For JSON and text format, the decoder translates the field name to a
+  /// number at this point, based on information it obtained from the message
+  /// when it was initialized.
   mutating func nextFieldNumber() throws -> Int?
 
   // Primitive field decoders

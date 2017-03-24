@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/BinaryTypeAdditions.swift - Per-type binary coding
+// Sources/SwiftProtobuf/Message+BinaryAdditions.swift - Per-type binary coding
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,8 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extensions to the proto types defined in ProtobufTypes.swift to provide
-/// type-specific binary coding and decoding.
+/// Extensions to `Message` to provide binary coding and decoding.
 ///
 // -----------------------------------------------------------------------------
 
@@ -21,11 +20,10 @@ public extension Message {
   /// serialization of the message.
   ///
   /// - Parameters:
-  ///   - partial: Binary serialization requires all `required` fields be
-  ///     present; if `false` (the defaul), this method throws
-  ///     `BinaryEncodingError.missingRequiredFields` if any were missing. When
-  ///     `partial` is `true`, then partial messages are allowed and
-  ///     `Message.isInitialized` is not checked.
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
   /// - Returns: A `Data` value containing the binary serialization of the
   ///   message.
   /// - Throws: `BinaryEncodingError` if encoding fails.
@@ -48,6 +46,9 @@ public extension Message {
     try traverse(visitor: &visitor)
   }
 
+  /// Returns the size in bytes required to encode the message in binary format.
+  /// This is used by `serializedData()` to precalculate the size of the buffer
+  /// so that encoding can proceed without bounds checks or reallocation.
   internal func serializedDataSize() throws -> Int {
     // Note: since this api is internal, it doesn't currently worry about
     // needing a partial argument to handle proto2 syntax required fields.
@@ -65,11 +66,10 @@ public extension Message {
   ///   - extensions: An `ExtensionMap` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  ///   - partial: Binary serialization requires all `required` fields be
-  ///     present; if `false` (the defaul), this method throws
-  ///     `BinaryEncodingError.missingRequiredFields` if any were missing. When
-  ///     `partial` is `true`, then partial messages are allowed and
-  ///     `Message.isInitialized` is not checked.
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   init(
     serializedData data: Data,
@@ -92,11 +92,10 @@ public extension Message {
   ///   - extensions: An `ExtensionMap` used to look up and decode any
   ///     extensions in this message or messages nested within this message's
   ///     fields.
-  ///   - partial: Binary serialization requires all `required` fields be
-  ///     present; if `false` (the defaul), this method throws
-  ///     `BinaryEncodingError.missingRequiredFields` if any were missing. When
-  ///     `partial` is `true`, then partial messages are allowed and
-  ///     `Message.isInitialized` is not checked.
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   mutating func merge(
     serializedData data: Data,
