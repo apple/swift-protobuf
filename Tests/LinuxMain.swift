@@ -725,6 +725,16 @@ extension Test_ExtensionNamingInitials_GlobalScoped {
     }
 }
 
+extension Test_ExtensionNamingInitials_GlobalScoped_NoPrefix {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testLowers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped_NoPrefix).testLowers)}),
+            ("testUppers", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped_NoPrefix).testUppers)}),
+            ("testWordCase", {try run_test(test:($0 as! Test_ExtensionNamingInitials_GlobalScoped_NoPrefix).testWordCase)})
+        ]
+    }
+}
+
 extension Test_OneofFields_Access_Proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -850,7 +860,8 @@ extension Test_Reserved {
         return [
             ("testEnumNaming", {try run_test(test:($0 as! Test_Reserved).testEnumNaming)}),
             ("testMessageNames", {try run_test(test:($0 as! Test_Reserved).testMessageNames)}),
-            ("testFieldNamesMatchingMetadata", {try run_test(test:($0 as! Test_Reserved).testFieldNamesMatchingMetadata)})
+            ("testFieldNamesMatchingMetadata", {try run_test(test:($0 as! Test_Reserved).testFieldNamesMatchingMetadata)}),
+            ("testExtensionNamesMatching", {try run_test(test:($0 as! Test_Reserved).testExtensionNamesMatching)})
         ]
     }
 }
@@ -1129,6 +1140,7 @@ XCTMain(
         (testCaseClass: Test_FieldNamingInitials.self, allTests: Test_FieldNamingInitials.allTests),
         (testCaseClass: Test_ExtensionNamingInitials_MessageScoped.self, allTests: Test_ExtensionNamingInitials_MessageScoped.allTests),
         (testCaseClass: Test_ExtensionNamingInitials_GlobalScoped.self, allTests: Test_ExtensionNamingInitials_GlobalScoped.allTests),
+        (testCaseClass: Test_ExtensionNamingInitials_GlobalScoped_NoPrefix.self, allTests: Test_ExtensionNamingInitials_GlobalScoped_NoPrefix.allTests),
         (testCaseClass: Test_OneofFields_Access_Proto2.self, allTests: Test_OneofFields_Access_Proto2.allTests),
         (testCaseClass: Test_OneofFields_Access_Proto3.self, allTests: Test_OneofFields_Access_Proto3.allTests),
         (testCaseClass: Test_Packed.self, allTests: Test_Packed.allTests),
