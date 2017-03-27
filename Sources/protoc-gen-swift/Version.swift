@@ -12,12 +12,9 @@
 ///
 // ----------------------------------------------------------------------------
 
-struct Version {
-    static let major = 0
-    static let minor = 9
-    static let revision = 29
-    static let versionString = "\(major).\(minor).\(revision)"
+import SwiftProtobuf
 
+struct Version {
     // The "compatibility version" of the runtime library, which must be
     // incremented every time a breaking change (either behavioral or
     // API-changing) is introduced.
@@ -31,7 +28,7 @@ struct Version {
     static let compatibilityVersion = 1
 
     static let name = "protoc-gen-swift"
-    static let versionedName = "protoc-gen-swift \(versionString)"
+    static let versionedName = "protoc-gen-swift \(SwiftProtobuf.Version.versionString)"
     static let copyright = "Copyright (C) 2014-2017 Apple Inc. and the project authors"
     static let summary = "Convert parsed proto definitions into Swift"
     static let help = (
@@ -45,7 +42,7 @@ struct Version {
                + "In particular, if you have renamed this program, you will need to\n"
                + "adjust the protoc command-line option accordingly.\n"
                + "\n"
-               + "The generated Swift output requires the SwiftProtobuf \(versionString)\n"
+               + "The generated Swift output requires the SwiftProtobuf \(SwiftProtobuf.Version.versionString)\n"
                + "library be included in your project.\n"
                + "\n"
                + "If you use `swift build` to compile your project, add this to\n"
@@ -53,7 +50,7 @@ struct Version {
                + "\n"
                + "   dependencies: [\n"
                + "     .Package(url: \"https://github.com/apple/swift-protobuf-runtime.git\",\n"
-               + "              Version(\(major),\(minor),\(revision))\n"
+               + "              Version(\(SwiftProtobuf.Version.versionString))\n"
                + "   ]\n"
                + "\n"
                + "\n"
