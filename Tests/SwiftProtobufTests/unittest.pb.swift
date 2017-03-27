@@ -340,81 +340,79 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalInt32 = _optionalInt32
-      clone._optionalInt64 = _optionalInt64
-      clone._optionalUint32 = _optionalUint32
-      clone._optionalUint64 = _optionalUint64
-      clone._optionalSint32 = _optionalSint32
-      clone._optionalSint64 = _optionalSint64
-      clone._optionalFixed32 = _optionalFixed32
-      clone._optionalFixed64 = _optionalFixed64
-      clone._optionalSfixed32 = _optionalSfixed32
-      clone._optionalSfixed64 = _optionalSfixed64
-      clone._optionalFloat = _optionalFloat
-      clone._optionalDouble = _optionalDouble
-      clone._optionalBool = _optionalBool
-      clone._optionalString = _optionalString
-      clone._optionalBytes = _optionalBytes
-      clone._optionalGroup = _optionalGroup
-      clone._optionalNestedMessage = _optionalNestedMessage
-      clone._optionalForeignMessage = _optionalForeignMessage
-      clone._optionalImportMessage = _optionalImportMessage
-      clone._optionalNestedEnum = _optionalNestedEnum
-      clone._optionalForeignEnum = _optionalForeignEnum
-      clone._optionalImportEnum = _optionalImportEnum
-      clone._optionalStringPiece = _optionalStringPiece
-      clone._optionalCord = _optionalCord
-      clone._optionalPublicImportMessage = _optionalPublicImportMessage
-      clone._optionalLazyMessage = _optionalLazyMessage
-      clone._repeatedInt32 = _repeatedInt32
-      clone._repeatedInt64 = _repeatedInt64
-      clone._repeatedUint32 = _repeatedUint32
-      clone._repeatedUint64 = _repeatedUint64
-      clone._repeatedSint32 = _repeatedSint32
-      clone._repeatedSint64 = _repeatedSint64
-      clone._repeatedFixed32 = _repeatedFixed32
-      clone._repeatedFixed64 = _repeatedFixed64
-      clone._repeatedSfixed32 = _repeatedSfixed32
-      clone._repeatedSfixed64 = _repeatedSfixed64
-      clone._repeatedFloat = _repeatedFloat
-      clone._repeatedDouble = _repeatedDouble
-      clone._repeatedBool = _repeatedBool
-      clone._repeatedString = _repeatedString
-      clone._repeatedBytes = _repeatedBytes
-      clone._repeatedGroup = _repeatedGroup
-      clone._repeatedNestedMessage = _repeatedNestedMessage
-      clone._repeatedForeignMessage = _repeatedForeignMessage
-      clone._repeatedImportMessage = _repeatedImportMessage
-      clone._repeatedNestedEnum = _repeatedNestedEnum
-      clone._repeatedForeignEnum = _repeatedForeignEnum
-      clone._repeatedImportEnum = _repeatedImportEnum
-      clone._repeatedStringPiece = _repeatedStringPiece
-      clone._repeatedCord = _repeatedCord
-      clone._repeatedLazyMessage = _repeatedLazyMessage
-      clone._defaultInt32 = _defaultInt32
-      clone._defaultInt64 = _defaultInt64
-      clone._defaultUint32 = _defaultUint32
-      clone._defaultUint64 = _defaultUint64
-      clone._defaultSint32 = _defaultSint32
-      clone._defaultSint64 = _defaultSint64
-      clone._defaultFixed32 = _defaultFixed32
-      clone._defaultFixed64 = _defaultFixed64
-      clone._defaultSfixed32 = _defaultSfixed32
-      clone._defaultSfixed64 = _defaultSfixed64
-      clone._defaultFloat = _defaultFloat
-      clone._defaultDouble = _defaultDouble
-      clone._defaultBool = _defaultBool
-      clone._defaultString = _defaultString
-      clone._defaultBytes = _defaultBytes
-      clone._defaultNestedEnum = _defaultNestedEnum
-      clone._defaultForeignEnum = _defaultForeignEnum
-      clone._defaultImportEnum = _defaultImportEnum
-      clone._defaultStringPiece = _defaultStringPiece
-      clone._defaultCord = _defaultCord
-      clone._oneofField = _oneofField
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalInt64 = source._optionalInt64
+      _optionalUint32 = source._optionalUint32
+      _optionalUint64 = source._optionalUint64
+      _optionalSint32 = source._optionalSint32
+      _optionalSint64 = source._optionalSint64
+      _optionalFixed32 = source._optionalFixed32
+      _optionalFixed64 = source._optionalFixed64
+      _optionalSfixed32 = source._optionalSfixed32
+      _optionalSfixed64 = source._optionalSfixed64
+      _optionalFloat = source._optionalFloat
+      _optionalDouble = source._optionalDouble
+      _optionalBool = source._optionalBool
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalGroup = source._optionalGroup
+      _optionalNestedMessage = source._optionalNestedMessage
+      _optionalForeignMessage = source._optionalForeignMessage
+      _optionalImportMessage = source._optionalImportMessage
+      _optionalNestedEnum = source._optionalNestedEnum
+      _optionalForeignEnum = source._optionalForeignEnum
+      _optionalImportEnum = source._optionalImportEnum
+      _optionalStringPiece = source._optionalStringPiece
+      _optionalCord = source._optionalCord
+      _optionalPublicImportMessage = source._optionalPublicImportMessage
+      _optionalLazyMessage = source._optionalLazyMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedGroup = source._repeatedGroup
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedImportMessage = source._repeatedImportMessage
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedImportEnum = source._repeatedImportEnum
+      _repeatedStringPiece = source._repeatedStringPiece
+      _repeatedCord = source._repeatedCord
+      _repeatedLazyMessage = source._repeatedLazyMessage
+      _defaultInt32 = source._defaultInt32
+      _defaultInt64 = source._defaultInt64
+      _defaultUint32 = source._defaultUint32
+      _defaultUint64 = source._defaultUint64
+      _defaultSint32 = source._defaultSint32
+      _defaultSint64 = source._defaultSint64
+      _defaultFixed32 = source._defaultFixed32
+      _defaultFixed64 = source._defaultFixed64
+      _defaultSfixed32 = source._defaultSfixed32
+      _defaultSfixed64 = source._defaultSfixed64
+      _defaultFloat = source._defaultFloat
+      _defaultDouble = source._defaultDouble
+      _defaultBool = source._defaultBool
+      _defaultString = source._defaultString
+      _defaultBytes = source._defaultBytes
+      _defaultNestedEnum = source._defaultNestedEnum
+      _defaultForeignEnum = source._defaultForeignEnum
+      _defaultImportEnum = source._defaultImportEnum
+      _defaultStringPiece = source._defaultStringPiece
+      _defaultCord = source._defaultCord
+      _oneofField = source._oneofField
     }
   }
 
@@ -422,7 +420,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1781,12 +1779,10 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._child = _child
-      clone._payload = _payload
-      clone._repeatedChild = _repeatedChild
-      return clone
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _payload = source._payload
+      _repeatedChild = source._repeatedChild
     }
   }
 
@@ -1794,7 +1790,7 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -2254,42 +2250,40 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._a = _a
-      clone._dummy2 = _dummy2
-      clone._b = _b
-      clone._dummy4 = _dummy4
-      clone._dummy5 = _dummy5
-      clone._dummy6 = _dummy6
-      clone._dummy7 = _dummy7
-      clone._dummy8 = _dummy8
-      clone._dummy9 = _dummy9
-      clone._dummy10 = _dummy10
-      clone._dummy11 = _dummy11
-      clone._dummy12 = _dummy12
-      clone._dummy13 = _dummy13
-      clone._dummy14 = _dummy14
-      clone._dummy15 = _dummy15
-      clone._dummy16 = _dummy16
-      clone._dummy17 = _dummy17
-      clone._dummy18 = _dummy18
-      clone._dummy19 = _dummy19
-      clone._dummy20 = _dummy20
-      clone._dummy21 = _dummy21
-      clone._dummy22 = _dummy22
-      clone._dummy23 = _dummy23
-      clone._dummy24 = _dummy24
-      clone._dummy25 = _dummy25
-      clone._dummy26 = _dummy26
-      clone._dummy27 = _dummy27
-      clone._dummy28 = _dummy28
-      clone._dummy29 = _dummy29
-      clone._dummy30 = _dummy30
-      clone._dummy31 = _dummy31
-      clone._dummy32 = _dummy32
-      clone._c = _c
-      return clone
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _dummy2 = source._dummy2
+      _b = source._b
+      _dummy4 = source._dummy4
+      _dummy5 = source._dummy5
+      _dummy6 = source._dummy6
+      _dummy7 = source._dummy7
+      _dummy8 = source._dummy8
+      _dummy9 = source._dummy9
+      _dummy10 = source._dummy10
+      _dummy11 = source._dummy11
+      _dummy12 = source._dummy12
+      _dummy13 = source._dummy13
+      _dummy14 = source._dummy14
+      _dummy15 = source._dummy15
+      _dummy16 = source._dummy16
+      _dummy17 = source._dummy17
+      _dummy18 = source._dummy18
+      _dummy19 = source._dummy19
+      _dummy20 = source._dummy20
+      _dummy21 = source._dummy21
+      _dummy22 = source._dummy22
+      _dummy23 = source._dummy23
+      _dummy24 = source._dummy24
+      _dummy25 = source._dummy25
+      _dummy26 = source._dummy26
+      _dummy27 = source._dummy27
+      _dummy28 = source._dummy28
+      _dummy29 = source._dummy29
+      _dummy30 = source._dummy30
+      _dummy31 = source._dummy31
+      _dummy32 = source._dummy32
+      _c = source._c
     }
   }
 
@@ -2297,7 +2291,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -2904,12 +2898,10 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalMessage = _optionalMessage
-      clone._repeatedMessage = _repeatedMessage
-      clone._dummy = _dummy
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalMessage = source._optionalMessage
+      _repeatedMessage = source._repeatedMessage
+      _dummy = source._dummy
     }
   }
 
@@ -2917,7 +2909,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message, SwiftProtobu
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3017,10 +3009,8 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._foreignNested = _foreignNested
-      return clone
+    init(copying source: _StorageClass) {
+      _foreignNested = source._foreignNested
     }
   }
 
@@ -3028,7 +3018,7 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf.
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3259,11 +3249,9 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._a = _a
-      clone._i = _i
-      return clone
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _i = source._i
     }
   }
 
@@ -3271,7 +3259,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3353,10 +3341,8 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._bb = _bb
-      return clone
+    init(copying source: _StorageClass) {
+      _bb = source._bb
     }
   }
 
@@ -3364,7 +3350,7 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3431,11 +3417,9 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._a = _a
-      clone._optionalInt32 = _optionalInt32
-      return clone
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _optionalInt32 = source._optionalInt32
     }
   }
 
@@ -3443,7 +3427,7 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3532,12 +3516,10 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._a = _a
-      clone._foo = _foo
-      clone._bar = _bar
-      return clone
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _foo = source._foo
+      _bar = source._bar
     }
   }
 
@@ -3545,7 +3527,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3734,10 +3716,8 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf._
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._subMessage = _subMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _subMessage = source._subMessage
     }
   }
 
@@ -3745,7 +3725,7 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message, SwiftProtobuf._
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3810,10 +3790,8 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._subMessage = _subMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _subMessage = source._subMessage
     }
   }
 
@@ -3821,7 +3799,7 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message, SwiftProtobuf._M
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -3887,10 +3865,8 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalNestedMessage = _optionalNestedMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalNestedMessage = source._optionalNestedMessage
     }
   }
 
@@ -3898,7 +3874,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message, SwiftPr
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -4030,21 +4006,19 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._primitiveField = _primitiveField
-      clone._stringField = _stringField
-      clone._enumField = _enumField
-      clone._messageField = _messageField
-      clone._stringPieceField = _stringPieceField
-      clone._cordField = _cordField
-      clone._repeatedPrimitiveField = _repeatedPrimitiveField
-      clone._repeatedStringField = _repeatedStringField
-      clone._repeatedEnumField = _repeatedEnumField
-      clone._repeatedMessageField = _repeatedMessageField
-      clone._repeatedStringPieceField = _repeatedStringPieceField
-      clone._repeatedCordField = _repeatedCordField
-      return clone
+    init(copying source: _StorageClass) {
+      _primitiveField = source._primitiveField
+      _stringField = source._stringField
+      _enumField = source._enumField
+      _messageField = source._messageField
+      _stringPieceField = source._stringPieceField
+      _cordField = source._cordField
+      _repeatedPrimitiveField = source._repeatedPrimitiveField
+      _repeatedStringField = source._repeatedStringField
+      _repeatedEnumField = source._repeatedEnumField
+      _repeatedMessageField = source._repeatedMessageField
+      _repeatedStringPieceField = source._repeatedStringPieceField
+      _repeatedCordField = source._repeatedCordField
     }
   }
 
@@ -4052,7 +4026,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftPro
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -4265,13 +4239,11 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._myString = _myString
-      clone._myInt = _myInt
-      clone._myFloat = _myFloat
-      clone._optionalNestedMessage = _optionalNestedMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _myString = source._myString
+      _myInt = source._myInt
+      _myFloat = source._myFloat
+      _optionalNestedMessage = source._optionalNestedMessage
     }
   }
 
@@ -4279,7 +4251,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -4522,36 +4494,34 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._escapedBytes = _escapedBytes
-      clone._largeUint32 = _largeUint32
-      clone._largeUint64 = _largeUint64
-      clone._smallInt32 = _smallInt32
-      clone._smallInt64 = _smallInt64
-      clone._reallySmallInt32 = _reallySmallInt32
-      clone._reallySmallInt64 = _reallySmallInt64
-      clone._utf8String = _utf8String
-      clone._zeroFloat = _zeroFloat
-      clone._oneFloat = _oneFloat
-      clone._smallFloat = _smallFloat
-      clone._negativeOneFloat = _negativeOneFloat
-      clone._negativeFloat = _negativeFloat
-      clone._largeFloat = _largeFloat
-      clone._smallNegativeFloat = _smallNegativeFloat
-      clone._infDouble = _infDouble
-      clone._negInfDouble = _negInfDouble
-      clone._nanDouble = _nanDouble
-      clone._infFloat = _infFloat
-      clone._negInfFloat = _negInfFloat
-      clone._nanFloat = _nanFloat
-      clone._cppTrigraph = _cppTrigraph
-      clone._stringWithZero = _stringWithZero
-      clone._bytesWithZero = _bytesWithZero
-      clone._stringPieceWithZero = _stringPieceWithZero
-      clone._cordWithZero = _cordWithZero
-      clone._replacementString = _replacementString
-      return clone
+    init(copying source: _StorageClass) {
+      _escapedBytes = source._escapedBytes
+      _largeUint32 = source._largeUint32
+      _largeUint64 = source._largeUint64
+      _smallInt32 = source._smallInt32
+      _smallInt64 = source._smallInt64
+      _reallySmallInt32 = source._reallySmallInt32
+      _reallySmallInt64 = source._reallySmallInt64
+      _utf8String = source._utf8String
+      _zeroFloat = source._zeroFloat
+      _oneFloat = source._oneFloat
+      _smallFloat = source._smallFloat
+      _negativeOneFloat = source._negativeOneFloat
+      _negativeFloat = source._negativeFloat
+      _largeFloat = source._largeFloat
+      _smallNegativeFloat = source._smallNegativeFloat
+      _infDouble = source._infDouble
+      _negInfDouble = source._negInfDouble
+      _nanDouble = source._nanDouble
+      _infFloat = source._infFloat
+      _negInfFloat = source._negInfFloat
+      _nanFloat = source._nanFloat
+      _cppTrigraph = source._cppTrigraph
+      _stringWithZero = source._stringWithZero
+      _bytesWithZero = source._bytesWithZero
+      _stringPieceWithZero = source._stringPieceWithZero
+      _cordWithZero = source._cordWithZero
+      _replacementString = source._replacementString
     }
   }
 
@@ -4559,7 +4529,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message, SwiftPr
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -5488,10 +5458,8 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._foo = _foo
-      return clone
+    init(copying source: _StorageClass) {
+      _foo = source._foo
     }
   }
 
@@ -5499,7 +5467,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -5753,13 +5721,11 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._fooInt = _fooInt
-      clone._fooString = _fooString
-      clone._fooMessage = _fooMessage
-      clone._fooGroup = _fooGroup
-      return clone
+    init(copying source: _StorageClass) {
+      _fooInt = source._fooInt
+      _fooString = source._fooString
+      _fooMessage = source._fooMessage
+      _fooGroup = source._fooGroup
     }
   }
 
@@ -5767,7 +5733,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message, Swi
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -5962,13 +5928,11 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._foo = _foo
-      clone._bar = _bar
-      clone._bazInt = _bazInt
-      clone._bazString = _bazString
-      return clone
+    init(copying source: _StorageClass) {
+      _foo = source._foo
+      _bar = source._bar
+      _bazInt = source._bazInt
+      _bazString = source._bazString
     }
   }
 
@@ -5976,7 +5940,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -6657,10 +6621,8 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._foo = _foo
-      return clone
+    init(copying source: _StorageClass) {
+      _foo = source._foo
     }
   }
 
@@ -6668,7 +6630,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message, SwiftProtobuf.
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -7255,16 +7217,14 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._scalarExtension = _scalarExtension
-      clone._enumExtension = _enumExtension
-      clone._dynamicEnumExtension = _dynamicEnumExtension
-      clone._messageExtension = _messageExtension
-      clone._dynamicMessageExtension = _dynamicMessageExtension
-      clone._repeatedExtension = _repeatedExtension
-      clone._packedExtension = _packedExtension
-      return clone
+    init(copying source: _StorageClass) {
+      _scalarExtension = source._scalarExtension
+      _enumExtension = source._enumExtension
+      _dynamicEnumExtension = source._dynamicEnumExtension
+      _messageExtension = source._messageExtension
+      _dynamicMessageExtension = source._dynamicMessageExtension
+      _repeatedExtension = source._repeatedExtension
+      _packedExtension = source._packedExtension
     }
   }
 
@@ -7272,7 +7232,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message, SwiftProto
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -7592,14 +7552,12 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._requiredAllTypes = _requiredAllTypes
-      clone._optionalAllTypes = _optionalAllTypes
-      clone._repeatedAllTypes = _repeatedAllTypes
-      clone._optionalGroup = _optionalGroup
-      clone._repeatedGroup = _repeatedGroup
-      return clone
+    init(copying source: _StorageClass) {
+      _requiredAllTypes = source._requiredAllTypes
+      _optionalAllTypes = source._optionalAllTypes
+      _repeatedAllTypes = source._repeatedAllTypes
+      _optionalGroup = source._optionalGroup
+      _repeatedGroup = source._repeatedGroup
     }
   }
 
@@ -7607,7 +7565,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -7701,10 +7659,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
         init() {}
 
-        func copy() -> _StorageClass {
-          let clone = _StorageClass()
-          clone._field1 = _field1
-          return clone
+        init(copying source: _StorageClass) {
+          _field1 = source._field1
         }
       }
 
@@ -7712,7 +7668,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
       private mutating func _uniqueStorage() -> _StorageClass {
         if !isKnownUniquelyReferenced(&_storage) {
-          _storage = _storage.copy()
+          _storage = _StorageClass(copying: _storage)
         }
         return _storage
       }
@@ -7777,10 +7733,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
         init() {}
 
-        func copy() -> _StorageClass {
-          let clone = _StorageClass()
-          clone._field1 = _field1
-          return clone
+        init(copying source: _StorageClass) {
+          _field1 = source._field1
         }
       }
 
@@ -7788,7 +7742,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
       private mutating func _uniqueStorage() -> _StorageClass {
         if !isKnownUniquelyReferenced(&_storage) {
-          _storage = _storage.copy()
+          _storage = _StorageClass(copying: _storage)
         }
         return _storage
       }
@@ -7908,10 +7862,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
       init() {}
 
-      func copy() -> _StorageClass {
-        let clone = _StorageClass()
-        clone._optionalGroupAllTypes = _optionalGroupAllTypes
-        return clone
+      init(copying source: _StorageClass) {
+        _optionalGroupAllTypes = source._optionalGroupAllTypes
       }
     }
 
@@ -7919,7 +7871,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }
@@ -7984,10 +7936,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
       init() {}
 
-      func copy() -> _StorageClass {
-        let clone = _StorageClass()
-        clone._repeatedGroupAllTypes = _repeatedGroupAllTypes
-        return clone
+      init(copying source: _StorageClass) {
+        _repeatedGroupAllTypes = source._repeatedGroupAllTypes
       }
     }
 
@@ -7995,7 +7945,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }
@@ -8488,20 +8438,18 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalInt32 = _optionalInt32
-      clone._fixed32 = _fixed32
-      clone._repeatedInt32 = _repeatedInt32
-      clone._packedInt32 = _packedInt32
-      clone._optionalEnum = _optionalEnum
-      clone._optionalString = _optionalString
-      clone._optionalBytes = _optionalBytes
-      clone._optionalMessage = _optionalMessage
-      clone._optionalGroup = _optionalGroup
-      clone._stringStringMap = _stringStringMap
-      clone._oneofField = _oneofField
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _fixed32 = source._fixed32
+      _repeatedInt32 = source._repeatedInt32
+      _packedInt32 = source._packedInt32
+      _optionalEnum = source._optionalEnum
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalMessage = source._optionalMessage
+      _optionalGroup = source._optionalGroup
+      _stringStringMap = source._stringStringMap
+      _oneofField = source._oneofField
     }
   }
 
@@ -8509,7 +8457,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

@@ -121,11 +121,9 @@ internal class AnyMessageStorage {
 
   init() {}
 
-  func copy() -> AnyMessageStorage {
-    let clone = AnyMessageStorage()
-    clone._typeURL = _typeURL
-    clone.state = state
-    return clone
+  init(copying source: AnyMessageStorage) {
+    _typeURL = source._typeURL
+    state = source.state
   }
 
   func isA<M: Message>(_ type: M.Type) -> Bool {
