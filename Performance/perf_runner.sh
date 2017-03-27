@@ -242,11 +242,6 @@ fi
 
 readonly field_count="$1"; shift
 if [[ "$1" == "all" ]]; then
-  # if [[ "$comparison" != "c++" ]]; then
-  #   echo "ERROR: Commit-based comparison cannot be used with 'all'."
-  #   echo
-  #   usage
-  # fi
   readonly requested_field_types=( \
     int32 sint32 uint32 fixed32 sfixed32 \
     int64 sint64 uint64 fixed64 sfixed64 \
@@ -255,6 +250,17 @@ if [[ "$1" == "all" ]]; then
 else
   readonly requested_field_types=( "$@" )
 fi
+
+# ---------------------------------------------------------------
+# Set up a hook to cleanup revision comparison checkouts when the script
+# completes.
+declare -a CLEANUP_WHEN_DONE
+function cleanup_revision_checkouts() {
+  if [[ "${#CLEANUP_WHEN_DONE[@]}" -ne 0 ]]; then
+    rm -rf "${CLEANUP_WHEN_DONE[@]}"
+  fi
+}
+trap cleanup_revision_checkouts EXIT HUP INT QUIT TERM
 
 # ---------------------------------------------------------------
 # Pull in language-specific runners.
@@ -323,6 +329,7 @@ EOF
         # Check out the commit to a temporary directory and create its _generated
         # directory. (Results will still go in the working tree.)
         tmp_checkout="$(mktemp -d -t swiftprotoperf)"
+        CLEANUP_WHEN_DONE+=("$tmp_checkout")
         git --work-tree="$tmp_checkout" checkout "$comparison" -- .
         mkdir "$tmp_checkout/Performance/_generated"
 
@@ -334,8 +341,6 @@ EOF
         harness_swift="$tmp_checkout/Performance/_generated/harness_swift"
         results_trace="$script_dir/_results/$field_count fields of $field_type (swift)"
         run_swift_harness "$tmp_checkout" "$comparison" "$commit_results"
-
-        rm -r "$tmp_checkout"
       else
         echo
         echo "==== Found cached results for Swift ($comparison) ===================="
