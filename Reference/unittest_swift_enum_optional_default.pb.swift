@@ -56,11 +56,9 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
       init() {}
 
-      func copy() -> _StorageClass {
-        let clone = _StorageClass()
-        clone._message = _message
-        clone._optionalEnum = _optionalEnum
-        return clone
+      init(storage source: _StorageClass) {
+        _message = source._message
+        _optionalEnum = source._optionalEnum
       }
     }
 
@@ -68,7 +66,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message, Swift
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
+        _storage = _StorageClass(storage: _storage)
       }
       return _storage
     }

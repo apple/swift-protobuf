@@ -59,14 +59,12 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._myString = _myString
-      clone._myInt = _myInt
-      clone._myFloat = _myFloat
-      clone._options = _options
-      clone._optionalNestedMessage = _optionalNestedMessage
-      return clone
+    init(storage source: _StorageClass) {
+      _myString = source._myString
+      _myInt = source._myInt
+      _myFloat = source._myFloat
+      _options = source._options
+      _optionalNestedMessage = source._optionalNestedMessage
     }
   }
 
@@ -74,7 +72,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }

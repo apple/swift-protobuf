@@ -340,120 +340,118 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalInt32 = _optionalInt32
-      clone._optionalInt64 = _optionalInt64
-      clone._optionalUint32 = _optionalUint32
-      clone._optionalUint64 = _optionalUint64
-      clone._optionalSint32 = _optionalSint32
-      clone._optionalSint64 = _optionalSint64
-      clone._optionalFixed32 = _optionalFixed32
-      clone._optionalFixed64 = _optionalFixed64
-      clone._optionalSfixed32 = _optionalSfixed32
-      clone._optionalSfixed64 = _optionalSfixed64
-      clone._optionalFloat = _optionalFloat
-      clone._optionalDouble = _optionalDouble
-      clone._optionalBool = _optionalBool
-      clone._optionalString = _optionalString
-      clone._optionalBytes = _optionalBytes
-      clone._optionalNestedMessage = _optionalNestedMessage
-      clone._optionalForeignMessage = _optionalForeignMessage
-      clone._optionalNestedEnum = _optionalNestedEnum
-      clone._optionalForeignEnum = _optionalForeignEnum
-      clone._optionalStringPiece = _optionalStringPiece
-      clone._optionalCord = _optionalCord
-      clone._recursiveMessage = _recursiveMessage
-      clone._repeatedInt32 = _repeatedInt32
-      clone._repeatedInt64 = _repeatedInt64
-      clone._repeatedUint32 = _repeatedUint32
-      clone._repeatedUint64 = _repeatedUint64
-      clone._repeatedSint32 = _repeatedSint32
-      clone._repeatedSint64 = _repeatedSint64
-      clone._repeatedFixed32 = _repeatedFixed32
-      clone._repeatedFixed64 = _repeatedFixed64
-      clone._repeatedSfixed32 = _repeatedSfixed32
-      clone._repeatedSfixed64 = _repeatedSfixed64
-      clone._repeatedFloat = _repeatedFloat
-      clone._repeatedDouble = _repeatedDouble
-      clone._repeatedBool = _repeatedBool
-      clone._repeatedString = _repeatedString
-      clone._repeatedBytes = _repeatedBytes
-      clone._repeatedNestedMessage = _repeatedNestedMessage
-      clone._repeatedForeignMessage = _repeatedForeignMessage
-      clone._repeatedNestedEnum = _repeatedNestedEnum
-      clone._repeatedForeignEnum = _repeatedForeignEnum
-      clone._repeatedStringPiece = _repeatedStringPiece
-      clone._repeatedCord = _repeatedCord
-      clone._mapInt32Int32 = _mapInt32Int32
-      clone._mapInt64Int64 = _mapInt64Int64
-      clone._mapUint32Uint32 = _mapUint32Uint32
-      clone._mapUint64Uint64 = _mapUint64Uint64
-      clone._mapSint32Sint32 = _mapSint32Sint32
-      clone._mapSint64Sint64 = _mapSint64Sint64
-      clone._mapFixed32Fixed32 = _mapFixed32Fixed32
-      clone._mapFixed64Fixed64 = _mapFixed64Fixed64
-      clone._mapSfixed32Sfixed32 = _mapSfixed32Sfixed32
-      clone._mapSfixed64Sfixed64 = _mapSfixed64Sfixed64
-      clone._mapInt32Float = _mapInt32Float
-      clone._mapInt32Double = _mapInt32Double
-      clone._mapBoolBool = _mapBoolBool
-      clone._mapStringString = _mapStringString
-      clone._mapStringBytes = _mapStringBytes
-      clone._mapStringNestedMessage = _mapStringNestedMessage
-      clone._mapStringForeignMessage = _mapStringForeignMessage
-      clone._mapStringNestedEnum = _mapStringNestedEnum
-      clone._mapStringForeignEnum = _mapStringForeignEnum
-      clone._oneofField = _oneofField
-      clone._optionalBoolWrapper = _optionalBoolWrapper
-      clone._optionalInt32Wrapper = _optionalInt32Wrapper
-      clone._optionalInt64Wrapper = _optionalInt64Wrapper
-      clone._optionalUint32Wrapper = _optionalUint32Wrapper
-      clone._optionalUint64Wrapper = _optionalUint64Wrapper
-      clone._optionalFloatWrapper = _optionalFloatWrapper
-      clone._optionalDoubleWrapper = _optionalDoubleWrapper
-      clone._optionalStringWrapper = _optionalStringWrapper
-      clone._optionalBytesWrapper = _optionalBytesWrapper
-      clone._repeatedBoolWrapper = _repeatedBoolWrapper
-      clone._repeatedInt32Wrapper = _repeatedInt32Wrapper
-      clone._repeatedInt64Wrapper = _repeatedInt64Wrapper
-      clone._repeatedUint32Wrapper = _repeatedUint32Wrapper
-      clone._repeatedUint64Wrapper = _repeatedUint64Wrapper
-      clone._repeatedFloatWrapper = _repeatedFloatWrapper
-      clone._repeatedDoubleWrapper = _repeatedDoubleWrapper
-      clone._repeatedStringWrapper = _repeatedStringWrapper
-      clone._repeatedBytesWrapper = _repeatedBytesWrapper
-      clone._optionalDuration = _optionalDuration
-      clone._optionalTimestamp = _optionalTimestamp
-      clone._optionalFieldMask = _optionalFieldMask
-      clone._optionalStruct = _optionalStruct
-      clone._optionalAny = _optionalAny
-      clone._optionalValue = _optionalValue
-      clone._repeatedDuration = _repeatedDuration
-      clone._repeatedTimestamp = _repeatedTimestamp
-      clone._repeatedFieldmask = _repeatedFieldmask
-      clone._repeatedStruct = _repeatedStruct
-      clone._repeatedAny = _repeatedAny
-      clone._repeatedValue = _repeatedValue
-      clone._fieldname1 = _fieldname1
-      clone._fieldName2 = _fieldName2
-      clone._fieldName3 = _fieldName3
-      clone._field_Name4_ = _field_Name4_
-      clone._field0Name5 = _field0Name5
-      clone._field0Name6 = _field0Name6
-      clone._fieldName7 = _fieldName7
-      clone._fieldName8 = _fieldName8
-      clone._fieldName9 = _fieldName9
-      clone._fieldName10 = _fieldName10
-      clone._fieldName11 = _fieldName11
-      clone._fieldName12 = _fieldName12
-      clone.__FieldName13 = __FieldName13
-      clone.__FieldName14 = __FieldName14
-      clone._field_Name15 = _field_Name15
-      clone._field_Name16 = _field_Name16
-      clone._fieldName17__ = _fieldName17__
-      clone._fieldName18__ = _fieldName18__
-      return clone
+    init(storage source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalInt64 = source._optionalInt64
+      _optionalUint32 = source._optionalUint32
+      _optionalUint64 = source._optionalUint64
+      _optionalSint32 = source._optionalSint32
+      _optionalSint64 = source._optionalSint64
+      _optionalFixed32 = source._optionalFixed32
+      _optionalFixed64 = source._optionalFixed64
+      _optionalSfixed32 = source._optionalSfixed32
+      _optionalSfixed64 = source._optionalSfixed64
+      _optionalFloat = source._optionalFloat
+      _optionalDouble = source._optionalDouble
+      _optionalBool = source._optionalBool
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalNestedMessage = source._optionalNestedMessage
+      _optionalForeignMessage = source._optionalForeignMessage
+      _optionalNestedEnum = source._optionalNestedEnum
+      _optionalForeignEnum = source._optionalForeignEnum
+      _optionalStringPiece = source._optionalStringPiece
+      _optionalCord = source._optionalCord
+      _recursiveMessage = source._recursiveMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedStringPiece = source._repeatedStringPiece
+      _repeatedCord = source._repeatedCord
+      _mapInt32Int32 = source._mapInt32Int32
+      _mapInt64Int64 = source._mapInt64Int64
+      _mapUint32Uint32 = source._mapUint32Uint32
+      _mapUint64Uint64 = source._mapUint64Uint64
+      _mapSint32Sint32 = source._mapSint32Sint32
+      _mapSint64Sint64 = source._mapSint64Sint64
+      _mapFixed32Fixed32 = source._mapFixed32Fixed32
+      _mapFixed64Fixed64 = source._mapFixed64Fixed64
+      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
+      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
+      _mapInt32Float = source._mapInt32Float
+      _mapInt32Double = source._mapInt32Double
+      _mapBoolBool = source._mapBoolBool
+      _mapStringString = source._mapStringString
+      _mapStringBytes = source._mapStringBytes
+      _mapStringNestedMessage = source._mapStringNestedMessage
+      _mapStringForeignMessage = source._mapStringForeignMessage
+      _mapStringNestedEnum = source._mapStringNestedEnum
+      _mapStringForeignEnum = source._mapStringForeignEnum
+      _oneofField = source._oneofField
+      _optionalBoolWrapper = source._optionalBoolWrapper
+      _optionalInt32Wrapper = source._optionalInt32Wrapper
+      _optionalInt64Wrapper = source._optionalInt64Wrapper
+      _optionalUint32Wrapper = source._optionalUint32Wrapper
+      _optionalUint64Wrapper = source._optionalUint64Wrapper
+      _optionalFloatWrapper = source._optionalFloatWrapper
+      _optionalDoubleWrapper = source._optionalDoubleWrapper
+      _optionalStringWrapper = source._optionalStringWrapper
+      _optionalBytesWrapper = source._optionalBytesWrapper
+      _repeatedBoolWrapper = source._repeatedBoolWrapper
+      _repeatedInt32Wrapper = source._repeatedInt32Wrapper
+      _repeatedInt64Wrapper = source._repeatedInt64Wrapper
+      _repeatedUint32Wrapper = source._repeatedUint32Wrapper
+      _repeatedUint64Wrapper = source._repeatedUint64Wrapper
+      _repeatedFloatWrapper = source._repeatedFloatWrapper
+      _repeatedDoubleWrapper = source._repeatedDoubleWrapper
+      _repeatedStringWrapper = source._repeatedStringWrapper
+      _repeatedBytesWrapper = source._repeatedBytesWrapper
+      _optionalDuration = source._optionalDuration
+      _optionalTimestamp = source._optionalTimestamp
+      _optionalFieldMask = source._optionalFieldMask
+      _optionalStruct = source._optionalStruct
+      _optionalAny = source._optionalAny
+      _optionalValue = source._optionalValue
+      _repeatedDuration = source._repeatedDuration
+      _repeatedTimestamp = source._repeatedTimestamp
+      _repeatedFieldmask = source._repeatedFieldmask
+      _repeatedStruct = source._repeatedStruct
+      _repeatedAny = source._repeatedAny
+      _repeatedValue = source._repeatedValue
+      _fieldname1 = source._fieldname1
+      _fieldName2 = source._fieldName2
+      _fieldName3 = source._fieldName3
+      _field_Name4_ = source._field_Name4_
+      _field0Name5 = source._field0Name5
+      _field0Name6 = source._field0Name6
+      _fieldName7 = source._fieldName7
+      _fieldName8 = source._fieldName8
+      _fieldName9 = source._fieldName9
+      _fieldName10 = source._fieldName10
+      _fieldName11 = source._fieldName11
+      _fieldName12 = source._fieldName12
+      __FieldName13 = source.__FieldName13
+      __FieldName14 = source.__FieldName14
+      _field_Name15 = source._field_Name15
+      _field_Name16 = source._field_Name16
+      _fieldName17__ = source._fieldName17__
+      _fieldName18__ = source._fieldName18__
     }
   }
 
@@ -461,7 +459,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -1426,11 +1424,9 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
       init() {}
 
-      func copy() -> _StorageClass {
-        let clone = _StorageClass()
-        clone._a = _a
-        clone._corecursive = _corecursive
-        return clone
+      init(storage source: _StorageClass) {
+        _a = source._a
+        _corecursive = source._corecursive
       }
     }
 
@@ -1438,7 +1434,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _storage.copy()
+        _storage = _StorageClass(storage: _storage)
       }
       return _storage
     }

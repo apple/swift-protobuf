@@ -110,15 +110,13 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._name = _name
-      clone._fields = _fields
-      clone._oneofs = _oneofs
-      clone._options = _options
-      clone._sourceContext = _sourceContext
-      clone._syntax = _syntax
-      return clone
+    init(storage source: _StorageClass) {
+      _name = source._name
+      _fields = source._fields
+      _oneofs = source._oneofs
+      _options = source._options
+      _sourceContext = source._sourceContext
+      _syntax = source._syntax
     }
   }
 
@@ -126,7 +124,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -566,14 +564,12 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._name = _name
-      clone._enumvalue = _enumvalue
-      clone._options = _options
-      clone._sourceContext = _sourceContext
-      clone._syntax = _syntax
-      return clone
+    init(storage source: _StorageClass) {
+      _name = source._name
+      _enumvalue = source._enumvalue
+      _options = source._options
+      _sourceContext = source._sourceContext
+      _syntax = source._syntax
     }
   }
 
@@ -581,7 +577,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._Messag
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -750,11 +746,9 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._name = _name
-      clone._value = _value
-      return clone
+    init(storage source: _StorageClass) {
+      _name = source._name
+      _value = source._value
     }
   }
 
@@ -762,7 +756,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }

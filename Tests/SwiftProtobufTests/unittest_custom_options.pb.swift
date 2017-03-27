@@ -652,13 +652,11 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._bar = _bar
-      clone._baz = _baz
-      clone._fred = _fred
-      clone._barney = _barney
-      return clone
+    init(storage source: _StorageClass) {
+      _bar = source._bar
+      _baz = source._baz
+      _fred = source._fred
+      _barney = source._barney
     }
   }
 
@@ -666,7 +664,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -843,11 +841,9 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._qux = _qux
-      clone._complexOptionType5 = _complexOptionType5
-      return clone
+    init(storage source: _StorageClass) {
+      _qux = source._qux
+      _complexOptionType5 = source._complexOptionType5
     }
   }
 
@@ -855,7 +851,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -1148,14 +1144,12 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._i = _i
-      clone._s = _s
-      clone._sub = _sub
-      clone._file = _file
-      clone._mset = _mset
-      return clone
+    init(storage source: _StorageClass) {
+      _i = source._i
+      _s = source._s
+      _sub = source._sub
+      _file = source._file
+      _mset = source._mset
     }
   }
 
@@ -1163,7 +1157,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }

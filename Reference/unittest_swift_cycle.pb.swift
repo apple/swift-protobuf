@@ -65,12 +65,10 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._aFoo = _aFoo
-      clone._aBar = _aBar
-      clone._aBaz = _aBaz
-      return clone
+    init(storage source: _StorageClass) {
+      _aFoo = source._aFoo
+      _aBar = source._aBar
+      _aBaz = source._aBaz
     }
   }
 
@@ -78,7 +76,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -179,12 +177,10 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._aBar = _aBar
-      clone._aBaz = _aBaz
-      clone._aFoo = _aFoo
-      return clone
+    init(storage source: _StorageClass) {
+      _aBar = source._aBar
+      _aBaz = source._aBaz
+      _aFoo = source._aFoo
     }
   }
 
@@ -192,7 +188,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
@@ -293,12 +289,10 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._aBaz = _aBaz
-      clone._aFoo = _aFoo
-      clone._aBar = _aBar
-      return clone
+    init(storage source: _StorageClass) {
+      _aBaz = source._aBaz
+      _aFoo = source._aFoo
+      _aBar = source._aBar
     }
   }
 
@@ -306,7 +300,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }

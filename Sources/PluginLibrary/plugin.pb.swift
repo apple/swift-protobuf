@@ -187,13 +187,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._fileToGenerate = _fileToGenerate
-      clone._parameter = _parameter
-      clone._protoFile = _protoFile
-      clone._compilerVersion = _compilerVersion
-      return clone
+    init(storage source: _StorageClass) {
+      _fileToGenerate = source._fileToGenerate
+      _parameter = source._parameter
+      _protoFile = source._protoFile
+      _compilerVersion = source._compilerVersion
     }
   }
 
@@ -201,7 +199,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }

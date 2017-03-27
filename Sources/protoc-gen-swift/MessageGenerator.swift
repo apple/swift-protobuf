@@ -205,7 +205,7 @@ class MessageGenerator {
       p.print("\n")
       p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
       p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
-      p.print("    _storage = _storage.copy()\n")
+      p.print("    _storage = _StorageClass(storage: _storage)\n")
       p.print("  }\n")
       p.print("  return _storage\n")
       p.print("}\n")

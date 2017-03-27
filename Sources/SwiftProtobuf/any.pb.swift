@@ -132,7 +132,7 @@ public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   internal mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(storage: _storage)
     }
     return _storage
   }
