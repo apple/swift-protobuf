@@ -198,7 +198,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
       _optionalInt64 = source._optionalInt64
       _optionalUint32 = source._optionalUint32
@@ -253,7 +253,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftP
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -995,7 +995,7 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _proto2 = source._proto2
     }
   }
@@ -1004,7 +1004,7 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message, 
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

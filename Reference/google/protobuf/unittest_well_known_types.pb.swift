@@ -71,7 +71,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _anyField = source._anyField
       _apiField = source._apiField
       _durationField = source._durationField
@@ -98,7 +98,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -487,7 +487,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _anyField = source._anyField
       _apiField = source._apiField
       _durationField = source._durationField
@@ -513,7 +513,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -760,7 +760,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _oneofField = source._oneofField
     }
   }
@@ -769,7 +769,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1341,7 +1341,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _anyField = source._anyField
       _apiField = source._apiField
       _durationField = source._durationField
@@ -1367,7 +1367,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

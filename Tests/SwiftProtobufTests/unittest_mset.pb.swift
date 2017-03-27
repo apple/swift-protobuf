@@ -69,7 +69,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _messageSet = source._messageSet
     }
   }
@@ -78,7 +78,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

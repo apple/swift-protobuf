@@ -121,7 +121,7 @@ internal class AnyMessageStorage {
 
   init() {}
 
-  init(storage source: AnyMessageStorage) {
+  init(copying source: AnyMessageStorage) {
     _typeURL = source._typeURL
     state = source.state
   }

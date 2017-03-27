@@ -2067,7 +2067,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProto
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 = source._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1
       _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2 = source._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2
       _longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3 = source._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3
@@ -3075,7 +3075,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message, SwiftProto
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

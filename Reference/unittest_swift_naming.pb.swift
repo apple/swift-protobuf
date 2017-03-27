@@ -1358,7 +1358,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _string = source._string
       _int = source._int
       _double = source._double
@@ -1574,7 +1574,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

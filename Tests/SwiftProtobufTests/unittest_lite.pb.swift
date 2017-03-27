@@ -308,7 +308,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
       _optionalInt64 = source._optionalInt64
       _optionalUint32 = source._optionalUint32
@@ -389,7 +389,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message, SwiftProtobuf._
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -2226,7 +2226,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _requiredAllTypes = source._requiredAllTypes
       _optionalAllTypes = source._optionalAllTypes
       _repeatedAllTypes = source._repeatedAllTypes
@@ -2239,7 +2239,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -2328,7 +2328,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
         init() {}
 
-        init(storage source: _StorageClass) {
+        init(copying source: _StorageClass) {
           _field1 = source._field1
         }
       }
@@ -2337,7 +2337,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
       private mutating func _uniqueStorage() -> _StorageClass {
         if !isKnownUniquelyReferenced(&_storage) {
-          _storage = _StorageClass(storage: _storage)
+          _storage = _StorageClass(copying: _storage)
         }
         return _storage
       }
@@ -2402,7 +2402,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
         init() {}
 
-        init(storage source: _StorageClass) {
+        init(copying source: _StorageClass) {
           _field1 = source._field1
         }
       }
@@ -2411,7 +2411,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
       private mutating func _uniqueStorage() -> _StorageClass {
         if !isKnownUniquelyReferenced(&_storage) {
-          _storage = _StorageClass(storage: _storage)
+          _storage = _StorageClass(copying: _storage)
         }
         return _storage
       }
@@ -2531,7 +2531,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
       init() {}
 
-      init(storage source: _StorageClass) {
+      init(copying source: _StorageClass) {
         _optionalGroupAllTypes = source._optionalGroupAllTypes
       }
     }
@@ -2540,7 +2540,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(storage: _storage)
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }
@@ -2605,7 +2605,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
       init() {}
 
-      init(storage source: _StorageClass) {
+      init(copying source: _StorageClass) {
         _repeatedGroupAllTypes = source._repeatedGroupAllTypes
       }
     }
@@ -2614,7 +2614,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(storage: _storage)
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }
@@ -2984,7 +2984,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
       _fixed32 = source._fixed32
       _repeatedInt32 = source._repeatedInt32
@@ -3003,7 +3003,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

@@ -340,7 +340,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
       _optionalInt64 = source._optionalInt64
       _optionalUint32 = source._optionalUint32
@@ -459,7 +459,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1424,7 +1424,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
       init() {}
 
-      init(storage source: _StorageClass) {
+      init(copying source: _StorageClass) {
         _a = source._a
         _corecursive = source._corecursive
       }
@@ -1434,7 +1434,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message, SwiftPro
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(storage: _storage)
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }

@@ -256,7 +256,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _outerA = source._outerA
       _subGroup1 = source._subGroup1
       _subGroup3 = source._subGroup3
@@ -267,7 +267,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -314,7 +314,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
       init() {}
 
-      init(storage source: _StorageClass) {
+      init(copying source: _StorageClass) {
         _sub1A = source._sub1A
         _subGroup2 = source._subGroup2
       }
@@ -324,7 +324,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     private mutating func _uniqueStorage() -> _StorageClass {
       if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(storage: _storage)
+        _storage = _StorageClass(copying: _storage)
       }
       return _storage
     }

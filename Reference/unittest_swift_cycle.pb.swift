@@ -65,7 +65,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _aFoo = source._aFoo
       _aBar = source._aBar
       _aBaz = source._aBaz
@@ -76,7 +76,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -177,7 +177,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _aBar = source._aBar
       _aBaz = source._aBaz
       _aFoo = source._aFoo
@@ -188,7 +188,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -289,7 +289,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _aBaz = source._aBaz
       _aFoo = source._aFoo
       _aBar = source._aBar
@@ -300,7 +300,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

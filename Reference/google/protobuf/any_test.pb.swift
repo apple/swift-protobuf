@@ -66,7 +66,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _int32Value = source._int32Value
       _anyValue = source._anyValue
       _repeatedAnyValue = source._repeatedAnyValue
@@ -77,7 +77,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

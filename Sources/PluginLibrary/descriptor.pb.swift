@@ -135,7 +135,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _package = source._package
       _dependency = source._dependency
@@ -155,7 +155,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message, SwiftP
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -397,7 +397,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _field = source._field
       _extension_p = source._extension_p
@@ -415,7 +415,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message, SwiftProto
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -740,7 +740,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _number = source._number
       _label = source._label
@@ -758,7 +758,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message, Swift
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1151,7 +1151,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, Swift
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _options = source._options
     }
@@ -1161,7 +1161,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message, Swift
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1254,7 +1254,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftP
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _value = source._value
       _options = source._options
@@ -1265,7 +1265,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message, SwiftP
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1369,7 +1369,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, S
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _number = source._number
       _options = source._options
@@ -1380,7 +1380,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message, S
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1489,7 +1489,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, Swi
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _method = source._method
       _options = source._options
@@ -1500,7 +1500,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message, Swi
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1610,7 +1610,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, Swif
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _inputType = source._inputType
       _outputType = source._outputType
@@ -1624,7 +1624,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message, Swif
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

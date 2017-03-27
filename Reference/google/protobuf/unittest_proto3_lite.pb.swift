@@ -202,7 +202,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
       _optionalInt64 = source._optionalInt64
       _optionalUint32 = source._optionalUint32
@@ -258,7 +258,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._Me
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1307,7 +1307,7 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _child = source._child
       _payload = source._payload
     }
@@ -1317,7 +1317,7 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

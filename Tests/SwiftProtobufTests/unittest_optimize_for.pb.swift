@@ -73,7 +73,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _i = source._i
       _msg = source._msg
       _foo = source._foo
@@ -84,7 +84,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -327,7 +327,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _o = source._o
     }
   }
@@ -336,7 +336,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message, Swi
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

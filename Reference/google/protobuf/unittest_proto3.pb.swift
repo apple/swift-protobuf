@@ -303,7 +303,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _singleInt32 = source._singleInt32
       _singleInt64 = source._singleInt64
       _singleUint32 = source._singleUint32
@@ -356,7 +356,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1093,7 +1093,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _child = source._child
       _payload = source._payload
       _repeatedChild = source._repeatedChild
@@ -1104,7 +1104,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1291,7 +1291,7 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _foreignNested = source._foreignNested
     }
   }
@@ -1300,7 +1300,7 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1413,7 +1413,7 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _a = source._a
       _i = source._i
     }
@@ -1423,7 +1423,7 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1499,7 +1499,7 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _bb = source._bb
     }
   }
@@ -1508,7 +1508,7 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1575,7 +1575,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _a = source._a
       _optionalInt32 = source._optionalInt32
     }
@@ -1585,7 +1585,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1676,7 +1676,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _primitiveField = source._primitiveField
       _stringField = source._stringField
       _enumField = source._enumField
@@ -1692,7 +1692,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mess
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1835,7 +1835,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _myString = source._myString
       _myInt = source._myInt
       _myFloat = source._myFloat
@@ -1847,7 +1847,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -2343,7 +2343,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _foo = source._foo
     }
   }
@@ -2352,7 +2352,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

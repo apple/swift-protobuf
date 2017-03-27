@@ -324,7 +324,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _x = source._x
       _y = source._y
     }
@@ -334,7 +334,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

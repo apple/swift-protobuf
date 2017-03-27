@@ -104,7 +104,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _messageSet = source._messageSet
     }
   }
@@ -113,7 +113,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

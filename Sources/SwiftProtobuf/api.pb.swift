@@ -74,7 +74,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _methods = source._methods
       _options = source._options
@@ -89,7 +89,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

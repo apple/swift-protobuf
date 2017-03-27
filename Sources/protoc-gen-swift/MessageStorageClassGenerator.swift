@@ -94,11 +94,11 @@ class MessageStorageClassGenerator {
     }
   }
 
-  /// Generates the `init(storage:)` method of the storage class.
+  /// Generates the `init(copying:)` method of the storage class.
   ///
   /// - Parameter p: The code printer.
   private func generateClone(printer p: inout CodePrinter) {
-    p.print("init(storage source: _StorageClass) {\n")
+    p.print("init(copying source: _StorageClass) {\n")
     p.indent()
 
     var oneofsHandled = Set<Int32>()

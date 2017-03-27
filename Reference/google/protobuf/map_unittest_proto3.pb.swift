@@ -139,7 +139,7 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _mapInt32Int32 = source._mapInt32Int32
       _mapInt64Int64 = source._mapInt64Int64
       _mapUint32Uint32 = source._mapUint32Uint32
@@ -164,7 +164,7 @@ struct Proto3TestMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -383,7 +383,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _testMap = source._testMap
     }
   }
@@ -392,7 +392,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

@@ -110,7 +110,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _fields = source._fields
       _oneofs = source._oneofs
@@ -124,7 +124,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -564,7 +564,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _enumvalue = source._enumvalue
       _options = source._options
@@ -577,7 +577,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -746,7 +746,7 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
     init() {}
 
-    init(storage source: _StorageClass) {
+    init(copying source: _StorageClass) {
       _name = source._name
       _value = source._value
     }
@@ -756,7 +756,7 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(storage: _storage)
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
