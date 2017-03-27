@@ -38,6 +38,14 @@ fileprivate func slowUtf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> St
 }
 #endif
 
+internal func utf8ToString(
+  bytes: UnsafeBufferPointer<UInt8>,
+  start: UnsafeBufferPointer<UInt8>.Index,
+  end: UnsafeBufferPointer<UInt8>.Index
+) -> String? {
+  return utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
+}
+
 internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
     if count == 0 {
         return ""

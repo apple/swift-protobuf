@@ -24,8 +24,8 @@ internal struct JSONDecoder: Decoder {
     throw JSONDecodingError.conflictingOneOf
   }
 
-  internal init(utf8Pointer: UnsafePointer<UInt8>, count: Int) {
-    self.scanner = JSONScanner(utf8Pointer: utf8Pointer, count: count)
+  internal init(source: UnsafeBufferPointer<UInt8>) {
+    self.scanner = JSONScanner(source: source)
   }
 
   private init(scanner: JSONScanner) {

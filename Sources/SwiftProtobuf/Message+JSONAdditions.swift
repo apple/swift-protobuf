@@ -74,8 +74,8 @@ public extension Message {
   public init(jsonUTF8Data: Data) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-      var decoder = JSONDecoder(utf8Pointer: bytes,
-                                count: jsonUTF8Data.count)
+      let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
+      var decoder = JSONDecoder(source: buffer)
       if !decoder.scanner.skipOptionalNull() {
         try decoder.decodeFullObject(message: &self)
       } else if Self.self is _CustomJSONCodable.Type {
