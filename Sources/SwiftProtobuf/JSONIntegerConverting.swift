@@ -13,15 +13,14 @@
 ///
 // -----------------------------------------------------------------------------
 
+// NOTE: When Swift 3.1 is the required minimum for compiling the library
+// sources, this whole file can go away and the code can be updated to call
+// init(exactly:) instead of this.
+
 /// An internal protocol that the 32- and 64-bit Swift integer types conform to
 /// within this compilation unit so that we can write the numeric conversions
 /// in `JSONToken` more cleanly.
 internal protocol JSONIntegerConverting {
-
-  // These conversions are already provided by the conforming types.
-  init?(exactly value: UInt64)
-  init?(exactly value: Int64)
-  init?(_ text: String, radix: Int)
 
   /// Creates a new instance of the conforming type by attempting to convert the
   /// given `Double`. Returns nil if the number has a fractional part, and
@@ -49,19 +48,23 @@ internal protocol JSONIntegerConverting {
 extension Int64: JSONIntegerConverting {
 
   init?(safely value: Double) {
-    let upper = Double(sign: .plus, exponent: 63, significand: 1)
-    // 11 is the difference between the number of integer bits (64) and the
-    // number of bits, including the implicit bit, in a Double's significand
-    // (53). In other words, it is roughly the number of integers we lose the
-    // ability to represent between each adjacent bit pattern, which requires a
-    // small adjustment of the lower bound in order to test the correct range.
-    let ulp = Double(1 << 11)
-    let lower = -upper - ulp
-    guard lower < value && value < upper &&
-      value == value.rounded(.towardZero) else {
-      return nil
-    }
-    self.init(value)
+    #if swift(>=3.1)
+      self.init(exactly: value)
+    #else
+      let upper = Double(sign: .plus, exponent: 63, significand: 1)
+      // 11 is the difference between the number of integer bits (64) and the
+      // number of bits, including the implicit bit, in a Double's significand
+      // (53). In other words, it is roughly the number of integers we lose the
+      // ability to represent between each adjacent bit pattern, which requires a
+      // small adjustment of the lower bound in order to test the correct range.
+      let ulp = Double(1 << 11)
+      let lower = -upper - ulp
+      guard lower < value && value < upper &&
+        value == value.rounded(.towardZero) else {
+        return nil
+      }
+      self.init(value)
+    #endif
   }
 }
 
@@ -69,11 +72,15 @@ extension Int64: JSONIntegerConverting {
 extension UInt64: JSONIntegerConverting {
 
   init?(safely value: Double) {
-    let upper = Double(sign: .plus, exponent: 64, significand: 1)
-    guard -1 < value && value < upper &&
-      value == value.rounded(.towardZero) else {
-      return nil
-    }
-    self.init(value)
+    #if swift(>=3.1)
+      self.init(exactly: value)
+    #else
+      let upper = Double(sign: .plus, exponent: 64, significand: 1)
+      guard -1 < value && value < upper &&
+        value == value.rounded(.towardZero) else {
+        return nil
+      }
+      self.init(value)
+    #endif
   }
 }
