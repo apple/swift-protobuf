@@ -174,6 +174,13 @@ ifeq "$(XCODE_ANALYZE)" "1"
   XCODEBUILD_EXTRAS += RUN_CLANG_STATIC_ANALYZER=YES CLANG_STATIC_ANALYZER_MODE=deep
 endif
 
+# Invoke make with XCODE_NOISY to get the default output of everything little
+# thing Xcode does.
+XCODE_NOISY=0
+ifeq "$(XCODE_NOISY)" "0"
+  XCODEBUILD_EXTRAS += -quiet
+endif
+
 .PHONY: \
 	all \
 	build \
