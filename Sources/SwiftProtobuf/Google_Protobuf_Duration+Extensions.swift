@@ -101,13 +101,13 @@ private func formatDuration(seconds: Int64, nanos: Int32) -> String? {
   }
 
   if nanos == 0 {
-    return String(format: "%lds", seconds)
+    return String(format: "%llds", seconds)
   } else if nanos % 1000000 == 0 {
-    return String(format: "%ld.%03ds", seconds, abs(nanos) / 1000000)
+    return String(format: "%lld.%03ds", seconds, abs(nanos) / 1000000)
   } else if nanos % 1000 == 0 {
-    return String(format: "%ld.%06ds", seconds, abs(nanos) / 1000)
+    return String(format: "%lld.%06ds", seconds, abs(nanos) / 1000)
   } else {
-    return String(format: "%ld.%09ds", seconds, abs(nanos))
+    return String(format: "%lld.%09ds", seconds, abs(nanos))
   }
 }
 
