@@ -263,6 +263,7 @@ internal struct TextFormatScanner {
     internal var extensions: ExtensionMap?
     private var p: UnsafePointer<UInt8>
     private var end: UnsafePointer<UInt8>
+    private var doubleFormatter = DoubleFormatter()
 
     internal var complete: Bool {
         mutating get {
@@ -596,7 +597,7 @@ internal struct TextFormatScanner {
 
     // Tries to identify a sequence of UTF8 characters
     // that represent a numeric floating-point value.
-    private mutating func tryParseFloatString() -> String? {
+    private mutating func tryParseFloatString() -> Double? {
         guard p != end else {return nil}
         let start = p
         var c = p[0]
@@ -640,18 +641,18 @@ internal struct TextFormatScanner {
                 p += 1
             case asciiLowerF: // f
                 // proto1 allowed floats to be suffixed with 'f'
-                let s = utf8ToString(bytes: start, count: p - start)!
+                let d = doubleFormatter.utf8ToDouble(bytes: start, count: p - start)
                 // Just skip the 'f'
                 p += 1
                 skipWhitespace()
-                return s
+                return d
             default:
                 break loop
             }
         }
-        let s = utf8ToString(bytes: start, count: p - start)!
+        let d = doubleFormatter.utf8ToDouble(bytes: start, count: p - start)
         skipWhitespace()
-        return s
+        return d
     }
 
     private mutating func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
@@ -717,8 +718,9 @@ internal struct TextFormatScanner {
     }
 
     internal mutating func nextFloat() throws -> Float {
-        if let s = tryParseFloatString() {
-            if let n = Float(s) {
+        if let d = tryParseFloatString() {
+            let n = Float(d)
+            if n.isFinite {
                 return n
             }
         }
@@ -732,10 +734,8 @@ internal struct TextFormatScanner {
     }
 
     internal mutating func nextDouble() throws -> Double {
-        if let s = tryParseFloatString() {
-            if let n = Double(s) {
-                return n
-            }
+        if let d = tryParseFloatString() {
+            return d
         }
         if skipOptionalNaN() {
             return Double.nan

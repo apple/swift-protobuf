@@ -139,16 +139,9 @@ internal struct TextFormatEncoder {
             if let v = Int64(exactly: Double(value)) {
                 appendInt(value: v)
             } else {
-                let s = String(value)
-                let reparsed = Float(s)
-                // If exact match, then default precision is sufficient:
-                if value == reparsed {
-                    append(text: s)
-                } else {
-                    let precision = FLT_DIG + 2
-                    let s = String(format: "%.*g", precision, Double(value))
-                    append(text: s)
-                }
+                let doubleFormatter = DoubleFormatter()
+                let formatted = doubleFormatter.floatToUtf8(value)
+                data.append(contentsOf: formatted)
             }
         }
     }
@@ -166,23 +159,22 @@ internal struct TextFormatEncoder {
             if let v = Int64(exactly: value) {
                 appendInt(value: v)
             } else {
-                let s = String(value)
-                let reparsed = Double(s)
-                // If exact match, then default precision is sufficient:
-                if value == reparsed {
-                    append(text: s)
-                } else {
-                    let precision = DBL_DIG + 2
-                    let s = String(format: "%.*g", precision, value)
-                    append(text: s)
-                }
+                let doubleFormatter = DoubleFormatter()
+                let formatted = doubleFormatter.doubleToUtf8(value)
+                data.append(contentsOf: formatted)
             }
         }
     }
 
     private mutating func appendUInt(value: UInt64) {
+        if value >= 1000 {
+            appendUInt(value: value / 1000)
+        }
+        if value >= 100 {
+            data.append(asciiZero + UInt8((value / 100) % 10))
+        }
         if value >= 10 {
-            appendUInt(value: value / 10)
+            data.append(asciiZero + UInt8((value / 10) % 10))
         }
         data.append(asciiZero + UInt8(value % 10))
     }

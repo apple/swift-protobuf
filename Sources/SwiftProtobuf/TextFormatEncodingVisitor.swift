@@ -138,6 +138,13 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // that simply widen and dispatch to one of the following.  Since Text format
   // does not distinguish e.g., Fixed64 vs. UInt64, this is sufficient.
 
+  mutating func visitSingularFloatField(value: Float, fieldNumber: Int) throws {
+      emitFieldName(lookingUp: fieldNumber)
+      encoder.startRegularField()
+      encoder.putFloatValue(value: value)
+      encoder.endRegularField()
+  }
+
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startRegularField()
