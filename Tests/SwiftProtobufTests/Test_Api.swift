@@ -28,7 +28,7 @@ class Test_Api: XCTestCase, PBTestHelpers {
         }
     }
 
-    func testInitializer() {
+    func testInitializer() throws {
         var m = MessageTestType()
         m.name = "apiName"
         var method = Google_Protobuf_Method()
@@ -36,7 +36,7 @@ class Test_Api: XCTestCase, PBTestHelpers {
         m.methods = [method]
         var option = Google_Protobuf_Option()
         option.name = "option1"
-        option.value = Google_Protobuf_Any(message: Google_Protobuf_StringValue("value1"))
+        option.value = try Google_Protobuf_Any(message: Google_Protobuf_StringValue("value1"))
         m.options = [option]
         m.version = "1.0.0"
         m.syntax = .proto3

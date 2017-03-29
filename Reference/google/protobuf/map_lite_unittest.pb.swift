@@ -205,27 +205,25 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._mapInt32Int32 = _mapInt32Int32
-      clone._mapInt64Int64 = _mapInt64Int64
-      clone._mapUint32Uint32 = _mapUint32Uint32
-      clone._mapUint64Uint64 = _mapUint64Uint64
-      clone._mapSint32Sint32 = _mapSint32Sint32
-      clone._mapSint64Sint64 = _mapSint64Sint64
-      clone._mapFixed32Fixed32 = _mapFixed32Fixed32
-      clone._mapFixed64Fixed64 = _mapFixed64Fixed64
-      clone._mapSfixed32Sfixed32 = _mapSfixed32Sfixed32
-      clone._mapSfixed64Sfixed64 = _mapSfixed64Sfixed64
-      clone._mapInt32Float = _mapInt32Float
-      clone._mapInt32Double = _mapInt32Double
-      clone._mapBoolBool = _mapBoolBool
-      clone._mapStringString = _mapStringString
-      clone._mapInt32Bytes = _mapInt32Bytes
-      clone._mapInt32Enum = _mapInt32Enum
-      clone._mapInt32ForeignMessage = _mapInt32ForeignMessage
-      clone._teboring = _teboring
-      return clone
+    init(copying source: _StorageClass) {
+      _mapInt32Int32 = source._mapInt32Int32
+      _mapInt64Int64 = source._mapInt64Int64
+      _mapUint32Uint32 = source._mapUint32Uint32
+      _mapUint64Uint64 = source._mapUint64Uint64
+      _mapSint32Sint32 = source._mapSint32Sint32
+      _mapSint64Sint64 = source._mapSint64Sint64
+      _mapFixed32Fixed32 = source._mapFixed32Fixed32
+      _mapFixed64Fixed64 = source._mapFixed64Fixed64
+      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
+      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
+      _mapInt32Float = source._mapInt32Float
+      _mapInt32Double = source._mapInt32Double
+      _mapBoolBool = source._mapBoolBool
+      _mapStringString = source._mapStringString
+      _mapInt32Bytes = source._mapInt32Bytes
+      _mapInt32Enum = source._mapInt32Enum
+      _mapInt32ForeignMessage = source._mapInt32ForeignMessage
+      _teboring = source._teboring
     }
   }
 
@@ -233,7 +231,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Messa
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -496,27 +494,25 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._mapInt32Int32 = _mapInt32Int32
-      clone._mapInt64Int64 = _mapInt64Int64
-      clone._mapUint32Uint32 = _mapUint32Uint32
-      clone._mapUint64Uint64 = _mapUint64Uint64
-      clone._mapSint32Sint32 = _mapSint32Sint32
-      clone._mapSint64Sint64 = _mapSint64Sint64
-      clone._mapFixed32Fixed32 = _mapFixed32Fixed32
-      clone._mapFixed64Fixed64 = _mapFixed64Fixed64
-      clone._mapSfixed32Sfixed32 = _mapSfixed32Sfixed32
-      clone._mapSfixed64Sfixed64 = _mapSfixed64Sfixed64
-      clone._mapInt32Float = _mapInt32Float
-      clone._mapInt32Double = _mapInt32Double
-      clone._mapBoolBool = _mapBoolBool
-      clone._mapStringString = _mapStringString
-      clone._mapInt32Bytes = _mapInt32Bytes
-      clone._mapInt32Enum = _mapInt32Enum
-      clone._mapInt32ForeignMessage = _mapInt32ForeignMessage
-      clone._mapInt32ForeignMessageNoArena = _mapInt32ForeignMessageNoArena
-      return clone
+    init(copying source: _StorageClass) {
+      _mapInt32Int32 = source._mapInt32Int32
+      _mapInt64Int64 = source._mapInt64Int64
+      _mapUint32Uint32 = source._mapUint32Uint32
+      _mapUint64Uint64 = source._mapUint64Uint64
+      _mapSint32Sint32 = source._mapSint32Sint32
+      _mapSint64Sint64 = source._mapSint64Sint64
+      _mapFixed32Fixed32 = source._mapFixed32Fixed32
+      _mapFixed64Fixed64 = source._mapFixed64Fixed64
+      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
+      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
+      _mapInt32Float = source._mapInt32Float
+      _mapInt32Double = source._mapInt32Double
+      _mapBoolBool = source._mapBoolBool
+      _mapStringString = source._mapStringString
+      _mapInt32Bytes = source._mapInt32Bytes
+      _mapInt32Enum = source._mapInt32Enum
+      _mapInt32ForeignMessage = source._mapInt32ForeignMessage
+      _mapInt32ForeignMessageNoArena = source._mapInt32ForeignMessageNoArena
     }
   }
 
@@ -524,7 +520,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

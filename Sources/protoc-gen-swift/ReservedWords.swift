@@ -157,6 +157,15 @@ private let reservedEnumCases: Set<String> = [
             "self",
         ]
 
+/*
+ * Many Swift reserved words can be used as Extension names if we put
+ * backticks around them.
+ *
+ * Note: To avoid the duplicate list to maintain, currently just reusing the
+ *       EnumCases one.
+ */
+private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
+
 /// enum case names are sanitized by adding
 /// backticks `` around them.
 func isAllUnderscore(_ s: String) -> Bool {
@@ -178,15 +187,17 @@ func sanitizeEnumCase(_ s: String) -> String {
     }
 }
 
-func sanitizeDisplayEnumCase(_ s: String) -> String {
-    if reservedEnumCases.contains(s) {
-        return "\(s)_"
-    } else if quotableEnumCases.contains(s) {
-        // Don't quote the bare enum case name
-        return s
-    } else if isAllUnderscore(s) {
-        return s + "__"
-    } else {
-        return s
+func sanitizeMessageScopedExtensionName(_ s: String, skipBackticks: Bool = false) -> String {
+  // Since thing else is added to the "struct Extensions" for scoped
+  // extensions, there is no need to have a reserved list.
+  if quotableMessageScopedExtensionNames.contains(s) {
+    if skipBackticks {
+      return s
     }
+    return "`\(s)`"
+  } else if isAllUnderscore(s) {
+    return s + "__"
+  } else {
+    return s
+  }
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SwiftProtobuf/Performance/perf_runner_cpp.sh - C++ test harness generator
+# SwiftProtobuf/Performance/generators/cpp.sh - C++ test harness generator
 #
 # This source file is part of the Swift.org open source project
 #
@@ -15,8 +15,6 @@
 # Functions for generating the C++ harness.
 #
 # -----------------------------------------------------------------------------
-
-set -eu
 
 function print_cpp_set_field() {
   num=$1
@@ -156,33 +154,4 @@ EOF
   cat >> "$gen_harness_path" <<EOF
 }
 EOF
-}
-
-function run_cpp_harness() {
-  harness="$1"
-
-  echo "Generating C++ harness source..."
-  gen_harness_path="$script_dir/_generated/Harness+Generated.cc"
-  generate_cpp_harness "$field_count" "$field_type"
-
-  echo "Building C++ test harness..."
-  time ( g++ --std=c++11 -O \
-      -o "$harness" \
-      -I "$script_dir" \
-      -I "$GOOGLE_PROTOBUF_CHECKOUT/src" \
-      -L "$GOOGLE_PROTOBUF_CHECKOUT/src/.libs" \
-      -lprotobuf \
-      "$gen_harness_path" \
-      "$script_dir/Harness.cc" \
-      "$script_dir/_generated/message.pb.cc" \
-      "$script_dir/main.cc" \
-  )
-  echo
-
-  # Make sure the dylib is loadable from the harness if the user hasn't
-  # actually installed them.
-  cp "$GOOGLE_PROTOBUF_CHECKOUT"/src/.libs/libprotobuf.*.dylib \
-      "$script_dir/_generated"
-
-  run_harness_and_concatenate_results "C++" "$harness" "$partial_results"
 }

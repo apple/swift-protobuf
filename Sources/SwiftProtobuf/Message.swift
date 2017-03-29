@@ -34,8 +34,8 @@
 /// including `hashValue` and `debugDescription`, are designed to let you
 /// override the functionality in custom extensions to the generated code.
 public protocol Message: CustomDebugStringConvertible {
-  /// Creates an instance of the message with all fields initialized to
-  /// their default values.
+  /// Creates a new message with all of its fields initialized to their default
+  /// values.
   init()
 
   // Metadata
@@ -46,8 +46,8 @@ public protocol Message: CustomDebugStringConvertible {
   /// including any relevant package name.
   static var protoMessageName: String { get }
 
-  /// Check if all required fields (if any) have values set on this message,
-  /// including any messages within this message.
+  /// True if all required fields (if any) on this message and any nested
+  /// messages (recursively) have values set; otherwise, false.
   var isInitialized: Bool { get }
 
   /// Some formats include enough information to transport fields that were
@@ -87,7 +87,7 @@ public protocol Message: CustomDebugStringConvertible {
   /// This is used internally by:
   ///
   /// * Protobuf binary serialization
-  /// * JSON serialization (with some twists to account for specialty JSON
+  /// * JSON serialization (with some twists to account for specialty JSON)
   /// * Protobuf Text serialization
   /// * `hashValue` computation
   ///
@@ -112,14 +112,18 @@ public protocol Message: CustomDebugStringConvertible {
   /// debugging, for conformance with the `CustomDebugStringConvertible`
   /// protocol.
   var debugDescription: String { get }
+
+  /// Helper to compare `Message`s when not having a specific type to use
+  /// normal `Equatable`. `Equatable` is provided with specific generated
+  /// types.
+  func isEqualTo(message: Message) -> Bool
 }
 
 public extension Message {
-
-  /// If the generated code needs to provide its own implementation, usually
-  /// because the underlying `.proto` file uses proto2 syntax, it will provide
-  /// its own implementation. Generally, users of the generated code should
-  /// not.
+  /// Generated proto2 messages that contain required fields, nested messages
+  /// that contain required fields, and/or extensions will provide their own
+  /// implementation of this property that tests that all required fields are
+  /// set. Users of the generated code SHOULD NOT override this property.
   var isInitialized: Bool {
     // The generated code will include a specialization as needed.
     return true;
@@ -166,31 +170,35 @@ public extension Message {
   /// - Parameter populator: A block or function that populates the new message,
   ///   which is passed into the block as an `inout` argument.
   /// - Returns: The message after execution of the block.
-  public static func with(_ populator: (inout Self) throws -> ()) rethrows -> Self {
+  public static func with(
+    _ populator: (inout Self) throws -> ()
+  ) rethrows -> Self {
     var message = Self()
     try populator(&message)
     return message
   }
 }
 
+/// Implementation base for all messages; not intended for client use.
 ///
-/// Implementation base for all messages.
-///
-/// All messages (whether hand-implemented or generated)
-/// should conform to this type.  It is very rarely
-/// used for any other purpose.
-///
-/// Generally, you should use `SwiftProtobuf.Message` instead
-/// when you need a variable or argument that holds a message,
-/// or occasionally `SwiftProtobuf.Message & Equatable` or
-/// `SwiftProtobuf.Message & Hashable` if you need to use equality
-/// tests or put it in a `Set<>`.
-///
+/// In general, use `SwiftProtobuf.Message` instead when you need a variable or
+/// argument that can hold any type of message. Occasionally, you can use
+/// `SwiftProtobuf.Message & Equatable` or `SwiftProtobuf.Message & Hashable` as
+/// generic constraints if you need to write generic code that can be applied to
+/// multiple message types that uses equality tests, puts messages in a `Set`,
+/// or uses them as `Dictionary` keys.
 public protocol _MessageImplementationBase: Message, Hashable {
   func _protobuf_generated_isEqualTo(other: Self) -> Bool
 }
 
 public extension _MessageImplementationBase {
+  public func isEqualTo(message: Message) -> Bool {
+    guard let other = message as? Self else {
+      return false
+    }
+    return self == other
+  }
+
   public static func ==(lhs: Self, rhs: Self) -> Bool {
     return lhs._protobuf_generated_isEqualTo(other: rhs)
   }

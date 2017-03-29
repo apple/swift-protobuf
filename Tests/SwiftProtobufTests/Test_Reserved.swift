@@ -65,4 +65,19 @@ class Test_Reserved: XCTestCase {
         XCTAssertFalse(msg.hasHashValue_p)
         XCTAssertFalse(msg.hasDebugDescription_p)
     }
+
+    func testExtensionNamesMatching() {
+        // This is really just a compile test, if things don't compile, check that the
+        // new names really make sense.
+
+        var msg = ProtobufUnittest_SwiftReservedTest.TypeMessage()
+
+        msg.debugDescription_p = true
+        XCTAssertTrue(msg.hasDebugDescription_p)
+        msg.clearDebugDescription_p()
+
+        msg.SwiftReservedTestExt2_hashValue = true
+        XCTAssertTrue(msg.hasSwiftReservedTestExt2_hashValue)
+        msg.clearSwiftReservedTestExt2_hashValue()
+    }
 }

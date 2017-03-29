@@ -74,16 +74,14 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._name = _name
-      clone._methods = _methods
-      clone._options = _options
-      clone._version = _version
-      clone._sourceContext = _sourceContext
-      clone._mixins = _mixins
-      clone._syntax = _syntax
-      return clone
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _methods = source._methods
+      _options = source._options
+      _version = source._version
+      _sourceContext = source._sourceContext
+      _mixins = source._mixins
+      _syntax = source._syntax
     }
   }
 
@@ -91,7 +89,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

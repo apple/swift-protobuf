@@ -237,7 +237,7 @@ private func parseBareUInt(p: inout UnsafePointer<UInt8>, end: UnsafePointer<UIn
                 p = start
                 if let s = try parseBareFloatString(p: &p, end: end) {
                     if let d = Double(s) {
-                        if let u = UInt64(safely: d) {
+                        if let u = UInt64(exactly: d) {
                             return u
                         }
                     }
@@ -269,7 +269,7 @@ private func parseBareUInt(p: inout UnsafePointer<UInt8>, end: UnsafePointer<UIn
                 p = start
                 if let s = try parseBareFloatString(p: &p, end: end) {
                     if let d = Double(s) {
-                        if let u = UInt64(safely: d) {
+                        if let u = UInt64(exactly: d) {
                             return u
                         }
                     }

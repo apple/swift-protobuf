@@ -159,56 +159,54 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._requiredInt32 = _requiredInt32
-      clone._requiredInt64 = _requiredInt64
-      clone._requiredUint32 = _requiredUint32
-      clone._requiredUint64 = _requiredUint64
-      clone._requiredSint32 = _requiredSint32
-      clone._requiredSint64 = _requiredSint64
-      clone._requiredFixed32 = _requiredFixed32
-      clone._requiredFixed64 = _requiredFixed64
-      clone._requiredSfixed32 = _requiredSfixed32
-      clone._requiredSfixed64 = _requiredSfixed64
-      clone._requiredFloat = _requiredFloat
-      clone._requiredDouble = _requiredDouble
-      clone._requiredBool = _requiredBool
-      clone._requiredString = _requiredString
-      clone._requiredBytes = _requiredBytes
-      clone._requiredGroup = _requiredGroup
-      clone._requiredNestedMessage = _requiredNestedMessage
-      clone._requiredForeignMessage = _requiredForeignMessage
-      clone._requiredImportMessage = _requiredImportMessage
-      clone._requiredNestedEnum = _requiredNestedEnum
-      clone._requiredForeignEnum = _requiredForeignEnum
-      clone._requiredImportEnum = _requiredImportEnum
-      clone._requiredStringPiece = _requiredStringPiece
-      clone._requiredCord = _requiredCord
-      clone._requiredPublicImportMessage = _requiredPublicImportMessage
-      clone._requiredLazyMessage = _requiredLazyMessage
-      clone._defaultInt32 = _defaultInt32
-      clone._defaultInt64 = _defaultInt64
-      clone._defaultUint32 = _defaultUint32
-      clone._defaultUint64 = _defaultUint64
-      clone._defaultSint32 = _defaultSint32
-      clone._defaultSint64 = _defaultSint64
-      clone._defaultFixed32 = _defaultFixed32
-      clone._defaultFixed64 = _defaultFixed64
-      clone._defaultSfixed32 = _defaultSfixed32
-      clone._defaultSfixed64 = _defaultSfixed64
-      clone._defaultFloat = _defaultFloat
-      clone._defaultDouble = _defaultDouble
-      clone._defaultBool = _defaultBool
-      clone._defaultString = _defaultString
-      clone._defaultBytes = _defaultBytes
-      clone._defaultNestedEnum = _defaultNestedEnum
-      clone._defaultForeignEnum = _defaultForeignEnum
-      clone._defaultImportEnum = _defaultImportEnum
-      clone._defaultStringPiece = _defaultStringPiece
-      clone._defaultCord = _defaultCord
-      clone._oneofField = _oneofField
-      return clone
+    init(copying source: _StorageClass) {
+      _requiredInt32 = source._requiredInt32
+      _requiredInt64 = source._requiredInt64
+      _requiredUint32 = source._requiredUint32
+      _requiredUint64 = source._requiredUint64
+      _requiredSint32 = source._requiredSint32
+      _requiredSint64 = source._requiredSint64
+      _requiredFixed32 = source._requiredFixed32
+      _requiredFixed64 = source._requiredFixed64
+      _requiredSfixed32 = source._requiredSfixed32
+      _requiredSfixed64 = source._requiredSfixed64
+      _requiredFloat = source._requiredFloat
+      _requiredDouble = source._requiredDouble
+      _requiredBool = source._requiredBool
+      _requiredString = source._requiredString
+      _requiredBytes = source._requiredBytes
+      _requiredGroup = source._requiredGroup
+      _requiredNestedMessage = source._requiredNestedMessage
+      _requiredForeignMessage = source._requiredForeignMessage
+      _requiredImportMessage = source._requiredImportMessage
+      _requiredNestedEnum = source._requiredNestedEnum
+      _requiredForeignEnum = source._requiredForeignEnum
+      _requiredImportEnum = source._requiredImportEnum
+      _requiredStringPiece = source._requiredStringPiece
+      _requiredCord = source._requiredCord
+      _requiredPublicImportMessage = source._requiredPublicImportMessage
+      _requiredLazyMessage = source._requiredLazyMessage
+      _defaultInt32 = source._defaultInt32
+      _defaultInt64 = source._defaultInt64
+      _defaultUint32 = source._defaultUint32
+      _defaultUint64 = source._defaultUint64
+      _defaultSint32 = source._defaultSint32
+      _defaultSint64 = source._defaultSint64
+      _defaultFixed32 = source._defaultFixed32
+      _defaultFixed64 = source._defaultFixed64
+      _defaultSfixed32 = source._defaultSfixed32
+      _defaultSfixed64 = source._defaultSfixed64
+      _defaultFloat = source._defaultFloat
+      _defaultDouble = source._defaultDouble
+      _defaultBool = source._defaultBool
+      _defaultString = source._defaultString
+      _defaultBytes = source._defaultBytes
+      _defaultNestedEnum = source._defaultNestedEnum
+      _defaultForeignEnum = source._defaultForeignEnum
+      _defaultImportEnum = source._defaultImportEnum
+      _defaultStringPiece = source._defaultStringPiece
+      _defaultCord = source._defaultCord
+      _oneofField = source._oneofField
     }
   }
 
@@ -216,7 +214,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

@@ -123,8 +123,10 @@ TEST_PROTOS= \
 	Protos/unittest_swift_fieldorder.proto \
 	Protos/unittest_swift_groups.proto \
 	Protos/unittest_swift_naming.proto \
+	Protos/unittest_swift_naming_no_prefix.proto \
 	Protos/unittest_swift_performance.proto \
 	Protos/unittest_swift_reserved.proto \
+	Protos/unittest_swift_reserved_ext.proto \
 	Protos/unittest_swift_runtime_proto2.proto \
 	Protos/unittest_swift_runtime_proto3.proto \
 	Protos/unittest_swift_startup.proto
@@ -170,6 +172,13 @@ endif
 XCODE_ANALYZE=0
 ifeq "$(XCODE_ANALYZE)" "1"
   XCODEBUILD_EXTRAS += RUN_CLANG_STATIC_ANALYZER=YES CLANG_STATIC_ANALYZER_MODE=deep
+endif
+
+# Invoke make with XCODE_NOISY to get the default output of everything little
+# thing Xcode does.
+XCODE_NOISY=0
+ifeq "$(XCODE_NOISY)" "0"
+  XCODEBUILD_EXTRAS += -quiet
 endif
 
 .PHONY: \
@@ -445,13 +454,15 @@ test-xcode-iOS-debug:
 		test $(XCODEBUILD_EXTRAS)
 
 # 4s - 32bit, 6s - 64bit
+# Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
+# to ensure the main library gets testing support.
 test-xcode-iOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_iOS \
 		-configuration Release \
 		-destination "platform=iOS Simulator,name=iPhone 6s,OS=latest" \
 		-destination "platform=iOS Simulator,name=iPhone 4s,OS=9.0" \
-		test $(XCODEBUILD_EXTRAS)
+		test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
 
 test-xcode-macOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
@@ -459,11 +470,13 @@ test-xcode-macOS-debug:
 		-configuration debug \
 		build test $(XCODEBUILD_EXTRAS)
 
+# Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
+# to ensure the main library gets testing support.
 test-xcode-macOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_macOS \
 		-configuration Release \
-		build test $(XCODEBUILD_EXTRAS)
+		build test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
 
 test-xcode-tvOS-debug:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
@@ -472,12 +485,14 @@ test-xcode-tvOS-debug:
 		-destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
 		build test $(XCODEBUILD_EXTRAS)
 
+# Release defaults to not supporting testing, so add ENABLE_TESTABILITY=YES
+# to ensure the main library gets testing support.
 test-xcode-tvOS-release:
 	xcodebuild -project SwiftProtobuf.xcodeproj \
 		-scheme SwiftProtobuf_tvOS \
 		-configuration Release \
 		-destination "platform=tvOS Simulator,name=Apple TV 1080p,OS=latest" \
-		build test $(XCODEBUILD_EXTRAS)
+		build test ENABLE_TESTABILITY=YES $(XCODEBUILD_EXTRAS)
 
 # watchOS doesn't support tests, just do a build.
 test-xcode-watchOS-debug:

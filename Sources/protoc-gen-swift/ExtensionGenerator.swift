@@ -97,17 +97,44 @@ struct ExtensionGenerator {
         let fieldBaseName = toLowerCamelCase(baseName)
 
         if let msg = swiftDeclaringMessageName {
-            self.swiftRelativeExtensionName = baseName
-            self.swiftFullExtensionName = msg + ".Extensions." + baseName
+            // Since the name is used within the "Extensions" struct, reserved words
+            // could be a problem.  When declared, we might need backticks, but when
+            // using the qualified name, backticks aren't needed.
+            let cleanedBaseName = sanitizeMessageScopedExtensionName(baseName)
+            let cleanedBaseNameNoBackticks = sanitizeMessageScopedExtensionName(baseName, skipBackticks: true)
+            self.swiftRelativeExtensionName = cleanedBaseName
+            self.swiftFullExtensionName = msg + ".Extensions." + cleanedBaseNameNoBackticks
+            // The rest of these have enough things put together, we assume they
+            // can never run into reserved words.
+            //
+            // fieldBaseName is the lowerCase name even though we put more on the
+            // front, this seems to help make the field name stick out a little
+            // compared to the message name scoping it on the front.
             self.swiftFieldName = periodsToUnderscores(msg + "_" + fieldBaseName)
+            self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
+            self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
         } else {
             let swiftPrefix = file.swiftPrefix
             self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
             self.swiftFullExtensionName = self.swiftRelativeExtensionName
-            self.swiftFieldName = periodsToUnderscores(swiftPrefix + fieldBaseName)
+            // If there was no package and no prefix, fieldBaseName could be a reserved
+            // word, so sanitize. These's also the slim chance the prefix plus the
+            // extension name resulted in a reserved word, so the sanitize is always
+            // needed.
+            self.swiftFieldName = sanitizeFieldName(swiftPrefix + fieldBaseName)
+            if swiftPrefix.isEmpty {
+                // No prefix, so got back to UpperCamelCasing the extension name, and then
+                // sanitize it like we did for the lower form.
+                let upperCleaned = sanitizeFieldName(toUpperCamelCase(baseName), basedOn: fieldBaseName)
+                self.swiftHasPropertyName = "has" + upperCleaned
+                self.swiftClearMethodName = "clear" + upperCleaned
+            } else {
+                // Since there was a prefix, just add has/clear and ensure the first letter
+                // was capitalized.
+                self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
+                self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
+            }
         }
-        self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
-        self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
     }
 
     func generateNested(printer p: inout CodePrinter) {

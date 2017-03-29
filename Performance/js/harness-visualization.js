@@ -9,10 +9,6 @@
     'Equality',
   ];
 
-  // The languages we have harnesses for. The results for each language will
-  // appear as a series in the plot.
-  var languages = ['Swift', 'C++'];
-
   // The harnessSize keys we want to print in the summary table, in the order
   // they should be displayed.
   var harnessSizeKeys = ['Unstripped', 'Stripped'];
@@ -50,7 +46,7 @@
   };
 
   // Creates and return a series for the given language's results in a session.
-  function createSeries(session, language) {
+  function createSeries(session, series) {
     var x = [];
     var y = [];
 
@@ -59,7 +55,7 @@
     // vertical, which is what we want.
     for (var i = 0; i < benchmarks.length; i++) {
       var benchmark = benchmarks[i];
-      var timings = session[language][benchmark];
+      var timings = series.data[benchmark];
       if (timings) {
         for (var j = 0; j < timings.length; j++) {
           x.push(benchmark.replace(" ", "<br>"));
@@ -69,7 +65,7 @@
     }
 
     return {
-      name: language,
+      name: series.name,
       x: x,
       y: y,
       type: 'box',
@@ -126,10 +122,8 @@
     // Insert the runtime stats.
     var header = $('<tr></tr>').appendTo(table);
     header.append($('<th>Median runtimes</th>'));
-    for (var j = 0; j < languages.length; j++) {
-      header.append($('<th></th>').text(languages[j]));
-      header.append($('<th></th>'));
-      header.append($('<th></th>'));
+    for (var j = 0; j < session.series.length; j++) {
+      header.append($('<th colspan="2"></th>').text(session.series[j].name));
     }
 
     for (var i = 0; i < benchmarks.length; i++) {
@@ -142,9 +136,8 @@
       // Track which language was the fastest
       var timings = [];
       var bestLanguage = 0;
-      for (var j = 0; j < languages.length; j++) {
-        var language = languages[j];
-        var languageTimings = session[language][benchmark];
+      for (var j = 0; j < session.series.length; j++) {
+        var languageTimings = session.series[j].data[benchmark];
         if (languageTimings) {
           var med = median(languageTimings);
           timings.push(med);
@@ -156,8 +149,7 @@
 
       // Insert the per-language timings into the table
       var bestValue = timings[bestLanguage];
-      for (var j = 0; j < languages.length; j++) {
-        var language = languages[j];
+      for (var j = 0; j < session.series.length; j++) {
         var med = timings[j];
         var valueCell = $('<td></td>').appendTo(tr);
         var multiplierCell = $('<td></td>').appendTo(tr);
@@ -171,15 +163,13 @@
           }
           decorateMultiplierCell(multiplierCell, multiplier);
         }
-        tr.append($('<td></td>'));
       }
     }
 
     // Insert the binary size stats.
     header = $('<tr></tr>').appendTo(table);
     header.append($('<th>Harness size</th>'));
-    for (var j = 0; j < languages.length; j++) {
-      header.append($('<th></th>'));
+    for (var j = 0; j < session.series.length; j++) {
       header.append($('<th></th>'));
       header.append($('<th></th>'));
     }
@@ -192,16 +182,15 @@
 
       var bestLanguage = 0;
       var sizes = [];
-      for (var j = 0; j < languages.length; j++) {
-        var language = languages[j];
-          var size = session[language].harnessSize[harnessSizeKey];
+      for (var j = 0; j < session.series.length; j++) {
+          var size = session.series[j].data.harnessSize[harnessSizeKey];
           sizes.push(size);
           if (size < sizes[bestLanguage]) {
               bestLanguage = j;
           }
       }
 
-      for (var j = 0; j < languages.length; j++) {
+      for (var j = 0; j < session.series.length; j++) {
         var size = sizes[j];
         var multiplier = size / sizes[bestLanguage];
         var formattedSize = size.toLocaleString() + '&nbsp;b';
@@ -213,13 +202,12 @@
             multiplierCell.text('(' + multiplier.toFixed(1) + 'x)');
         }
         decorateMultiplierCell(multiplierCell, multiplier);
-        tr.append($('<td></td>'));
       }
     }
 
     var tfoot = $('<tfoot></tfoot>').appendTo(table);
     var footerRow = $('<tr></tr>').appendTo(tfoot);
-    var colspan = 3 * languages.length + 1;
+    var colspan = 3 * session.series.length + 1;
     var footerCell =
         $('<td colspan="' + colspan + '"></td>').appendTo(footerRow);
       footerCell.text('Green highlights the best result for each test. ' +
@@ -247,12 +235,12 @@
       var title = session.type;
       var header = $('<h3></h3>').addClass('row').text(title);
 
-      var subtitle = 'Branch <tt>' + session.branch +
-          '</tt>, commit <tt>' + session.commit + '</tt>';
+      var subtitle = 'Working tree was at <tt>' + session.branch +
+          '</tt>, commit <tt>' + session.commit.substr(0, 6) + '</tt>';
       if (session.uncommitted_changes) {
         subtitle += ' (with uncommited changes)';
       }
-      subtitle += ', run on ' + formattedDate;
+      subtitle += ' &ndash; ' + formattedDate;
 
       header.append($('<small></small>').html(subtitle));
       $('#container').append('<hr>');
@@ -260,8 +248,8 @@
 
       var id = 'chart' + i;
       var row = $('<div></div>').addClass('row');
-      var chartColumn = $('<div></div>').addClass('col-md-9');
-      var tableColumn = $('<div></div>').addClass('col-md-3');
+      var chartColumn = $('<div></div>').addClass('col-md-8');
+      var tableColumn = $('<div></div>').addClass('col-md-4');
 
       row.append(chartColumn);
       row.append(tableColumn);
@@ -270,12 +258,9 @@
       var chart = $('<div></div>').attr('id', id).addClass('chart');
       chartColumn.append(chart);
 
-      for (var j = 0; j < languages.length; j++) {
-        var language = languages[j];
-        if (session[language]) {
-          var series = createSeries(session, language);
-          allSeries.push(series);
-        }
+      for (var j = 0; j < session.series.length; j++) {
+        var series = createSeries(session, session.series[j]);
+        allSeries.push(series);
       }
 
       Plotly.newPlot(id, allSeries, layout, {
