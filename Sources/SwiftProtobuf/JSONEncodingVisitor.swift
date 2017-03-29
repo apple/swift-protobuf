@@ -141,8 +141,8 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    let json = try value.jsonString()
-    encoder.append(text: json)
+    let json = try value.jsonUTF8Data()
+    encoder.append(utf8Data: json)
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
@@ -249,8 +249,8 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
-      let json = try v.jsonString()
-      encoder.append(text: json)
+      let json = try v.jsonUTF8Data()
+      encoder.append(utf8Data: json)
       arraySeparator = ","
     }
     encoder.append(text: "]")
