@@ -186,6 +186,7 @@ endif
 	build \
 	check \
 	check-for-protobuf-checkout \
+	check-version-numbers \
 	clean \
 	conformance-host \
 	default \
@@ -285,10 +286,14 @@ docs:
 #
 # This must pass before any commit.
 #
-check test: build test-runtime test-plugin test-conformance
+check test: build test-runtime test-plugin test-conformance check-version-numbers
 
 # Test everything (runtime, plugin, xcode project)
 test-all test-everything: test test-xcode
+
+# Check the version numbers are all in sync.
+check-version-numbers:
+	@DevTools/LibraryVersions.py --validate
 
 #
 # The Swift test suite includes unit tests for the runtime library
