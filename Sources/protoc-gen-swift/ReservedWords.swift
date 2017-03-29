@@ -142,6 +142,10 @@ private let quotableEnumCases: Set<String> = {
     names = names.union(PluginLibrary.swiftKeywordsUsedInDeclarations)
     names = names.union(PluginLibrary.swiftKeywordsUsedInStatements)
     names = names.union(PluginLibrary.swiftKeywordsUsedInExpressionsAndTypes)
+    // Common type and variable names don't cause problems as enum
+    // cases, because enum case names only appear in special contexts:
+    // names = names.union(PluginLibrary.swiftCommonTypes)
+    // names = names.union(PluginLibrary.swiftSpecialVariables)
     return names
 }()
 
