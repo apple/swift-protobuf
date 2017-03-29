@@ -77,10 +77,10 @@ extension Harness {
 
       // Exercise JSON serialization.
       let json = try measureSubtask("Encode JSON") {
-        return try message.jsonString()
+        return try message.jsonUTF8Data()
       }
       let jsonDecodedMessage = try measureSubtask("Decode JSON") {
-        return try PerfMessage(jsonString: json)
+        return try PerfMessage(jsonUTF8Data: json)
       }
 
       // Exercise text serialization.
