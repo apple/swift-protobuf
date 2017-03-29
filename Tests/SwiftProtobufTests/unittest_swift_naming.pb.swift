@@ -1144,6 +1144,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     242: .same(proto: "TimeBase"),
     243: .same(proto: "TimeRecord"),
     244: .unique(proto: "json_should_be_overriden", json: "json_was_overridden"),
+    245: .same(proto: "Any"),
+    246: .same(proto: "Int32"),
+    247: .same(proto: "Int64"),
+    250: .same(proto: "UInt32"),
+    251: .same(proto: "UInt64"),
+    252: .same(proto: "associatedtype"),
+    253: .same(proto: "fileprivate"),
+    254: .same(proto: "open"),
   ]
 
   private class _StorageClass {
@@ -1355,6 +1363,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     var _timeBase: Int32? = nil
     var _timeRecord: Int32? = nil
     var _jsonShouldBeOverriden: Int32? = nil
+    var _any: Int32? = nil
+    var _int32: Int32? = nil
+    var _int64: Int32? = nil
+    var _uint32: Int32? = nil
+    var _uint64: Int32? = nil
+    var _associatedtype_p: Int32? = nil
+    var _fileprivate_p: Int32? = nil
+    var _open_p: Int32? = nil
 
     init() {}
 
@@ -1567,6 +1583,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       _timeBase = source._timeBase
       _timeRecord = source._timeRecord
       _jsonShouldBeOverriden = source._jsonShouldBeOverriden
+      _any = source._any
+      _int32 = source._int32
+      _int64 = source._int64
+      _uint32 = source._uint32
+      _uint64 = source._uint64
+      _associatedtype_p = source._associatedtype_p
+      _fileprivate_p = source._fileprivate_p
+      _open_p = source._open_p
     }
   }
 
@@ -3867,6 +3891,94 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
     return _storage._jsonShouldBeOverriden = nil
   }
 
+  var any: Int32 {
+    get {return _storage._any ?? 0}
+    set {_uniqueStorage()._any = newValue}
+  }
+  var hasAny: Bool {
+    return _storage._any != nil
+  }
+  mutating func clearAny() {
+    return _storage._any = nil
+  }
+
+  var int32: Int32 {
+    get {return _storage._int32 ?? 0}
+    set {_uniqueStorage()._int32 = newValue}
+  }
+  var hasInt32: Bool {
+    return _storage._int32 != nil
+  }
+  mutating func clearInt32() {
+    return _storage._int32 = nil
+  }
+
+  var int64: Int32 {
+    get {return _storage._int64 ?? 0}
+    set {_uniqueStorage()._int64 = newValue}
+  }
+  var hasInt64: Bool {
+    return _storage._int64 != nil
+  }
+  mutating func clearInt64() {
+    return _storage._int64 = nil
+  }
+
+  var uint32: Int32 {
+    get {return _storage._uint32 ?? 0}
+    set {_uniqueStorage()._uint32 = newValue}
+  }
+  var hasUint32: Bool {
+    return _storage._uint32 != nil
+  }
+  mutating func clearUint32() {
+    return _storage._uint32 = nil
+  }
+
+  var uint64: Int32 {
+    get {return _storage._uint64 ?? 0}
+    set {_uniqueStorage()._uint64 = newValue}
+  }
+  var hasUint64: Bool {
+    return _storage._uint64 != nil
+  }
+  mutating func clearUint64() {
+    return _storage._uint64 = nil
+  }
+
+  var associatedtype_p: Int32 {
+    get {return _storage._associatedtype_p ?? 0}
+    set {_uniqueStorage()._associatedtype_p = newValue}
+  }
+  var hasAssociatedtype_p: Bool {
+    return _storage._associatedtype_p != nil
+  }
+  mutating func clearAssociatedtype_p() {
+    return _storage._associatedtype_p = nil
+  }
+
+  var fileprivate_p: Int32 {
+    get {return _storage._fileprivate_p ?? 0}
+    set {_uniqueStorage()._fileprivate_p = newValue}
+  }
+  var hasFileprivate_p: Bool {
+    return _storage._fileprivate_p != nil
+  }
+  mutating func clearFileprivate_p() {
+    return _storage._fileprivate_p = nil
+  }
+
+  var open_p: Int32 {
+    get {return _storage._open_p ?? 0}
+    set {_uniqueStorage()._open_p = newValue}
+  }
+  var hasOpen_p: Bool {
+    return _storage._open_p != nil
+  }
+  mutating func clearOpen_p() {
+    return _storage._open_p = nil
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -4084,6 +4196,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
         case 242: try decoder.decodeSingularInt32Field(value: &_storage._timeBase)
         case 243: try decoder.decodeSingularInt32Field(value: &_storage._timeRecord)
         case 244: try decoder.decodeSingularInt32Field(value: &_storage._jsonShouldBeOverriden)
+        case 245: try decoder.decodeSingularInt32Field(value: &_storage._any)
+        case 246: try decoder.decodeSingularInt32Field(value: &_storage._int32)
+        case 247: try decoder.decodeSingularInt32Field(value: &_storage._int64)
+        case 250: try decoder.decodeSingularInt32Field(value: &_storage._uint32)
+        case 251: try decoder.decodeSingularInt32Field(value: &_storage._uint64)
+        case 252: try decoder.decodeSingularInt32Field(value: &_storage._associatedtype_p)
+        case 253: try decoder.decodeSingularInt32Field(value: &_storage._fileprivate_p)
+        case 254: try decoder.decodeSingularInt32Field(value: &_storage._open_p)
         default: break
         }
       }
@@ -4716,6 +4836,30 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
       if let v = _storage._jsonShouldBeOverriden {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 244)
       }
+      if let v = _storage._any {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 245)
+      }
+      if let v = _storage._int32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 246)
+      }
+      if let v = _storage._int64 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 247)
+      }
+      if let v = _storage._uint32 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 250)
+      }
+      if let v = _storage._uint64 {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 251)
+      }
+      if let v = _storage._associatedtype_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 252)
+      }
+      if let v = _storage._fileprivate_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 253)
+      }
+      if let v = _storage._open_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 254)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4931,6 +5075,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message, SwiftProtobuf._Mes
         if _storage._timeBase != other_storage._timeBase {return false}
         if _storage._timeRecord != other_storage._timeRecord {return false}
         if _storage._jsonShouldBeOverriden != other_storage._jsonShouldBeOverriden {return false}
+        if _storage._any != other_storage._any {return false}
+        if _storage._int32 != other_storage._int32 {return false}
+        if _storage._int64 != other_storage._int64 {return false}
+        if _storage._uint32 != other_storage._uint32 {return false}
+        if _storage._uint64 != other_storage._uint64 {return false}
+        if _storage._associatedtype_p != other_storage._associatedtype_p {return false}
+        if _storage._fileprivate_p != other_storage._fileprivate_p {return false}
+        if _storage._open_p != other_storage._open_p {return false}
         return true
       }
       if !storagesAreEqual {return false}
