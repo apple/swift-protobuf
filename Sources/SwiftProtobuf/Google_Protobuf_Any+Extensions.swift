@@ -8,40 +8,11 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Extends the Google_Protobuf_Any and Message structs with various
-/// custom behaviors.
+/// Extends the `Google_Protobuf_Any` type with various custom behaviors.
 ///
 // -----------------------------------------------------------------------------
 
-import Foundation
-
-public extension Message {
-  /// Initialize this message from the provided `google.protobuf.Any`
-  /// well-known type.
-  ///
-  /// This corresponds to the `unpack` method in the Google C++ API.
-  ///
-  /// If the Any object was decoded from Protobuf Binary or JSON
-  /// format, then the enclosed field data was stored and is not
-  /// fully decoded until you unpack the Any object into a message.
-  /// As such, this method will typically need to perform a full
-  /// deserialization of the enclosed data and can fail for any
-  /// reason that deserialization can fail.
-  ///
-  /// See `Google_Protobuf_Any.unpackTo()` for more discussion.
-  ///
-  /// - Parameter unpackingAny: the message to decode.
-  /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
-  ///   `BinaryDecodingError` on failure.
-  public init(unpackingAny: Google_Protobuf_Any, extensions: ExtensionMap? = nil) throws {
-    self.init()
-    try unpackingAny._storage.unpackTo(target: &self, extensions: extensions)
-  }
-}
-
-
 public extension Google_Protobuf_Any {
-
   /// Initialize an Any object from the provided message.
   ///
   /// This corresponds to the `pack` operation in the C++ API.
@@ -51,24 +22,50 @@ public extension Google_Protobuf_Any {
   /// needs to be serialized.  This design avoids unnecessary
   /// decoding/recoding when writing JSON format.
   ///
-  public init(message: Message, typePrefix: String = defaultTypePrefix) {
+  /// - Parameters:
+  ///   - partial: If `false` (the default), this method will check
+  ///     `Message.isInitialized` before encoding to verify that all required
+  ///     fields are present. If any are missing, this method throws
+  ///     `BinaryEncodingError.missingRequiredFields`.
+  ///   - typePrefix: The prefix to be used when building the `type_url`. 
+  ///     Defaults to "type.googleapis.com".
+  /// - Throws: `BinaryEncodingError.missingRequiredFields` if `partial` is
+  ///     false and `message` wasn't fully initialized.
+  public init(
+    message: Message,
+    partial: Bool = false,
+    typePrefix: String = defaultTypePrefix
+  ) throws {
+    if !partial && !message.isInitialized {
+      throw BinaryEncodingError.missingRequiredFields
+    }
     self.init()
     typeURL = buildTypeURL(forMessage:message, typePrefix: typePrefix)
-    _storage._valueData = nil
-    _storage._message = message
+    _storage.state = .message(message)
   }
 
-
-  /// Decode an Any object from Protobuf Text Format.
-  public init(textFormatString: String, extensions: ExtensionMap? = nil) throws {
+  /// Creates a new `Google_Protobuf_Any` by decoding the given string
+  /// containing a serialized message in Protocol Buffer text format.
+  ///
+  /// - Parameters:
+  ///   - textFormatString: The text format string to decode.
+  ///   - extensions: An `ExtensionMap` used to look up and decode any
+  ///     extensions in this message or messages nested within this message's
+  ///     fields.
+  /// - Throws: an instance of `TextFormatDecodingError` on failure.
+  public init(
+    textFormatString: String,
+    extensions: ExtensionMap? = nil
+  ) throws {
     self.init()
     if !textFormatString.isEmpty {
       if let data = textFormatString.data(using: String.Encoding.utf8) {
         try data.withUnsafeBytes { (bytes: UnsafePointer<UInt8>) in
-          var textDecoder = try TextFormatDecoder(messageType: Google_Protobuf_Any.self,
-                                                  utf8Pointer: bytes,
-                                                  count: data.count,
-                                                  extensions: extensions)
+          var textDecoder = try TextFormatDecoder(
+            messageType: Google_Protobuf_Any.self,
+            utf8Pointer: bytes,
+            count: data.count,
+            extensions: extensions)
           try decodeTextFormat(decoder: &textDecoder)
           if !textDecoder.complete {
             throw TextFormatDecodingError.trailingGarbage
@@ -78,9 +75,14 @@ public extension Google_Protobuf_Any {
     }
   }
 
-  /// Check if this Any message contains the given type. The check is
-  /// done by looking at the passed `Message.Type` and the `typeURL`
-  /// of this message.
+  /// Returns true if this `Google_Protobuf_Any` message contains the given
+  /// message type.
+  ///
+  /// The check is performed by looking at the passed `Message.Type` and the
+  /// `typeURL` of this message.
+  ///
+  /// - Parameter type: The concrete message type.
+  /// - Returns: True if the receiver contains the given message type.
   public func isA<M: Message>(_ type: M.Type) -> Bool {
     return _storage.isA(type)
   }
@@ -88,7 +90,6 @@ public extension Google_Protobuf_Any {
   public var hashValue: Int {
     return _storage.hashValue
   }
-
 }
 
 extension Google_Protobuf_Any {
@@ -98,14 +99,14 @@ extension Google_Protobuf_Any {
   }
 }
 
-
 extension Google_Protobuf_Any: _CustomJSONCodable {
-
   // Custom text format decoding support for Any objects.
   // (Note: This is not a part of any protocol; it's invoked
   // directly from TextFormatDecoder whenever it sees an attempt
   // to decode an Any object)
-  internal mutating func decodeTextFormat(decoder: inout TextFormatDecoder) throws {
+  internal mutating func decodeTextFormat(
+    decoder: inout TextFormatDecoder
+  ) throws {
     // First, check if this uses the "verbose" Any encoding.
     // If it does, and we have the type available, we can
     // eagerly decode the contained Message object.
@@ -125,5 +126,4 @@ extension Google_Protobuf_Any: _CustomJSONCodable {
   internal mutating func decodeJSON(from decoder: inout JSONDecoder) throws {
     try _uniqueStorage().decodeJSON(from: &decoder)
   }
-
 }

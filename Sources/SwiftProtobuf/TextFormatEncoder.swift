@@ -136,7 +136,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            if let v = Int64(safely: Double(value)) {
+            if let v = Int64(exactly: Double(value)) {
                 appendInt(value: v)
             } else {
                 let doubleFormatter = DoubleFormatter()
@@ -156,7 +156,7 @@ internal struct TextFormatEncoder {
                 append(staticText: "inf")
             }
         } else {
-            if let v = Int64(safely: value) {
+            if let v = Int64(exactly: value) {
                 appendInt(value: v)
             } else {
                 let doubleFormatter = DoubleFormatter()

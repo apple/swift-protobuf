@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SwiftProtobuf/Performance/perf_runner_swift.sh - Swift test harness generator
+# SwiftProtobuf/Performance/generators/swift.sh - Swift test harness generator
 #
 # This source file is part of the Swift.org open source project
 #
@@ -15,8 +15,6 @@
 # Functions for generating the Swift harness.
 #
 # -----------------------------------------------------------------------------
-
-set -eu
 
 function print_swift_set_field() {
   num=$1
@@ -86,8 +84,8 @@ extension Harness {
       }
 
       // Exercise text serialization.
-      let text = try measureSubtask("Encode text") {
-        return try message.textFormatString()
+      let text = measureSubtask("Encode text") {
+        return message.textFormatString()
       }
       _ = try measureSubtask("Decode text") {
         return try PerfMessage(textFormatString: text)
@@ -113,42 +111,4 @@ EOF
   }
 }
 EOF
-}
-
-function run_swift_harness() {
-  harness="$1"
-
-  echo "Generating Swift harness source..."
-  gen_harness_path="$script_dir/_generated/Harness+Generated.swift"
-  generate_swift_harness "$field_count" "$field_type"
-
-  # Build the dynamic library to use in the tests from the .o files that were
-  # already built for the plug-in.
-  echo "Building SwiftProtobuf dynamic library..."
-  swiftc -emit-library -O -wmo -target x86_64-apple-macosx10.10 \
-      -o "$script_dir/_generated/libSwiftProtobuf.dylib" \
-      "$script_dir/../Sources/SwiftProtobuf/"*.swift
-
-  echo "Building Swift test harness..."
-  time ( swiftc -O -target x86_64-apple-macosx10.10 \
-      -o "$harness" \
-      -I "$script_dir/../.build/release" \
-      -L "$script_dir/_generated" \
-      -lSwiftProtobuf \
-      "$gen_harness_path" \
-      "$script_dir/Harness.swift" \
-      "$script_dir/_generated/message.pb.swift" \
-      "$script_dir/main.swift"
-  )
-  echo
-
-  dylib="$script_dir/_generated/libSwiftProtobuf.dylib"
-  echo "Swift dylib size before stripping: $(stat -f "%z" "$dylib") bytes"
-  cp "$dylib" "${dylib}_stripped"
-  strip -u -r "${dylib}_stripped"
-  echo "Swift dylib size after stripping:  $(stat -f "%z" "${dylib}_stripped") bytes"
-  echo
-
-  run_harness_and_concatenate_results "Swift" "$harness_swift" "$partial_results"
-  profile_harness "Swift" "$harness_swift"
 }

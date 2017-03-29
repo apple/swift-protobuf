@@ -16,6 +16,8 @@
 
 import Foundation
 
+/// Functions that are public only because they are used by generated message
+/// implementations. NOT INTENDED TO BE CALLED BY CLIENTS.
 public enum Internal {
 
   /// Helper to loop over a list of Messages to see if they are all
@@ -39,5 +41,4 @@ public enum Internal {
     }
     return true
   }
-
 }

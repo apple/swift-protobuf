@@ -205,8 +205,6 @@ private func decodeString(_ s: String) -> String? {
     return String(out)
 }
 
-
-
 ///
 /// The basic scanner support is entirely private
 ///
@@ -260,7 +258,7 @@ internal struct JSONScanner {
                     // Slow path: JSON numbers can be written in floating-point notation
                     p = start
                     if let d = try parseBareDouble(p: &p, end: end) {
-                        if let u = UInt64(safely: d) {
+                        if let u = UInt64(exactly: d) {
                             return u
                         }
                     }
@@ -290,7 +288,7 @@ internal struct JSONScanner {
                     // Slow path: JSON allows floating-point notation for integers
                     p = start
                     if let d = try parseBareDouble(p: &p, end: end) {
-                        if let u = UInt64(safely: d) {
+                        if let u = UInt64(exactly: d) {
                             return u
                         }
                     }

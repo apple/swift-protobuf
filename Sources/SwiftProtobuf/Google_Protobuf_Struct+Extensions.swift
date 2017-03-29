@@ -62,13 +62,24 @@ extension Google_Protobuf_Struct: _CustomJSONCodable {
 extension Google_Protobuf_Struct {
   /// Creates a new `Google_Protobuf_Struct` from a dictionary of string keys to
   /// values of type `Google_Protobuf_Value`.
+  ///
+  /// - Parameter fields: The dictionary from field names to
+  ///   `Google_Protobuf_Value` messages that should be used to create the
+  ///   `Struct`.
   public init(fields: [String: Google_Protobuf_Value]) {
     self.init()
     self.fields = fields
   }
 
-  public subscript(index: String) -> Google_Protobuf_Value? {
-    get {return fields[index]}
-    set(newValue) {fields[index] = newValue}
+  /// Accesses the `Google_Protobuf_Value` with the given key for reading and
+  /// writing.
+  ///
+  /// This key-based subscript returns the `Value` for the given key if the key
+  /// is found in the `Struct`, or nil if the key is not found. If you assign
+  /// nil as the `Value` for the given key, the `Struct` removes that key and
+  /// its associated `Value`.
+  public subscript(key: String) -> Google_Protobuf_Value? {
+    get {return fields[key]}
+    set(newValue) {fields[key] = newValue}
   }
 }

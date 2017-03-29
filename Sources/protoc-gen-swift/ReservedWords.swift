@@ -12,82 +12,40 @@
 ///
 // -----------------------------------------------------------------------------
 
-private let reservedTypeNames: Set<String> = [
-            "Double",
-            "Float",
-            "Int",
-            "Int32",
-            "Int64",
-            "Protocol",
-            "String",
-            "Type",
-            "UInt",
-            "UInt32",
-            "UInt64",
-            "__COLUMN__",
-            "__FILE__",
-            "__FUNCTION__",
-            "__LINE__",
-            "anyTypeURL",
-            "as",
-            "break",
-            "case",
-            "catch",
-            "class",
-            "continue",
-            "debugDescription",
-            "decodeField",
-            "default",
-            "defer",
-            "deinit",
-            "description",
-            "do",
-            "dynamicType",
-            "else",
-            "enum",
-            "extension",
-            "fallthrough",
-            "false",
-            "for",
-            "func",
-            "guard",
-            "hashValue",
-            "if",
-            "import",
-            "in",
-            "init",
-            "inout",
-            "internal",
-            "is",
-            "isEmpty",
-            "isEqual",
-            "jsonFieldNames",
-            "let",
-            "nil",
-            "operator",
-            "private",
-            "protocol",
-            "public",
-            "repeat",
-            "rethrows",
-            "return",
-            "self",
-            "static",
-            "struct",
-            "subscript",
-            "super",
-            "switch",
-            "throw",
-            "throws",
-            "traverse",
-            "true",
-            "try",
-            "typealias",
-            "unknownFields",
-            "var",
-            "where",
-            "while",
-]
+import PluginLibrary
+
+///
+/// We won't generate types (structs, enums) with these names:
+///
+private let reservedTypeNames: Set<String> = {
+    () -> Set<String> in
+    var names: Set<String> = [
+        "anyTypeURL",
+        "debugDescription",
+        "decodeField",
+        "description",
+        "dynamicType",
+        "hashValue",
+        "isEmpty",
+        "isEqual",
+        "jsonFieldNames",
+        "traverse",
+        "unknownFields",
+    ]
+
+    // We don't need to protect all of these keywords, just the ones
+    // that interfere with type expressions:
+    // names = names.union(PluginLibrary.swiftKeywordsReservedInParticularContexts)
+    names.insert("Type")
+    names.insert("Protocol")
+
+    names = names.union(PluginLibrary.swiftKeywordsUsedInDeclarations)
+    names = names.union(PluginLibrary.swiftKeywordsUsedInStatements)
+    names = names.union(PluginLibrary.swiftKeywordsUsedInExpressionsAndTypes)
+    names = names.union(PluginLibrary.swiftCommonTypes)
+    names = names.union(PluginLibrary.swiftSpecialVariables)
+    return names
+}()
 
 func sanitizeMessageTypeName(_ s: String) -> String {
     if reservedTypeNames.contains(s) {
@@ -120,73 +78,31 @@ func sanitizeOneofTypeName(_ s: String) -> String {
     }
 }
 
-private let reservedFieldNames: Set<String> = [
-            "Double",
-            "Float",
-            "Int",
-            "Int32",
-            "Int64",
-            "String",
-            "Type",
-            "UInt",
-            "UInt32",
-            "UInt64",
-            "as",
-            "break",
-            "case",
-            "catch",
-            "class",
-            "continue",
+private let reservedFieldNames: Set<String> =  {
+    () -> Set<String> in
+    var names: Set<String> = [
             "debugDescription",
-            "default",
-            "defer",
-            "deinit",
             "description",
-            "do",
             "dynamicType",
-            "else",
-            "enum",
-            "extension",
-            "fallthrough",
-            "false",
-            "for",
-            "func",
-            "guard",
             "hashValue",
-            "if",
-            "import",
-            "in",
-            "init",
-            "inout",
-            "internal",
-            "is",
             "isInitialized",
             "jsonFieldNames",
-            "let",
-            "nil",
-            "operator",
-            "private",
-            "protocol",
-            "public",
-            "repeat",
-            "rethrows",
-            "return",
-            "self",
-            "static",
-            "struct",
-            "subscript",
-            "super",
-            "switch",
-            "throw",
-            "throws",
-            "true",
-            "try",
-            "typealias",
             "unknownFields",
-            "var",
-            "where",
-            "while",
-]
+    ]
+
+    // We don't need to protect all of these keywords, just the ones
+    // that interfere with type expressions:
+    // names = names.union(PluginLibrary.swiftKeywordsReservedInParticularContexts)
+    names.insert("Type")
+    names.insert("Protocol")
+
+    names = names.union(PluginLibrary.swiftKeywordsUsedInDeclarations)
+    names = names.union(PluginLibrary.swiftKeywordsUsedInStatements)
+    names = names.union(PluginLibrary.swiftKeywordsUsedInExpressionsAndTypes)
+    names = names.union(PluginLibrary.swiftCommonTypes)
+    names = names.union(PluginLibrary.swiftSpecialVariables)
+    return names
+}()
 
 /// Struct and class field names go through
 /// this before going into the source code.
@@ -211,60 +127,27 @@ func sanitizeFieldName(_ s: String) -> String {
  * Many Swift reserved words can be used as enum cases if we put
  * backticks around them:
  */
-private let quotableEnumCases: Set<String> = [
-            "as",
-            "associativity",
-            "break",
-            "case",
-            "catch",
-            "class",
-            "continue",
-            "default",
-            "defer",
-            "deinit",
-            "do",
-            "dynamicType",
-            "else",
-            "enum",
-            "extension",
-            "fallthrough",
-            "false",
-            "for",
-            "func",
-            "guard",
-            "if",
-            "import",
-            "in",
-            "init",
-            "inout",
-            "internal",
-            "is",
-            "let",
-            "nil",
-            "operator",
-            "optional",
-            "private",
-            "protocol",
-            "public",
-            "repeat",
-            "required",
-            "rethrows",
-            "return",
-            "self",
-            "static",
-            "struct",
-            "subscript",
-            "super",
-            "switch",
-            "throw",
-            "throws",
-            "true",
-            "try",
-            "typealias",
-            "var",
-            "where",
-            "while",
-]
+private let quotableEnumCases: Set<String> = {
+    () -> Set<String> in
+    var names: Set<String> = []
+
+    // We don't need to protect all of these keywords, just the ones
+    // that interfere with enum cases:
+    // names = names.union(PluginLibrary.swiftKeywordsReservedInParticularContexts)
+    names.insert("associativity")
+    names.insert("dynamicType")
+    names.insert("optional")
+    names.insert("required")
+
+    names = names.union(PluginLibrary.swiftKeywordsUsedInDeclarations)
+    names = names.union(PluginLibrary.swiftKeywordsUsedInStatements)
+    names = names.union(PluginLibrary.swiftKeywordsUsedInExpressionsAndTypes)
+    // Common type and variable names don't cause problems as enum
+    // cases, because enum case names only appear in special contexts:
+    // names = names.union(PluginLibrary.swiftCommonTypes)
+    // names = names.union(PluginLibrary.swiftSpecialVariables)
+    return names
+}()
 
 /*
  * Some words cannot be used for enum cases, even if they
@@ -277,6 +160,15 @@ private let reservedEnumCases: Set<String> = [
             "rawValue",
             "self",
         ]
+
+/*
+ * Many Swift reserved words can be used as Extension names if we put
+ * backticks around them.
+ *
+ * Note: To avoid the duplicate list to maintain, currently just reusing the
+ *       EnumCases one.
+ */
+private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
 
 /// enum case names are sanitized by adding
 /// backticks `` around them.
@@ -299,15 +191,17 @@ func sanitizeEnumCase(_ s: String) -> String {
     }
 }
 
-func sanitizeDisplayEnumCase(_ s: String) -> String {
-    if reservedEnumCases.contains(s) {
-        return "\(s)_"
-    } else if quotableEnumCases.contains(s) {
-        // Don't quote the bare enum case name
-        return s
-    } else if isAllUnderscore(s) {
-        return s + "__"
-    } else {
-        return s
+func sanitizeMessageScopedExtensionName(_ s: String, skipBackticks: Bool = false) -> String {
+  // Since thing else is added to the "struct Extensions" for scoped
+  // extensions, there is no need to have a reserved list.
+  if quotableMessageScopedExtensionNames.contains(s) {
+    if skipBackticks {
+      return s
     }
+    return "`\(s)`"
+  } else if isAllUnderscore(s) {
+    return s + "__"
+  } else {
+    return s
+  }
 }

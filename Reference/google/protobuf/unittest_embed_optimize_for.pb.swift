@@ -70,11 +70,9 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._optionalMessage = _optionalMessage
-      clone._repeatedMessage = _repeatedMessage
-      return clone
+    init(copying source: _StorageClass) {
+      _optionalMessage = source._optionalMessage
+      _repeatedMessage = source._repeatedMessage
     }
   }
 
@@ -82,7 +80,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message, SwiftP
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

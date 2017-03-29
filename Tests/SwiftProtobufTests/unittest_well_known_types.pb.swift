@@ -71,28 +71,26 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._anyField = _anyField
-      clone._apiField = _apiField
-      clone._durationField = _durationField
-      clone._emptyField = _emptyField
-      clone._fieldMaskField = _fieldMaskField
-      clone._sourceContextField = _sourceContextField
-      clone._structField = _structField
-      clone._timestampField = _timestampField
-      clone._typeField = _typeField
-      clone._doubleField = _doubleField
-      clone._floatField = _floatField
-      clone._int64Field = _int64Field
-      clone._uint64Field = _uint64Field
-      clone._int32Field = _int32Field
-      clone._uint32Field = _uint32Field
-      clone._boolField = _boolField
-      clone._stringField = _stringField
-      clone._bytesField = _bytesField
-      clone._valueField = _valueField
-      return clone
+    init(copying source: _StorageClass) {
+      _anyField = source._anyField
+      _apiField = source._apiField
+      _durationField = source._durationField
+      _emptyField = source._emptyField
+      _fieldMaskField = source._fieldMaskField
+      _sourceContextField = source._sourceContextField
+      _structField = source._structField
+      _timestampField = source._timestampField
+      _typeField = source._typeField
+      _doubleField = source._doubleField
+      _floatField = source._floatField
+      _int64Field = source._int64Field
+      _uint64Field = source._uint64Field
+      _int32Field = source._int32Field
+      _uint32Field = source._uint32Field
+      _boolField = source._boolField
+      _stringField = source._stringField
+      _bytesField = source._bytesField
+      _valueField = source._valueField
     }
   }
 
@@ -100,7 +98,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -489,27 +487,25 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._anyField = _anyField
-      clone._apiField = _apiField
-      clone._durationField = _durationField
-      clone._emptyField = _emptyField
-      clone._fieldMaskField = _fieldMaskField
-      clone._sourceContextField = _sourceContextField
-      clone._structField = _structField
-      clone._timestampField = _timestampField
-      clone._typeField = _typeField
-      clone._doubleField = _doubleField
-      clone._floatField = _floatField
-      clone._int64Field = _int64Field
-      clone._uint64Field = _uint64Field
-      clone._int32Field = _int32Field
-      clone._uint32Field = _uint32Field
-      clone._boolField = _boolField
-      clone._stringField = _stringField
-      clone._bytesField = _bytesField
-      return clone
+    init(copying source: _StorageClass) {
+      _anyField = source._anyField
+      _apiField = source._apiField
+      _durationField = source._durationField
+      _emptyField = source._emptyField
+      _fieldMaskField = source._fieldMaskField
+      _sourceContextField = source._sourceContextField
+      _structField = source._structField
+      _timestampField = source._timestampField
+      _typeField = source._typeField
+      _doubleField = source._doubleField
+      _floatField = source._floatField
+      _int64Field = source._int64Field
+      _uint64Field = source._uint64Field
+      _int32Field = source._int32Field
+      _uint32Field = source._uint32Field
+      _boolField = source._boolField
+      _stringField = source._stringField
+      _bytesField = source._bytesField
     }
   }
 
@@ -517,7 +513,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -764,10 +760,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._oneofField = _oneofField
-      return clone
+    init(copying source: _StorageClass) {
+      _oneofField = source._oneofField
     }
   }
 
@@ -775,7 +769,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }
@@ -1347,27 +1341,25 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
 
     init() {}
 
-    func copy() -> _StorageClass {
-      let clone = _StorageClass()
-      clone._anyField = _anyField
-      clone._apiField = _apiField
-      clone._durationField = _durationField
-      clone._emptyField = _emptyField
-      clone._fieldMaskField = _fieldMaskField
-      clone._sourceContextField = _sourceContextField
-      clone._structField = _structField
-      clone._timestampField = _timestampField
-      clone._typeField = _typeField
-      clone._doubleField = _doubleField
-      clone._floatField = _floatField
-      clone._int64Field = _int64Field
-      clone._uint64Field = _uint64Field
-      clone._int32Field = _int32Field
-      clone._uint32Field = _uint32Field
-      clone._boolField = _boolField
-      clone._stringField = _stringField
-      clone._bytesField = _bytesField
-      return clone
+    init(copying source: _StorageClass) {
+      _anyField = source._anyField
+      _apiField = source._apiField
+      _durationField = source._durationField
+      _emptyField = source._emptyField
+      _fieldMaskField = source._fieldMaskField
+      _sourceContextField = source._sourceContextField
+      _structField = source._structField
+      _timestampField = source._timestampField
+      _typeField = source._typeField
+      _doubleField = source._doubleField
+      _floatField = source._floatField
+      _int64Field = source._int64Field
+      _uint64Field = source._uint64Field
+      _int32Field = source._int32Field
+      _uint32Field = source._uint32Field
+      _boolField = source._boolField
+      _stringField = source._stringField
+      _bytesField = source._bytesField
     }
   }
 
@@ -1375,7 +1367,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
 
   private mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _storage.copy()
+      _storage = _StorageClass(copying: _storage)
     }
     return _storage
   }

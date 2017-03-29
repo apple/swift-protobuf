@@ -27,7 +27,7 @@ class Test_Any: XCTestCase {
 
         var m = ProtobufUnittest_TestAny()
         m.int32Value = 12
-        m.anyValue = Google_Protobuf_Any(message: content)
+        m.anyValue = try Google_Protobuf_Any(message: content)
 
         // The Any holding an object can be JSON serialized
         XCTAssertNotNil(try m.jsonString())
@@ -149,7 +149,7 @@ class Test_Any: XCTestCase {
 
         var m = ProtobufUnittest_TestAny()
         m.int32Value = 12
-        m.anyValue = Google_Protobuf_Any(message: content)
+        m.anyValue = try Google_Protobuf_Any(message: content)
 
         let encoded = try m.jsonString()
         XCTAssertEqual(encoded, "{\"int32Value\":12,\"anyValue\":{\"@type\":\"type.googleapis.com/protobuf_unittest.TestAllTypes\",\"optionalInt32\":7}}")
@@ -640,7 +640,7 @@ class Test_Any: XCTestCase {
         $0.stringValue = "abc"
       }
       var msg = ProtobufTestMessages_Proto3_TestAllTypes()
-      msg.optionalAny = Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
+      msg.optionalAny = try Google_Protobuf_Any(message: valueMsg, typePrefix: "Odd\nPrefix\"")
       let newJSON = try msg.jsonString()
       XCTAssertEqual(newJSON, "{\"optionalAny\":{\"@type\":\"Odd\\nPrefix\\\"/google.protobuf.Value\",\"value\":\"abc\"}}")
     }

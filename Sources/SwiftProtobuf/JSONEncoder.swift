@@ -157,7 +157,7 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            if let v = Int64(safely: Double(value)) {
+            if let v = Int64(exactly: Double(value)) {
                 appendInt(value: v)
             } else {
                 let formatted = doubleFormatter.floatToUtf8(value)
@@ -179,7 +179,7 @@ internal struct JSONEncoder {
                 append(staticText: "\"Infinity\"")
             }
         } else {
-            if let v = Int64(safely: value) {
+            if let v = Int64(exactly: value) {
                 appendInt(value: v)
             } else {
                 let formatted = doubleFormatter.doubleToUtf8(value)
