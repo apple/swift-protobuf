@@ -24,14 +24,8 @@ public extension Message {
   /// - Returns: A string containing the JSON serialization of the message.
   /// - Throws: `JSONEncodingError` if encoding fails.
   func jsonString() throws -> String {
-    if let m = self as? _CustomJSONCodable {
-      return try m.encodedJSONString()
-    }
-    var visitor = try JSONEncodingVisitor(message: self)
-    visitor.startObject()
-    try traverse(visitor: &visitor)
-    visitor.endObject()
-    return visitor.stringResult
+    let data = try jsonUTF8Data()
+    return String(data: data, encoding: String.Encoding.utf8)!
   }
 
   /// Returns a Data containing the UTF-8 JSON serialization of the message.
