@@ -270,7 +270,7 @@ install: build
 clean:
 	swift build --clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT}
-	find . -name '*~' | xargs rm
+	find . -name '*~' | xargs rm -f
 
 # Build a local copy of the API documentation, using the same process used
 # by cocoadocs.org.
