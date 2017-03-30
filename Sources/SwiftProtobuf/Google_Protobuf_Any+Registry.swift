@@ -14,6 +14,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
+import Dispatch
 
 // TODO: Should these first four be exposed as methods to go with
 // the general registry support?
