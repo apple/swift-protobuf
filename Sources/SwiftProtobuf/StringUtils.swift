@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/Strings.swift - String utility functions
+// Sources/SwiftProtobuf/StringUtils.swift - String utility functions
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

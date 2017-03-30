@@ -1,4 +1,4 @@
-// Sources/SwiftProtobuf/AnyMessageStorage - Custom stroage for Any WKT
+// Sources/SwiftProtobuf/AnyMessageStorage.swift - Custom stroage for Any WKT
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

@@ -1,4 +1,4 @@
-// Tests/SwiftProtobufTests/ProtobufMessage+UInt8ArrayHelpers.swift - UInt8 array message helpers
+// Tests/SwiftProtobufTests/Message+UInt8ArrayHelpers.swift - UInt8 array message helpers
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
