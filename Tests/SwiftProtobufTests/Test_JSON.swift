@@ -495,19 +495,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode("{\"singleString\":\"hello\"}") {(o: inout MessageTestType) in
             o.singleString = "hello"
         }
-        // Verify that all C0 controls are correctly escaped
-        assertJSONEncode("{\"singleString\":\"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
-        }
-        assertJSONEncode("{\"singleString\":\"\\b\\t\\n\\u000B\\f\\r\\u000E\\u000F\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
-        }
-        assertJSONEncode("{\"singleString\":\"\\u0010\\u0011\\u0012\\u0013\\u0014\\u0015\\u0016\\u0017\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
-        }
-        assertJSONEncode("{\"singleString\":\"\\u0018\\u0019\\u001A\\u001B\\u001C\\u001D\\u001E\\u001F\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
-        }
         // Start of the C1 range
         assertJSONEncode("{\"singleString\":\"~\\u007F\\u0080\\u0081\"}") {(o: inout MessageTestType) in
             o.singleString = "\u{7e}\u{7f}\u{80}\u{81}"
@@ -533,6 +520,27 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleString\":\"\\uDD1E\"}")
         assertJSONDecodeFails("{\"singleString\":\"\\uD834\"}")
         assertJSONDecodeFails("{\"singleString\":\"\\uDD1E\\u1234\"}")
+    }
+
+    func testSingleString_controlCharacters() {
+        // This is known to fail on Swift Linux 3.1 and earlier,
+        // so skip it there.
+        // See https://bugs.swift.org/browse/SR-4218 for details.
+#if !os(Linux) || swift(>=3.2)
+        // Verify that all C0 controls are correctly escaped
+        assertJSONEncode("{\"singleString\":\"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\"}") {(o: inout MessageTestType) in
+            o.singleString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
+        }
+        assertJSONEncode("{\"singleString\":\"\\b\\t\\n\\u000B\\f\\r\\u000E\\u000F\"}") {(o: inout MessageTestType) in
+            o.singleString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
+        }
+        assertJSONEncode("{\"singleString\":\"\\u0010\\u0011\\u0012\\u0013\\u0014\\u0015\\u0016\\u0017\"}") {(o: inout MessageTestType) in
+            o.singleString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
+        }
+        assertJSONEncode("{\"singleString\":\"\\u0018\\u0019\\u001A\\u001B\\u001C\\u001D\\u001E\\u001F\"}") {(o: inout MessageTestType) in
+            o.singleString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
+        }
+#endif
     }
 
     func testSingleBytes() throws {

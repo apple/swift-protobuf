@@ -490,22 +490,6 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
 
         XCTAssertEqual("single_string: \"abc\"\n", a.textFormatString())
 
-        assertTextFormatEncode("single_string: \"\\001\\002\\003\\004\\005\\006\\007\"\n") {
-            (o: inout MessageTestType) in
-            o.singleString = "\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
-        }
-        assertTextFormatEncode("single_string: \"\\b\\t\\n\\v\\f\\r\\016\\017\"\n") {
-            (o: inout MessageTestType) in
-            o.singleString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
-        }
-        assertTextFormatEncode("single_string: \"\\020\\021\\022\\023\\024\\025\\026\\027\"\n") {
-            (o: inout MessageTestType) in
-            o.singleString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
-        }
-        assertTextFormatEncode("single_string: \"\\030\\031\\032\\033\\034\\035\\036\\037\"\n") {
-            (o: inout MessageTestType) in
-            o.singleString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
-        }
         assertTextFormatEncode("single_string: \" !\\\"#$%&'\"\n") {
             (o: inout MessageTestType) in
             o.singleString = "\u{20}\u{21}\u{22}\u{23}\u{24}\u{25}\u{26}\u{27}"
@@ -587,6 +571,30 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("single_string: \"hello\'")
         assertTextFormatDecodeFails("single_string: \'hello\"")
         assertTextFormatDecodeFails("single_string: \"hello")
+    }
+
+    func testEncoding_singleString_controlCharacters() throws {
+        // This is known to fail on Swift Linux 3.1 and earlier,
+        // so skip it there.
+        // See https://bugs.swift.org/browse/SR-4218 for details.
+#if !os(Linux) || swift(>=3.2)
+        assertTextFormatEncode("single_string: \"\\001\\002\\003\\004\\005\\006\\007\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
+        }
+        assertTextFormatEncode("single_string: \"\\b\\t\\n\\v\\f\\r\\016\\017\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
+        }
+        assertTextFormatEncode("single_string: \"\\020\\021\\022\\023\\024\\025\\026\\027\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
+        }
+        assertTextFormatEncode("single_string: \"\\030\\031\\032\\033\\034\\035\\036\\037\"\n") {
+            (o: inout MessageTestType) in
+            o.singleString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
+        }
+#endif
     }
 
     func testEncoding_singleString_UTF8() throws {
