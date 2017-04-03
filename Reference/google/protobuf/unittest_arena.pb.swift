@@ -118,6 +118,7 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -130,6 +131,7 @@ extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

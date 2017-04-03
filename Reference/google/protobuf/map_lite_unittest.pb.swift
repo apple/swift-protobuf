@@ -872,6 +872,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -924,6 +925,7 @@ extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -976,6 +978,7 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -988,6 +991,7 @@ extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf._MessageImp
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1002,6 +1006,7 @@ extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf._MessageImplementation
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1016,6 +1021,7 @@ extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf._MessageImple
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1028,6 +1034,7 @@ extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf._MessageImplementat
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1044,6 +1051,7 @@ extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

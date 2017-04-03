@@ -447,6 +447,7 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Swift_Performance_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

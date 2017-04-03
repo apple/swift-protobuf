@@ -1232,6 +1232,7 @@ struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Message3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1372,6 +1373,7 @@ extension ProtobufUnittest_Message3: SwiftProtobuf._MessageImplementationBase, S
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Msg3NoStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -1381,6 +1383,7 @@ extension ProtobufUnittest_Msg3NoStorage: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

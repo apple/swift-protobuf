@@ -324,6 +324,7 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_DoubleValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -336,6 +337,7 @@ extension Google_Protobuf_DoubleValue: SwiftProtobuf._MessageImplementationBase,
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_FloatValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -348,6 +350,7 @@ extension Google_Protobuf_FloatValue: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Int64Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -360,6 +363,7 @@ extension Google_Protobuf_Int64Value: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_UInt64Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -372,6 +376,7 @@ extension Google_Protobuf_UInt64Value: SwiftProtobuf._MessageImplementationBase,
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Int32Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -384,6 +389,7 @@ extension Google_Protobuf_Int32Value: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_UInt32Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -396,6 +402,7 @@ extension Google_Protobuf_UInt32Value: SwiftProtobuf._MessageImplementationBase,
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_BoolValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -408,6 +415,7 @@ extension Google_Protobuf_BoolValue: SwiftProtobuf._MessageImplementationBase, S
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_StringValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -420,6 +428,7 @@ extension Google_Protobuf_StringValue: SwiftProtobuf._MessageImplementationBase,
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_BytesValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

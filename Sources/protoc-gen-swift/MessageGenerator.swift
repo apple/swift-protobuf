@@ -296,6 +296,7 @@ class MessageGenerator {
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+    p.print("\n")
     p.print("// Support for the runtime.\n")
     p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()

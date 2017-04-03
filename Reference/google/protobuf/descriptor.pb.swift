@@ -3189,6 +3189,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_FileDescriptorSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3201,6 +3202,7 @@ extension Google_Protobuf_FileDescriptorSet: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3241,6 +3243,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3277,6 +3280,7 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3291,6 +3295,7 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf._Message
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3305,6 +3310,7 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf._MessageI
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3341,6 +3347,7 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3361,6 +3368,7 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3383,6 +3391,7 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementat
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3405,6 +3414,7 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplem
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3427,6 +3437,7 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplemen
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3455,6 +3466,7 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplement
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3498,6 +3510,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_MessageOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3519,6 +3532,7 @@ extension Google_Protobuf_MessageOptions: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_FieldOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3544,6 +3558,7 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf._MessageImplementationBase
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_OneofOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3557,6 +3572,7 @@ extension Google_Protobuf_OneofOptions: SwiftProtobuf._MessageImplementationBase
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_EnumOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3574,6 +3590,7 @@ extension Google_Protobuf_EnumOptions: SwiftProtobuf._MessageImplementationBase,
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_EnumValueOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3589,6 +3606,7 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf._MessageImplementation
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_ServiceOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3604,6 +3622,7 @@ extension Google_Protobuf_ServiceOptions: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_MethodOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3621,6 +3640,7 @@ extension Google_Protobuf_MethodOptions: SwiftProtobuf._MessageImplementationBas
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_UninterpretedOption: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3645,6 +3665,7 @@ extension Google_Protobuf_UninterpretedOption: SwiftProtobuf._MessageImplementat
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_UninterpretedOption.NamePart: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3659,6 +3680,7 @@ extension Google_Protobuf_UninterpretedOption.NamePart: SwiftProtobuf._MessageIm
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_SourceCodeInfo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3671,6 +3693,7 @@ extension Google_Protobuf_SourceCodeInfo: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_SourceCodeInfo.Location: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3691,6 +3714,7 @@ extension Google_Protobuf_SourceCodeInfo.Location: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3703,6 +3727,7 @@ extension Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

@@ -1357,6 +1357,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1470,6 +1471,7 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplement
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1482,6 +1484,7 @@ extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf._Me
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1494,6 +1497,7 @@ extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf._Me
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

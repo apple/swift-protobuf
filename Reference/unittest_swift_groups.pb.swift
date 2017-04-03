@@ -523,6 +523,7 @@ let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_ExtensionGroup,
   Extensions_RepeatedExtensionGroup
 ]
+
 // Support for the runtime.
 extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -536,6 +537,7 @@ extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, Sw
     return true
   }
 }
+
 // Support for the runtime.
 extension ExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -548,6 +550,7 @@ extension ExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobu
     return true
   }
 }
+
 // Support for the runtime.
 extension RepeatedExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -560,6 +563,7 @@ extension RepeatedExtensionGroup: SwiftProtobuf._MessageImplementationBase, Swif
     return true
   }
 }
+
 // Support for the runtime.
 extension SwiftTestGroupUnextended: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -572,6 +576,7 @@ extension SwiftTestGroupUnextended: SwiftProtobuf._MessageImplementationBase, Sw
     return true
   }
 }
+
 // Support for the runtime.
 extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -594,6 +599,7 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBas
     return true
   }
 }
+
 // Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -614,6 +620,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -626,6 +633,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf._Mess
     return true
   }
 }
+
 // Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -640,6 +648,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

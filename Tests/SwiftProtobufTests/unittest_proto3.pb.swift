@@ -2497,6 +2497,7 @@ struct Proto3BarResponse: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2606,6 +2607,7 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2618,6 +2620,7 @@ extension Proto3TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementation
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2640,6 +2643,7 @@ extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, Sw
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestDeprecatedFields: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2652,6 +2656,7 @@ extension Proto3TestDeprecatedFields: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2664,6 +2669,7 @@ extension Proto3ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftP
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestReservedFields: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -2673,6 +2679,7 @@ extension Proto3TestReservedFields: SwiftProtobuf._MessageImplementationBase, Sw
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestForeignNested: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2691,6 +2698,7 @@ extension Proto3TestForeignNested: SwiftProtobuf._MessageImplementationBase, Swi
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestReallyLargeTagNumber: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2705,6 +2713,7 @@ extension Proto3TestReallyLargeTagNumber: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestRecursiveMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2725,6 +2734,7 @@ extension Proto3TestRecursiveMessage: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestMutualRecursionA: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2743,6 +2753,7 @@ extension Proto3TestMutualRecursionA: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestMutualRecursionB: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2763,6 +2774,7 @@ extension Proto3TestMutualRecursionB: SwiftProtobuf._MessageImplementationBase, 
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestCamelCaseFieldNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2795,6 +2807,7 @@ extension Proto3TestCamelCaseFieldNames: SwiftProtobuf._MessageImplementationBas
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2819,6 +2832,7 @@ extension Proto3TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, Sw
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestFieldOrderings.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2833,6 +2847,7 @@ extension Proto3TestFieldOrderings.NestedMessage: SwiftProtobuf._MessageImplemen
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3SparseEnumMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2845,6 +2860,7 @@ extension Proto3SparseEnumMessage: SwiftProtobuf._MessageImplementationBase, Swi
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3OneString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2857,6 +2873,7 @@ extension Proto3OneString: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3MoreString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2869,6 +2886,7 @@ extension Proto3MoreString: SwiftProtobuf._MessageImplementationBase, SwiftProto
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3OneBytes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2881,6 +2899,7 @@ extension Proto3OneBytes: SwiftProtobuf._MessageImplementationBase, SwiftProtobu
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3MoreBytes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2893,6 +2912,7 @@ extension Proto3MoreBytes: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3Int32Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2905,6 +2925,7 @@ extension Proto3Int32Message: SwiftProtobuf._MessageImplementationBase, SwiftPro
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3Uint32Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2917,6 +2938,7 @@ extension Proto3Uint32Message: SwiftProtobuf._MessageImplementationBase, SwiftPr
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3Int64Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2929,6 +2951,7 @@ extension Proto3Int64Message: SwiftProtobuf._MessageImplementationBase, SwiftPro
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3Uint64Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2941,6 +2964,7 @@ extension Proto3Uint64Message: SwiftProtobuf._MessageImplementationBase, SwiftPr
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3BoolMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2953,6 +2977,7 @@ extension Proto3BoolMessage: SwiftProtobuf._MessageImplementationBase, SwiftProt
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestOneof: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2973,6 +2998,7 @@ extension Proto3TestOneof: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestPackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3011,6 +3037,7 @@ extension Proto3TestPackedTypes: SwiftProtobuf._MessageImplementationBase, Swift
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3049,6 +3076,7 @@ extension Proto3TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, Swi
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3071,6 +3099,7 @@ extension Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf._MessageImple
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestCommentInjectionMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -3083,6 +3112,7 @@ extension Proto3TestCommentInjectionMessage: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3FooRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -3092,6 +3122,7 @@ extension Proto3FooRequest: SwiftProtobuf._MessageImplementationBase, SwiftProto
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3FooResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -3101,6 +3132,7 @@ extension Proto3FooResponse: SwiftProtobuf._MessageImplementationBase, SwiftProt
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3FooClientMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -3110,6 +3142,7 @@ extension Proto3FooClientMessage: SwiftProtobuf._MessageImplementationBase, Swif
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3FooServerMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -3119,6 +3152,7 @@ extension Proto3FooServerMessage: SwiftProtobuf._MessageImplementationBase, Swif
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3BarRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -3128,6 +3162,7 @@ extension Proto3BarRequest: SwiftProtobuf._MessageImplementationBase, SwiftProto
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3BarResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()

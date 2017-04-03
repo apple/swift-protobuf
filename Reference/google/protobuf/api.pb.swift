@@ -385,6 +385,7 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -415,6 +416,7 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Method: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -439,6 +441,7 @@ extension Google_Protobuf_Method: SwiftProtobuf._MessageImplementationBase, Swif
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Mixin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

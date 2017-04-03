@@ -596,6 +596,7 @@ let ProtobufUnittest_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExten
   ProtobufUnittest_SwiftReservedTestExt.Extensions.do,
   ProtobufUnittest_SwiftReservedTestExt.Extensions.nil
 ]
+
 // Support for the runtime.
 extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -620,6 +621,7 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementati
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -630,6 +632,7 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf._Messag
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -640,6 +643,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf._Message
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_SwiftReservedTest.isEqualMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -649,6 +653,7 @@ extension ProtobufUnittest_SwiftReservedTest.isEqualMessage: SwiftProtobuf._Mess
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()

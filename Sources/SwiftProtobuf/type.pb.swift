@@ -722,6 +722,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -750,6 +751,7 @@ extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftP
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -780,6 +782,7 @@ extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, Swift
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -806,6 +809,7 @@ extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftP
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_EnumValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -822,6 +826,7 @@ extension Google_Protobuf_EnumValue: SwiftProtobuf._MessageImplementationBase, S
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Option: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

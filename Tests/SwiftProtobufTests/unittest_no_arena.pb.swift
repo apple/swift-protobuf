@@ -1609,6 +1609,7 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1773,6 +1774,7 @@ extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1785,6 +1787,7 @@ extension ProtobufUnittestNoArena_TestAllTypes.NestedMessage: SwiftProtobuf._Mes
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1797,6 +1800,7 @@ extension ProtobufUnittestNoArena_TestAllTypes.OptionalGroup: SwiftProtobuf._Mes
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1809,6 +1813,7 @@ extension ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup: SwiftProtobuf._Mes
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1821,6 +1826,7 @@ extension ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf._MessageImplemen
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

@@ -444,6 +444,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -462,6 +463,7 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementation
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -486,6 +488,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -500,6 +503,7 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._Message
     return true
   }
 }
+
 // Support for the runtime.
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

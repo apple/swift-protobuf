@@ -328,6 +328,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -350,6 +351,7 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, S
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -372,6 +374,7 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, S
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_CycleBaz: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

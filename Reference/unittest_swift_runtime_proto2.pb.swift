@@ -1532,6 +1532,7 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1677,6 +1678,7 @@ extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, S
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Message2.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1689,6 +1691,7 @@ extension ProtobufUnittest_Message2.OptionalGroup: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Message2.RepeatedGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1701,6 +1704,7 @@ extension ProtobufUnittest_Message2.RepeatedGroup: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Message2.OneofGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1715,6 +1719,7 @@ extension ProtobufUnittest_Message2.OneofGroup: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Msg2NoStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -1724,6 +1729,7 @@ extension ProtobufUnittest_Msg2NoStorage: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

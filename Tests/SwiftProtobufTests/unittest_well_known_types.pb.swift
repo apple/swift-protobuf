@@ -1403,6 +1403,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1457,6 +1458,7 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementat
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1509,6 +1511,7 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1544,6 +1547,7 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

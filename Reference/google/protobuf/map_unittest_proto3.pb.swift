@@ -636,6 +636,7 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -686,6 +687,7 @@ extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -704,6 +706,7 @@ extension Proto3TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, Swi
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -716,6 +719,7 @@ extension Proto3TestMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftP
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestSameTypeMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -730,6 +734,7 @@ extension Proto3TestSameTypeMap: SwiftProtobuf._MessageImplementationBase, Swift
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3TestArenaMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -770,6 +775,7 @@ extension Proto3TestArenaMap: SwiftProtobuf._MessageImplementationBase, SwiftPro
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3MessageContainingEnumCalledType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -782,6 +788,7 @@ extension Proto3MessageContainingEnumCalledType: SwiftProtobuf._MessageImplement
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3MessageContainingMapCalledEntry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

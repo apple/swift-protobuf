@@ -307,6 +307,7 @@ let UnittestSwiftReservedExt_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftReservedTestExt2.Extensions.do,
   SwiftReservedTestExt2.Extensions.nil
 ]
+
 // Support for the runtime.
 extension SwiftReservedTestExt2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()

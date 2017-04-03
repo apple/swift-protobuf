@@ -1224,6 +1224,7 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1339,6 +1340,7 @@ extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1351,6 +1353,7 @@ extension Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._Mes
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1389,6 +1392,7 @@ extension Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1427,6 +1431,7 @@ extension Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf._MessageImple
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1447,6 +1452,7 @@ extension Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImpl
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1459,6 +1465,7 @@ extension Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf._MessageImplemen
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()

@@ -369,6 +369,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -390,6 +391,7 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
     return true
   }
 }
+
 // Support for the runtime.
 extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

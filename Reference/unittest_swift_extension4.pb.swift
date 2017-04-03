@@ -213,6 +213,7 @@ let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Ext4MyMessage.Extensions.b,
   Ext4MyMessage.Extensions.C
 ]
+
 // Support for the runtime.
 extension Ext4MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -222,6 +223,7 @@ extension Ext4MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
     return true
   }
 }
+
 // Support for the runtime.
 extension Ext4MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -234,6 +236,7 @@ extension Ext4MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     return true
   }
 }
+
 // Support for the runtime.
 extension Ext4C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

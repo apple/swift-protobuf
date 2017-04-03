@@ -333,6 +333,7 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -347,6 +348,7 @@ extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -361,6 +363,7 @@ extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplement
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -373,6 +376,7 @@ extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementati
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -385,6 +389,7 @@ extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

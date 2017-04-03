@@ -148,6 +148,7 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
 let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]
+
 // Support for the runtime.
 extension Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

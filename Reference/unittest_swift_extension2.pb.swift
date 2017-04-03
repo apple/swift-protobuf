@@ -213,6 +213,7 @@ let ProtobufUnittest_Extend2_UnittestSwiftExtension2_Extensions: SwiftProtobuf.S
   ProtobufUnittest_Extend2_MyMessage.Extensions.b,
   ProtobufUnittest_Extend2_MyMessage.Extensions.C
 ]
+
 // Support for the runtime.
 extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -222,6 +223,7 @@ extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf._MessageImplementati
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -234,6 +236,7 @@ extension ProtobufUnittest_Extend2_MyMessage.C: SwiftProtobuf._MessageImplementa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Extend2_C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

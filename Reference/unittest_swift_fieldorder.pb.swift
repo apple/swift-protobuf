@@ -391,6 +391,7 @@ let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExten
   Swift_Protobuf_Extensions_my_extension_string,
   Swift_Protobuf_Extensions_my_extension_int
 ]
+
 // Support for the runtime.
 extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -421,6 +422,7 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
     return true
   }
 }
+
 // Support for the runtime.
 extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

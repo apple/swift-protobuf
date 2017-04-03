@@ -221,6 +221,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
@@ -230,6 +231,7 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf._MessageImp
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -250,6 +252,7 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtob
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

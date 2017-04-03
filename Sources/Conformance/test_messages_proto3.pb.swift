@@ -1851,6 +1851,7 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2097,6 +2098,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplem
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2117,6 +2119,7 @@ extension ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage: SwiftProtobuf.
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

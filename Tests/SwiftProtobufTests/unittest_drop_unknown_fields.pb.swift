@@ -198,6 +198,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -212,6 +213,7 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBas
     return true
   }
 }
+
 // Support for the runtime.
 extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

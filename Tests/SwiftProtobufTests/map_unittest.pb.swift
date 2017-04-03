@@ -828,6 +828,7 @@ struct ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -880,6 +881,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -898,6 +900,7 @@ extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf._MessageImplementati
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -910,6 +913,7 @@ extension ProtobufUnittest_TestMessageMap: SwiftProtobuf._MessageImplementationB
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestSameTypeMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -924,6 +928,7 @@ extension ProtobufUnittest_TestSameTypeMap: SwiftProtobuf._MessageImplementation
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -936,6 +941,7 @@ extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf._MessageImpleme
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestArenaMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -988,6 +994,7 @@ extension ProtobufUnittest_TestArenaMap: SwiftProtobuf._MessageImplementationBas
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1000,6 +1007,7 @@ extension ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf._Messa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1012,6 +1020,7 @@ extension ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf._Messa
     return true
   }
 }
+
 // Support for the runtime.
 extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
