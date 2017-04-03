@@ -101,12 +101,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 ///  
 ///       timestamp = Timestamp()
 ///       timestamp.GetCurrentTime()
-struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Timestamp: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-    2: .same(proto: "nanos"),
-  ]
 
   ///   Represents seconds of UTC time since Unix epoch
   ///   1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
@@ -142,6 +138,13 @@ struct Google_Protobuf_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension Google_Protobuf_Timestamp: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "seconds"),
+    2: .same(proto: "nanos"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
     if seconds != other.seconds {return false}

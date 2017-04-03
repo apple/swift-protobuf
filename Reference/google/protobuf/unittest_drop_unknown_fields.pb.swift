@@ -51,12 +51,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "unittest_drop_unknown_fields"
 
-struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Foo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int32_value"),
-    2: .standard(proto: "enum_value"),
-  ]
 
   var int32Value: Int32 = 0
 
@@ -122,22 +118,10 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
-    if int32Value != other.int32Value {return false}
-    if enumValue != other.enumValue {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FooWithExtraFields"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int32_value"),
-    2: .standard(proto: "enum_value"),
-    3: .standard(proto: "extra_int32_value"),
-  ]
 
   var int32Value: Int32 = 0
 
@@ -213,6 +197,28 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message, Swif
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "enum_value"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
+    if int32Value != other.int32Value {return false}
+    if enumValue != other.enumValue {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "enum_value"),
+    3: .standard(proto: "extra_int32_value"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
     if int32Value != other.int32Value {return false}

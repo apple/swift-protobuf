@@ -53,62 +53,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllRequiredTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "required_int32"),
-    2: .standard(proto: "required_int64"),
-    3: .standard(proto: "required_uint32"),
-    4: .standard(proto: "required_uint64"),
-    5: .standard(proto: "required_sint32"),
-    6: .standard(proto: "required_sint64"),
-    7: .standard(proto: "required_fixed32"),
-    8: .standard(proto: "required_fixed64"),
-    9: .standard(proto: "required_sfixed32"),
-    10: .standard(proto: "required_sfixed64"),
-    11: .standard(proto: "required_float"),
-    12: .standard(proto: "required_double"),
-    13: .standard(proto: "required_bool"),
-    14: .standard(proto: "required_string"),
-    15: .standard(proto: "required_bytes"),
-    16: .unique(proto: "RequiredGroup", json: "requiredgroup"),
-    18: .standard(proto: "required_nested_message"),
-    19: .standard(proto: "required_foreign_message"),
-    20: .standard(proto: "required_import_message"),
-    21: .standard(proto: "required_nested_enum"),
-    22: .standard(proto: "required_foreign_enum"),
-    23: .standard(proto: "required_import_enum"),
-    24: .standard(proto: "required_string_piece"),
-    25: .standard(proto: "required_cord"),
-    26: .standard(proto: "required_public_import_message"),
-    27: .standard(proto: "required_lazy_message"),
-    61: .standard(proto: "default_int32"),
-    62: .standard(proto: "default_int64"),
-    63: .standard(proto: "default_uint32"),
-    64: .standard(proto: "default_uint64"),
-    65: .standard(proto: "default_sint32"),
-    66: .standard(proto: "default_sint64"),
-    67: .standard(proto: "default_fixed32"),
-    68: .standard(proto: "default_fixed64"),
-    69: .standard(proto: "default_sfixed32"),
-    70: .standard(proto: "default_sfixed64"),
-    71: .standard(proto: "default_float"),
-    72: .standard(proto: "default_double"),
-    73: .standard(proto: "default_bool"),
-    74: .standard(proto: "default_string"),
-    75: .standard(proto: "default_bytes"),
-    81: .standard(proto: "default_nested_enum"),
-    82: .standard(proto: "default_foreign_enum"),
-    83: .standard(proto: "default_import_enum"),
-    84: .standard(proto: "default_string_piece"),
-    85: .standard(proto: "default_cord"),
-    111: .standard(proto: "oneof_uint32"),
-    112: .standard(proto: "oneof_nested_message"),
-    113: .standard(proto: "oneof_string"),
-    114: .standard(proto: "oneof_bytes"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _requiredInt32: Int32? = nil
     var _requiredInt64: Int64? = nil
     var _requiredUint32: UInt32? = nil
@@ -210,9 +158,9 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -900,16 +848,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
 
   }
 
-  struct NestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllRequiredTypes.protoMessageName + ".NestedMessage"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "bb"),
-    ]
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
     ///   a local variable named "b" in one of the generated methods.  Doh.
     ///   This file needs to compile in proto1 to test backwards-compatibility.
-    private var _bb: Int32? = nil
+    fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
       set {_bb = newValue}
@@ -945,21 +890,12 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
-      if _bb != other._bb {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
-  struct RequiredGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct RequiredGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllRequiredTypes.protoMessageName + ".RequiredGroup"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      17: .same(proto: "a"),
-    ]
 
-    private var _a: Int32? = nil
+    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -994,12 +930,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
-      if _a != other._a {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
@@ -1272,79 +1202,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message, SwiftProtob
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._requiredInt32 != other_storage._requiredInt32 {return false}
-        if _storage._requiredInt64 != other_storage._requiredInt64 {return false}
-        if _storage._requiredUint32 != other_storage._requiredUint32 {return false}
-        if _storage._requiredUint64 != other_storage._requiredUint64 {return false}
-        if _storage._requiredSint32 != other_storage._requiredSint32 {return false}
-        if _storage._requiredSint64 != other_storage._requiredSint64 {return false}
-        if _storage._requiredFixed32 != other_storage._requiredFixed32 {return false}
-        if _storage._requiredFixed64 != other_storage._requiredFixed64 {return false}
-        if _storage._requiredSfixed32 != other_storage._requiredSfixed32 {return false}
-        if _storage._requiredSfixed64 != other_storage._requiredSfixed64 {return false}
-        if _storage._requiredFloat != other_storage._requiredFloat {return false}
-        if _storage._requiredDouble != other_storage._requiredDouble {return false}
-        if _storage._requiredBool != other_storage._requiredBool {return false}
-        if _storage._requiredString != other_storage._requiredString {return false}
-        if _storage._requiredBytes != other_storage._requiredBytes {return false}
-        if _storage._requiredGroup != other_storage._requiredGroup {return false}
-        if _storage._requiredNestedMessage != other_storage._requiredNestedMessage {return false}
-        if _storage._requiredForeignMessage != other_storage._requiredForeignMessage {return false}
-        if _storage._requiredImportMessage != other_storage._requiredImportMessage {return false}
-        if _storage._requiredNestedEnum != other_storage._requiredNestedEnum {return false}
-        if _storage._requiredForeignEnum != other_storage._requiredForeignEnum {return false}
-        if _storage._requiredImportEnum != other_storage._requiredImportEnum {return false}
-        if _storage._requiredStringPiece != other_storage._requiredStringPiece {return false}
-        if _storage._requiredCord != other_storage._requiredCord {return false}
-        if _storage._requiredPublicImportMessage != other_storage._requiredPublicImportMessage {return false}
-        if _storage._requiredLazyMessage != other_storage._requiredLazyMessage {return false}
-        if _storage._defaultInt32 != other_storage._defaultInt32 {return false}
-        if _storage._defaultInt64 != other_storage._defaultInt64 {return false}
-        if _storage._defaultUint32 != other_storage._defaultUint32 {return false}
-        if _storage._defaultUint64 != other_storage._defaultUint64 {return false}
-        if _storage._defaultSint32 != other_storage._defaultSint32 {return false}
-        if _storage._defaultSint64 != other_storage._defaultSint64 {return false}
-        if _storage._defaultFixed32 != other_storage._defaultFixed32 {return false}
-        if _storage._defaultFixed64 != other_storage._defaultFixed64 {return false}
-        if _storage._defaultSfixed32 != other_storage._defaultSfixed32 {return false}
-        if _storage._defaultSfixed64 != other_storage._defaultSfixed64 {return false}
-        if _storage._defaultFloat != other_storage._defaultFloat {return false}
-        if _storage._defaultDouble != other_storage._defaultDouble {return false}
-        if _storage._defaultBool != other_storage._defaultBool {return false}
-        if _storage._defaultString != other_storage._defaultString {return false}
-        if _storage._defaultBytes != other_storage._defaultBytes {return false}
-        if _storage._defaultNestedEnum != other_storage._defaultNestedEnum {return false}
-        if _storage._defaultForeignEnum != other_storage._defaultForeignEnum {return false}
-        if _storage._defaultImportEnum != other_storage._defaultImportEnum {return false}
-        if _storage._defaultStringPiece != other_storage._defaultStringPiece {return false}
-        if _storage._defaultCord != other_storage._defaultCord {return false}
-        if _storage._oneofField != other_storage._oneofField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestSomeRequiredTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "required_int32"),
-    2: .standard(proto: "required_float"),
-    3: .standard(proto: "required_bool"),
-    4: .standard(proto: "required_string"),
-    5: .standard(proto: "required_bytes"),
-    6: .standard(proto: "required_nested_enum"),
-  ]
 
   ///   Singular
-  private var _requiredInt32: Int32? = nil
+  fileprivate var _requiredInt32: Int32? = nil
   var requiredInt32: Int32 {
     get {return _requiredInt32 ?? 0}
     set {_requiredInt32 = newValue}
@@ -1356,7 +1220,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     return _requiredInt32 = nil
   }
 
-  private var _requiredFloat: Float? = nil
+  fileprivate var _requiredFloat: Float? = nil
   var requiredFloat: Float {
     get {return _requiredFloat ?? 0}
     set {_requiredFloat = newValue}
@@ -1368,7 +1232,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     return _requiredFloat = nil
   }
 
-  private var _requiredBool: Bool? = nil
+  fileprivate var _requiredBool: Bool? = nil
   var requiredBool: Bool {
     get {return _requiredBool ?? false}
     set {_requiredBool = newValue}
@@ -1380,7 +1244,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     return _requiredBool = nil
   }
 
-  private var _requiredString: String? = nil
+  fileprivate var _requiredString: String? = nil
   var requiredString: String {
     get {return _requiredString ?? ""}
     set {_requiredString = newValue}
@@ -1392,7 +1256,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     return _requiredString = nil
   }
 
-  private var _requiredBytes: Data? = nil
+  fileprivate var _requiredBytes: Data? = nil
   var requiredBytes: Data {
     get {return _requiredBytes ?? Data()}
     set {_requiredBytes = newValue}
@@ -1404,7 +1268,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     return _requiredBytes = nil
   }
 
-  private var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
+  fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
   var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum {
     get {return _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo}
     set {_requiredNestedEnum = newValue}
@@ -1492,6 +1356,154 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message, SwiftProto
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "required_int32"),
+    2: .standard(proto: "required_int64"),
+    3: .standard(proto: "required_uint32"),
+    4: .standard(proto: "required_uint64"),
+    5: .standard(proto: "required_sint32"),
+    6: .standard(proto: "required_sint64"),
+    7: .standard(proto: "required_fixed32"),
+    8: .standard(proto: "required_fixed64"),
+    9: .standard(proto: "required_sfixed32"),
+    10: .standard(proto: "required_sfixed64"),
+    11: .standard(proto: "required_float"),
+    12: .standard(proto: "required_double"),
+    13: .standard(proto: "required_bool"),
+    14: .standard(proto: "required_string"),
+    15: .standard(proto: "required_bytes"),
+    16: .unique(proto: "RequiredGroup", json: "requiredgroup"),
+    18: .standard(proto: "required_nested_message"),
+    19: .standard(proto: "required_foreign_message"),
+    20: .standard(proto: "required_import_message"),
+    21: .standard(proto: "required_nested_enum"),
+    22: .standard(proto: "required_foreign_enum"),
+    23: .standard(proto: "required_import_enum"),
+    24: .standard(proto: "required_string_piece"),
+    25: .standard(proto: "required_cord"),
+    26: .standard(proto: "required_public_import_message"),
+    27: .standard(proto: "required_lazy_message"),
+    61: .standard(proto: "default_int32"),
+    62: .standard(proto: "default_int64"),
+    63: .standard(proto: "default_uint32"),
+    64: .standard(proto: "default_uint64"),
+    65: .standard(proto: "default_sint32"),
+    66: .standard(proto: "default_sint64"),
+    67: .standard(proto: "default_fixed32"),
+    68: .standard(proto: "default_fixed64"),
+    69: .standard(proto: "default_sfixed32"),
+    70: .standard(proto: "default_sfixed64"),
+    71: .standard(proto: "default_float"),
+    72: .standard(proto: "default_double"),
+    73: .standard(proto: "default_bool"),
+    74: .standard(proto: "default_string"),
+    75: .standard(proto: "default_bytes"),
+    81: .standard(proto: "default_nested_enum"),
+    82: .standard(proto: "default_foreign_enum"),
+    83: .standard(proto: "default_import_enum"),
+    84: .standard(proto: "default_string_piece"),
+    85: .standard(proto: "default_cord"),
+    111: .standard(proto: "oneof_uint32"),
+    112: .standard(proto: "oneof_nested_message"),
+    113: .standard(proto: "oneof_string"),
+    114: .standard(proto: "oneof_bytes"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._requiredInt32 != other_storage._requiredInt32 {return false}
+        if _storage._requiredInt64 != other_storage._requiredInt64 {return false}
+        if _storage._requiredUint32 != other_storage._requiredUint32 {return false}
+        if _storage._requiredUint64 != other_storage._requiredUint64 {return false}
+        if _storage._requiredSint32 != other_storage._requiredSint32 {return false}
+        if _storage._requiredSint64 != other_storage._requiredSint64 {return false}
+        if _storage._requiredFixed32 != other_storage._requiredFixed32 {return false}
+        if _storage._requiredFixed64 != other_storage._requiredFixed64 {return false}
+        if _storage._requiredSfixed32 != other_storage._requiredSfixed32 {return false}
+        if _storage._requiredSfixed64 != other_storage._requiredSfixed64 {return false}
+        if _storage._requiredFloat != other_storage._requiredFloat {return false}
+        if _storage._requiredDouble != other_storage._requiredDouble {return false}
+        if _storage._requiredBool != other_storage._requiredBool {return false}
+        if _storage._requiredString != other_storage._requiredString {return false}
+        if _storage._requiredBytes != other_storage._requiredBytes {return false}
+        if _storage._requiredGroup != other_storage._requiredGroup {return false}
+        if _storage._requiredNestedMessage != other_storage._requiredNestedMessage {return false}
+        if _storage._requiredForeignMessage != other_storage._requiredForeignMessage {return false}
+        if _storage._requiredImportMessage != other_storage._requiredImportMessage {return false}
+        if _storage._requiredNestedEnum != other_storage._requiredNestedEnum {return false}
+        if _storage._requiredForeignEnum != other_storage._requiredForeignEnum {return false}
+        if _storage._requiredImportEnum != other_storage._requiredImportEnum {return false}
+        if _storage._requiredStringPiece != other_storage._requiredStringPiece {return false}
+        if _storage._requiredCord != other_storage._requiredCord {return false}
+        if _storage._requiredPublicImportMessage != other_storage._requiredPublicImportMessage {return false}
+        if _storage._requiredLazyMessage != other_storage._requiredLazyMessage {return false}
+        if _storage._defaultInt32 != other_storage._defaultInt32 {return false}
+        if _storage._defaultInt64 != other_storage._defaultInt64 {return false}
+        if _storage._defaultUint32 != other_storage._defaultUint32 {return false}
+        if _storage._defaultUint64 != other_storage._defaultUint64 {return false}
+        if _storage._defaultSint32 != other_storage._defaultSint32 {return false}
+        if _storage._defaultSint64 != other_storage._defaultSint64 {return false}
+        if _storage._defaultFixed32 != other_storage._defaultFixed32 {return false}
+        if _storage._defaultFixed64 != other_storage._defaultFixed64 {return false}
+        if _storage._defaultSfixed32 != other_storage._defaultSfixed32 {return false}
+        if _storage._defaultSfixed64 != other_storage._defaultSfixed64 {return false}
+        if _storage._defaultFloat != other_storage._defaultFloat {return false}
+        if _storage._defaultDouble != other_storage._defaultDouble {return false}
+        if _storage._defaultBool != other_storage._defaultBool {return false}
+        if _storage._defaultString != other_storage._defaultString {return false}
+        if _storage._defaultBytes != other_storage._defaultBytes {return false}
+        if _storage._defaultNestedEnum != other_storage._defaultNestedEnum {return false}
+        if _storage._defaultForeignEnum != other_storage._defaultForeignEnum {return false}
+        if _storage._defaultImportEnum != other_storage._defaultImportEnum {return false}
+        if _storage._defaultStringPiece != other_storage._defaultStringPiece {return false}
+        if _storage._defaultCord != other_storage._defaultCord {return false}
+        if _storage._oneofField != other_storage._oneofField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "bb"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
+    if _bb != other._bb {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    17: .same(proto: "a"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
+    if _a != other._a {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "required_int32"),
+    2: .standard(proto: "required_float"),
+    3: .standard(proto: "required_bool"),
+    4: .standard(proto: "required_string"),
+    5: .standard(proto: "required_bytes"),
+    6: .standard(proto: "required_nested_enum"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
     if _requiredInt32 != other._requiredInt32 {return false}

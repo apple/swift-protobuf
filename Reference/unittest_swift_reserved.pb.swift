@@ -37,20 +37,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    10: .standard(proto: "proto_message_name"),
-    11: .standard(proto: "proto_package_name"),
-    12: .standard(proto: "any_type_prefix"),
-    13: .standard(proto: "any_type_url"),
-    20: .standard(proto: "is_initialized"),
-    21: .standard(proto: "hash_value"),
-    22: .standard(proto: "debug_description"),
-  ]
 
   ///   static r/o properties on Message, ensure they still work as fields.
-  private var _protoMessageName: Int32? = nil
+  fileprivate var _protoMessageName: Int32? = nil
   var protoMessageName: Int32 {
     get {return _protoMessageName ?? 0}
     set {_protoMessageName = newValue}
@@ -62,7 +53,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     return _protoMessageName = nil
   }
 
-  private var _protoPackageName: Int32? = nil
+  fileprivate var _protoPackageName: Int32? = nil
   var protoPackageName: Int32 {
     get {return _protoPackageName ?? 0}
     set {_protoPackageName = newValue}
@@ -74,7 +65,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     return _protoPackageName = nil
   }
 
-  private var _anyTypePrefix: Int32? = nil
+  fileprivate var _anyTypePrefix: Int32? = nil
   var anyTypePrefix: Int32 {
     get {return _anyTypePrefix ?? 0}
     set {_anyTypePrefix = newValue}
@@ -86,7 +77,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     return _anyTypePrefix = nil
   }
 
-  private var _anyTypeURL: Int32? = nil
+  fileprivate var _anyTypeURL: Int32? = nil
   var anyTypeURL: Int32 {
     get {return _anyTypeURL ?? 0}
     set {_anyTypeURL = newValue}
@@ -99,7 +90,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   ///   r/o properties on Message, ensure it gets remapped.
-  private var _isInitialized_p: String? = nil
+  fileprivate var _isInitialized_p: String? = nil
   var isInitialized_p: String {
     get {return _isInitialized_p ?? ""}
     set {_isInitialized_p = newValue}
@@ -111,7 +102,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     return _isInitialized_p = nil
   }
 
-  private var _hashValue_p: String? = nil
+  fileprivate var _hashValue_p: String? = nil
   var hashValue_p: String {
     get {return _hashValue_p ?? ""}
     set {_hashValue_p = newValue}
@@ -123,7 +114,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     return _hashValue_p = nil
   }
 
-  private var _debugDescription_p: Int32? = nil
+  fileprivate var _debugDescription_p: Int32? = nil
   var debugDescription_p: Int32 {
     get {return _debugDescription_p ?? 0}
     set {_debugDescription_p = newValue}
@@ -211,9 +202,8 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
   }
 
-  struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct classMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
     static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".class"
-    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -237,18 +227,11 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
-      if unknownFields != other.unknownFields {return false}
-      if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-      return true
-    }
-
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct TypeMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
     static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".Type"
-    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -272,18 +255,11 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
-      if unknownFields != other.unknownFields {return false}
-      if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
-      return true
-    }
-
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct isEqualMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct isEqualMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".isEqual"
-    static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -296,11 +272,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       try unknownFields.traverse(visitor: &visitor)
-    }
-
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqualMessage) -> Bool {
-      if unknownFields != other.unknownFields {return false}
-      return true
     }
   }
 
@@ -345,23 +316,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message, SwiftProtobuf.
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
-    if _protoMessageName != other._protoMessageName {return false}
-    if _protoPackageName != other._protoPackageName {return false}
-    if _anyTypePrefix != other._anyTypePrefix {return false}
-    if _anyTypeURL != other._anyTypeURL {return false}
-    if _isInitialized_p != other._isInitialized_p {return false}
-    if _hashValue_p != other._hashValue_p {return false}
-    if _debugDescription_p != other._debugDescription_p {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTestExt"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -418,11 +376,6 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message, SwiftProtob
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
-  }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTestExt) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
   }
 }
 
@@ -643,3 +596,65 @@ let ProtobufUnittest_UnittestSwiftReserved_Extensions: SwiftProtobuf.SimpleExten
   ProtobufUnittest_SwiftReservedTestExt.Extensions.do,
   ProtobufUnittest_SwiftReservedTestExt.Extensions.nil
 ]
+// Support for the runtime.
+extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    10: .standard(proto: "proto_message_name"),
+    11: .standard(proto: "proto_package_name"),
+    12: .standard(proto: "any_type_prefix"),
+    13: .standard(proto: "any_type_url"),
+    20: .standard(proto: "is_initialized"),
+    21: .standard(proto: "hash_value"),
+    22: .standard(proto: "debug_description"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
+    if _protoMessageName != other._protoMessageName {return false}
+    if _protoPackageName != other._protoPackageName {return false}
+    if _anyTypePrefix != other._anyTypePrefix {return false}
+    if _anyTypeURL != other._anyTypeURL {return false}
+    if _isInitialized_p != other._isInitialized_p {return false}
+    if _hashValue_p != other._hashValue_p {return false}
+    if _debugDescription_p != other._debugDescription_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.classMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.TypeMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_SwiftReservedTest.isEqualMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqualMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTestExt) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
