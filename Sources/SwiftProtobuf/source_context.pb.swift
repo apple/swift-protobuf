@@ -52,11 +52,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 
 ///   `SourceContext` represents information about the source of a
 ///   protobuf element, like the file in which it is defined.
-public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".SourceContext"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "file_name"),
-  ]
 
   ///   The path-qualified name of the .proto file that contained the associated
   ///   protobuf element.  For example: `"google/protobuf/source_context.proto"`.
@@ -81,6 +78,12 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message, SwiftProtobu
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension Google_Protobuf_SourceContext: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "file_name"),
+  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
     if fileName != other.fileName {return false}

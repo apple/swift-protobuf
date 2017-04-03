@@ -77,9 +77,6 @@ class MessageGenerator {
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
     }
-    conformance.append("SwiftProtobuf._MessageImplementationBase")
-    // TODO: Move this conformance into an extension in a separate file.
-    conformance.append("SwiftProtobuf._ProtoNameProviding")
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
     var i: Int32 = 0
@@ -167,7 +164,7 @@ class MessageGenerator {
     }
   }
 
-  func generateNested(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+  func generateMainStuct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print("\n")
     if !comments.isEmpty {
       p.print(comments)
@@ -181,19 +178,6 @@ class MessageGenerator {
         p.print("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(protoMessageName)\"\n")
     } else {
         p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
-    }
-
-    // Map proto field names to field number
-    if fields.isEmpty {
-      p.print("\(visibility)static let _protobuf_nameMap = SwiftProtobuf._NameMap()\n")
-    } else {
-      p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
-      p.indent()
-      for f in fields {
-        p.print("\(f.number): \(f.fieldMapNames),\n")
-      }
-      p.outdent()
-      p.print("]\n")
     }
 
     if let storage = storage {
@@ -250,7 +234,7 @@ class MessageGenerator {
 
     // Nested messages
     for m in messages {
-      m.generateNested(printer: &p, file: file, parent: self)
+      m.generateMainStuct(printer: &p, file: file, parent: self)
     }
 
     // Nested extension declarations
@@ -280,9 +264,6 @@ class MessageGenerator {
     p.print("\n")
     generateTraverse(printer: &p)
 
-    p.print("\n")
-    generateIsEqualTo(printer: &p)
-
     // Optional extension support
     if isExtensible {
       p.print("\n")
@@ -311,6 +292,43 @@ class MessageGenerator {
     }
     for m in messages {
       m.registerExtensions(registry: &registry)
+    }
+  }
+
+  func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+    p.print("// Support for the runtime.\n")
+    p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
+    p.indent()
+
+    //
+    // _ProtoNameProviding
+    //
+
+    if fields.isEmpty {
+      p.print("\(visibility)static let _protobuf_nameMap = SwiftProtobuf._NameMap()\n")
+    } else {
+      p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
+      p.indent()
+      for f in fields {
+        p.print("\(f.number): \(f.fieldMapNames),\n")
+      }
+      p.outdent()
+      p.print("]\n")
+    }
+
+    p.print("\n")
+    generateIsEqualTo(printer: &p)
+
+    p.outdent()
+    p.print("}\n")
+
+
+    //
+    // Nested messages
+    //
+
+    for m in messages {
+      m.generateRuntimeSupport(printer: &p, file: file, parent: self)
     }
   }
 

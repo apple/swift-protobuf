@@ -53,11 +53,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
-struct Proto3PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3PublicImportMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".PublicImportMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "e"),
-  ]
 
   var e: Int32 = 0
 
@@ -80,6 +77,12 @@ struct Proto3PublicImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension Proto3PublicImportMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "e"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Proto3PublicImportMessage) -> Bool {
     if e != other.e {return false}

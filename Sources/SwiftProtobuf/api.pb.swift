@@ -51,19 +51,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 fileprivate let _protobuf_package = "google.protobuf"
 
 ///   Api is a light-weight descriptor for a protocol buffer service.
-public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Api: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Api"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "methods"),
-    3: .same(proto: "options"),
-    4: .same(proto: "version"),
-    5: .standard(proto: "source_context"),
-    6: .same(proto: "mixins"),
-    7: .same(proto: "syntax"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _name: String = ""
     var _methods: [Google_Protobuf_Method] = []
     var _options: [Google_Protobuf_Option] = []
@@ -85,9 +76,9 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -211,38 +202,11 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._name != other_storage._name {return false}
-        if _storage._methods != other_storage._methods {return false}
-        if _storage._options != other_storage._options {return false}
-        if _storage._version != other_storage._version {return false}
-        if _storage._sourceContext != other_storage._sourceContext {return false}
-        if _storage._mixins != other_storage._mixins {return false}
-        if _storage._syntax != other_storage._syntax {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   Method represents a method of an api.
-public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Method: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Method"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .standard(proto: "request_type_url"),
-    3: .standard(proto: "request_streaming"),
-    4: .standard(proto: "response_type_url"),
-    5: .standard(proto: "response_streaming"),
-    6: .same(proto: "options"),
-    7: .same(proto: "syntax"),
-  ]
 
   ///   The simple name of this method.
   public var name: String = ""
@@ -307,18 +271,6 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._Mess
       try visitor.visitSingularEnumField(value: syntax, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
-  }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
-    if name != other.name {return false}
-    if requestTypeURL != other.requestTypeURL {return false}
-    if requestStreaming != other.requestStreaming {return false}
-    if responseTypeURL != other.responseTypeURL {return false}
-    if responseStreaming != other.responseStreaming {return false}
-    if options != other.options {return false}
-    if syntax != other.syntax {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
   }
 }
 
@@ -399,12 +351,8 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message, SwiftProtobuf._Mess
 ///         }
 ///         ...
 ///       }
-public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "name"),
-    2: .same(proto: "root"),
-  ]
 
   ///   The fully qualified name of the API which is included.
   public var name: String = ""
@@ -436,6 +384,67 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "methods"),
+    3: .same(proto: "options"),
+    4: .same(proto: "version"),
+    5: .standard(proto: "source_context"),
+    6: .same(proto: "mixins"),
+    7: .same(proto: "syntax"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._name != other_storage._name {return false}
+        if _storage._methods != other_storage._methods {return false}
+        if _storage._options != other_storage._options {return false}
+        if _storage._version != other_storage._version {return false}
+        if _storage._sourceContext != other_storage._sourceContext {return false}
+        if _storage._mixins != other_storage._mixins {return false}
+        if _storage._syntax != other_storage._syntax {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension Google_Protobuf_Method: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .standard(proto: "request_type_url"),
+    3: .standard(proto: "request_streaming"),
+    4: .standard(proto: "response_type_url"),
+    5: .standard(proto: "response_streaming"),
+    6: .same(proto: "options"),
+    7: .same(proto: "syntax"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
+    if name != other.name {return false}
+    if requestTypeURL != other.requestTypeURL {return false}
+    if requestStreaming != other.requestStreaming {return false}
+    if responseTypeURL != other.responseTypeURL {return false}
+    if responseStreaming != other.responseStreaming {return false}
+    if options != other.options {return false}
+    if syntax != other.syntax {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension Google_Protobuf_Mixin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "root"),
+  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Mixin) -> Bool {
     if name != other.name {return false}

@@ -90,13 +90,10 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._P
 
 }
 
-struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
 
-  private var _d: Int32? = nil
+  fileprivate var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
@@ -127,6 +124,12 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message, SwiftPro
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "d"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessageLite) -> Bool {
     if _d != other._d {return false}

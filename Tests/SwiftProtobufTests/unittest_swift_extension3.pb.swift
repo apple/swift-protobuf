@@ -39,19 +39,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend3"
 
-struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct C: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend3_MyMessage.protoMessageName + ".C"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1310: .same(proto: "c"),
-    ]
 
-    private var _c: Int64? = nil
+    fileprivate var _c: Int64? = nil
     var c: Int64 {
       get {return _c ?? 0}
       set {_c = newValue}
@@ -82,12 +78,6 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage.C) -> Bool {
-      if _c != other._c {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
   struct Extensions {
@@ -115,20 +105,12 @@ struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message, SwiftProtobuf.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1320: .same(proto: "c"),
-  ]
 
-  private var _c: Int64? = nil
+  fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -158,12 +140,6 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message, SwiftProtobuf._Message
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1320)
     }
     try unknownFields.traverse(visitor: &visitor)
-  }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend3_C) -> Bool {
-    if _c != other._c {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
   }
 }
 
@@ -237,3 +213,36 @@ let ProtobufUnittest_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.S
   ProtobufUnittest_Extend3_MyMessage.Extensions.b,
   ProtobufUnittest_Extend3_MyMessage.Extensions.C
 ]
+// Support for the runtime.
+extension ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_Extend3_MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1310: .same(proto: "c"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend3_MyMessage.C) -> Bool {
+    if _c != other._c {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_Extend3_C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1320: .same(proto: "c"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend3_C) -> Bool {
+    if _c != other._c {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}

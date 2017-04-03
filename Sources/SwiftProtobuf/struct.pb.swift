@@ -93,11 +93,8 @@ public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoN
 ///   with the proto support for the language.
 ///  
 ///   The JSON representation for `Struct` is JSON object.
-public struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Struct: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Struct"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "fields"),
-  ]
 
   ///   Unordered map of dynamically typed values.
   public var fields: Dictionary<String,Google_Protobuf_Value> = [:]
@@ -121,12 +118,6 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
-    if fields != other.fields {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   `Value` represents a dynamically typed value which can be either
@@ -135,18 +126,10 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message, SwiftProtobuf._Mess
 ///   variants, absence of any variant indicates an error.
 ///  
 ///   The JSON representation for `Value` is JSON value.
-public struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Value: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Value"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "null_value"),
-    2: .standard(proto: "number_value"),
-    3: .standard(proto: "string_value"),
-    4: .standard(proto: "bool_value"),
-    5: .standard(proto: "struct_value"),
-    6: .standard(proto: "list_value"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _kind: Google_Protobuf_Value.OneOf_Kind?
 
     init() {}
@@ -156,9 +139,9 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -368,28 +351,13 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._kind != other_storage._kind {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   `ListValue` is a wrapper around a repeated field of values.
 ///  
 ///   The JSON representation for `ListValue` is JSON array.
-public struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_ListValue: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".ListValue"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "values"),
-  ]
 
   ///   Repeated field of dynamically typed values.
   public var values: [Google_Protobuf_Value] = []
@@ -413,6 +381,47 @@ public struct Google_Protobuf_ListValue: SwiftProtobuf.Message, SwiftProtobuf._M
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension Google_Protobuf_Struct: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "fields"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
+    if fields != other.fields {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "null_value"),
+    2: .standard(proto: "number_value"),
+    3: .standard(proto: "string_value"),
+    4: .standard(proto: "bool_value"),
+    5: .standard(proto: "struct_value"),
+    6: .standard(proto: "list_value"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._kind != other_storage._kind {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension Google_Protobuf_ListValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "values"),
+  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
     if values != other.values {return false}

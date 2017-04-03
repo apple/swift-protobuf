@@ -58,13 +58,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "message_set"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
     init() {}
@@ -74,9 +71,9 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -125,27 +122,12 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message, SwiftPro
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._messageSet != other_storage._messageSet {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    15: .same(proto: "i"),
-  ]
 
-  private var _i: Int32? = nil
+  fileprivate var _i: Int32? = nil
   var i: Int32 {
     get {return _i ?? 0}
     set {_i = newValue}
@@ -185,21 +167,12 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message, SwiftPr
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
-    if _i != other._i {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension2"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    25: .same(proto: "str"),
-  ]
 
-  private var _str: String? = nil
+  fileprivate var _str: String? = nil
   var str: String {
     get {return _str ?? ""}
     set {_str = newValue}
@@ -239,33 +212,20 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message, SwiftPr
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
-    if _str != other._str {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   MessageSet wire format is equivalent to this.
-struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".RawMessageSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .unique(proto: "Item", json: "item"),
-  ]
 
   var item: [ProtobufUnittest_RawMessageSet.Item] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Item: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct Item: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_RawMessageSet.protoMessageName + ".Item"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      2: .standard(proto: "type_id"),
-      3: .same(proto: "message"),
-    ]
 
-    private var _typeId: Int32? = nil
+    fileprivate var _typeId: Int32? = nil
     var typeId: Int32 {
       get {return _typeId ?? 0}
       set {_typeId = newValue}
@@ -277,7 +237,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._Mes
       return _typeId = nil
     }
 
-    private var _message: Data? = nil
+    fileprivate var _message: Data? = nil
     var message: Data {
       get {return _message ?? Data()}
       set {_message = newValue}
@@ -318,13 +278,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._Mes
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
-      if _typeId != other._typeId {return false}
-      if _message != other._message {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
   init() {}
@@ -348,12 +301,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message, SwiftProtobuf._Mes
       try visitor.visitRepeatedGroupField(value: item, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
-  }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {
-    if item != other.item {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
   }
 }
 
@@ -387,3 +334,71 @@ let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]
+// Support for the runtime.
+extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "message_set"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._messageSet != other_storage._messageSet {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    15: .same(proto: "i"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
+    if _i != other._i {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    25: .same(proto: "str"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
+    if _str != other._str {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_RawMessageSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .unique(proto: "Item", json: "item"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {
+    if item != other.item {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+// Support for the runtime.
+extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2: .standard(proto: "type_id"),
+    3: .same(proto: "message"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
+    if _typeId != other._typeId {return false}
+    if _message != other._message {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}

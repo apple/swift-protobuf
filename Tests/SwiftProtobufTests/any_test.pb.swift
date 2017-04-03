@@ -51,15 +51,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "int32_value"),
-    2: .standard(proto: "any_value"),
-    3: .standard(proto: "repeated_any_value"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _int32Value: Int32 = 0
     var _anyValue: Google_Protobuf_Any? = nil
     var _repeatedAnyValue: [Google_Protobuf_Any] = []
@@ -73,9 +68,9 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -135,6 +130,14 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+// Support for the runtime.
+extension ProtobufUnittest_TestAny: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "int32_value"),
+    2: .standard(proto: "any_value"),
+    3: .standard(proto: "repeated_any_value"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
     if _storage !== other._storage {

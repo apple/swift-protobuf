@@ -424,7 +424,7 @@ struct MessageFieldGenerator {
             p.outdent()
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
-            p.print("private var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print("get {return \(swiftStorageName) ?? \(swiftDefaultValue)}\n")
