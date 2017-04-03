@@ -49,6 +49,7 @@ private let asciiLowerA = UInt8(ascii: "a")
 private let asciiUpperA = UInt8(ascii: "A")
 private let asciiLowerB = UInt8(ascii: "b")
 private let asciiLowerE = UInt8(ascii: "e")
+private let asciiUpperE = UInt8(ascii: "E")
 private let asciiLowerF = UInt8(ascii: "f")
 private let asciiUpperI = UInt8(ascii: "I")
 private let asciiLowerL = UInt8(ascii: "l")
@@ -254,7 +255,7 @@ internal struct JSONScanner {
                 case asciiZero...asciiNine: // 0...9
                     // leading '0' forbidden unless it is the only digit
                     throw JSONDecodingError.leadingZero
-                case asciiPeriod, asciiLowerE: // . e
+                case asciiPeriod, asciiLowerE, asciiUpperE: // . e E
                     // Slow path: JSON numbers can be written in floating-point notation
                     p = start
                     if let d = try parseBareDouble(p: &p, end: end) {
@@ -284,7 +285,7 @@ internal struct JSONScanner {
                     }
                     p = p + 1
                     n = n * 10 + val
-                case asciiPeriod, asciiLowerE: // . e
+                case asciiPeriod, asciiLowerE, asciiUpperE: // . e E
                     // Slow path: JSON allows floating-point notation for integers
                     p = start
                     if let d = try parseBareDouble(p: &p, end: end) {
@@ -464,7 +465,7 @@ internal struct JSONScanner {
         }
 
         // exp = e [ minus / plus ] 1*DIGIT
-        if c == asciiLowerE {
+        if c == asciiLowerE || c == asciiUpperE {
             p = p + 1
             if p == end {
                 // "e" must be followed by +,-, or digit
