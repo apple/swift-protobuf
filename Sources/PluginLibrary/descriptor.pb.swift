@@ -1539,20 +1539,70 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".FileOptions"
 
+  fileprivate class _StorageClass {
+    var _javaPackage: String? = nil
+    var _javaOuterClassname: String? = nil
+    var _javaMultipleFiles: Bool? = nil
+    var _javaGenerateEqualsAndHash: Bool? = nil
+    var _javaStringCheckUtf8: Bool? = nil
+    var _optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
+    var _goPackage: String? = nil
+    var _ccGenericServices: Bool? = nil
+    var _javaGenericServices: Bool? = nil
+    var _pyGenericServices: Bool? = nil
+    var _deprecated: Bool? = nil
+    var _ccEnableArenas: Bool? = nil
+    var _objcClassPrefix: String? = nil
+    var _csharpNamespace: String? = nil
+    var _swiftPrefix: String? = nil
+    var _phpClassPrefix: String? = nil
+    var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _javaPackage = source._javaPackage
+      _javaOuterClassname = source._javaOuterClassname
+      _javaMultipleFiles = source._javaMultipleFiles
+      _javaGenerateEqualsAndHash = source._javaGenerateEqualsAndHash
+      _javaStringCheckUtf8 = source._javaStringCheckUtf8
+      _optimizeFor = source._optimizeFor
+      _goPackage = source._goPackage
+      _ccGenericServices = source._ccGenericServices
+      _javaGenericServices = source._javaGenericServices
+      _pyGenericServices = source._pyGenericServices
+      _deprecated = source._deprecated
+      _ccEnableArenas = source._ccEnableArenas
+      _objcClassPrefix = source._objcClassPrefix
+      _csharpNamespace = source._csharpNamespace
+      _swiftPrefix = source._swiftPrefix
+      _phpClassPrefix = source._phpClassPrefix
+      _uninterpretedOption = source._uninterpretedOption
+    }
+  }
+
+  fileprivate var _storage = _StorageClass()
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   ///   Sets the Java package where classes generated from this .proto will be
   ///   placed.  By default, the proto package is used, but this is often
   ///   inappropriate because proto packages do not normally start with backwards
   ///   domain names.
-  fileprivate var _javaPackage: String? = nil
   public var javaPackage: String {
-    get {return _javaPackage ?? ""}
-    set {_javaPackage = newValue}
+    get {return _storage._javaPackage ?? ""}
+    set {_uniqueStorage()._javaPackage = newValue}
   }
   public var hasJavaPackage: Bool {
-    return _javaPackage != nil
+    return _storage._javaPackage != nil
   }
   public mutating func clearJavaPackage() {
-    return _javaPackage = nil
+    return _storage._javaPackage = nil
   }
 
   ///   If set, all the classes from the .proto file are wrapped in a single
@@ -1560,16 +1610,15 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   ///   (equivalent to the old "--one_java_file" option) and Proto2 (where
   ///   a .proto always translates to a single class, but you may want to
   ///   explicitly choose the class name).
-  fileprivate var _javaOuterClassname: String? = nil
   public var javaOuterClassname: String {
-    get {return _javaOuterClassname ?? ""}
-    set {_javaOuterClassname = newValue}
+    get {return _storage._javaOuterClassname ?? ""}
+    set {_uniqueStorage()._javaOuterClassname = newValue}
   }
   public var hasJavaOuterClassname: Bool {
-    return _javaOuterClassname != nil
+    return _storage._javaOuterClassname != nil
   }
   public mutating func clearJavaOuterClassname() {
-    return _javaOuterClassname = nil
+    return _storage._javaOuterClassname = nil
   }
 
   ///   If set true, then the Java code generator will generate a separate .java
@@ -1578,29 +1627,27 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   ///   named by java_outer_classname.  However, the outer class will still be
   ///   generated to contain the file's getDescriptor() method as well as any
   ///   top-level extensions defined in the file.
-  fileprivate var _javaMultipleFiles: Bool? = nil
   public var javaMultipleFiles: Bool {
-    get {return _javaMultipleFiles ?? false}
-    set {_javaMultipleFiles = newValue}
+    get {return _storage._javaMultipleFiles ?? false}
+    set {_uniqueStorage()._javaMultipleFiles = newValue}
   }
   public var hasJavaMultipleFiles: Bool {
-    return _javaMultipleFiles != nil
+    return _storage._javaMultipleFiles != nil
   }
   public mutating func clearJavaMultipleFiles() {
-    return _javaMultipleFiles = nil
+    return _storage._javaMultipleFiles = nil
   }
 
   ///   This option does nothing.
-  fileprivate var _javaGenerateEqualsAndHash: Bool? = nil
   public var javaGenerateEqualsAndHash: Bool {
-    get {return _javaGenerateEqualsAndHash ?? false}
-    set {_javaGenerateEqualsAndHash = newValue}
+    get {return _storage._javaGenerateEqualsAndHash ?? false}
+    set {_uniqueStorage()._javaGenerateEqualsAndHash = newValue}
   }
   public var hasJavaGenerateEqualsAndHash: Bool {
-    return _javaGenerateEqualsAndHash != nil
+    return _storage._javaGenerateEqualsAndHash != nil
   }
   public mutating func clearJavaGenerateEqualsAndHash() {
-    return _javaGenerateEqualsAndHash = nil
+    return _storage._javaGenerateEqualsAndHash = nil
   }
 
   ///   If set true, then the Java2 code generator will generate code that
@@ -1609,28 +1656,26 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   ///   Message reflection will do the same.
   ///   However, an extension field still accepts non-UTF-8 byte sequences.
   ///   This option has no effect on when used with the lite runtime.
-  fileprivate var _javaStringCheckUtf8: Bool? = nil
   public var javaStringCheckUtf8: Bool {
-    get {return _javaStringCheckUtf8 ?? false}
-    set {_javaStringCheckUtf8 = newValue}
+    get {return _storage._javaStringCheckUtf8 ?? false}
+    set {_uniqueStorage()._javaStringCheckUtf8 = newValue}
   }
   public var hasJavaStringCheckUtf8: Bool {
-    return _javaStringCheckUtf8 != nil
+    return _storage._javaStringCheckUtf8 != nil
   }
   public mutating func clearJavaStringCheckUtf8() {
-    return _javaStringCheckUtf8 = nil
+    return _storage._javaStringCheckUtf8 = nil
   }
 
-  fileprivate var _optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
   public var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode {
-    get {return _optimizeFor ?? Google_Protobuf_FileOptions.OptimizeMode.speed}
-    set {_optimizeFor = newValue}
+    get {return _storage._optimizeFor ?? Google_Protobuf_FileOptions.OptimizeMode.speed}
+    set {_uniqueStorage()._optimizeFor = newValue}
   }
   public var hasOptimizeFor: Bool {
-    return _optimizeFor != nil
+    return _storage._optimizeFor != nil
   }
   public mutating func clearOptimizeFor() {
-    return _optimizeFor = nil
+    return _storage._optimizeFor = nil
   }
 
   ///   Sets the Go package where structs generated from this .proto will be
@@ -1638,16 +1683,15 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   ///     - The basename of the package import path, if provided.
   ///     - Otherwise, the package statement in the .proto file, if present.
   ///     - Otherwise, the basename of the .proto file, without extension.
-  fileprivate var _goPackage: String? = nil
   public var goPackage: String {
-    get {return _goPackage ?? ""}
-    set {_goPackage = newValue}
+    get {return _storage._goPackage ?? ""}
+    set {_uniqueStorage()._goPackage = newValue}
   }
   public var hasGoPackage: Bool {
-    return _goPackage != nil
+    return _storage._goPackage != nil
   }
   public mutating func clearGoPackage() {
-    return _goPackage = nil
+    return _storage._goPackage = nil
   }
 
   ///   Should generic services be generated in each language?  "Generic" services
@@ -1660,117 +1704,125 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   ///   that generate code specific to your particular RPC system.  Therefore,
   ///   these default to false.  Old code which depends on generic services should
   ///   explicitly set them to true.
-  fileprivate var _ccGenericServices: Bool? = nil
   public var ccGenericServices: Bool {
-    get {return _ccGenericServices ?? false}
-    set {_ccGenericServices = newValue}
+    get {return _storage._ccGenericServices ?? false}
+    set {_uniqueStorage()._ccGenericServices = newValue}
   }
   public var hasCcGenericServices: Bool {
-    return _ccGenericServices != nil
+    return _storage._ccGenericServices != nil
   }
   public mutating func clearCcGenericServices() {
-    return _ccGenericServices = nil
+    return _storage._ccGenericServices = nil
   }
 
-  fileprivate var _javaGenericServices: Bool? = nil
   public var javaGenericServices: Bool {
-    get {return _javaGenericServices ?? false}
-    set {_javaGenericServices = newValue}
+    get {return _storage._javaGenericServices ?? false}
+    set {_uniqueStorage()._javaGenericServices = newValue}
   }
   public var hasJavaGenericServices: Bool {
-    return _javaGenericServices != nil
+    return _storage._javaGenericServices != nil
   }
   public mutating func clearJavaGenericServices() {
-    return _javaGenericServices = nil
+    return _storage._javaGenericServices = nil
   }
 
-  fileprivate var _pyGenericServices: Bool? = nil
   public var pyGenericServices: Bool {
-    get {return _pyGenericServices ?? false}
-    set {_pyGenericServices = newValue}
+    get {return _storage._pyGenericServices ?? false}
+    set {_uniqueStorage()._pyGenericServices = newValue}
   }
   public var hasPyGenericServices: Bool {
-    return _pyGenericServices != nil
+    return _storage._pyGenericServices != nil
   }
   public mutating func clearPyGenericServices() {
-    return _pyGenericServices = nil
+    return _storage._pyGenericServices = nil
   }
 
   ///   Is this file deprecated?
   ///   Depending on the target platform, this can emit Deprecated annotations
   ///   for everything in the file, or it will be completely ignored; in the very
   ///   least, this is a formalization for deprecating files.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
-    get {return _deprecated ?? false}
-    set {_deprecated = newValue}
+    get {return _storage._deprecated ?? false}
+    set {_uniqueStorage()._deprecated = newValue}
   }
   public var hasDeprecated: Bool {
-    return _deprecated != nil
+    return _storage._deprecated != nil
   }
   public mutating func clearDeprecated() {
-    return _deprecated = nil
+    return _storage._deprecated = nil
   }
 
   ///   Enables the use of arenas for the proto messages in this file. This applies
   ///   only to generated classes for C++.
-  fileprivate var _ccEnableArenas: Bool? = nil
   public var ccEnableArenas: Bool {
-    get {return _ccEnableArenas ?? false}
-    set {_ccEnableArenas = newValue}
+    get {return _storage._ccEnableArenas ?? false}
+    set {_uniqueStorage()._ccEnableArenas = newValue}
   }
   public var hasCcEnableArenas: Bool {
-    return _ccEnableArenas != nil
+    return _storage._ccEnableArenas != nil
   }
   public mutating func clearCcEnableArenas() {
-    return _ccEnableArenas = nil
+    return _storage._ccEnableArenas = nil
   }
 
   ///   Sets the objective c class prefix which is prepended to all objective c
   ///   generated classes from this .proto. There is no default.
-  fileprivate var _objcClassPrefix: String? = nil
   public var objcClassPrefix: String {
-    get {return _objcClassPrefix ?? ""}
-    set {_objcClassPrefix = newValue}
+    get {return _storage._objcClassPrefix ?? ""}
+    set {_uniqueStorage()._objcClassPrefix = newValue}
   }
   public var hasObjcClassPrefix: Bool {
-    return _objcClassPrefix != nil
+    return _storage._objcClassPrefix != nil
   }
   public mutating func clearObjcClassPrefix() {
-    return _objcClassPrefix = nil
+    return _storage._objcClassPrefix = nil
   }
 
   ///   Namespace for generated classes; defaults to the package.
-  fileprivate var _csharpNamespace: String? = nil
   public var csharpNamespace: String {
-    get {return _csharpNamespace ?? ""}
-    set {_csharpNamespace = newValue}
+    get {return _storage._csharpNamespace ?? ""}
+    set {_uniqueStorage()._csharpNamespace = newValue}
   }
   public var hasCsharpNamespace: Bool {
-    return _csharpNamespace != nil
+    return _storage._csharpNamespace != nil
   }
   public mutating func clearCsharpNamespace() {
-    return _csharpNamespace = nil
+    return _storage._csharpNamespace = nil
   }
 
   ///   By default Swift generators will take the proto package and CamelCase it
   ///   replacing '.' with underscore and use that to prefix the types/symbols
   ///   defined. When this options is provided, they will use this value instead
   ///   to prefix the types/symbols defined.
-  fileprivate var _swiftPrefix: String? = nil
   public var swiftPrefix: String {
-    get {return _swiftPrefix ?? ""}
-    set {_swiftPrefix = newValue}
+    get {return _storage._swiftPrefix ?? ""}
+    set {_uniqueStorage()._swiftPrefix = newValue}
   }
   public var hasSwiftPrefix: Bool {
-    return _swiftPrefix != nil
+    return _storage._swiftPrefix != nil
   }
   public mutating func clearSwiftPrefix() {
-    return _swiftPrefix = nil
+    return _storage._swiftPrefix = nil
+  }
+
+  ///   Sets the php class prefix which is prepended to all php generated classes
+  ///   from this .proto. Default is empty.
+  public var phpClassPrefix: String {
+    get {return _storage._phpClassPrefix ?? ""}
+    set {_uniqueStorage()._phpClassPrefix = newValue}
+  }
+  public var hasPhpClassPrefix: Bool {
+    return _storage._phpClassPrefix != nil
+  }
+  public mutating func clearPhpClassPrefix() {
+    return _storage._phpClassPrefix = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
-  public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
+  public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] {
+    get {return _storage._uninterpretedOption}
+    set {_uniqueStorage()._uninterpretedOption = newValue}
+  }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1820,86 +1872,97 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
 
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
-    if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
-    return true
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+      return true
+    }
   }
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_javaPackage)
-      case 8: try decoder.decodeSingularStringField(value: &_javaOuterClassname)
-      case 10: try decoder.decodeSingularBoolField(value: &_javaMultipleFiles)
-      case 20: try decoder.decodeSingularBoolField(value: &_javaGenerateEqualsAndHash)
-      case 27: try decoder.decodeSingularBoolField(value: &_javaStringCheckUtf8)
-      case 9: try decoder.decodeSingularEnumField(value: &_optimizeFor)
-      case 11: try decoder.decodeSingularStringField(value: &_goPackage)
-      case 16: try decoder.decodeSingularBoolField(value: &_ccGenericServices)
-      case 17: try decoder.decodeSingularBoolField(value: &_javaGenericServices)
-      case 18: try decoder.decodeSingularBoolField(value: &_pyGenericServices)
-      case 23: try decoder.decodeSingularBoolField(value: &_deprecated)
-      case 31: try decoder.decodeSingularBoolField(value: &_ccEnableArenas)
-      case 36: try decoder.decodeSingularStringField(value: &_objcClassPrefix)
-      case 37: try decoder.decodeSingularStringField(value: &_csharpNamespace)
-      case 39: try decoder.decodeSingularStringField(value: &_swiftPrefix)
-      case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
-      case 1000..<536870912:
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularStringField(value: &_storage._javaPackage)
+        case 8: try decoder.decodeSingularStringField(value: &_storage._javaOuterClassname)
+        case 10: try decoder.decodeSingularBoolField(value: &_storage._javaMultipleFiles)
+        case 20: try decoder.decodeSingularBoolField(value: &_storage._javaGenerateEqualsAndHash)
+        case 27: try decoder.decodeSingularBoolField(value: &_storage._javaStringCheckUtf8)
+        case 9: try decoder.decodeSingularEnumField(value: &_storage._optimizeFor)
+        case 11: try decoder.decodeSingularStringField(value: &_storage._goPackage)
+        case 16: try decoder.decodeSingularBoolField(value: &_storage._ccGenericServices)
+        case 17: try decoder.decodeSingularBoolField(value: &_storage._javaGenericServices)
+        case 18: try decoder.decodeSingularBoolField(value: &_storage._pyGenericServices)
+        case 23: try decoder.decodeSingularBoolField(value: &_storage._deprecated)
+        case 31: try decoder.decodeSingularBoolField(value: &_storage._ccEnableArenas)
+        case 36: try decoder.decodeSingularStringField(value: &_storage._objcClassPrefix)
+        case 37: try decoder.decodeSingularStringField(value: &_storage._csharpNamespace)
+        case 39: try decoder.decodeSingularStringField(value: &_storage._swiftPrefix)
+        case 40: try decoder.decodeSingularStringField(value: &_storage._phpClassPrefix)
+        case 999: try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption)
+        case 1000..<536870912:
+          try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _javaPackage {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._javaPackage {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._javaOuterClassname {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 8)
+      }
+      if let v = _storage._optimizeFor {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
+      }
+      if let v = _storage._javaMultipleFiles {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 10)
+      }
+      if let v = _storage._goPackage {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 11)
+      }
+      if let v = _storage._ccGenericServices {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 16)
+      }
+      if let v = _storage._javaGenericServices {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
+      }
+      if let v = _storage._pyGenericServices {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 18)
+      }
+      if let v = _storage._javaGenerateEqualsAndHash {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 20)
+      }
+      if let v = _storage._deprecated {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 23)
+      }
+      if let v = _storage._javaStringCheckUtf8 {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 27)
+      }
+      if let v = _storage._ccEnableArenas {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 31)
+      }
+      if let v = _storage._objcClassPrefix {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 36)
+      }
+      if let v = _storage._csharpNamespace {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 37)
+      }
+      if let v = _storage._swiftPrefix {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 39)
+      }
+      if let v = _storage._phpClassPrefix {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 40)
+      }
+      if !_storage._uninterpretedOption.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
+      }
+      try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     }
-    if let v = _javaOuterClassname {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 8)
-    }
-    if let v = _optimizeFor {
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
-    }
-    if let v = _javaMultipleFiles {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 10)
-    }
-    if let v = _goPackage {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 11)
-    }
-    if let v = _ccGenericServices {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 16)
-    }
-    if let v = _javaGenericServices {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 17)
-    }
-    if let v = _pyGenericServices {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 18)
-    }
-    if let v = _javaGenerateEqualsAndHash {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 20)
-    }
-    if let v = _deprecated {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 23)
-    }
-    if let v = _javaStringCheckUtf8 {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 27)
-    }
-    if let v = _ccEnableArenas {
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 31)
-    }
-    if let v = _objcClassPrefix {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 36)
-    }
-    if let v = _csharpNamespace {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 37)
-    }
-    if let v = _swiftPrefix {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 39)
-    }
-    if !uninterpretedOption.isEmpty {
-      try visitor.visitRepeatedMessageField(value: uninterpretedOption, fieldNumber: 999)
-    }
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3485,26 +3548,34 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     36: .standard(proto: "objc_class_prefix"),
     37: .standard(proto: "csharp_namespace"),
     39: .standard(proto: "swift_prefix"),
+    40: .standard(proto: "php_class_prefix"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
-    if _javaPackage != other._javaPackage {return false}
-    if _javaOuterClassname != other._javaOuterClassname {return false}
-    if _javaMultipleFiles != other._javaMultipleFiles {return false}
-    if _javaGenerateEqualsAndHash != other._javaGenerateEqualsAndHash {return false}
-    if _javaStringCheckUtf8 != other._javaStringCheckUtf8 {return false}
-    if _optimizeFor != other._optimizeFor {return false}
-    if _goPackage != other._goPackage {return false}
-    if _ccGenericServices != other._ccGenericServices {return false}
-    if _javaGenericServices != other._javaGenericServices {return false}
-    if _pyGenericServices != other._pyGenericServices {return false}
-    if _deprecated != other._deprecated {return false}
-    if _ccEnableArenas != other._ccEnableArenas {return false}
-    if _objcClassPrefix != other._objcClassPrefix {return false}
-    if _csharpNamespace != other._csharpNamespace {return false}
-    if _swiftPrefix != other._swiftPrefix {return false}
-    if uninterpretedOption != other.uninterpretedOption {return false}
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._javaPackage != other_storage._javaPackage {return false}
+        if _storage._javaOuterClassname != other_storage._javaOuterClassname {return false}
+        if _storage._javaMultipleFiles != other_storage._javaMultipleFiles {return false}
+        if _storage._javaGenerateEqualsAndHash != other_storage._javaGenerateEqualsAndHash {return false}
+        if _storage._javaStringCheckUtf8 != other_storage._javaStringCheckUtf8 {return false}
+        if _storage._optimizeFor != other_storage._optimizeFor {return false}
+        if _storage._goPackage != other_storage._goPackage {return false}
+        if _storage._ccGenericServices != other_storage._ccGenericServices {return false}
+        if _storage._javaGenericServices != other_storage._javaGenericServices {return false}
+        if _storage._pyGenericServices != other_storage._pyGenericServices {return false}
+        if _storage._deprecated != other_storage._deprecated {return false}
+        if _storage._ccEnableArenas != other_storage._ccEnableArenas {return false}
+        if _storage._objcClassPrefix != other_storage._objcClassPrefix {return false}
+        if _storage._csharpNamespace != other_storage._csharpNamespace {return false}
+        if _storage._swiftPrefix != other_storage._swiftPrefix {return false}
+        if _storage._phpClassPrefix != other_storage._phpClassPrefix {return false}
+        if _storage._uninterpretedOption != other_storage._uninterpretedOption {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true

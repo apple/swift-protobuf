@@ -1700,6 +1700,23 @@ struct ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message {
   }
 }
 
+struct ProtobufUnittest_TestDeprecatedMessage: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".TestDeprecatedMessage"
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+}
+
 ///   Define these after TestAllTypes to make sure the compiler can handle
 ///   that.
 struct ProtobufUnittest_ForeignMessage: SwiftProtobuf.Message {
@@ -10007,6 +10024,16 @@ extension ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDeprecatedFields) -> Bool {
     if _deprecatedInt32 != other._deprecatedInt32 {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+// Support for the runtime.
+extension ProtobufUnittest_TestDeprecatedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDeprecatedMessage) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }
