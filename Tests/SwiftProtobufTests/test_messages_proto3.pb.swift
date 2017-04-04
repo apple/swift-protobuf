@@ -1852,7 +1852,6 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -2099,7 +2098,6 @@ extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplem
   }
 }
 
-// Support for the runtime.
 extension ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -2120,7 +2118,6 @@ extension ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage: SwiftProtobuf.
   }
 }
 
-// Support for the runtime.
 extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),

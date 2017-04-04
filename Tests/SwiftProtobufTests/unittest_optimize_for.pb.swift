@@ -383,7 +383,6 @@ let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensi
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
 ]
 
-// Support for the runtime.
 extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
@@ -408,7 +407,6 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
@@ -421,7 +419,6 @@ extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "o"),

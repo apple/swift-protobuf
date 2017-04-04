@@ -402,7 +402,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "protobuf_payload"),
@@ -418,7 +417,6 @@ extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "parse_error"),

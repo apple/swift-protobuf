@@ -386,7 +386,6 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -417,7 +416,6 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Method: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -442,7 +440,6 @@ extension Google_Protobuf_Method: SwiftProtobuf._MessageImplementationBase, Swif
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Mixin: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),

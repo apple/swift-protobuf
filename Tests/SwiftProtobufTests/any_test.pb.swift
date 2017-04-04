@@ -132,7 +132,6 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAny: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int32_value"),

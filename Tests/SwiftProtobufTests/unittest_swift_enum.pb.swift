@@ -251,7 +251,6 @@ struct ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_SwiftEnumTest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -261,7 +260,6 @@ extension ProtobufUnittest_SwiftEnumTest: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),

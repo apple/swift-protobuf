@@ -383,7 +383,6 @@ struct Google_Protobuf_ListValue: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Struct: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fields"),
@@ -396,7 +395,6 @@ extension Google_Protobuf_Struct: SwiftProtobuf._MessageImplementationBase, Swif
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "null_value"),
@@ -420,7 +418,6 @@ extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, Swift
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_ListValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),

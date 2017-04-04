@@ -1610,7 +1610,6 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1775,7 +1774,6 @@ extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
@@ -1788,7 +1786,6 @@ extension ProtobufUnittestNoArena_TestAllTypes.NestedMessage: SwiftProtobuf._Mes
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
@@ -1801,7 +1798,6 @@ extension ProtobufUnittestNoArena_TestAllTypes.OptionalGroup: SwiftProtobuf._Mes
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     47: .same(proto: "a"),
@@ -1814,7 +1810,6 @@ extension ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup: SwiftProtobuf._Mes
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
@@ -1827,7 +1822,6 @@ extension ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf._MessageImplemen
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "arena_message"),

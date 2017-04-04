@@ -829,7 +829,6 @@ struct ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -882,7 +881,6 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "test_map"),
@@ -901,7 +899,6 @@ extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf._MessageImplementati
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_message"),
@@ -914,7 +911,6 @@ extension ProtobufUnittest_TestMessageMap: SwiftProtobuf._MessageImplementationB
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestSameTypeMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "map1"),
@@ -929,7 +925,6 @@ extension ProtobufUnittest_TestSameTypeMap: SwiftProtobuf._MessageImplementation
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_field"),
@@ -942,7 +937,6 @@ extension ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestArenaMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -995,7 +989,6 @@ extension ProtobufUnittest_TestArenaMap: SwiftProtobuf._MessageImplementationBas
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
@@ -1008,7 +1001,6 @@ extension ProtobufUnittest_MessageContainingEnumCalledType: SwiftProtobuf._Messa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entry"),
@@ -1021,7 +1013,6 @@ extension ProtobufUnittest_MessageContainingMapCalledEntry: SwiftProtobuf._Messa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestRecursiveMapMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),

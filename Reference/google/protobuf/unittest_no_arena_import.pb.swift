@@ -87,7 +87,6 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),

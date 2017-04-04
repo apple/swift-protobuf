@@ -164,7 +164,7 @@ class MessageGenerator {
     }
   }
 
-  func generateMainStuct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+  func generateMainStruct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print("\n")
     if !comments.isEmpty {
       p.print(comments)
@@ -234,7 +234,7 @@ class MessageGenerator {
 
     // Nested messages
     for m in messages {
-      m.generateMainStuct(printer: &p, file: file, parent: self)
+      m.generateMainStruct(printer: &p, file: file, parent: self)
     }
 
     // Nested extension declarations
@@ -297,7 +297,6 @@ class MessageGenerator {
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print("\n")
-    p.print("// Support for the runtime.\n")
     p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
 

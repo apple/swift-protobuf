@@ -1533,7 +1533,6 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1679,7 +1678,6 @@ extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Message2.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
@@ -1692,7 +1690,6 @@ extension ProtobufUnittest_Message2.OptionalGroup: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Message2.RepeatedGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     47: .same(proto: "a"),
@@ -1705,7 +1702,6 @@ extension ProtobufUnittest_Message2.RepeatedGroup: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Message2.OneofGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     67: .same(proto: "a"),
@@ -1720,7 +1716,6 @@ extension ProtobufUnittest_Message2.OneofGroup: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Msg2NoStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1730,7 +1725,6 @@ extension ProtobufUnittest_Msg2NoStorage: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "y"),

@@ -448,7 +448,6 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Swift_Performance_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),

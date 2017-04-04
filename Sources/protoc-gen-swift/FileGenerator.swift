@@ -342,7 +342,7 @@ class FileGenerator {
         }
 
         for m in messages {
-            m.generateMainStuct(printer: &p, file: self, parent: nil)
+            m.generateMainStruct(printer: &p, file: self, parent: nil)
         }
 
         for e in extensions {

@@ -87,7 +87,6 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),

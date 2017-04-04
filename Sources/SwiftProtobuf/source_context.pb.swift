@@ -80,7 +80,6 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_SourceContext: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "file_name"),

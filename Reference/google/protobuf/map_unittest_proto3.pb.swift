@@ -637,7 +637,6 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -688,7 +687,6 @@ extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
   }
 }
 
-// Support for the runtime.
 extension Proto3TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "test_map"),
@@ -707,7 +705,6 @@ extension Proto3TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, Swi
   }
 }
 
-// Support for the runtime.
 extension Proto3TestMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_message"),
@@ -720,7 +717,6 @@ extension Proto3TestMessageMap: SwiftProtobuf._MessageImplementationBase, SwiftP
   }
 }
 
-// Support for the runtime.
 extension Proto3TestSameTypeMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "map1"),
@@ -735,7 +731,6 @@ extension Proto3TestSameTypeMap: SwiftProtobuf._MessageImplementationBase, Swift
   }
 }
 
-// Support for the runtime.
 extension Proto3TestArenaMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -776,7 +771,6 @@ extension Proto3TestArenaMap: SwiftProtobuf._MessageImplementationBase, SwiftPro
   }
 }
 
-// Support for the runtime.
 extension Proto3MessageContainingEnumCalledType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "type"),
@@ -789,7 +783,6 @@ extension Proto3MessageContainingEnumCalledType: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension Proto3MessageContainingMapCalledEntry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entry"),

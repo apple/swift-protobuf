@@ -79,7 +79,6 @@ struct Proto3PublicImportMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Proto3PublicImportMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),

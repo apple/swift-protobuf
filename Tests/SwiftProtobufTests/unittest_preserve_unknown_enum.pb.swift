@@ -370,7 +370,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   }
 }
 
-// Support for the runtime.
 extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
@@ -392,7 +391,6 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
   }
 }
 
-// Support for the runtime.
 extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),

@@ -1358,7 +1358,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_int32"),
@@ -1472,7 +1471,6 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
@@ -1485,7 +1483,6 @@ extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf._Me
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
@@ -1498,7 +1495,6 @@ extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf._Me
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_int32"),

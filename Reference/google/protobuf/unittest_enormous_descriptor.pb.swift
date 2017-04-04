@@ -17100,7 +17100,6 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "long_field_name_is_looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong_1"),

@@ -334,7 +334,6 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .standard(proto: "known_map_field"),
@@ -349,7 +348,6 @@ extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .standard(proto: "known_map_field"),
@@ -364,7 +362,6 @@ extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "import_enum_amp"),
@@ -377,7 +374,6 @@ extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementati
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "m"),
@@ -390,7 +386,6 @@ extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "m_int32"),

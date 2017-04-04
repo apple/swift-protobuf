@@ -329,7 +329,6 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "a_foo"),
@@ -352,7 +351,6 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "a_bar"),
@@ -375,7 +373,6 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CycleBaz: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "a_baz"),

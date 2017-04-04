@@ -524,7 +524,6 @@ let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_RepeatedExtensionGroup
 ]
 
-// Support for the runtime.
 extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -538,7 +537,6 @@ extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, Sw
   }
 }
 
-// Support for the runtime.
 extension ExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -551,7 +549,6 @@ extension ExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobu
   }
 }
 
-// Support for the runtime.
 extension RepeatedExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -564,7 +561,6 @@ extension RepeatedExtensionGroup: SwiftProtobuf._MessageImplementationBase, Swif
   }
 }
 
-// Support for the runtime.
 extension SwiftTestGroupUnextended: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -577,7 +573,6 @@ extension SwiftTestGroupUnextended: SwiftProtobuf._MessageImplementationBase, Sw
   }
 }
 
-// Support for the runtime.
 extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "outer_a"),
@@ -600,7 +595,6 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBas
   }
 }
 
-// Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sub1_a"),
@@ -621,7 +615,6 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sub2_a"),
@@ -634,7 +627,6 @@ extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf._Mess
   }
 }
 
-// Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sub3_a"),
@@ -649,7 +641,6 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "sub4_a"),

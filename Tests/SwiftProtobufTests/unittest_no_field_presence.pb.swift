@@ -959,7 +959,6 @@ struct Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1073,7 +1072,6 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf._MessageImpl
   }
 }
 
-// Support for the runtime.
 extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
@@ -1086,7 +1084,6 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobu
   }
 }
 
-// Support for the runtime.
 extension Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "proto2"),
@@ -1105,7 +1102,6 @@ extension Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf._Messa
   }
 }
 
-// Support for the runtime.
 extension Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),

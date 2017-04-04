@@ -873,7 +873,6 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -926,7 +925,6 @@ extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_int32"),
@@ -979,7 +977,6 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_field"),
@@ -992,7 +989,6 @@ extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf._MessageImp
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .standard(proto: "known_map_field"),
@@ -1007,7 +1003,6 @@ extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf._MessageImplementation
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     101: .standard(proto: "known_map_field"),
@@ -1022,7 +1017,6 @@ extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf._MessageImple
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "map_int32_message"),
@@ -1035,7 +1029,6 @@ extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -1052,7 +1045,6 @@ extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),

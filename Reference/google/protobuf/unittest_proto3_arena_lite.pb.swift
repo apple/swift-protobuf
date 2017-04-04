@@ -1225,7 +1225,6 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1341,7 +1340,6 @@ extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
@@ -1354,7 +1352,6 @@ extension Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._Mes
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     90: .standard(proto: "packed_int32"),
@@ -1393,7 +1390,6 @@ extension Proto3ArenaLiteUnittest_TestPackedTypes: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "repeated_int32"),
@@ -1432,7 +1428,6 @@ extension Proto3ArenaLiteUnittest_TestUnpackedTypes: SwiftProtobuf._MessageImple
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "child"),
@@ -1453,7 +1448,6 @@ extension Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImpl
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
@@ -1466,7 +1460,6 @@ extension Proto3ArenaLiteUnittest_ForeignMessage: SwiftProtobuf._MessageImplemen
   }
 }
 
-// Support for the runtime.
 extension Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

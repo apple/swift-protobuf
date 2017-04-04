@@ -1233,7 +1233,6 @@ struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Message3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1374,7 +1373,6 @@ extension ProtobufUnittest_Message3: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Msg3NoStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -1384,7 +1382,6 @@ extension ProtobufUnittest_Msg3NoStorage: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "y"),

@@ -152,7 +152,6 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
   }
 }
 
-// Support for the runtime.
 extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -163,7 +162,6 @@ extension Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set"),

@@ -4757,7 +4757,6 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext
 ]
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -4924,7 +4923,6 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
@@ -4939,7 +4937,6 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf._Messag
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
@@ -4952,7 +4949,6 @@ extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: SwiftProtobuf._Messag
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     47: .same(proto: "a"),
@@ -4965,7 +4961,6 @@ extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: SwiftProtobuf._Messag
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ForeignMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
@@ -4978,7 +4973,6 @@ extension ProtobufUnittest_ForeignMessageLite: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     90: .standard(proto: "packed_int32"),
@@ -5017,7 +5011,6 @@ extension ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5028,7 +5021,6 @@ extension ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf._MessageImplemen
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .same(proto: "a"),
@@ -5041,7 +5033,6 @@ extension ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     47: .same(proto: "a"),
@@ -5054,7 +5045,6 @@ extension ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5065,7 +5055,6 @@ extension ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf._MessageImple
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5075,7 +5064,6 @@ extension ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf._MessageImplem
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "deprecated_field"),
@@ -5088,7 +5076,6 @@ extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "required_all_types"),
@@ -5116,7 +5103,6 @@ extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
@@ -5141,7 +5127,6 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftPr
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .same(proto: "field1"),
@@ -5160,7 +5145,6 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: 
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .same(proto: "field1"),
@@ -5179,7 +5163,6 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: 
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     11: .standard(proto: "optional_group_all_types"),
@@ -5198,7 +5181,6 @@ extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: SwiftProtobuf._Me
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .standard(proto: "repeated_group_all_types"),
@@ -5217,7 +5199,6 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf._Me
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5227,7 +5208,6 @@ extension ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -5238,7 +5218,6 @@ extension ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf._Me
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_V1MessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int_field"),
@@ -5253,7 +5232,6 @@ extension ProtobufUnittest_V1MessageLite: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_V2MessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int_field"),
@@ -5268,7 +5246,6 @@ extension ProtobufUnittest_V2MessageLite: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     536870000: .standard(proto: "optional_int32"),
@@ -5311,7 +5288,6 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf._MessageImple
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     536870009: .standard(proto: "group_a"),

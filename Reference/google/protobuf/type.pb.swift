@@ -723,7 +723,6 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -752,7 +751,6 @@ extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftP
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "kind"),
@@ -783,7 +781,6 @@ extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, Swift
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -810,7 +807,6 @@ extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftP
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_EnumValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -827,7 +823,6 @@ extension Google_Protobuf_EnumValue: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Option: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),

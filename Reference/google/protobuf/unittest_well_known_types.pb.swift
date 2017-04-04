@@ -1404,7 +1404,6 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -1459,7 +1458,6 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -1512,7 +1510,6 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),
@@ -1548,7 +1545,6 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "any_field"),

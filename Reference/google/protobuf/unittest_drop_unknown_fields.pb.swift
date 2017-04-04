@@ -199,7 +199,6 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int32_value"),
@@ -214,7 +213,6 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBas
   }
 }
 
-// Support for the runtime.
 extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "int32_value"),

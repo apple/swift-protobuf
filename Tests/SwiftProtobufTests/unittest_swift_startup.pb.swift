@@ -164,7 +164,6 @@ let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: SwiftProtobuf.SimpleEx
   ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension
 ]
 
-// Support for the runtime.
 extension ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -175,7 +174,6 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf._MessageImp
   }
 }
 
-// Support for the runtime.
 extension ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

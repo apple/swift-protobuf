@@ -335,7 +335,6 @@ let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set"),
@@ -354,7 +353,6 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplem
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     15: .same(proto: "i"),
@@ -367,7 +365,6 @@ extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf._MessageImple
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     25: .same(proto: "str"),
@@ -380,7 +377,6 @@ extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf._MessageImple
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_RawMessageSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .unique(proto: "Item", json: "item"),
@@ -393,7 +389,6 @@ extension ProtobufUnittest_RawMessageSet: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .standard(proto: "type_id"),

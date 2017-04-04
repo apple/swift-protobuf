@@ -2282,7 +2282,6 @@ let ProtobufUnittest_UnittestCustomOptions_Extensions: SwiftProtobuf.SimpleExten
   ProtobufUnittest_NestedOptionType.Extensions.nested_extension
 ]
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
@@ -2297,7 +2296,6 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2307,7 +2305,6 @@ extension ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2317,7 +2314,6 @@ extension ProtobufUnittest_CustomOptionFooResponse: SwiftProtobuf._MessageImplem
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2327,7 +2323,6 @@ extension ProtobufUnittest_CustomOptionFooClientMessage: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2337,7 +2332,6 @@ extension ProtobufUnittest_CustomOptionFooServerMessage: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2347,7 +2341,6 @@ extension ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf._MessageImp
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2357,7 +2350,6 @@ extension ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf._Messa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2367,7 +2359,6 @@ extension ProtobufUnittest_CustomOptionMinIntegerValues: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2377,7 +2368,6 @@ extension ProtobufUnittest_CustomOptionMaxIntegerValues: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2387,7 +2377,6 @@ extension ProtobufUnittest_CustomOptionOtherValues: SwiftProtobuf._MessageImplem
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2397,7 +2386,6 @@ extension ProtobufUnittest_SettingRealsFromPositiveInts: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2407,7 +2395,6 @@ extension ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ComplexOptionType1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "foo"),
@@ -2427,7 +2414,6 @@ extension ProtobufUnittest_ComplexOptionType1: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ComplexOptionType2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bar"),
@@ -2453,7 +2439,6 @@ extension ProtobufUnittest_ComplexOptionType2: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "waldo"),
@@ -2466,7 +2451,6 @@ extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4: SwiftProtobuf.
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ComplexOptionType3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "qux"),
@@ -2487,7 +2471,6 @@ extension ProtobufUnittest_ComplexOptionType3: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ComplexOptionType3.ComplexOptionType5: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     3: .same(proto: "plugh"),
@@ -2500,7 +2483,6 @@ extension ProtobufUnittest_ComplexOptionType3.ComplexOptionType5: SwiftProtobuf.
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_ComplexOpt6: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     7593951: .same(proto: "xyzzy"),
@@ -2513,7 +2495,6 @@ extension ProtobufUnittest_ComplexOpt6: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_VariousComplexOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2523,7 +2504,6 @@ extension ProtobufUnittest_VariousComplexOptions: SwiftProtobuf._MessageImplemen
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_AggregateMessageSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2534,7 +2514,6 @@ extension ProtobufUnittest_AggregateMessageSet: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "s"),
@@ -2547,7 +2526,6 @@ extension ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf._MessageImp
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Aggregate: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "i"),
@@ -2574,7 +2552,6 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf._MessageImplementationBase, 
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_AggregateMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fieldname"),
@@ -2587,7 +2564,6 @@ extension ProtobufUnittest_AggregateMessage: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_NestedOptionType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -2597,7 +2573,6 @@ extension ProtobufUnittest_NestedOptionType: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_NestedOptionType.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "nested_field"),
@@ -2610,7 +2585,6 @@ extension ProtobufUnittest_NestedOptionType.NestedMessage: SwiftProtobuf._Messag
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_OldOptionType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
@@ -2623,7 +2597,6 @@ extension ProtobufUnittest_OldOptionType: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_NewOptionType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
@@ -2636,7 +2609,6 @@ extension ProtobufUnittest_NewOptionType: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 

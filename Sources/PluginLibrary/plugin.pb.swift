@@ -445,7 +445,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "major"),
@@ -464,7 +463,6 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementation
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "file_to_generate"),
@@ -489,7 +487,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
@@ -504,7 +501,6 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._Message
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),

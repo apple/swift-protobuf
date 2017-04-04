@@ -509,7 +509,6 @@ let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.Sim
   ProtobufUnittest_Extend_Extensions_ext_d
 ]
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -519,7 +518,6 @@ extension ProtobufUnittest_Extend_Foo: SwiftProtobuf._MessageImplementationBase,
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_Foo.Bar: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -529,7 +527,6 @@ extension ProtobufUnittest_Extend_Foo.Bar: SwiftProtobuf._MessageImplementationB
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_Foo.Bar.Baz: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
@@ -543,7 +540,6 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .same(proto: "c"),
@@ -556,7 +552,6 @@ extension ProtobufUnittest_Extend_C: SwiftProtobuf._MessageImplementationBase, S
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_Msg1: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -567,7 +562,6 @@ extension ProtobufUnittest_Extend_Msg1: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_Msg2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -578,7 +572,6 @@ extension ProtobufUnittest_Extend_Msg2: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),
@@ -592,7 +585,6 @@ extension ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "x"),

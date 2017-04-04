@@ -222,7 +222,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -232,7 +231,6 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf._MessageImp
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
@@ -253,7 +251,6 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtob
   }
 }
 
-// Support for the runtime.
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .standard(proto: "optional_enum"),

@@ -3253,7 +3253,6 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_FileDescriptorSet: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "file"),
@@ -3266,7 +3265,6 @@ extension Google_Protobuf_FileDescriptorSet: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3307,7 +3305,6 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3344,7 +3341,6 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "start"),
@@ -3359,7 +3355,6 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf._Message
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "start"),
@@ -3374,7 +3369,6 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf._MessageI
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3411,7 +3405,6 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3432,7 +3425,6 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementa
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3455,7 +3447,6 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3478,7 +3469,6 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplem
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3501,7 +3491,6 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplemen
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3530,7 +3519,6 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplement
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "java_package"),
@@ -3582,7 +3570,6 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_MessageOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set_wire_format"),
@@ -3604,7 +3591,6 @@ extension Google_Protobuf_MessageOptions: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_FieldOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ctype"),
@@ -3630,7 +3616,6 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_OneofOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     999: .standard(proto: "uninterpreted_option"),
@@ -3644,7 +3629,6 @@ extension Google_Protobuf_OneofOptions: SwiftProtobuf._MessageImplementationBase
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_EnumOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .standard(proto: "allow_alias"),
@@ -3662,7 +3646,6 @@ extension Google_Protobuf_EnumOptions: SwiftProtobuf._MessageImplementationBase,
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_EnumValueOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deprecated"),
@@ -3678,7 +3661,6 @@ extension Google_Protobuf_EnumValueOptions: SwiftProtobuf._MessageImplementation
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_ServiceOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     33: .same(proto: "deprecated"),
@@ -3694,7 +3676,6 @@ extension Google_Protobuf_ServiceOptions: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_MethodOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     33: .same(proto: "deprecated"),
@@ -3712,7 +3693,6 @@ extension Google_Protobuf_MethodOptions: SwiftProtobuf._MessageImplementationBas
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_UninterpretedOption: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "name"),
@@ -3737,7 +3717,6 @@ extension Google_Protobuf_UninterpretedOption: SwiftProtobuf._MessageImplementat
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_UninterpretedOption.NamePart: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "name_part"),
@@ -3752,7 +3731,6 @@ extension Google_Protobuf_UninterpretedOption.NamePart: SwiftProtobuf._MessageIm
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_SourceCodeInfo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "location"),
@@ -3765,7 +3743,6 @@ extension Google_Protobuf_SourceCodeInfo: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_SourceCodeInfo.Location: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
@@ -3786,7 +3763,6 @@ extension Google_Protobuf_SourceCodeInfo.Location: SwiftProtobuf._MessageImpleme
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "annotation"),
@@ -3799,7 +3775,6 @@ extension Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf._MessageImplementatio
   }
 }
 
-// Support for the runtime.
 extension Google_Protobuf_GeneratedCodeInfo.Annotation: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
