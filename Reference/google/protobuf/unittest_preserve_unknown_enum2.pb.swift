@@ -133,41 +133,6 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 5:
-        var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
-        try decoder.decodeSingularEnumField(value: &value)
-        if let value = value {
-          self = .oneofE1(value)
-          return
-        }
-      case 6:
-        var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
-        try decoder.decodeSingularEnumField(value: &value)
-        if let value = value {
-          self = .oneofE2(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofE1(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-        }
-      case .oneofE2(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-        }
-      }
-    }
   }
 
   init() {}
@@ -233,5 +198,42 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
     if o != other.o {return false}
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 5:
+      var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
+      try decoder.decodeSingularEnumField(value: &value)
+      if let value = value {
+        self = .oneofE1(value)
+        return
+      }
+    case 6:
+      var value: Proto2PreserveUnknownEnumUnittest_MyEnum?
+      try decoder.decodeSingularEnumField(value: &value)
+      if let value = value {
+        self = .oneofE2(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofE1(let v):
+      if start <= 5 && 5 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      }
+    case .oneofE2(let v):
+      if start <= 6 && 6 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      }
+    }
   }
 }

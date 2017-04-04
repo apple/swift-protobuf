@@ -47,7 +47,7 @@ class OneofGenerator {
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
     }
 
-    func generateNested(printer p: inout CodePrinter) {
+    func generateMainEnum(printer p: inout CodePrinter) {
         p.print("\n")
         p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): Equatable {\n")
         p.indent()
@@ -78,8 +78,16 @@ class OneofGenerator {
         p.outdent()
         p.print("}\n")
 
-        // Decode one of our members
+        p.outdent()
+        p.print("}\n")
+    }
+
+    func generateRuntimeSupport(printer p: inout CodePrinter) {
         p.print("\n")
+        p.print("extension \(swiftFullName) {\n")
+        p.indent()
+
+        // Decode one of our members
         p.print("fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {\n")
         p.indent()
         p.print("switch fieldNumber {\n")

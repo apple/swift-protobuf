@@ -707,174 +707,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 51:
-        var value = Int32()
-        try decoder.decodeSingularInt32Field(value: &value)
-        self = .oneofInt32(value)
-        return
-      case 52:
-        var value = Int64()
-        try decoder.decodeSingularInt64Field(value: &value)
-        self = .oneofInt64(value)
-        return
-      case 53:
-        var value = UInt32()
-        try decoder.decodeSingularUInt32Field(value: &value)
-        self = .oneofUint32(value)
-        return
-      case 54:
-        var value = UInt64()
-        try decoder.decodeSingularUInt64Field(value: &value)
-        self = .oneofUint64(value)
-        return
-      case 55:
-        var value = Int32()
-        try decoder.decodeSingularSInt32Field(value: &value)
-        self = .oneofSint32(value)
-        return
-      case 56:
-        var value = Int64()
-        try decoder.decodeSingularSInt64Field(value: &value)
-        self = .oneofSint64(value)
-        return
-      case 57:
-        var value = UInt32()
-        try decoder.decodeSingularFixed32Field(value: &value)
-        self = .oneofFixed32(value)
-        return
-      case 58:
-        var value = UInt64()
-        try decoder.decodeSingularFixed64Field(value: &value)
-        self = .oneofFixed64(value)
-        return
-      case 59:
-        var value = Int32()
-        try decoder.decodeSingularSFixed32Field(value: &value)
-        self = .oneofSfixed32(value)
-        return
-      case 60:
-        var value = Int64()
-        try decoder.decodeSingularSFixed64Field(value: &value)
-        self = .oneofSfixed64(value)
-        return
-      case 61:
-        var value = Float()
-        try decoder.decodeSingularFloatField(value: &value)
-        self = .oneofFloat(value)
-        return
-      case 62:
-        var value = Double()
-        try decoder.decodeSingularDoubleField(value: &value)
-        self = .oneofDouble(value)
-        return
-      case 63:
-        var value = Bool()
-        try decoder.decodeSingularBoolField(value: &value)
-        self = .oneofBool(value)
-        return
-      case 64:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .oneofString(value)
-        return
-      case 65:
-        var value = Data()
-        try decoder.decodeSingularBytesField(value: &value)
-        self = .oneofBytes(value)
-        return
-      case 68:
-        var value: ProtobufUnittest_Message3?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .oneofMessage(value)
-          return
-        }
-      case 69:
-        var value = ProtobufUnittest_Message3.Enum()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofEnum(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofInt32(let v):
-        if start <= 51 && 51 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
-        }
-      case .oneofInt64(let v):
-        if start <= 52 && 52 < end {
-          try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
-        }
-      case .oneofUint32(let v):
-        if start <= 53 && 53 < end {
-          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
-        }
-      case .oneofUint64(let v):
-        if start <= 54 && 54 < end {
-          try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
-        }
-      case .oneofSint32(let v):
-        if start <= 55 && 55 < end {
-          try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
-        }
-      case .oneofSint64(let v):
-        if start <= 56 && 56 < end {
-          try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
-        }
-      case .oneofFixed32(let v):
-        if start <= 57 && 57 < end {
-          try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
-        }
-      case .oneofFixed64(let v):
-        if start <= 58 && 58 < end {
-          try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
-        }
-      case .oneofSfixed32(let v):
-        if start <= 59 && 59 < end {
-          try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
-        }
-      case .oneofSfixed64(let v):
-        if start <= 60 && 60 < end {
-          try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
-        }
-      case .oneofFloat(let v):
-        if start <= 61 && 61 < end {
-          try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
-        }
-      case .oneofDouble(let v):
-        if start <= 62 && 62 < end {
-          try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
-        }
-      case .oneofBool(let v):
-        if start <= 63 && 63 < end {
-          try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
-        }
-      case .oneofString(let v):
-        if start <= 64 && 64 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 64)
-        }
-      case .oneofBytes(let v):
-        if start <= 65 && 65 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
-        }
-      case .oneofMessage(let v):
-        if start <= 68 && 68 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
-        }
-      case .oneofEnum(let v):
-        if start <= 69 && 69 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
-        }
-      }
-    }
   }
 
   enum Enum: SwiftProtobuf.Enum {
@@ -1363,6 +1195,176 @@ extension ProtobufUnittest_Message3: SwiftProtobuf._MessageImplementationBase, S
     }
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension ProtobufUnittest_Message3.OneOf_O {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 51:
+      var value = Int32()
+      try decoder.decodeSingularInt32Field(value: &value)
+      self = .oneofInt32(value)
+      return
+    case 52:
+      var value = Int64()
+      try decoder.decodeSingularInt64Field(value: &value)
+      self = .oneofInt64(value)
+      return
+    case 53:
+      var value = UInt32()
+      try decoder.decodeSingularUInt32Field(value: &value)
+      self = .oneofUint32(value)
+      return
+    case 54:
+      var value = UInt64()
+      try decoder.decodeSingularUInt64Field(value: &value)
+      self = .oneofUint64(value)
+      return
+    case 55:
+      var value = Int32()
+      try decoder.decodeSingularSInt32Field(value: &value)
+      self = .oneofSint32(value)
+      return
+    case 56:
+      var value = Int64()
+      try decoder.decodeSingularSInt64Field(value: &value)
+      self = .oneofSint64(value)
+      return
+    case 57:
+      var value = UInt32()
+      try decoder.decodeSingularFixed32Field(value: &value)
+      self = .oneofFixed32(value)
+      return
+    case 58:
+      var value = UInt64()
+      try decoder.decodeSingularFixed64Field(value: &value)
+      self = .oneofFixed64(value)
+      return
+    case 59:
+      var value = Int32()
+      try decoder.decodeSingularSFixed32Field(value: &value)
+      self = .oneofSfixed32(value)
+      return
+    case 60:
+      var value = Int64()
+      try decoder.decodeSingularSFixed64Field(value: &value)
+      self = .oneofSfixed64(value)
+      return
+    case 61:
+      var value = Float()
+      try decoder.decodeSingularFloatField(value: &value)
+      self = .oneofFloat(value)
+      return
+    case 62:
+      var value = Double()
+      try decoder.decodeSingularDoubleField(value: &value)
+      self = .oneofDouble(value)
+      return
+    case 63:
+      var value = Bool()
+      try decoder.decodeSingularBoolField(value: &value)
+      self = .oneofBool(value)
+      return
+    case 64:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .oneofString(value)
+      return
+    case 65:
+      var value = Data()
+      try decoder.decodeSingularBytesField(value: &value)
+      self = .oneofBytes(value)
+      return
+    case 68:
+      var value: ProtobufUnittest_Message3?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .oneofMessage(value)
+        return
+      }
+    case 69:
+      var value = ProtobufUnittest_Message3.Enum()
+      try decoder.decodeSingularEnumField(value: &value)
+      self = .oneofEnum(value)
+      return
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofInt32(let v):
+      if start <= 51 && 51 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
+      }
+    case .oneofInt64(let v):
+      if start <= 52 && 52 < end {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
+      }
+    case .oneofUint32(let v):
+      if start <= 53 && 53 < end {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
+      }
+    case .oneofUint64(let v):
+      if start <= 54 && 54 < end {
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
+      }
+    case .oneofSint32(let v):
+      if start <= 55 && 55 < end {
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
+      }
+    case .oneofSint64(let v):
+      if start <= 56 && 56 < end {
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
+      }
+    case .oneofFixed32(let v):
+      if start <= 57 && 57 < end {
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
+      }
+    case .oneofFixed64(let v):
+      if start <= 58 && 58 < end {
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
+      }
+    case .oneofSfixed32(let v):
+      if start <= 59 && 59 < end {
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
+      }
+    case .oneofSfixed64(let v):
+      if start <= 60 && 60 < end {
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
+      }
+    case .oneofFloat(let v):
+      if start <= 61 && 61 < end {
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
+      }
+    case .oneofDouble(let v):
+      if start <= 62 && 62 < end {
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
+      }
+    case .oneofBool(let v):
+      if start <= 63 && 63 < end {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
+      }
+    case .oneofString(let v):
+      if start <= 64 && 64 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 64)
+      }
+    case .oneofBytes(let v):
+      if start <= 65 && 65 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
+      }
+    case .oneofMessage(let v):
+      if start <= 68 && 68 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
+      }
+    case .oneofEnum(let v):
+      if start <= 69 && 69 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
+      }
+    }
   }
 }
 
