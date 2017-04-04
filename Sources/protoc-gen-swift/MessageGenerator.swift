@@ -299,11 +299,20 @@ class MessageGenerator {
     p.print("\n")
     p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
+    generateProtoNameProviding(printer: &p)
+    p.print("\n")
+    generateMessageImplementationBase(printer: &p)
+    p.outdent()
+    p.print("}\n")
 
-    //
-    // _ProtoNameProviding
-    //
 
+    // Nested messages
+    for m in messages {
+      m.generateRuntimeSupport(printer: &p, file: file, parent: self)
+    }
+  }
+
+  private func generateProtoNameProviding(printer p: inout CodePrinter) {
     if fields.isEmpty {
       p.print("\(visibility)static let _protobuf_nameMap = SwiftProtobuf._NameMap()\n")
     } else {
@@ -315,22 +324,8 @@ class MessageGenerator {
       p.outdent()
       p.print("]\n")
     }
-
-    p.print("\n")
-    generateIsEqualTo(printer: &p)
-
-    p.outdent()
-    p.print("}\n")
-
-
-    //
-    // Nested messages
-    //
-
-    for m in messages {
-      m.generateRuntimeSupport(printer: &p, file: file, parent: self)
-    }
   }
+
 
   /// Generates the `decodeMessage` method for the message.
   ///
@@ -488,10 +483,7 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  /// Generates the `isEqualTo` method for the message.
-  ///
-  /// - Parameter p: The code printer.
-  private func generateIsEqualTo(printer p: inout CodePrinter) {
+  private func generateMessageImplementationBase(printer p: inout CodePrinter) {
     p.print("\(visibility)func _protobuf_generated_isEqualTo(other: \(swiftFullName)) -> Bool {\n")
     p.indent()
     var compareFields = true
