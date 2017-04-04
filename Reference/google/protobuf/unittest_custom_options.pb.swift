@@ -6,41 +6,41 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Author: benjy@google.com (Benjy Weinberger)
-//   Based on original Protocol Buffers design by
-//   Sanjay Ghemawat, Jeff Dean, and others.
-// 
-//  A proto file used to test the "custom options" feature of google.protobuf.
+// Author: benjy@google.com (Benjy Weinberger)
+//  Based on original Protocol Buffers design by
+//  Sanjay Ghemawat, Jeff Dean, and others.
+//
+// A proto file used to test the "custom options" feature of google.protobuf.
 
 import Foundation
 import SwiftProtobuf
@@ -115,8 +115,8 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNam
 
 }
 
-///   A test message with custom options at all possible locations (and also some
-///   regular options, to make sure they interact nicely).
+/// A test message with custom options at all possible locations (and also some
+/// regular options, to make sure they interact nicely).
 struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithCustomOptions"
 
@@ -234,8 +234,8 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
   }
 }
 
-///   A test RPC service with custom options at all possible locations (and also
-///   some regular options, to make sure they interact nicely).
+/// A test RPC service with custom options at all possible locations (and also
+/// some regular options, to make sure they interact nicely).
 struct ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CustomOptionFooRequest"
 
@@ -848,7 +848,7 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
   }
 }
 
-///   Note that we try various different ways of naming the same extension.
+/// Note that we try various different ways of naming the same extension.
 struct ProtobufUnittest_VariousComplexOptions: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".VariousComplexOptions"
 
@@ -939,7 +939,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
   }
 }
 
-///   A helper type used to test aggregate option parsing
+/// A helper type used to test aggregate option parsing
 struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Aggregate"
 
@@ -992,7 +992,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     _storage._s = nil
   }
 
-  ///   A nested object
+  /// A nested object
   var sub: ProtobufUnittest_Aggregate {
     get {return _storage._sub ?? ProtobufUnittest_Aggregate()}
     set {_uniqueStorage()._sub = newValue}
@@ -1004,7 +1004,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     _storage._sub = nil
   }
 
-  ///   To test the parsing of extensions inside aggregate values
+  /// To test the parsing of extensions inside aggregate values
   var file: Google_Protobuf_FileOptions {
     get {return _storage._file ?? Google_Protobuf_FileOptions()}
     set {_uniqueStorage()._file = newValue}
@@ -1016,7 +1016,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     _storage._file = nil
   }
 
-  ///   An embedded message set
+  /// An embedded message set
   var mset: ProtobufUnittest_AggregateMessageSet {
     get {return _storage._mset ?? ProtobufUnittest_AggregateMessageSet()}
     set {_uniqueStorage()._mset = newValue}
@@ -1124,7 +1124,7 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test custom options for nested type.
+/// Test custom options for nested type.
 struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedOptionType"
 
@@ -1214,8 +1214,8 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
   }
 }
 
-///   Custom message option that has a required enum field.
-///   WARNING: this is strongly discouraged!
+/// Custom message option that has a required enum field.
+/// WARNING: this is strongly discouraged!
 struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OldOptionType"
 
@@ -1284,7 +1284,7 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
   }
 }
 
-///   Updated version of the custom option above.
+/// Updated version of the custom option above.
 struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NewOptionType"
 
@@ -1357,7 +1357,7 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
   }
 }
 
-///   Test message using the "required_enum_opt" option defined above.
+/// Test message using the "required_enum_opt" option defined above.
 struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithRequiredEnumOption"
 
@@ -1393,8 +1393,8 @@ let ProtobufUnittest_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<Opti
   defaultValue: 0
 )
 
-///   This is useful for testing that we correctly register default values for
-///   extension options.
+/// This is useful for testing that we correctly register default values for
+/// extension options.
 let ProtobufUnittest_Extensions_field_opt2 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 7753913,
   fieldName: "protobuf_unittest.field_opt2",
@@ -1721,8 +1721,8 @@ extension Google_Protobuf_FieldOptions {
 }
 
 extension Google_Protobuf_FieldOptions {
-  ///   This is useful for testing that we correctly register default values for
-  ///   extension options.
+  /// This is useful for testing that we correctly register default values for
+  /// extension options.
   var ProtobufUnittest_fieldOpt2: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_field_opt2) ?? 42}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_field_opt2, value: newValue)}

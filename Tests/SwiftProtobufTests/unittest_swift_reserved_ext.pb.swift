@@ -6,21 +6,21 @@
  *
  */
 
-//  Protos/unittest_swift_reserved_ext.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2017 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test Swift reserved words used as enum or message names
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_reserved_ext.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2017 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
 
 import Foundation
 import SwiftProtobuf
@@ -48,8 +48,8 @@ struct SwiftReservedTestExt2: SwiftProtobuf.Message {
       defaultValue: false
     )
 
-    ///   Reserved words, since these end up in the "struct Extensions", they
-    ///   can't just be get their names, and sanitation kicks.
+    /// Reserved words, since these end up in the "struct Extensions", they
+    /// can't just be get their names, and sanitation kicks.
     static let `as` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1022,
       fieldName: "SwiftReservedTestExt2.as",
@@ -93,15 +93,15 @@ struct SwiftReservedTestExt2: SwiftProtobuf.Message {
   }
 }
 
-///   Will get _p added because it has no package/swift prefix to scope and
-///   would otherwise be a problem when added to the message.
+/// Will get _p added because it has no package/swift prefix to scope and
+/// would otherwise be a problem when added to the message.
 let Extensions_debugDescription = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1000,
   fieldName: "debugDescription",
   defaultValue: false
 )
 
-///   These will get _p added for the same reasoning.
+/// These will get _p added for the same reasoning.
 let Extensions_as = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
   _protobuf_fieldNumber: 1012,
   fieldName: "as",
@@ -146,8 +146,8 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  ///   Reserved words, since these end up in the "struct Extensions", they
-  ///   can't just be get their names, and sanitation kicks.
+  /// Reserved words, since these end up in the "struct Extensions", they
+  /// can't just be get their names, and sanitation kicks.
   var SwiftReservedTestExt2_as: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.as) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.as, value: newValue)}
@@ -213,8 +213,8 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  ///   Will get _p added because it has no package/swift prefix to scope and
-  ///   would otherwise be a problem when added to the message.
+  /// Will get _p added because it has no package/swift prefix to scope and
+  /// would otherwise be a problem when added to the message.
   var debugDescription_p: Bool {
     get {return getExtensionValue(ext: Extensions_debugDescription) ?? false}
     set {setExtensionValue(ext: Extensions_debugDescription, value: newValue)}
@@ -228,7 +228,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  ///   These will get _p added for the same reasoning.
+  /// These will get _p added for the same reasoning.
   var as_p: Bool {
     get {return getExtensionValue(ext: Extensions_as) ?? false}
     set {setExtensionValue(ext: Extensions_as, value: newValue)}

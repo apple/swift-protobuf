@@ -6,40 +6,40 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Wrappers for primitive (non-message) types. These types are useful
-//  for embedding primitives in the `google.protobuf.Any` type and for places
-//  where we need to distinguish between the absence of a primitive
-//  typed field and its default value.
+// Wrappers for primitive (non-message) types. These types are useful
+// for embedding primitives in the `google.protobuf.Any` type and for places
+// where we need to distinguish between the absence of a primitive
+// typed field and its default value.
 
 import Foundation
 
@@ -55,13 +55,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-///   Wrapper message for `double`.
-///  
-///   The JSON representation for `DoubleValue` is JSON number.
+/// Wrapper message for `double`.
+///
+/// The JSON representation for `DoubleValue` is JSON number.
 struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".DoubleValue"
 
-  ///   The double value.
+  /// The double value.
   var value: Double = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -85,13 +85,13 @@ struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `float`.
-///  
-///   The JSON representation for `FloatValue` is JSON number.
+/// Wrapper message for `float`.
+///
+/// The JSON representation for `FloatValue` is JSON number.
 struct Google_Protobuf_FloatValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FloatValue"
 
-  ///   The float value.
+  /// The float value.
   var value: Float = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -115,13 +115,13 @@ struct Google_Protobuf_FloatValue: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `int64`.
-///  
-///   The JSON representation for `Int64Value` is JSON string.
+/// Wrapper message for `int64`.
+///
+/// The JSON representation for `Int64Value` is JSON string.
 struct Google_Protobuf_Int64Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Int64Value"
 
-  ///   The int64 value.
+  /// The int64 value.
   var value: Int64 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -145,13 +145,13 @@ struct Google_Protobuf_Int64Value: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `uint64`.
-///  
-///   The JSON representation for `UInt64Value` is JSON string.
+/// Wrapper message for `uint64`.
+///
+/// The JSON representation for `UInt64Value` is JSON string.
 struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".UInt64Value"
 
-  ///   The uint64 value.
+  /// The uint64 value.
   var value: UInt64 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -175,13 +175,13 @@ struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `int32`.
-///  
-///   The JSON representation for `Int32Value` is JSON number.
+/// Wrapper message for `int32`.
+///
+/// The JSON representation for `Int32Value` is JSON number.
 struct Google_Protobuf_Int32Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Int32Value"
 
-  ///   The int32 value.
+  /// The int32 value.
   var value: Int32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -205,13 +205,13 @@ struct Google_Protobuf_Int32Value: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `uint32`.
-///  
-///   The JSON representation for `UInt32Value` is JSON number.
+/// Wrapper message for `uint32`.
+///
+/// The JSON representation for `UInt32Value` is JSON number.
 struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".UInt32Value"
 
-  ///   The uint32 value.
+  /// The uint32 value.
   var value: UInt32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -235,13 +235,13 @@ struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `bool`.
-///  
-///   The JSON representation for `BoolValue` is JSON `true` and `false`.
+/// Wrapper message for `bool`.
+///
+/// The JSON representation for `BoolValue` is JSON `true` and `false`.
 struct Google_Protobuf_BoolValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".BoolValue"
 
-  ///   The bool value.
+  /// The bool value.
   var value: Bool = false
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -265,13 +265,13 @@ struct Google_Protobuf_BoolValue: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `string`.
-///  
-///   The JSON representation for `StringValue` is JSON string.
+/// Wrapper message for `string`.
+///
+/// The JSON representation for `StringValue` is JSON string.
 struct Google_Protobuf_StringValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".StringValue"
 
-  ///   The string value.
+  /// The string value.
   var value: String = ""
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -295,13 +295,13 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message {
   }
 }
 
-///   Wrapper message for `bytes`.
-///  
-///   The JSON representation for `BytesValue` is JSON string.
+/// Wrapper message for `bytes`.
+///
+/// The JSON representation for `BytesValue` is JSON string.
 struct Google_Protobuf_BytesValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".BytesValue"
 
-  ///   The bytes value.
+  /// The bytes value.
   var value: Data = Data()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

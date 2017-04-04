@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 import SwiftProtobuf
@@ -92,8 +92,8 @@ enum Proto3LiteUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNam
 
 }
 
-///   This proto includes every type of field in both singular and repeated
-///   forms.
+/// This proto includes every type of field in both singular and repeated
+/// forms.
 struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
@@ -210,7 +210,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -339,7 +339,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._optionalCord = newValue}
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
@@ -362,7 +362,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     _storage._optionalLazyMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -610,7 +610,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     case bar // = 2
     case baz // = 3
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
 
@@ -653,9 +653,9 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = Proto3LiteUnittest_TestAllTypes.protoMessageName + ".NestedMessage"
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -997,7 +997,7 @@ struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message {
   }
 }
 
-///   Explicitly set packed to false
+/// Explicitly set packed to false
 struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
 
@@ -1102,7 +1102,7 @@ struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message {
   }
 }
 
-///   This proto includes a recusively nested message.
+/// This proto includes a recusively nested message.
 struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
 
@@ -1179,8 +1179,8 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   }
 }
 
-///   Define these after TestAllTypes to make sure the compiler can handle
-///   that.
+/// Define these after TestAllTypes to make sure the compiler can handle
+/// that.
 struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
 
@@ -1207,7 +1207,7 @@ struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message {
   }
 }
 
-///   TestEmptyMessage is used to test behavior of unknown fields.
+/// TestEmptyMessage is used to test behavior of unknown fields.
 struct Proto3LiteUnittest_TestEmptyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessage"
 

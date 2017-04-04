@@ -6,43 +6,43 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Author: kenton@google.com (Kenton Varda)
-//   Based on original Protocol Buffers design by
-//   Sanjay Ghemawat, Jeff Dean, and others.
-// 
-//  This proto file contains copies of TestAllTypes and friends, but with arena
-//  support disabled in code generation. It allows us to test the performance
-//  impact against baseline (non-arena) google.protobuf.
+// Author: kenton@google.com (Kenton Varda)
+//  Based on original Protocol Buffers design by
+//  Sanjay Ghemawat, Jeff Dean, and others.
+//
+// This proto file contains copies of TestAllTypes and friends, but with arena
+// support disabled in code generation. It allows us to test the performance
+// impact against baseline (non-arena) google.protobuf.
 
 import Foundation
 import SwiftProtobuf
@@ -94,8 +94,8 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._Pro
 
 }
 
-///   This proto includes every type of field in both singular and repeated
-///   forms.
+/// This proto includes every type of field in both singular and repeated
+/// forms.
 struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
@@ -260,7 +260,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -525,7 +525,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     _storage._optionalCord = nil
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
@@ -548,7 +548,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     _storage._optionalMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -674,7 +674,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
-  ///   Singular with defaults
+  /// Singular with defaults
   var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
@@ -1057,7 +1057,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     case bar // = 2
     case baz // = 3
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1095,9 +1095,9 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittestNoArena_TestAllTypes.protoMessageName + ".NestedMessage"
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
@@ -1513,8 +1513,8 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   }
 }
 
-///   Define these after TestAllTypes to make sure the compiler can handle
-///   that.
+/// Define these after TestAllTypes to make sure the compiler can handle
+/// that.
 struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
 

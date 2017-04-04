@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 
@@ -50,14 +50,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-///   `NullValue` is a singleton enumeration to represent the null value for the
-///   `Value` type union.
-///  
-///    The JSON representation for `NullValue` is JSON `null`.
+/// `NullValue` is a singleton enumeration to represent the null value for the
+/// `Value` type union.
+///
+///  The JSON representation for `NullValue` is JSON `null`.
 public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   public typealias RawValue = Int
 
-  ///   Null value.
+  /// Null value.
   case nullValue // = 0
   case UNRECOGNIZED(Int)
 
@@ -85,18 +85,18 @@ public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoN
 
 }
 
-///   `Struct` represents a structured data value, consisting of fields
-///   which map to dynamically typed values. In some languages, `Struct`
-///   might be supported by a native representation. For example, in
-///   scripting languages like JS a struct is represented as an
-///   object. The details of that representation are described together
-///   with the proto support for the language.
-///  
-///   The JSON representation for `Struct` is JSON object.
+/// `Struct` represents a structured data value, consisting of fields
+/// which map to dynamically typed values. In some languages, `Struct`
+/// might be supported by a native representation. For example, in
+/// scripting languages like JS a struct is represented as an
+/// object. The details of that representation are described together
+/// with the proto support for the language.
+///
+/// The JSON representation for `Struct` is JSON object.
 public struct Google_Protobuf_Struct: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Struct"
 
-  ///   Unordered map of dynamically typed values.
+  /// Unordered map of dynamically typed values.
   public var fields: Dictionary<String,Google_Protobuf_Value> = [:]
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -120,12 +120,12 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message {
   }
 }
 
-///   `Value` represents a dynamically typed value which can be either
-///   null, a number, a string, a boolean, a recursive struct value, or a
-///   list of values. A producer of value is expected to set one of that
-///   variants, absence of any variant indicates an error.
-///  
-///   The JSON representation for `Value` is JSON value.
+/// `Value` represents a dynamically typed value which can be either
+/// null, a number, a string, a boolean, a recursive struct value, or a
+/// list of values. A producer of value is expected to set one of that
+/// variants, absence of any variant indicates an error.
+///
+/// The JSON representation for `Value` is JSON value.
 public struct Google_Protobuf_Value: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Value"
 
@@ -148,7 +148,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Represents a null value.
+  /// Represents a null value.
   public var nullValue: Google_Protobuf_NullValue {
     get {
       if case .nullValue(let v)? = _storage._kind {
@@ -161,7 +161,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
   }
 
-  ///   Represents a double value.
+  /// Represents a double value.
   public var numberValue: Double {
     get {
       if case .numberValue(let v)? = _storage._kind {
@@ -174,7 +174,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
   }
 
-  ///   Represents a string value.
+  /// Represents a string value.
   public var stringValue: String {
     get {
       if case .stringValue(let v)? = _storage._kind {
@@ -187,7 +187,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
   }
 
-  ///   Represents a boolean value.
+  /// Represents a boolean value.
   public var boolValue: Bool {
     get {
       if case .boolValue(let v)? = _storage._kind {
@@ -200,7 +200,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
   }
 
-  ///   Represents a structured value.
+  /// Represents a structured value.
   public var structValue: Google_Protobuf_Struct {
     get {
       if case .structValue(let v)? = _storage._kind {
@@ -213,7 +213,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
   }
 
-  ///   Represents a repeated `Value`.
+  /// Represents a repeated `Value`.
   public var listValue: Google_Protobuf_ListValue {
     get {
       if case .listValue(let v)? = _storage._kind {
@@ -353,13 +353,13 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
   }
 }
 
-///   `ListValue` is a wrapper around a repeated field of values.
-///  
-///   The JSON representation for `ListValue` is JSON array.
+/// `ListValue` is a wrapper around a repeated field of values.
+///
+/// The JSON representation for `ListValue` is JSON array.
 public struct Google_Protobuf_ListValue: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".ListValue"
 
-  ///   Repeated field of dynamically typed values.
+  /// Repeated field of dynamically typed values.
   public var values: [Google_Protobuf_Value] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

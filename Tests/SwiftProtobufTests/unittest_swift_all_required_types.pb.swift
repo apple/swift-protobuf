@@ -6,37 +6,37 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-///   An addition to unittest.proto
+/// An addition to unittest.proto
 
 import Foundation
 import SwiftProtobuf
@@ -167,7 +167,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var requiredInt32: Int32 {
     get {return _storage._requiredInt32 ?? 0}
     set {_uniqueStorage()._requiredInt32 = newValue}
@@ -432,7 +432,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     _storage._requiredCord = nil
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._requiredPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._requiredPublicImportMessage = newValue}
@@ -455,7 +455,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     _storage._requiredLazyMessage = nil
   }
 
-  ///   Singular with defaults
+  /// Singular with defaults
   var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
@@ -813,7 +813,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     case bar // = 2
     case baz // = 3
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -851,9 +851,9 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllRequiredTypes.protoMessageName + ".NestedMessage"
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
@@ -1207,7 +1207,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestSomeRequiredTypes"
 
-  ///   Singular
+  /// Singular
   fileprivate var _requiredInt32: Int32? = nil
   var requiredInt32: Int32 {
     get {return _requiredInt32 ?? 0}

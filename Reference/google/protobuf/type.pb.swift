@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 
@@ -50,14 +50,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-///   The syntax in which a protocol buffer element is defined.
+/// The syntax in which a protocol buffer element is defined.
 enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
 
-  ///   Syntax `proto2`.
+  /// Syntax `proto2`.
   case proto2 // = 0
 
-  ///   Syntax `proto3`.
+  /// Syntax `proto3`.
   case proto3 // = 1
   case UNRECOGNIZED(Int)
 
@@ -88,7 +88,7 @@ enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProvidi
 
 }
 
-///   A protocol buffer message type.
+/// A protocol buffer message type.
 struct Google_Protobuf_Type: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Type"
 
@@ -121,31 +121,31 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   The fully qualified message name.
+  /// The fully qualified message name.
   var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   The list of fields.
+  /// The list of fields.
   var fields: [Google_Protobuf_Field] {
     get {return _storage._fields}
     set {_uniqueStorage()._fields = newValue}
   }
 
-  ///   The list of types appearing in `oneof` definitions in this type.
+  /// The list of types appearing in `oneof` definitions in this type.
   var oneofs: [String] {
     get {return _storage._oneofs}
     set {_uniqueStorage()._oneofs = newValue}
   }
 
-  ///   The protocol buffer options.
+  /// The protocol buffer options.
   var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
-  ///   The source context.
+  /// The source context.
   var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
@@ -157,7 +157,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message {
     _storage._sourceContext = nil
   }
 
-  ///   The source syntax.
+  /// The source syntax.
   var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
@@ -209,103 +209,103 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message {
   }
 }
 
-///   A single field of a message type.
+/// A single field of a message type.
 struct Google_Protobuf_Field: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Field"
 
-  ///   The field type.
+  /// The field type.
   var kind: Google_Protobuf_Field.Kind = Google_Protobuf_Field.Kind.typeUnknown
 
-  ///   The field cardinality.
+  /// The field cardinality.
   var cardinality: Google_Protobuf_Field.Cardinality = Google_Protobuf_Field.Cardinality.unknown
 
-  ///   The field number.
+  /// The field number.
   var number: Int32 = 0
 
-  ///   The field name.
+  /// The field name.
   var name: String = ""
 
-  ///   The field type URL, without the scheme, for message or enumeration
-  ///   types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
+  /// The field type URL, without the scheme, for message or enumeration
+  /// types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
   var typeURL: String = ""
 
-  ///   The index of the field type in `Type.oneofs`, for message or enumeration
-  ///   types. The first type has index 1; zero means the type is not in the list.
+  /// The index of the field type in `Type.oneofs`, for message or enumeration
+  /// types. The first type has index 1; zero means the type is not in the list.
   var oneofIndex: Int32 = 0
 
-  ///   Whether to use alternative packed wire representation.
+  /// Whether to use alternative packed wire representation.
   var packed: Bool = false
 
-  ///   The protocol buffer options.
+  /// The protocol buffer options.
   var options: [Google_Protobuf_Option] = []
 
-  ///   The field JSON name.
+  /// The field JSON name.
   var jsonName: String = ""
 
-  ///   The string value of the default value of this field. Proto2 syntax only.
+  /// The string value of the default value of this field. Proto2 syntax only.
   var defaultValue: String = ""
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  ///   Basic field types.
+  /// Basic field types.
   enum Kind: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
-    ///   Field type unknown.
+    /// Field type unknown.
     case typeUnknown // = 0
 
-    ///   Field type double.
+    /// Field type double.
     case typeDouble // = 1
 
-    ///   Field type float.
+    /// Field type float.
     case typeFloat // = 2
 
-    ///   Field type int64.
+    /// Field type int64.
     case typeInt64 // = 3
 
-    ///   Field type uint64.
+    /// Field type uint64.
     case typeUint64 // = 4
 
-    ///   Field type int32.
+    /// Field type int32.
     case typeInt32 // = 5
 
-    ///   Field type fixed64.
+    /// Field type fixed64.
     case typeFixed64 // = 6
 
-    ///   Field type fixed32.
+    /// Field type fixed32.
     case typeFixed32 // = 7
 
-    ///   Field type bool.
+    /// Field type bool.
     case typeBool // = 8
 
-    ///   Field type string.
+    /// Field type string.
     case typeString // = 9
 
-    ///   Field type group. Proto2 syntax only, and deprecated.
+    /// Field type group. Proto2 syntax only, and deprecated.
     case typeGroup // = 10
 
-    ///   Field type message.
+    /// Field type message.
     case typeMessage // = 11
 
-    ///   Field type bytes.
+    /// Field type bytes.
     case typeBytes // = 12
 
-    ///   Field type uint32.
+    /// Field type uint32.
     case typeUint32 // = 13
 
-    ///   Field type enum.
+    /// Field type enum.
     case typeEnum // = 14
 
-    ///   Field type sfixed32.
+    /// Field type sfixed32.
     case typeSfixed32 // = 15
 
-    ///   Field type sfixed64.
+    /// Field type sfixed64.
     case typeSfixed64 // = 16
 
-    ///   Field type sint32.
+    /// Field type sint32.
     case typeSint32 // = 17
 
-    ///   Field type sint64.
+    /// Field type sint64.
     case typeSint64 // = 18
     case UNRECOGNIZED(Int)
 
@@ -387,20 +387,20 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message {
 
   }
 
-  ///   Whether a field is optional, required, or repeated.
+  /// Whether a field is optional, required, or repeated.
   enum Cardinality: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     typealias RawValue = Int
 
-    ///   For fields with unknown cardinality.
+    /// For fields with unknown cardinality.
     case unknown // = 0
 
-    ///   For optional fields.
+    /// For optional fields.
     case `optional` // = 1
 
-    ///   For required fields. Proto2 syntax only.
+    /// For required fields. Proto2 syntax only.
     case `required` // = 2
 
-    ///   For repeated fields.
+    /// For repeated fields.
     case repeated // = 3
     case UNRECOGNIZED(Int)
 
@@ -492,7 +492,7 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message {
   }
 }
 
-///   Enum type definition.
+/// Enum type definition.
 struct Google_Protobuf_Enum: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Enum"
 
@@ -523,25 +523,25 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Enum type name.
+  /// Enum type name.
   var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   Enum value definitions.
+  /// Enum value definitions.
   var enumvalue: [Google_Protobuf_EnumValue] {
     get {return _storage._enumvalue}
     set {_uniqueStorage()._enumvalue = newValue}
   }
 
-  ///   Protocol buffer options.
+  /// Protocol buffer options.
   var options: [Google_Protobuf_Option] {
     get {return _storage._options}
     set {_uniqueStorage()._options = newValue}
   }
 
-  ///   The source context.
+  /// The source context.
   var sourceContext: Google_Protobuf_SourceContext {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
@@ -553,7 +553,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message {
     _storage._sourceContext = nil
   }
 
-  ///   The source syntax.
+  /// The source syntax.
   var syntax: Google_Protobuf_Syntax {
     get {return _storage._syntax}
     set {_uniqueStorage()._syntax = newValue}
@@ -601,17 +601,17 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message {
   }
 }
 
-///   Enum value definition.
+/// Enum value definition.
 struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".EnumValue"
 
-  ///   Enum value name.
+  /// Enum value name.
   var name: String = ""
 
-  ///   Enum value number.
+  /// Enum value number.
   var number: Int32 = 0
 
-  ///   Protocol buffer options.
+  /// Protocol buffer options.
   var options: [Google_Protobuf_Option] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -643,8 +643,8 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
   }
 }
 
-///   A protocol buffer option, which can be attached to a message, field,
-///   enumeration, etc.
+/// A protocol buffer option, which can be attached to a message, field,
+/// enumeration, etc.
 struct Google_Protobuf_Option: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Option"
 
@@ -669,19 +669,19 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   The option's name. For protobuf built-in options (options defined in
-  ///   descriptor.proto), this is the short name. For example, `"map_entry"`.
-  ///   For custom options, it should be the fully-qualified name. For example,
-  ///   `"google.api.http"`.
+  /// The option's name. For protobuf built-in options (options defined in
+  /// descriptor.proto), this is the short name. For example, `"map_entry"`.
+  /// For custom options, it should be the fully-qualified name. For example,
+  /// `"google.api.http"`.
   var name: String {
     get {return _storage._name}
     set {_uniqueStorage()._name = newValue}
   }
 
-  ///   The option's value packed in an Any message. If the value is a primitive,
-  ///   the corresponding wrapper type defined in google/protobuf/wrappers.proto
-  ///   should be used. If the value is an enum, it should be stored as an int32
-  ///   value using the google.protobuf.Int32Value type.
+  /// The option's value packed in an Any message. If the value is a primitive,
+  /// the corresponding wrapper type defined in google/protobuf/wrappers.proto
+  /// should be used. If the value is an enum, it should be stored as an int32
+  /// value using the google.protobuf.Int32Value type.
   var value: Google_Protobuf_Any {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
