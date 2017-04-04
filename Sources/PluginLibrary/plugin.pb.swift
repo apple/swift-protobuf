@@ -68,16 +68,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 fileprivate let _protobuf_package = "google.protobuf.compiler"
 
 ///   The version number of protocol compiler.
-public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Version"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "major"),
-    2: .same(proto: "minor"),
-    3: .same(proto: "patch"),
-    4: .same(proto: "suffix"),
-  ]
 
-  private var _major: Int32? = nil
+  fileprivate var _major: Int32? = nil
   public var major: Int32 {
     get {return _major ?? 0}
     set {_major = newValue}
@@ -89,7 +83,7 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProt
     return _major = nil
   }
 
-  private var _minor: Int32? = nil
+  fileprivate var _minor: Int32? = nil
   public var minor: Int32 {
     get {return _minor ?? 0}
     set {_minor = newValue}
@@ -101,7 +95,7 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProt
     return _minor = nil
   }
 
-  private var _patch: Int32? = nil
+  fileprivate var _patch: Int32? = nil
   public var patch: Int32 {
     get {return _patch ?? 0}
     set {_patch = newValue}
@@ -115,7 +109,7 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProt
 
   ///   A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
   ///   be empty for mainline stable releases.
-  private var _suffix: String? = nil
+  fileprivate var _suffix: String? = nil
   public var suffix: String {
     get {return _suffix ?? ""}
     set {_suffix = newValue}
@@ -158,28 +152,13 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProt
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
-    if _major != other._major {return false}
-    if _minor != other._minor {return false}
-    if _patch != other._patch {return false}
-    if _suffix != other._suffix {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   An encoded CodeGeneratorRequest is written to the plugin's stdin.
-public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "file_to_generate"),
-    2: .same(proto: "parameter"),
-    15: .standard(proto: "proto_file"),
-    3: .standard(proto: "compiler_version"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _fileToGenerate: [String] = []
     var _parameter: String? = nil
     var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
@@ -195,9 +174,9 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -295,30 +274,11 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
-        if _storage._parameter != other_storage._parameter {return false}
-        if _storage._protoFile != other_storage._protoFile {return false}
-        if _storage._compilerVersion != other_storage._compilerVersion {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   The plugin writes an encoded CodeGeneratorResponse to stdout.
-public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "error"),
-    15: .same(proto: "file"),
-  ]
 
   ///   Error message.  If non-empty, code generation failed.  The plugin process
   ///   should exit with status code zero even if it reports an error in this way.
@@ -328,7 +288,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   ///   problem in protoc itself -- such as the input CodeGeneratorRequest being
   ///   unparseable -- should be reported by writing a message to stderr and
   ///   exiting with a non-zero status code.
-  private var _error: String? = nil
+  fileprivate var _error: String? = nil
   public var error: String {
     get {return _error ?? ""}
     set {_error = newValue}
@@ -345,13 +305,8 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   ///   Represents a single generated file.
-  public struct File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public struct File: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "name"),
-      2: .standard(proto: "insertion_point"),
-      15: .same(proto: "content"),
-    ]
 
     ///   The file name, relative to the output directory.  The name must not
     ///   contain "." or ".." components and must be relative, not be absolute (so,
@@ -364,7 +319,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     ///   files need not reside completely in memory at one time.  Note that as of
     ///   this writing protoc does not optimize for this -- it will read the entire
     ///   CodeGeneratorResponse before writing files to disk.
-    private var _name: String? = nil
+    fileprivate var _name: String? = nil
     public var name: String {
       get {return _name ?? ""}
       set {_name = newValue}
@@ -413,7 +368,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     ///   command line.
     ///  
     ///   If |insertion_point| is present, |name| must also be present.
-    private var _insertionPoint: String? = nil
+    fileprivate var _insertionPoint: String? = nil
     public var insertionPoint: String {
       get {return _insertionPoint ?? ""}
       set {_insertionPoint = newValue}
@@ -426,7 +381,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     }
 
     ///   The file contents.
-    private var _content: String? = nil
+    fileprivate var _content: String? = nil
     public var content: String {
       get {return _content ?? ""}
       set {_content = newValue}
@@ -465,14 +420,6 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
-      if _name != other._name {return false}
-      if _insertionPoint != other._insertionPoint {return false}
-      if _content != other._content {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
   public init() {}
@@ -496,10 +443,75 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "major"),
+    2: .same(proto: "minor"),
+    3: .same(proto: "patch"),
+    4: .same(proto: "suffix"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
+    if _major != other._major {return false}
+    if _minor != other._minor {return false}
+    if _patch != other._patch {return false}
+    if _suffix != other._suffix {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "file_to_generate"),
+    2: .same(proto: "parameter"),
+    15: .standard(proto: "proto_file"),
+    3: .standard(proto: "compiler_version"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
+        if _storage._parameter != other_storage._parameter {return false}
+        if _storage._protoFile != other_storage._protoFile {return false}
+        if _storage._compilerVersion != other_storage._compilerVersion {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "error"),
+    15: .same(proto: "file"),
+  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
     if _error != other._error {return false}
     if file != other.file {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .standard(proto: "insertion_point"),
+    15: .same(proto: "content"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
+    if _name != other._name {return false}
+    if _insertionPoint != other._insertionPoint {return false}
+    if _content != other._content {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

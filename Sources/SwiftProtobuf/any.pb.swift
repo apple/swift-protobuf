@@ -119,12 +119,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 ///         "@type": "type.googleapis.com/google.protobuf.Duration",
 ///         "value": "1.212s"
 ///       }
-public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_Any: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Any"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "type_url"),
-    2: .same(proto: "value"),
-  ]
 
   typealias _StorageClass = AnyMessageStorage
 
@@ -198,6 +194,13 @@ public struct Google_Protobuf_Any: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Google_Protobuf_Any: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "type_url"),
+    2: .same(proto: "value"),
+  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if _storage !== other._storage {

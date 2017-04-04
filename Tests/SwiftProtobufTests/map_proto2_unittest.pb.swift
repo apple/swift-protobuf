@@ -125,12 +125,8 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf.
 
 }
 
-struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnum> = [:]
 
@@ -159,21 +155,10 @@ struct ProtobufUnittest_TestEnumMap: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtra"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtra> = [:]
 
@@ -202,20 +187,10 @@ struct ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf.Message, SwiftProtob
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestImportEnumMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "import_enum_amp"),
-  ]
 
   var importEnumAmp: Dictionary<Int32,ProtobufUnittestImport_ImportEnumForMap> = [:]
 
@@ -238,19 +213,10 @@ struct ProtobufUnittest_TestImportEnumMap: SwiftProtobuf.Message, SwiftProtobuf.
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
-    if importEnumAmp != other.importEnumAmp {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestIntIntMap"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "m"),
-  ]
 
   var m: Dictionary<Int32,Int32> = [:]
 
@@ -273,31 +239,11 @@ struct ProtobufUnittest_TestIntIntMap: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
-    if m != other.m {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   Test all key types: string, plus the non-floating-point scalars.
-struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMaps"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "m_int32"),
-    2: .standard(proto: "m_int64"),
-    3: .standard(proto: "m_uint32"),
-    4: .standard(proto: "m_uint64"),
-    5: .standard(proto: "m_sint32"),
-    6: .standard(proto: "m_sint64"),
-    7: .standard(proto: "m_fixed32"),
-    8: .standard(proto: "m_fixed64"),
-    9: .standard(proto: "m_sfixed32"),
-    10: .standard(proto: "m_sfixed64"),
-    11: .standard(proto: "m_bool"),
-    12: .standard(proto: "m_string"),
-  ]
 
   var mInt32: Dictionary<Int32,ProtobufUnittest_TestIntIntMap> = [:]
 
@@ -386,6 +332,75 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMap) -> Bool {
+    if knownMapField != other.knownMapField {return false}
+    if unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestEnumMapPlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtra) -> Bool {
+    if knownMapField != other.knownMapField {return false}
+    if unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestImportEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "import_enum_amp"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestImportEnumMap) -> Bool {
+    if importEnumAmp != other.importEnumAmp {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestIntIntMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "m"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIntIntMap) -> Bool {
+    if m != other.m {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "m_int32"),
+    2: .standard(proto: "m_int64"),
+    3: .standard(proto: "m_uint32"),
+    4: .standard(proto: "m_uint64"),
+    5: .standard(proto: "m_sint32"),
+    6: .standard(proto: "m_sint64"),
+    7: .standard(proto: "m_fixed32"),
+    8: .standard(proto: "m_fixed64"),
+    9: .standard(proto: "m_sfixed32"),
+    10: .standard(proto: "m_sfixed64"),
+    11: .standard(proto: "m_bool"),
+    12: .standard(proto: "m_string"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMaps) -> Bool {
     if mInt32 != other.mInt32 {return false}

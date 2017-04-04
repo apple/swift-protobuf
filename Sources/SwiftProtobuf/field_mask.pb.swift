@@ -251,11 +251,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 ///  
 ///   Note that oneof type names ("test_oneof" in this case) cannot be used in
 ///   paths.
-public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldMask"
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "paths"),
-  ]
 
   ///   The set of field mask paths.
   public var paths: [String] = []
@@ -279,6 +276,12 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message, SwiftProtobuf._M
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Google_Protobuf_FieldMask: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "paths"),
+  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
     if paths != other.paths {return false}

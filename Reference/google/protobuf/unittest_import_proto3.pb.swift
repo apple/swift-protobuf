@@ -98,11 +98,8 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
 
 }
 
-struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto3ImportMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
 
   var d: Int32 = 0
 
@@ -125,6 +122,12 @@ struct Proto3ImportMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Proto3ImportMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "d"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Proto3ImportMessage) -> Bool {
     if d != other.d {return false}

@@ -93,13 +93,8 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProvidi
 ///     1. parse this proto (which should always succeed)
 ///     2. parse the protobuf or JSON payload in "payload" (which may fail)
 ///     3. if the parse succeeded, serialize the message in the requested format.
-struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "protobuf_payload"),
-    2: .standard(proto: "json_payload"),
-    3: .standard(proto: "requested_output_format"),
-  ]
 
   var protobufPayload: Data {
     get {
@@ -199,26 +194,11 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
-    if payload != other.payload {return false}
-    if requestedOutputFormat != other.requestedOutputFormat {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   Represents a single test case's output.
-struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "parse_error"),
-    6: .standard(proto: "serialize_error"),
-    2: .standard(proto: "runtime_error"),
-    3: .standard(proto: "protobuf_payload"),
-    4: .standard(proto: "json_payload"),
-    5: .same(proto: "skipped"),
-  ]
 
   ///   This string should be set to indicate parsing failed.  The string can
   ///   provide more information about the parse error if it is available.
@@ -420,6 +400,32 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     try result?.traverse(visitor: &visitor, start: 1, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "protobuf_payload"),
+    2: .standard(proto: "json_payload"),
+    3: .standard(proto: "requested_output_format"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
+    if payload != other.payload {return false}
+    if requestedOutputFormat != other.requestedOutputFormat {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "parse_error"),
+    6: .standard(proto: "serialize_error"),
+    2: .standard(proto: "runtime_error"),
+    3: .standard(proto: "protobuf_payload"),
+    4: .standard(proto: "json_payload"),
+    5: .same(proto: "skipped"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
     if result != other.result {return false}

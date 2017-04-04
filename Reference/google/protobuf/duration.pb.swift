@@ -96,12 +96,8 @@ fileprivate let _protobuf_package = "google.protobuf"
 ///       td = datetime.timedelta(days=3, minutes=10)
 ///       duration = Duration()
 ///       duration.FromTimedelta(td)
-struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Google_Protobuf_Duration: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Duration"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-    2: .same(proto: "nanos"),
-  ]
 
   ///   Signed seconds of the span of time. Must be from -315,576,000,000
   ///   to +315,576,000,000 inclusive.
@@ -138,6 +134,13 @@ struct Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Google_Protobuf_Duration: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "seconds"),
+    2: .same(proto: "nanos"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Duration) -> Bool {
     if seconds != other.seconds {return false}

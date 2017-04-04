@@ -342,7 +342,7 @@ class FileGenerator {
         }
 
         for m in messages {
-            m.generateNested(printer: &p, file: self, parent: nil)
+            m.generateMainStruct(printer: &p, file: self, parent: nil)
         }
 
         for e in extensions {
@@ -379,6 +379,11 @@ class FileGenerator {
             p.outdent()
             p.print("]\n")
         }
+
+        for m in messages {
+            m.generateRuntimeSupport(printer: &p, file: self, parent: nil)
+        }
+
     }
 
     private func generateVersionCheck(printer p: inout CodePrinter) {

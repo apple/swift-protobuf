@@ -51,13 +51,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "proto2_arena_unittest"
 
-struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ImportNoArenaNestedMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "d"),
-  ]
 
-  private var _d: Int32? = nil
+  fileprivate var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
@@ -88,6 +85,12 @@ struct Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf.Message, Sw
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Proto2ArenaUnittest_ImportNoArenaNestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "d"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_ImportNoArenaNestedMessage) -> Bool {
     if _d != other._d {return false}

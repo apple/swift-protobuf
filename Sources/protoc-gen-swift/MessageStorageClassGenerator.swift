@@ -43,7 +43,7 @@ class MessageStorageClassGenerator {
 
   /// Visibility of the storage within the Message.
   var storageVisibility: String {
-    return "private"
+    return "fileprivate"
   }
 
   /// If the storage wants to manually implement equality.
@@ -53,7 +53,7 @@ class MessageStorageClassGenerator {
   ///
   /// - Parameter p: The code printer.
   func generateNested(printer p: inout CodePrinter) {
-    p.print("private class _StorageClass {\n")
+    p.print("fileprivate class _StorageClass {\n")
     p.indent()
 
     generateStoredProperties(printer: &p)

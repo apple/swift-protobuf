@@ -35,9 +35,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-struct SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct SwiftReservedTestExt2: SwiftProtobuf.Message {
   static let protoMessageName: String = "SwiftReservedTestExt2"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -91,11 +90,6 @@ struct SwiftReservedTestExt2: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
-  }
-
-  func _protobuf_generated_isEqualTo(other: SwiftReservedTestExt2) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
   }
 }
 
@@ -313,3 +307,12 @@ let UnittestSwiftReservedExt_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftReservedTestExt2.Extensions.do,
   SwiftReservedTestExt2.Extensions.nil
 ]
+
+extension SwiftReservedTestExt2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftReservedTestExt2) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}

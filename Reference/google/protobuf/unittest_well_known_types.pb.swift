@@ -24,31 +24,10 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 ///   Test that we can include all well-known types.
 ///   Each wrapper type is included separately, as languages
 ///   map handle different wrappers in different ways.
-struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-    19: .standard(proto: "value_field"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _anyField: Google_Protobuf_Any? = nil
     var _apiField: Google_Protobuf_Api? = nil
     var _durationField: Google_Protobuf_Duration? = nil
@@ -94,9 +73,9 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -409,63 +388,13 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._anyField != other_storage._anyField {return false}
-        if _storage._apiField != other_storage._apiField {return false}
-        if _storage._durationField != other_storage._durationField {return false}
-        if _storage._emptyField != other_storage._emptyField {return false}
-        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != other_storage._sourceContextField {return false}
-        if _storage._structField != other_storage._structField {return false}
-        if _storage._timestampField != other_storage._timestampField {return false}
-        if _storage._typeField != other_storage._typeField {return false}
-        if _storage._doubleField != other_storage._doubleField {return false}
-        if _storage._floatField != other_storage._floatField {return false}
-        if _storage._int64Field != other_storage._int64Field {return false}
-        if _storage._uint64Field != other_storage._uint64Field {return false}
-        if _storage._int32Field != other_storage._int32Field {return false}
-        if _storage._uint32Field != other_storage._uint32Field {return false}
-        if _storage._boolField != other_storage._boolField {return false}
-        if _storage._stringField != other_storage._stringField {return false}
-        if _storage._bytesField != other_storage._bytesField {return false}
-        if _storage._valueField != other_storage._valueField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   A repeated field for each well-known type.
-struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _anyField: [Google_Protobuf_Any] = []
     var _apiField: [Google_Protobuf_Api] = []
     var _durationField: [Google_Protobuf_Duration] = []
@@ -509,9 +438,9 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -701,61 +630,12 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message, SwiftProt
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._anyField != other_storage._anyField {return false}
-        if _storage._apiField != other_storage._apiField {return false}
-        if _storage._durationField != other_storage._durationField {return false}
-        if _storage._emptyField != other_storage._emptyField {return false}
-        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
-        if _storage._sourceContextField != other_storage._sourceContextField {return false}
-        if _storage._structField != other_storage._structField {return false}
-        if _storage._timestampField != other_storage._timestampField {return false}
-        if _storage._typeField != other_storage._typeField {return false}
-        if _storage._doubleField != other_storage._doubleField {return false}
-        if _storage._floatField != other_storage._floatField {return false}
-        if _storage._int64Field != other_storage._int64Field {return false}
-        if _storage._uint64Field != other_storage._uint64Field {return false}
-        if _storage._int32Field != other_storage._int32Field {return false}
-        if _storage._uint32Field != other_storage._uint32Field {return false}
-        if _storage._boolField != other_storage._boolField {return false}
-        if _storage._stringField != other_storage._stringField {return false}
-        if _storage._bytesField != other_storage._bytesField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
 
     init() {}
@@ -765,9 +645,9 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -1279,47 +1159,15 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message, SwiftProtobu
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._oneofField != other_storage._oneofField {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   A map field for each well-known type. We only
 ///   need to worry about the value part of the map being the
 ///   well-known types, as messages can't be map keys.
-struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "any_field"),
-    2: .standard(proto: "api_field"),
-    3: .standard(proto: "duration_field"),
-    4: .standard(proto: "empty_field"),
-    5: .standard(proto: "field_mask_field"),
-    6: .standard(proto: "source_context_field"),
-    7: .standard(proto: "struct_field"),
-    8: .standard(proto: "timestamp_field"),
-    9: .standard(proto: "type_field"),
-    10: .standard(proto: "double_field"),
-    11: .standard(proto: "float_field"),
-    12: .standard(proto: "int64_field"),
-    13: .standard(proto: "uint64_field"),
-    14: .standard(proto: "int32_field"),
-    15: .standard(proto: "uint32_field"),
-    16: .standard(proto: "bool_field"),
-    17: .standard(proto: "string_field"),
-    18: .standard(proto: "bytes_field"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _anyField: Dictionary<Int32,Google_Protobuf_Any> = [:]
     var _apiField: Dictionary<Int32,Google_Protobuf_Api> = [:]
     var _durationField: Dictionary<Int32,Google_Protobuf_Duration> = [:]
@@ -1363,9 +1211,9 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -1554,6 +1402,170 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message, SwiftProtobuf.
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+    19: .standard(proto: "value_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+        if _storage._valueField != other_storage._valueField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._anyField != other_storage._anyField {return false}
+        if _storage._apiField != other_storage._apiField {return false}
+        if _storage._durationField != other_storage._durationField {return false}
+        if _storage._emptyField != other_storage._emptyField {return false}
+        if _storage._fieldMaskField != other_storage._fieldMaskField {return false}
+        if _storage._sourceContextField != other_storage._sourceContextField {return false}
+        if _storage._structField != other_storage._structField {return false}
+        if _storage._timestampField != other_storage._timestampField {return false}
+        if _storage._typeField != other_storage._typeField {return false}
+        if _storage._doubleField != other_storage._doubleField {return false}
+        if _storage._floatField != other_storage._floatField {return false}
+        if _storage._int64Field != other_storage._int64Field {return false}
+        if _storage._uint64Field != other_storage._uint64Field {return false}
+        if _storage._int32Field != other_storage._int32Field {return false}
+        if _storage._uint32Field != other_storage._uint32Field {return false}
+        if _storage._boolField != other_storage._boolField {return false}
+        if _storage._stringField != other_storage._stringField {return false}
+        if _storage._bytesField != other_storage._bytesField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._oneofField != other_storage._oneofField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "any_field"),
+    2: .standard(proto: "api_field"),
+    3: .standard(proto: "duration_field"),
+    4: .standard(proto: "empty_field"),
+    5: .standard(proto: "field_mask_field"),
+    6: .standard(proto: "source_context_field"),
+    7: .standard(proto: "struct_field"),
+    8: .standard(proto: "timestamp_field"),
+    9: .standard(proto: "type_field"),
+    10: .standard(proto: "double_field"),
+    11: .standard(proto: "float_field"),
+    12: .standard(proto: "int64_field"),
+    13: .standard(proto: "uint64_field"),
+    14: .standard(proto: "int32_field"),
+    15: .standard(proto: "uint32_field"),
+    16: .standard(proto: "bool_field"),
+    17: .standard(proto: "string_field"),
+    18: .standard(proto: "bytes_field"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {
     if _storage !== other._storage {

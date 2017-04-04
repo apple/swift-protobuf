@@ -86,18 +86,10 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, SwiftProtobuf
 
 }
 
-struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "e"),
-    2: .standard(proto: "repeated_e"),
-    3: .standard(proto: "repeated_packed_e"),
-    4: .standard(proto: "repeated_packed_unexpected_e"),
-    5: .standard(proto: "oneof_e_1"),
-    6: .standard(proto: "oneof_e_2"),
-  ]
 
-  private var _e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
+  fileprivate var _e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
   var e: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {return _e ?? Proto2PreserveUnknownEnumUnittest_MyEnum.foo}
     set {_e = newValue}
@@ -227,6 +219,17 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message, Swift
     try o?.traverse(visitor: &visitor, start: 5, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "e"),
+    2: .standard(proto: "repeated_e"),
+    3: .standard(proto: "repeated_packed_e"),
+    4: .standard(proto: "repeated_packed_unexpected_e"),
+    5: .standard(proto: "oneof_e_1"),
+    6: .standard(proto: "oneof_e_2"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
     if _e != other._e {return false}

@@ -39,19 +39,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest.extend4"
 
-struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Ext4MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  struct C: SwiftProtobuf.Message {
     static let protoMessageName: String = Ext4MyMessage.protoMessageName + ".C"
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1410: .same(proto: "c"),
-    ]
 
-    private var _c: Int64? = nil
+    fileprivate var _c: Int64? = nil
     var c: Int64 {
       get {return _c ?? 0}
       set {_c = newValue}
@@ -82,12 +78,6 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
       }
       try unknownFields.traverse(visitor: &visitor)
     }
-
-    func _protobuf_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
-      if _c != other._c {return false}
-      if unknownFields != other.unknownFields {return false}
-      return true
-    }
   }
 
   struct Extensions {
@@ -115,20 +105,12 @@ struct Ext4MyMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: Ext4MyMessage) -> Bool {
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct Ext4C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1420: .same(proto: "c"),
-  ]
 
-  private var _c: Int64? = nil
+  fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -158,12 +140,6 @@ struct Ext4C: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, S
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1420)
     }
     try unknownFields.traverse(visitor: &visitor)
-  }
-
-  func _protobuf_generated_isEqualTo(other: Ext4C) -> Bool {
-    if _c != other._c {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
   }
 }
 
@@ -237,3 +213,36 @@ let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Ext4MyMessage.Extensions.b,
   Ext4MyMessage.Extensions.C
 ]
+
+extension Ext4MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: Ext4MyMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Ext4MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1410: .same(proto: "c"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
+    if _c != other._c {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Ext4C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1420: .same(proto: "c"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: Ext4C) -> Bool {
+    if _c != other._c {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}

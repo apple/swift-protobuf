@@ -50,15 +50,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_foo"),
-    2: .standard(proto: "a_bar"),
-    3: .standard(proto: "a_baz"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
@@ -72,9 +67,9 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -146,31 +141,12 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._aFoo != other_storage._aFoo {return false}
-        if _storage._aBar != other_storage._aBar {return false}
-        if _storage._aBaz != other_storage._aBaz {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_bar"),
-    2: .standard(proto: "a_baz"),
-    3: .standard(proto: "a_foo"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
@@ -184,9 +160,9 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -258,31 +234,12 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._aBar != other_storage._aBar {return false}
-        if _storage._aBaz != other_storage._aBaz {return false}
-        if _storage._aFoo != other_storage._aFoo {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "a_baz"),
-    2: .standard(proto: "a_foo"),
-    3: .standard(proto: "a_bar"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
@@ -296,9 +253,9 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -370,6 +327,58 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "a_foo"),
+    2: .standard(proto: "a_bar"),
+    3: .standard(proto: "a_baz"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._aFoo != other_storage._aFoo {return false}
+        if _storage._aBar != other_storage._aBar {return false}
+        if _storage._aBaz != other_storage._aBaz {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "a_bar"),
+    2: .standard(proto: "a_baz"),
+    3: .standard(proto: "a_foo"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._aBar != other_storage._aBar {return false}
+        if _storage._aBaz != other_storage._aBaz {return false}
+        if _storage._aFoo != other_storage._aFoo {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_CycleBaz: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "a_baz"),
+    2: .standard(proto: "a_foo"),
+    3: .standard(proto: "a_bar"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
     if _storage !== other._storage {

@@ -160,30 +160,10 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameP
 
 }
 
-struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_int32"),
-    2: .standard(proto: "map_int64_int64"),
-    3: .standard(proto: "map_uint32_uint32"),
-    4: .standard(proto: "map_uint64_uint64"),
-    5: .standard(proto: "map_sint32_sint32"),
-    6: .standard(proto: "map_sint64_sint64"),
-    7: .standard(proto: "map_fixed32_fixed32"),
-    8: .standard(proto: "map_fixed64_fixed64"),
-    9: .standard(proto: "map_sfixed32_sfixed32"),
-    10: .standard(proto: "map_sfixed64_sfixed64"),
-    11: .standard(proto: "map_int32_float"),
-    12: .standard(proto: "map_int32_double"),
-    13: .standard(proto: "map_bool_bool"),
-    14: .standard(proto: "map_string_string"),
-    15: .standard(proto: "map_int32_bytes"),
-    16: .standard(proto: "map_int32_enum"),
-    17: .standard(proto: "map_int32_foreign_message"),
-    18: .same(proto: "teboring"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -227,9 +207,9 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -418,61 +398,12 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMapLite) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-        if _storage._mapStringString != other_storage._mapStringString {return false}
-        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
-        if _storage._teboring != other_storage._teboring {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestArenaMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_int32"),
-    2: .standard(proto: "map_int64_int64"),
-    3: .standard(proto: "map_uint32_uint32"),
-    4: .standard(proto: "map_uint64_uint64"),
-    5: .standard(proto: "map_sint32_sint32"),
-    6: .standard(proto: "map_sint64_sint64"),
-    7: .standard(proto: "map_fixed32_fixed32"),
-    8: .standard(proto: "map_fixed64_fixed64"),
-    9: .standard(proto: "map_sfixed32_sfixed32"),
-    10: .standard(proto: "map_sfixed64_sfixed64"),
-    11: .standard(proto: "map_int32_float"),
-    12: .standard(proto: "map_int32_double"),
-    13: .standard(proto: "map_bool_bool"),
-    14: .standard(proto: "map_string_string"),
-    15: .standard(proto: "map_int32_bytes"),
-    16: .standard(proto: "map_int32_enum"),
-    17: .standard(proto: "map_int32_foreign_message"),
-    18: .standard(proto: "map_int32_foreign_message_no_arena"),
-  ]
 
-  private class _StorageClass {
+  fileprivate class _StorageClass {
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
     var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
     var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
@@ -516,9 +447,9 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  private var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass()
 
-  private mutating func _uniqueStorage() -> _StorageClass {
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
     if !isKnownUniquelyReferenced(&_storage) {
       _storage = _StorageClass(copying: _storage)
     }
@@ -707,43 +638,11 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message, SwiftProtobuf._
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestArenaMapLite) -> Bool {
-    if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
-        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
-        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
-        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
-        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
-        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
-        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
-        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
-        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
-        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
-        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
-        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
-        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
-        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
-        if _storage._mapStringString != other_storage._mapStringString {return false}
-        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
-        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
-        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
-        if _storage._mapInt32ForeignMessageNoArena != other_storage._mapInt32ForeignMessageNoArena {return false}
-        return true
-      }
-      if !storagesAreEqual {return false}
-    }
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
 ///   Test embedded message with required fields
-struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredMessageMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_field"),
-  ]
 
   var mapField: Dictionary<Int32,ProtobufUnittest_TestRequiredLite> = [:]
 
@@ -771,20 +670,10 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message, Swift
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMapLite) -> Bool {
-    if mapField != other.mapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumLite> = [:]
 
@@ -813,21 +702,10 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message, SwiftProtobuf._M
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapLite) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumMapPlusExtraLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    101: .standard(proto: "known_map_field"),
-    102: .standard(proto: "unknown_map_field"),
-  ]
 
   var knownMapField: Dictionary<Int32,ProtobufUnittest_Proto2MapEnumPlusExtraLite> = [:]
 
@@ -856,20 +734,10 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message, SwiftPr
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtraLite) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageMapLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "map_int32_message"),
-  ]
 
   var mapInt32Message: Dictionary<Int32,ProtobufUnittest_TestAllTypesLite> = [:]
 
@@ -892,23 +760,12 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message, SwiftProtobuf
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageMapLite) -> Bool {
-    if mapInt32Message != other.mapInt32Message {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "a"),
-    2: .same(proto: "b"),
-    3: .same(proto: "c"),
-  ]
 
-  private var _a: Int32? = nil
+  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -920,7 +777,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._
     return _a = nil
   }
 
-  private var _b: Int32? = nil
+  fileprivate var _b: Int32? = nil
   var b: Int32 {
     get {return _b ?? 0}
     set {_b = newValue}
@@ -932,7 +789,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._
     return _b = nil
   }
 
-  private var _c: Int32? = nil
+  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -978,23 +835,12 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message, SwiftProtobuf._
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
-    if _a != other._a {return false}
-    if _b != other._b {return false}
-    if _c != other._c {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
 }
 
-struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageArenaLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
 
-  private var _c: Int32? = nil
+  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -1025,6 +871,184 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message, SwiftPro
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "map_int32_int32"),
+    2: .standard(proto: "map_int64_int64"),
+    3: .standard(proto: "map_uint32_uint32"),
+    4: .standard(proto: "map_uint64_uint64"),
+    5: .standard(proto: "map_sint32_sint32"),
+    6: .standard(proto: "map_sint64_sint64"),
+    7: .standard(proto: "map_fixed32_fixed32"),
+    8: .standard(proto: "map_fixed64_fixed64"),
+    9: .standard(proto: "map_sfixed32_sfixed32"),
+    10: .standard(proto: "map_sfixed64_sfixed64"),
+    11: .standard(proto: "map_int32_float"),
+    12: .standard(proto: "map_int32_double"),
+    13: .standard(proto: "map_bool_bool"),
+    14: .standard(proto: "map_string_string"),
+    15: .standard(proto: "map_int32_bytes"),
+    16: .standard(proto: "map_int32_enum"),
+    17: .standard(proto: "map_int32_foreign_message"),
+    18: .same(proto: "teboring"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMapLite) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+        if _storage._mapStringString != other_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+        if _storage._teboring != other_storage._teboring {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "map_int32_int32"),
+    2: .standard(proto: "map_int64_int64"),
+    3: .standard(proto: "map_uint32_uint32"),
+    4: .standard(proto: "map_uint64_uint64"),
+    5: .standard(proto: "map_sint32_sint32"),
+    6: .standard(proto: "map_sint64_sint64"),
+    7: .standard(proto: "map_fixed32_fixed32"),
+    8: .standard(proto: "map_fixed64_fixed64"),
+    9: .standard(proto: "map_sfixed32_sfixed32"),
+    10: .standard(proto: "map_sfixed64_sfixed64"),
+    11: .standard(proto: "map_int32_float"),
+    12: .standard(proto: "map_int32_double"),
+    13: .standard(proto: "map_bool_bool"),
+    14: .standard(proto: "map_string_string"),
+    15: .standard(proto: "map_int32_bytes"),
+    16: .standard(proto: "map_int32_enum"),
+    17: .standard(proto: "map_int32_foreign_message"),
+    18: .standard(proto: "map_int32_foreign_message_no_arena"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestArenaMapLite) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._mapInt32Int32 != other_storage._mapInt32Int32 {return false}
+        if _storage._mapInt64Int64 != other_storage._mapInt64Int64 {return false}
+        if _storage._mapUint32Uint32 != other_storage._mapUint32Uint32 {return false}
+        if _storage._mapUint64Uint64 != other_storage._mapUint64Uint64 {return false}
+        if _storage._mapSint32Sint32 != other_storage._mapSint32Sint32 {return false}
+        if _storage._mapSint64Sint64 != other_storage._mapSint64Sint64 {return false}
+        if _storage._mapFixed32Fixed32 != other_storage._mapFixed32Fixed32 {return false}
+        if _storage._mapFixed64Fixed64 != other_storage._mapFixed64Fixed64 {return false}
+        if _storage._mapSfixed32Sfixed32 != other_storage._mapSfixed32Sfixed32 {return false}
+        if _storage._mapSfixed64Sfixed64 != other_storage._mapSfixed64Sfixed64 {return false}
+        if _storage._mapInt32Float != other_storage._mapInt32Float {return false}
+        if _storage._mapInt32Double != other_storage._mapInt32Double {return false}
+        if _storage._mapBoolBool != other_storage._mapBoolBool {return false}
+        if _storage._mapStringString != other_storage._mapStringString {return false}
+        if _storage._mapInt32Bytes != other_storage._mapInt32Bytes {return false}
+        if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
+        if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
+        if _storage._mapInt32ForeignMessageNoArena != other_storage._mapInt32ForeignMessageNoArena {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMapLite) -> Bool {
+    if mapField != other.mapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapLite) -> Bool {
+    if knownMapField != other.knownMapField {return false}
+    if unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    101: .standard(proto: "known_map_field"),
+    102: .standard(proto: "unknown_map_field"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtraLite) -> Bool {
+    if knownMapField != other.knownMapField {return false}
+    if unknownMapField != other.unknownMapField {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "map_int32_message"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageMapLite) -> Bool {
+    if mapInt32Message != other.mapInt32Message {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    2: .same(proto: "b"),
+    3: .same(proto: "c"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
+    if _a != other._a {return false}
+    if _b != other._b {return false}
+    if _c != other._c {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "c"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageArenaLite) -> Bool {
     if _c != other._c {return false}

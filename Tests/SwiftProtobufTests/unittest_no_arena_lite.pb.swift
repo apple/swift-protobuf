@@ -51,13 +51,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest_no_arena"
 
-struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageLite"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "c"),
-  ]
 
-  private var _c: Int32? = nil
+  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -88,6 +85,12 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message, SwiftP
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "c"),
+  ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
     if _c != other._c {return false}
