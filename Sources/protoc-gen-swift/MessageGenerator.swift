@@ -229,7 +229,7 @@ class MessageGenerator {
 
     // Nested enums
     for e in enums {
-      e.generateNested(printer: &p)
+      e.generateMainEnum(printer: &p)
     }
 
     // Nested messages
@@ -305,8 +305,10 @@ class MessageGenerator {
     p.outdent()
     p.print("}\n")
 
-
-    // Nested messages
+    // Nested enums and messages
+    for e in enums {
+      e.generateRuntimeSupport(printer: &p)
+    }
     for m in messages {
       m.generateRuntimeSupport(printer: &p, file: file, parent: self)
     }

@@ -51,7 +51,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 fileprivate let _protobuf_package = "google.protobuf"
 
 /// The syntax in which a protocol buffer element is defined.
-public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
   /// Syntax `proto2`.
@@ -60,11 +60,6 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum, SwiftProtobuf._ProtoName
   /// Syntax `proto3`.
   case proto3 // = 1
   case UNRECOGNIZED(Int)
-
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "SYNTAX_PROTO2"),
-    1: .same(proto: "SYNTAX_PROTO3"),
-  ]
 
   public init() {
     self = .proto2
@@ -248,7 +243,7 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Basic field types.
-  public enum Kind: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum Kind: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// Field type unknown.
@@ -309,28 +304,6 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
     case typeSint64 // = 18
     case UNRECOGNIZED(Int)
 
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "TYPE_UNKNOWN"),
-      1: .same(proto: "TYPE_DOUBLE"),
-      2: .same(proto: "TYPE_FLOAT"),
-      3: .same(proto: "TYPE_INT64"),
-      4: .same(proto: "TYPE_UINT64"),
-      5: .same(proto: "TYPE_INT32"),
-      6: .same(proto: "TYPE_FIXED64"),
-      7: .same(proto: "TYPE_FIXED32"),
-      8: .same(proto: "TYPE_BOOL"),
-      9: .same(proto: "TYPE_STRING"),
-      10: .same(proto: "TYPE_GROUP"),
-      11: .same(proto: "TYPE_MESSAGE"),
-      12: .same(proto: "TYPE_BYTES"),
-      13: .same(proto: "TYPE_UINT32"),
-      14: .same(proto: "TYPE_ENUM"),
-      15: .same(proto: "TYPE_SFIXED32"),
-      16: .same(proto: "TYPE_SFIXED64"),
-      17: .same(proto: "TYPE_SINT32"),
-      18: .same(proto: "TYPE_SINT64"),
-    ]
-
     public init() {
       self = .typeUnknown
     }
@@ -388,7 +361,7 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
   }
 
   /// Whether a field is optional, required, or repeated.
-  public enum Cardinality: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum Cardinality: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// For fields with unknown cardinality.
@@ -403,13 +376,6 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
     /// For repeated fields.
     case repeated // = 3
     case UNRECOGNIZED(Int)
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "CARDINALITY_UNKNOWN"),
-      1: .same(proto: "CARDINALITY_OPTIONAL"),
-      2: .same(proto: "CARDINALITY_REQUIRED"),
-      3: .same(proto: "CARDINALITY_REPEATED"),
-    ]
 
     public init() {
       self = .unknown
@@ -723,6 +689,13 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
   }
 }
 
+extension Google_Protobuf_Syntax: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SYNTAX_PROTO2"),
+    1: .same(proto: "SYNTAX_PROTO3"),
+  ]
+}
+
 extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -779,6 +752,39 @@ extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, Swift
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension Google_Protobuf_Field.Kind: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TYPE_UNKNOWN"),
+    1: .same(proto: "TYPE_DOUBLE"),
+    2: .same(proto: "TYPE_FLOAT"),
+    3: .same(proto: "TYPE_INT64"),
+    4: .same(proto: "TYPE_UINT64"),
+    5: .same(proto: "TYPE_INT32"),
+    6: .same(proto: "TYPE_FIXED64"),
+    7: .same(proto: "TYPE_FIXED32"),
+    8: .same(proto: "TYPE_BOOL"),
+    9: .same(proto: "TYPE_STRING"),
+    10: .same(proto: "TYPE_GROUP"),
+    11: .same(proto: "TYPE_MESSAGE"),
+    12: .same(proto: "TYPE_BYTES"),
+    13: .same(proto: "TYPE_UINT32"),
+    14: .same(proto: "TYPE_ENUM"),
+    15: .same(proto: "TYPE_SFIXED32"),
+    16: .same(proto: "TYPE_SFIXED64"),
+    17: .same(proto: "TYPE_SINT32"),
+    18: .same(proto: "TYPE_SINT64"),
+  ]
+}
+
+extension Google_Protobuf_Field.Cardinality: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "CARDINALITY_UNKNOWN"),
+    1: .same(proto: "CARDINALITY_OPTIONAL"),
+    2: .same(proto: "CARDINALITY_REQUIRED"),
+    3: .same(proto: "CARDINALITY_REPEATED"),
+  ]
 }
 
 extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

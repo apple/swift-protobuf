@@ -338,7 +338,7 @@ class FileGenerator {
         }
 
         for e in enums {
-            e.generateNested(printer: &p)
+            e.generateMainEnum(printer: &p)
         }
 
         for m in messages {
@@ -378,6 +378,10 @@ class FileGenerator {
             p.print("\n")
             p.outdent()
             p.print("]\n")
+        }
+
+        for e in enums {
+            e.generateRuntimeSupport(printer: &p)
         }
 
         for m in messages {

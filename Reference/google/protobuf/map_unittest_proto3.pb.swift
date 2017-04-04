@@ -58,18 +58,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum Proto3MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3MapEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MAP_ENUM_FOO"),
-    1: .same(proto: "MAP_ENUM_BAR"),
-    2: .same(proto: "MAP_ENUM_BAZ"),
-  ]
 
   init() {
     self = .foo
@@ -562,14 +556,10 @@ struct Proto3MessageContainingEnumCalledType: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TypeEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 0
     case UNRECOGNIZED(Int)
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "TYPE_FOO"),
-    ]
 
     init() {
       self = .foo
@@ -635,6 +625,14 @@ struct Proto3MessageContainingMapCalledEntry: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Proto3MapEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MAP_ENUM_FOO"),
+    1: .same(proto: "MAP_ENUM_BAR"),
+    2: .same(proto: "MAP_ENUM_BAZ"),
+  ]
 }
 
 extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -781,6 +779,12 @@ extension Proto3MessageContainingEnumCalledType: SwiftProtobuf._MessageImplement
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension Proto3MessageContainingEnumCalledType.TypeEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TYPE_FOO"),
+  ]
 }
 
 extension Proto3MessageContainingMapCalledEntry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

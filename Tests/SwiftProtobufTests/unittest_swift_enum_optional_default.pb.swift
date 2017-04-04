@@ -92,13 +92,9 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+    enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
       case foo // = 0
-
-      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        0: .same(proto: "FOO"),
-      ]
 
       init() {
         self = .foo
@@ -164,13 +160,9 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
-    enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+    enum Enum: SwiftProtobuf.Enum {
       typealias RawValue = Int
       case foo // = 0
-
-      static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        0: .same(proto: "FOO"),
-      ]
 
       init() {
         self = .foo
@@ -251,6 +243,12 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtob
   }
 }
 
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+  ]
+}
+
 extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     17: .standard(proto: "optional_enum"),
@@ -261,4 +259,10 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProto
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+  ]
 }

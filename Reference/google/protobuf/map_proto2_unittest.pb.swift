@@ -51,17 +51,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
-  ]
 
   init() {
     self = .foo
@@ -86,19 +80,12 @@ enum ProtobufUnittest_Proto2MapEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNam
 
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eProto2MapEnumFoo // = 0
   case eProto2MapEnumBar // = 1
   case eProto2MapEnumBaz // = 2
   case eProto2MapEnumExtra // = 3
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
-    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
-    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
-    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
-  ]
 
   init() {
     self = .eProto2MapEnumFoo
@@ -332,6 +319,23 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittest_Proto2MapEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PROTO2_MAP_ENUM_FOO"),
+    1: .same(proto: "PROTO2_MAP_ENUM_BAR"),
+    2: .same(proto: "PROTO2_MAP_ENUM_BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_Proto2MapEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO"),
+    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR"),
+    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ"),
+    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA"),
+  ]
 }
 
 extension ProtobufUnittest_TestEnumMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

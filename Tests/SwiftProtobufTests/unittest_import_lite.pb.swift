@@ -55,17 +55,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
-enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case importLiteFoo // = 7
   case importLiteBar // = 8
   case importLiteBaz // = 9
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    7: .same(proto: "IMPORT_LITE_FOO"),
-    8: .same(proto: "IMPORT_LITE_BAR"),
-    9: .same(proto: "IMPORT_LITE_BAZ"),
-  ]
 
   init() {
     self = .importLiteFoo
@@ -124,6 +118,14 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    7: .same(proto: "IMPORT_LITE_FOO"),
+    8: .same(proto: "IMPORT_LITE_BAR"),
+    9: .same(proto: "IMPORT_LITE_BAZ"),
+  ]
 }
 
 extension ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

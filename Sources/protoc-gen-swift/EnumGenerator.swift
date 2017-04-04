@@ -83,10 +83,10 @@ class EnumGenerator {
     self.comments = file.commentsFor(path: path)
   }
 
-  func generateNested(printer p: inout CodePrinter) {
+  func generateMainEnum(printer p: inout CodePrinter) {
     p.print("\n")
     p.print(comments)
-    p.print("\(visibility)enum \(swiftRelativeName): SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {\n")
+    p.print("\(visibility)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
     p.indent()
     p.print("\(visibility)typealias RawValue = Int\n")
 
@@ -97,10 +97,6 @@ class EnumGenerator {
     if isProto3 {
       p.print("case \(unrecognizedCaseName)(Int)\n")
     }
-
-    // Map the enum case names to their numbers.
-    p.print("\n")
-    generateNameMap(printer: &p)
 
     // Generate the default initializer.
     p.print("\n")
@@ -121,10 +117,19 @@ class EnumGenerator {
     p.print("}\n")
   }
 
+  func generateRuntimeSupport(printer p: inout CodePrinter) {
+    p.print("\n")
+    p.print("extension \(swiftFullName): SwiftProtobuf._ProtoNameProviding {\n")
+    p.indent()
+    generateProtoNameProviding(printer: &p)
+    p.outdent()
+    p.print("}\n")
+  }
+
   /// Generates the mapping from case numbers to their text/JSON names.
   ///
   /// - Parameter p: The code printer.
-  private func generateNameMap(printer p: inout CodePrinter) {
+  private func generateProtoNameProviding(printer p: inout CodePrinter) {
     if enumCases.isEmpty {
       p.print("\(visibility)static let _protobuf_nameMap = SwiftProtobuf._NameMap()\n")
     } else {

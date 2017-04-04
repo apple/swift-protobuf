@@ -51,17 +51,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case proto2MapEnumFooLite // = 0
   case proto2MapEnumBarLite // = 1
   case proto2MapEnumBazLite // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "PROTO2_MAP_ENUM_FOO_LITE"),
-    1: .same(proto: "PROTO2_MAP_ENUM_BAR_LITE"),
-    2: .same(proto: "PROTO2_MAP_ENUM_BAZ_LITE"),
-  ]
 
   init() {
     self = .proto2MapEnumFooLite
@@ -86,19 +80,12 @@ enum ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._Prot
 
 }
 
-enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eProto2MapEnumFooLite // = 0
   case eProto2MapEnumBarLite // = 1
   case eProto2MapEnumBazLite // = 2
   case eProto2MapEnumExtraLite // = 3
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO_LITE"),
-    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR_LITE"),
-    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ_LITE"),
-    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA_LITE"),
-  ]
 
   init() {
     self = .eProto2MapEnumFooLite
@@ -125,17 +112,11 @@ enum ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf.Enum, SwiftProto
 
 }
 
-enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case mapEnumFooLite // = 0
   case mapEnumBarLite // = 1
   case mapEnumBazLite // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "MAP_ENUM_FOO_LITE"),
-    1: .same(proto: "MAP_ENUM_BAR_LITE"),
-    2: .same(proto: "MAP_ENUM_BAZ_LITE"),
-  ]
 
   init() {
     self = .mapEnumFooLite
@@ -871,6 +852,31 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittest_Proto2MapEnumLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "PROTO2_MAP_ENUM_FOO_LITE"),
+    1: .same(proto: "PROTO2_MAP_ENUM_BAR_LITE"),
+    2: .same(proto: "PROTO2_MAP_ENUM_BAZ_LITE"),
+  ]
+}
+
+extension ProtobufUnittest_Proto2MapEnumPlusExtraLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "E_PROTO2_MAP_ENUM_FOO_LITE"),
+    1: .same(proto: "E_PROTO2_MAP_ENUM_BAR_LITE"),
+    2: .same(proto: "E_PROTO2_MAP_ENUM_BAZ_LITE"),
+    3: .same(proto: "E_PROTO2_MAP_ENUM_EXTRA_LITE"),
+  ]
+}
+
+extension ProtobufUnittest_MapEnumLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "MAP_ENUM_FOO_LITE"),
+    1: .same(proto: "MAP_ENUM_BAR_LITE"),
+    2: .same(proto: "MAP_ENUM_BAZ_LITE"),
+  ]
 }
 
 extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

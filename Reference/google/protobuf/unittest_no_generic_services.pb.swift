@@ -53,13 +53,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "google.protobuf.no_generic_services_test"
 
-enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 1
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "FOO"),
-  ]
 
   init() {
     self = .foo
@@ -148,6 +144,12 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
 let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]
+
+extension Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "FOO"),
+  ]
+}
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

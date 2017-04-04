@@ -59,17 +59,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest_no_arena"
 
-enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    4: .same(proto: "FOREIGN_FOO"),
-    5: .same(proto: "FOREIGN_BAR"),
-    6: .same(proto: "FOREIGN_BAZ"),
-  ]
 
   init() {
     self = .foreignFoo
@@ -1051,7 +1045,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -1059,13 +1053,6 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
 
     /// Intentionally negative.
     case neg // = -1
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      -1: .same(proto: "NEG"),
-      1: .same(proto: "FOO"),
-      2: .same(proto: "BAR"),
-      3: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .foo
@@ -1610,6 +1597,14 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message {
   }
 }
 
+extension ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    4: .same(proto: "FOREIGN_FOO"),
+    5: .same(proto: "FOREIGN_BAR"),
+    6: .same(proto: "FOREIGN_BAZ"),
+  ]
+}
+
 extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1772,6 +1767,15 @@ extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementa
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittestNoArena_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "NEG"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
 
 extension ProtobufUnittestNoArena_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

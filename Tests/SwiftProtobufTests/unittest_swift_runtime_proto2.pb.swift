@@ -1047,19 +1047,12 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     }
   }
 
-  enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 0
     case bar // = 1
     case baz // = 2
     case extra2 // = 20
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "FOO"),
-      1: .same(proto: "BAR"),
-      2: .same(proto: "BAZ"),
-      20: .same(proto: "EXTRA_2"),
-    ]
 
     init() {
       self = .foo
@@ -1676,6 +1669,15 @@ extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, S
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_Message2.Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+    1: .same(proto: "BAR"),
+    2: .same(proto: "BAZ"),
+    20: .same(proto: "EXTRA_2"),
+  ]
 }
 
 extension ProtobufUnittest_Message2.OptionalGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

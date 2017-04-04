@@ -51,18 +51,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "conformance"
 
-enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Conformance_WireFormat: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case unspecified // = 0
   case protobuf // = 1
   case json // = 2
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNSPECIFIED"),
-    1: .same(proto: "PROTOBUF"),
-    2: .same(proto: "JSON"),
-  ]
 
   init() {
     self = .unspecified
@@ -368,6 +362,14 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     try result?.traverse(visitor: &visitor, start: 1, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNSPECIFIED"),
+    1: .same(proto: "PROTOBUF"),
+    2: .same(proto: "JSON"),
+  ]
 }
 
 extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

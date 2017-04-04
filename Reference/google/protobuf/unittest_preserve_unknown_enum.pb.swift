@@ -51,18 +51,12 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
   case bar // = 1
   case baz // = 2
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOO"),
-    1: .same(proto: "BAR"),
-    2: .same(proto: "BAZ"),
-  ]
 
   init() {
     self = .foo
@@ -88,20 +82,13 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum, SwiftProtobuf
 
 }
 
-enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case eFoo // = 0
   case eBar // = 1
   case eBaz // = 2
   case eExtra // = 3
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "E_FOO"),
-    1: .same(proto: "E_BAR"),
-    2: .same(proto: "E_BAZ"),
-    3: .same(proto: "E_EXTRA"),
-  ]
 
   init() {
     self = .eFoo
@@ -352,6 +339,23 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     try o?.traverse(visitor: &visitor, start: 5, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOO"),
+    1: .same(proto: "BAR"),
+    2: .same(proto: "BAZ"),
+  ]
+}
+
+extension Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "E_FOO"),
+    1: .same(proto: "E_BAR"),
+    2: .same(proto: "E_BAZ"),
+    3: .same(proto: "E_EXTRA"),
+  ]
 }
 
 extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
