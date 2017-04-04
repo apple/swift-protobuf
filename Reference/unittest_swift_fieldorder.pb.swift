@@ -183,63 +183,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 9:
-        var value: Bool?
-        try decoder.decodeSingularBoolField(value: &value)
-        if let value = value {
-          self = .oneofBool(value)
-          return
-        }
-      case 10:
-        var value: Int32?
-        try decoder.decodeSingularInt32Field(value: &value)
-        if let value = value {
-          self = .oneofInt32(value)
-          return
-        }
-      case 60:
-        var value: Int64?
-        try decoder.decodeSingularInt64Field(value: &value)
-        if let value = value {
-          self = .oneofInt64(value)
-          return
-        }
-      case 150:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .oneofString(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofBool(let v):
-        if start <= 9 && 9 < end {
-          try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
-        }
-      case .oneofInt32(let v):
-        if start <= 10 && 10 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-        }
-      case .oneofInt64(let v):
-        if start <= 60 && 60 < end {
-          try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
-        }
-      case .oneofString(let v):
-        if start <= 150 && 150 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 150)
-        }
-      }
-    }
   }
 
   struct NestedMessage: SwiftProtobuf.Message {
@@ -419,6 +362,65 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
+  }
+}
+
+extension Swift_Protobuf_TestFieldOrderings.OneOf_Options {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 9:
+      var value: Bool?
+      try decoder.decodeSingularBoolField(value: &value)
+      if let value = value {
+        self = .oneofBool(value)
+        return
+      }
+    case 10:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .oneofInt32(value)
+        return
+      }
+    case 60:
+      var value: Int64?
+      try decoder.decodeSingularInt64Field(value: &value)
+      if let value = value {
+        self = .oneofInt64(value)
+        return
+      }
+    case 150:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofBool(let v):
+      if start <= 9 && 9 < end {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
+      }
+    case .oneofInt32(let v):
+      if start <= 10 && 10 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+      }
+    case .oneofInt64(let v):
+      if start <= 60 && 60 < end {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
+      }
+    case .oneofString(let v):
+      if start <= 150 && 150 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 150)
+      }
+    }
   }
 }
 

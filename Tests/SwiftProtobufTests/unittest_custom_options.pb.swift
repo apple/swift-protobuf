@@ -143,30 +143,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
       case (.oneofField(let l), .oneofField(let r)): return l == r
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 2:
-        var value: Int32?
-        try decoder.decodeSingularInt32Field(value: &value)
-        if let value = value {
-          self = .oneofField(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofField(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-        }
-      }
-    }
   }
 
   enum AnEnum: SwiftProtobuf.Enum {
@@ -2270,6 +2246,32 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageI
     if anOneof != other.anOneof {return false}
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 2:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .oneofField(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofField(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      }
+    }
   }
 }
 

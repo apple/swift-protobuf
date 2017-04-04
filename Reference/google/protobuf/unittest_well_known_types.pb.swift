@@ -922,217 +922,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value: Google_Protobuf_Any?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .anyField(value)
-          return
-        }
-      case 2:
-        var value: Google_Protobuf_Api?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .apiField(value)
-          return
-        }
-      case 3:
-        var value: Google_Protobuf_Duration?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .durationField(value)
-          return
-        }
-      case 4:
-        var value: Google_Protobuf_Empty?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .emptyField(value)
-          return
-        }
-      case 5:
-        var value: Google_Protobuf_FieldMask?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .fieldMaskField(value)
-          return
-        }
-      case 6:
-        var value: Google_Protobuf_SourceContext?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .sourceContextField(value)
-          return
-        }
-      case 7:
-        var value: Google_Protobuf_Struct?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .structField(value)
-          return
-        }
-      case 8:
-        var value: Google_Protobuf_Timestamp?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .timestampField(value)
-          return
-        }
-      case 9:
-        var value: Google_Protobuf_Type?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .typeField(value)
-          return
-        }
-      case 10:
-        var value: Google_Protobuf_DoubleValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .doubleField(value)
-          return
-        }
-      case 11:
-        var value: Google_Protobuf_FloatValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .floatField(value)
-          return
-        }
-      case 12:
-        var value: Google_Protobuf_Int64Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .int64Field(value)
-          return
-        }
-      case 13:
-        var value: Google_Protobuf_UInt64Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .uint64Field(value)
-          return
-        }
-      case 14:
-        var value: Google_Protobuf_Int32Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .int32Field(value)
-          return
-        }
-      case 15:
-        var value: Google_Protobuf_UInt32Value?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .uint32Field(value)
-          return
-        }
-      case 16:
-        var value: Google_Protobuf_BoolValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .boolField(value)
-          return
-        }
-      case 17:
-        var value: Google_Protobuf_StringValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .stringField(value)
-          return
-        }
-      case 18:
-        var value: Google_Protobuf_BytesValue?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .bytesField(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .anyField(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-        }
-      case .apiField(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-        }
-      case .durationField(let v):
-        if start <= 3 && 3 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-        }
-      case .emptyField(let v):
-        if start <= 4 && 4 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-        }
-      case .fieldMaskField(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-        }
-      case .sourceContextField(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-        }
-      case .structField(let v):
-        if start <= 7 && 7 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-        }
-      case .timestampField(let v):
-        if start <= 8 && 8 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-        }
-      case .typeField(let v):
-        if start <= 9 && 9 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-        }
-      case .doubleField(let v):
-        if start <= 10 && 10 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-        }
-      case .floatField(let v):
-        if start <= 11 && 11 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-        }
-      case .int64Field(let v):
-        if start <= 12 && 12 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-        }
-      case .uint64Field(let v):
-        if start <= 13 && 13 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-        }
-      case .int32Field(let v):
-        if start <= 14 && 14 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-        }
-      case .uint32Field(let v):
-        if start <= 15 && 15 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-        }
-      case .boolField(let v):
-        if start <= 16 && 16 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-        }
-      case .stringField(let v):
-        if start <= 17 && 17 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-        }
-      case .bytesField(let v):
-        if start <= 18 && 18 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-        }
-      }
-    }
   }
 
   init() {}
@@ -1542,6 +1331,219 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementa
     }
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value: Google_Protobuf_Any?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .anyField(value)
+        return
+      }
+    case 2:
+      var value: Google_Protobuf_Api?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .apiField(value)
+        return
+      }
+    case 3:
+      var value: Google_Protobuf_Duration?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .durationField(value)
+        return
+      }
+    case 4:
+      var value: Google_Protobuf_Empty?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .emptyField(value)
+        return
+      }
+    case 5:
+      var value: Google_Protobuf_FieldMask?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .fieldMaskField(value)
+        return
+      }
+    case 6:
+      var value: Google_Protobuf_SourceContext?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .sourceContextField(value)
+        return
+      }
+    case 7:
+      var value: Google_Protobuf_Struct?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .structField(value)
+        return
+      }
+    case 8:
+      var value: Google_Protobuf_Timestamp?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .timestampField(value)
+        return
+      }
+    case 9:
+      var value: Google_Protobuf_Type?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .typeField(value)
+        return
+      }
+    case 10:
+      var value: Google_Protobuf_DoubleValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .doubleField(value)
+        return
+      }
+    case 11:
+      var value: Google_Protobuf_FloatValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .floatField(value)
+        return
+      }
+    case 12:
+      var value: Google_Protobuf_Int64Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .int64Field(value)
+        return
+      }
+    case 13:
+      var value: Google_Protobuf_UInt64Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .uint64Field(value)
+        return
+      }
+    case 14:
+      var value: Google_Protobuf_Int32Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .int32Field(value)
+        return
+      }
+    case 15:
+      var value: Google_Protobuf_UInt32Value?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .uint32Field(value)
+        return
+      }
+    case 16:
+      var value: Google_Protobuf_BoolValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .boolField(value)
+        return
+      }
+    case 17:
+      var value: Google_Protobuf_StringValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .stringField(value)
+        return
+      }
+    case 18:
+      var value: Google_Protobuf_BytesValue?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .bytesField(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .anyField(let v):
+      if start <= 1 && 1 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+    case .apiField(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+    case .durationField(let v):
+      if start <= 3 && 3 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+    case .emptyField(let v):
+      if start <= 4 && 4 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      }
+    case .fieldMaskField(let v):
+      if start <= 5 && 5 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      }
+    case .sourceContextField(let v):
+      if start <= 6 && 6 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      }
+    case .structField(let v):
+      if start <= 7 && 7 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      }
+    case .timestampField(let v):
+      if start <= 8 && 8 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      }
+    case .typeField(let v):
+      if start <= 9 && 9 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      }
+    case .doubleField(let v):
+      if start <= 10 && 10 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+      }
+    case .floatField(let v):
+      if start <= 11 && 11 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      }
+    case .int64Field(let v):
+      if start <= 12 && 12 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      }
+    case .uint64Field(let v):
+      if start <= 13 && 13 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+      }
+    case .int32Field(let v):
+      if start <= 14 && 14 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+      }
+    case .uint32Field(let v):
+      if start <= 15 && 15 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+      }
+    case .boolField(let v):
+      if start <= 16 && 16 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+      }
+    case .stringField(let v):
+      if start <= 17 && 17 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
+      }
+    case .bytesField(let v):
+      if start <= 18 && 18 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
+      }
+    }
   }
 }
 

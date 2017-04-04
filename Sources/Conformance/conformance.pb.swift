@@ -124,37 +124,6 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value = Data()
-        try decoder.decodeSingularBytesField(value: &value)
-        self = .protobufPayload(value)
-        return
-      case 2:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .jsonPayload(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .protobufPayload(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
-        }
-      case .jsonPayload(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-        }
-      }
-    }
   }
 
   init() {}
@@ -274,73 +243,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .parseError(value)
-        return
-      case 2:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .runtimeError(value)
-        return
-      case 3:
-        var value = Data()
-        try decoder.decodeSingularBytesField(value: &value)
-        self = .protobufPayload(value)
-        return
-      case 4:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .jsonPayload(value)
-        return
-      case 5:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .skipped(value)
-        return
-      case 6:
-        var value = String()
-        try decoder.decodeSingularStringField(value: &value)
-        self = .serializeError(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .parseError(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-        }
-      case .runtimeError(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-        }
-      case .protobufPayload(let v):
-        if start <= 3 && 3 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
-        }
-      case .jsonPayload(let v):
-        if start <= 4 && 4 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-        }
-      case .skipped(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-        }
-      case .serializeError(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-        }
-      }
-    }
   }
 
   init() {}
@@ -387,6 +289,39 @@ extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBa
   }
 }
 
+extension Conformance_ConformanceRequest.OneOf_Payload {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value = Data()
+      try decoder.decodeSingularBytesField(value: &value)
+      self = .protobufPayload(value)
+      return
+    case 2:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .jsonPayload(value)
+      return
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .protobufPayload(let v):
+      if start <= 1 && 1 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
+      }
+    case .jsonPayload(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+    }
+  }
+}
+
 extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "parse_error"),
@@ -401,5 +336,74 @@ extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationB
     if result != other.result {return false}
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension Conformance_ConformanceResponse.OneOf_Result {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .parseError(value)
+      return
+    case 2:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .runtimeError(value)
+      return
+    case 3:
+      var value = Data()
+      try decoder.decodeSingularBytesField(value: &value)
+      self = .protobufPayload(value)
+      return
+    case 4:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .jsonPayload(value)
+      return
+    case 5:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .skipped(value)
+      return
+    case 6:
+      var value = String()
+      try decoder.decodeSingularStringField(value: &value)
+      self = .serializeError(value)
+      return
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .parseError(let v):
+      if start <= 1 && 1 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      }
+    case .runtimeError(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+    case .protobufPayload(let v):
+      if start <= 3 && 3 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
+      }
+    case .jsonPayload(let v):
+      if start <= 4 && 4 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+      }
+    case .skipped(let v):
+      if start <= 5 && 5 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+      }
+    case .serializeError(let v):
+      if start <= 6 && 6 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 6)
+      }
+    }
   }
 }

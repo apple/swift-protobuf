@@ -159,37 +159,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 5:
-        var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofE1(value)
-        return
-      case 6:
-        var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofE2(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofE1(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-        }
-      case .oneofE2(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-        }
-      }
-    }
   }
 
   init() {}
@@ -271,37 +240,6 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 5:
-        var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofE1(value)
-        return
-      case 6:
-        var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
-        try decoder.decodeSingularEnumField(value: &value)
-        self = .oneofE2(value)
-        return
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofE1(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-        }
-      case .oneofE2(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-        }
-      }
-    }
   }
 
   init() {}
@@ -379,6 +317,39 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
   }
 }
 
+extension Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 5:
+      var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
+      try decoder.decodeSingularEnumField(value: &value)
+      self = .oneofE1(value)
+      return
+    case 6:
+      var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
+      try decoder.decodeSingularEnumField(value: &value)
+      self = .oneofE2(value)
+      return
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofE1(let v):
+      if start <= 5 && 5 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      }
+    case .oneofE2(let v):
+      if start <= 6 && 6 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      }
+    }
+  }
+}
+
 extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "e"),
@@ -397,5 +368,38 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._M
     if o != other.o {return false}
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 5:
+      var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
+      try decoder.decodeSingularEnumField(value: &value)
+      self = .oneofE1(value)
+      return
+    case 6:
+      var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
+      try decoder.decodeSingularEnumField(value: &value)
+      self = .oneofE2(value)
+      return
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofE1(let v):
+      if start <= 5 && 5 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      }
+    case .oneofE2(let v):
+      if start <= 6 && 6 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      }
+    }
   }
 }

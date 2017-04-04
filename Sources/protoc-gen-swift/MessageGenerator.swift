@@ -224,7 +224,7 @@ class MessageGenerator {
     p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
 
     for o in oneofs {
-      o.generateNested(printer: &p)
+      o.generateMainEnum(printer: &p)
     }
 
     // Nested enums
@@ -304,6 +304,10 @@ class MessageGenerator {
     generateMessageImplementationBase(printer: &p)
     p.outdent()
     p.print("}\n")
+
+    for o in oneofs {
+      o.generateRuntimeSupport(printer: &p)
+    }
 
     // Nested enums and messages
     for e in enums {

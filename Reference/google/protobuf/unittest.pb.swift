@@ -1033,63 +1033,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 111:
-        var value: UInt32?
-        try decoder.decodeSingularUInt32Field(value: &value)
-        if let value = value {
-          self = .oneofUint32(value)
-          return
-        }
-      case 112:
-        var value: ProtobufUnittest_TestAllTypes.NestedMessage?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .oneofNestedMessage(value)
-          return
-        }
-      case 113:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .oneofString(value)
-          return
-        }
-      case 114:
-        var value: Data?
-        try decoder.decodeSingularBytesField(value: &value)
-        if let value = value {
-          self = .oneofBytes(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofUint32(let v):
-        if start <= 111 && 111 < end {
-          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-        }
-      case .oneofNestedMessage(let v):
-        if start <= 112 && 112 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-        }
-      case .oneofString(let v):
-        if start <= 113 && 113 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-        }
-      case .oneofBytes(let v):
-        if start <= 114 && 114 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-        }
-      }
-    }
   }
 
   enum NestedEnum: SwiftProtobuf.Enum {
@@ -4750,63 +4693,6 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value: Int32?
-        try decoder.decodeSingularInt32Field(value: &value)
-        if let value = value {
-          self = .fooInt(value)
-          return
-        }
-      case 2:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .fooString(value)
-          return
-        }
-      case 3:
-        var value: ProtobufUnittest_TestAllTypes?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .fooMessage(value)
-          return
-        }
-      case 4:
-        var value: ProtobufUnittest_TestOneof.FooGroup?
-        try decoder.decodeSingularGroupField(value: &value)
-        if let value = value {
-          self = .fooGroup(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .fooInt(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-        }
-      case .fooString(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-        }
-      case .fooMessage(let v):
-        if start <= 3 && 3 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-        }
-      case .fooGroup(let v):
-        if start <= 4 && 4 < end {
-          try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
-        }
-      }
-    }
   }
 
   struct FooGroup: SwiftProtobuf.Message {
@@ -5320,118 +5206,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       default: return false
       }
     }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value: Int32?
-        try decoder.decodeSingularInt32Field(value: &value)
-        if let value = value {
-          self = .fooInt(value)
-          return
-        }
-      case 2:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .fooString(value)
-          return
-        }
-      case 3:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .fooCord(value)
-          return
-        }
-      case 4:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .fooStringPiece(value)
-          return
-        }
-      case 5:
-        var value: Data?
-        try decoder.decodeSingularBytesField(value: &value)
-        if let value = value {
-          self = .fooBytes(value)
-          return
-        }
-      case 6:
-        var value: ProtobufUnittest_TestOneof2.NestedEnum?
-        try decoder.decodeSingularEnumField(value: &value)
-        if let value = value {
-          self = .fooEnum(value)
-          return
-        }
-      case 7:
-        var value: ProtobufUnittest_TestOneof2.NestedMessage?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .fooMessage(value)
-          return
-        }
-      case 8:
-        var value: ProtobufUnittest_TestOneof2.FooGroup?
-        try decoder.decodeSingularGroupField(value: &value)
-        if let value = value {
-          self = .fooGroup(value)
-          return
-        }
-      case 11:
-        var value: ProtobufUnittest_TestOneof2.NestedMessage?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .fooLazyMessage(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .fooInt(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-        }
-      case .fooString(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-        }
-      case .fooCord(let v):
-        if start <= 3 && 3 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-        }
-      case .fooStringPiece(let v):
-        if start <= 4 && 4 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-        }
-      case .fooBytes(let v):
-        if start <= 5 && 5 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
-        }
-      case .fooEnum(let v):
-        if start <= 6 && 6 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-        }
-      case .fooMessage(let v):
-        if start <= 7 && 7 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-        }
-      case .fooGroup(let v):
-        if start <= 8 && 8 < end {
-          try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
-        }
-      case .fooLazyMessage(let v):
-        if start <= 11 && 11 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-        }
-      }
-    }
   }
 
   enum OneOf_Bar: Equatable {
@@ -5451,85 +5225,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       case (.barBytes(let l), .barBytes(let r)): return l == r
       case (.barEnum(let l), .barEnum(let r)): return l == r
       default: return false
-      }
-    }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 12:
-        var value: Int32?
-        try decoder.decodeSingularInt32Field(value: &value)
-        if let value = value {
-          self = .barInt(value)
-          return
-        }
-      case 13:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .barString(value)
-          return
-        }
-      case 14:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .barCord(value)
-          return
-        }
-      case 15:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .barStringPiece(value)
-          return
-        }
-      case 16:
-        var value: Data?
-        try decoder.decodeSingularBytesField(value: &value)
-        if let value = value {
-          self = .barBytes(value)
-          return
-        }
-      case 17:
-        var value: ProtobufUnittest_TestOneof2.NestedEnum?
-        try decoder.decodeSingularEnumField(value: &value)
-        if let value = value {
-          self = .barEnum(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .barInt(let v):
-        if start <= 12 && 12 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-        }
-      case .barString(let v):
-        if start <= 13 && 13 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 13)
-        }
-      case .barCord(let v):
-        if start <= 14 && 14 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-        }
-      case .barStringPiece(let v):
-        if start <= 15 && 15 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 15)
-        }
-      case .barBytes(let v):
-        if start <= 16 && 16 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
-        }
-      case .barEnum(let v):
-        if start <= 17 && 17 < end {
-          try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-        }
       }
     }
   }
@@ -5775,52 +5470,6 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
       case (.fooString(let l), .fooString(let r)): return l == r
       case (.fooMessage(let l), .fooMessage(let r)): return l == r
       default: return false
-      }
-    }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 1:
-        var value: Int32?
-        try decoder.decodeSingularInt32Field(value: &value)
-        if let value = value {
-          self = .fooInt(value)
-          return
-        }
-      case 2:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .fooString(value)
-          return
-        }
-      case 3:
-        var value: ProtobufUnittest_TestRequiredOneof.NestedMessage?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .fooMessage(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .fooInt(let v):
-        if start <= 1 && 1 < end {
-          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-        }
-      case .fooString(let v):
-        if start <= 2 && 2 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-        }
-      case .fooMessage(let v):
-        if start <= 3 && 3 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-        }
       }
     }
   }
@@ -7357,63 +7006,6 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       case (.oneofString(let l), .oneofString(let r)): return l == r
       case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
       default: return false
-      }
-    }
-
-    fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-      switch fieldNumber {
-      case 536870011:
-        var value: UInt32?
-        try decoder.decodeSingularUInt32Field(value: &value)
-        if let value = value {
-          self = .oneofUint32(value)
-          return
-        }
-      case 536870012:
-        var value: ProtobufUnittest_TestAllTypes?
-        try decoder.decodeSingularMessageField(value: &value)
-        if let value = value {
-          self = .oneofTestAllTypes(value)
-          return
-        }
-      case 536870013:
-        var value: String?
-        try decoder.decodeSingularStringField(value: &value)
-        if let value = value {
-          self = .oneofString(value)
-          return
-        }
-      case 536870014:
-        var value: Data?
-        try decoder.decodeSingularBytesField(value: &value)
-        if let value = value {
-          self = .oneofBytes(value)
-          return
-        }
-      default:
-        break
-      }
-      return nil
-    }
-
-    fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
-      switch self {
-      case .oneofUint32(let v):
-        if start <= 536870011 && 536870011 < end {
-          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
-        }
-      case .oneofTestAllTypes(let v):
-        if start <= 536870012 && 536870012 < end {
-          try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
-        }
-      case .oneofString(let v):
-        if start <= 536870013 && 536870013 < end {
-          try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
-        }
-      case .oneofBytes(let v):
-        if start <= 536870014 && 536870014 < end {
-          try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
-        }
       }
     }
   }
@@ -9940,6 +9532,65 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBas
   }
 }
 
+extension ProtobufUnittest_TestAllTypes.OneOf_OneofField {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 111:
+      var value: UInt32?
+      try decoder.decodeSingularUInt32Field(value: &value)
+      if let value = value {
+        self = .oneofUint32(value)
+        return
+      }
+    case 112:
+      var value: ProtobufUnittest_TestAllTypes.NestedMessage?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .oneofNestedMessage(value)
+        return
+      }
+    case 113:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
+    case 114:
+      var value: Data?
+      try decoder.decodeSingularBytesField(value: &value)
+      if let value = value {
+        self = .oneofBytes(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofUint32(let v):
+      if start <= 111 && 111 < end {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
+      }
+    case .oneofNestedMessage(let v):
+      if start <= 112 && 112 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
+      }
+    case .oneofString(let v):
+      if start <= 113 && 113 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 113)
+      }
+    case .oneofBytes(let v):
+      if start <= 114 && 114 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+      }
+    }
+  }
+}
+
 extension ProtobufUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -1: .same(proto: "NEG"),
@@ -10721,6 +10372,65 @@ extension ProtobufUnittest_TestOneof: SwiftProtobuf._MessageImplementationBase, 
   }
 }
 
+extension ProtobufUnittest_TestOneof.OneOf_Foo {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .fooInt(value)
+        return
+      }
+    case 2:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .fooString(value)
+        return
+      }
+    case 3:
+      var value: ProtobufUnittest_TestAllTypes?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .fooMessage(value)
+        return
+      }
+    case 4:
+      var value: ProtobufUnittest_TestOneof.FooGroup?
+      try decoder.decodeSingularGroupField(value: &value)
+      if let value = value {
+        self = .fooGroup(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .fooInt(let v):
+      if start <= 1 && 1 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+    case .fooString(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+    case .fooMessage(let v):
+      if start <= 3 && 3 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+    case .fooGroup(let v):
+      if start <= 4 && 4 < end {
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
+      }
+    }
+  }
+}
+
 extension ProtobufUnittest_TestOneof.FooGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     5: .same(proto: "a"),
@@ -10810,6 +10520,201 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf._MessageImplementationBase,
   }
 }
 
+extension ProtobufUnittest_TestOneof2.OneOf_Foo {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .fooInt(value)
+        return
+      }
+    case 2:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .fooString(value)
+        return
+      }
+    case 3:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .fooCord(value)
+        return
+      }
+    case 4:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .fooStringPiece(value)
+        return
+      }
+    case 5:
+      var value: Data?
+      try decoder.decodeSingularBytesField(value: &value)
+      if let value = value {
+        self = .fooBytes(value)
+        return
+      }
+    case 6:
+      var value: ProtobufUnittest_TestOneof2.NestedEnum?
+      try decoder.decodeSingularEnumField(value: &value)
+      if let value = value {
+        self = .fooEnum(value)
+        return
+      }
+    case 7:
+      var value: ProtobufUnittest_TestOneof2.NestedMessage?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .fooMessage(value)
+        return
+      }
+    case 8:
+      var value: ProtobufUnittest_TestOneof2.FooGroup?
+      try decoder.decodeSingularGroupField(value: &value)
+      if let value = value {
+        self = .fooGroup(value)
+        return
+      }
+    case 11:
+      var value: ProtobufUnittest_TestOneof2.NestedMessage?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .fooLazyMessage(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .fooInt(let v):
+      if start <= 1 && 1 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+    case .fooString(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+    case .fooCord(let v):
+      if start <= 3 && 3 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      }
+    case .fooStringPiece(let v):
+      if start <= 4 && 4 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+      }
+    case .fooBytes(let v):
+      if start <= 5 && 5 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
+      }
+    case .fooEnum(let v):
+      if start <= 6 && 6 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      }
+    case .fooMessage(let v):
+      if start <= 7 && 7 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      }
+    case .fooGroup(let v):
+      if start <= 8 && 8 < end {
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
+      }
+    case .fooLazyMessage(let v):
+      if start <= 11 && 11 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      }
+    }
+  }
+}
+
+extension ProtobufUnittest_TestOneof2.OneOf_Bar {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 12:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .barInt(value)
+        return
+      }
+    case 13:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .barString(value)
+        return
+      }
+    case 14:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .barCord(value)
+        return
+      }
+    case 15:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .barStringPiece(value)
+        return
+      }
+    case 16:
+      var value: Data?
+      try decoder.decodeSingularBytesField(value: &value)
+      if let value = value {
+        self = .barBytes(value)
+        return
+      }
+    case 17:
+      var value: ProtobufUnittest_TestOneof2.NestedEnum?
+      try decoder.decodeSingularEnumField(value: &value)
+      if let value = value {
+        self = .barEnum(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .barInt(let v):
+      if start <= 12 && 12 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+      }
+    case .barString(let v):
+      if start <= 13 && 13 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 13)
+      }
+    case .barCord(let v):
+      if start <= 14 && 14 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
+      }
+    case .barStringPiece(let v):
+      if start <= 15 && 15 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 15)
+      }
+    case .barBytes(let v):
+      if start <= 16 && 16 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
+      }
+    case .barEnum(let v):
+      if start <= 17 && 17 < end {
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
+      }
+    }
+  }
+}
+
 extension ProtobufUnittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "FOO"),
@@ -10863,6 +10768,54 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobuf._MessageImplementati
     }
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension ProtobufUnittest_TestRequiredOneof.OneOf_Foo {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .fooInt(value)
+        return
+      }
+    case 2:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .fooString(value)
+        return
+      }
+    case 3:
+      var value: ProtobufUnittest_TestRequiredOneof.NestedMessage?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .fooMessage(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .fooInt(let v):
+      if start <= 1 && 1 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+    case .fooString(let v):
+      if start <= 2 && 2 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+    case .fooMessage(let v):
+      if start <= 3 && 3 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+    }
   }
 }
 
@@ -11296,6 +11249,65 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf._MessageImplement
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
+  }
+}
+
+extension ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 536870011:
+      var value: UInt32?
+      try decoder.decodeSingularUInt32Field(value: &value)
+      if let value = value {
+        self = .oneofUint32(value)
+        return
+      }
+    case 536870012:
+      var value: ProtobufUnittest_TestAllTypes?
+      try decoder.decodeSingularMessageField(value: &value)
+      if let value = value {
+        self = .oneofTestAllTypes(value)
+        return
+      }
+    case 536870013:
+      var value: String?
+      try decoder.decodeSingularStringField(value: &value)
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
+    case 536870014:
+      var value: Data?
+      try decoder.decodeSingularBytesField(value: &value)
+      if let value = value {
+        self = .oneofBytes(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .oneofUint32(let v):
+      if start <= 536870011 && 536870011 < end {
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
+      }
+    case .oneofTestAllTypes(let v):
+      if start <= 536870012 && 536870012 < end {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
+      }
+    case .oneofString(let v):
+      if start <= 536870013 && 536870013 < end {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
+      }
+    case .oneofBytes(let v):
+      if start <= 536870014 && 536870014 < end {
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
+      }
+    }
   }
 }
 
