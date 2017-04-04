@@ -333,6 +333,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0\"}") {$0.singleDouble == 1.0}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5\"}") {$0.singleDouble == 1.5}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e1\"}") {$0.singleDouble == 15}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5E1\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1\\u002e5e1\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.\\u0035e1\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5\\u00651\"}") {$0.singleDouble == 15}
