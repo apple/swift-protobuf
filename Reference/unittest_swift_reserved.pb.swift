@@ -128,7 +128,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum Enum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum Enum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case double // = 1
     case json // = 2
@@ -136,15 +136,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     case ___ // = 4
     case self_ // = 5
     case type // = 6
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "DOUBLE"),
-      2: .same(proto: "JSON"),
-      3: .same(proto: "CLASS"),
-      4: .same(proto: "_"),
-      5: .same(proto: "SELF"),
-      6: .same(proto: "TYPE"),
-    ]
 
     init() {
       self = .double
@@ -175,13 +166,9 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
 
   }
 
-  enum ProtocolEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum ProtocolEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case a // = 1
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "a"),
-    ]
 
     init() {
       self = .a
@@ -619,6 +606,23 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementati
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_SwiftReservedTest.Enum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "DOUBLE"),
+    2: .same(proto: "JSON"),
+    3: .same(proto: "CLASS"),
+    4: .same(proto: "_"),
+    5: .same(proto: "SELF"),
+    6: .same(proto: "TYPE"),
+  ]
+}
+
+extension ProtobufUnittest_SwiftReservedTest.ProtocolEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+  ]
 }
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

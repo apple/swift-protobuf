@@ -57,17 +57,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
-enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case importFoo // = 7
   case importBar // = 8
   case importBaz // = 9
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    7: .same(proto: "IMPORT_FOO"),
-    8: .same(proto: "IMPORT_BAR"),
-    9: .same(proto: "IMPORT_BAZ"),
-  ]
 
   init() {
     self = .importFoo
@@ -93,17 +87,11 @@ enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum, SwiftProtobuf._Proto
 }
 
 /// To use an enum in a map, it must has the first value as 0.
-enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case unknown // = 0
   case foo // = 1
   case bar // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNKNOWN"),
-    1: .same(proto: "FOO"),
-    2: .same(proto: "BAR"),
-  ]
 
   init() {
     self = .unknown
@@ -162,6 +150,22 @@ struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension ProtobufUnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    7: .same(proto: "IMPORT_FOO"),
+    8: .same(proto: "IMPORT_BAR"),
+    9: .same(proto: "IMPORT_BAZ"),
+  ]
+}
+
+extension ProtobufUnittestImport_ImportEnumForMap: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "UNKNOWN"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+  ]
 }
 
 extension ProtobufUnittestImport_ImportMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

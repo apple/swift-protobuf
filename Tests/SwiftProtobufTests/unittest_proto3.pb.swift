@@ -57,20 +57,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum Proto3ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignUnspecified // = 0
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOREIGN_UNSPECIFIED"),
-    4: .same(proto: "FOREIGN_FOO"),
-    5: .same(proto: "FOREIGN_BAR"),
-    6: .same(proto: "FOREIGN_BAZ"),
-  ]
 
   init() {
     self = .foreignUnspecified
@@ -99,7 +92,7 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
 }
 
 /// Test an enum that has multiple values with the same number.
-enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case testEnumWithDupValueUnspecified // = 0
   case foo1 // = 1
@@ -108,13 +101,6 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePro
   static let foo2 = foo1
   static let bar2 = bar1
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "TEST_ENUM_WITH_DUP_VALUE_UNSPECIFIED"),
-    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
-    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
-    3: .same(proto: "BAZ"),
-  ]
 
   init() {
     self = .testEnumWithDupValueUnspecified
@@ -143,7 +129,7 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePro
 }
 
 /// Test an enum with large, unordered values.
-enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case testSparseEnumUnspecified // = 0
   case sparseA // = 123
@@ -156,16 +142,6 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding
   /// SPARSE_F = 0;
   case sparseG // = 2
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    -53452: .same(proto: "SPARSE_E"),
-    -15: .same(proto: "SPARSE_D"),
-    0: .same(proto: "TEST_SPARSE_ENUM_UNSPECIFIED"),
-    2: .same(proto: "SPARSE_G"),
-    123: .same(proto: "SPARSE_A"),
-    62374: .same(proto: "SPARSE_B"),
-    12589234: .same(proto: "SPARSE_C"),
-  ]
 
   init() {
     self = .testSparseEnumUnspecified
@@ -684,7 +660,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case nestedEnumUnspecified // = 0
     case foo // = 1
@@ -694,14 +670,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     /// Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      -1: .same(proto: "NEG"),
-      0: .same(proto: "NESTED_ENUM_UNSPECIFIED"),
-      1: .same(proto: "FOO"),
-      2: .same(proto: "BAR"),
-      3: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .nestedEnumUnspecified
@@ -2524,6 +2492,36 @@ struct Proto3BarResponse: SwiftProtobuf.Message {
   }
 }
 
+extension Proto3ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOREIGN_UNSPECIFIED"),
+    4: .same(proto: "FOREIGN_FOO"),
+    5: .same(proto: "FOREIGN_BAR"),
+    6: .same(proto: "FOREIGN_BAZ"),
+  ]
+}
+
+extension Proto3TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "TEST_ENUM_WITH_DUP_VALUE_UNSPECIFIED"),
+    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+    3: .same(proto: "BAZ"),
+  ]
+}
+
+extension Proto3TestSparseEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -53452: .same(proto: "SPARSE_E"),
+    -15: .same(proto: "SPARSE_D"),
+    0: .same(proto: "TEST_SPARSE_ENUM_UNSPECIFIED"),
+    2: .same(proto: "SPARSE_G"),
+    123: .same(proto: "SPARSE_A"),
+    62374: .same(proto: "SPARSE_B"),
+    12589234: .same(proto: "SPARSE_C"),
+  ]
+}
+
 extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "single_int32"),
@@ -2631,6 +2629,16 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension Proto3TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "NEG"),
+    0: .same(proto: "NESTED_ENUM_UNSPECIFIED"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
 
 extension Proto3TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

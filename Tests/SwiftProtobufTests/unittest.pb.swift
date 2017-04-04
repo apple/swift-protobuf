@@ -57,17 +57,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    4: .same(proto: "FOREIGN_FOO"),
-    5: .same(proto: "FOREIGN_BAR"),
-    6: .same(proto: "FOREIGN_BAZ"),
-  ]
 
   init() {
     self = .foreignFoo
@@ -93,19 +87,13 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameP
 }
 
 /// Test an enum that has multiple values with the same number.
-enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo1 // = 1
   case bar1 // = 2
   case baz // = 3
   static let foo2 = foo1
   static let bar2 = bar1
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
-    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
-    3: .same(proto: "BAZ"),
-  ]
 
   init() {
     self = .foo1
@@ -131,7 +119,7 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._P
 }
 
 /// Test an enum with large, unordered values.
-enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case sparseA // = 123
   case sparseB // = 62374
@@ -140,16 +128,6 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNa
   case sparseE // = -53452
   case sparseF // = 0
   case sparseG // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    -53452: .same(proto: "SPARSE_E"),
-    -15: .same(proto: "SPARSE_D"),
-    0: .same(proto: "SPARSE_F"),
-    2: .same(proto: "SPARSE_G"),
-    123: .same(proto: "SPARSE_A"),
-    62374: .same(proto: "SPARSE_B"),
-    12589234: .same(proto: "SPARSE_C"),
-  ]
 
   init() {
     self = .sparseA
@@ -1114,7 +1092,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2
@@ -1122,13 +1100,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
 
     /// Intentionally negative.
     case neg // = -1
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      -1: .same(proto: "NEG"),
-      1: .same(proto: "FOO"),
-      2: .same(proto: "BAR"),
-      3: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .foo
@@ -5563,17 +5534,11 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2
     case baz // = 3
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "FOO"),
-      2: .same(proto: "BAR"),
-      3: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .foo
@@ -6309,17 +6274,11 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum DynamicEnumType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum DynamicEnumType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case dynamicFoo // = 2200
     case dynamicBar // = 2201
     case dynamicBaz // = 2202
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      2200: .same(proto: "DYNAMIC_FOO"),
-      2201: .same(proto: "DYNAMIC_BAR"),
-      2202: .same(proto: "DYNAMIC_BAZ"),
-    ]
 
     init() {
       self = .dynamicFoo
@@ -9790,6 +9749,34 @@ let ProtobufUnittest_Unittest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext
 ]
 
+extension ProtobufUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    4: .same(proto: "FOREIGN_FOO"),
+    5: .same(proto: "FOREIGN_BAR"),
+    6: .same(proto: "FOREIGN_BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+    3: .same(proto: "BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_TestSparseEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -53452: .same(proto: "SPARSE_E"),
+    -15: .same(proto: "SPARSE_D"),
+    0: .same(proto: "SPARSE_F"),
+    2: .same(proto: "SPARSE_G"),
+    123: .same(proto: "SPARSE_A"),
+    62374: .same(proto: "SPARSE_B"),
+    12589234: .same(proto: "SPARSE_C"),
+  ]
+}
+
 extension ProtobufUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -9951,6 +9938,15 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBas
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "NEG"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
 
 extension ProtobufUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -10814,6 +10810,14 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf._MessageImplementationBase,
   }
 }
 
+extension ProtobufUnittest_TestOneof2.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
+}
+
 extension ProtobufUnittest_TestOneof2.FooGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     9: .same(proto: "a"),
@@ -10998,6 +11002,14 @@ extension ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf._MessageImplemen
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_TestDynamicExtensions.DynamicEnumType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2200: .same(proto: "DYNAMIC_FOO"),
+    2201: .same(proto: "DYNAMIC_BAR"),
+    2202: .same(proto: "DYNAMIC_BAZ"),
+  ]
 }
 
 extension ProtobufUnittest_TestDynamicExtensions.DynamicMessageType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

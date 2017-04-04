@@ -51,20 +51,13 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "proto3_arena_lite_unittest"
 
-enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignZero // = 0
   case foreignFoo // = 4
   case foreignBar // = 5
   case foreignBaz // = 6
   case UNRECOGNIZED(Int)
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FOREIGN_ZERO"),
-    4: .same(proto: "FOREIGN_FOO"),
-    5: .same(proto: "FOREIGN_BAR"),
-    6: .same(proto: "FOREIGN_BAZ"),
-  ]
 
   init() {
     self = .foreignZero
@@ -603,7 +596,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case zero // = 0
     case foo // = 1
@@ -613,14 +606,6 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     /// Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      -1: .same(proto: "NEG"),
-      0: .same(proto: "ZERO"),
-      1: .same(proto: "FOO"),
-      2: .same(proto: "BAR"),
-      3: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .zero
@@ -1225,6 +1210,15 @@ struct Proto3ArenaLiteUnittest_TestEmptyMessage: SwiftProtobuf.Message {
   }
 }
 
+extension Proto3ArenaLiteUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "FOREIGN_ZERO"),
+    4: .same(proto: "FOREIGN_FOO"),
+    5: .same(proto: "FOREIGN_BAR"),
+    6: .same(proto: "FOREIGN_BAZ"),
+  ]
+}
+
 extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -1338,6 +1332,16 @@ extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementa
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -1: .same(proto: "NEG"),
+    0: .same(proto: "ZERO"),
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
 
 extension Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

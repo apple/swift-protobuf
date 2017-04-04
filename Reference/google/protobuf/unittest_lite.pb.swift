@@ -55,17 +55,11 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignLiteFoo // = 4
   case foreignLiteBar // = 5
   case foreignLiteBaz // = 6
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    4: .same(proto: "FOREIGN_LITE_FOO"),
-    5: .same(proto: "FOREIGN_LITE_BAR"),
-    6: .same(proto: "FOREIGN_LITE_BAZ"),
-  ]
 
   init() {
     self = .foreignLiteFoo
@@ -90,13 +84,9 @@ enum ProtobufUnittest_ForeignEnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoN
 
 }
 
-enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case v1First // = 1
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "V1_FIRST"),
-  ]
 
   init() {
     self = .v1First
@@ -117,15 +107,10 @@ enum ProtobufUnittest_V1EnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePr
 
 }
 
-enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case v2First // = 1
   case v2Second // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "V2_FIRST"),
-    2: .same(proto: "V2_SECOND"),
-  ]
 
   init() {
     self = .v2First
@@ -1118,17 +1103,11 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     }
   }
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo // = 1
     case bar // = 2
     case baz // = 3
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "FOO"),
-      2: .same(proto: "BAR"),
-      3: .same(proto: "BAZ"),
-    ]
 
     init() {
       self = .foo
@@ -4757,6 +4736,27 @@ let ProtobufUnittest_UnittestLite_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext
 ]
 
+extension ProtobufUnittest_ForeignEnumLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    4: .same(proto: "FOREIGN_LITE_FOO"),
+    5: .same(proto: "FOREIGN_LITE_BAR"),
+    6: .same(proto: "FOREIGN_LITE_BAZ"),
+  ]
+}
+
+extension ProtobufUnittest_V1EnumLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "V1_FIRST"),
+  ]
+}
+
+extension ProtobufUnittest_V2EnumLite: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "V2_FIRST"),
+    2: .same(proto: "V2_SECOND"),
+  ]
+}
+
 extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
@@ -4921,6 +4921,14 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf._MessageImplementatio
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_TestAllTypesLite.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "FOO"),
+    2: .same(proto: "BAR"),
+    3: .same(proto: "BAZ"),
+  ]
 }
 
 extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

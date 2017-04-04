@@ -56,15 +56,10 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumTest1: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum EnumTest1: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case firstValue // = 1
     case secondValue // = 2
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "ENUM_TEST_1_FIRST_VALUE"),
-      2: .same(proto: "ENUM_TEST_1_SECOND_VALUE"),
-    ]
 
     init() {
       self = .firstValue
@@ -87,15 +82,10 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
   }
 
-  enum EnumTest2: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum EnumTest2: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case enumTest2FirstValue // = 1
     case secondValue // = 2
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "ENUM_TEST_2_FIRST_VALUE"),
-      2: .same(proto: "SECOND_VALUE"),
-    ]
 
     init() {
       self = .enumTest2FirstValue
@@ -118,15 +108,10 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
   }
 
-  enum EnumTestNoStem: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum EnumTestNoStem: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case enumTestNoStem1 // = 1
     case enumTestNoStem2 // = 2
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "ENUM_TEST_NO_STEM_1"),
-      2: .same(proto: "ENUM_TEST_NO_STEM_2"),
-    ]
 
     init() {
       self = .enumTestNoStem1
@@ -149,15 +134,10 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
   }
 
-  enum EnumTestReservedWord: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum EnumTestReservedWord: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case `var` // = 1
     case notReserved // = 2
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "ENUM_TEST_RESERVED_WORD_VAR"),
-      2: .same(proto: "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"),
-    ]
 
     init() {
       self = .`var`
@@ -199,17 +179,12 @@ struct ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum EnumWithAlias: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum EnumWithAlias: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case foo1 // = 1
     static let foo2 = foo1
     case bar1 // = 2
     static let bar2 = bar1
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
-      2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
-    ]
 
     init() {
       self = .foo1
@@ -260,6 +235,34 @@ extension ProtobufUnittest_SwiftEnumTest: SwiftProtobuf._MessageImplementationBa
   }
 }
 
+extension ProtobufUnittest_SwiftEnumTest.EnumTest1: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ENUM_TEST_1_FIRST_VALUE"),
+    2: .same(proto: "ENUM_TEST_1_SECOND_VALUE"),
+  ]
+}
+
+extension ProtobufUnittest_SwiftEnumTest.EnumTest2: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ENUM_TEST_2_FIRST_VALUE"),
+    2: .same(proto: "SECOND_VALUE"),
+  ]
+}
+
+extension ProtobufUnittest_SwiftEnumTest.EnumTestNoStem: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ENUM_TEST_NO_STEM_1"),
+    2: .same(proto: "ENUM_TEST_NO_STEM_2"),
+  ]
+}
+
+extension ProtobufUnittest_SwiftEnumTest.EnumTestReservedWord: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ENUM_TEST_RESERVED_WORD_VAR"),
+    2: .same(proto: "ENUM_TEST_RESERVED_WORD_NOT_RESERVED"),
+  ]
+}
+
 extension ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "values"),
@@ -270,4 +273,11 @@ extension ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf._MessageImpleme
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_SwiftEnumWithAliasTest.EnumWithAlias: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .aliased(proto: "FOO1", aliases: ["FOO2"]),
+    2: .aliased(proto: "BAR1", aliases: ["BAR2"]),
+  ]
 }

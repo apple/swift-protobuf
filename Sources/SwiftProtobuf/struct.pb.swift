@@ -54,16 +54,12 @@ fileprivate let _protobuf_package = "google.protobuf"
 /// `Value` type union.
 ///
 ///  The JSON representation for `NullValue` is JSON `null`.
-public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+public enum Google_Protobuf_NullValue: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
   /// Null value.
   case nullValue // = 0
   case UNRECOGNIZED(Int)
-
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NULL_VALUE"),
-  ]
 
   public init() {
     self = .nullValue
@@ -381,6 +377,12 @@ public struct Google_Protobuf_ListValue: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+}
+
+extension Google_Protobuf_NullValue: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NULL_VALUE"),
+  ]
 }
 
 extension Google_Protobuf_Struct: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

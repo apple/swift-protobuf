@@ -782,7 +782,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum TypeEnum: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// 0 is reserved for errors.
@@ -824,27 +824,6 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
 
     /// Uses ZigZag encoding.
     case sint64 // = 18
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "TYPE_DOUBLE"),
-      2: .same(proto: "TYPE_FLOAT"),
-      3: .same(proto: "TYPE_INT64"),
-      4: .same(proto: "TYPE_UINT64"),
-      5: .same(proto: "TYPE_INT32"),
-      6: .same(proto: "TYPE_FIXED64"),
-      7: .same(proto: "TYPE_FIXED32"),
-      8: .same(proto: "TYPE_BOOL"),
-      9: .same(proto: "TYPE_STRING"),
-      10: .same(proto: "TYPE_GROUP"),
-      11: .same(proto: "TYPE_MESSAGE"),
-      12: .same(proto: "TYPE_BYTES"),
-      13: .same(proto: "TYPE_UINT32"),
-      14: .same(proto: "TYPE_ENUM"),
-      15: .same(proto: "TYPE_SFIXED32"),
-      16: .same(proto: "TYPE_SFIXED64"),
-      17: .same(proto: "TYPE_SINT32"),
-      18: .same(proto: "TYPE_SINT64"),
-    ]
 
     public init() {
       self = .double
@@ -899,19 +878,13 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
 
   }
 
-  public enum Label: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum Label: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// 0 is reserved for errors
     case `optional` // = 1
     case `required` // = 2
     case repeated // = 3
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "LABEL_OPTIONAL"),
-      2: .same(proto: "LABEL_REQUIRED"),
-      3: .same(proto: "LABEL_REPEATED"),
-    ]
 
     public init() {
       self = .`optional`
@@ -1827,7 +1800,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Generated classes can be optimized for speed or code size.
-  public enum OptimizeMode: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum OptimizeMode: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// Generate complete code for parsing, serialization,
@@ -1838,12 +1811,6 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
 
     /// Generate code using MessageLite and the lite runtime.
     case liteRuntime // = 3
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "SPEED"),
-      2: .same(proto: "CODE_SIZE"),
-      3: .same(proto: "LITE_RUNTIME"),
-    ]
 
     public init() {
       self = .speed
@@ -2248,19 +2215,13 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  public enum CType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum CType: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// Default mode.
     case string // = 0
     case cord // = 1
     case stringPiece // = 2
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "STRING"),
-      1: .same(proto: "CORD"),
-      2: .same(proto: "STRING_PIECE"),
-    ]
 
     public init() {
       self = .string
@@ -2285,7 +2246,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
 
   }
 
-  public enum JSType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum JSType: SwiftProtobuf.Enum {
     public typealias RawValue = Int
 
     /// Use the default type.
@@ -2296,12 +2257,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
 
     /// Use JavaScript numbers.
     case jsNumber // = 2
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "JS_NORMAL"),
-      1: .same(proto: "JS_STRING"),
-      2: .same(proto: "JS_NUMBER"),
-    ]
 
     public init() {
       self = .jsNormal
@@ -2649,7 +2604,7 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
   /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
   /// or neither? HTTP based RPC implementation may choose GET verb for safe
   /// methods, and PUT verb for idempotent methods instead of the default POST.
-  public enum IdempotencyLevel: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  public enum IdempotencyLevel: SwiftProtobuf.Enum {
     public typealias RawValue = Int
     case idempotencyUnknown // = 0
 
@@ -2658,12 +2613,6 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
 
     /// idempotent, but may have side effects
     case idempotent // = 2
-
-    public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "IDEMPOTENCY_UNKNOWN"),
-      1: .same(proto: "NO_SIDE_EFFECTS"),
-      2: .same(proto: "IDEMPOTENT"),
-    ]
 
     public init() {
       self = .idempotencyUnknown
@@ -3405,6 +3354,37 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
   }
 }
 
+extension Google_Protobuf_FieldDescriptorProto.TypeEnum: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "TYPE_DOUBLE"),
+    2: .same(proto: "TYPE_FLOAT"),
+    3: .same(proto: "TYPE_INT64"),
+    4: .same(proto: "TYPE_UINT64"),
+    5: .same(proto: "TYPE_INT32"),
+    6: .same(proto: "TYPE_FIXED64"),
+    7: .same(proto: "TYPE_FIXED32"),
+    8: .same(proto: "TYPE_BOOL"),
+    9: .same(proto: "TYPE_STRING"),
+    10: .same(proto: "TYPE_GROUP"),
+    11: .same(proto: "TYPE_MESSAGE"),
+    12: .same(proto: "TYPE_BYTES"),
+    13: .same(proto: "TYPE_UINT32"),
+    14: .same(proto: "TYPE_ENUM"),
+    15: .same(proto: "TYPE_SFIXED32"),
+    16: .same(proto: "TYPE_SFIXED64"),
+    17: .same(proto: "TYPE_SINT32"),
+    18: .same(proto: "TYPE_SINT64"),
+  ]
+}
+
+extension Google_Protobuf_FieldDescriptorProto.Label: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "LABEL_OPTIONAL"),
+    2: .same(proto: "LABEL_REQUIRED"),
+    3: .same(proto: "LABEL_REPEATED"),
+  ]
+}
+
 extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
@@ -3570,6 +3550,14 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
   }
 }
 
+extension Google_Protobuf_FileOptions.OptimizeMode: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "SPEED"),
+    2: .same(proto: "CODE_SIZE"),
+    3: .same(proto: "LITE_RUNTIME"),
+  ]
+}
+
 extension Google_Protobuf_MessageOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set_wire_format"),
@@ -3614,6 +3602,22 @@ extension Google_Protobuf_FieldOptions: SwiftProtobuf._MessageImplementationBase
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
+}
+
+extension Google_Protobuf_FieldOptions.CType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "STRING"),
+    1: .same(proto: "CORD"),
+    2: .same(proto: "STRING_PIECE"),
+  ]
+}
+
+extension Google_Protobuf_FieldOptions.JSType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "JS_NORMAL"),
+    1: .same(proto: "JS_STRING"),
+    2: .same(proto: "JS_NUMBER"),
+  ]
 }
 
 extension Google_Protobuf_OneofOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -3691,6 +3695,14 @@ extension Google_Protobuf_MethodOptions: SwiftProtobuf._MessageImplementationBas
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
+}
+
+extension Google_Protobuf_MethodOptions.IdempotencyLevel: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "IDEMPOTENCY_UNKNOWN"),
+    1: .same(proto: "NO_SIDE_EFFECTS"),
+    2: .same(proto: "IDEMPOTENT"),
+  ]
 }
 
 extension Google_Protobuf_UninterpretedOption: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {

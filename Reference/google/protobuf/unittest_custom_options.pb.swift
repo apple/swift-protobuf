@@ -57,15 +57,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case val1 // = 1
   case val2 // = 2
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "METHODOPT1_VAL1"),
-    2: .same(proto: "METHODOPT1_VAL2"),
-  ]
 
   init() {
     self = .val1
@@ -88,13 +83,9 @@ enum ProtobufUnittest_MethodOpt1: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePr
 
 }
 
-enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case value // = 1
-
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "VALUE"),
-  ]
 
   init() {
     self = .value
@@ -178,15 +169,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     }
   }
 
-  enum AnEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum AnEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case val1 // = 1
     case val2 // = 2
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "ANENUM_VAL1"),
-      2: .same(proto: "ANENUM_VAL2"),
-    ]
 
     init() {
       self = .val1
@@ -309,15 +295,10 @@ struct ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnumType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TestEnumType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case testOptionEnumType1 // = 22
     case testOptionEnumType2 // = -23
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      -23: .same(proto: "TEST_OPTION_ENUM_TYPE2"),
-      22: .same(proto: "TEST_OPTION_ENUM_TYPE1"),
-    ]
 
     init() {
       self = .testOptionEnumType1
@@ -1130,13 +1111,9 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum NestedEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case value // = 1
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      1: .same(proto: "NESTED_ENUM_VALUE"),
-    ]
 
     init() {
       self = .value
@@ -1233,13 +1210,9 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TestEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case oldValue // = 0
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "OLD_VALUE"),
-    ]
 
     init() {
       self = .oldValue
@@ -1302,15 +1275,10 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum TestEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
+  enum TestEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case oldValue // = 0
     case newValue // = 1
-
-    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-      0: .same(proto: "OLD_VALUE"),
-      1: .same(proto: "NEW_VALUE"),
-    ]
 
     init() {
       self = .oldValue
@@ -2278,6 +2246,19 @@ let ProtobufUnittest_UnittestCustomOptions_Extensions: SwiftProtobuf.SimpleExten
   ProtobufUnittest_NestedOptionType.Extensions.nested_extension
 ]
 
+extension ProtobufUnittest_MethodOpt1: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "METHODOPT1_VAL1"),
+    2: .same(proto: "METHODOPT1_VAL2"),
+  ]
+}
+
+extension ProtobufUnittest_AggregateEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "VALUE"),
+  ]
+}
+
 extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
@@ -2290,6 +2271,13 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageI
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_TestMessageWithCustomOptions.AnEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "ANENUM_VAL1"),
+    2: .same(proto: "ANENUM_VAL2"),
+  ]
 }
 
 extension ProtobufUnittest_CustomOptionFooRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -2335,6 +2323,13 @@ extension ProtobufUnittest_DummyMessageContainingEnum: SwiftProtobuf._MessageImp
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_DummyMessageContainingEnum.TestEnumType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    -23: .same(proto: "TEST_OPTION_ENUM_TYPE2"),
+    22: .same(proto: "TEST_OPTION_ENUM_TYPE1"),
+  ]
 }
 
 extension ProtobufUnittest_DummyMessageInvalidAsOptionType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -2569,6 +2564,12 @@ extension ProtobufUnittest_NestedOptionType: SwiftProtobuf._MessageImplementatio
   }
 }
 
+extension ProtobufUnittest_NestedOptionType.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "NESTED_ENUM_VALUE"),
+  ]
+}
+
 extension ProtobufUnittest_NestedOptionType.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "nested_field"),
@@ -2593,6 +2594,12 @@ extension ProtobufUnittest_OldOptionType: SwiftProtobuf._MessageImplementationBa
   }
 }
 
+extension ProtobufUnittest_OldOptionType.TestEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OLD_VALUE"),
+  ]
+}
+
 extension ProtobufUnittest_NewOptionType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
@@ -2603,6 +2610,13 @@ extension ProtobufUnittest_NewOptionType: SwiftProtobuf._MessageImplementationBa
     if unknownFields != other.unknownFields {return false}
     return true
   }
+}
+
+extension ProtobufUnittest_NewOptionType.TestEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "OLD_VALUE"),
+    1: .same(proto: "NEW_VALUE"),
+  ]
 }
 
 extension ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
