@@ -37,8 +37,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "swift_unittest.names"
-
 enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case a // = 0
@@ -19119,6 +19117,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_WordCase.Extensions.TheUrlValue,
   SwiftUnittest_Names_WordCase.Extensions.TheUrl
 ]
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "swift_unittest.names"
 
 extension SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

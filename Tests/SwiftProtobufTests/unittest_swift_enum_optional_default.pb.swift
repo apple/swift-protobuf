@@ -35,8 +35,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest.extend"
-
 struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".EnumOptionalDefault"
 
@@ -213,6 +211,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest.extend"
 
 extension ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()

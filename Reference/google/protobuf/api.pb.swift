@@ -48,8 +48,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf"
-
 /// Api is a light-weight descriptor for a protocol buffer service.
 struct Google_Protobuf_Api: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Api"
@@ -385,6 +383,10 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

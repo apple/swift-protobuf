@@ -65,8 +65,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf.compiler"
-
 /// The version number of protocol compiler.
 public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Version"
@@ -444,6 +442,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf.compiler"
 
 extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

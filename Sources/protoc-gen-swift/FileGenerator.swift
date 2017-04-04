@@ -307,11 +307,6 @@ class FileGenerator {
         p.print("\n")
         generateVersionCheck(printer: &p)
 
-        if !protoPackageName.isEmpty {
-            p.print("\n")
-            p.print("fileprivate let _protobuf_package = \"\(protoPackageName)\"\n")
-        }
-
         var enums = [EnumGenerator]()
         let path = [Int32]()
         var i: Int32 = 0
@@ -380,14 +375,21 @@ class FileGenerator {
             p.print("]\n")
         }
 
-        for e in enums {
-            e.generateRuntimeSupport(printer: &p)
+        let needsProtoPackage: Bool = !protoPackageName.isEmpty && !messages.isEmpty
+        if needsProtoPackage || !enums.isEmpty || !messages.isEmpty {
+            p.print("\n")
+            p.print("// MARK: - Code below here is support for the SwiftProtobuf runtime.\n")
+            if needsProtoPackage {
+                p.print("\n")
+                p.print("fileprivate let _protobuf_package = \"\(protoPackageName)\"\n")
+            }
+            for e in enums {
+                e.generateRuntimeSupport(printer: &p)
+            }
+            for m in messages {
+                m.generateRuntimeSupport(printer: &p, file: self, parent: nil)
+            }
         }
-
-        for m in messages {
-            m.generateRuntimeSupport(printer: &p, file: self, parent: nil)
-        }
-
     }
 
     private func generateVersionCheck(printer p: inout CodePrinter) {

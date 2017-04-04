@@ -48,8 +48,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest"
-
 struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Message2"
 
@@ -1314,6 +1312,10 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest"
 
 extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

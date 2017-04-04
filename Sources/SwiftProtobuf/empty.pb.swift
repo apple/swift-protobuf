@@ -48,8 +48,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf"
-
 /// A generic empty message that you can re-use to avoid defining duplicated
 /// empty messages in your APIs. A typical example is to use it as the request
 /// or the response type of an API method. For instance:
@@ -75,6 +73,10 @@ public struct Google_Protobuf_Empty: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_Empty: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap = SwiftProtobuf._NameMap()

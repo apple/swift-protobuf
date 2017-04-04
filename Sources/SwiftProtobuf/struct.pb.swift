@@ -48,8 +48,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf"
-
 /// `NullValue` is a singleton enumeration to represent the null value for the
 /// `Value` type union.
 ///
@@ -307,6 +305,10 @@ public struct Google_Protobuf_ListValue: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_NullValue: SwiftProtobuf._ProtoNameProviding {
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

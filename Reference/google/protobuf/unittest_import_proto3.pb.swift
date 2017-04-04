@@ -55,8 +55,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest_import"
-
 enum Proto3ImportEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case importEnumUnspecified // = 0
@@ -116,6 +114,10 @@ struct Proto3ImportMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest_import"
 
 extension Proto3ImportEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

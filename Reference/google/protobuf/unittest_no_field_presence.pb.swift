@@ -51,8 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "proto2_nofieldpresence_unittest"
-
 enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignFoo // = 0
@@ -895,6 +893,10 @@ struct Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "proto2_nofieldpresence_unittest"
 
 extension Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

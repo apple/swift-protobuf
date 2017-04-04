@@ -19,8 +19,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest"
-
 /// Test that we can include all well-known types.
 /// Each wrapper type is included separately, as languages
 /// map handle different wrappers in different ways.
@@ -1192,6 +1190,10 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest"
 
 extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

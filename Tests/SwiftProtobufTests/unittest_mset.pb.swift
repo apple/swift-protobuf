@@ -56,8 +56,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest"
-
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
 
@@ -334,6 +332,10 @@ let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap =
   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest"
 
 extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

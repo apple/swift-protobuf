@@ -524,6 +524,8 @@ let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_RepeatedExtensionGroup
 ]
 
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
 extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),

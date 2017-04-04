@@ -56,8 +56,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf"
-
 struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnormousDescriptor"
 
@@ -17099,6 +17097,10 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
 
 extension Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
