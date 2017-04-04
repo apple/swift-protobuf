@@ -262,7 +262,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
     return _storage._optionalMessage != nil
   }
   mutating func clearOptionalMessage() {
-    return _storage._optionalMessage = nil
+    _storage._optionalMessage = nil
   }
 
   var optionalEnum: ProtobufUnittest_Message3.Enum {
@@ -1204,7 +1204,7 @@ struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message {
     return _storage._y != nil
   }
   mutating func clearY() {
-    return _storage._y = nil
+    _storage._y = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

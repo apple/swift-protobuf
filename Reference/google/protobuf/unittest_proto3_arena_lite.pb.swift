@@ -294,7 +294,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var optionalForeignMessage: Proto3ArenaLiteUnittest_ForeignMessage {
@@ -305,7 +305,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalForeignMessage != nil
   }
   mutating func clearOptionalForeignMessage() {
-    return _storage._optionalForeignMessage = nil
+    _storage._optionalForeignMessage = nil
   }
 
   var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
@@ -316,7 +316,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalImportMessage != nil
   }
   mutating func clearOptionalImportMessage() {
-    return _storage._optionalImportMessage = nil
+    _storage._optionalImportMessage = nil
   }
 
   var optionalNestedEnum: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum {
@@ -348,7 +348,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalPublicImportMessage != nil
   }
   mutating func clearOptionalPublicImportMessage() {
-    return _storage._optionalPublicImportMessage = nil
+    _storage._optionalPublicImportMessage = nil
   }
 
   var optionalLazyMessage: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage {
@@ -359,7 +359,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalLazyMessage != nil
   }
   mutating func clearOptionalLazyMessage() {
-    return _storage._optionalLazyMessage = nil
+    _storage._optionalLazyMessage = nil
   }
 
   ///   Repeated
@@ -1135,7 +1135,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     return _storage._child != nil
   }
   mutating func clearChild() {
-    return _storage._child = nil
+    _storage._child = nil
   }
 
   var payload: Proto3ArenaLiteUnittest_TestAllTypes {
@@ -1146,7 +1146,7 @@ struct Proto3ArenaLiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     return _storage._payload != nil
   }
   mutating func clearPayload() {
-    return _storage._payload = nil
+    _storage._payload = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

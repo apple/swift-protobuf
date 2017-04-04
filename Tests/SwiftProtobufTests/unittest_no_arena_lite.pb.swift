@@ -63,7 +63,7 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
     return _c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    _c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -62,7 +62,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -108,7 +108,7 @@ struct ExtensionGroup: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -144,7 +144,7 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -180,7 +180,7 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -238,7 +238,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     return _storage._outerA != nil
   }
   mutating func clearOuterA() {
-    return _storage._outerA = nil
+    _storage._outerA = nil
   }
 
   var subGroup1: SwiftTestNestingGroupsMessage.SubGroup1 {
@@ -249,7 +249,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     return _storage._subGroup1 != nil
   }
   mutating func clearSubGroup1() {
-    return _storage._subGroup1 = nil
+    _storage._subGroup1 = nil
   }
 
   var subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] {
@@ -291,7 +291,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       return _storage._sub1A != nil
     }
     mutating func clearSub1A() {
-      return _storage._sub1A = nil
+      _storage._sub1A = nil
     }
 
     var subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2 {
@@ -302,7 +302,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       return _storage._subGroup2 != nil
     }
     mutating func clearSubGroup2() {
-      return _storage._subGroup2 = nil
+      _storage._subGroup2 = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -319,7 +319,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         return _sub2A != nil
       }
       mutating func clearSub2A() {
-        return _sub2A = nil
+        _sub2A = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -383,7 +383,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       return _sub3A != nil
     }
     mutating func clearSub3A() {
-      return _sub3A = nil
+      _sub3A = nil
     }
 
     var subGroup4: [SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4] = []
@@ -402,7 +402,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         return _sub4A != nil
       }
       mutating func clearSub4A() {
-        return _sub4A = nil
+        _sub4A = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()

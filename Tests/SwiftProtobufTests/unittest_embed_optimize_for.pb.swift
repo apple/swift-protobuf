@@ -91,7 +91,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
     return _storage._optionalMessage != nil
   }
   mutating func clearOptionalMessage() {
-    return _storage._optionalMessage = nil
+    _storage._optionalMessage = nil
   }
 
   var repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] {

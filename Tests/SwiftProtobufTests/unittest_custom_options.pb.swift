@@ -129,7 +129,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     return _field1 != nil
   }
   mutating func clearField1() {
-    return _field1 = nil
+    _field1 = nil
   }
 
   var oneofField: Int32 {
@@ -470,7 +470,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     return _foo != nil
   }
   mutating func clearFoo() {
-    return _foo = nil
+    _foo = nil
   }
 
   fileprivate var _foo2: Int32? = nil
@@ -482,7 +482,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     return _foo2 != nil
   }
   mutating func clearFoo2() {
-    return _foo2 = nil
+    _foo2 = nil
   }
 
   fileprivate var _foo3: Int32? = nil
@@ -494,7 +494,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     return _foo3 != nil
   }
   mutating func clearFoo3() {
-    return _foo3 = nil
+    _foo3 = nil
   }
 
   var foo4: [Int32] = []
@@ -578,7 +578,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._bar != nil
   }
   mutating func clearBar() {
-    return _storage._bar = nil
+    _storage._bar = nil
   }
 
   var baz: Int32 {
@@ -589,7 +589,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._baz != nil
   }
   mutating func clearBaz() {
-    return _storage._baz = nil
+    _storage._baz = nil
   }
 
   var fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
@@ -600,7 +600,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._fred != nil
   }
   mutating func clearFred() {
-    return _storage._fred = nil
+    _storage._fred = nil
   }
 
   var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] {
@@ -622,7 +622,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       return _waldo != nil
     }
     mutating func clearWaldo() {
-      return _waldo = nil
+      _waldo = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -736,7 +736,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
     return _storage._qux != nil
   }
   mutating func clearQux() {
-    return _storage._qux = nil
+    _storage._qux = nil
   }
 
   var complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5 {
@@ -747,7 +747,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
     return _storage._complexOptionType5 != nil
   }
   mutating func clearComplexOptionType5() {
-    return _storage._complexOptionType5 = nil
+    _storage._complexOptionType5 = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -764,7 +764,7 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
       return _plugh != nil
     }
     mutating func clearPlugh() {
-      return _plugh = nil
+      _plugh = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -828,7 +828,7 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
     return _xyzzy != nil
   }
   mutating func clearXyzzy() {
-    return _xyzzy = nil
+    _xyzzy = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -910,7 +910,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
     return _s != nil
   }
   mutating func clearS() {
-    return _s = nil
+    _s = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -982,7 +982,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     return _storage._i != nil
   }
   mutating func clearI() {
-    return _storage._i = nil
+    _storage._i = nil
   }
 
   var s: String {
@@ -993,7 +993,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     return _storage._s != nil
   }
   mutating func clearS() {
-    return _storage._s = nil
+    _storage._s = nil
   }
 
   ///   A nested object
@@ -1005,7 +1005,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     return _storage._sub != nil
   }
   mutating func clearSub() {
-    return _storage._sub = nil
+    _storage._sub = nil
   }
 
   ///   To test the parsing of extensions inside aggregate values
@@ -1017,7 +1017,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     return _storage._file != nil
   }
   mutating func clearFile() {
-    return _storage._file = nil
+    _storage._file = nil
   }
 
   ///   An embedded message set
@@ -1029,7 +1029,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     return _storage._mset != nil
   }
   mutating func clearMset() {
-    return _storage._mset = nil
+    _storage._mset = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1104,7 +1104,7 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
     return _fieldname != nil
   }
   mutating func clearFieldname() {
-    return _fieldname = nil
+    _fieldname = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1173,7 +1173,7 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
       return _nestedField != nil
     }
     mutating func clearNestedField() {
-      return _nestedField = nil
+      _nestedField = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1232,7 +1232,7 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
     return _value != nil
   }
   mutating func clearValue() {
-    return _value = nil
+    _value = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1301,7 +1301,7 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
     return _value != nil
   }
   mutating func clearValue() {
-    return _value = nil
+    _value = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

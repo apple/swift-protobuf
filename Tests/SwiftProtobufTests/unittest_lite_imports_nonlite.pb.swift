@@ -85,7 +85,7 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message {
     return _storage._message != nil
   }
   mutating func clearMessage() {
-    return _storage._message = nil
+    _storage._message = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

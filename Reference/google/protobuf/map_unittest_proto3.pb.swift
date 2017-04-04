@@ -355,7 +355,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
     return _storage._testMap != nil
   }
   mutating func clearTestMap() {
-    return _storage._testMap = nil
+    _storage._testMap = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -75,7 +75,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._myString != nil
   }
   mutating func clearMyString() {
-    return _storage._myString = nil
+    _storage._myString = nil
   }
 
   var myInt: Int64 {
@@ -86,7 +86,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._myInt != nil
   }
   mutating func clearMyInt() {
-    return _storage._myInt = nil
+    _storage._myInt = nil
   }
 
   var myFloat: Float {
@@ -97,7 +97,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._myFloat != nil
   }
   mutating func clearMyFloat() {
-    return _storage._myFloat = nil
+    _storage._myFloat = nil
   }
 
   var oneofInt64: Int64 {
@@ -156,7 +156,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var options: OneOf_Options? {
@@ -254,7 +254,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       return _oo != nil
     }
     mutating func clearOo() {
-      return _oo = nil
+      _oo = nil
     }
 
     fileprivate var _bb: Int32? = nil
@@ -266,7 +266,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       return _bb != nil
     }
     mutating func clearBb() {
-      return _bb = nil
+      _bb = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

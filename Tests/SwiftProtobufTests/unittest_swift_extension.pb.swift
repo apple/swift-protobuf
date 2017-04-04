@@ -59,7 +59,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
         return _a != nil
       }
       mutating func clearA() {
-        return _a = nil
+        _a = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -130,7 +130,7 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
     return _c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    _c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -222,7 +222,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
     return _x != nil
   }
   mutating func clearX() {
-    return _x = nil
+    _x = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -288,7 +288,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     return _storage._x != nil
   }
   mutating func clearX() {
-    return _storage._x = nil
+    _storage._x = nil
   }
 
   ///   Recursive class (i.e. - can build a graph), forces _StorageClass.
@@ -300,7 +300,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     return _storage._y != nil
   }
   mutating func clearY() {
-    return _storage._y = nil
+    _storage._y = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

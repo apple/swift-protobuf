@@ -88,7 +88,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
     return _storage._messageSet != nil
   }
   mutating func clearMessageSet() {
-    return _storage._messageSet = nil
+    _storage._messageSet = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -136,7 +136,7 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
     return _i != nil
   }
   mutating func clearI() {
-    return _i = nil
+    _i = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -181,7 +181,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
     return _str != nil
   }
   mutating func clearStr() {
-    return _str = nil
+    _str = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -234,7 +234,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       return _typeId != nil
     }
     mutating func clearTypeId() {
-      return _typeId = nil
+      _typeId = nil
     }
 
     fileprivate var _message: Data? = nil
@@ -246,7 +246,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       return _message != nil
     }
     mutating func clearMessage() {
-      return _message = nil
+      _message = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

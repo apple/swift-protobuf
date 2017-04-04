@@ -56,7 +56,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
       return _c != nil
     }
     mutating func clearC() {
-      return _c = nil
+      _c = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -119,7 +119,7 @@ struct Ext4C: SwiftProtobuf.Message {
     return _c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    _c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -2086,7 +2086,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2: String {
@@ -2097,7 +2097,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong2 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3: String {
@@ -2108,7 +2108,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong3 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4: String {
@@ -2119,7 +2119,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong4 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5: String {
@@ -2130,7 +2130,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong5 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6: String {
@@ -2141,7 +2141,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong6 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7: String {
@@ -2152,7 +2152,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong7 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8: String {
@@ -2163,7 +2163,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong8 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9: String {
@@ -2174,7 +2174,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong9 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10: String {
@@ -2185,7 +2185,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong10 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11: String {
@@ -2196,7 +2196,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong11 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12: String {
@@ -2207,7 +2207,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong12 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13: String {
@@ -2218,7 +2218,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong13 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14: String {
@@ -2229,7 +2229,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong14 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15: String {
@@ -2240,7 +2240,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong15 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16: String {
@@ -2251,7 +2251,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong16 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17: String {
@@ -2262,7 +2262,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong17 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18: String {
@@ -2273,7 +2273,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong18 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19: String {
@@ -2284,7 +2284,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong19 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20: String {
@@ -2295,7 +2295,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong20 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21: String {
@@ -2306,7 +2306,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong21 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22: String {
@@ -2317,7 +2317,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong22 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23: String {
@@ -2328,7 +2328,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong23 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24: String {
@@ -2339,7 +2339,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong24 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25: String {
@@ -2350,7 +2350,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong25 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26: String {
@@ -2361,7 +2361,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong26 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27: String {
@@ -2372,7 +2372,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong27 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28: String {
@@ -2383,7 +2383,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong28 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29: String {
@@ -2394,7 +2394,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong29 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30: String {
@@ -2405,7 +2405,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong30 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31: String {
@@ -2416,7 +2416,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong31 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32: String {
@@ -2427,7 +2427,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong32 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33: String {
@@ -2438,7 +2438,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong33 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34: String {
@@ -2449,7 +2449,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong34 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35: String {
@@ -2460,7 +2460,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong35 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36: String {
@@ -2471,7 +2471,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong36 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37: String {
@@ -2482,7 +2482,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong37 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38: String {
@@ -2493,7 +2493,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong38 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39: String {
@@ -2504,7 +2504,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong39 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40: String {
@@ -2515,7 +2515,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong40 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41: String {
@@ -2526,7 +2526,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong41 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42: String {
@@ -2537,7 +2537,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong42 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43: String {
@@ -2548,7 +2548,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong43 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44: String {
@@ -2559,7 +2559,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong44 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45: String {
@@ -2570,7 +2570,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong45 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46: String {
@@ -2581,7 +2581,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong46 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47: String {
@@ -2592,7 +2592,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong47 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48: String {
@@ -2603,7 +2603,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong48 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49: String {
@@ -2614,7 +2614,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong49 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50: String {
@@ -2625,7 +2625,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong50 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51: String {
@@ -2636,7 +2636,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong51 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52: String {
@@ -2647,7 +2647,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong52 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53: String {
@@ -2658,7 +2658,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong53 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54: String {
@@ -2669,7 +2669,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong54 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55: String {
@@ -2680,7 +2680,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong55 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56: String {
@@ -2691,7 +2691,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong56 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57: String {
@@ -2702,7 +2702,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong57 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58: String {
@@ -2713,7 +2713,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong58 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59: String {
@@ -2724,7 +2724,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong59 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60: String {
@@ -2735,7 +2735,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong60 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61: String {
@@ -2746,7 +2746,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong61 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62: String {
@@ -2757,7 +2757,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong62 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63: String {
@@ -2768,7 +2768,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong63 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64: String {
@@ -2779,7 +2779,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong64 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65: String {
@@ -2790,7 +2790,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong65 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66: String {
@@ -2801,7 +2801,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong66 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67: String {
@@ -2812,7 +2812,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong67 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68: String {
@@ -2823,7 +2823,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong68 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69: String {
@@ -2834,7 +2834,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong69 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70: String {
@@ -2845,7 +2845,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong70 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71: String {
@@ -2856,7 +2856,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong71 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72: String {
@@ -2867,7 +2867,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong72 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73: String {
@@ -2878,7 +2878,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong73 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74: String {
@@ -2889,7 +2889,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong74 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75: String {
@@ -2900,7 +2900,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong75 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76: String {
@@ -2911,7 +2911,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong76 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77: String {
@@ -2922,7 +2922,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong77 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78: String {
@@ -2933,7 +2933,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong78 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79: String {
@@ -2944,7 +2944,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong79 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80: String {
@@ -2955,7 +2955,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong80 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81: String {
@@ -2966,7 +2966,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong81 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82: String {
@@ -2977,7 +2977,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong82 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83: String {
@@ -2988,7 +2988,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong83 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84: String {
@@ -2999,7 +2999,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong84 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85: String {
@@ -3010,7 +3010,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong85 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86: String {
@@ -3021,7 +3021,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong86 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87: String {
@@ -3032,7 +3032,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong87 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88: String {
@@ -3043,7 +3043,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong88 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89: String {
@@ -3054,7 +3054,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong89 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90: String {
@@ -3065,7 +3065,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong90 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91: String {
@@ -3076,7 +3076,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong91 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92: String {
@@ -3087,7 +3087,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong92 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93: String {
@@ -3098,7 +3098,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong93 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94: String {
@@ -3109,7 +3109,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong94 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95: String {
@@ -3120,7 +3120,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong95 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96: String {
@@ -3131,7 +3131,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong96 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97: String {
@@ -3142,7 +3142,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong97 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98: String {
@@ -3153,7 +3153,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong98 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99: String {
@@ -3164,7 +3164,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong99 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100: String {
@@ -3175,7 +3175,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong100 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101: String {
@@ -3186,7 +3186,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong101 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102: String {
@@ -3197,7 +3197,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong102 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103: String {
@@ -3208,7 +3208,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong103 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104: String {
@@ -3219,7 +3219,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong104 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105: String {
@@ -3230,7 +3230,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong105 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106: String {
@@ -3241,7 +3241,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong106 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107: String {
@@ -3252,7 +3252,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong107 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108: String {
@@ -3263,7 +3263,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong108 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109: String {
@@ -3274,7 +3274,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong109 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110: String {
@@ -3285,7 +3285,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong110 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111: String {
@@ -3296,7 +3296,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong111 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112: String {
@@ -3307,7 +3307,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong112 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113: String {
@@ -3318,7 +3318,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong113 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114: String {
@@ -3329,7 +3329,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong114 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115: String {
@@ -3340,7 +3340,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong115 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116: String {
@@ -3351,7 +3351,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong116 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117: String {
@@ -3362,7 +3362,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong117 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118: String {
@@ -3373,7 +3373,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong118 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119: String {
@@ -3384,7 +3384,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong119 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120: String {
@@ -3395,7 +3395,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong120 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121: String {
@@ -3406,7 +3406,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong121 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122: String {
@@ -3417,7 +3417,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong122 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123: String {
@@ -3428,7 +3428,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong123 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124: String {
@@ -3439,7 +3439,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong124 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125: String {
@@ -3450,7 +3450,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong125 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126: String {
@@ -3461,7 +3461,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong126 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127: String {
@@ -3472,7 +3472,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong127 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128: String {
@@ -3483,7 +3483,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong128 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129: String {
@@ -3494,7 +3494,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong129 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130: String {
@@ -3505,7 +3505,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong130 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131: String {
@@ -3516,7 +3516,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong131 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132: String {
@@ -3527,7 +3527,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong132 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133: String {
@@ -3538,7 +3538,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong133 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134: String {
@@ -3549,7 +3549,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong134 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135: String {
@@ -3560,7 +3560,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong135 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136: String {
@@ -3571,7 +3571,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong136 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137: String {
@@ -3582,7 +3582,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong137 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138: String {
@@ -3593,7 +3593,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong138 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139: String {
@@ -3604,7 +3604,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong139 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140: String {
@@ -3615,7 +3615,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong140 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141: String {
@@ -3626,7 +3626,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong141 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142: String {
@@ -3637,7 +3637,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong142 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143: String {
@@ -3648,7 +3648,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong143 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144: String {
@@ -3659,7 +3659,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong144 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145: String {
@@ -3670,7 +3670,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong145 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146: String {
@@ -3681,7 +3681,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong146 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147: String {
@@ -3692,7 +3692,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong147 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148: String {
@@ -3703,7 +3703,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong148 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149: String {
@@ -3714,7 +3714,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong149 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150: String {
@@ -3725,7 +3725,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong150 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151: String {
@@ -3736,7 +3736,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong151 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152: String {
@@ -3747,7 +3747,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong152 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153: String {
@@ -3758,7 +3758,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong153 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154: String {
@@ -3769,7 +3769,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong154 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155: String {
@@ -3780,7 +3780,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong155 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156: String {
@@ -3791,7 +3791,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong156 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157: String {
@@ -3802,7 +3802,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong157 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158: String {
@@ -3813,7 +3813,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong158 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159: String {
@@ -3824,7 +3824,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong159 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160: String {
@@ -3835,7 +3835,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong160 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161: String {
@@ -3846,7 +3846,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong161 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162: String {
@@ -3857,7 +3857,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong162 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163: String {
@@ -3868,7 +3868,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong163 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164: String {
@@ -3879,7 +3879,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong164 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165: String {
@@ -3890,7 +3890,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong165 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166: String {
@@ -3901,7 +3901,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong166 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167: String {
@@ -3912,7 +3912,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong167 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168: String {
@@ -3923,7 +3923,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong168 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169: String {
@@ -3934,7 +3934,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong169 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170: String {
@@ -3945,7 +3945,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong170 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171: String {
@@ -3956,7 +3956,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong171 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172: String {
@@ -3967,7 +3967,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong172 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173: String {
@@ -3978,7 +3978,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong173 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174: String {
@@ -3989,7 +3989,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong174 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175: String {
@@ -4000,7 +4000,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong175 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176: String {
@@ -4011,7 +4011,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong176 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177: String {
@@ -4022,7 +4022,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong177 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178: String {
@@ -4033,7 +4033,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong178 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179: String {
@@ -4044,7 +4044,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong179 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180: String {
@@ -4055,7 +4055,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong180 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181: String {
@@ -4066,7 +4066,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong181 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182: String {
@@ -4077,7 +4077,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong182 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183: String {
@@ -4088,7 +4088,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong183 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184: String {
@@ -4099,7 +4099,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong184 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185: String {
@@ -4110,7 +4110,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong185 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186: String {
@@ -4121,7 +4121,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong186 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187: String {
@@ -4132,7 +4132,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong187 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188: String {
@@ -4143,7 +4143,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong188 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189: String {
@@ -4154,7 +4154,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong189 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190: String {
@@ -4165,7 +4165,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong190 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191: String {
@@ -4176,7 +4176,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong191 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192: String {
@@ -4187,7 +4187,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong192 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193: String {
@@ -4198,7 +4198,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong193 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194: String {
@@ -4209,7 +4209,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong194 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195: String {
@@ -4220,7 +4220,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong195 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196: String {
@@ -4231,7 +4231,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong196 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197: String {
@@ -4242,7 +4242,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong197 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198: String {
@@ -4253,7 +4253,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong198 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199: String {
@@ -4264,7 +4264,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong199 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200: String {
@@ -4275,7 +4275,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong200 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201: String {
@@ -4286,7 +4286,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong201 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202: String {
@@ -4297,7 +4297,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong202 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203: String {
@@ -4308,7 +4308,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong203 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204: String {
@@ -4319,7 +4319,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong204 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205: String {
@@ -4330,7 +4330,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong205 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206: String {
@@ -4341,7 +4341,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong206 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207: String {
@@ -4352,7 +4352,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong207 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208: String {
@@ -4363,7 +4363,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong208 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209: String {
@@ -4374,7 +4374,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong209 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210: String {
@@ -4385,7 +4385,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong210 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211: String {
@@ -4396,7 +4396,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong211 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212: String {
@@ -4407,7 +4407,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong212 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213: String {
@@ -4418,7 +4418,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong213 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214: String {
@@ -4429,7 +4429,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong214 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215: String {
@@ -4440,7 +4440,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong215 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216: String {
@@ -4451,7 +4451,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong216 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217: String {
@@ -4462,7 +4462,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong217 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218: String {
@@ -4473,7 +4473,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong218 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219: String {
@@ -4484,7 +4484,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong219 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220: String {
@@ -4495,7 +4495,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong220 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221: String {
@@ -4506,7 +4506,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong221 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222: String {
@@ -4517,7 +4517,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong222 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223: String {
@@ -4528,7 +4528,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong223 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224: String {
@@ -4539,7 +4539,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong224 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225: String {
@@ -4550,7 +4550,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong225 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226: String {
@@ -4561,7 +4561,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong226 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227: String {
@@ -4572,7 +4572,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong227 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228: String {
@@ -4583,7 +4583,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong228 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229: String {
@@ -4594,7 +4594,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong229 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230: String {
@@ -4605,7 +4605,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong230 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231: String {
@@ -4616,7 +4616,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong231 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232: String {
@@ -4627,7 +4627,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong232 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233: String {
@@ -4638,7 +4638,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong233 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234: String {
@@ -4649,7 +4649,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong234 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235: String {
@@ -4660,7 +4660,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong235 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236: String {
@@ -4671,7 +4671,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong236 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237: String {
@@ -4682,7 +4682,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong237 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238: String {
@@ -4693,7 +4693,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong238 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239: String {
@@ -4704,7 +4704,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong239 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240: String {
@@ -4715,7 +4715,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong240 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241: String {
@@ -4726,7 +4726,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong241 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242: String {
@@ -4737,7 +4737,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong242 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243: String {
@@ -4748,7 +4748,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong243 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244: String {
@@ -4759,7 +4759,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong244 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245: String {
@@ -4770,7 +4770,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong245 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246: String {
@@ -4781,7 +4781,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong246 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247: String {
@@ -4792,7 +4792,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong247 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248: String {
@@ -4803,7 +4803,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong248 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249: String {
@@ -4814,7 +4814,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong249 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250: String {
@@ -4825,7 +4825,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong250 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251: String {
@@ -4836,7 +4836,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong251 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252: String {
@@ -4847,7 +4847,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong252 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253: String {
@@ -4858,7 +4858,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong253 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254: String {
@@ -4869,7 +4869,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong254 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255: String {
@@ -4880,7 +4880,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong255 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256: String {
@@ -4891,7 +4891,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong256 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257: String {
@@ -4902,7 +4902,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong257 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258: String {
@@ -4913,7 +4913,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong258 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259: String {
@@ -4924,7 +4924,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong259 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260: String {
@@ -4935,7 +4935,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong260 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261: String {
@@ -4946,7 +4946,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong261 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262: String {
@@ -4957,7 +4957,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong262 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263: String {
@@ -4968,7 +4968,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong263 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264: String {
@@ -4979,7 +4979,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong264 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265: String {
@@ -4990,7 +4990,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong265 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266: String {
@@ -5001,7 +5001,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong266 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267: String {
@@ -5012,7 +5012,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong267 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268: String {
@@ -5023,7 +5023,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong268 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269: String {
@@ -5034,7 +5034,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong269 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270: String {
@@ -5045,7 +5045,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong270 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271: String {
@@ -5056,7 +5056,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong271 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272: String {
@@ -5067,7 +5067,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong272 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273: String {
@@ -5078,7 +5078,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong273 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274: String {
@@ -5089,7 +5089,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong274 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275: String {
@@ -5100,7 +5100,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong275 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276: String {
@@ -5111,7 +5111,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong276 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277: String {
@@ -5122,7 +5122,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong277 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278: String {
@@ -5133,7 +5133,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong278 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279: String {
@@ -5144,7 +5144,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong279 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280: String {
@@ -5155,7 +5155,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong280 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281: String {
@@ -5166,7 +5166,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong281 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282: String {
@@ -5177,7 +5177,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong282 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283: String {
@@ -5188,7 +5188,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong283 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284: String {
@@ -5199,7 +5199,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong284 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285: String {
@@ -5210,7 +5210,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong285 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286: String {
@@ -5221,7 +5221,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong286 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287: String {
@@ -5232,7 +5232,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong287 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288: String {
@@ -5243,7 +5243,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong288 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289: String {
@@ -5254,7 +5254,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong289 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290: String {
@@ -5265,7 +5265,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong290 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291: String {
@@ -5276,7 +5276,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong291 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292: String {
@@ -5287,7 +5287,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong292 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293: String {
@@ -5298,7 +5298,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong293 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294: String {
@@ -5309,7 +5309,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong294 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295: String {
@@ -5320,7 +5320,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong295 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296: String {
@@ -5331,7 +5331,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong296 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297: String {
@@ -5342,7 +5342,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong297 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298: String {
@@ -5353,7 +5353,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong298 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299: String {
@@ -5364,7 +5364,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong299 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300: String {
@@ -5375,7 +5375,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong300 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301: String {
@@ -5386,7 +5386,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong301 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302: String {
@@ -5397,7 +5397,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong302 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303: String {
@@ -5408,7 +5408,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong303 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304: String {
@@ -5419,7 +5419,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong304 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305: String {
@@ -5430,7 +5430,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong305 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306: String {
@@ -5441,7 +5441,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong306 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307: String {
@@ -5452,7 +5452,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong307 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308: String {
@@ -5463,7 +5463,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong308 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309: String {
@@ -5474,7 +5474,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong309 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310: String {
@@ -5485,7 +5485,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong310 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311: String {
@@ -5496,7 +5496,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong311 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312: String {
@@ -5507,7 +5507,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong312 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313: String {
@@ -5518,7 +5518,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong313 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314: String {
@@ -5529,7 +5529,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong314 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315: String {
@@ -5540,7 +5540,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong315 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316: String {
@@ -5551,7 +5551,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong316 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317: String {
@@ -5562,7 +5562,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong317 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318: String {
@@ -5573,7 +5573,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong318 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319: String {
@@ -5584,7 +5584,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong319 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320: String {
@@ -5595,7 +5595,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong320 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321: String {
@@ -5606,7 +5606,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong321 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322: String {
@@ -5617,7 +5617,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong322 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323: String {
@@ -5628,7 +5628,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong323 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324: String {
@@ -5639,7 +5639,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong324 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325: String {
@@ -5650,7 +5650,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong325 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326: String {
@@ -5661,7 +5661,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong326 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327: String {
@@ -5672,7 +5672,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong327 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328: String {
@@ -5683,7 +5683,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong328 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329: String {
@@ -5694,7 +5694,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong329 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330: String {
@@ -5705,7 +5705,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong330 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331: String {
@@ -5716,7 +5716,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong331 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332: String {
@@ -5727,7 +5727,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong332 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333: String {
@@ -5738,7 +5738,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong333 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334: String {
@@ -5749,7 +5749,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong334 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335: String {
@@ -5760,7 +5760,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong335 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336: String {
@@ -5771,7 +5771,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong336 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337: String {
@@ -5782,7 +5782,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong337 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338: String {
@@ -5793,7 +5793,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong338 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339: String {
@@ -5804,7 +5804,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong339 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340: String {
@@ -5815,7 +5815,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong340 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341: String {
@@ -5826,7 +5826,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong341 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342: String {
@@ -5837,7 +5837,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong342 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343: String {
@@ -5848,7 +5848,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong343 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344: String {
@@ -5859,7 +5859,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong344 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345: String {
@@ -5870,7 +5870,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong345 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346: String {
@@ -5881,7 +5881,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong346 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347: String {
@@ -5892,7 +5892,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong347 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348: String {
@@ -5903,7 +5903,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong348 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349: String {
@@ -5914,7 +5914,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong349 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350: String {
@@ -5925,7 +5925,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong350 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351: String {
@@ -5936,7 +5936,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong351 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352: String {
@@ -5947,7 +5947,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong352 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353: String {
@@ -5958,7 +5958,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong353 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354: String {
@@ -5969,7 +5969,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong354 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355: String {
@@ -5980,7 +5980,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong355 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356: String {
@@ -5991,7 +5991,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong356 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357: String {
@@ -6002,7 +6002,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong357 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358: String {
@@ -6013,7 +6013,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong358 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359: String {
@@ -6024,7 +6024,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong359 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360: String {
@@ -6035,7 +6035,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong360 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361: String {
@@ -6046,7 +6046,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong361 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362: String {
@@ -6057,7 +6057,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong362 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363: String {
@@ -6068,7 +6068,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong363 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364: String {
@@ -6079,7 +6079,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong364 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365: String {
@@ -6090,7 +6090,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong365 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366: String {
@@ -6101,7 +6101,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong366 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367: String {
@@ -6112,7 +6112,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong367 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368: String {
@@ -6123,7 +6123,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong368 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369: String {
@@ -6134,7 +6134,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong369 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370: String {
@@ -6145,7 +6145,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong370 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371: String {
@@ -6156,7 +6156,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong371 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372: String {
@@ -6167,7 +6167,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong372 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373: String {
@@ -6178,7 +6178,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong373 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374: String {
@@ -6189,7 +6189,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong374 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375: String {
@@ -6200,7 +6200,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong375 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376: String {
@@ -6211,7 +6211,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong376 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377: String {
@@ -6222,7 +6222,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong377 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378: String {
@@ -6233,7 +6233,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong378 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379: String {
@@ -6244,7 +6244,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong379 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380: String {
@@ -6255,7 +6255,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong380 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381: String {
@@ -6266,7 +6266,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong381 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382: String {
@@ -6277,7 +6277,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong382 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383: String {
@@ -6288,7 +6288,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong383 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384: String {
@@ -6299,7 +6299,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong384 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385: String {
@@ -6310,7 +6310,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong385 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386: String {
@@ -6321,7 +6321,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong386 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387: String {
@@ -6332,7 +6332,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong387 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388: String {
@@ -6343,7 +6343,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong388 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389: String {
@@ -6354,7 +6354,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong389 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390: String {
@@ -6365,7 +6365,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong390 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391: String {
@@ -6376,7 +6376,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong391 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392: String {
@@ -6387,7 +6387,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong392 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393: String {
@@ -6398,7 +6398,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong393 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394: String {
@@ -6409,7 +6409,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong394 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395: String {
@@ -6420,7 +6420,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong395 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396: String {
@@ -6431,7 +6431,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong396 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397: String {
@@ -6442,7 +6442,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong397 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398: String {
@@ -6453,7 +6453,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong398 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399: String {
@@ -6464,7 +6464,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong399 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400: String {
@@ -6475,7 +6475,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong400 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401: String {
@@ -6486,7 +6486,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong401 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402: String {
@@ -6497,7 +6497,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong402 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403: String {
@@ -6508,7 +6508,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong403 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404: String {
@@ -6519,7 +6519,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong404 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405: String {
@@ -6530,7 +6530,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong405 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406: String {
@@ -6541,7 +6541,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong406 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407: String {
@@ -6552,7 +6552,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong407 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408: String {
@@ -6563,7 +6563,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong408 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409: String {
@@ -6574,7 +6574,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong409 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410: String {
@@ -6585,7 +6585,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong410 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411: String {
@@ -6596,7 +6596,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong411 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412: String {
@@ -6607,7 +6607,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong412 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413: String {
@@ -6618,7 +6618,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong413 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414: String {
@@ -6629,7 +6629,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong414 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415: String {
@@ -6640,7 +6640,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong415 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416: String {
@@ -6651,7 +6651,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong416 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417: String {
@@ -6662,7 +6662,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong417 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418: String {
@@ -6673,7 +6673,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong418 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419: String {
@@ -6684,7 +6684,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong419 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420: String {
@@ -6695,7 +6695,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong420 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421: String {
@@ -6706,7 +6706,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong421 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422: String {
@@ -6717,7 +6717,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong422 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423: String {
@@ -6728,7 +6728,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong423 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424: String {
@@ -6739,7 +6739,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong424 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425: String {
@@ -6750,7 +6750,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong425 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426: String {
@@ -6761,7 +6761,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong426 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427: String {
@@ -6772,7 +6772,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong427 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428: String {
@@ -6783,7 +6783,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong428 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429: String {
@@ -6794,7 +6794,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong429 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430: String {
@@ -6805,7 +6805,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong430 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431: String {
@@ -6816,7 +6816,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong431 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432: String {
@@ -6827,7 +6827,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong432 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433: String {
@@ -6838,7 +6838,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong433 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434: String {
@@ -6849,7 +6849,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong434 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435: String {
@@ -6860,7 +6860,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong435 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436: String {
@@ -6871,7 +6871,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong436 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437: String {
@@ -6882,7 +6882,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong437 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438: String {
@@ -6893,7 +6893,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong438 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439: String {
@@ -6904,7 +6904,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong439 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440: String {
@@ -6915,7 +6915,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong440 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441: String {
@@ -6926,7 +6926,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong441 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442: String {
@@ -6937,7 +6937,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong442 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443: String {
@@ -6948,7 +6948,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong443 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444: String {
@@ -6959,7 +6959,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong444 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445: String {
@@ -6970,7 +6970,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong445 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446: String {
@@ -6981,7 +6981,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong446 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447: String {
@@ -6992,7 +6992,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong447 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448: String {
@@ -7003,7 +7003,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong448 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449: String {
@@ -7014,7 +7014,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong449 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450: String {
@@ -7025,7 +7025,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong450 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451: String {
@@ -7036,7 +7036,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong451 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452: String {
@@ -7047,7 +7047,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong452 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453: String {
@@ -7058,7 +7058,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong453 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454: String {
@@ -7069,7 +7069,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong454 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455: String {
@@ -7080,7 +7080,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong455 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456: String {
@@ -7091,7 +7091,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong456 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457: String {
@@ -7102,7 +7102,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong457 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458: String {
@@ -7113,7 +7113,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong458 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459: String {
@@ -7124,7 +7124,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong459 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460: String {
@@ -7135,7 +7135,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong460 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461: String {
@@ -7146,7 +7146,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong461 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462: String {
@@ -7157,7 +7157,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong462 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463: String {
@@ -7168,7 +7168,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong463 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464: String {
@@ -7179,7 +7179,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong464 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465: String {
@@ -7190,7 +7190,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong465 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466: String {
@@ -7201,7 +7201,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong466 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467: String {
@@ -7212,7 +7212,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong467 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468: String {
@@ -7223,7 +7223,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong468 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469: String {
@@ -7234,7 +7234,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong469 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470: String {
@@ -7245,7 +7245,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong470 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471: String {
@@ -7256,7 +7256,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong471 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472: String {
@@ -7267,7 +7267,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong472 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473: String {
@@ -7278,7 +7278,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong473 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474: String {
@@ -7289,7 +7289,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong474 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475: String {
@@ -7300,7 +7300,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong475 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476: String {
@@ -7311,7 +7311,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong476 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477: String {
@@ -7322,7 +7322,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong477 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478: String {
@@ -7333,7 +7333,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong478 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479: String {
@@ -7344,7 +7344,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong479 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480: String {
@@ -7355,7 +7355,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong480 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481: String {
@@ -7366,7 +7366,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong481 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482: String {
@@ -7377,7 +7377,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong482 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483: String {
@@ -7388,7 +7388,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong483 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484: String {
@@ -7399,7 +7399,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong484 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485: String {
@@ -7410,7 +7410,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong485 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486: String {
@@ -7421,7 +7421,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong486 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487: String {
@@ -7432,7 +7432,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong487 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488: String {
@@ -7443,7 +7443,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong488 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489: String {
@@ -7454,7 +7454,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong489 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490: String {
@@ -7465,7 +7465,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong490 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491: String {
@@ -7476,7 +7476,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong491 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492: String {
@@ -7487,7 +7487,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong492 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493: String {
@@ -7498,7 +7498,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong493 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494: String {
@@ -7509,7 +7509,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong494 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495: String {
@@ -7520,7 +7520,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong495 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496: String {
@@ -7531,7 +7531,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong496 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497: String {
@@ -7542,7 +7542,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong497 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498: String {
@@ -7553,7 +7553,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong498 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499: String {
@@ -7564,7 +7564,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong499 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500: String {
@@ -7575,7 +7575,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong500 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501: String {
@@ -7586,7 +7586,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong501 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502: String {
@@ -7597,7 +7597,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong502 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503: String {
@@ -7608,7 +7608,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong503 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504: String {
@@ -7619,7 +7619,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong504 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505: String {
@@ -7630,7 +7630,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong505 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506: String {
@@ -7641,7 +7641,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong506 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507: String {
@@ -7652,7 +7652,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong507 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508: String {
@@ -7663,7 +7663,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong508 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509: String {
@@ -7674,7 +7674,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong509 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510: String {
@@ -7685,7 +7685,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong510 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511: String {
@@ -7696,7 +7696,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong511 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512: String {
@@ -7707,7 +7707,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong512 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513: String {
@@ -7718,7 +7718,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong513 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514: String {
@@ -7729,7 +7729,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong514 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515: String {
@@ -7740,7 +7740,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong515 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516: String {
@@ -7751,7 +7751,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong516 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517: String {
@@ -7762,7 +7762,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong517 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518: String {
@@ -7773,7 +7773,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong518 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519: String {
@@ -7784,7 +7784,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong519 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520: String {
@@ -7795,7 +7795,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong520 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521: String {
@@ -7806,7 +7806,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong521 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522: String {
@@ -7817,7 +7817,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong522 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523: String {
@@ -7828,7 +7828,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong523 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524: String {
@@ -7839,7 +7839,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong524 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525: String {
@@ -7850,7 +7850,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong525 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526: String {
@@ -7861,7 +7861,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong526 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527: String {
@@ -7872,7 +7872,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong527 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528: String {
@@ -7883,7 +7883,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong528 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529: String {
@@ -7894,7 +7894,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong529 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530: String {
@@ -7905,7 +7905,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong530 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531: String {
@@ -7916,7 +7916,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong531 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532: String {
@@ -7927,7 +7927,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong532 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533: String {
@@ -7938,7 +7938,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong533 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534: String {
@@ -7949,7 +7949,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong534 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535: String {
@@ -7960,7 +7960,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong535 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536: String {
@@ -7971,7 +7971,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong536 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537: String {
@@ -7982,7 +7982,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong537 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538: String {
@@ -7993,7 +7993,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong538 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539: String {
@@ -8004,7 +8004,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong539 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540: String {
@@ -8015,7 +8015,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong540 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541: String {
@@ -8026,7 +8026,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong541 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542: String {
@@ -8037,7 +8037,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong542 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543: String {
@@ -8048,7 +8048,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong543 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544: String {
@@ -8059,7 +8059,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong544 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545: String {
@@ -8070,7 +8070,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong545 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546: String {
@@ -8081,7 +8081,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong546 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547: String {
@@ -8092,7 +8092,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong547 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548: String {
@@ -8103,7 +8103,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong548 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549: String {
@@ -8114,7 +8114,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong549 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550: String {
@@ -8125,7 +8125,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong550 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551: String {
@@ -8136,7 +8136,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong551 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552: String {
@@ -8147,7 +8147,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong552 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553: String {
@@ -8158,7 +8158,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong553 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554: String {
@@ -8169,7 +8169,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong554 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555: String {
@@ -8180,7 +8180,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong555 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556: String {
@@ -8191,7 +8191,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong556 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557: String {
@@ -8202,7 +8202,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong557 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558: String {
@@ -8213,7 +8213,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong558 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559: String {
@@ -8224,7 +8224,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong559 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560: String {
@@ -8235,7 +8235,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong560 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561: String {
@@ -8246,7 +8246,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong561 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562: String {
@@ -8257,7 +8257,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong562 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563: String {
@@ -8268,7 +8268,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong563 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564: String {
@@ -8279,7 +8279,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong564 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565: String {
@@ -8290,7 +8290,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong565 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566: String {
@@ -8301,7 +8301,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong566 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567: String {
@@ -8312,7 +8312,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong567 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568: String {
@@ -8323,7 +8323,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong568 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569: String {
@@ -8334,7 +8334,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong569 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570: String {
@@ -8345,7 +8345,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong570 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571: String {
@@ -8356,7 +8356,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong571 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572: String {
@@ -8367,7 +8367,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong572 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573: String {
@@ -8378,7 +8378,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong573 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574: String {
@@ -8389,7 +8389,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong574 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575: String {
@@ -8400,7 +8400,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong575 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576: String {
@@ -8411,7 +8411,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong576 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577: String {
@@ -8422,7 +8422,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong577 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578: String {
@@ -8433,7 +8433,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong578 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579: String {
@@ -8444,7 +8444,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong579 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580: String {
@@ -8455,7 +8455,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong580 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581: String {
@@ -8466,7 +8466,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong581 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582: String {
@@ -8477,7 +8477,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong582 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583: String {
@@ -8488,7 +8488,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong583 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584: String {
@@ -8499,7 +8499,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong584 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585: String {
@@ -8510,7 +8510,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong585 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586: String {
@@ -8521,7 +8521,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong586 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587: String {
@@ -8532,7 +8532,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong587 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588: String {
@@ -8543,7 +8543,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong588 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589: String {
@@ -8554,7 +8554,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong589 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590: String {
@@ -8565,7 +8565,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong590 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591: String {
@@ -8576,7 +8576,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong591 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592: String {
@@ -8587,7 +8587,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong592 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593: String {
@@ -8598,7 +8598,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong593 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594: String {
@@ -8609,7 +8609,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong594 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595: String {
@@ -8620,7 +8620,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong595 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596: String {
@@ -8631,7 +8631,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong596 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597: String {
@@ -8642,7 +8642,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong597 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598: String {
@@ -8653,7 +8653,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong598 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599: String {
@@ -8664,7 +8664,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong599 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600: String {
@@ -8675,7 +8675,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong600 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601: String {
@@ -8686,7 +8686,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong601 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602: String {
@@ -8697,7 +8697,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong602 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603: String {
@@ -8708,7 +8708,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong603 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604: String {
@@ -8719,7 +8719,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong604 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605: String {
@@ -8730,7 +8730,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong605 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606: String {
@@ -8741,7 +8741,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong606 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607: String {
@@ -8752,7 +8752,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong607 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608: String {
@@ -8763,7 +8763,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong608 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609: String {
@@ -8774,7 +8774,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong609 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610: String {
@@ -8785,7 +8785,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong610 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611: String {
@@ -8796,7 +8796,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong611 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612: String {
@@ -8807,7 +8807,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong612 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613: String {
@@ -8818,7 +8818,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong613 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614: String {
@@ -8829,7 +8829,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong614 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615: String {
@@ -8840,7 +8840,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong615 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616: String {
@@ -8851,7 +8851,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong616 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617: String {
@@ -8862,7 +8862,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong617 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618: String {
@@ -8873,7 +8873,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong618 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619: String {
@@ -8884,7 +8884,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong619 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620: String {
@@ -8895,7 +8895,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong620 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621: String {
@@ -8906,7 +8906,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong621 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622: String {
@@ -8917,7 +8917,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong622 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623: String {
@@ -8928,7 +8928,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong623 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624: String {
@@ -8939,7 +8939,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong624 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625: String {
@@ -8950,7 +8950,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong625 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626: String {
@@ -8961,7 +8961,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong626 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627: String {
@@ -8972,7 +8972,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong627 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628: String {
@@ -8983,7 +8983,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong628 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629: String {
@@ -8994,7 +8994,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong629 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630: String {
@@ -9005,7 +9005,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong630 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631: String {
@@ -9016,7 +9016,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong631 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632: String {
@@ -9027,7 +9027,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong632 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633: String {
@@ -9038,7 +9038,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong633 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634: String {
@@ -9049,7 +9049,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong634 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635: String {
@@ -9060,7 +9060,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong635 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636: String {
@@ -9071,7 +9071,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong636 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637: String {
@@ -9082,7 +9082,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong637 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638: String {
@@ -9093,7 +9093,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong638 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639: String {
@@ -9104,7 +9104,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong639 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640: String {
@@ -9115,7 +9115,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong640 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641: String {
@@ -9126,7 +9126,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong641 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642: String {
@@ -9137,7 +9137,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong642 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643: String {
@@ -9148,7 +9148,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong643 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644: String {
@@ -9159,7 +9159,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong644 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645: String {
@@ -9170,7 +9170,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong645 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646: String {
@@ -9181,7 +9181,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong646 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647: String {
@@ -9192,7 +9192,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong647 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648: String {
@@ -9203,7 +9203,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong648 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649: String {
@@ -9214,7 +9214,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong649 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650: String {
@@ -9225,7 +9225,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong650 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651: String {
@@ -9236,7 +9236,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong651 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652: String {
@@ -9247,7 +9247,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong652 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653: String {
@@ -9258,7 +9258,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong653 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654: String {
@@ -9269,7 +9269,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong654 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655: String {
@@ -9280,7 +9280,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong655 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656: String {
@@ -9291,7 +9291,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong656 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657: String {
@@ -9302,7 +9302,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong657 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658: String {
@@ -9313,7 +9313,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong658 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659: String {
@@ -9324,7 +9324,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong659 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660: String {
@@ -9335,7 +9335,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong660 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661: String {
@@ -9346,7 +9346,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong661 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662: String {
@@ -9357,7 +9357,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong662 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663: String {
@@ -9368,7 +9368,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong663 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664: String {
@@ -9379,7 +9379,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong664 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665: String {
@@ -9390,7 +9390,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong665 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666: String {
@@ -9401,7 +9401,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong666 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667: String {
@@ -9412,7 +9412,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong667 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668: String {
@@ -9423,7 +9423,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong668 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669: String {
@@ -9434,7 +9434,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong669 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670: String {
@@ -9445,7 +9445,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong670 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671: String {
@@ -9456,7 +9456,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong671 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672: String {
@@ -9467,7 +9467,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong672 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673: String {
@@ -9478,7 +9478,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong673 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674: String {
@@ -9489,7 +9489,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong674 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675: String {
@@ -9500,7 +9500,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong675 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676: String {
@@ -9511,7 +9511,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong676 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677: String {
@@ -9522,7 +9522,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong677 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678: String {
@@ -9533,7 +9533,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong678 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679: String {
@@ -9544,7 +9544,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong679 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680: String {
@@ -9555,7 +9555,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong680 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681: String {
@@ -9566,7 +9566,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong681 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682: String {
@@ -9577,7 +9577,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong682 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683: String {
@@ -9588,7 +9588,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong683 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684: String {
@@ -9599,7 +9599,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong684 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685: String {
@@ -9610,7 +9610,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong685 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686: String {
@@ -9621,7 +9621,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong686 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687: String {
@@ -9632,7 +9632,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong687 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688: String {
@@ -9643,7 +9643,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong688 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689: String {
@@ -9654,7 +9654,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong689 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690: String {
@@ -9665,7 +9665,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong690 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691: String {
@@ -9676,7 +9676,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong691 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692: String {
@@ -9687,7 +9687,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong692 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693: String {
@@ -9698,7 +9698,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong693 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694: String {
@@ -9709,7 +9709,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong694 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695: String {
@@ -9720,7 +9720,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong695 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696: String {
@@ -9731,7 +9731,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong696 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697: String {
@@ -9742,7 +9742,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong697 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698: String {
@@ -9753,7 +9753,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong698 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699: String {
@@ -9764,7 +9764,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong699 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700: String {
@@ -9775,7 +9775,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong700 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701: String {
@@ -9786,7 +9786,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong701 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702: String {
@@ -9797,7 +9797,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong702 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703: String {
@@ -9808,7 +9808,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong703 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704: String {
@@ -9819,7 +9819,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong704 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705: String {
@@ -9830,7 +9830,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong705 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706: String {
@@ -9841,7 +9841,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong706 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707: String {
@@ -9852,7 +9852,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong707 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708: String {
@@ -9863,7 +9863,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong708 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709: String {
@@ -9874,7 +9874,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong709 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710: String {
@@ -9885,7 +9885,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong710 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711: String {
@@ -9896,7 +9896,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong711 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712: String {
@@ -9907,7 +9907,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong712 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713: String {
@@ -9918,7 +9918,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong713 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714: String {
@@ -9929,7 +9929,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong714 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715: String {
@@ -9940,7 +9940,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong715 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716: String {
@@ -9951,7 +9951,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong716 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717: String {
@@ -9962,7 +9962,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong717 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718: String {
@@ -9973,7 +9973,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong718 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719: String {
@@ -9984,7 +9984,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong719 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720: String {
@@ -9995,7 +9995,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong720 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721: String {
@@ -10006,7 +10006,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong721 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722: String {
@@ -10017,7 +10017,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong722 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723: String {
@@ -10028,7 +10028,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong723 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724: String {
@@ -10039,7 +10039,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong724 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725: String {
@@ -10050,7 +10050,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong725 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726: String {
@@ -10061,7 +10061,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong726 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727: String {
@@ -10072,7 +10072,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong727 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728: String {
@@ -10083,7 +10083,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong728 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729: String {
@@ -10094,7 +10094,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong729 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730: String {
@@ -10105,7 +10105,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong730 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731: String {
@@ -10116,7 +10116,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong731 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732: String {
@@ -10127,7 +10127,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong732 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733: String {
@@ -10138,7 +10138,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong733 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734: String {
@@ -10149,7 +10149,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong734 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735: String {
@@ -10160,7 +10160,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong735 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736: String {
@@ -10171,7 +10171,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong736 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737: String {
@@ -10182,7 +10182,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong737 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738: String {
@@ -10193,7 +10193,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong738 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739: String {
@@ -10204,7 +10204,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong739 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740: String {
@@ -10215,7 +10215,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong740 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741: String {
@@ -10226,7 +10226,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong741 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742: String {
@@ -10237,7 +10237,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong742 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743: String {
@@ -10248,7 +10248,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong743 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744: String {
@@ -10259,7 +10259,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong744 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745: String {
@@ -10270,7 +10270,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong745 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746: String {
@@ -10281,7 +10281,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong746 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747: String {
@@ -10292,7 +10292,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong747 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748: String {
@@ -10303,7 +10303,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong748 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749: String {
@@ -10314,7 +10314,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong749 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750: String {
@@ -10325,7 +10325,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong750 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751: String {
@@ -10336,7 +10336,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong751 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752: String {
@@ -10347,7 +10347,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong752 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753: String {
@@ -10358,7 +10358,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong753 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754: String {
@@ -10369,7 +10369,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong754 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755: String {
@@ -10380,7 +10380,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong755 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756: String {
@@ -10391,7 +10391,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong756 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757: String {
@@ -10402,7 +10402,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong757 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758: String {
@@ -10413,7 +10413,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong758 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759: String {
@@ -10424,7 +10424,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong759 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760: String {
@@ -10435,7 +10435,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong760 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761: String {
@@ -10446,7 +10446,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong761 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762: String {
@@ -10457,7 +10457,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong762 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763: String {
@@ -10468,7 +10468,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong763 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764: String {
@@ -10479,7 +10479,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong764 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765: String {
@@ -10490,7 +10490,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong765 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766: String {
@@ -10501,7 +10501,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong766 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767: String {
@@ -10512,7 +10512,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong767 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768: String {
@@ -10523,7 +10523,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong768 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769: String {
@@ -10534,7 +10534,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong769 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770: String {
@@ -10545,7 +10545,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong770 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771: String {
@@ -10556,7 +10556,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong771 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772: String {
@@ -10567,7 +10567,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong772 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773: String {
@@ -10578,7 +10578,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong773 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774: String {
@@ -10589,7 +10589,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong774 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775: String {
@@ -10600,7 +10600,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong775 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776: String {
@@ -10611,7 +10611,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong776 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777: String {
@@ -10622,7 +10622,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong777 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778: String {
@@ -10633,7 +10633,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong778 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779: String {
@@ -10644,7 +10644,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong779 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780: String {
@@ -10655,7 +10655,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong780 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781: String {
@@ -10666,7 +10666,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong781 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782: String {
@@ -10677,7 +10677,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong782 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783: String {
@@ -10688,7 +10688,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong783 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784: String {
@@ -10699,7 +10699,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong784 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785: String {
@@ -10710,7 +10710,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong785 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786: String {
@@ -10721,7 +10721,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong786 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787: String {
@@ -10732,7 +10732,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong787 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788: String {
@@ -10743,7 +10743,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong788 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789: String {
@@ -10754,7 +10754,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong789 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790: String {
@@ -10765,7 +10765,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong790 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791: String {
@@ -10776,7 +10776,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong791 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792: String {
@@ -10787,7 +10787,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong792 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793: String {
@@ -10798,7 +10798,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong793 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794: String {
@@ -10809,7 +10809,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong794 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795: String {
@@ -10820,7 +10820,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong795 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796: String {
@@ -10831,7 +10831,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong796 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797: String {
@@ -10842,7 +10842,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong797 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798: String {
@@ -10853,7 +10853,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong798 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799: String {
@@ -10864,7 +10864,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong799 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800: String {
@@ -10875,7 +10875,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong800 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801: String {
@@ -10886,7 +10886,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong801 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802: String {
@@ -10897,7 +10897,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong802 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803: String {
@@ -10908,7 +10908,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong803 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804: String {
@@ -10919,7 +10919,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong804 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805: String {
@@ -10930,7 +10930,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong805 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806: String {
@@ -10941,7 +10941,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong806 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807: String {
@@ -10952,7 +10952,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong807 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808: String {
@@ -10963,7 +10963,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong808 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809: String {
@@ -10974,7 +10974,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong809 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810: String {
@@ -10985,7 +10985,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong810 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811: String {
@@ -10996,7 +10996,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong811 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812: String {
@@ -11007,7 +11007,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong812 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813: String {
@@ -11018,7 +11018,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong813 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814: String {
@@ -11029,7 +11029,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong814 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815: String {
@@ -11040,7 +11040,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong815 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816: String {
@@ -11051,7 +11051,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong816 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817: String {
@@ -11062,7 +11062,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong817 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818: String {
@@ -11073,7 +11073,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong818 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819: String {
@@ -11084,7 +11084,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong819 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820: String {
@@ -11095,7 +11095,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong820 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821: String {
@@ -11106,7 +11106,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong821 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822: String {
@@ -11117,7 +11117,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong822 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823: String {
@@ -11128,7 +11128,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong823 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824: String {
@@ -11139,7 +11139,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong824 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825: String {
@@ -11150,7 +11150,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong825 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826: String {
@@ -11161,7 +11161,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong826 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827: String {
@@ -11172,7 +11172,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong827 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828: String {
@@ -11183,7 +11183,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong828 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829: String {
@@ -11194,7 +11194,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong829 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830: String {
@@ -11205,7 +11205,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong830 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831: String {
@@ -11216,7 +11216,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong831 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832: String {
@@ -11227,7 +11227,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong832 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833: String {
@@ -11238,7 +11238,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong833 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834: String {
@@ -11249,7 +11249,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong834 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835: String {
@@ -11260,7 +11260,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong835 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836: String {
@@ -11271,7 +11271,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong836 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837: String {
@@ -11282,7 +11282,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong837 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838: String {
@@ -11293,7 +11293,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong838 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839: String {
@@ -11304,7 +11304,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong839 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840: String {
@@ -11315,7 +11315,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong840 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841: String {
@@ -11326,7 +11326,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong841 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842: String {
@@ -11337,7 +11337,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong842 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843: String {
@@ -11348,7 +11348,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong843 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844: String {
@@ -11359,7 +11359,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong844 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845: String {
@@ -11370,7 +11370,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong845 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846: String {
@@ -11381,7 +11381,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong846 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847: String {
@@ -11392,7 +11392,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong847 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848: String {
@@ -11403,7 +11403,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong848 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849: String {
@@ -11414,7 +11414,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong849 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850: String {
@@ -11425,7 +11425,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong850 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851: String {
@@ -11436,7 +11436,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong851 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852: String {
@@ -11447,7 +11447,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong852 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853: String {
@@ -11458,7 +11458,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong853 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854: String {
@@ -11469,7 +11469,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong854 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855: String {
@@ -11480,7 +11480,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong855 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856: String {
@@ -11491,7 +11491,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong856 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857: String {
@@ -11502,7 +11502,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong857 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858: String {
@@ -11513,7 +11513,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong858 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859: String {
@@ -11524,7 +11524,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong859 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860: String {
@@ -11535,7 +11535,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong860 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861: String {
@@ -11546,7 +11546,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong861 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862: String {
@@ -11557,7 +11557,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong862 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863: String {
@@ -11568,7 +11568,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong863 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864: String {
@@ -11579,7 +11579,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong864 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865: String {
@@ -11590,7 +11590,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong865 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866: String {
@@ -11601,7 +11601,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong866 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867: String {
@@ -11612,7 +11612,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong867 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868: String {
@@ -11623,7 +11623,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong868 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869: String {
@@ -11634,7 +11634,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong869 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870: String {
@@ -11645,7 +11645,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong870 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871: String {
@@ -11656,7 +11656,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong871 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872: String {
@@ -11667,7 +11667,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong872 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873: String {
@@ -11678,7 +11678,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong873 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874: String {
@@ -11689,7 +11689,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong874 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875: String {
@@ -11700,7 +11700,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong875 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876: String {
@@ -11711,7 +11711,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong876 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877: String {
@@ -11722,7 +11722,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong877 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878: String {
@@ -11733,7 +11733,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong878 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879: String {
@@ -11744,7 +11744,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong879 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880: String {
@@ -11755,7 +11755,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong880 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881: String {
@@ -11766,7 +11766,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong881 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882: String {
@@ -11777,7 +11777,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong882 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883: String {
@@ -11788,7 +11788,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong883 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884: String {
@@ -11799,7 +11799,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong884 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885: String {
@@ -11810,7 +11810,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong885 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886: String {
@@ -11821,7 +11821,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong886 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887: String {
@@ -11832,7 +11832,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong887 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888: String {
@@ -11843,7 +11843,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong888 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889: String {
@@ -11854,7 +11854,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong889 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890: String {
@@ -11865,7 +11865,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong890 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891: String {
@@ -11876,7 +11876,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong891 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892: String {
@@ -11887,7 +11887,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong892 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893: String {
@@ -11898,7 +11898,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong893 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894: String {
@@ -11909,7 +11909,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong894 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895: String {
@@ -11920,7 +11920,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong895 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896: String {
@@ -11931,7 +11931,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong896 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897: String {
@@ -11942,7 +11942,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong897 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898: String {
@@ -11953,7 +11953,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong898 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899: String {
@@ -11964,7 +11964,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong899 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900: String {
@@ -11975,7 +11975,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong900 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901: String {
@@ -11986,7 +11986,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong901 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902: String {
@@ -11997,7 +11997,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong902 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903: String {
@@ -12008,7 +12008,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong903 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904: String {
@@ -12019,7 +12019,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong904 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905: String {
@@ -12030,7 +12030,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong905 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906: String {
@@ -12041,7 +12041,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong906 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907: String {
@@ -12052,7 +12052,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong907 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908: String {
@@ -12063,7 +12063,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong908 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909: String {
@@ -12074,7 +12074,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong909 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910: String {
@@ -12085,7 +12085,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong910 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911: String {
@@ -12096,7 +12096,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong911 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912: String {
@@ -12107,7 +12107,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong912 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913: String {
@@ -12118,7 +12118,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong913 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914: String {
@@ -12129,7 +12129,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong914 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915: String {
@@ -12140,7 +12140,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong915 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916: String {
@@ -12151,7 +12151,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong916 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917: String {
@@ -12162,7 +12162,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong917 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918: String {
@@ -12173,7 +12173,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong918 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919: String {
@@ -12184,7 +12184,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong919 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920: String {
@@ -12195,7 +12195,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong920 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921: String {
@@ -12206,7 +12206,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong921 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922: String {
@@ -12217,7 +12217,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong922 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923: String {
@@ -12228,7 +12228,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong923 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924: String {
@@ -12239,7 +12239,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong924 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925: String {
@@ -12250,7 +12250,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong925 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926: String {
@@ -12261,7 +12261,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong926 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927: String {
@@ -12272,7 +12272,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong927 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928: String {
@@ -12283,7 +12283,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong928 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929: String {
@@ -12294,7 +12294,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong929 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930: String {
@@ -12305,7 +12305,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong930 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931: String {
@@ -12316,7 +12316,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong931 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932: String {
@@ -12327,7 +12327,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong932 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933: String {
@@ -12338,7 +12338,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong933 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934: String {
@@ -12349,7 +12349,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong934 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935: String {
@@ -12360,7 +12360,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong935 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936: String {
@@ -12371,7 +12371,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong936 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937: String {
@@ -12382,7 +12382,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong937 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938: String {
@@ -12393,7 +12393,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong938 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939: String {
@@ -12404,7 +12404,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong939 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940: String {
@@ -12415,7 +12415,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong940 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941: String {
@@ -12426,7 +12426,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong941 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942: String {
@@ -12437,7 +12437,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong942 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943: String {
@@ -12448,7 +12448,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong943 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944: String {
@@ -12459,7 +12459,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong944 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945: String {
@@ -12470,7 +12470,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong945 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946: String {
@@ -12481,7 +12481,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong946 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947: String {
@@ -12492,7 +12492,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong947 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948: String {
@@ -12503,7 +12503,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong948 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949: String {
@@ -12514,7 +12514,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong949 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950: String {
@@ -12525,7 +12525,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong950 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951: String {
@@ -12536,7 +12536,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong951 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952: String {
@@ -12547,7 +12547,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong952 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953: String {
@@ -12558,7 +12558,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong953 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954: String {
@@ -12569,7 +12569,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong954 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955: String {
@@ -12580,7 +12580,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong955 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956: String {
@@ -12591,7 +12591,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong956 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957: String {
@@ -12602,7 +12602,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong957 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958: String {
@@ -12613,7 +12613,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong958 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959: String {
@@ -12624,7 +12624,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong959 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960: String {
@@ -12635,7 +12635,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong960 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961: String {
@@ -12646,7 +12646,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong961 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962: String {
@@ -12657,7 +12657,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong962 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963: String {
@@ -12668,7 +12668,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong963 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964: String {
@@ -12679,7 +12679,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong964 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965: String {
@@ -12690,7 +12690,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong965 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966: String {
@@ -12701,7 +12701,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong966 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967: String {
@@ -12712,7 +12712,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong967 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968: String {
@@ -12723,7 +12723,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong968 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969: String {
@@ -12734,7 +12734,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong969 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970: String {
@@ -12745,7 +12745,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong970 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971: String {
@@ -12756,7 +12756,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong971 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972: String {
@@ -12767,7 +12767,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong972 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973: String {
@@ -12778,7 +12778,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong973 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974: String {
@@ -12789,7 +12789,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong974 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975: String {
@@ -12800,7 +12800,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong975 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976: String {
@@ -12811,7 +12811,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong976 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977: String {
@@ -12822,7 +12822,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong977 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978: String {
@@ -12833,7 +12833,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong978 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979: String {
@@ -12844,7 +12844,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong979 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980: String {
@@ -12855,7 +12855,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong980 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981: String {
@@ -12866,7 +12866,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong981 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982: String {
@@ -12877,7 +12877,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong982 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983: String {
@@ -12888,7 +12888,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong983 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984: String {
@@ -12899,7 +12899,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong984 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985: String {
@@ -12910,7 +12910,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong985 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986: String {
@@ -12921,7 +12921,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong986 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987: String {
@@ -12932,7 +12932,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong987 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988: String {
@@ -12943,7 +12943,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong988 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989: String {
@@ -12954,7 +12954,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong989 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990: String {
@@ -12965,7 +12965,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong990 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991: String {
@@ -12976,7 +12976,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong991 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992: String {
@@ -12987,7 +12987,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong992 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993: String {
@@ -12998,7 +12998,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong993 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994: String {
@@ -13009,7 +13009,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong994 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995: String {
@@ -13020,7 +13020,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong995 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996: String {
@@ -13031,7 +13031,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong996 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997: String {
@@ -13042,7 +13042,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong997 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998: String {
@@ -13053,7 +13053,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong998 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999: String {
@@ -13064,7 +13064,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong999 = nil
   }
 
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000: String {
@@ -13075,7 +13075,7 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000 != nil
   }
   mutating func clearLongFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000() {
-    return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000 = nil
+    _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1000 = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

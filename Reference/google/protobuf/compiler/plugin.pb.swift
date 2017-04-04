@@ -80,7 +80,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     return _major != nil
   }
   mutating func clearMajor() {
-    return _major = nil
+    _major = nil
   }
 
   fileprivate var _minor: Int32? = nil
@@ -92,7 +92,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     return _minor != nil
   }
   mutating func clearMinor() {
-    return _minor = nil
+    _minor = nil
   }
 
   fileprivate var _patch: Int32? = nil
@@ -104,7 +104,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     return _patch != nil
   }
   mutating func clearPatch() {
-    return _patch = nil
+    _patch = nil
   }
 
   ///   A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
@@ -118,7 +118,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     return _suffix != nil
   }
   mutating func clearSuffix() {
-    return _suffix = nil
+    _suffix = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -200,7 +200,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     return _storage._parameter != nil
   }
   mutating func clearParameter() {
-    return _storage._parameter = nil
+    _storage._parameter = nil
   }
 
   ///   FileDescriptorProtos for all files in files_to_generate and everything
@@ -228,7 +228,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     return _storage._compilerVersion != nil
   }
   mutating func clearCompilerVersion() {
-    return _storage._compilerVersion = nil
+    _storage._compilerVersion = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -297,7 +297,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     return _error != nil
   }
   mutating func clearError() {
-    return _error = nil
+    _error = nil
   }
 
   var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
@@ -328,7 +328,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
       return _name != nil
     }
     mutating func clearName() {
-      return _name = nil
+      _name = nil
     }
 
     ///   If non-empty, indicates that the named file should already exist, and the
@@ -377,7 +377,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
       return _insertionPoint != nil
     }
     mutating func clearInsertionPoint() {
-      return _insertionPoint = nil
+      _insertionPoint = nil
     }
 
     ///   The file contents.
@@ -390,7 +390,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
       return _content != nil
     }
     mutating func clearContent() {
-      return _content = nil
+      _content = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

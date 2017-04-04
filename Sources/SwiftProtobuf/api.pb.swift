@@ -139,7 +139,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message {
     return _storage._sourceContext != nil
   }
   public mutating func clearSourceContext() {
-    return _storage._sourceContext = nil
+    _storage._sourceContext = nil
   }
 
   ///   Included APIs. See [Mixin][].

@@ -92,7 +92,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

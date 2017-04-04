@@ -76,7 +76,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       return _storage._message != nil
     }
     mutating func clearMessage() {
-      return _storage._message = nil
+      _storage._message = nil
     }
 
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum {
@@ -87,7 +87,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       return _storage._optionalEnum != nil
     }
     mutating func clearOptionalEnum() {
-      return _storage._optionalEnum = nil
+      _storage._optionalEnum = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -159,7 +159,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       return _optionalEnum != nil
     }
     mutating func clearOptionalEnum() {
-      return _optionalEnum = nil
+      _optionalEnum = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

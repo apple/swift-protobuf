@@ -1393,7 +1393,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._string != nil
   }
   mutating func clearString() {
-    return _storage._string = nil
+    _storage._string = nil
   }
 
   var int: Int32 {
@@ -1404,7 +1404,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._int != nil
   }
   mutating func clearInt() {
-    return _storage._int = nil
+    _storage._int = nil
   }
 
   var double: Int32 {
@@ -1415,7 +1415,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._double != nil
   }
   mutating func clearDouble() {
-    return _storage._double = nil
+    _storage._double = nil
   }
 
   var float: Int32 {
@@ -1426,7 +1426,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._float != nil
   }
   mutating func clearFloat() {
-    return _storage._float = nil
+    _storage._float = nil
   }
 
   var uint: Int32 {
@@ -1437,7 +1437,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._uint != nil
   }
   mutating func clearUint() {
-    return _storage._uint = nil
+    _storage._uint = nil
   }
 
   var hashValue_p: Int32 {
@@ -1448,7 +1448,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._hashValue_p != nil
   }
   mutating func clearHashValue_p() {
-    return _storage._hashValue_p = nil
+    _storage._hashValue_p = nil
   }
 
   var description_p: Int32 {
@@ -1459,7 +1459,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._description_p != nil
   }
   mutating func clearDescription_p() {
-    return _storage._description_p = nil
+    _storage._description_p = nil
   }
 
   var debugDescription_p: Int32 {
@@ -1470,7 +1470,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._debugDescription_p != nil
   }
   mutating func clearDebugDescription_p() {
-    return _storage._debugDescription_p = nil
+    _storage._debugDescription_p = nil
   }
 
   var swift: Int32 {
@@ -1481,7 +1481,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._swift != nil
   }
   mutating func clearSwift() {
-    return _storage._swift = nil
+    _storage._swift = nil
   }
 
   var unrecognized: Int32 {
@@ -1492,7 +1492,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._unrecognized != nil
   }
   mutating func clearUnrecognized() {
-    return _storage._unrecognized = nil
+    _storage._unrecognized = nil
   }
 
   var class_p: Int32 {
@@ -1503,7 +1503,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._class_p != nil
   }
   mutating func clearClass_p() {
-    return _storage._class_p = nil
+    _storage._class_p = nil
   }
 
   var deinit_p: Int32 {
@@ -1514,7 +1514,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._deinit_p != nil
   }
   mutating func clearDeinit_p() {
-    return _storage._deinit_p = nil
+    _storage._deinit_p = nil
   }
 
   var enum_p: Int32 {
@@ -1525,7 +1525,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._enum_p != nil
   }
   mutating func clearEnum_p() {
-    return _storage._enum_p = nil
+    _storage._enum_p = nil
   }
 
   var extension_p: Int32 {
@@ -1536,7 +1536,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._extension_p != nil
   }
   mutating func clearExtension_p() {
-    return _storage._extension_p = nil
+    _storage._extension_p = nil
   }
 
   var func_p: Int32 {
@@ -1547,7 +1547,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._func_p != nil
   }
   mutating func clearFunc_p() {
-    return _storage._func_p = nil
+    _storage._func_p = nil
   }
 
   var import_p: Int32 {
@@ -1558,7 +1558,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._import_p != nil
   }
   mutating func clearImport_p() {
-    return _storage._import_p = nil
+    _storage._import_p = nil
   }
 
   var init_p: Int32 {
@@ -1569,7 +1569,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._init_p != nil
   }
   mutating func clearInit_p() {
-    return _storage._init_p = nil
+    _storage._init_p = nil
   }
 
   var inout_p: Int32 {
@@ -1580,7 +1580,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._inout_p != nil
   }
   mutating func clearInout_p() {
-    return _storage._inout_p = nil
+    _storage._inout_p = nil
   }
 
   var internal_p: Int32 {
@@ -1591,7 +1591,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._internal_p != nil
   }
   mutating func clearInternal_p() {
-    return _storage._internal_p = nil
+    _storage._internal_p = nil
   }
 
   var let_p: Int32 {
@@ -1602,7 +1602,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._let_p != nil
   }
   mutating func clearLet_p() {
-    return _storage._let_p = nil
+    _storage._let_p = nil
   }
 
   var operator_p: Int32 {
@@ -1613,7 +1613,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._operator_p != nil
   }
   mutating func clearOperator_p() {
-    return _storage._operator_p = nil
+    _storage._operator_p = nil
   }
 
   var private_p: Int32 {
@@ -1624,7 +1624,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._private_p != nil
   }
   mutating func clearPrivate_p() {
-    return _storage._private_p = nil
+    _storage._private_p = nil
   }
 
   var protocol_p: Int32 {
@@ -1635,7 +1635,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._protocol_p != nil
   }
   mutating func clearProtocol_p() {
-    return _storage._protocol_p = nil
+    _storage._protocol_p = nil
   }
 
   var public_p: Int32 {
@@ -1646,7 +1646,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._public_p != nil
   }
   mutating func clearPublic_p() {
-    return _storage._public_p = nil
+    _storage._public_p = nil
   }
 
   var static_p: Int32 {
@@ -1657,7 +1657,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._static_p != nil
   }
   mutating func clearStatic_p() {
-    return _storage._static_p = nil
+    _storage._static_p = nil
   }
 
   var struct_p: Int32 {
@@ -1668,7 +1668,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._struct_p != nil
   }
   mutating func clearStruct_p() {
-    return _storage._struct_p = nil
+    _storage._struct_p = nil
   }
 
   var subscript_p: Int32 {
@@ -1679,7 +1679,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._subscript_p != nil
   }
   mutating func clearSubscript_p() {
-    return _storage._subscript_p = nil
+    _storage._subscript_p = nil
   }
 
   var typealias_p: Int32 {
@@ -1690,7 +1690,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._typealias_p != nil
   }
   mutating func clearTypealias_p() {
-    return _storage._typealias_p = nil
+    _storage._typealias_p = nil
   }
 
   var var_p: Int32 {
@@ -1701,7 +1701,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._var_p != nil
   }
   mutating func clearVar_p() {
-    return _storage._var_p = nil
+    _storage._var_p = nil
   }
 
   var break_p: Int32 {
@@ -1712,7 +1712,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._break_p != nil
   }
   mutating func clearBreak_p() {
-    return _storage._break_p = nil
+    _storage._break_p = nil
   }
 
   var case_p: Int32 {
@@ -1723,7 +1723,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._case_p != nil
   }
   mutating func clearCase_p() {
-    return _storage._case_p = nil
+    _storage._case_p = nil
   }
 
   var continue_p: Int32 {
@@ -1734,7 +1734,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._continue_p != nil
   }
   mutating func clearContinue_p() {
-    return _storage._continue_p = nil
+    _storage._continue_p = nil
   }
 
   var default_p: Int32 {
@@ -1745,7 +1745,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._default_p != nil
   }
   mutating func clearDefault_p() {
-    return _storage._default_p = nil
+    _storage._default_p = nil
   }
 
   var defer_p: Int32 {
@@ -1756,7 +1756,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._defer_p != nil
   }
   mutating func clearDefer_p() {
-    return _storage._defer_p = nil
+    _storage._defer_p = nil
   }
 
   var do_p: Int32 {
@@ -1767,7 +1767,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._do_p != nil
   }
   mutating func clearDo_p() {
-    return _storage._do_p = nil
+    _storage._do_p = nil
   }
 
   var else_p: Int32 {
@@ -1778,7 +1778,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._else_p != nil
   }
   mutating func clearElse_p() {
-    return _storage._else_p = nil
+    _storage._else_p = nil
   }
 
   var fallthrough_p: Int32 {
@@ -1789,7 +1789,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._fallthrough_p != nil
   }
   mutating func clearFallthrough_p() {
-    return _storage._fallthrough_p = nil
+    _storage._fallthrough_p = nil
   }
 
   var for_p: Int32 {
@@ -1800,7 +1800,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._for_p != nil
   }
   mutating func clearFor_p() {
-    return _storage._for_p = nil
+    _storage._for_p = nil
   }
 
   var guard_p: Int32 {
@@ -1811,7 +1811,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._guard_p != nil
   }
   mutating func clearGuard_p() {
-    return _storage._guard_p = nil
+    _storage._guard_p = nil
   }
 
   var if_p: Int32 {
@@ -1822,7 +1822,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._if_p != nil
   }
   mutating func clearIf_p() {
-    return _storage._if_p = nil
+    _storage._if_p = nil
   }
 
   var in_p: Int32 {
@@ -1833,7 +1833,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._in_p != nil
   }
   mutating func clearIn_p() {
-    return _storage._in_p = nil
+    _storage._in_p = nil
   }
 
   var repeat_p: Int32 {
@@ -1844,7 +1844,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._repeat_p != nil
   }
   mutating func clearRepeat_p() {
-    return _storage._repeat_p = nil
+    _storage._repeat_p = nil
   }
 
   var return_p: Int32 {
@@ -1855,7 +1855,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._return_p != nil
   }
   mutating func clearReturn_p() {
-    return _storage._return_p = nil
+    _storage._return_p = nil
   }
 
   var switch_p: Int32 {
@@ -1866,7 +1866,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._switch_p != nil
   }
   mutating func clearSwitch_p() {
-    return _storage._switch_p = nil
+    _storage._switch_p = nil
   }
 
   var where_p: Int32 {
@@ -1877,7 +1877,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._where_p != nil
   }
   mutating func clearWhere_p() {
-    return _storage._where_p = nil
+    _storage._where_p = nil
   }
 
   var while_p: Int32 {
@@ -1888,7 +1888,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._while_p != nil
   }
   mutating func clearWhile_p() {
-    return _storage._while_p = nil
+    _storage._while_p = nil
   }
 
   var as_p: Int32 {
@@ -1899,7 +1899,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._as_p != nil
   }
   mutating func clearAs_p() {
-    return _storage._as_p = nil
+    _storage._as_p = nil
   }
 
   var catch_p: Int32 {
@@ -1910,7 +1910,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._catch_p != nil
   }
   mutating func clearCatch_p() {
-    return _storage._catch_p = nil
+    _storage._catch_p = nil
   }
 
   var dynamicType_p: Int32 {
@@ -1921,7 +1921,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._dynamicType_p != nil
   }
   mutating func clearDynamicType_p() {
-    return _storage._dynamicType_p = nil
+    _storage._dynamicType_p = nil
   }
 
   var false_p: Int32 {
@@ -1932,7 +1932,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._false_p != nil
   }
   mutating func clearFalse_p() {
-    return _storage._false_p = nil
+    _storage._false_p = nil
   }
 
   var is_p: Int32 {
@@ -1943,7 +1943,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._is_p != nil
   }
   mutating func clearIs_p() {
-    return _storage._is_p = nil
+    _storage._is_p = nil
   }
 
   var nil_p: Int32 {
@@ -1954,7 +1954,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._nil_p != nil
   }
   mutating func clearNil_p() {
-    return _storage._nil_p = nil
+    _storage._nil_p = nil
   }
 
   var rethrows_p: Int32 {
@@ -1965,7 +1965,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._rethrows_p != nil
   }
   mutating func clearRethrows_p() {
-    return _storage._rethrows_p = nil
+    _storage._rethrows_p = nil
   }
 
   var super_p: Int32 {
@@ -1976,7 +1976,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._super_p != nil
   }
   mutating func clearSuper_p() {
-    return _storage._super_p = nil
+    _storage._super_p = nil
   }
 
   var self_p: Int32 {
@@ -1987,7 +1987,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._self_p != nil
   }
   mutating func clearSelf_p() {
-    return _storage._self_p = nil
+    _storage._self_p = nil
   }
 
   var throw_p: Int32 {
@@ -1998,7 +1998,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._throw_p != nil
   }
   mutating func clearThrow_p() {
-    return _storage._throw_p = nil
+    _storage._throw_p = nil
   }
 
   var throws_p: Int32 {
@@ -2009,7 +2009,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._throws_p != nil
   }
   mutating func clearThrows_p() {
-    return _storage._throws_p = nil
+    _storage._throws_p = nil
   }
 
   var true_p: Int32 {
@@ -2020,7 +2020,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._true_p != nil
   }
   mutating func clearTrue_p() {
-    return _storage._true_p = nil
+    _storage._true_p = nil
   }
 
   var try_p: Int32 {
@@ -2031,7 +2031,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._try_p != nil
   }
   mutating func clearTry_p() {
-    return _storage._try_p = nil
+    _storage._try_p = nil
   }
 
   var _Column__: Int32 {
@@ -2042,7 +2042,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage.__Column__ != nil
   }
   mutating func clear_Column__() {
-    return _storage.__Column__ = nil
+    _storage.__Column__ = nil
   }
 
   var _File__: Int32 {
@@ -2053,7 +2053,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage.__File__ != nil
   }
   mutating func clear_File__() {
-    return _storage.__File__ = nil
+    _storage.__File__ = nil
   }
 
   var _Function__: Int32 {
@@ -2064,7 +2064,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage.__Function__ != nil
   }
   mutating func clear_Function__() {
-    return _storage.__Function__ = nil
+    _storage.__Function__ = nil
   }
 
   var _Line__: Int32 {
@@ -2075,7 +2075,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage.__Line__ != nil
   }
   mutating func clear_Line__() {
-    return _storage.__Line__ = nil
+    _storage.__Line__ = nil
   }
 
   var ___: Int32 {
@@ -2086,7 +2086,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage.____ != nil
   }
   mutating func clear___() {
-    return _storage.____ = nil
+    _storage.____ = nil
   }
 
   var associativity: Int32 {
@@ -2097,7 +2097,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._associativity != nil
   }
   mutating func clearAssociativity() {
-    return _storage._associativity = nil
+    _storage._associativity = nil
   }
 
   var convenience: Int32 {
@@ -2108,7 +2108,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._convenience != nil
   }
   mutating func clearConvenience() {
-    return _storage._convenience = nil
+    _storage._convenience = nil
   }
 
   var dynamic: Int32 {
@@ -2119,7 +2119,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._dynamic != nil
   }
   mutating func clearDynamic() {
-    return _storage._dynamic = nil
+    _storage._dynamic = nil
   }
 
   var didSet: Int32 {
@@ -2130,7 +2130,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._didSet != nil
   }
   mutating func clearDidSet() {
-    return _storage._didSet = nil
+    _storage._didSet = nil
   }
 
   var final: Int32 {
@@ -2141,7 +2141,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._final != nil
   }
   mutating func clearFinal() {
-    return _storage._final = nil
+    _storage._final = nil
   }
 
   var get: Int32 {
@@ -2152,7 +2152,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._get != nil
   }
   mutating func clearGet() {
-    return _storage._get = nil
+    _storage._get = nil
   }
 
   var infix: Int32 {
@@ -2163,7 +2163,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._infix != nil
   }
   mutating func clearInfix() {
-    return _storage._infix = nil
+    _storage._infix = nil
   }
 
   var indirect: Int32 {
@@ -2174,7 +2174,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._indirect != nil
   }
   mutating func clearIndirect() {
-    return _storage._indirect = nil
+    _storage._indirect = nil
   }
 
   var lazy: Int32 {
@@ -2185,7 +2185,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._lazy != nil
   }
   mutating func clearLazy() {
-    return _storage._lazy = nil
+    _storage._lazy = nil
   }
 
   var left: Int32 {
@@ -2196,7 +2196,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._left != nil
   }
   mutating func clearLeft() {
-    return _storage._left = nil
+    _storage._left = nil
   }
 
   var mutating: Int32 {
@@ -2207,7 +2207,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._mutating != nil
   }
   mutating func clearMutating() {
-    return _storage._mutating = nil
+    _storage._mutating = nil
   }
 
   var none: Int32 {
@@ -2218,7 +2218,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._none != nil
   }
   mutating func clearNone() {
-    return _storage._none = nil
+    _storage._none = nil
   }
 
   var nonmutating: Int32 {
@@ -2229,7 +2229,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._nonmutating != nil
   }
   mutating func clearNonmutating() {
-    return _storage._nonmutating = nil
+    _storage._nonmutating = nil
   }
 
   var optional: Int32 {
@@ -2240,7 +2240,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._optional != nil
   }
   mutating func clearOptional() {
-    return _storage._optional = nil
+    _storage._optional = nil
   }
 
   var override: Int32 {
@@ -2251,7 +2251,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._override != nil
   }
   mutating func clearOverride() {
-    return _storage._override = nil
+    _storage._override = nil
   }
 
   var postfix: Int32 {
@@ -2262,7 +2262,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._postfix != nil
   }
   mutating func clearPostfix() {
-    return _storage._postfix = nil
+    _storage._postfix = nil
   }
 
   var precedence: Int32 {
@@ -2273,7 +2273,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._precedence != nil
   }
   mutating func clearPrecedence() {
-    return _storage._precedence = nil
+    _storage._precedence = nil
   }
 
   var prefix: Int32 {
@@ -2284,7 +2284,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._prefix != nil
   }
   mutating func clearPrefix() {
-    return _storage._prefix = nil
+    _storage._prefix = nil
   }
 
   var required: Int32 {
@@ -2295,7 +2295,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._required != nil
   }
   mutating func clearRequired() {
-    return _storage._required = nil
+    _storage._required = nil
   }
 
   var right: Int32 {
@@ -2306,7 +2306,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._right != nil
   }
   mutating func clearRight() {
-    return _storage._right = nil
+    _storage._right = nil
   }
 
   var set: Int32 {
@@ -2317,7 +2317,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._set != nil
   }
   mutating func clearSet() {
-    return _storage._set = nil
+    _storage._set = nil
   }
 
   var type: Int32 {
@@ -2328,7 +2328,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._type != nil
   }
   mutating func clearType() {
-    return _storage._type = nil
+    _storage._type = nil
   }
 
   var unowned: Int32 {
@@ -2339,7 +2339,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._unowned != nil
   }
   mutating func clearUnowned() {
-    return _storage._unowned = nil
+    _storage._unowned = nil
   }
 
   var weak: Int32 {
@@ -2350,7 +2350,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._weak != nil
   }
   mutating func clearWeak() {
-    return _storage._weak = nil
+    _storage._weak = nil
   }
 
   var willSet: Int32 {
@@ -2361,7 +2361,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._willSet != nil
   }
   mutating func clearWillSet() {
-    return _storage._willSet = nil
+    _storage._willSet = nil
   }
 
   var id: Int32 {
@@ -2372,7 +2372,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._id != nil
   }
   mutating func clearId() {
-    return _storage._id = nil
+    _storage._id = nil
   }
 
   var cmd: Int32 {
@@ -2383,7 +2383,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._cmd != nil
   }
   mutating func clearCmd() {
-    return _storage._cmd = nil
+    _storage._cmd = nil
   }
 
   var out: Int32 {
@@ -2394,7 +2394,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._out != nil
   }
   mutating func clearOut() {
-    return _storage._out = nil
+    _storage._out = nil
   }
 
   var bycopy: Int32 {
@@ -2405,7 +2405,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._bycopy != nil
   }
   mutating func clearBycopy() {
-    return _storage._bycopy = nil
+    _storage._bycopy = nil
   }
 
   var byref: Int32 {
@@ -2416,7 +2416,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._byref != nil
   }
   mutating func clearByref() {
-    return _storage._byref = nil
+    _storage._byref = nil
   }
 
   var oneway: Int32 {
@@ -2427,7 +2427,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._oneway != nil
   }
   mutating func clearOneway() {
-    return _storage._oneway = nil
+    _storage._oneway = nil
   }
 
   var and: Int32 {
@@ -2438,7 +2438,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._and != nil
   }
   mutating func clearAnd() {
-    return _storage._and = nil
+    _storage._and = nil
   }
 
   var andEq: Int32 {
@@ -2449,7 +2449,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._andEq != nil
   }
   mutating func clearAndEq() {
-    return _storage._andEq = nil
+    _storage._andEq = nil
   }
 
   var alignas: Int32 {
@@ -2460,7 +2460,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._alignas != nil
   }
   mutating func clearAlignas() {
-    return _storage._alignas = nil
+    _storage._alignas = nil
   }
 
   var alignof: Int32 {
@@ -2471,7 +2471,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._alignof != nil
   }
   mutating func clearAlignof() {
-    return _storage._alignof = nil
+    _storage._alignof = nil
   }
 
   var asm: Int32 {
@@ -2482,7 +2482,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._asm != nil
   }
   mutating func clearAsm() {
-    return _storage._asm = nil
+    _storage._asm = nil
   }
 
   var auto: Int32 {
@@ -2493,7 +2493,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._auto != nil
   }
   mutating func clearAuto() {
-    return _storage._auto = nil
+    _storage._auto = nil
   }
 
   var bitand: Int32 {
@@ -2504,7 +2504,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._bitand != nil
   }
   mutating func clearBitand() {
-    return _storage._bitand = nil
+    _storage._bitand = nil
   }
 
   var bitor: Int32 {
@@ -2515,7 +2515,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._bitor != nil
   }
   mutating func clearBitor() {
-    return _storage._bitor = nil
+    _storage._bitor = nil
   }
 
   var bool: Int32 {
@@ -2526,7 +2526,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._bool != nil
   }
   mutating func clearBool() {
-    return _storage._bool = nil
+    _storage._bool = nil
   }
 
   var char: Int32 {
@@ -2537,7 +2537,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._char != nil
   }
   mutating func clearChar() {
-    return _storage._char = nil
+    _storage._char = nil
   }
 
   var char16T: Int32 {
@@ -2548,7 +2548,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._char16T != nil
   }
   mutating func clearChar16T() {
-    return _storage._char16T = nil
+    _storage._char16T = nil
   }
 
   var char32T: Int32 {
@@ -2559,7 +2559,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._char32T != nil
   }
   mutating func clearChar32T() {
-    return _storage._char32T = nil
+    _storage._char32T = nil
   }
 
   var compl: Int32 {
@@ -2570,7 +2570,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._compl != nil
   }
   mutating func clearCompl() {
-    return _storage._compl = nil
+    _storage._compl = nil
   }
 
   var const: Int32 {
@@ -2581,7 +2581,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._const != nil
   }
   mutating func clearConst() {
-    return _storage._const = nil
+    _storage._const = nil
   }
 
   var constexpr: Int32 {
@@ -2592,7 +2592,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._constexpr != nil
   }
   mutating func clearConstexpr() {
-    return _storage._constexpr = nil
+    _storage._constexpr = nil
   }
 
   var constCast: Int32 {
@@ -2603,7 +2603,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._constCast != nil
   }
   mutating func clearConstCast() {
-    return _storage._constCast = nil
+    _storage._constCast = nil
   }
 
   var decltype: Int32 {
@@ -2614,7 +2614,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._decltype != nil
   }
   mutating func clearDecltype() {
-    return _storage._decltype = nil
+    _storage._decltype = nil
   }
 
   var delete: Int32 {
@@ -2625,7 +2625,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._delete != nil
   }
   mutating func clearDelete() {
-    return _storage._delete = nil
+    _storage._delete = nil
   }
 
   var dynamicCast: Int32 {
@@ -2636,7 +2636,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._dynamicCast != nil
   }
   mutating func clearDynamicCast() {
-    return _storage._dynamicCast = nil
+    _storage._dynamicCast = nil
   }
 
   var explicit: Int32 {
@@ -2647,7 +2647,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._explicit != nil
   }
   mutating func clearExplicit() {
-    return _storage._explicit = nil
+    _storage._explicit = nil
   }
 
   var export: Int32 {
@@ -2658,7 +2658,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._export != nil
   }
   mutating func clearExport() {
-    return _storage._export = nil
+    _storage._export = nil
   }
 
   var extern: Int32 {
@@ -2669,7 +2669,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._extern != nil
   }
   mutating func clearExtern() {
-    return _storage._extern = nil
+    _storage._extern = nil
   }
 
   var friend: Int32 {
@@ -2680,7 +2680,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._friend != nil
   }
   mutating func clearFriend() {
-    return _storage._friend = nil
+    _storage._friend = nil
   }
 
   var goto: Int32 {
@@ -2691,7 +2691,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._goto != nil
   }
   mutating func clearGoto() {
-    return _storage._goto = nil
+    _storage._goto = nil
   }
 
   var inline: Int32 {
@@ -2702,7 +2702,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._inline != nil
   }
   mutating func clearInline() {
-    return _storage._inline = nil
+    _storage._inline = nil
   }
 
   var long: Int32 {
@@ -2713,7 +2713,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._long != nil
   }
   mutating func clearLong() {
-    return _storage._long = nil
+    _storage._long = nil
   }
 
   var mutable: Int32 {
@@ -2724,7 +2724,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._mutable != nil
   }
   mutating func clearMutable() {
-    return _storage._mutable = nil
+    _storage._mutable = nil
   }
 
   var namespace: Int32 {
@@ -2735,7 +2735,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._namespace != nil
   }
   mutating func clearNamespace() {
-    return _storage._namespace = nil
+    _storage._namespace = nil
   }
 
   var new: Int32 {
@@ -2746,7 +2746,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._new != nil
   }
   mutating func clearNew() {
-    return _storage._new = nil
+    _storage._new = nil
   }
 
   var noexcept: Int32 {
@@ -2757,7 +2757,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._noexcept != nil
   }
   mutating func clearNoexcept() {
-    return _storage._noexcept = nil
+    _storage._noexcept = nil
   }
 
   var not: Int32 {
@@ -2768,7 +2768,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._not != nil
   }
   mutating func clearNot() {
-    return _storage._not = nil
+    _storage._not = nil
   }
 
   var notEq: Int32 {
@@ -2779,7 +2779,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._notEq != nil
   }
   mutating func clearNotEq() {
-    return _storage._notEq = nil
+    _storage._notEq = nil
   }
 
   var nullptr: Int32 {
@@ -2790,7 +2790,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._nullptr != nil
   }
   mutating func clearNullptr() {
-    return _storage._nullptr = nil
+    _storage._nullptr = nil
   }
 
   var or: Int32 {
@@ -2801,7 +2801,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._or != nil
   }
   mutating func clearOr() {
-    return _storage._or = nil
+    _storage._or = nil
   }
 
   var orEq: Int32 {
@@ -2812,7 +2812,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._orEq != nil
   }
   mutating func clearOrEq() {
-    return _storage._orEq = nil
+    _storage._orEq = nil
   }
 
   var protected: Int32 {
@@ -2823,7 +2823,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._protected != nil
   }
   mutating func clearProtected() {
-    return _storage._protected = nil
+    _storage._protected = nil
   }
 
   var register: Int32 {
@@ -2834,7 +2834,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._register != nil
   }
   mutating func clearRegister() {
-    return _storage._register = nil
+    _storage._register = nil
   }
 
   var reinterpretCast: Int32 {
@@ -2845,7 +2845,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._reinterpretCast != nil
   }
   mutating func clearReinterpretCast() {
-    return _storage._reinterpretCast = nil
+    _storage._reinterpretCast = nil
   }
 
   var short: Int32 {
@@ -2856,7 +2856,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._short != nil
   }
   mutating func clearShort() {
-    return _storage._short = nil
+    _storage._short = nil
   }
 
   var signed: Int32 {
@@ -2867,7 +2867,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._signed != nil
   }
   mutating func clearSigned() {
-    return _storage._signed = nil
+    _storage._signed = nil
   }
 
   var sizeof: Int32 {
@@ -2878,7 +2878,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._sizeof != nil
   }
   mutating func clearSizeof() {
-    return _storage._sizeof = nil
+    _storage._sizeof = nil
   }
 
   var staticAssert: Int32 {
@@ -2889,7 +2889,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._staticAssert != nil
   }
   mutating func clearStaticAssert() {
-    return _storage._staticAssert = nil
+    _storage._staticAssert = nil
   }
 
   var staticCast: Int32 {
@@ -2900,7 +2900,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._staticCast != nil
   }
   mutating func clearStaticCast() {
-    return _storage._staticCast = nil
+    _storage._staticCast = nil
   }
 
   var template: Int32 {
@@ -2911,7 +2911,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._template != nil
   }
   mutating func clearTemplate() {
-    return _storage._template = nil
+    _storage._template = nil
   }
 
   var this: Int32 {
@@ -2922,7 +2922,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._this != nil
   }
   mutating func clearThis() {
-    return _storage._this = nil
+    _storage._this = nil
   }
 
   var threadLocal: Int32 {
@@ -2933,7 +2933,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._threadLocal != nil
   }
   mutating func clearThreadLocal() {
-    return _storage._threadLocal = nil
+    _storage._threadLocal = nil
   }
 
   var typedef: Int32 {
@@ -2944,7 +2944,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._typedef != nil
   }
   mutating func clearTypedef() {
-    return _storage._typedef = nil
+    _storage._typedef = nil
   }
 
   var typeid: Int32 {
@@ -2955,7 +2955,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._typeid != nil
   }
   mutating func clearTypeid() {
-    return _storage._typeid = nil
+    _storage._typeid = nil
   }
 
   var typename: Int32 {
@@ -2966,7 +2966,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._typename != nil
   }
   mutating func clearTypename() {
-    return _storage._typename = nil
+    _storage._typename = nil
   }
 
   var union: Int32 {
@@ -2977,7 +2977,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._union != nil
   }
   mutating func clearUnion() {
-    return _storage._union = nil
+    _storage._union = nil
   }
 
   var unsigned: Int32 {
@@ -2988,7 +2988,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._unsigned != nil
   }
   mutating func clearUnsigned() {
-    return _storage._unsigned = nil
+    _storage._unsigned = nil
   }
 
   var using: Int32 {
@@ -2999,7 +2999,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._using != nil
   }
   mutating func clearUsing() {
-    return _storage._using = nil
+    _storage._using = nil
   }
 
   var virtual: Int32 {
@@ -3010,7 +3010,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._virtual != nil
   }
   mutating func clearVirtual() {
-    return _storage._virtual = nil
+    _storage._virtual = nil
   }
 
   var void: Int32 {
@@ -3021,7 +3021,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._void != nil
   }
   mutating func clearVoid() {
-    return _storage._void = nil
+    _storage._void = nil
   }
 
   var volatile: Int32 {
@@ -3032,7 +3032,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._volatile != nil
   }
   mutating func clearVolatile() {
-    return _storage._volatile = nil
+    _storage._volatile = nil
   }
 
   var wcharT: Int32 {
@@ -3043,7 +3043,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._wcharT != nil
   }
   mutating func clearWcharT() {
-    return _storage._wcharT = nil
+    _storage._wcharT = nil
   }
 
   var xor: Int32 {
@@ -3054,7 +3054,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._xor != nil
   }
   mutating func clearXor() {
-    return _storage._xor = nil
+    _storage._xor = nil
   }
 
   var xorEq: Int32 {
@@ -3065,7 +3065,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._xorEq != nil
   }
   mutating func clearXorEq() {
-    return _storage._xorEq = nil
+    _storage._xorEq = nil
   }
 
   var restrict: Int32 {
@@ -3076,7 +3076,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._restrict != nil
   }
   mutating func clearRestrict() {
-    return _storage._restrict = nil
+    _storage._restrict = nil
   }
 
   var category: Int32 {
@@ -3087,7 +3087,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._category != nil
   }
   mutating func clearCategory() {
-    return _storage._category = nil
+    _storage._category = nil
   }
 
   var ivar: Int32 {
@@ -3098,7 +3098,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._ivar != nil
   }
   mutating func clearIvar() {
-    return _storage._ivar = nil
+    _storage._ivar = nil
   }
 
   var method: Int32 {
@@ -3109,7 +3109,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._method != nil
   }
   mutating func clearMethod() {
-    return _storage._method = nil
+    _storage._method = nil
   }
 
   var finalize: Int32 {
@@ -3120,7 +3120,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._finalize != nil
   }
   mutating func clearFinalize() {
-    return _storage._finalize = nil
+    _storage._finalize = nil
   }
 
   var hash: Int32 {
@@ -3131,7 +3131,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._hash != nil
   }
   mutating func clearHash() {
-    return _storage._hash = nil
+    _storage._hash = nil
   }
 
   var dealloc: Int32 {
@@ -3142,7 +3142,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._dealloc != nil
   }
   mutating func clearDealloc() {
-    return _storage._dealloc = nil
+    _storage._dealloc = nil
   }
 
   var superclass: Int32 {
@@ -3153,7 +3153,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._superclass != nil
   }
   mutating func clearSuperclass() {
-    return _storage._superclass = nil
+    _storage._superclass = nil
   }
 
   var retain: Int32 {
@@ -3164,7 +3164,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._retain != nil
   }
   mutating func clearRetain() {
-    return _storage._retain = nil
+    _storage._retain = nil
   }
 
   var release: Int32 {
@@ -3175,7 +3175,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._release != nil
   }
   mutating func clearRelease() {
-    return _storage._release = nil
+    _storage._release = nil
   }
 
   var autorelease: Int32 {
@@ -3186,7 +3186,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._autorelease != nil
   }
   mutating func clearAutorelease() {
-    return _storage._autorelease = nil
+    _storage._autorelease = nil
   }
 
   var retainCount: Int32 {
@@ -3197,7 +3197,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._retainCount != nil
   }
   mutating func clearRetainCount() {
-    return _storage._retainCount = nil
+    _storage._retainCount = nil
   }
 
   var zone: Int32 {
@@ -3208,7 +3208,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._zone != nil
   }
   mutating func clearZone() {
-    return _storage._zone = nil
+    _storage._zone = nil
   }
 
   var isProxy: Int32 {
@@ -3219,7 +3219,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._isProxy != nil
   }
   mutating func clearIsProxy() {
-    return _storage._isProxy = nil
+    _storage._isProxy = nil
   }
 
   var copy: Int32 {
@@ -3230,7 +3230,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._copy != nil
   }
   mutating func clearCopy() {
-    return _storage._copy = nil
+    _storage._copy = nil
   }
 
   var mutableCopy: Int32 {
@@ -3241,7 +3241,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._mutableCopy != nil
   }
   mutating func clearMutableCopy() {
-    return _storage._mutableCopy = nil
+    _storage._mutableCopy = nil
   }
 
   var classForCoder: Int32 {
@@ -3252,7 +3252,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._classForCoder != nil
   }
   mutating func clearClassForCoder() {
-    return _storage._classForCoder = nil
+    _storage._classForCoder = nil
   }
 
   var clear: Int32 {
@@ -3263,7 +3263,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._clear != nil
   }
   mutating func clearClear() {
-    return _storage._clear = nil
+    _storage._clear = nil
   }
 
   var data: Int32 {
@@ -3274,7 +3274,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._data != nil
   }
   mutating func clearData() {
-    return _storage._data = nil
+    _storage._data = nil
   }
 
   var delimitedData: Int32 {
@@ -3285,7 +3285,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._delimitedData != nil
   }
   mutating func clearDelimitedData() {
-    return _storage._delimitedData = nil
+    _storage._delimitedData = nil
   }
 
   var descriptor: Int32 {
@@ -3296,7 +3296,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._descriptor != nil
   }
   mutating func clearDescriptor() {
-    return _storage._descriptor = nil
+    _storage._descriptor = nil
   }
 
   var extensionRegistry: Int32 {
@@ -3307,7 +3307,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._extensionRegistry != nil
   }
   mutating func clearExtensionRegistry() {
-    return _storage._extensionRegistry = nil
+    _storage._extensionRegistry = nil
   }
 
   var extensionsCurrentlySet: Int32 {
@@ -3318,7 +3318,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._extensionsCurrentlySet != nil
   }
   mutating func clearExtensionsCurrentlySet() {
-    return _storage._extensionsCurrentlySet = nil
+    _storage._extensionsCurrentlySet = nil
   }
 
   var isInitialized_p: Int32 {
@@ -3329,7 +3329,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._isInitialized_p != nil
   }
   mutating func clearIsInitialized_p() {
-    return _storage._isInitialized_p = nil
+    _storage._isInitialized_p = nil
   }
 
   var serializedSize: Int32 {
@@ -3340,7 +3340,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._serializedSize != nil
   }
   mutating func clearSerializedSize() {
-    return _storage._serializedSize = nil
+    _storage._serializedSize = nil
   }
 
   var sortedExtensionsInUse: Int32 {
@@ -3351,7 +3351,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._sortedExtensionsInUse != nil
   }
   mutating func clearSortedExtensionsInUse() {
-    return _storage._sortedExtensionsInUse = nil
+    _storage._sortedExtensionsInUse = nil
   }
 
   var unknownFields_p: Int32 {
@@ -3362,7 +3362,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._unknownFields_p != nil
   }
   mutating func clearUnknownFields_p() {
-    return _storage._unknownFields_p = nil
+    _storage._unknownFields_p = nil
   }
 
   var fixed: Int32 {
@@ -3373,7 +3373,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._fixed != nil
   }
   mutating func clearFixed() {
-    return _storage._fixed = nil
+    _storage._fixed = nil
   }
 
   var fract: Int32 {
@@ -3384,7 +3384,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._fract != nil
   }
   mutating func clearFract() {
-    return _storage._fract = nil
+    _storage._fract = nil
   }
 
   var size: Int32 {
@@ -3395,7 +3395,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._size != nil
   }
   mutating func clearSize() {
-    return _storage._size = nil
+    _storage._size = nil
   }
 
   var logicalAddress: Int32 {
@@ -3406,7 +3406,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._logicalAddress != nil
   }
   mutating func clearLogicalAddress() {
-    return _storage._logicalAddress = nil
+    _storage._logicalAddress = nil
   }
 
   var physicalAddress: Int32 {
@@ -3417,7 +3417,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._physicalAddress != nil
   }
   mutating func clearPhysicalAddress() {
-    return _storage._physicalAddress = nil
+    _storage._physicalAddress = nil
   }
 
   var byteCount: Int32 {
@@ -3428,7 +3428,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._byteCount != nil
   }
   mutating func clearByteCount() {
-    return _storage._byteCount = nil
+    _storage._byteCount = nil
   }
 
   var byteOffset: Int32 {
@@ -3439,7 +3439,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._byteOffset != nil
   }
   mutating func clearByteOffset() {
-    return _storage._byteOffset = nil
+    _storage._byteOffset = nil
   }
 
   var duration: Int32 {
@@ -3450,7 +3450,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._duration != nil
   }
   mutating func clearDuration() {
-    return _storage._duration = nil
+    _storage._duration = nil
   }
 
   var absoluteTime: Int32 {
@@ -3461,7 +3461,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._absoluteTime != nil
   }
   mutating func clearAbsoluteTime() {
-    return _storage._absoluteTime = nil
+    _storage._absoluteTime = nil
   }
 
   var optionBits: Int32 {
@@ -3472,7 +3472,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._optionBits != nil
   }
   mutating func clearOptionBits() {
-    return _storage._optionBits = nil
+    _storage._optionBits = nil
   }
 
   var itemCount: Int32 {
@@ -3483,7 +3483,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._itemCount != nil
   }
   mutating func clearItemCount() {
-    return _storage._itemCount = nil
+    _storage._itemCount = nil
   }
 
   var pbversion: Int32 {
@@ -3494,7 +3494,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._pbversion != nil
   }
   mutating func clearPbversion() {
-    return _storage._pbversion = nil
+    _storage._pbversion = nil
   }
 
   var scriptCode: Int32 {
@@ -3505,7 +3505,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._scriptCode != nil
   }
   mutating func clearScriptCode() {
-    return _storage._scriptCode = nil
+    _storage._scriptCode = nil
   }
 
   var langCode: Int32 {
@@ -3516,7 +3516,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._langCode != nil
   }
   mutating func clearLangCode() {
-    return _storage._langCode = nil
+    _storage._langCode = nil
   }
 
   var regionCode: Int32 {
@@ -3527,7 +3527,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._regionCode != nil
   }
   mutating func clearRegionCode() {
-    return _storage._regionCode = nil
+    _storage._regionCode = nil
   }
 
   var ostype: Int32 {
@@ -3538,7 +3538,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._ostype != nil
   }
   mutating func clearOstype() {
-    return _storage._ostype = nil
+    _storage._ostype = nil
   }
 
   var processSerialNumber: Int32 {
@@ -3549,7 +3549,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._processSerialNumber != nil
   }
   mutating func clearProcessSerialNumber() {
-    return _storage._processSerialNumber = nil
+    _storage._processSerialNumber = nil
   }
 
   var point: Int32 {
@@ -3560,7 +3560,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._point != nil
   }
   mutating func clearPoint() {
-    return _storage._point = nil
+    _storage._point = nil
   }
 
   var rect: Int32 {
@@ -3571,7 +3571,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._rect != nil
   }
   mutating func clearRect() {
-    return _storage._rect = nil
+    _storage._rect = nil
   }
 
   var fixedPoint: Int32 {
@@ -3582,7 +3582,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._fixedPoint != nil
   }
   mutating func clearFixedPoint() {
-    return _storage._fixedPoint = nil
+    _storage._fixedPoint = nil
   }
 
   var fixedRect: Int32 {
@@ -3593,7 +3593,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._fixedRect != nil
   }
   mutating func clearFixedRect() {
-    return _storage._fixedRect = nil
+    _storage._fixedRect = nil
   }
 
   var style: Int32 {
@@ -3604,7 +3604,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._style != nil
   }
   mutating func clearStyle() {
-    return _storage._style = nil
+    _storage._style = nil
   }
 
   var styleParameter: Int32 {
@@ -3615,7 +3615,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._styleParameter != nil
   }
   mutating func clearStyleParameter() {
-    return _storage._styleParameter = nil
+    _storage._styleParameter = nil
   }
 
   var styleField: Int32 {
@@ -3626,7 +3626,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._styleField != nil
   }
   mutating func clearStyleField() {
-    return _storage._styleField = nil
+    _storage._styleField = nil
   }
 
   var timeScale: Int32 {
@@ -3637,7 +3637,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._timeScale != nil
   }
   mutating func clearTimeScale() {
-    return _storage._timeScale = nil
+    _storage._timeScale = nil
   }
 
   var timeBase: Int32 {
@@ -3648,7 +3648,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._timeBase != nil
   }
   mutating func clearTimeBase() {
-    return _storage._timeBase = nil
+    _storage._timeBase = nil
   }
 
   var timeRecord: Int32 {
@@ -3659,7 +3659,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._timeRecord != nil
   }
   mutating func clearTimeRecord() {
-    return _storage._timeRecord = nil
+    _storage._timeRecord = nil
   }
 
   var jsonShouldBeOverriden: Int32 {
@@ -3670,7 +3670,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._jsonShouldBeOverriden != nil
   }
   mutating func clearJsonShouldBeOverriden() {
-    return _storage._jsonShouldBeOverriden = nil
+    _storage._jsonShouldBeOverriden = nil
   }
 
   var any: Int32 {
@@ -3681,7 +3681,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._any != nil
   }
   mutating func clearAny() {
-    return _storage._any = nil
+    _storage._any = nil
   }
 
   var int32: Int32 {
@@ -3692,7 +3692,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._int32 != nil
   }
   mutating func clearInt32() {
-    return _storage._int32 = nil
+    _storage._int32 = nil
   }
 
   var int64: Int32 {
@@ -3703,7 +3703,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._int64 != nil
   }
   mutating func clearInt64() {
-    return _storage._int64 = nil
+    _storage._int64 = nil
   }
 
   var uint32: Int32 {
@@ -3714,7 +3714,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._uint32 != nil
   }
   mutating func clearUint32() {
-    return _storage._uint32 = nil
+    _storage._uint32 = nil
   }
 
   var uint64: Int32 {
@@ -3725,7 +3725,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._uint64 != nil
   }
   mutating func clearUint64() {
-    return _storage._uint64 = nil
+    _storage._uint64 = nil
   }
 
   var associatedtype_p: Int32 {
@@ -3736,7 +3736,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._associatedtype_p != nil
   }
   mutating func clearAssociatedtype_p() {
-    return _storage._associatedtype_p = nil
+    _storage._associatedtype_p = nil
   }
 
   var fileprivate_p: Int32 {
@@ -3747,7 +3747,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._fileprivate_p != nil
   }
   mutating func clearFileprivate_p() {
-    return _storage._fileprivate_p = nil
+    _storage._fileprivate_p = nil
   }
 
   var open_p: Int32 {
@@ -3758,7 +3758,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     return _storage._open_p != nil
   }
   mutating func clearOpen_p() {
-    return _storage._open_p = nil
+    _storage._open_p = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4664,7 +4664,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4700,7 +4700,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4736,7 +4736,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4772,7 +4772,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4808,7 +4808,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4844,7 +4844,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4880,7 +4880,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4916,7 +4916,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4952,7 +4952,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4988,7 +4988,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5024,7 +5024,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5060,7 +5060,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5096,7 +5096,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5132,7 +5132,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5168,7 +5168,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5204,7 +5204,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5240,7 +5240,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5276,7 +5276,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5312,7 +5312,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5348,7 +5348,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5384,7 +5384,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5420,7 +5420,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5456,7 +5456,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5492,7 +5492,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5528,7 +5528,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5564,7 +5564,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5600,7 +5600,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5636,7 +5636,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5672,7 +5672,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5708,7 +5708,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5744,7 +5744,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5780,7 +5780,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5816,7 +5816,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5852,7 +5852,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5888,7 +5888,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5924,7 +5924,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5960,7 +5960,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5996,7 +5996,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6032,7 +6032,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6068,7 +6068,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6104,7 +6104,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6140,7 +6140,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6176,7 +6176,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6212,7 +6212,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6248,7 +6248,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6284,7 +6284,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6320,7 +6320,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6356,7 +6356,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6392,7 +6392,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6428,7 +6428,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6464,7 +6464,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6500,7 +6500,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6536,7 +6536,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6572,7 +6572,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6608,7 +6608,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6644,7 +6644,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6680,7 +6680,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6716,7 +6716,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6752,7 +6752,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6788,7 +6788,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6824,7 +6824,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6860,7 +6860,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6896,7 +6896,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6932,7 +6932,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6968,7 +6968,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7004,7 +7004,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7040,7 +7040,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7076,7 +7076,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7112,7 +7112,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7148,7 +7148,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7184,7 +7184,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7220,7 +7220,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7256,7 +7256,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7292,7 +7292,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7328,7 +7328,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7364,7 +7364,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7400,7 +7400,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7436,7 +7436,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7472,7 +7472,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7508,7 +7508,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7544,7 +7544,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7580,7 +7580,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7616,7 +7616,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7652,7 +7652,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7688,7 +7688,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7724,7 +7724,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7760,7 +7760,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7796,7 +7796,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7832,7 +7832,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7868,7 +7868,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7904,7 +7904,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7940,7 +7940,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7976,7 +7976,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8012,7 +8012,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8048,7 +8048,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8084,7 +8084,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8120,7 +8120,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8156,7 +8156,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8192,7 +8192,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8228,7 +8228,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8264,7 +8264,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8300,7 +8300,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8336,7 +8336,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8372,7 +8372,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8408,7 +8408,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8444,7 +8444,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8480,7 +8480,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8516,7 +8516,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8552,7 +8552,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8588,7 +8588,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8624,7 +8624,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8660,7 +8660,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8696,7 +8696,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8732,7 +8732,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8768,7 +8768,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8804,7 +8804,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8840,7 +8840,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8876,7 +8876,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8912,7 +8912,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8948,7 +8948,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -8984,7 +8984,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9020,7 +9020,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9056,7 +9056,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9092,7 +9092,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9128,7 +9128,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9164,7 +9164,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9200,7 +9200,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9236,7 +9236,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9272,7 +9272,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9308,7 +9308,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9344,7 +9344,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9380,7 +9380,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9416,7 +9416,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9452,7 +9452,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9488,7 +9488,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9524,7 +9524,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9560,7 +9560,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9596,7 +9596,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9632,7 +9632,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9668,7 +9668,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9704,7 +9704,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9740,7 +9740,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9776,7 +9776,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9812,7 +9812,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9848,7 +9848,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9884,7 +9884,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9920,7 +9920,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9956,7 +9956,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -9992,7 +9992,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10028,7 +10028,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10064,7 +10064,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10100,7 +10100,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10136,7 +10136,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10172,7 +10172,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10208,7 +10208,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10244,7 +10244,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10280,7 +10280,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10316,7 +10316,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10352,7 +10352,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10388,7 +10388,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10424,7 +10424,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10460,7 +10460,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10496,7 +10496,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10532,7 +10532,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10568,7 +10568,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10604,7 +10604,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10640,7 +10640,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10676,7 +10676,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10712,7 +10712,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10748,7 +10748,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10784,7 +10784,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10820,7 +10820,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10856,7 +10856,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10892,7 +10892,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10928,7 +10928,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -10964,7 +10964,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11000,7 +11000,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11036,7 +11036,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11072,7 +11072,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11108,7 +11108,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11144,7 +11144,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11180,7 +11180,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11216,7 +11216,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11252,7 +11252,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11288,7 +11288,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11324,7 +11324,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11360,7 +11360,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11396,7 +11396,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11432,7 +11432,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11468,7 +11468,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11504,7 +11504,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11540,7 +11540,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11576,7 +11576,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11612,7 +11612,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11648,7 +11648,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11684,7 +11684,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11720,7 +11720,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11756,7 +11756,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11792,7 +11792,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11828,7 +11828,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11864,7 +11864,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11900,7 +11900,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11936,7 +11936,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11972,7 +11972,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12008,7 +12008,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12044,7 +12044,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12080,7 +12080,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12116,7 +12116,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -12152,7 +12152,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -17865,7 +17865,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _http != nil
     }
     mutating func clearHTTP() {
-      return _http = nil
+      _http = nil
     }
 
     fileprivate var _httpRequest: Int32? = nil
@@ -17877,7 +17877,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _httpRequest != nil
     }
     mutating func clearHTTPRequest() {
-      return _httpRequest = nil
+      _httpRequest = nil
     }
 
     fileprivate var _theHTTPRequest: Int32? = nil
@@ -17889,7 +17889,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPRequest != nil
     }
     mutating func clearTheHTTPRequest() {
-      return _theHTTPRequest = nil
+      _theHTTPRequest = nil
     }
 
     fileprivate var _theHTTP: Int32? = nil
@@ -17901,7 +17901,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTP != nil
     }
     mutating func clearTheHTTP() {
-      return _theHTTP = nil
+      _theHTTP = nil
     }
 
     fileprivate var _https: Int32? = nil
@@ -17913,7 +17913,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _https != nil
     }
     mutating func clearHTTPS() {
-      return _https = nil
+      _https = nil
     }
 
     fileprivate var _httpsRequest: Int32? = nil
@@ -17925,7 +17925,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _httpsRequest != nil
     }
     mutating func clearHTTPSRequest() {
-      return _httpsRequest = nil
+      _httpsRequest = nil
     }
 
     fileprivate var _theHTTPSRequest: Int32? = nil
@@ -17937,7 +17937,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPSRequest != nil
     }
     mutating func clearTheHTTPSRequest() {
-      return _theHTTPSRequest = nil
+      _theHTTPSRequest = nil
     }
 
     fileprivate var _theHTTPS: Int32? = nil
@@ -17949,7 +17949,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPS != nil
     }
     mutating func clearTheHTTPS() {
-      return _theHTTPS = nil
+      _theHTTPS = nil
     }
 
     fileprivate var _url: Int32? = nil
@@ -17961,7 +17961,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _url != nil
     }
     mutating func clearURL() {
-      return _url = nil
+      _url = nil
     }
 
     fileprivate var _urlValue: Int32? = nil
@@ -17973,7 +17973,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _urlValue != nil
     }
     mutating func clearURLValue() {
-      return _urlValue = nil
+      _urlValue = nil
     }
 
     fileprivate var _theURLValue: Int32? = nil
@@ -17985,7 +17985,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theURLValue != nil
     }
     mutating func clearTheURLValue() {
-      return _theURLValue = nil
+      _theURLValue = nil
     }
 
     fileprivate var _theURL: Int32? = nil
@@ -17997,7 +17997,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theURL != nil
     }
     mutating func clearTheURL() {
-      return _theURL = nil
+      _theURL = nil
     }
 
     fileprivate var _aBC: Int32? = nil
@@ -18009,7 +18009,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _aBC != nil
     }
     mutating func clearABC() {
-      return _aBC = nil
+      _aBC = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -18093,7 +18093,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _http != nil
     }
     mutating func clearHTTP() {
-      return _http = nil
+      _http = nil
     }
 
     fileprivate var _httpRequest: Int32? = nil
@@ -18105,7 +18105,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _httpRequest != nil
     }
     mutating func clearHTTPRequest() {
-      return _httpRequest = nil
+      _httpRequest = nil
     }
 
     fileprivate var _theHTTPRequest: Int32? = nil
@@ -18117,7 +18117,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPRequest != nil
     }
     mutating func clearTheHTTPRequest() {
-      return _theHTTPRequest = nil
+      _theHTTPRequest = nil
     }
 
     fileprivate var _theHTTP: Int32? = nil
@@ -18129,7 +18129,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTP != nil
     }
     mutating func clearTheHTTP() {
-      return _theHTTP = nil
+      _theHTTP = nil
     }
 
     fileprivate var _https: Int32? = nil
@@ -18141,7 +18141,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _https != nil
     }
     mutating func clearHTTPS() {
-      return _https = nil
+      _https = nil
     }
 
     fileprivate var _httpsRequest: Int32? = nil
@@ -18153,7 +18153,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _httpsRequest != nil
     }
     mutating func clearHTTPSRequest() {
-      return _httpsRequest = nil
+      _httpsRequest = nil
     }
 
     fileprivate var _theHTTPSRequest: Int32? = nil
@@ -18165,7 +18165,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPSRequest != nil
     }
     mutating func clearTheHTTPSRequest() {
-      return _theHTTPSRequest = nil
+      _theHTTPSRequest = nil
     }
 
     fileprivate var _theHTTPS: Int32? = nil
@@ -18177,7 +18177,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPS != nil
     }
     mutating func clearTheHTTPS() {
-      return _theHTTPS = nil
+      _theHTTPS = nil
     }
 
     fileprivate var _url: Int32? = nil
@@ -18189,7 +18189,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _url != nil
     }
     mutating func clearURL() {
-      return _url = nil
+      _url = nil
     }
 
     fileprivate var _urlValue: Int32? = nil
@@ -18201,7 +18201,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _urlValue != nil
     }
     mutating func clearURLValue() {
-      return _urlValue = nil
+      _urlValue = nil
     }
 
     fileprivate var _theURLValue: Int32? = nil
@@ -18213,7 +18213,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theURLValue != nil
     }
     mutating func clearTheURLValue() {
-      return _theURLValue = nil
+      _theURLValue = nil
     }
 
     fileprivate var _theURL: Int32? = nil
@@ -18225,7 +18225,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theURL != nil
     }
     mutating func clearTheURL() {
-      return _theURL = nil
+      _theURL = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -18305,7 +18305,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _http != nil
     }
     mutating func clearHTTP() {
-      return _http = nil
+      _http = nil
     }
 
     fileprivate var _httpRequest: Int32? = nil
@@ -18317,7 +18317,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _httpRequest != nil
     }
     mutating func clearHTTPRequest() {
-      return _httpRequest = nil
+      _httpRequest = nil
     }
 
     fileprivate var _theHTTPRequest: Int32? = nil
@@ -18329,7 +18329,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPRequest != nil
     }
     mutating func clearTheHTTPRequest() {
-      return _theHTTPRequest = nil
+      _theHTTPRequest = nil
     }
 
     fileprivate var _theHTTP: Int32? = nil
@@ -18341,7 +18341,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTP != nil
     }
     mutating func clearTheHTTP() {
-      return _theHTTP = nil
+      _theHTTP = nil
     }
 
     fileprivate var _https: Int32? = nil
@@ -18353,7 +18353,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _https != nil
     }
     mutating func clearHTTPS() {
-      return _https = nil
+      _https = nil
     }
 
     fileprivate var _httpsRequest: Int32? = nil
@@ -18365,7 +18365,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _httpsRequest != nil
     }
     mutating func clearHTTPSRequest() {
-      return _httpsRequest = nil
+      _httpsRequest = nil
     }
 
     fileprivate var _theHTTPSRequest: Int32? = nil
@@ -18377,7 +18377,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPSRequest != nil
     }
     mutating func clearTheHTTPSRequest() {
-      return _theHTTPSRequest = nil
+      _theHTTPSRequest = nil
     }
 
     fileprivate var _theHTTPS: Int32? = nil
@@ -18389,7 +18389,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theHTTPS != nil
     }
     mutating func clearTheHTTPS() {
-      return _theHTTPS = nil
+      _theHTTPS = nil
     }
 
     fileprivate var _url: Int32? = nil
@@ -18401,7 +18401,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _url != nil
     }
     mutating func clearURL() {
-      return _url = nil
+      _url = nil
     }
 
     fileprivate var _urlValue: Int32? = nil
@@ -18413,7 +18413,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _urlValue != nil
     }
     mutating func clearURLValue() {
-      return _urlValue = nil
+      _urlValue = nil
     }
 
     fileprivate var _theURLValue: Int32? = nil
@@ -18425,7 +18425,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theURLValue != nil
     }
     mutating func clearTheURLValue() {
-      return _theURLValue = nil
+      _theURLValue = nil
     }
 
     fileprivate var _theURL: Int32? = nil
@@ -18437,7 +18437,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       return _theURL != nil
     }
     mutating func clearTheURL() {
-      return _theURL = nil
+      _theURL = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

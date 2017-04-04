@@ -154,7 +154,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message {
     return _storage._sourceContext != nil
   }
   public mutating func clearSourceContext() {
-    return _storage._sourceContext = nil
+    _storage._sourceContext = nil
   }
 
   ///   The source syntax.
@@ -550,7 +550,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
     return _storage._sourceContext != nil
   }
   public mutating func clearSourceContext() {
-    return _storage._sourceContext = nil
+    _storage._sourceContext = nil
   }
 
   ///   The source syntax.
@@ -690,7 +690,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
     return _storage._value != nil
   }
   public mutating func clearValue() {
-    return _storage._value = nil
+    _storage._value = nil
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

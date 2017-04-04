@@ -190,7 +190,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalInt32 != nil
   }
   mutating func clearOptionalInt32() {
-    return _storage._optionalInt32 = nil
+    _storage._optionalInt32 = nil
   }
 
   var optionalInt64: Int64 {
@@ -201,7 +201,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalInt64 != nil
   }
   mutating func clearOptionalInt64() {
-    return _storage._optionalInt64 = nil
+    _storage._optionalInt64 = nil
   }
 
   var optionalUint32: UInt32 {
@@ -212,7 +212,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalUint32 != nil
   }
   mutating func clearOptionalUint32() {
-    return _storage._optionalUint32 = nil
+    _storage._optionalUint32 = nil
   }
 
   var optionalUint64: UInt64 {
@@ -223,7 +223,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalUint64 != nil
   }
   mutating func clearOptionalUint64() {
-    return _storage._optionalUint64 = nil
+    _storage._optionalUint64 = nil
   }
 
   var optionalSint32: Int32 {
@@ -234,7 +234,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalSint32 != nil
   }
   mutating func clearOptionalSint32() {
-    return _storage._optionalSint32 = nil
+    _storage._optionalSint32 = nil
   }
 
   var optionalSint64: Int64 {
@@ -245,7 +245,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalSint64 != nil
   }
   mutating func clearOptionalSint64() {
-    return _storage._optionalSint64 = nil
+    _storage._optionalSint64 = nil
   }
 
   var optionalFixed32: UInt32 {
@@ -256,7 +256,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalFixed32 != nil
   }
   mutating func clearOptionalFixed32() {
-    return _storage._optionalFixed32 = nil
+    _storage._optionalFixed32 = nil
   }
 
   var optionalFixed64: UInt64 {
@@ -267,7 +267,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalFixed64 != nil
   }
   mutating func clearOptionalFixed64() {
-    return _storage._optionalFixed64 = nil
+    _storage._optionalFixed64 = nil
   }
 
   var optionalSfixed32: Int32 {
@@ -278,7 +278,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalSfixed32 != nil
   }
   mutating func clearOptionalSfixed32() {
-    return _storage._optionalSfixed32 = nil
+    _storage._optionalSfixed32 = nil
   }
 
   var optionalSfixed64: Int64 {
@@ -289,7 +289,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalSfixed64 != nil
   }
   mutating func clearOptionalSfixed64() {
-    return _storage._optionalSfixed64 = nil
+    _storage._optionalSfixed64 = nil
   }
 
   var optionalFloat: Float {
@@ -300,7 +300,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalFloat != nil
   }
   mutating func clearOptionalFloat() {
-    return _storage._optionalFloat = nil
+    _storage._optionalFloat = nil
   }
 
   var optionalDouble: Double {
@@ -311,7 +311,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalDouble != nil
   }
   mutating func clearOptionalDouble() {
-    return _storage._optionalDouble = nil
+    _storage._optionalDouble = nil
   }
 
   var optionalBool: Bool {
@@ -322,7 +322,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalBool != nil
   }
   mutating func clearOptionalBool() {
-    return _storage._optionalBool = nil
+    _storage._optionalBool = nil
   }
 
   var optionalString: String {
@@ -333,7 +333,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalString != nil
   }
   mutating func clearOptionalString() {
-    return _storage._optionalString = nil
+    _storage._optionalString = nil
   }
 
   var optionalBytes: Data {
@@ -344,7 +344,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalBytes != nil
   }
   mutating func clearOptionalBytes() {
-    return _storage._optionalBytes = nil
+    _storage._optionalBytes = nil
   }
 
   var optionalGroup: ProtobufUnittest_Message2.OptionalGroup {
@@ -355,7 +355,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalGroup != nil
   }
   mutating func clearOptionalGroup() {
-    return _storage._optionalGroup = nil
+    _storage._optionalGroup = nil
   }
 
   var optionalMessage: ProtobufUnittest_Message2 {
@@ -366,7 +366,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalMessage != nil
   }
   mutating func clearOptionalMessage() {
-    return _storage._optionalMessage = nil
+    _storage._optionalMessage = nil
   }
 
   var optionalEnum: ProtobufUnittest_Message2.Enum {
@@ -377,7 +377,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     return _storage._optionalEnum != nil
   }
   mutating func clearOptionalEnum() {
-    return _storage._optionalEnum = nil
+    _storage._optionalEnum = nil
   }
 
   var repeatedInt32: [Int32] {
@@ -1098,7 +1098,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1134,7 +1134,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1170,7 +1170,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     fileprivate var _b: Int32? = nil
@@ -1182,7 +1182,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       return _b != nil
     }
     mutating func clearB() {
-      return _b = nil
+      _b = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1504,7 +1504,7 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
     return _storage._y != nil
   }
   mutating func clearY() {
-    return _storage._y = nil
+    _storage._y = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

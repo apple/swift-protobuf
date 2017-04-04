@@ -140,7 +140,7 @@ struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message {
     return _d != nil
   }
   mutating func clearD() {
-    return _d = nil
+    _d = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

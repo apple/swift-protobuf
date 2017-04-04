@@ -116,7 +116,7 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     return _storage._messageSet != nil
   }
   mutating func clearMessageSet() {
-    return _storage._messageSet = nil
+    _storage._messageSet = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

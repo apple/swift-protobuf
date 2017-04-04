@@ -84,7 +84,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     return _storage._aFoo != nil
   }
   mutating func clearAFoo() {
-    return _storage._aFoo = nil
+    _storage._aFoo = nil
   }
 
   var aBar: ProtobufUnittest_CycleBar {
@@ -95,7 +95,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     return _storage._aBar != nil
   }
   mutating func clearABar() {
-    return _storage._aBar = nil
+    _storage._aBar = nil
   }
 
   var aBaz: ProtobufUnittest_CycleBaz {
@@ -106,7 +106,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     return _storage._aBaz != nil
   }
   mutating func clearABaz() {
-    return _storage._aBaz = nil
+    _storage._aBaz = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -177,7 +177,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     return _storage._aBar != nil
   }
   mutating func clearABar() {
-    return _storage._aBar = nil
+    _storage._aBar = nil
   }
 
   var aBaz: ProtobufUnittest_CycleBaz {
@@ -188,7 +188,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     return _storage._aBaz != nil
   }
   mutating func clearABaz() {
-    return _storage._aBaz = nil
+    _storage._aBaz = nil
   }
 
   var aFoo: ProtobufUnittest_CycleFoo {
@@ -199,7 +199,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     return _storage._aFoo != nil
   }
   mutating func clearAFoo() {
-    return _storage._aFoo = nil
+    _storage._aFoo = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -270,7 +270,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     return _storage._aBaz != nil
   }
   mutating func clearABaz() {
-    return _storage._aBaz = nil
+    _storage._aBaz = nil
   }
 
   var aFoo: ProtobufUnittest_CycleFoo {
@@ -281,7 +281,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     return _storage._aFoo != nil
   }
   mutating func clearAFoo() {
-    return _storage._aFoo = nil
+    _storage._aFoo = nil
   }
 
   var aBar: ProtobufUnittest_CycleBar {
@@ -292,7 +292,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     return _storage._aBar != nil
   }
   mutating func clearABar() {
-    return _storage._aBar = nil
+    _storage._aBar = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

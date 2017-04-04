@@ -98,7 +98,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
     return _e != nil
   }
   mutating func clearE() {
-    return _e = nil
+    _e = nil
   }
 
   var repeatedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = []

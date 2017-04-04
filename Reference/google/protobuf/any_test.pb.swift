@@ -90,7 +90,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
     return _storage._anyValue != nil
   }
   mutating func clearAnyValue() {
-    return _storage._anyValue = nil
+    _storage._anyValue = nil
   }
 
   var repeatedAnyValue: [Google_Protobuf_Any] {
