@@ -51,8 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "google.protobuf.no_generic_services_test"
-
 enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 1
@@ -144,6 +142,10 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
 let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf.no_generic_services_test"
 
 extension Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

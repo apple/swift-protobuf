@@ -37,8 +37,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "protobuf_unittest.extend2"
-
 struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
 
@@ -213,6 +211,10 @@ let ProtobufUnittest_Extend2_UnittestSwiftExtension2_Extensions: SwiftProtobuf.S
   ProtobufUnittest_Extend2_MyMessage.Extensions.b,
   ProtobufUnittest_Extend2_MyMessage.Extensions.C
 ]
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "protobuf_unittest.extend2"
 
 extension ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()

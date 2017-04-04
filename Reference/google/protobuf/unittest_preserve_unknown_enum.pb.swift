@@ -49,8 +49,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
-
 enum Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foo // = 0
@@ -278,6 +276,10 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "proto3_preserve_unknown_enum_unittest"
 
 extension Proto3PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

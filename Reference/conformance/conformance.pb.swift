@@ -49,8 +49,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-fileprivate let _protobuf_package = "conformance"
-
 enum Conformance_WireFormat: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case unspecified // = 0
@@ -265,6 +263,10 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "conformance"
 
 extension Conformance_WireFormat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
