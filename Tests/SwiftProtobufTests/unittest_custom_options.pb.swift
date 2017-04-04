@@ -134,14 +134,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
 
   var oneofField: Int32 {
     get {
-      if case .oneofField(let v)? = anOneof {
-        return v
-      }
+      if case .oneofField(let v)? = anOneof { return v }
       return 0
     }
-    set {
-      anOneof = .oneofField(newValue)
-    }
+    set { anOneof = .oneofField(newValue) }
   }
 
   var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof? = nil
