@@ -21,9 +21,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "protobuf_unittest"
 
-///   Test that we can include all well-known types.
-///   Each wrapper type is included separately, as languages
-///   map handle different wrappers in different ways.
+/// Test that we can include all well-known types.
+/// Each wrapper type is included separately, as languages
+/// map handle different wrappers in different ways.
 struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
 
@@ -280,7 +280,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
     return _storage._bytesField = nil
   }
 
-  ///   Part of struct, but useful to be able to test separately
+  /// Part of struct, but useful to be able to test separately
   var valueField: Google_Protobuf_Value {
     get {return _storage._valueField ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._valueField = newValue}
@@ -390,7 +390,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
   }
 }
 
-///   A repeated field for each well-known type.
+/// A repeated field for each well-known type.
 struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
 
@@ -492,7 +492,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._typeField = newValue}
   }
 
-  ///   These don't actually make a lot of sense, but they're not prohibited...
+  /// These don't actually make a lot of sense, but they're not prohibited...
   var doubleField: [Google_Protobuf_DoubleValue] {
     get {return _storage._doubleField}
     set {_uniqueStorage()._doubleField = newValue}
@@ -1161,9 +1161,9 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
   }
 }
 
-///   A map field for each well-known type. We only
-///   need to worry about the value part of the map being the
-///   well-known types, as messages can't be map keys.
+/// A map field for each well-known type. We only
+/// need to worry about the value part of the map being the
+/// well-known types, as messages can't be map keys.
 struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
 

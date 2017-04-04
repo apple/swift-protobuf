@@ -6,41 +6,41 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-// 
-//  Test schema for proto3 messages.  This test schema is used by:
-// 
-//  - benchmarks
-//  - fuzz tests
-//  - conformance tests
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+//
+// Test schema for proto3 messages.  This test schema is used by:
+//
+// - benchmarks
+// - fuzz tests
+// - conformance tests
 
 import Foundation
 import SwiftProtobuf
@@ -94,13 +94,13 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf.
 
 }
 
-///   This proto includes every type of field in both singular and repeated
-///   forms.
-///  
-///   Also, crucially, all messages and enums in this file are eventually
-///   submessages of this message.  So for example, a fuzz test of TestAllTypes
-///   could trigger bugs that occur in any message type in this file.  We verify
-///   this stays true in a unit test.
+/// This proto includes every type of field in both singular and repeated
+/// forms.
+///
+/// Also, crucially, all messages and enums in this file are eventually
+/// submessages of this message.  So for example, a fuzz test of TestAllTypes
+/// could trigger bugs that occur in any message type in this file.  We verify
+/// this stays true in a unit test.
 struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
@@ -343,7 +343,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -472,7 +472,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     return _storage._recursiveMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -578,7 +578,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
-  ///   Map
+  /// Map
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -782,7 +782,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     }
   }
 
-  ///   Well-known types
+  /// Well-known types
   var optionalBoolWrapper: Google_Protobuf_BoolValue {
     get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
@@ -1023,8 +1023,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedValue = newValue}
   }
 
-  ///   Test field-name-to-JSON-name convention.
-  ///   (protobuf says names can be any valid C/C++ identifier.)
+  /// Test field-name-to-JSON-name convention.
+  /// (protobuf says names can be any valid C/C++ identifier.)
   var fieldname1: Int32 {
     get {return _storage._fieldname1}
     set {_uniqueStorage()._fieldname1 = newValue}
@@ -1253,7 +1253,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     case bar // = 1
     case baz // = 2
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
 

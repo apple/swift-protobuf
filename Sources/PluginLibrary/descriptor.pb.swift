@@ -6,43 +6,43 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Author: kenton@google.com (Kenton Varda)
-//   Based on original Protocol Buffers design by
-//   Sanjay Ghemawat, Jeff Dean, and others.
-// 
-//  The messages in this file describe the definitions found in .proto files.
-//  A valid .proto file can be translated directly to a FileDescriptorProto
-//  without any other information (e.g. without reading its imports).
+// Author: kenton@google.com (Kenton Varda)
+//  Based on original Protocol Buffers design by
+//  Sanjay Ghemawat, Jeff Dean, and others.
+//
+// The messages in this file describe the definitions found in .proto files.
+// A valid .proto file can be translated directly to a FileDescriptorProto
+// without any other information (e.g. without reading its imports).
 
 import Foundation
 import SwiftProtobuf
@@ -59,8 +59,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 fileprivate let _protobuf_package = "google.protobuf"
 
-///   The protocol compiler can output a FileDescriptorSet containing the .proto
-///   files it parses.
+/// The protocol compiler can output a FileDescriptorSet containing the .proto
+/// files it parses.
 public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FileDescriptorSet"
 
@@ -92,7 +92,7 @@ public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a complete .proto file.
+/// Describes a complete .proto file.
 public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FileDescriptorProto"
 
@@ -137,7 +137,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   file name, relative to root of source tree
+  /// file name, relative to root of source tree
   public var name: String {
     get {return _storage._name ?? ""}
     set {_uniqueStorage()._name = newValue}
@@ -149,7 +149,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._name = nil
   }
 
-  ///   e.g. "foo", "foo.bar", etc.
+  /// e.g. "foo", "foo.bar", etc.
   public var package: String {
     get {return _storage._package ?? ""}
     set {_uniqueStorage()._package = newValue}
@@ -161,26 +161,26 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._package = nil
   }
 
-  ///   Names of files imported by this file.
+  /// Names of files imported by this file.
   public var dependency: [String] {
     get {return _storage._dependency}
     set {_uniqueStorage()._dependency = newValue}
   }
 
-  ///   Indexes of the public imported files in the dependency list above.
+  /// Indexes of the public imported files in the dependency list above.
   public var publicDependency: [Int32] {
     get {return _storage._publicDependency}
     set {_uniqueStorage()._publicDependency = newValue}
   }
 
-  ///   Indexes of the weak imported files in the dependency list.
-  ///   For Google-internal migration only. Do not use.
+  /// Indexes of the weak imported files in the dependency list.
+  /// For Google-internal migration only. Do not use.
   public var weakDependency: [Int32] {
     get {return _storage._weakDependency}
     set {_uniqueStorage()._weakDependency = newValue}
   }
 
-  ///   All top-level definitions in this file.
+  /// All top-level definitions in this file.
   public var messageType: [Google_Protobuf_DescriptorProto] {
     get {return _storage._messageType}
     set {_uniqueStorage()._messageType = newValue}
@@ -212,10 +212,10 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._options = nil
   }
 
-  ///   This field contains optional information about the original source code.
-  ///   You may safely remove this entire field without harming runtime
-  ///   functionality of the descriptors -- the information is needed only by
-  ///   development tools.
+  /// This field contains optional information about the original source code.
+  /// You may safely remove this entire field without harming runtime
+  /// functionality of the descriptors -- the information is needed only by
+  /// development tools.
   public var sourceCodeInfo: Google_Protobuf_SourceCodeInfo {
     get {return _storage._sourceCodeInfo ?? Google_Protobuf_SourceCodeInfo()}
     set {_uniqueStorage()._sourceCodeInfo = newValue}
@@ -227,8 +227,8 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._sourceCodeInfo = nil
   }
 
-  ///   The syntax of the proto file.
-  ///   The supported values are "proto2" and "proto3".
+  /// The syntax of the proto file.
+  /// The supported values are "proto2" and "proto3".
   public var syntax: String {
     get {return _storage._syntax ?? ""}
     set {_uniqueStorage()._syntax = newValue}
@@ -321,7 +321,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a message type.
+/// Describes a message type.
 public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".DescriptorProto"
 
@@ -419,8 +419,8 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     set {_uniqueStorage()._reservedRange = newValue}
   }
 
-  ///   Reserved field names, which may not be used by fields in the same message.
-  ///   A given name may only be reserved once.
+  /// Reserved field names, which may not be used by fields in the same message.
+  /// A given name may only be reserved once.
   public var reservedName: [String] {
     get {return _storage._reservedName}
     set {_uniqueStorage()._reservedName = newValue}
@@ -480,13 +480,13 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     }
   }
 
-  ///   Range of reserved tag numbers. Reserved tag numbers may not be used by
-  ///   fields or extension ranges in the same message. Reserved ranges may
-  ///   not overlap.
+  /// Range of reserved tag numbers. Reserved tag numbers may not be used by
+  /// fields or extension ranges in the same message. Reserved ranges may
+  /// not overlap.
   public struct ReservedRange: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ReservedRange"
 
-    ///   Inclusive.
+    /// Inclusive.
     fileprivate var _start: Int32? = nil
     public var start: Int32 {
       get {return _start ?? 0}
@@ -499,7 +499,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       return _start = nil
     }
 
-    ///   Exclusive.
+    /// Exclusive.
     fileprivate var _end: Int32? = nil
     public var end: Int32 {
       get {return _end ?? 0}
@@ -609,7 +609,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a field within a message.
+/// Describes a field within a message.
 public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldDescriptorProto"
 
@@ -683,8 +683,8 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._label = nil
   }
 
-  ///   If type_name is set, this need not be set.  If both this and type_name
-  ///   are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
+  /// If type_name is set, this need not be set.  If both this and type_name
+  /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
   public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum {
     get {return _storage._type ?? Google_Protobuf_FieldDescriptorProto.TypeEnum.double}
     set {_uniqueStorage()._type = newValue}
@@ -696,11 +696,11 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._type = nil
   }
 
-  ///   For message and enum types, this is the name of the type.  If the name
-  ///   starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
-  ///   rules are used to find the type (i.e. first the nested types within this
-  ///   message are searched, then within the parent, on up to the root
-  ///   namespace).
+  /// For message and enum types, this is the name of the type.  If the name
+  /// starts with a '.', it is fully-qualified.  Otherwise, C++-like scoping
+  /// rules are used to find the type (i.e. first the nested types within this
+  /// message are searched, then within the parent, on up to the root
+  /// namespace).
   public var typeName: String {
     get {return _storage._typeName ?? ""}
     set {_uniqueStorage()._typeName = newValue}
@@ -712,8 +712,8 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._typeName = nil
   }
 
-  ///   For extensions, this is the name of the type being extended.  It is
-  ///   resolved in the same manner as type_name.
+  /// For extensions, this is the name of the type being extended.  It is
+  /// resolved in the same manner as type_name.
   public var extendee: String {
     get {return _storage._extendee ?? ""}
     set {_uniqueStorage()._extendee = newValue}
@@ -725,11 +725,11 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._extendee = nil
   }
 
-  ///   For numeric types, contains the original text representation of the value.
-  ///   For booleans, "true" or "false".
-  ///   For strings, contains the default text contents (not escaped in any way).
-  ///   For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
-  ///   TODO(kenton):  Base-64 encode?
+  /// For numeric types, contains the original text representation of the value.
+  /// For booleans, "true" or "false".
+  /// For strings, contains the default text contents (not escaped in any way).
+  /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
+  /// TODO(kenton):  Base-64 encode?
   public var defaultValue: String {
     get {return _storage._defaultValue ?? ""}
     set {_uniqueStorage()._defaultValue = newValue}
@@ -741,8 +741,8 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._defaultValue = nil
   }
 
-  ///   If set, gives the index of a oneof in the containing type's oneof_decl
-  ///   list.  This field is a member of that oneof.
+  /// If set, gives the index of a oneof in the containing type's oneof_decl
+  /// list.  This field is a member of that oneof.
   public var oneofIndex: Int32 {
     get {return _storage._oneofIndex ?? 0}
     set {_uniqueStorage()._oneofIndex = newValue}
@@ -754,10 +754,10 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._oneofIndex = nil
   }
 
-  ///   JSON name of this field. The value is set by protocol compiler. If the
-  ///   user has set a "json_name" option on this field, that option's value
-  ///   will be used. Otherwise, it's deduced from the field's name by converting
-  ///   it to camelCase.
+  /// JSON name of this field. The value is set by protocol compiler. If the
+  /// user has set a "json_name" option on this field, that option's value
+  /// will be used. Otherwise, it's deduced from the field's name by converting
+  /// it to camelCase.
   public var jsonName: String {
     get {return _storage._jsonName ?? ""}
     set {_uniqueStorage()._jsonName = newValue}
@@ -785,44 +785,44 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   public enum TypeEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     public typealias RawValue = Int
 
-    ///   0 is reserved for errors.
-    ///   Order is weird for historical reasons.
+    /// 0 is reserved for errors.
+    /// Order is weird for historical reasons.
     case double // = 1
     case float // = 2
 
-    ///   Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
-    ///   negative values are likely.
+    /// Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT64 if
+    /// negative values are likely.
     case int64 // = 3
     case uint64 // = 4
 
-    ///   Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
-    ///   negative values are likely.
+    /// Not ZigZag encoded.  Negative numbers take 10 bytes.  Use TYPE_SINT32 if
+    /// negative values are likely.
     case int32 // = 5
     case fixed64 // = 6
     case fixed32 // = 7
     case bool // = 8
     case string // = 9
 
-    ///   Tag-delimited aggregate.
-    ///   Group type is deprecated and not supported in proto3. However, Proto3
-    ///   implementations should still be able to parse the group wire format and
-    ///   treat group fields as unknown fields.
+    /// Tag-delimited aggregate.
+    /// Group type is deprecated and not supported in proto3. However, Proto3
+    /// implementations should still be able to parse the group wire format and
+    /// treat group fields as unknown fields.
     case group // = 10
 
-    ///   Length-delimited aggregate.
+    /// Length-delimited aggregate.
     case message // = 11
 
-    ///   New in version 2.
+    /// New in version 2.
     case bytes // = 12
     case uint32 // = 13
     case `enum` // = 14
     case sfixed32 // = 15
     case sfixed64 // = 16
 
-    ///   Uses ZigZag encoding.
+    /// Uses ZigZag encoding.
     case sint32 // = 17
 
-    ///   Uses ZigZag encoding.
+    /// Uses ZigZag encoding.
     case sint64 // = 18
 
     public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -902,7 +902,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   public enum Label: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     public typealias RawValue = Int
 
-    ///   0 is reserved for errors
+    /// 0 is reserved for errors
     case `optional` // = 1
     case `required` // = 2
     case repeated // = 3
@@ -1003,7 +1003,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a oneof.
+/// Describes a oneof.
 public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
 
@@ -1087,7 +1087,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes an enum type.
+/// Describes an enum type.
 public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumDescriptorProto"
 
@@ -1183,7 +1183,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a value within an enum.
+/// Describes a value within an enum.
 public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumValueDescriptorProto"
 
@@ -1284,7 +1284,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a service.
+/// Describes a service.
 public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
 
@@ -1380,7 +1380,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
   }
 }
 
-///   Describes a method of a service.
+/// Describes a method of a service.
 public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
 
@@ -1424,8 +1424,8 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._name = nil
   }
 
-  ///   Input and output type names.  These are resolved in the same way as
-  ///   FieldDescriptorProto.type_name, but must refer to a message type.
+  /// Input and output type names.  These are resolved in the same way as
+  /// FieldDescriptorProto.type_name, but must refer to a message type.
   public var inputType: String {
     get {return _storage._inputType ?? ""}
     set {_uniqueStorage()._inputType = newValue}
@@ -1459,7 +1459,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._options = nil
   }
 
-  ///   Identifies if client streams multiple client messages
+  /// Identifies if client streams multiple client messages
   public var clientStreaming: Bool {
     get {return _storage._clientStreaming ?? false}
     set {_uniqueStorage()._clientStreaming = newValue}
@@ -1471,7 +1471,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._clientStreaming = nil
   }
 
-  ///   Identifies if server streams multiple server messages
+  /// Identifies if server streams multiple server messages
   public var serverStreaming: Bool {
     get {return _storage._serverStreaming ?? false}
     set {_uniqueStorage()._serverStreaming = newValue}
@@ -1590,10 +1590,10 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage
   }
 
-  ///   Sets the Java package where classes generated from this .proto will be
-  ///   placed.  By default, the proto package is used, but this is often
-  ///   inappropriate because proto packages do not normally start with backwards
-  ///   domain names.
+  /// Sets the Java package where classes generated from this .proto will be
+  /// placed.  By default, the proto package is used, but this is often
+  /// inappropriate because proto packages do not normally start with backwards
+  /// domain names.
   public var javaPackage: String {
     get {return _storage._javaPackage ?? ""}
     set {_uniqueStorage()._javaPackage = newValue}
@@ -1605,11 +1605,11 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._javaPackage = nil
   }
 
-  ///   If set, all the classes from the .proto file are wrapped in a single
-  ///   outer class with the given name.  This applies to both Proto1
-  ///   (equivalent to the old "--one_java_file" option) and Proto2 (where
-  ///   a .proto always translates to a single class, but you may want to
-  ///   explicitly choose the class name).
+  /// If set, all the classes from the .proto file are wrapped in a single
+  /// outer class with the given name.  This applies to both Proto1
+  /// (equivalent to the old "--one_java_file" option) and Proto2 (where
+  /// a .proto always translates to a single class, but you may want to
+  /// explicitly choose the class name).
   public var javaOuterClassname: String {
     get {return _storage._javaOuterClassname ?? ""}
     set {_uniqueStorage()._javaOuterClassname = newValue}
@@ -1621,12 +1621,12 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._javaOuterClassname = nil
   }
 
-  ///   If set true, then the Java code generator will generate a separate .java
-  ///   file for each top-level message, enum, and service defined in the .proto
-  ///   file.  Thus, these types will *not* be nested inside the outer class
-  ///   named by java_outer_classname.  However, the outer class will still be
-  ///   generated to contain the file's getDescriptor() method as well as any
-  ///   top-level extensions defined in the file.
+  /// If set true, then the Java code generator will generate a separate .java
+  /// file for each top-level message, enum, and service defined in the .proto
+  /// file.  Thus, these types will *not* be nested inside the outer class
+  /// named by java_outer_classname.  However, the outer class will still be
+  /// generated to contain the file's getDescriptor() method as well as any
+  /// top-level extensions defined in the file.
   public var javaMultipleFiles: Bool {
     get {return _storage._javaMultipleFiles ?? false}
     set {_uniqueStorage()._javaMultipleFiles = newValue}
@@ -1638,7 +1638,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._javaMultipleFiles = nil
   }
 
-  ///   This option does nothing.
+  /// This option does nothing.
   public var javaGenerateEqualsAndHash: Bool {
     get {return _storage._javaGenerateEqualsAndHash ?? false}
     set {_uniqueStorage()._javaGenerateEqualsAndHash = newValue}
@@ -1650,12 +1650,12 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._javaGenerateEqualsAndHash = nil
   }
 
-  ///   If set true, then the Java2 code generator will generate code that
-  ///   throws an exception whenever an attempt is made to assign a non-UTF-8
-  ///   byte sequence to a string field.
-  ///   Message reflection will do the same.
-  ///   However, an extension field still accepts non-UTF-8 byte sequences.
-  ///   This option has no effect on when used with the lite runtime.
+  /// If set true, then the Java2 code generator will generate code that
+  /// throws an exception whenever an attempt is made to assign a non-UTF-8
+  /// byte sequence to a string field.
+  /// Message reflection will do the same.
+  /// However, an extension field still accepts non-UTF-8 byte sequences.
+  /// This option has no effect on when used with the lite runtime.
   public var javaStringCheckUtf8: Bool {
     get {return _storage._javaStringCheckUtf8 ?? false}
     set {_uniqueStorage()._javaStringCheckUtf8 = newValue}
@@ -1678,11 +1678,11 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._optimizeFor = nil
   }
 
-  ///   Sets the Go package where structs generated from this .proto will be
-  ///   placed. If omitted, the Go package will be derived from the following:
-  ///     - The basename of the package import path, if provided.
-  ///     - Otherwise, the package statement in the .proto file, if present.
-  ///     - Otherwise, the basename of the .proto file, without extension.
+  /// Sets the Go package where structs generated from this .proto will be
+  /// placed. If omitted, the Go package will be derived from the following:
+  ///   - The basename of the package import path, if provided.
+  ///   - Otherwise, the package statement in the .proto file, if present.
+  ///   - Otherwise, the basename of the .proto file, without extension.
   public var goPackage: String {
     get {return _storage._goPackage ?? ""}
     set {_uniqueStorage()._goPackage = newValue}
@@ -1694,16 +1694,16 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._goPackage = nil
   }
 
-  ///   Should generic services be generated in each language?  "Generic" services
-  ///   are not specific to any particular RPC system.  They are generated by the
-  ///   main code generators in each language (without additional plugins).
-  ///   Generic services were the only kind of service generation supported by
-  ///   early versions of google.protobuf.
-  ///  
-  ///   Generic services are now considered deprecated in favor of using plugins
-  ///   that generate code specific to your particular RPC system.  Therefore,
-  ///   these default to false.  Old code which depends on generic services should
-  ///   explicitly set them to true.
+  /// Should generic services be generated in each language?  "Generic" services
+  /// are not specific to any particular RPC system.  They are generated by the
+  /// main code generators in each language (without additional plugins).
+  /// Generic services were the only kind of service generation supported by
+  /// early versions of google.protobuf.
+  ///
+  /// Generic services are now considered deprecated in favor of using plugins
+  /// that generate code specific to your particular RPC system.  Therefore,
+  /// these default to false.  Old code which depends on generic services should
+  /// explicitly set them to true.
   public var ccGenericServices: Bool {
     get {return _storage._ccGenericServices ?? false}
     set {_uniqueStorage()._ccGenericServices = newValue}
@@ -1737,10 +1737,10 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._pyGenericServices = nil
   }
 
-  ///   Is this file deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for everything in the file, or it will be completely ignored; in the very
-  ///   least, this is a formalization for deprecating files.
+  /// Is this file deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for everything in the file, or it will be completely ignored; in the very
+  /// least, this is a formalization for deprecating files.
   public var deprecated: Bool {
     get {return _storage._deprecated ?? false}
     set {_uniqueStorage()._deprecated = newValue}
@@ -1752,8 +1752,8 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._deprecated = nil
   }
 
-  ///   Enables the use of arenas for the proto messages in this file. This applies
-  ///   only to generated classes for C++.
+  /// Enables the use of arenas for the proto messages in this file. This applies
+  /// only to generated classes for C++.
   public var ccEnableArenas: Bool {
     get {return _storage._ccEnableArenas ?? false}
     set {_uniqueStorage()._ccEnableArenas = newValue}
@@ -1765,8 +1765,8 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._ccEnableArenas = nil
   }
 
-  ///   Sets the objective c class prefix which is prepended to all objective c
-  ///   generated classes from this .proto. There is no default.
+  /// Sets the objective c class prefix which is prepended to all objective c
+  /// generated classes from this .proto. There is no default.
   public var objcClassPrefix: String {
     get {return _storage._objcClassPrefix ?? ""}
     set {_uniqueStorage()._objcClassPrefix = newValue}
@@ -1778,7 +1778,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._objcClassPrefix = nil
   }
 
-  ///   Namespace for generated classes; defaults to the package.
+  /// Namespace for generated classes; defaults to the package.
   public var csharpNamespace: String {
     get {return _storage._csharpNamespace ?? ""}
     set {_uniqueStorage()._csharpNamespace = newValue}
@@ -1790,10 +1790,10 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._csharpNamespace = nil
   }
 
-  ///   By default Swift generators will take the proto package and CamelCase it
-  ///   replacing '.' with underscore and use that to prefix the types/symbols
-  ///   defined. When this options is provided, they will use this value instead
-  ///   to prefix the types/symbols defined.
+  /// By default Swift generators will take the proto package and CamelCase it
+  /// replacing '.' with underscore and use that to prefix the types/symbols
+  /// defined. When this options is provided, they will use this value instead
+  /// to prefix the types/symbols defined.
   public var swiftPrefix: String {
     get {return _storage._swiftPrefix ?? ""}
     set {_uniqueStorage()._swiftPrefix = newValue}
@@ -1805,8 +1805,8 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._swiftPrefix = nil
   }
 
-  ///   Sets the php class prefix which is prepended to all php generated classes
-  ///   from this .proto. Default is empty.
+  /// Sets the php class prefix which is prepended to all php generated classes
+  /// from this .proto. Default is empty.
   public var phpClassPrefix: String {
     get {return _storage._phpClassPrefix ?? ""}
     set {_uniqueStorage()._phpClassPrefix = newValue}
@@ -1818,7 +1818,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _storage._phpClassPrefix = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] {
     get {return _storage._uninterpretedOption}
     set {_uniqueStorage()._uninterpretedOption = newValue}
@@ -1826,17 +1826,17 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  ///   Generated classes can be optimized for speed or code size.
+  /// Generated classes can be optimized for speed or code size.
   public enum OptimizeMode: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     public typealias RawValue = Int
 
-    ///   Generate complete code for parsing, serialization,
+    /// Generate complete code for parsing, serialization,
     case speed // = 1
 
-    ///   etc.
+    /// etc.
     case codeSize // = 2
 
-    ///   Generate code using MessageLite and the lite runtime.
+    /// Generate code using MessageLite and the lite runtime.
     case liteRuntime // = 3
 
     public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1972,24 +1972,24 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
 public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".MessageOptions"
 
-  ///   Set true to use the old proto1 MessageSet wire format for extensions.
-  ///   This is provided for backwards-compatibility with the MessageSet wire
-  ///   format.  You should not use this for any other reason:  It's less
-  ///   efficient, has fewer features, and is more complicated.
-  ///  
-  ///   The message must be defined exactly as follows:
-  ///     message Foo {
-  ///       option message_set_wire_format = true;
-  ///       extensions 4 to max;
-  ///     }
-  ///   Note that the message cannot have any defined fields; MessageSets only
-  ///   have extensions.
-  ///  
-  ///   All extensions of your type must be singular messages; e.g. they cannot
-  ///   be int32s, enums, or repeated messages.
-  ///  
-  ///   Because this is an option, the above two restrictions are not enforced by
-  ///   the protocol compiler.
+  /// Set true to use the old proto1 MessageSet wire format for extensions.
+  /// This is provided for backwards-compatibility with the MessageSet wire
+  /// format.  You should not use this for any other reason:  It's less
+  /// efficient, has fewer features, and is more complicated.
+  ///
+  /// The message must be defined exactly as follows:
+  ///   message Foo {
+  ///     option message_set_wire_format = true;
+  ///     extensions 4 to max;
+  ///   }
+  /// Note that the message cannot have any defined fields; MessageSets only
+  /// have extensions.
+  ///
+  /// All extensions of your type must be singular messages; e.g. they cannot
+  /// be int32s, enums, or repeated messages.
+  ///
+  /// Because this is an option, the above two restrictions are not enforced by
+  /// the protocol compiler.
   fileprivate var _messageSetWireFormat: Bool? = nil
   public var messageSetWireFormat: Bool {
     get {return _messageSetWireFormat ?? false}
@@ -2002,9 +2002,9 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
     return _messageSetWireFormat = nil
   }
 
-  ///   Disables the generation of the standard "descriptor()" accessor, which can
-  ///   conflict with a field of the same name.  This is meant to make migration
-  ///   from proto1 easier; new code should avoid fields named "descriptor".
+  /// Disables the generation of the standard "descriptor()" accessor, which can
+  /// conflict with a field of the same name.  This is meant to make migration
+  /// from proto1 easier; new code should avoid fields named "descriptor".
   fileprivate var _noStandardDescriptorAccessor: Bool? = nil
   public var noStandardDescriptorAccessor: Bool {
     get {return _noStandardDescriptorAccessor ?? false}
@@ -2017,10 +2017,10 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
     return _noStandardDescriptorAccessor = nil
   }
 
-  ///   Is this message deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for the message, or it will be completely ignored; in the very least,
-  ///   this is a formalization for deprecating messages.
+  /// Is this message deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for the message, or it will be completely ignored; in the very least,
+  /// this is a formalization for deprecating messages.
   fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
@@ -2033,27 +2033,27 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
     return _deprecated = nil
   }
 
-  ///   Whether the message is an automatically generated map entry type for the
-  ///   maps field.
-  ///  
-  ///   For maps fields:
-  ///       map<KeyType, ValueType> map_field = 1;
-  ///   The parsed descriptor looks like:
-  ///       message MapFieldEntry {
-  ///           option map_entry = true;
-  ///           optional KeyType key = 1;
-  ///           optional ValueType value = 2;
-  ///       }
-  ///       repeated MapFieldEntry map_field = 1;
-  ///  
-  ///   Implementations may choose not to generate the map_entry=true message, but
-  ///   use a native map in the target language to hold the keys and values.
-  ///   The reflection APIs in such implementions still need to work as
-  ///   if the field is a repeated message field.
-  ///  
-  ///   NOTE: Do not set the option in .proto files. Always use the maps syntax
-  ///   instead. The option should only be implicitly set by the proto compiler
-  ///   parser.
+  /// Whether the message is an automatically generated map entry type for the
+  /// maps field.
+  ///
+  /// For maps fields:
+  ///     map<KeyType, ValueType> map_field = 1;
+  /// The parsed descriptor looks like:
+  ///     message MapFieldEntry {
+  ///         option map_entry = true;
+  ///         optional KeyType key = 1;
+  ///         optional ValueType value = 2;
+  ///     }
+  ///     repeated MapFieldEntry map_field = 1;
+  ///
+  /// Implementations may choose not to generate the map_entry=true message, but
+  /// use a native map in the target language to hold the keys and values.
+  /// The reflection APIs in such implementions still need to work as
+  /// if the field is a repeated message field.
+  ///
+  /// NOTE: Do not set the option in .proto files. Always use the maps syntax
+  /// instead. The option should only be implicitly set by the proto compiler
+  /// parser.
   fileprivate var _mapEntry: Bool? = nil
   public var mapEntry: Bool {
     get {return _mapEntry ?? false}
@@ -2066,7 +2066,7 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
     return _mapEntry = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2120,10 +2120,10 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
 public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".FieldOptions"
 
-  ///   The ctype option instructs the C++ code generator to use a different
-  ///   representation of the field than it normally would.  See the specific
-  ///   options below.  This option is not yet implemented in the open source
-  ///   release -- sorry, we'll try to include it in a future version!
+  /// The ctype option instructs the C++ code generator to use a different
+  /// representation of the field than it normally would.  See the specific
+  /// options below.  This option is not yet implemented in the open source
+  /// release -- sorry, we'll try to include it in a future version!
   fileprivate var _ctype: Google_Protobuf_FieldOptions.CType? = nil
   public var ctype: Google_Protobuf_FieldOptions.CType {
     get {return _ctype ?? Google_Protobuf_FieldOptions.CType.string}
@@ -2136,11 +2136,11 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return _ctype = nil
   }
 
-  ///   The packed option can be enabled for repeated primitive fields to enable
-  ///   a more efficient representation on the wire. Rather than repeatedly
-  ///   writing the tag and type for each element, the entire array is encoded as
-  ///   a single length-delimited blob. In proto3, only explicit setting it to
-  ///   false will avoid using packed encoding.
+  /// The packed option can be enabled for repeated primitive fields to enable
+  /// a more efficient representation on the wire. Rather than repeatedly
+  /// writing the tag and type for each element, the entire array is encoded as
+  /// a single length-delimited blob. In proto3, only explicit setting it to
+  /// false will avoid using packed encoding.
   fileprivate var _packed: Bool? = nil
   public var packed: Bool {
     get {return _packed ?? false}
@@ -2153,15 +2153,15 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return _packed = nil
   }
 
-  ///   The jstype option determines the JavaScript type used for values of the
-  ///   field.  The option is permitted only for 64 bit integral and fixed types
-  ///   (int64, uint64, sint64, fixed64, sfixed64).  By default these types are
-  ///   represented as JavaScript strings.  This avoids loss of precision that can
-  ///   happen when a large value is converted to a floating point JavaScript
-  ///   numbers.  Specifying JS_NUMBER for the jstype causes the generated
-  ///   JavaScript code to use the JavaScript "number" type instead of strings.
-  ///   This option is an enum to permit additional types to be added,
-  ///   e.g. goog.math.Integer.
+  /// The jstype option determines the JavaScript type used for values of the
+  /// field.  The option is permitted only for 64 bit integral and fixed types
+  /// (int64, uint64, sint64, fixed64, sfixed64).  By default these types are
+  /// represented as JavaScript strings.  This avoids loss of precision that can
+  /// happen when a large value is converted to a floating point JavaScript
+  /// numbers.  Specifying JS_NUMBER for the jstype causes the generated
+  /// JavaScript code to use the JavaScript "number" type instead of strings.
+  /// This option is an enum to permit additional types to be added,
+  /// e.g. goog.math.Integer.
   fileprivate var _jstype: Google_Protobuf_FieldOptions.JSType? = nil
   public var jstype: Google_Protobuf_FieldOptions.JSType {
     get {return _jstype ?? Google_Protobuf_FieldOptions.JSType.jsNormal}
@@ -2174,34 +2174,34 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return _jstype = nil
   }
 
-  ///   Should this field be parsed lazily?  Lazy applies only to message-type
-  ///   fields.  It means that when the outer message is initially parsed, the
-  ///   inner message's contents will not be parsed but instead stored in encoded
-  ///   form.  The inner message will actually be parsed when it is first accessed.
-  ///  
-  ///   This is only a hint.  Implementations are free to choose whether to use
-  ///   eager or lazy parsing regardless of the value of this option.  However,
-  ///   setting this option true suggests that the protocol author believes that
-  ///   using lazy parsing on this field is worth the additional bookkeeping
-  ///   overhead typically needed to implement it.
-  ///  
-  ///   This option does not affect the public interface of any generated code;
-  ///   all method signatures remain the same.  Furthermore, thread-safety of the
-  ///   interface is not affected by this option; const methods remain safe to
-  ///   call from multiple threads concurrently, while non-const methods continue
-  ///   to require exclusive access.
-  ///  
-  ///  
-  ///   Note that implementations may choose not to check required fields within
-  ///   a lazy sub-message.  That is, calling IsInitialized() on the outer message
-  ///   may return true even if the inner message has missing required fields.
-  ///   This is necessary because otherwise the inner message would have to be
-  ///   parsed in order to perform the check, defeating the purpose of lazy
-  ///   parsing.  An implementation which chooses not to check required fields
-  ///   must be consistent about it.  That is, for any particular sub-message, the
-  ///   implementation must either *always* check its required fields, or *never*
-  ///   check its required fields, regardless of whether or not the message has
-  ///   been parsed.
+  /// Should this field be parsed lazily?  Lazy applies only to message-type
+  /// fields.  It means that when the outer message is initially parsed, the
+  /// inner message's contents will not be parsed but instead stored in encoded
+  /// form.  The inner message will actually be parsed when it is first accessed.
+  ///
+  /// This is only a hint.  Implementations are free to choose whether to use
+  /// eager or lazy parsing regardless of the value of this option.  However,
+  /// setting this option true suggests that the protocol author believes that
+  /// using lazy parsing on this field is worth the additional bookkeeping
+  /// overhead typically needed to implement it.
+  ///
+  /// This option does not affect the public interface of any generated code;
+  /// all method signatures remain the same.  Furthermore, thread-safety of the
+  /// interface is not affected by this option; const methods remain safe to
+  /// call from multiple threads concurrently, while non-const methods continue
+  /// to require exclusive access.
+  ///
+  ///
+  /// Note that implementations may choose not to check required fields within
+  /// a lazy sub-message.  That is, calling IsInitialized() on the outer message
+  /// may return true even if the inner message has missing required fields.
+  /// This is necessary because otherwise the inner message would have to be
+  /// parsed in order to perform the check, defeating the purpose of lazy
+  /// parsing.  An implementation which chooses not to check required fields
+  /// must be consistent about it.  That is, for any particular sub-message, the
+  /// implementation must either *always* check its required fields, or *never*
+  /// check its required fields, regardless of whether or not the message has
+  /// been parsed.
   fileprivate var _lazy: Bool? = nil
   public var lazy: Bool {
     get {return _lazy ?? false}
@@ -2214,10 +2214,10 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return _lazy = nil
   }
 
-  ///   Is this field deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for accessors, or it will be completely ignored; in the very least, this
-  ///   is a formalization for deprecating fields.
+  /// Is this field deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for accessors, or it will be completely ignored; in the very least, this
+  /// is a formalization for deprecating fields.
   fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
@@ -2230,7 +2230,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return _deprecated = nil
   }
 
-  ///   For Google-internal migration only. Do not use.
+  /// For Google-internal migration only. Do not use.
   fileprivate var _weak: Bool? = nil
   public var weak: Bool {
     get {return _weak ?? false}
@@ -2243,7 +2243,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
     return _weak = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2251,7 +2251,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   public enum CType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     public typealias RawValue = Int
 
-    ///   Default mode.
+    /// Default mode.
     case string // = 0
     case cord // = 1
     case stringPiece // = 2
@@ -2288,13 +2288,13 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   public enum JSType: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     public typealias RawValue = Int
 
-    ///   Use the default type.
+    /// Use the default type.
     case jsNormal // = 0
 
-    ///   Use JavaScript strings.
+    /// Use JavaScript strings.
     case jsString // = 1
 
-    ///   Use JavaScript numbers.
+    /// Use JavaScript numbers.
     case jsNumber // = 2
 
     public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2383,7 +2383,7 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
 public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".OneofOptions"
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2421,8 +2421,8 @@ public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf
 public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".EnumOptions"
 
-  ///   Set this option to true to allow mapping different tag names to the same
-  ///   value.
+  /// Set this option to true to allow mapping different tag names to the same
+  /// value.
   fileprivate var _allowAlias: Bool? = nil
   public var allowAlias: Bool {
     get {return _allowAlias ?? false}
@@ -2435,10 +2435,10 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _allowAlias = nil
   }
 
-  ///   Is this enum deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for the enum, or it will be completely ignored; in the very least, this
-  ///   is a formalization for deprecating enums.
+  /// Is this enum deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for the enum, or it will be completely ignored; in the very least, this
+  /// is a formalization for deprecating enums.
   fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
@@ -2451,7 +2451,7 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
     return _deprecated = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2497,10 +2497,10 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
 public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".EnumValueOptions"
 
-  ///   Is this enum value deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for the enum value, or it will be completely ignored; in the very least,
-  ///   this is a formalization for deprecating enum values.
+  /// Is this enum value deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for the enum value, or it will be completely ignored; in the very least,
+  /// this is a formalization for deprecating enum values.
   fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
@@ -2513,7 +2513,7 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
     return _deprecated = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2555,10 +2555,10 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
 public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".ServiceOptions"
 
-  ///   Is this service deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for the service, or it will be completely ignored; in the very least,
-  ///   this is a formalization for deprecating services.
+  /// Is this service deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for the service, or it will be completely ignored; in the very least,
+  /// this is a formalization for deprecating services.
   fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
@@ -2571,7 +2571,7 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
     return _deprecated = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2613,10 +2613,10 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
 public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".MethodOptions"
 
-  ///   Is this method deprecated?
-  ///   Depending on the target platform, this can emit Deprecated annotations
-  ///   for the method, or it will be completely ignored; in the very least,
-  ///   this is a formalization for deprecating methods.
+  /// Is this method deprecated?
+  /// Depending on the target platform, this can emit Deprecated annotations
+  /// for the method, or it will be completely ignored; in the very least,
+  /// this is a formalization for deprecating methods.
   fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
@@ -2641,22 +2641,22 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
     return _idempotencyLevel = nil
   }
 
-  ///   The parser stores options it doesn't recognize here. See above.
+  /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  ///   Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
-  ///   or neither? HTTP based RPC implementation may choose GET verb for safe
-  ///   methods, and PUT verb for idempotent methods instead of the default POST.
+  /// Is this method side-effect-free (or safe in HTTP parlance), or idempotent,
+  /// or neither? HTTP based RPC implementation may choose GET verb for safe
+  /// methods, and PUT verb for idempotent methods instead of the default POST.
   public enum IdempotencyLevel: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
     public typealias RawValue = Int
     case idempotencyUnknown // = 0
 
-    ///   implies idempotent
+    /// implies idempotent
     case noSideEffects // = 1
 
-    ///   idempotent, but may have side effects
+    /// idempotent, but may have side effects
     case idempotent // = 2
 
     public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -2726,19 +2726,19 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-///   A message representing a option the parser does not recognize. This only
-///   appears in options protos created by the compiler::Parser class.
-///   DescriptorPool resolves these when building Descriptor objects. Therefore,
-///   options protos in descriptor objects (e.g. returned by Descriptor::options(),
-///   or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
-///   in them.
+/// A message representing a option the parser does not recognize. This only
+/// appears in options protos created by the compiler::Parser class.
+/// DescriptorPool resolves these when building Descriptor objects. Therefore,
+/// options protos in descriptor objects (e.g. returned by Descriptor::options(),
+/// or produced by Descriptor::CopyTo()) will never have UninterpretedOptions
+/// in them.
 public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".UninterpretedOption"
 
   public var name: [Google_Protobuf_UninterpretedOption.NamePart] = []
 
-  ///   The value of the uninterpreted option, in whatever type the tokenizer
-  ///   identified it as during parsing. Exactly one of these should be set.
+  /// The value of the uninterpreted option, in whatever type the tokenizer
+  /// identified it as during parsing. Exactly one of these should be set.
   fileprivate var _identifierValue: String? = nil
   public var identifierValue: String {
     get {return _identifierValue ?? ""}
@@ -2813,11 +2813,11 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  ///   The name of the uninterpreted option.  Each string represents a segment in
-  ///   a dot-separated name.  is_extension is true iff a segment represents an
-  ///   extension (denoted with parentheses in options specs in .proto files).
-  ///   E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
-  ///   "foo.(bar.baz).qux".
+  /// The name of the uninterpreted option.  Each string represents a segment in
+  /// a dot-separated name.  is_extension is true iff a segment represents an
+  /// extension (denoted with parentheses in options specs in .proto files).
+  /// E.g.,{ ["foo", false], ["bar.baz", true], ["qux", false] } represents
+  /// "foo.(bar.baz).qux".
   public struct NamePart: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_UninterpretedOption.protoMessageName + ".NamePart"
 
@@ -2924,54 +2924,54 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
   }
 }
 
-///   Encapsulates information about the original source file from which a
-///   FileDescriptorProto was generated.
+/// Encapsulates information about the original source file from which a
+/// FileDescriptorProto was generated.
 public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".SourceCodeInfo"
 
-  ///   A Location identifies a piece of source code in a .proto file which
-  ///   corresponds to a particular definition.  This information is intended
-  ///   to be useful to IDEs, code indexers, documentation generators, and similar
-  ///   tools.
-  ///  
-  ///   For example, say we have a file like:
-  ///     message Foo {
-  ///       optional string foo = 1;
-  ///     }
-  ///   Let's look at just the field definition:
+  /// A Location identifies a piece of source code in a .proto file which
+  /// corresponds to a particular definition.  This information is intended
+  /// to be useful to IDEs, code indexers, documentation generators, and similar
+  /// tools.
+  ///
+  /// For example, say we have a file like:
+  ///   message Foo {
   ///     optional string foo = 1;
-  ///     ^       ^^     ^^  ^  ^^^
-  ///     a       bc     de  f  ghi
-  ///   We have the following locations:
-  ///     span   path               represents
-  ///     [a,i)  [ 4, 0, 2, 0 ]     The whole field definition.
-  ///     [a,b)  [ 4, 0, 2, 0, 4 ]  The label (optional).
-  ///     [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
-  ///     [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
-  ///     [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
-  ///  
-  ///   Notes:
-  ///   - A location may refer to a repeated field itself (i.e. not to any
-  ///     particular index within it).  This is used whenever a set of elements are
-  ///     logically enclosed in a single code segment.  For example, an entire
-  ///     extend block (possibly containing multiple extension definitions) will
-  ///     have an outer location whose path refers to the "extensions" repeated
-  ///     field without an index.
-  ///   - Multiple locations may have the same path.  This happens when a single
-  ///     logical declaration is spread out across multiple places.  The most
-  ///     obvious example is the "extend" block again -- there may be multiple
-  ///     extend blocks in the same scope, each of which will have the same path.
-  ///   - A location's span is not always a subset of its parent's span.  For
-  ///     example, the "extendee" of an extension declaration appears at the
-  ///     beginning of the "extend" block and is shared by all extensions within
-  ///     the block.
-  ///   - Just because a location's span is a subset of some other location's span
-  ///     does not mean that it is a descendent.  For example, a "group" defines
-  ///     both a type and a field in a single declaration.  Thus, the locations
-  ///     corresponding to the type and field and their components will overlap.
-  ///   - Code which tries to interpret locations should probably be designed to
-  ///     ignore those that it doesn't understand, as more types of locations could
-  ///     be recorded in the future.
+  ///   }
+  /// Let's look at just the field definition:
+  ///   optional string foo = 1;
+  ///   ^       ^^     ^^  ^  ^^^
+  ///   a       bc     de  f  ghi
+  /// We have the following locations:
+  ///   span   path               represents
+  ///   [a,i)  [ 4, 0, 2, 0 ]     The whole field definition.
+  ///   [a,b)  [ 4, 0, 2, 0, 4 ]  The label (optional).
+  ///   [c,d)  [ 4, 0, 2, 0, 5 ]  The type (string).
+  ///   [e,f)  [ 4, 0, 2, 0, 1 ]  The name (foo).
+  ///   [g,h)  [ 4, 0, 2, 0, 3 ]  The number (1).
+  ///
+  /// Notes:
+  /// - A location may refer to a repeated field itself (i.e. not to any
+  ///   particular index within it).  This is used whenever a set of elements are
+  ///   logically enclosed in a single code segment.  For example, an entire
+  ///   extend block (possibly containing multiple extension definitions) will
+  ///   have an outer location whose path refers to the "extensions" repeated
+  ///   field without an index.
+  /// - Multiple locations may have the same path.  This happens when a single
+  ///   logical declaration is spread out across multiple places.  The most
+  ///   obvious example is the "extend" block again -- there may be multiple
+  ///   extend blocks in the same scope, each of which will have the same path.
+  /// - A location's span is not always a subset of its parent's span.  For
+  ///   example, the "extendee" of an extension declaration appears at the
+  ///   beginning of the "extend" block and is shared by all extensions within
+  ///   the block.
+  /// - Just because a location's span is a subset of some other location's span
+  ///   does not mean that it is a descendent.  For example, a "group" defines
+  ///   both a type and a field in a single declaration.  Thus, the locations
+  ///   corresponding to the type and field and their components will overlap.
+  /// - Code which tries to interpret locations should probably be designed to
+  ///   ignore those that it doesn't understand, as more types of locations could
+  ///   be recorded in the future.
   public var location: [Google_Protobuf_SourceCodeInfo.Location] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2979,85 +2979,85 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
   public struct Location: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_SourceCodeInfo.protoMessageName + ".Location"
 
-    ///   Identifies which part of the FileDescriptorProto was defined at this
-    ///   location.
-    ///  
-    ///   Each element is a field number or an index.  They form a path from
-    ///   the root FileDescriptorProto to the place where the definition.  For
-    ///   example, this path:
-    ///     [ 4, 3, 2, 7, 1 ]
-    ///   refers to:
-    ///     file.message_type(3)  // 4, 3
-    ///         .field(7)         // 2, 7
-    ///         .name()           // 1
-    ///   This is because FileDescriptorProto.message_type has field number 4:
-    ///     repeated DescriptorProto message_type = 4;
-    ///   and DescriptorProto.field has field number 2:
-    ///     repeated FieldDescriptorProto field = 2;
-    ///   and FieldDescriptorProto.name has field number 1:
-    ///     optional string name = 1;
-    ///  
-    ///   Thus, the above path gives the location of a field name.  If we removed
-    ///   the last element:
-    ///     [ 4, 3, 2, 7 ]
-    ///   this path refers to the whole field declaration (from the beginning
-    ///   of the label to the terminating semicolon).
+    /// Identifies which part of the FileDescriptorProto was defined at this
+    /// location.
+    ///
+    /// Each element is a field number or an index.  They form a path from
+    /// the root FileDescriptorProto to the place where the definition.  For
+    /// example, this path:
+    ///   [ 4, 3, 2, 7, 1 ]
+    /// refers to:
+    ///   file.message_type(3)  // 4, 3
+    ///       .field(7)         // 2, 7
+    ///       .name()           // 1
+    /// This is because FileDescriptorProto.message_type has field number 4:
+    ///   repeated DescriptorProto message_type = 4;
+    /// and DescriptorProto.field has field number 2:
+    ///   repeated FieldDescriptorProto field = 2;
+    /// and FieldDescriptorProto.name has field number 1:
+    ///   optional string name = 1;
+    ///
+    /// Thus, the above path gives the location of a field name.  If we removed
+    /// the last element:
+    ///   [ 4, 3, 2, 7 ]
+    /// this path refers to the whole field declaration (from the beginning
+    /// of the label to the terminating semicolon).
     public var path: [Int32] = []
 
-    ///   Always has exactly three or four elements: start line, start column,
-    ///   end line (optional, otherwise assumed same as start line), end column.
-    ///   These are packed into a single field for efficiency.  Note that line
-    ///   and column numbers are zero-based -- typically you will want to add
-    ///   1 to each before displaying to a user.
+    /// Always has exactly three or four elements: start line, start column,
+    /// end line (optional, otherwise assumed same as start line), end column.
+    /// These are packed into a single field for efficiency.  Note that line
+    /// and column numbers are zero-based -- typically you will want to add
+    /// 1 to each before displaying to a user.
     public var span: [Int32] = []
 
-    ///   If this SourceCodeInfo represents a complete declaration, these are any
-    ///   comments appearing before and after the declaration which appear to be
-    ///   attached to the declaration.
-    ///  
-    ///   A series of line comments appearing on consecutive lines, with no other
-    ///   tokens appearing on those lines, will be treated as a single comment.
-    ///  
-    ///   leading_detached_comments will keep paragraphs of comments that appear
-    ///   before (but not connected to) the current element. Each paragraph,
-    ///   separated by empty lines, will be one comment element in the repeated
-    ///   field.
-    ///  
-    ///   Only the comment content is provided; comment markers (e.g. //) are
-    ///   stripped out.  For block comments, leading whitespace and an asterisk
-    ///   will be stripped from the beginning of each line other than the first.
-    ///   Newlines are included in the output.
-    ///  
-    ///   Examples:
-    ///  
-    ///     optional int32 foo = 1;  // Comment attached to foo.
-    ///     // Comment attached to bar.
-    ///     optional int32 bar = 2;
-    ///  
-    ///     optional string baz = 3;
-    ///     // Comment attached to baz.
-    ///     // Another line attached to baz.
-    ///  
-    ///     // Comment attached to qux.
-    ///     //
-    ///     // Another line attached to qux.
-    ///     optional double qux = 4;
-    ///  
-    ///     // Detached comment for corge. This is not leading or trailing comments
-    ///     // to qux or corge because there are blank lines separating it from
-    ///     // both.
-    ///  
-    ///     // Detached comment for corge paragraph 2.
-    ///  
-    ///     optional string corge = 5;
-    ///     /* Block comment attached
-    ///      * to corge.  Leading asterisks
-    ///      * will be removed. */
-    ///     /* Block comment attached to
-    ///      * grault. */
-    ///     optional int32 grault = 6;
-    ///  
-    ///     // ignored detached comments.
+    /// If this SourceCodeInfo represents a complete declaration, these are any
+    /// comments appearing before and after the declaration which appear to be
+    /// attached to the declaration.
+    ///
+    /// A series of line comments appearing on consecutive lines, with no other
+    /// tokens appearing on those lines, will be treated as a single comment.
+    ///
+    /// leading_detached_comments will keep paragraphs of comments that appear
+    /// before (but not connected to) the current element. Each paragraph,
+    /// separated by empty lines, will be one comment element in the repeated
+    /// field.
+    ///
+    /// Only the comment content is provided; comment markers (e.g. //) are
+    /// stripped out.  For block comments, leading whitespace and an asterisk
+    /// will be stripped from the beginning of each line other than the first.
+    /// Newlines are included in the output.
+    ///
+    /// Examples:
+    ///
+    ///   optional int32 foo = 1;  // Comment attached to foo.
+    ///   // Comment attached to bar.
+    ///   optional int32 bar = 2;
+    ///
+    ///   optional string baz = 3;
+    ///   // Comment attached to baz.
+    ///   // Another line attached to baz.
+    ///
+    ///   // Comment attached to qux.
+    ///   //
+    ///   // Another line attached to qux.
+    ///   optional double qux = 4;
+    ///
+    ///   // Detached comment for corge. This is not leading or trailing comments
+    ///   // to qux or corge because there are blank lines separating it from
+    ///   // both.
+    ///
+    ///   // Detached comment for corge paragraph 2.
+    ///
+    ///   optional string corge = 5;
+    ///   /* Block comment attached
+    ///    * to corge.  Leading asterisks
+    ///    * will be removed. */
+    ///   /* Block comment attached to
+    ///    * grault. */
+    ///   optional int32 grault = 6;
+    ///
+    ///   // ignored detached comments.
     fileprivate var _leadingComments: String? = nil
     public var leadingComments: String {
       get {return _leadingComments ?? ""}
@@ -3140,14 +3140,14 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
   }
 }
 
-///   Describes the relationship between generated code and its original source
-///   file. A GeneratedCodeInfo message is associated with only one generated
-///   source file, but may contain references to different source .proto files.
+/// Describes the relationship between generated code and its original source
+/// file. A GeneratedCodeInfo message is associated with only one generated
+/// source file, but may contain references to different source .proto files.
 public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".GeneratedCodeInfo"
 
-  ///   An Annotation connects some span of text in generated code to an element
-  ///   of its generating .proto file.
+  /// An Annotation connects some span of text in generated code to an element
+  /// of its generating .proto file.
   public var annotation: [Google_Protobuf_GeneratedCodeInfo.Annotation] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3155,11 +3155,11 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
   public struct Annotation: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_GeneratedCodeInfo.protoMessageName + ".Annotation"
 
-    ///   Identifies the element in the original source .proto file. This field
-    ///   is formatted the same as SourceCodeInfo.Location.path.
+    /// Identifies the element in the original source .proto file. This field
+    /// is formatted the same as SourceCodeInfo.Location.path.
     public var path: [Int32] = []
 
-    ///   Identifies the filesystem path to the original source .proto.
+    /// Identifies the filesystem path to the original source .proto.
     fileprivate var _sourceFile: String? = nil
     public var sourceFile: String {
       get {return _sourceFile ?? ""}
@@ -3172,8 +3172,8 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
       return _sourceFile = nil
     }
 
-    ///   Identifies the starting offset in bytes in the generated code
-    ///   that relates to the identified object.
+    /// Identifies the starting offset in bytes in the generated code
+    /// that relates to the identified object.
     fileprivate var _begin: Int32? = nil
     public var begin: Int32 {
       get {return _begin ?? 0}
@@ -3186,9 +3186,9 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
       return _begin = nil
     }
 
-    ///   Identifies the ending offset in bytes in the generated code that
-    ///   relates to the identified offset. The end offset should be one past
-    ///   the last relevant byte (so the length of the text = end - begin).
+    /// Identifies the ending offset in bytes in the generated code that
+    /// relates to the identified offset. The end offset should be one past
+    /// the last relevant byte (so the length of the text = end - begin).
     fileprivate var _end: Int32? = nil
     public var end: Int32 {
       get {return _end ?? 0}

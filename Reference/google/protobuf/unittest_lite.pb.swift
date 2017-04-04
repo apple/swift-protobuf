@@ -6,39 +6,39 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Author: kenton@google.com (Kenton Varda)
-// 
-//  This is like unittest.proto but with optimize_for = LITE_RUNTIME.
+// Author: kenton@google.com (Kenton Varda)
+//
+// This is like unittest.proto but with optimize_for = LITE_RUNTIME.
 
 import Foundation
 import SwiftProtobuf
@@ -148,7 +148,7 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePr
 
 }
 
-///   Same as TestAllTypes but with the lite runtime.
+/// Same as TestAllTypes but with the lite runtime.
 struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesLite"
 
@@ -315,7 +315,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -580,7 +580,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     return _storage._optionalCord = nil
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessageLite {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessageLite()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
@@ -603,7 +603,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     return _storage._optionalLazyMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -729,7 +729,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
-  ///   Singular with defaults
+  /// Singular with defaults
   var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
@@ -1010,7 +1010,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     }
   }
 
-  ///   Tests toString for non-repeated fields with a list suffix
+  /// Tests toString for non-repeated fields with a list suffix
   var deceptivelyNamedList: Int32 {
     get {return _storage._deceptivelyNamedList ?? 0}
     set {_uniqueStorage()._deceptivelyNamedList = newValue}
@@ -1885,8 +1885,8 @@ struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message {
   }
 }
 
-///   Test that deprecated fields work.  We only verify that they compile (at one
-///   point this failed).
+/// Test that deprecated fields work.  We only verify that they compile (at one
+/// point this failed).
 struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedLite"
 
@@ -1923,7 +1923,7 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
   }
 }
 
-///   See the comments of the same type in unittest.proto.
+/// See the comments of the same type in unittest.proto.
 struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMergeLite"
 
@@ -2365,7 +2365,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-///   TestEmptyMessageLite is used to test unknown fields support in lite mode.
+/// TestEmptyMessageLite is used to test unknown fields support in lite mode.
 struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageLite"
 
@@ -2383,8 +2383,8 @@ struct ProtobufUnittest_TestEmptyMessageLite: SwiftProtobuf.Message {
   }
 }
 
-///   Like above, but declare all field numbers as potential extensions.  No
-///   actual extensions should ever be defined for this type.
+/// Like above, but declare all field numbers as potential extensions.  No
+/// actual extensions should ever be defined for this type.
 struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageWithExtensionsLite"
 
@@ -2904,7 +2904,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-///   Singular
+/// Singular
 let ProtobufUnittest_Extensions_optional_int32_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 1,
   fieldName: "protobuf_unittest.optional_int32_extension_lite",
@@ -3061,7 +3061,7 @@ let ProtobufUnittest_Extensions_optional_lazy_message_extension_lite = SwiftProt
   defaultValue: ProtobufUnittest_TestAllTypesLite.NestedMessage()
 )
 
-///   Repeated
+/// Repeated
 let ProtobufUnittest_Extensions_repeated_int32_extension_lite = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 31,
   fieldName: "protobuf_unittest.repeated_int32_extension_lite",
@@ -3212,7 +3212,7 @@ let ProtobufUnittest_Extensions_repeated_lazy_message_extension_lite = SwiftProt
   defaultValue: []
 )
 
-///   Singular with defaults
+/// Singular with defaults
 let ProtobufUnittest_Extensions_default_int32_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 61,
   fieldName: "protobuf_unittest.default_int32_extension_lite",
@@ -3333,7 +3333,7 @@ let ProtobufUnittest_Extensions_default_cord_extension_lite = SwiftProtobuf.Mess
   defaultValue: "123"
 )
 
-///   For oneof test
+/// For oneof test
 let ProtobufUnittest_Extensions_oneof_uint32_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 111,
   fieldName: "protobuf_unittest.oneof_uint32_extension_lite",
@@ -3488,7 +3488,7 @@ extension ProtobufUnittest_TestParsingMergeLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  ///   Singular
+  /// Singular
   var ProtobufUnittest_optionalInt32ExtensionLite: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite, value: newValue)}
@@ -3827,7 +3827,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  ///   Repeated
+  /// Repeated
   var ProtobufUnittest_repeatedInt32ExtensionLite: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension_lite)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension_lite, value: newValue)}
@@ -4153,7 +4153,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  ///   Singular with defaults
+  /// Singular with defaults
   var ProtobufUnittest_defaultInt32ExtensionLite: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension_lite) ?? 41}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension_lite, value: newValue)}
@@ -4414,7 +4414,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 }
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  ///   For oneof test
+  /// For oneof test
   var ProtobufUnittest_oneofUint32ExtensionLite: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension_lite) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension_lite, value: newValue)}

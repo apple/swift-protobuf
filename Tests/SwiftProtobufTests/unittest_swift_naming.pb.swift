@@ -6,23 +6,23 @@
  *
  */
 
-//  Protos/unittest_swift_reserved.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test Swift reserved words used as enum or message names
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_reserved.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
 
-///   proto2 syntax is used so the has*/clear* names also get generated.
+/// proto2 syntax is used so the has*/clear* names also get generated.
 
 import Foundation
 import SwiftProtobuf
@@ -898,13 +898,13 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum, SwiftProtobuf._Pro
   typealias RawValue = Int
   case aa // = 0
 
-  ///   protoc no longer allows enum naming that would differ only in underscores.
-  ///   Initial commit:
-  ///     https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
-  ///   Change keep proto3 as error, but proto2 to just a warning:
-  ///     https://github.com/google/protobuf/pull/2204
-  ///   So this is in a second enum so it won't cause issues with the '_' one;
-  ///   but still ensure things generator correctly.
+  /// protoc no longer allows enum naming that would differ only in underscores.
+  /// Initial commit:
+  ///   https://github.com/google/protobuf/commit/cc8ca5b6a5478b40546d4206392eb1471454460d
+  /// Change keep proto3 as error, but proto2 to just a warning:
+  ///   https://github.com/google/protobuf/pull/2204
+  /// So this is in a second enum so it won't cause issues with the '_' one;
+  /// but still ensure things generator correctly.
   case ____ // = 1065
 
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [

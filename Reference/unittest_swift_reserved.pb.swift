@@ -6,21 +6,21 @@
  *
  */
 
-//  Protos/unittest_swift_reserved.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test Swift reserved words used as enum or message names
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_reserved.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test Swift reserved words used as enum or message names
+///
+// -----------------------------------------------------------------------------
 
 import Foundation
 import SwiftProtobuf
@@ -40,7 +40,7 @@ fileprivate let _protobuf_package = "protobuf_unittest"
 struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
 
-  ///   static r/o properties on Message, ensure they still work as fields.
+  /// static r/o properties on Message, ensure they still work as fields.
   fileprivate var _protoMessageName: Int32? = nil
   var protoMessageName: Int32 {
     get {return _protoMessageName ?? 0}
@@ -89,7 +89,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _anyTypeURL = nil
   }
 
-  ///   r/o properties on Message, ensure it gets remapped.
+  /// r/o properties on Message, ensure it gets remapped.
   fileprivate var _isInitialized_p: String? = nil
   var isInitialized_p: String {
     get {return _isInitialized_p ?? ""}
@@ -325,17 +325,17 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message {
 
   struct Extensions {
 
-    ///   This will end up in the "struct Extensions" to scope it, but there
-    ///   the raw form is used ("hash_value", not the Swift one "hashValue"),
-    ///   so there is no conflict, and no renaming happens.
+    /// This will end up in the "struct Extensions" to scope it, but there
+    /// the raw form is used ("hash_value", not the Swift one "hashValue"),
+    /// so there is no conflict, and no renaming happens.
     static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
       _protobuf_fieldNumber: 1001,
       fieldName: "protobuf_unittest.SwiftReservedTestExt.hash_value",
       defaultValue: false
     )
 
-    ///   Reserved words, since these end up in the "struct Extensions", they
-    ///   can't just be get their names, and sanitation kicks.
+    /// Reserved words, since these end up in the "struct Extensions", they
+    /// can't just be get their names, and sanitation kicks.
     static let `as` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
       _protobuf_fieldNumber: 1022,
       fieldName: "protobuf_unittest.SwiftReservedTestExt.as",
@@ -379,15 +379,15 @@ struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message {
   }
 }
 
-///   Won't get _p added because it is fully qualified.
+/// Won't get _p added because it is fully qualified.
 let ProtobufUnittest_Extensions_debug_description = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1000,
   fieldName: "protobuf_unittest.debug_description",
   defaultValue: false
 )
 
-///   These are scoped to the file, so the package prefix (or a Swift prefix)
-///   will get added to them to they aren't going to get renamed.
+/// These are scoped to the file, so the package prefix (or a Swift prefix)
+/// will get added to them to they aren't going to get renamed.
 let ProtobufUnittest_Extensions_as = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(
   _protobuf_fieldNumber: 1012,
   fieldName: "protobuf_unittest.as",
@@ -419,9 +419,9 @@ let ProtobufUnittest_Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExt
 )
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
-  ///   This will end up in the "struct Extensions" to scope it, but there
-  ///   the raw form is used ("hash_value", not the Swift one "hashValue"),
-  ///   so there is no conflict, and no renaming happens.
+  /// This will end up in the "struct Extensions" to scope it, but there
+  /// the raw form is used ("hash_value", not the Swift one "hashValue"),
+  /// so there is no conflict, and no renaming happens.
   var ProtobufUnittest_SwiftReservedTestExt_hashValue: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value, value: newValue)}
@@ -435,8 +435,8 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
-  ///   Reserved words, since these end up in the "struct Extensions", they
-  ///   can't just be get their names, and sanitation kicks.
+  /// Reserved words, since these end up in the "struct Extensions", they
+  /// can't just be get their names, and sanitation kicks.
   var ProtobufUnittest_SwiftReservedTestExt_as: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as, value: newValue)}
@@ -502,7 +502,7 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
-  ///   Won't get _p added because it is fully qualified.
+  /// Won't get _p added because it is fully qualified.
   var ProtobufUnittest_debugDescription: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_debug_description) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_debug_description, value: newValue)}
@@ -516,8 +516,8 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
-  ///   These are scoped to the file, so the package prefix (or a Swift prefix)
-  ///   will get added to them to they aren't going to get renamed.
+  /// These are scoped to the file, so the package prefix (or a Swift prefix)
+  /// will get added to them to they aren't going to get renamed.
   var ProtobufUnittest_as: Bool {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_as) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_as, value: newValue)}

@@ -6,41 +6,41 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Author: kenton@google.com (Kenton Varda)
-//   Based on original Protocol Buffers design by
-//   Sanjay Ghemawat, Jeff Dean, and others.
-// 
-//  A proto file we will use for unit testing.
+// Author: kenton@google.com (Kenton Varda)
+//  Based on original Protocol Buffers design by
+//  Sanjay Ghemawat, Jeff Dean, and others.
+//
+// A proto file we will use for unit testing.
 
 import Foundation
 import SwiftProtobuf
@@ -92,7 +92,7 @@ enum ProtobufUnittest_ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameP
 
 }
 
-///   Test an enum that has multiple values with the same number.
+/// Test an enum that has multiple values with the same number.
 enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case foo1 // = 1
@@ -130,7 +130,7 @@ enum ProtobufUnittest_TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._P
 
 }
 
-///   Test an enum with large, unordered values.
+/// Test an enum with large, unordered values.
 enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case sparseA // = 123
@@ -182,8 +182,8 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNa
 
 }
 
-///   This proto includes every type of field in both singular and repeated
-///   forms.
+/// This proto includes every type of field in both singular and repeated
+/// forms.
 struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
@@ -348,7 +348,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -613,7 +613,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalCord = nil
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._optionalPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._optionalPublicImportMessage = newValue}
@@ -636,7 +636,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalLazyMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -762,7 +762,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
-  ///   Singular with defaults
+  /// Singular with defaults
   var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
@@ -1120,7 +1120,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     case bar // = 2
     case baz // = 3
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
 
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
@@ -1158,9 +1158,9 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllTypes.protoMessageName + ".NestedMessage"
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
@@ -1576,7 +1576,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   }
 }
 
-///   This proto includes a recusively nested message.
+/// This proto includes a recusively nested message.
 struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
 
@@ -1717,8 +1717,8 @@ struct ProtobufUnittest_TestDeprecatedMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Define these after TestAllTypes to make sure the compiler can handle
-///   that.
+/// Define these after TestAllTypes to make sure the compiler can handle
+/// that.
 struct ProtobufUnittest_ForeignMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
 
@@ -1895,16 +1895,16 @@ struct ProtobufUnittest_TestNestedExtension: SwiftProtobuf.Message {
 
   struct Extensions {
 
-    ///   Check for bug where string extensions declared in tested scope did not
-    ///   compile.
+    /// Check for bug where string extensions declared in tested scope did not
+    /// compile.
     static let test = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
       _protobuf_fieldNumber: 1002,
       fieldName: "protobuf_unittest.TestNestedExtension.test",
       defaultValue: "test"
     )
 
-    ///   Used to test if generated extension name is correct when there are
-    ///   underscores.
+    /// Used to test if generated extension name is correct when there are
+    /// underscores.
     static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
       _protobuf_fieldNumber: 1003,
       fieldName: "protobuf_unittest.TestNestedExtension.nested_string_extension",
@@ -1924,11 +1924,11 @@ struct ProtobufUnittest_TestNestedExtension: SwiftProtobuf.Message {
   }
 }
 
-///   We have separate messages for testing required fields because it's
-///   annoying to have to fill in required fields in TestProto in order to
-///   do anything with it.  Note that we don't need to test every type of
-///   required filed because the code output is basically identical to
-///   optional fields for all types.
+/// We have separate messages for testing required fields because it's
+/// annoying to have to fill in required fields in TestProto in order to
+/// do anything with it.  Note that we don't need to test every type of
+/// required filed because the code output is basically identical to
+/// optional fields for all types.
 struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
 
@@ -2048,8 +2048,8 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._b = nil
   }
 
-  ///   Pad the field count to 32 so that we can test that IsInitialized()
-  ///   properly checks multiple elements of has_bits_.
+  /// Pad the field count to 32 so that we can test that IsInitialized()
+  /// properly checks multiple elements of has_bits_.
   var dummy4: Int32 {
     get {return _storage._dummy4 ?? 0}
     set {_uniqueStorage()._dummy4 = newValue}
@@ -2653,7 +2653,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
   }
 }
 
-///   Test that we can use NestedMessage from outside TestAllTypes.
+/// Test that we can use NestedMessage from outside TestAllTypes.
 struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
 
@@ -2713,7 +2713,7 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message {
   }
 }
 
-///   TestEmptyMessage is used to test unknown field support.
+/// TestEmptyMessage is used to test unknown field support.
 struct ProtobufUnittest_TestEmptyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessage"
 
@@ -2731,8 +2731,8 @@ struct ProtobufUnittest_TestEmptyMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Like above, but declare all field numbers as potential extensions.  No
-///   actual extensions should ever be defined for this type.
+/// Like above, but declare all field numbers as potential extensions.  No
+/// actual extensions should ever be defined for this type.
 struct ProtobufUnittest_TestEmptyMessageWithExtensions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessageWithExtensions"
 
@@ -2791,12 +2791,12 @@ struct ProtobufUnittest_TestMultipleExtensionRanges: SwiftProtobuf.Message, Swif
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-///   Test that really large tag numbers don't break anything.
+/// Test that really large tag numbers don't break anything.
 struct ProtobufUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestReallyLargeTagNumber"
 
-  ///   The largest possible tag number is 2^28 - 1, since the wire format uses
-  ///   three bits to communicate wire type.
+  /// The largest possible tag number is 2^28 - 1, since the wire format uses
+  /// three bits to communicate wire type.
   fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
@@ -2922,7 +2922,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test that mutual recursion works.
+/// Test that mutual recursion works.
 struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
 
@@ -3058,10 +3058,10 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
   }
 }
 
-///   Test that groups have disjoint field numbers from their siblings and
-///   parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
-///   to compile with proto1, this will emit an error; so we only include it
-///   in protobuf_unittest_proto.
+/// Test that groups have disjoint field numbers from their siblings and
+/// parents.  This is NOT possible in proto1; only google.protobuf.  When attempting
+/// to compile with proto1, this will emit an error; so we only include it
+/// in protobuf_unittest_proto.
 struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDupFieldNumber"
 
@@ -3088,7 +3088,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   NO_PROTO1
+  /// NO_PROTO1
   var a: Int32 {
     get {return _storage._a ?? 0}
     set {_uniqueStorage()._a = newValue}
@@ -3228,7 +3228,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
   }
 }
 
-///   Additional messages for testing lazy fields.
+/// Additional messages for testing lazy fields.
 struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEagerMessage"
 
@@ -3347,7 +3347,7 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Needed for a Python test.
+/// Needed for a Python test.
 struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageHasBits"
 
@@ -3439,8 +3439,8 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
   }
 }
 
-///   Test message with CamelCase field names.  This violates Protocol Buffer
-///   standard style.
+/// Test message with CamelCase field names.  This violates Protocol Buffer
+/// standard style.
 struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
 
@@ -3651,8 +3651,8 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   }
 }
 
-///   We list fields out of order, to ensure that we're using field number and not
-///   field index to determine serialization order.
+/// We list fields out of order, to ensure that we're using field number and not
+/// field index to determine serialization order.
 struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
 
@@ -3742,9 +3742,9 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
       return _oo = nil
     }
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
@@ -3980,9 +3980,9 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._reallySmallInt64 = nil
   }
 
-  ///   The default value here is UTF-8 for "\u1234".  (We could also just type
-  ///   the UTF-8 text directly into this text file rather than escape it, but
-  ///   lots of people use editors that would be confused by this.)
+  /// The default value here is UTF-8 for "\u1234".  (We could also just type
+  /// the UTF-8 text directly into this text file rather than escape it, but
+  /// lots of people use editors that would be confused by this.)
   var utf8String: String {
     get {return _storage._utf8String ?? "ሴ"}
     set {_uniqueStorage()._utf8String = newValue}
@@ -3994,7 +3994,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._utf8String = nil
   }
 
-  ///   Tests for single-precision floating-point values.
+  /// Tests for single-precision floating-point values.
   var zeroFloat: Float {
     get {return _storage._zeroFloat ?? 0}
     set {_uniqueStorage()._zeroFloat = newValue}
@@ -4050,7 +4050,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._negativeFloat = nil
   }
 
-  ///   Using exponents
+  /// Using exponents
   var largeFloat: Float {
     get {return _storage._largeFloat ?? 2e+08}
     set {_uniqueStorage()._largeFloat = newValue}
@@ -4073,7 +4073,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._smallNegativeFloat = nil
   }
 
-  ///   Text for nonfinite floating-point values.
+  /// Text for nonfinite floating-point values.
   var infDouble: Double {
     get {return _storage._infDouble ?? Double.infinity}
     set {_uniqueStorage()._infDouble = newValue}
@@ -4140,11 +4140,11 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._nanFloat = nil
   }
 
-  ///   Tests for C++ trigraphs.
-  ///   Trigraphs should be escaped in C++ generated files, but they should not be
-  ///   escaped for other languages.
-  ///   Note that in .proto file, "\?" is a valid way to escape ? in string
-  ///   literals.
+  /// Tests for C++ trigraphs.
+  /// Trigraphs should be escaped in C++ generated files, but they should not be
+  /// escaped for other languages.
+  /// Note that in .proto file, "\?" is a valid way to escape ? in string
+  /// literals.
   var cppTrigraph: String {
     get {return _storage._cppTrigraph ?? "? ? ?? ?? ??? ??/ ??-"}
     set {_uniqueStorage()._cppTrigraph = newValue}
@@ -4156,7 +4156,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._cppTrigraph = nil
   }
 
-  ///   String defaults containing the character '\000'
+  /// String defaults containing the character '\000'
   var stringWithZero: String {
     get {return _storage._stringWithZero ?? "hel\0lo"}
     set {_uniqueStorage()._stringWithZero = newValue}
@@ -4378,7 +4378,7 @@ struct ProtobufUnittest_SparseEnumMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test String and Bytes: string is for valid UTF-8 strings
+/// Test String and Bytes: string is for valid UTF-8 strings
 struct ProtobufUnittest_OneString: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneString"
 
@@ -4503,7 +4503,7 @@ struct ProtobufUnittest_MoreBytes: SwiftProtobuf.Message {
   }
 }
 
-///   Test int32, uint32, int64, uint64, and bool are all compatible
+/// Test int32, uint32, int64, uint64, and bool are all compatible
 struct ProtobufUnittest_Int32Message: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Int32Message"
 
@@ -4684,7 +4684,7 @@ struct ProtobufUnittest_BoolMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test oneofs.
+/// Test oneofs.
 struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
@@ -6043,8 +6043,8 @@ struct ProtobufUnittest_TestPackedTypes: SwiftProtobuf.Message {
   }
 }
 
-///   A message with the same fields as TestPackedTypes, but without packing. Used
-///   to test packed <-> unpacked wire compatibility.
+/// A message with the same fields as TestPackedTypes, but without packing. Used
+/// to test packed <-> unpacked wire compatibility.
 struct ProtobufUnittest_TestUnpackedTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
 
@@ -6205,9 +6205,9 @@ struct ProtobufUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftProt
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-///   Used by ExtensionSetTest/DynamicExtensions.  The test actually builds
-///   a set of extensions to TestAllExtensions dynamically, based on the fields
-///   of this message type.
+/// Used by ExtensionSetTest/DynamicExtensions.  The test actually builds
+/// a set of extensions to TestAllExtensions dynamically, based on the fields
+/// of this message type.
 struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDynamicExtensions"
 
@@ -6431,20 +6431,20 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedScalarDifferentTagSizes"
 
-  ///   Parsing repeated fixed size values used to fail. This message needs to be
-  ///   used in order to get a tag of the right size; all of the repeated fields
-  ///   in TestAllTypes didn't trigger the check.
+  /// Parsing repeated fixed size values used to fail. This message needs to be
+  /// used in order to get a tag of the right size; all of the repeated fields
+  /// in TestAllTypes didn't trigger the check.
   var repeatedFixed32: [UInt32] = []
 
-  ///   Check for a varint type, just for good measure.
+  /// Check for a varint type, just for good measure.
   var repeatedInt32: [Int32] = []
 
-  ///   These have two-byte tags.
+  /// These have two-byte tags.
   var repeatedFixed64: [UInt64] = []
 
   var repeatedInt64: [Int64] = []
 
-  ///   Three byte tags.
+  /// Three byte tags.
   var repeatedFloat: [Float] = []
 
   var repeatedUint64: [UInt64] = []
@@ -6490,8 +6490,8 @@ struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Messa
   }
 }
 
-///   Test that if an optional or required message/group field appears multiple
-///   times in the input, they need to be merged.
+/// Test that if an optional or required message/group field appears multiple
+/// times in the input, they need to be merged.
 struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
 
@@ -6567,11 +6567,11 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  ///   RepeatedFieldsGenerator defines matching field types as TestParsingMerge,
-  ///   except that all fields are repeated. In the tests, we will serialize the
-  ///   RepeatedFieldsGenerator to bytes, and parse the bytes to TestParsingMerge.
-  ///   Repeated fields in RepeatedFieldsGenerator are expected to be merged into
-  ///   the corresponding required/optional fields in TestParsingMerge.
+  /// RepeatedFieldsGenerator defines matching field types as TestParsingMerge,
+  /// except that all fields are repeated. In the tests, we will serialize the
+  /// RepeatedFieldsGenerator to bytes, and parse the bytes to TestParsingMerge.
+  /// Repeated fields in RepeatedFieldsGenerator are expected to be merged into
+  /// the corresponding required/optional fields in TestParsingMerge.
   struct RepeatedFieldsGenerator: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.protoMessageName + ".RepeatedFieldsGenerator"
 
@@ -6941,7 +6941,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
 struct ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCommentInjectionMessage"
 
-  ///   */ <- This should not close the generated doc comment
+  /// */ <- This should not close the generated doc comment
   fileprivate var _a: String? = nil
   var a: String {
     get {return _a ?? "*/ <- Neither should this."}
@@ -6975,7 +6975,7 @@ struct ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test that RPC services work.
+/// Test that RPC services work.
 struct ProtobufUnittest_FooRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FooRequest"
 
@@ -7571,7 +7571,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-///   Singular
+/// Singular
 let ProtobufUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 1,
   fieldName: "protobuf_unittest.optional_int32_extension",
@@ -7728,7 +7728,7 @@ let ProtobufUnittest_Extensions_optional_lazy_message_extension = SwiftProtobuf.
   defaultValue: ProtobufUnittest_TestAllTypes.NestedMessage()
 )
 
-///   Repeated
+/// Repeated
 let ProtobufUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 31,
   fieldName: "protobuf_unittest.repeated_int32_extension",
@@ -7879,7 +7879,7 @@ let ProtobufUnittest_Extensions_repeated_lazy_message_extension = SwiftProtobuf.
   defaultValue: []
 )
 
-///   Singular with defaults
+/// Singular with defaults
 let ProtobufUnittest_Extensions_default_int32_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 61,
   fieldName: "protobuf_unittest.default_int32_extension",
@@ -8000,7 +8000,7 @@ let ProtobufUnittest_Extensions_default_cord_extension = SwiftProtobuf.MessageEx
   defaultValue: "123"
 )
 
-///   For oneof test
+/// For oneof test
 let ProtobufUnittest_Extensions_oneof_uint32_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 111,
   fieldName: "protobuf_unittest.oneof_uint32_extension",
@@ -8212,8 +8212,8 @@ let ProtobufUnittest_Extensions_test_all_types = SwiftProtobuf.MessageExtension<
 )
 
 extension ProtobufUnittest_TestAllExtensions {
-  ///   Check for bug where string extensions declared in tested scope did not
-  ///   compile.
+  /// Check for bug where string extensions declared in tested scope did not
+  /// compile.
   var ProtobufUnittest_TestNestedExtension_test: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.test) ?? "test"}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.test, value: newValue)}
@@ -8227,8 +8227,8 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  ///   Used to test if generated extension name is correct when there are
-  ///   underscores.
+  /// Used to test if generated extension name is correct when there are
+  /// underscores.
   var ProtobufUnittest_TestNestedExtension_nestedStringExtension: String {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension) ?? ""}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension, value: newValue)}
@@ -8294,7 +8294,7 @@ extension ProtobufUnittest_TestParsingMerge {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  ///   Singular
+  /// Singular
   var ProtobufUnittest_optionalInt32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension, value: newValue)}
@@ -8633,7 +8633,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  ///   Repeated
+  /// Repeated
   var ProtobufUnittest_repeatedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension, value: newValue)}
@@ -8959,7 +8959,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  ///   Singular with defaults
+  /// Singular with defaults
   var ProtobufUnittest_defaultInt32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension) ?? 41}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension, value: newValue)}
@@ -9220,7 +9220,7 @@ extension ProtobufUnittest_TestAllExtensions {
 }
 
 extension ProtobufUnittest_TestAllExtensions {
-  ///   For oneof test
+  /// For oneof test
   var ProtobufUnittest_oneofUint32Extension: UInt32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension, value: newValue)}

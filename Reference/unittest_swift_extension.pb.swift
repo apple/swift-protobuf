@@ -6,21 +6,21 @@
  *
  */
 
-//  Protos/unittest_swift_extension.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test handling of extensions to deeply nested messages.
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_extension.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test handling of extensions to deeply nested messages.
+///
+// -----------------------------------------------------------------------------
 
 import Foundation
 import SwiftProtobuf
@@ -120,7 +120,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
 struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
 
-  ///        extensions 10 to 20;
+  ///      extensions 10 to 20;
   fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
@@ -291,7 +291,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     return _storage._x = nil
   }
 
-  ///   Recursive class (i.e. - can build a graph), forces _StorageClass.
+  /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: ProtobufUnittest_Extend_MsgUsesStorage {
     get {return _storage._y ?? ProtobufUnittest_Extend_MsgUsesStorage()}
     set {_uniqueStorage()._y = newValue}

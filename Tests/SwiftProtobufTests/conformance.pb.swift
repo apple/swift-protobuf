@@ -6,35 +6,35 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Foundation
 import SwiftProtobuf
@@ -88,11 +88,11 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProvidi
 
 }
 
-///   Represents a single test case's input.  The testee should:
-///  
-///     1. parse this proto (which should always succeed)
-///     2. parse the protobuf or JSON payload in "payload" (which may fail)
-///     3. if the parse succeeded, serialize the message in the requested format.
+/// Represents a single test case's input.  The testee should:
+///
+///   1. parse this proto (which should always succeed)
+///   2. parse the protobuf or JSON payload in "payload" (which may fail)
+///   3. if the parse succeeded, serialize the message in the requested format.
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
 
@@ -122,7 +122,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
     }
   }
 
-  ///   Which format should the testee serialize its message to?
+  /// Which format should the testee serialize its message to?
   var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -196,15 +196,15 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   }
 }
 
-///   Represents a single test case's output.
+/// Represents a single test case's output.
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
 
-  ///   This string should be set to indicate parsing failed.  The string can
-  ///   provide more information about the parse error if it is available.
-  ///  
-  ///   Setting this string does not necessarily mean the testee failed the
-  ///   test.  Some of the test cases are intentionally invalid input.
+  /// This string should be set to indicate parsing failed.  The string can
+  /// provide more information about the parse error if it is available.
+  ///
+  /// Setting this string does not necessarily mean the testee failed the
+  /// test.  Some of the test cases are intentionally invalid input.
   var parseError: String {
     get {
       if case .parseError(let v)? = result {
@@ -219,9 +219,9 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
 
   var result: Conformance_ConformanceResponse.OneOf_Result? = nil
 
-  ///   If the input was successfully parsed but errors occurred when
-  ///   serializing it to the requested output format, set the error message in
-  ///   this field.
+  /// If the input was successfully parsed but errors occurred when
+  /// serializing it to the requested output format, set the error message in
+  /// this field.
   var serializeError: String {
     get {
       if case .serializeError(let v)? = result {
@@ -234,9 +234,9 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
   }
 
-  ///   This should be set if some other error occurred.  This will always
-  ///   indicate that the test failed.  The string can provide more information
-  ///   about the failure.
+  /// This should be set if some other error occurred.  This will always
+  /// indicate that the test failed.  The string can provide more information
+  /// about the failure.
   var runtimeError: String {
     get {
       if case .runtimeError(let v)? = result {
@@ -249,8 +249,8 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
   }
 
-  ///   If the input was successfully parsed and the requested output was
-  ///   protobuf, serialize it to protobuf and set it in this field.
+  /// If the input was successfully parsed and the requested output was
+  /// protobuf, serialize it to protobuf and set it in this field.
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = result {
@@ -263,8 +263,8 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
   }
 
-  ///   If the input was successfully parsed and the requested output was JSON,
-  ///   serialize to JSON and set it in this field.
+  /// If the input was successfully parsed and the requested output was JSON,
+  /// serialize to JSON and set it in this field.
   var jsonPayload: String {
     get {
       if case .jsonPayload(let v)? = result {
@@ -277,8 +277,8 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
   }
 
-  ///   For when the testee skipped the test, likely because a certain feature
-  ///   wasn't supported, like JSON input/output.
+  /// For when the testee skipped the test, likely because a certain feature
+  /// wasn't supported, like JSON input/output.
   var skipped: String {
     get {
       if case .skipped(let v)? = result {

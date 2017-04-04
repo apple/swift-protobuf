@@ -6,21 +6,21 @@
  *
  */
 
-//  Protos/unittest_swift_enum_optional_default.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test handling of enum fields with specified defaults
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_enum_optional_default.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test handling of enum fields with specified defaults
+///
+// -----------------------------------------------------------------------------
 
 import Foundation
 import SwiftProtobuf
@@ -66,8 +66,8 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       return _storage
     }
 
-    ///   The circular reference here forces the generator to
-    ///   implement heap-backed storage.
+    /// The circular reference here forces the generator to
+    /// implement heap-backed storage.
     var message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage {
       get {return _storage._message ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage()}
       set {_uniqueStorage()._message = newValue}

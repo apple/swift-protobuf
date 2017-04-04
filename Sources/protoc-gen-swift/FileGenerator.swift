@@ -250,7 +250,7 @@ class FileGenerator {
 
             if includeLeadingDetached {
                 for detached in location.leadingDetachedComments {
-                    let comment = prefixLines(text: detached, prefix: "// ")
+                    let comment = prefixLines(text: detached, prefix: "//")
                     if !comment.isEmpty {
                         result += comment
                         // Detached comments have blank lines between then (and
@@ -261,7 +261,7 @@ class FileGenerator {
             }
 
             let comments = location.hasLeadingComments ? location.leadingComments : location.trailingComments
-            result += prefixLines(text: escapeMarkup(comments), prefix: "///  ")
+            result += prefixLines(text: escapeMarkup(comments), prefix: "///")
             return result
         }
         return ""

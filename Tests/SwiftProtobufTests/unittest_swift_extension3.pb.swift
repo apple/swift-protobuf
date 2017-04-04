@@ -6,23 +6,23 @@
  *
  */
 
-//  Protos/unittest_swift_extension3.proto - test proto
-// 
-//  This source file is part of the Swift.org open source project
-// 
-//  Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
-//  Licensed under Apache License v2.0 with Runtime Library Exception
-// 
-//  See http://swift.org/LICENSE.txt for license information
-//  See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
-// 
-//  -----------------------------------------------------------------------------
-// /
-// / Test naming of extensions that differ only in proto package. This is a
-// / clone of unittest_swift_extension2.proto, but with a different proto package
-// / and different extension numbers.
-// /
-//  -----------------------------------------------------------------------------
+// Protos/unittest_swift_extension3.proto - test proto
+//
+// This source file is part of the Swift.org open source project
+//
+// Copyright (c) 2014 - 2016 Apple Inc. and the Swift project authors
+// Licensed under Apache License v2.0 with Runtime Library Exception
+//
+// See http://swift.org/LICENSE.txt for license information
+// See http://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+//
+// -----------------------------------------------------------------------------
+///
+/// Test naming of extensions that differ only in proto package. This is a
+/// clone of unittest_swift_extension2.proto, but with a different proto package
+/// and different extension numbers.
+///
+// -----------------------------------------------------------------------------
 
 import Foundation
 import SwiftProtobuf

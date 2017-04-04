@@ -6,41 +6,41 @@
  *
  */
 
-//  Protocol Buffers - Google's data interchange format
-//  Copyright 2008 Google Inc.  All rights reserved.
-//  https://developers.google.com/protocol-buffers/
-// 
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are
-//  met:
-// 
-//      * Redistributions of source code must retain the above copyright
-//  notice, this list of conditions and the following disclaimer.
-//      * Redistributions in binary form must reproduce the above
-//  copyright notice, this list of conditions and the following disclaimer
-//  in the documentation and/or other materials provided with the
-//  distribution.
-//      * Neither the name of Google Inc. nor the names of its
-//  contributors may be used to endorse or promote products derived from
-//  this software without specific prior written permission.
-// 
-//  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-//  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-//  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-//  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-//  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-//  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-//  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-//  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-//  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-//  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// Protocol Buffers - Google's data interchange format
+// Copyright 2008 Google Inc.  All rights reserved.
+// https://developers.google.com/protocol-buffers/
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//     * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//     * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//     * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-//  Author: kenton@google.com (Kenton Varda)
-//   Based on original Protocol Buffers design by
-//   Sanjay Ghemawat, Jeff Dean, and others.
-// 
-//  A proto file we will use for unit testing.
+// Author: kenton@google.com (Kenton Varda)
+//  Based on original Protocol Buffers design by
+//  Sanjay Ghemawat, Jeff Dean, and others.
+//
+// A proto file we will use for unit testing.
 
 import Foundation
 import SwiftProtobuf
@@ -98,7 +98,7 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
 
 }
 
-///   Test an enum that has multiple values with the same number.
+/// Test an enum that has multiple values with the same number.
 enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case testEnumWithDupValueUnspecified // = 0
@@ -142,7 +142,7 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNamePro
 
 }
 
-///   Test an enum with large, unordered values.
+/// Test an enum with large, unordered values.
 enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding {
   typealias RawValue = Int
   case testSparseEnumUnspecified // = 0
@@ -152,8 +152,8 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding
   case sparseD // = -15
   case sparseE // = -53452
 
-  ///   In proto3, value 0 must be the first one specified
-  ///   SPARSE_F = 0;
+  /// In proto3, value 0 must be the first one specified
+  /// SPARSE_F = 0;
   case sparseG // = 2
   case UNRECOGNIZED(Int)
 
@@ -199,8 +199,8 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum, SwiftProtobuf._ProtoNameProviding
 
 }
 
-///   This proto includes every type of field in both singular and repeated
-///   forms.
+/// This proto includes every type of field in both singular and repeated
+/// forms.
 struct Proto3TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
@@ -311,7 +311,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     return _storage
   }
 
-  ///   Singular
+  /// Singular
   var singleInt32: Int32 {
     get {return _storage._singleInt32}
     set {_uniqueStorage()._singleInt32 = newValue}
@@ -435,7 +435,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._singleImportEnum = newValue}
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var singlePublicImportMessage: Proto3PublicImportMessage {
     get {return _storage._singlePublicImportMessage ?? Proto3PublicImportMessage()}
     set {_uniqueStorage()._singlePublicImportMessage = newValue}
@@ -447,7 +447,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     return _storage._singlePublicImportMessage = nil
   }
 
-  ///   Repeated
+  /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
     set {_uniqueStorage()._repeatedInt32 = newValue}
@@ -553,7 +553,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedImportEnum = newValue}
   }
 
-  ///   Defined in unittest_import_public.proto
+  /// Defined in unittest_import_public.proto
   var repeatedPublicImportMessage: [Proto3PublicImportMessage] {
     get {return _storage._repeatedPublicImportMessage}
     set {_uniqueStorage()._repeatedPublicImportMessage = newValue}
@@ -691,7 +691,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     case bar // = 2
     case baz // = 3
 
-    ///   Intentionally negative.
+    /// Intentionally negative.
     case neg // = -1
     case UNRECOGNIZED(Int)
 
@@ -734,9 +734,9 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = Proto3TestAllTypes.protoMessageName + ".NestedMessage"
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -962,7 +962,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   }
 }
 
-///   This proto includes a recusively nested message.
+/// This proto includes a recusively nested message.
 struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
 
@@ -1076,8 +1076,8 @@ struct Proto3TestDeprecatedFields: SwiftProtobuf.Message {
   }
 }
 
-///   Define these after TestAllTypes to make sure the compiler can handle
-///   that.
+/// Define these after TestAllTypes to make sure the compiler can handle
+/// that.
 struct Proto3ForeignMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
 
@@ -1121,7 +1121,7 @@ struct Proto3TestReservedFields: SwiftProtobuf.Message {
   }
 }
 
-///   Test that we can use NestedMessage from outside TestAllTypes.
+/// Test that we can use NestedMessage from outside TestAllTypes.
 struct Proto3TestForeignNested: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
 
@@ -1181,12 +1181,12 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message {
   }
 }
 
-///   Test that really large tag numbers don't break anything.
+/// Test that really large tag numbers don't break anything.
 struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestReallyLargeTagNumber"
 
-  ///   The largest possible tag number is 2^28 - 1, since the wire format uses
-  ///   three bits to communicate wire type.
+  /// The largest possible tag number is 2^28 - 1, since the wire format uses
+  /// three bits to communicate wire type.
   var a: Int32 = 0
 
   var bb: Int32 = 0
@@ -1286,7 +1286,7 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test that mutual recursion works.
+/// Test that mutual recursion works.
 struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
 
@@ -1442,8 +1442,8 @@ struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
   }
 }
 
-///   Test message with CamelCase field names.  This violates Protocol Buffer
-///   standard style.
+/// Test message with CamelCase field names.  This violates Protocol Buffer
+/// standard style.
 struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
 
@@ -1580,8 +1580,8 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
   }
 }
 
-///   We list fields out of order, to ensure that we're using field number and not
-///   field index to determine serialization order.
+/// We list fields out of order, to ensure that we're using field number and not
+/// field index to determine serialization order.
 struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
 
@@ -1643,9 +1643,9 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
 
     var oo: Int64 = 0
 
-    ///   The field name "b" fails to compile in proto1 because it conflicts with
-    ///   a local variable named "b" in one of the generated methods.  Doh.
-    ///   This file needs to compile in proto1 to test backwards-compatibility.
+    /// The field name "b" fails to compile in proto1 because it conflicts with
+    /// a local variable named "b" in one of the generated methods.  Doh.
+    /// This file needs to compile in proto1 to test backwards-compatibility.
     var bb: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1735,7 +1735,7 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test String and Bytes: string is for valid UTF-8 strings
+/// Test String and Bytes: string is for valid UTF-8 strings
 struct Proto3OneString: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneString"
 
@@ -1840,7 +1840,7 @@ struct Proto3MoreBytes: SwiftProtobuf.Message {
   }
 }
 
-///   Test int32, uint32, int64, uint64, and bool are all compatible
+/// Test int32, uint32, int64, uint64, and bool are all compatible
 struct Proto3Int32Message: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Int32Message"
 
@@ -1971,7 +1971,7 @@ struct Proto3BoolMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test oneofs.
+/// Test oneofs.
 struct Proto3TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
@@ -2226,8 +2226,8 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Message {
   }
 }
 
-///   A message with the same fields as TestPackedTypes, but without packing. Used
-///   to test packed <-> unpacked wire compatibility.
+/// A message with the same fields as TestPackedTypes, but without packing. Used
+/// to test packed <-> unpacked wire compatibility.
 struct Proto3TestUnpackedTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
 
@@ -2335,20 +2335,20 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Message {
 struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRepeatedScalarDifferentTagSizes"
 
-  ///   Parsing repeated fixed size values used to fail. This message needs to be
-  ///   used in order to get a tag of the right size; all of the repeated fields
-  ///   in TestAllTypes didn't trigger the check.
+  /// Parsing repeated fixed size values used to fail. This message needs to be
+  /// used in order to get a tag of the right size; all of the repeated fields
+  /// in TestAllTypes didn't trigger the check.
   var repeatedFixed32: [UInt32] = []
 
-  ///   Check for a varint type, just for good measure.
+  /// Check for a varint type, just for good measure.
   var repeatedInt32: [Int32] = []
 
-  ///   These have two-byte tags.
+  /// These have two-byte tags.
   var repeatedFixed64: [UInt64] = []
 
   var repeatedInt64: [Int64] = []
 
-  ///   Three byte tags.
+  /// Three byte tags.
   var repeatedFloat: [Float] = []
 
   var repeatedUint64: [UInt64] = []
@@ -2397,7 +2397,7 @@ struct Proto3TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message {
 struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCommentInjectionMessage"
 
-  ///   */ <- This should not close the generated doc comment
+  /// */ <- This should not close the generated doc comment
   var a: String = ""
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2421,7 +2421,7 @@ struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message {
   }
 }
 
-///   Test that RPC services work.
+/// Test that RPC services work.
 struct Proto3FooRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FooRequest"
 
