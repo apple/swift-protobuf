@@ -50,7 +50,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _protoMessageName != nil
   }
   mutating func clearProtoMessageName() {
-    return _protoMessageName = nil
+    _protoMessageName = nil
   }
 
   fileprivate var _protoPackageName: Int32? = nil
@@ -62,7 +62,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _protoPackageName != nil
   }
   mutating func clearProtoPackageName() {
-    return _protoPackageName = nil
+    _protoPackageName = nil
   }
 
   fileprivate var _anyTypePrefix: Int32? = nil
@@ -74,7 +74,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _anyTypePrefix != nil
   }
   mutating func clearAnyTypePrefix() {
-    return _anyTypePrefix = nil
+    _anyTypePrefix = nil
   }
 
   fileprivate var _anyTypeURL: Int32? = nil
@@ -86,7 +86,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _anyTypeURL != nil
   }
   mutating func clearAnyTypeURL() {
-    return _anyTypeURL = nil
+    _anyTypeURL = nil
   }
 
   ///   r/o properties on Message, ensure it gets remapped.
@@ -99,7 +99,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _isInitialized_p != nil
   }
   mutating func clearIsInitialized_p() {
-    return _isInitialized_p = nil
+    _isInitialized_p = nil
   }
 
   fileprivate var _hashValue_p: String? = nil
@@ -111,7 +111,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _hashValue_p != nil
   }
   mutating func clearHashValue_p() {
-    return _hashValue_p = nil
+    _hashValue_p = nil
   }
 
   fileprivate var _debugDescription_p: Int32? = nil
@@ -123,7 +123,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     return _debugDescription_p != nil
   }
   mutating func clearDebugDescription_p() {
-    return _debugDescription_p = nil
+    _debugDescription_p = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

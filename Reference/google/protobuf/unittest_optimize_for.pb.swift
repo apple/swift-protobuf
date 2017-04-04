@@ -91,7 +91,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     return _storage._i != nil
   }
   mutating func clearI() {
-    return _storage._i = nil
+    _storage._i = nil
   }
 
   var msg: ProtobufUnittest_ForeignMessage {
@@ -102,7 +102,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     return _storage._msg != nil
   }
   mutating func clearMsg() {
-    return _storage._msg = nil
+    _storage._msg = nil
   }
 
   var integerField: Int32 {
@@ -257,7 +257,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
     return _x != nil
   }
   mutating func clearX() {
-    return _x = nil
+    _x = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -316,7 +316,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
     return _storage._o != nil
   }
   mutating func clearO() {
-    return _storage._o = nil
+    _storage._o = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

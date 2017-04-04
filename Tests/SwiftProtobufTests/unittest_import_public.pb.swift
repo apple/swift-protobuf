@@ -65,7 +65,7 @@ struct ProtobufUnittestImport_PublicImportMessage: SwiftProtobuf.Message {
     return _e != nil
   }
   mutating func clearE() {
-    return _e = nil
+    _e = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

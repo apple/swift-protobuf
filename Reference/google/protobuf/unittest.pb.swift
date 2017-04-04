@@ -357,7 +357,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalInt32 != nil
   }
   mutating func clearOptionalInt32() {
-    return _storage._optionalInt32 = nil
+    _storage._optionalInt32 = nil
   }
 
   var optionalInt64: Int64 {
@@ -368,7 +368,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalInt64 != nil
   }
   mutating func clearOptionalInt64() {
-    return _storage._optionalInt64 = nil
+    _storage._optionalInt64 = nil
   }
 
   var optionalUint32: UInt32 {
@@ -379,7 +379,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalUint32 != nil
   }
   mutating func clearOptionalUint32() {
-    return _storage._optionalUint32 = nil
+    _storage._optionalUint32 = nil
   }
 
   var optionalUint64: UInt64 {
@@ -390,7 +390,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalUint64 != nil
   }
   mutating func clearOptionalUint64() {
-    return _storage._optionalUint64 = nil
+    _storage._optionalUint64 = nil
   }
 
   var optionalSint32: Int32 {
@@ -401,7 +401,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalSint32 != nil
   }
   mutating func clearOptionalSint32() {
-    return _storage._optionalSint32 = nil
+    _storage._optionalSint32 = nil
   }
 
   var optionalSint64: Int64 {
@@ -412,7 +412,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalSint64 != nil
   }
   mutating func clearOptionalSint64() {
-    return _storage._optionalSint64 = nil
+    _storage._optionalSint64 = nil
   }
 
   var optionalFixed32: UInt32 {
@@ -423,7 +423,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalFixed32 != nil
   }
   mutating func clearOptionalFixed32() {
-    return _storage._optionalFixed32 = nil
+    _storage._optionalFixed32 = nil
   }
 
   var optionalFixed64: UInt64 {
@@ -434,7 +434,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalFixed64 != nil
   }
   mutating func clearOptionalFixed64() {
-    return _storage._optionalFixed64 = nil
+    _storage._optionalFixed64 = nil
   }
 
   var optionalSfixed32: Int32 {
@@ -445,7 +445,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalSfixed32 != nil
   }
   mutating func clearOptionalSfixed32() {
-    return _storage._optionalSfixed32 = nil
+    _storage._optionalSfixed32 = nil
   }
 
   var optionalSfixed64: Int64 {
@@ -456,7 +456,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalSfixed64 != nil
   }
   mutating func clearOptionalSfixed64() {
-    return _storage._optionalSfixed64 = nil
+    _storage._optionalSfixed64 = nil
   }
 
   var optionalFloat: Float {
@@ -467,7 +467,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalFloat != nil
   }
   mutating func clearOptionalFloat() {
-    return _storage._optionalFloat = nil
+    _storage._optionalFloat = nil
   }
 
   var optionalDouble: Double {
@@ -478,7 +478,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalDouble != nil
   }
   mutating func clearOptionalDouble() {
-    return _storage._optionalDouble = nil
+    _storage._optionalDouble = nil
   }
 
   var optionalBool: Bool {
@@ -489,7 +489,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalBool != nil
   }
   mutating func clearOptionalBool() {
-    return _storage._optionalBool = nil
+    _storage._optionalBool = nil
   }
 
   var optionalString: String {
@@ -500,7 +500,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalString != nil
   }
   mutating func clearOptionalString() {
-    return _storage._optionalString = nil
+    _storage._optionalString = nil
   }
 
   var optionalBytes: Data {
@@ -511,7 +511,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalBytes != nil
   }
   mutating func clearOptionalBytes() {
-    return _storage._optionalBytes = nil
+    _storage._optionalBytes = nil
   }
 
   var optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup {
@@ -522,7 +522,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalGroup != nil
   }
   mutating func clearOptionalGroup() {
-    return _storage._optionalGroup = nil
+    _storage._optionalGroup = nil
   }
 
   var optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
@@ -533,7 +533,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var optionalForeignMessage: ProtobufUnittest_ForeignMessage {
@@ -544,7 +544,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalForeignMessage != nil
   }
   mutating func clearOptionalForeignMessage() {
-    return _storage._optionalForeignMessage = nil
+    _storage._optionalForeignMessage = nil
   }
 
   var optionalImportMessage: ProtobufUnittestImport_ImportMessage {
@@ -555,7 +555,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalImportMessage != nil
   }
   mutating func clearOptionalImportMessage() {
-    return _storage._optionalImportMessage = nil
+    _storage._optionalImportMessage = nil
   }
 
   var optionalNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum {
@@ -566,7 +566,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalNestedEnum != nil
   }
   mutating func clearOptionalNestedEnum() {
-    return _storage._optionalNestedEnum = nil
+    _storage._optionalNestedEnum = nil
   }
 
   var optionalForeignEnum: ProtobufUnittest_ForeignEnum {
@@ -577,7 +577,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalForeignEnum != nil
   }
   mutating func clearOptionalForeignEnum() {
-    return _storage._optionalForeignEnum = nil
+    _storage._optionalForeignEnum = nil
   }
 
   var optionalImportEnum: ProtobufUnittestImport_ImportEnum {
@@ -588,7 +588,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalImportEnum != nil
   }
   mutating func clearOptionalImportEnum() {
-    return _storage._optionalImportEnum = nil
+    _storage._optionalImportEnum = nil
   }
 
   var optionalStringPiece: String {
@@ -599,7 +599,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalStringPiece != nil
   }
   mutating func clearOptionalStringPiece() {
-    return _storage._optionalStringPiece = nil
+    _storage._optionalStringPiece = nil
   }
 
   var optionalCord: String {
@@ -610,7 +610,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalCord != nil
   }
   mutating func clearOptionalCord() {
-    return _storage._optionalCord = nil
+    _storage._optionalCord = nil
   }
 
   ///   Defined in unittest_import_public.proto
@@ -622,7 +622,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalPublicImportMessage != nil
   }
   mutating func clearOptionalPublicImportMessage() {
-    return _storage._optionalPublicImportMessage = nil
+    _storage._optionalPublicImportMessage = nil
   }
 
   var optionalLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage {
@@ -633,7 +633,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalLazyMessage != nil
   }
   mutating func clearOptionalLazyMessage() {
-    return _storage._optionalLazyMessage = nil
+    _storage._optionalLazyMessage = nil
   }
 
   ///   Repeated
@@ -771,7 +771,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultInt32 != nil
   }
   mutating func clearDefaultInt32() {
-    return _storage._defaultInt32 = nil
+    _storage._defaultInt32 = nil
   }
 
   var defaultInt64: Int64 {
@@ -782,7 +782,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultInt64 != nil
   }
   mutating func clearDefaultInt64() {
-    return _storage._defaultInt64 = nil
+    _storage._defaultInt64 = nil
   }
 
   var defaultUint32: UInt32 {
@@ -793,7 +793,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultUint32 != nil
   }
   mutating func clearDefaultUint32() {
-    return _storage._defaultUint32 = nil
+    _storage._defaultUint32 = nil
   }
 
   var defaultUint64: UInt64 {
@@ -804,7 +804,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultUint64 != nil
   }
   mutating func clearDefaultUint64() {
-    return _storage._defaultUint64 = nil
+    _storage._defaultUint64 = nil
   }
 
   var defaultSint32: Int32 {
@@ -815,7 +815,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultSint32 != nil
   }
   mutating func clearDefaultSint32() {
-    return _storage._defaultSint32 = nil
+    _storage._defaultSint32 = nil
   }
 
   var defaultSint64: Int64 {
@@ -826,7 +826,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultSint64 != nil
   }
   mutating func clearDefaultSint64() {
-    return _storage._defaultSint64 = nil
+    _storage._defaultSint64 = nil
   }
 
   var defaultFixed32: UInt32 {
@@ -837,7 +837,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultFixed32 != nil
   }
   mutating func clearDefaultFixed32() {
-    return _storage._defaultFixed32 = nil
+    _storage._defaultFixed32 = nil
   }
 
   var defaultFixed64: UInt64 {
@@ -848,7 +848,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultFixed64 != nil
   }
   mutating func clearDefaultFixed64() {
-    return _storage._defaultFixed64 = nil
+    _storage._defaultFixed64 = nil
   }
 
   var defaultSfixed32: Int32 {
@@ -859,7 +859,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultSfixed32 != nil
   }
   mutating func clearDefaultSfixed32() {
-    return _storage._defaultSfixed32 = nil
+    _storage._defaultSfixed32 = nil
   }
 
   var defaultSfixed64: Int64 {
@@ -870,7 +870,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultSfixed64 != nil
   }
   mutating func clearDefaultSfixed64() {
-    return _storage._defaultSfixed64 = nil
+    _storage._defaultSfixed64 = nil
   }
 
   var defaultFloat: Float {
@@ -881,7 +881,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultFloat != nil
   }
   mutating func clearDefaultFloat() {
-    return _storage._defaultFloat = nil
+    _storage._defaultFloat = nil
   }
 
   var defaultDouble: Double {
@@ -892,7 +892,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultDouble != nil
   }
   mutating func clearDefaultDouble() {
-    return _storage._defaultDouble = nil
+    _storage._defaultDouble = nil
   }
 
   var defaultBool: Bool {
@@ -903,7 +903,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultBool != nil
   }
   mutating func clearDefaultBool() {
-    return _storage._defaultBool = nil
+    _storage._defaultBool = nil
   }
 
   var defaultString: String {
@@ -914,7 +914,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultString != nil
   }
   mutating func clearDefaultString() {
-    return _storage._defaultString = nil
+    _storage._defaultString = nil
   }
 
   var defaultBytes: Data {
@@ -925,7 +925,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultBytes != nil
   }
   mutating func clearDefaultBytes() {
-    return _storage._defaultBytes = nil
+    _storage._defaultBytes = nil
   }
 
   var defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum {
@@ -936,7 +936,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultNestedEnum != nil
   }
   mutating func clearDefaultNestedEnum() {
-    return _storage._defaultNestedEnum = nil
+    _storage._defaultNestedEnum = nil
   }
 
   var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
@@ -947,7 +947,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultForeignEnum != nil
   }
   mutating func clearDefaultForeignEnum() {
-    return _storage._defaultForeignEnum = nil
+    _storage._defaultForeignEnum = nil
   }
 
   var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
@@ -958,7 +958,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultImportEnum != nil
   }
   mutating func clearDefaultImportEnum() {
-    return _storage._defaultImportEnum = nil
+    _storage._defaultImportEnum = nil
   }
 
   var defaultStringPiece: String {
@@ -969,7 +969,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultStringPiece != nil
   }
   mutating func clearDefaultStringPiece() {
-    return _storage._defaultStringPiece = nil
+    _storage._defaultStringPiece = nil
   }
 
   var defaultCord: String {
@@ -980,7 +980,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._defaultCord != nil
   }
   mutating func clearDefaultCord() {
-    return _storage._defaultCord = nil
+    _storage._defaultCord = nil
   }
 
   var oneofUint32: UInt32 {
@@ -1170,7 +1170,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       return _bb != nil
     }
     mutating func clearBb() {
-      return _bb = nil
+      _bb = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1206,7 +1206,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1242,7 +1242,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1611,7 +1611,7 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     return _storage._child != nil
   }
   mutating func clearChild() {
-    return _storage._child = nil
+    _storage._child = nil
   }
 
   var payload: ProtobufUnittest_TestAllTypes {
@@ -1622,7 +1622,7 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     return _storage._payload != nil
   }
   mutating func clearPayload() {
-    return _storage._payload = nil
+    _storage._payload = nil
   }
 
   var repeatedChild: [ProtobufUnittest_NestedTestAllTypes] {
@@ -1676,7 +1676,7 @@ struct ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message {
     return _deprecatedInt32 != nil
   }
   mutating func clearDeprecatedInt32() {
-    return _deprecatedInt32 = nil
+    _deprecatedInt32 = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1731,7 +1731,7 @@ struct ProtobufUnittest_ForeignMessage: SwiftProtobuf.Message {
     return _c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    _c = nil
   }
 
   fileprivate var _d: Int32? = nil
@@ -1743,7 +1743,7 @@ struct ProtobufUnittest_ForeignMessage: SwiftProtobuf.Message {
     return _d != nil
   }
   mutating func clearD() {
-    return _d = nil
+    _d = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1828,7 +1828,7 @@ struct ProtobufUnittest_OptionalGroup_extension: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1864,7 +1864,7 @@ struct ProtobufUnittest_RepeatedGroup_extension: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2023,7 +2023,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._a != nil
   }
   mutating func clearA() {
-    return _storage._a = nil
+    _storage._a = nil
   }
 
   var dummy2: Int32 {
@@ -2034,7 +2034,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy2 != nil
   }
   mutating func clearDummy2() {
-    return _storage._dummy2 = nil
+    _storage._dummy2 = nil
   }
 
   var b: Int32 {
@@ -2045,7 +2045,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._b != nil
   }
   mutating func clearB() {
-    return _storage._b = nil
+    _storage._b = nil
   }
 
   ///   Pad the field count to 32 so that we can test that IsInitialized()
@@ -2058,7 +2058,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy4 != nil
   }
   mutating func clearDummy4() {
-    return _storage._dummy4 = nil
+    _storage._dummy4 = nil
   }
 
   var dummy5: Int32 {
@@ -2069,7 +2069,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy5 != nil
   }
   mutating func clearDummy5() {
-    return _storage._dummy5 = nil
+    _storage._dummy5 = nil
   }
 
   var dummy6: Int32 {
@@ -2080,7 +2080,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy6 != nil
   }
   mutating func clearDummy6() {
-    return _storage._dummy6 = nil
+    _storage._dummy6 = nil
   }
 
   var dummy7: Int32 {
@@ -2091,7 +2091,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy7 != nil
   }
   mutating func clearDummy7() {
-    return _storage._dummy7 = nil
+    _storage._dummy7 = nil
   }
 
   var dummy8: Int32 {
@@ -2102,7 +2102,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy8 != nil
   }
   mutating func clearDummy8() {
-    return _storage._dummy8 = nil
+    _storage._dummy8 = nil
   }
 
   var dummy9: Int32 {
@@ -2113,7 +2113,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy9 != nil
   }
   mutating func clearDummy9() {
-    return _storage._dummy9 = nil
+    _storage._dummy9 = nil
   }
 
   var dummy10: Int32 {
@@ -2124,7 +2124,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy10 != nil
   }
   mutating func clearDummy10() {
-    return _storage._dummy10 = nil
+    _storage._dummy10 = nil
   }
 
   var dummy11: Int32 {
@@ -2135,7 +2135,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy11 != nil
   }
   mutating func clearDummy11() {
-    return _storage._dummy11 = nil
+    _storage._dummy11 = nil
   }
 
   var dummy12: Int32 {
@@ -2146,7 +2146,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy12 != nil
   }
   mutating func clearDummy12() {
-    return _storage._dummy12 = nil
+    _storage._dummy12 = nil
   }
 
   var dummy13: Int32 {
@@ -2157,7 +2157,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy13 != nil
   }
   mutating func clearDummy13() {
-    return _storage._dummy13 = nil
+    _storage._dummy13 = nil
   }
 
   var dummy14: Int32 {
@@ -2168,7 +2168,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy14 != nil
   }
   mutating func clearDummy14() {
-    return _storage._dummy14 = nil
+    _storage._dummy14 = nil
   }
 
   var dummy15: Int32 {
@@ -2179,7 +2179,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy15 != nil
   }
   mutating func clearDummy15() {
-    return _storage._dummy15 = nil
+    _storage._dummy15 = nil
   }
 
   var dummy16: Int32 {
@@ -2190,7 +2190,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy16 != nil
   }
   mutating func clearDummy16() {
-    return _storage._dummy16 = nil
+    _storage._dummy16 = nil
   }
 
   var dummy17: Int32 {
@@ -2201,7 +2201,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy17 != nil
   }
   mutating func clearDummy17() {
-    return _storage._dummy17 = nil
+    _storage._dummy17 = nil
   }
 
   var dummy18: Int32 {
@@ -2212,7 +2212,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy18 != nil
   }
   mutating func clearDummy18() {
-    return _storage._dummy18 = nil
+    _storage._dummy18 = nil
   }
 
   var dummy19: Int32 {
@@ -2223,7 +2223,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy19 != nil
   }
   mutating func clearDummy19() {
-    return _storage._dummy19 = nil
+    _storage._dummy19 = nil
   }
 
   var dummy20: Int32 {
@@ -2234,7 +2234,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy20 != nil
   }
   mutating func clearDummy20() {
-    return _storage._dummy20 = nil
+    _storage._dummy20 = nil
   }
 
   var dummy21: Int32 {
@@ -2245,7 +2245,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy21 != nil
   }
   mutating func clearDummy21() {
-    return _storage._dummy21 = nil
+    _storage._dummy21 = nil
   }
 
   var dummy22: Int32 {
@@ -2256,7 +2256,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy22 != nil
   }
   mutating func clearDummy22() {
-    return _storage._dummy22 = nil
+    _storage._dummy22 = nil
   }
 
   var dummy23: Int32 {
@@ -2267,7 +2267,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy23 != nil
   }
   mutating func clearDummy23() {
-    return _storage._dummy23 = nil
+    _storage._dummy23 = nil
   }
 
   var dummy24: Int32 {
@@ -2278,7 +2278,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy24 != nil
   }
   mutating func clearDummy24() {
-    return _storage._dummy24 = nil
+    _storage._dummy24 = nil
   }
 
   var dummy25: Int32 {
@@ -2289,7 +2289,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy25 != nil
   }
   mutating func clearDummy25() {
-    return _storage._dummy25 = nil
+    _storage._dummy25 = nil
   }
 
   var dummy26: Int32 {
@@ -2300,7 +2300,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy26 != nil
   }
   mutating func clearDummy26() {
-    return _storage._dummy26 = nil
+    _storage._dummy26 = nil
   }
 
   var dummy27: Int32 {
@@ -2311,7 +2311,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy27 != nil
   }
   mutating func clearDummy27() {
-    return _storage._dummy27 = nil
+    _storage._dummy27 = nil
   }
 
   var dummy28: Int32 {
@@ -2322,7 +2322,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy28 != nil
   }
   mutating func clearDummy28() {
-    return _storage._dummy28 = nil
+    _storage._dummy28 = nil
   }
 
   var dummy29: Int32 {
@@ -2333,7 +2333,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy29 != nil
   }
   mutating func clearDummy29() {
-    return _storage._dummy29 = nil
+    _storage._dummy29 = nil
   }
 
   var dummy30: Int32 {
@@ -2344,7 +2344,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy30 != nil
   }
   mutating func clearDummy30() {
-    return _storage._dummy30 = nil
+    _storage._dummy30 = nil
   }
 
   var dummy31: Int32 {
@@ -2355,7 +2355,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy31 != nil
   }
   mutating func clearDummy31() {
-    return _storage._dummy31 = nil
+    _storage._dummy31 = nil
   }
 
   var dummy32: Int32 {
@@ -2366,7 +2366,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._dummy32 != nil
   }
   mutating func clearDummy32() {
-    return _storage._dummy32 = nil
+    _storage._dummy32 = nil
   }
 
   var c: Int32 {
@@ -2377,7 +2377,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     return _storage._c != nil
   }
   mutating func clearC() {
-    return _storage._c = nil
+    _storage._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2592,7 +2592,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
     return _storage._optionalMessage != nil
   }
   mutating func clearOptionalMessage() {
-    return _storage._optionalMessage = nil
+    _storage._optionalMessage = nil
   }
 
   var repeatedMessage: [ProtobufUnittest_TestRequired] {
@@ -2608,7 +2608,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
     return _storage._dummy != nil
   }
   mutating func clearDummy() {
-    return _storage._dummy = nil
+    _storage._dummy = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2684,7 +2684,7 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message {
     return _storage._foreignNested != nil
   }
   mutating func clearForeignNested() {
-    return _storage._foreignNested = nil
+    _storage._foreignNested = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2806,7 +2806,7 @@ struct ProtobufUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   fileprivate var _bb: Int32? = nil
@@ -2818,7 +2818,7 @@ struct ProtobufUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message {
     return _bb != nil
   }
   mutating func clearBb() {
-    return _bb = nil
+    _bb = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2878,7 +2878,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
     return _storage._a != nil
   }
   mutating func clearA() {
-    return _storage._a = nil
+    _storage._a = nil
   }
 
   var i: Int32 {
@@ -2889,7 +2889,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
     return _storage._i != nil
   }
   mutating func clearI() {
-    return _storage._i = nil
+    _storage._i = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2953,7 +2953,7 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
     return _storage._bb != nil
   }
   mutating func clearBb() {
-    return _storage._bb = nil
+    _storage._bb = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3014,7 +3014,7 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
     return _storage._a != nil
   }
   mutating func clearA() {
-    return _storage._a = nil
+    _storage._a = nil
   }
 
   var optionalInt32: Int32 {
@@ -3025,7 +3025,7 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
     return _storage._optionalInt32 != nil
   }
   mutating func clearOptionalInt32() {
-    return _storage._optionalInt32 = nil
+    _storage._optionalInt32 = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3097,7 +3097,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
     return _storage._a != nil
   }
   mutating func clearA() {
-    return _storage._a = nil
+    _storage._a = nil
   }
 
   var foo: ProtobufUnittest_TestDupFieldNumber.Foo {
@@ -3108,7 +3108,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
     return _storage._foo != nil
   }
   mutating func clearFoo() {
-    return _storage._foo = nil
+    _storage._foo = nil
   }
 
   var bar: ProtobufUnittest_TestDupFieldNumber.Bar {
@@ -3119,7 +3119,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
     return _storage._bar != nil
   }
   mutating func clearBar() {
-    return _storage._bar = nil
+    _storage._bar = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3136,7 +3136,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3172,7 +3172,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3259,7 +3259,7 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message {
     return _storage._subMessage != nil
   }
   mutating func clearSubMessage() {
-    return _storage._subMessage = nil
+    _storage._subMessage = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3318,7 +3318,7 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message {
     return _storage._subMessage != nil
   }
   mutating func clearSubMessage() {
-    return _storage._subMessage = nil
+    _storage._subMessage = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3378,7 +3378,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3493,7 +3493,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._primitiveField != nil
   }
   mutating func clearPrimitiveField() {
-    return _storage._primitiveField = nil
+    _storage._primitiveField = nil
   }
 
   var stringField: String {
@@ -3504,7 +3504,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._stringField != nil
   }
   mutating func clearStringField() {
-    return _storage._stringField = nil
+    _storage._stringField = nil
   }
 
   var enumField: ProtobufUnittest_ForeignEnum {
@@ -3515,7 +3515,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._enumField != nil
   }
   mutating func clearEnumField() {
-    return _storage._enumField = nil
+    _storage._enumField = nil
   }
 
   var messageField: ProtobufUnittest_ForeignMessage {
@@ -3526,7 +3526,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._messageField != nil
   }
   mutating func clearMessageField() {
-    return _storage._messageField = nil
+    _storage._messageField = nil
   }
 
   var stringPieceField: String {
@@ -3537,7 +3537,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._stringPieceField != nil
   }
   mutating func clearStringPieceField() {
-    return _storage._stringPieceField = nil
+    _storage._stringPieceField = nil
   }
 
   var cordField: String {
@@ -3548,7 +3548,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._cordField != nil
   }
   mutating func clearCordField() {
-    return _storage._cordField = nil
+    _storage._cordField = nil
   }
 
   var repeatedPrimitiveField: [Int32] {
@@ -3689,7 +3689,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._myString != nil
   }
   mutating func clearMyString() {
-    return _storage._myString = nil
+    _storage._myString = nil
   }
 
   var myInt: Int64 {
@@ -3700,7 +3700,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._myInt != nil
   }
   mutating func clearMyInt() {
-    return _storage._myInt = nil
+    _storage._myInt = nil
   }
 
   var myFloat: Float {
@@ -3711,7 +3711,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._myFloat != nil
   }
   mutating func clearMyFloat() {
-    return _storage._myFloat = nil
+    _storage._myFloat = nil
   }
 
   var optionalNestedMessage: ProtobufUnittest_TestFieldOrderings.NestedMessage {
@@ -3722,7 +3722,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3739,7 +3739,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
       return _oo != nil
     }
     mutating func clearOo() {
-      return _oo = nil
+      _oo = nil
     }
 
     ///   The field name "b" fails to compile in proto1 because it conflicts with
@@ -3754,7 +3754,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
       return _bb != nil
     }
     mutating func clearBb() {
-      return _bb = nil
+      _bb = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3911,7 +3911,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._escapedBytes != nil
   }
   mutating func clearEscapedBytes() {
-    return _storage._escapedBytes = nil
+    _storage._escapedBytes = nil
   }
 
   var largeUint32: UInt32 {
@@ -3922,7 +3922,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._largeUint32 != nil
   }
   mutating func clearLargeUint32() {
-    return _storage._largeUint32 = nil
+    _storage._largeUint32 = nil
   }
 
   var largeUint64: UInt64 {
@@ -3933,7 +3933,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._largeUint64 != nil
   }
   mutating func clearLargeUint64() {
-    return _storage._largeUint64 = nil
+    _storage._largeUint64 = nil
   }
 
   var smallInt32: Int32 {
@@ -3944,7 +3944,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._smallInt32 != nil
   }
   mutating func clearSmallInt32() {
-    return _storage._smallInt32 = nil
+    _storage._smallInt32 = nil
   }
 
   var smallInt64: Int64 {
@@ -3955,7 +3955,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._smallInt64 != nil
   }
   mutating func clearSmallInt64() {
-    return _storage._smallInt64 = nil
+    _storage._smallInt64 = nil
   }
 
   var reallySmallInt32: Int32 {
@@ -3966,7 +3966,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._reallySmallInt32 != nil
   }
   mutating func clearReallySmallInt32() {
-    return _storage._reallySmallInt32 = nil
+    _storage._reallySmallInt32 = nil
   }
 
   var reallySmallInt64: Int64 {
@@ -3977,7 +3977,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._reallySmallInt64 != nil
   }
   mutating func clearReallySmallInt64() {
-    return _storage._reallySmallInt64 = nil
+    _storage._reallySmallInt64 = nil
   }
 
   ///   The default value here is UTF-8 for "\u1234".  (We could also just type
@@ -3991,7 +3991,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._utf8String != nil
   }
   mutating func clearUtf8String() {
-    return _storage._utf8String = nil
+    _storage._utf8String = nil
   }
 
   ///   Tests for single-precision floating-point values.
@@ -4003,7 +4003,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._zeroFloat != nil
   }
   mutating func clearZeroFloat() {
-    return _storage._zeroFloat = nil
+    _storage._zeroFloat = nil
   }
 
   var oneFloat: Float {
@@ -4014,7 +4014,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._oneFloat != nil
   }
   mutating func clearOneFloat() {
-    return _storage._oneFloat = nil
+    _storage._oneFloat = nil
   }
 
   var smallFloat: Float {
@@ -4025,7 +4025,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._smallFloat != nil
   }
   mutating func clearSmallFloat() {
-    return _storage._smallFloat = nil
+    _storage._smallFloat = nil
   }
 
   var negativeOneFloat: Float {
@@ -4036,7 +4036,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._negativeOneFloat != nil
   }
   mutating func clearNegativeOneFloat() {
-    return _storage._negativeOneFloat = nil
+    _storage._negativeOneFloat = nil
   }
 
   var negativeFloat: Float {
@@ -4047,7 +4047,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._negativeFloat != nil
   }
   mutating func clearNegativeFloat() {
-    return _storage._negativeFloat = nil
+    _storage._negativeFloat = nil
   }
 
   ///   Using exponents
@@ -4059,7 +4059,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._largeFloat != nil
   }
   mutating func clearLargeFloat() {
-    return _storage._largeFloat = nil
+    _storage._largeFloat = nil
   }
 
   var smallNegativeFloat: Float {
@@ -4070,7 +4070,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._smallNegativeFloat != nil
   }
   mutating func clearSmallNegativeFloat() {
-    return _storage._smallNegativeFloat = nil
+    _storage._smallNegativeFloat = nil
   }
 
   ///   Text for nonfinite floating-point values.
@@ -4082,7 +4082,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._infDouble != nil
   }
   mutating func clearInfDouble() {
-    return _storage._infDouble = nil
+    _storage._infDouble = nil
   }
 
   var negInfDouble: Double {
@@ -4093,7 +4093,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._negInfDouble != nil
   }
   mutating func clearNegInfDouble() {
-    return _storage._negInfDouble = nil
+    _storage._negInfDouble = nil
   }
 
   var nanDouble: Double {
@@ -4104,7 +4104,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._nanDouble != nil
   }
   mutating func clearNanDouble() {
-    return _storage._nanDouble = nil
+    _storage._nanDouble = nil
   }
 
   var infFloat: Float {
@@ -4115,7 +4115,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._infFloat != nil
   }
   mutating func clearInfFloat() {
-    return _storage._infFloat = nil
+    _storage._infFloat = nil
   }
 
   var negInfFloat: Float {
@@ -4126,7 +4126,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._negInfFloat != nil
   }
   mutating func clearNegInfFloat() {
-    return _storage._negInfFloat = nil
+    _storage._negInfFloat = nil
   }
 
   var nanFloat: Float {
@@ -4137,7 +4137,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._nanFloat != nil
   }
   mutating func clearNanFloat() {
-    return _storage._nanFloat = nil
+    _storage._nanFloat = nil
   }
 
   ///   Tests for C++ trigraphs.
@@ -4153,7 +4153,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._cppTrigraph != nil
   }
   mutating func clearCppTrigraph() {
-    return _storage._cppTrigraph = nil
+    _storage._cppTrigraph = nil
   }
 
   ///   String defaults containing the character '\000'
@@ -4165,7 +4165,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._stringWithZero != nil
   }
   mutating func clearStringWithZero() {
-    return _storage._stringWithZero = nil
+    _storage._stringWithZero = nil
   }
 
   var bytesWithZero: Data {
@@ -4176,7 +4176,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._bytesWithZero != nil
   }
   mutating func clearBytesWithZero() {
-    return _storage._bytesWithZero = nil
+    _storage._bytesWithZero = nil
   }
 
   var stringPieceWithZero: String {
@@ -4187,7 +4187,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._stringPieceWithZero != nil
   }
   mutating func clearStringPieceWithZero() {
-    return _storage._stringPieceWithZero = nil
+    _storage._stringPieceWithZero = nil
   }
 
   var cordWithZero: String {
@@ -4198,7 +4198,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._cordWithZero != nil
   }
   mutating func clearCordWithZero() {
-    return _storage._cordWithZero = nil
+    _storage._cordWithZero = nil
   }
 
   var replacementString: String {
@@ -4209,7 +4209,7 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     return _storage._replacementString != nil
   }
   mutating func clearReplacementString() {
-    return _storage._replacementString = nil
+    _storage._replacementString = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4354,7 +4354,7 @@ struct ProtobufUnittest_SparseEnumMessage: SwiftProtobuf.Message {
     return _sparseEnum != nil
   }
   mutating func clearSparseEnum() {
-    return _sparseEnum = nil
+    _sparseEnum = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4391,7 +4391,7 @@ struct ProtobufUnittest_OneString: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4453,7 +4453,7 @@ struct ProtobufUnittest_OneBytes: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4516,7 +4516,7 @@ struct ProtobufUnittest_Int32Message: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4552,7 +4552,7 @@ struct ProtobufUnittest_Uint32Message: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4588,7 +4588,7 @@ struct ProtobufUnittest_Int64Message: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4624,7 +4624,7 @@ struct ProtobufUnittest_Uint64Message: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4660,7 +4660,7 @@ struct ProtobufUnittest_BoolMessage: SwiftProtobuf.Message {
     return _data != nil
   }
   mutating func clearData() {
-    return _data = nil
+    _data = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4850,7 +4850,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     fileprivate var _b: String? = nil
@@ -4862,7 +4862,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
       return _b != nil
     }
     mutating func clearB() {
-      return _b = nil
+      _b = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4952,7 +4952,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
     return _storage._fooInt != nil
   }
   mutating func clearFooInt() {
-    return _storage._fooInt = nil
+    _storage._fooInt = nil
   }
 
   var fooString: String {
@@ -4963,7 +4963,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
     return _storage._fooString != nil
   }
   mutating func clearFooString() {
-    return _storage._fooString = nil
+    _storage._fooString = nil
   }
 
   var fooMessage: ProtobufUnittest_TestAllTypes {
@@ -4974,7 +4974,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
     return _storage._fooMessage != nil
   }
   mutating func clearFooMessage() {
-    return _storage._fooMessage = nil
+    _storage._fooMessage = nil
   }
 
   var fooGroup: ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup {
@@ -4985,7 +4985,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
     return _storage._fooGroup != nil
   }
   mutating func clearFooGroup() {
-    return _storage._fooGroup = nil
+    _storage._fooGroup = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5002,7 +5002,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     fileprivate var _b: String? = nil
@@ -5014,7 +5014,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
       return _b != nil
     }
     mutating func clearB() {
-      return _b = nil
+      _b = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5294,7 +5294,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
     return _storage._bazInt != nil
   }
   mutating func clearBazInt() {
-    return _storage._bazInt = nil
+    _storage._bazInt = nil
   }
 
   var bazString: String {
@@ -5305,7 +5305,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
     return _storage._bazString != nil
   }
   mutating func clearBazString() {
-    return _storage._bazString = nil
+    _storage._bazString = nil
   }
 
   var foo: OneOf_Foo? {
@@ -5610,7 +5610,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       return _a != nil
     }
     mutating func clearA() {
-      return _a = nil
+      _a = nil
     }
 
     fileprivate var _b: String? = nil
@@ -5622,7 +5622,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       return _b != nil
     }
     mutating func clearB() {
-      return _b = nil
+      _b = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5662,7 +5662,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       return _quxInt != nil
     }
     mutating func clearQuxInt() {
-      return _quxInt = nil
+      _quxInt = nil
     }
 
     var corgeInt: [Int32] = []
@@ -5872,7 +5872,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
       return _requiredDouble != nil
     }
     mutating func clearRequiredDouble() {
-      return _requiredDouble = nil
+      _requiredDouble = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6250,7 +6250,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
     return _storage._scalarExtension != nil
   }
   mutating func clearScalarExtension() {
-    return _storage._scalarExtension = nil
+    _storage._scalarExtension = nil
   }
 
   var enumExtension: ProtobufUnittest_ForeignEnum {
@@ -6261,7 +6261,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
     return _storage._enumExtension != nil
   }
   mutating func clearEnumExtension() {
-    return _storage._enumExtension = nil
+    _storage._enumExtension = nil
   }
 
   var dynamicEnumExtension: ProtobufUnittest_TestDynamicExtensions.DynamicEnumType {
@@ -6272,7 +6272,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
     return _storage._dynamicEnumExtension != nil
   }
   mutating func clearDynamicEnumExtension() {
-    return _storage._dynamicEnumExtension = nil
+    _storage._dynamicEnumExtension = nil
   }
 
   var messageExtension: ProtobufUnittest_ForeignMessage {
@@ -6283,7 +6283,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
     return _storage._messageExtension != nil
   }
   mutating func clearMessageExtension() {
-    return _storage._messageExtension = nil
+    _storage._messageExtension = nil
   }
 
   var dynamicMessageExtension: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType {
@@ -6294,7 +6294,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
     return _storage._dynamicMessageExtension != nil
   }
   mutating func clearDynamicMessageExtension() {
-    return _storage._dynamicMessageExtension = nil
+    _storage._dynamicMessageExtension = nil
   }
 
   var repeatedExtension: [String] {
@@ -6356,7 +6356,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
       return _dynamicField != nil
     }
     mutating func clearDynamicField() {
-      return _dynamicField = nil
+      _dynamicField = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6530,7 +6530,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._requiredAllTypes != nil
   }
   mutating func clearRequiredAllTypes() {
-    return _storage._requiredAllTypes = nil
+    _storage._requiredAllTypes = nil
   }
 
   var optionalAllTypes: ProtobufUnittest_TestAllTypes {
@@ -6541,7 +6541,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._optionalAllTypes != nil
   }
   mutating func clearOptionalAllTypes() {
-    return _storage._optionalAllTypes = nil
+    _storage._optionalAllTypes = nil
   }
 
   var repeatedAllTypes: [ProtobufUnittest_TestAllTypes] {
@@ -6557,7 +6557,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
     return _storage._optionalGroup != nil
   }
   mutating func clearOptionalGroup() {
-    return _storage._optionalGroup = nil
+    _storage._optionalGroup = nil
   }
 
   var repeatedGroup: [ProtobufUnittest_TestParsingMerge.RepeatedGroup] {
@@ -6621,7 +6621,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         return _storage._field1 != nil
       }
       mutating func clearField1() {
-        return _storage._field1 = nil
+        _storage._field1 = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6680,7 +6680,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         return _storage._field1 != nil
       }
       mutating func clearField1() {
-        return _storage._field1 = nil
+        _storage._field1 = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6782,7 +6782,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
       return _storage._optionalGroupAllTypes != nil
     }
     mutating func clearOptionalGroupAllTypes() {
-      return _storage._optionalGroupAllTypes = nil
+      _storage._optionalGroupAllTypes = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6841,7 +6841,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
       return _storage._repeatedGroupAllTypes != nil
     }
     mutating func clearRepeatedGroupAllTypes() {
-      return _storage._repeatedGroupAllTypes = nil
+      _storage._repeatedGroupAllTypes = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -6951,7 +6951,7 @@ struct ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7090,7 +7090,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
     return _fieldName1 != nil
   }
   mutating func clearFieldName1() {
-    return _fieldName1 = nil
+    _fieldName1 = nil
   }
 
   fileprivate var _fieldName2: Int32? = nil
@@ -7102,7 +7102,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
     return _fieldName2 != nil
   }
   mutating func clearFieldName2() {
-    return _fieldName2 = nil
+    _fieldName2 = nil
   }
 
   fileprivate var _fieldName3: Int32? = nil
@@ -7114,7 +7114,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
     return _fieldName3 != nil
   }
   mutating func clearFieldName3() {
-    return _fieldName3 = nil
+    _fieldName3 = nil
   }
 
   fileprivate var _fieldName4: Int32? = nil
@@ -7126,7 +7126,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
     return _fieldName4 != nil
   }
   mutating func clearFieldName4() {
-    return _fieldName4 = nil
+    _fieldName4 = nil
   }
 
   fileprivate var _fieldName5: Int32? = nil
@@ -7138,7 +7138,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
     return _fieldName5 != nil
   }
   mutating func clearFieldName5() {
-    return _fieldName5 = nil
+    _fieldName5 = nil
   }
 
   fileprivate var _fieldName6: Int32? = nil
@@ -7150,7 +7150,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
     return _fieldName6 != nil
   }
   mutating func clearFieldName6() {
-    return _fieldName6 = nil
+    _fieldName6 = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7244,7 +7244,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._optionalInt32 != nil
   }
   mutating func clearOptionalInt32() {
-    return _storage._optionalInt32 = nil
+    _storage._optionalInt32 = nil
   }
 
   var fixed32: Int32 {
@@ -7255,7 +7255,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._fixed32 != nil
   }
   mutating func clearFixed32() {
-    return _storage._fixed32 = nil
+    _storage._fixed32 = nil
   }
 
   var repeatedInt32: [Int32] {
@@ -7276,7 +7276,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._optionalEnum != nil
   }
   mutating func clearOptionalEnum() {
-    return _storage._optionalEnum = nil
+    _storage._optionalEnum = nil
   }
 
   var optionalString: String {
@@ -7287,7 +7287,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._optionalString != nil
   }
   mutating func clearOptionalString() {
-    return _storage._optionalString = nil
+    _storage._optionalString = nil
   }
 
   var optionalBytes: Data {
@@ -7298,7 +7298,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._optionalBytes != nil
   }
   mutating func clearOptionalBytes() {
-    return _storage._optionalBytes = nil
+    _storage._optionalBytes = nil
   }
 
   var optionalMessage: ProtobufUnittest_ForeignMessage {
@@ -7309,7 +7309,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._optionalMessage != nil
   }
   mutating func clearOptionalMessage() {
-    return _storage._optionalMessage = nil
+    _storage._optionalMessage = nil
   }
 
   var optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup {
@@ -7320,7 +7320,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     return _storage._optionalGroup != nil
   }
   mutating func clearOptionalGroup() {
-    return _storage._optionalGroup = nil
+    _storage._optionalGroup = nil
   }
 
   var stringStringMap: Dictionary<String,String> {
@@ -7471,7 +7471,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       return _groupA != nil
     }
     mutating func clearGroupA() {
-      return _groupA = nil
+      _groupA = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

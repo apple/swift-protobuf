@@ -292,7 +292,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalNestedMessage != nil
   }
   mutating func clearOptionalNestedMessage() {
-    return _storage._optionalNestedMessage = nil
+    _storage._optionalNestedMessage = nil
   }
 
   var optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage {
@@ -303,7 +303,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalForeignMessage != nil
   }
   mutating func clearOptionalForeignMessage() {
-    return _storage._optionalForeignMessage = nil
+    _storage._optionalForeignMessage = nil
   }
 
   var optionalProto2Message: ProtobufUnittest_TestAllTypes {
@@ -314,7 +314,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalProto2Message != nil
   }
   mutating func clearOptionalProto2Message() {
-    return _storage._optionalProto2Message = nil
+    _storage._optionalProto2Message = nil
   }
 
   var optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
@@ -348,7 +348,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     return _storage._optionalLazyMessage != nil
   }
   mutating func clearOptionalLazyMessage() {
-    return _storage._optionalLazyMessage = nil
+    _storage._optionalLazyMessage = nil
   }
 
   ///   Repeated
@@ -895,7 +895,7 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message {
     return _storage._proto2 != nil
   }
   mutating func clearProto2() {
-    return _storage._proto2 = nil
+    _storage._proto2 = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

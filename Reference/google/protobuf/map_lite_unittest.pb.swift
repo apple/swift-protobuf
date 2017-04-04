@@ -774,7 +774,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     return _a != nil
   }
   mutating func clearA() {
-    return _a = nil
+    _a = nil
   }
 
   fileprivate var _b: Int32? = nil
@@ -786,7 +786,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     return _b != nil
   }
   mutating func clearB() {
-    return _b = nil
+    _b = nil
   }
 
   fileprivate var _c: Int32? = nil
@@ -798,7 +798,7 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     return _c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    _c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -849,7 +849,7 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
     return _c != nil
   }
   mutating func clearC() {
-    return _c = nil
+    _c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

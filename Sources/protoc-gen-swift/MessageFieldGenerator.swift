@@ -496,7 +496,7 @@ struct MessageFieldGenerator {
         let storagePrefix = usesHeapStorage ? "_storage." : ""
         p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\n")
         p.indent()
-        p.print("return \(storagePrefix)\(swiftStorageName) = nil\n")
+        p.print("\(storagePrefix)\(swiftStorageName) = nil\n")
         p.outdent()
         p.print("}\n")
     }

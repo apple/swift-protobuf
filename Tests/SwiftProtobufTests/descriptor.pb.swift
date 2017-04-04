@@ -146,7 +146,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   ///   e.g. "foo", "foo.bar", etc.
@@ -158,7 +158,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._package != nil
   }
   mutating func clearPackage() {
-    return _storage._package = nil
+    _storage._package = nil
   }
 
   ///   Names of files imported by this file.
@@ -209,7 +209,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   ///   This field contains optional information about the original source code.
@@ -224,7 +224,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._sourceCodeInfo != nil
   }
   mutating func clearSourceCodeInfo() {
-    return _storage._sourceCodeInfo = nil
+    _storage._sourceCodeInfo = nil
   }
 
   ///   The syntax of the proto file.
@@ -237,7 +237,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     return _storage._syntax != nil
   }
   mutating func clearSyntax() {
-    return _storage._syntax = nil
+    _storage._syntax = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -370,7 +370,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   var field: [Google_Protobuf_FieldDescriptorProto] {
@@ -411,7 +411,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   var reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] {
@@ -440,7 +440,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       return _start != nil
     }
     mutating func clearStart() {
-      return _start = nil
+      _start = nil
     }
 
     fileprivate var _end: Int32? = nil
@@ -452,7 +452,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       return _end != nil
     }
     mutating func clearEnd() {
-      return _end = nil
+      _end = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -496,7 +496,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       return _start != nil
     }
     mutating func clearStart() {
-      return _start = nil
+      _start = nil
     }
 
     ///   Exclusive.
@@ -509,7 +509,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       return _end != nil
     }
     mutating func clearEnd() {
-      return _end = nil
+      _end = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -658,7 +658,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   var number: Int32 {
@@ -669,7 +669,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._number != nil
   }
   mutating func clearNumber() {
-    return _storage._number = nil
+    _storage._number = nil
   }
 
   var label: Google_Protobuf_FieldDescriptorProto.Label {
@@ -680,7 +680,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._label != nil
   }
   mutating func clearLabel() {
-    return _storage._label = nil
+    _storage._label = nil
   }
 
   ///   If type_name is set, this need not be set.  If both this and type_name
@@ -693,7 +693,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._type != nil
   }
   mutating func clearType() {
-    return _storage._type = nil
+    _storage._type = nil
   }
 
   ///   For message and enum types, this is the name of the type.  If the name
@@ -709,7 +709,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._typeName != nil
   }
   mutating func clearTypeName() {
-    return _storage._typeName = nil
+    _storage._typeName = nil
   }
 
   ///   For extensions, this is the name of the type being extended.  It is
@@ -722,7 +722,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._extendee != nil
   }
   mutating func clearExtendee() {
-    return _storage._extendee = nil
+    _storage._extendee = nil
   }
 
   ///   For numeric types, contains the original text representation of the value.
@@ -738,7 +738,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._defaultValue != nil
   }
   mutating func clearDefaultValue() {
-    return _storage._defaultValue = nil
+    _storage._defaultValue = nil
   }
 
   ///   If set, gives the index of a oneof in the containing type's oneof_decl
@@ -751,7 +751,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._oneofIndex != nil
   }
   mutating func clearOneofIndex() {
-    return _storage._oneofIndex = nil
+    _storage._oneofIndex = nil
   }
 
   ///   JSON name of this field. The value is set by protocol compiler. If the
@@ -766,7 +766,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._jsonName != nil
   }
   mutating func clearJsonName() {
-    return _storage._jsonName = nil
+    _storage._jsonName = nil
   }
 
   var options: Google_Protobuf_FieldOptions {
@@ -777,7 +777,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1036,7 +1036,7 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   var options: Google_Protobuf_OneofOptions {
@@ -1047,7 +1047,7 @@ struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1122,7 +1122,7 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   var value: [Google_Protobuf_EnumValueDescriptorProto] {
@@ -1138,7 +1138,7 @@ struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1218,7 +1218,7 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   var number: Int32 {
@@ -1229,7 +1229,7 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
     return _storage._number != nil
   }
   mutating func clearNumber() {
-    return _storage._number = nil
+    _storage._number = nil
   }
 
   var options: Google_Protobuf_EnumValueOptions {
@@ -1240,7 +1240,7 @@ struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1319,7 +1319,7 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   var method: [Google_Protobuf_MethodDescriptorProto] {
@@ -1335,7 +1335,7 @@ struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1421,7 +1421,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._name != nil
   }
   mutating func clearName() {
-    return _storage._name = nil
+    _storage._name = nil
   }
 
   ///   Input and output type names.  These are resolved in the same way as
@@ -1434,7 +1434,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._inputType != nil
   }
   mutating func clearInputType() {
-    return _storage._inputType = nil
+    _storage._inputType = nil
   }
 
   var outputType: String {
@@ -1445,7 +1445,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._outputType != nil
   }
   mutating func clearOutputType() {
-    return _storage._outputType = nil
+    _storage._outputType = nil
   }
 
   var options: Google_Protobuf_MethodOptions {
@@ -1456,7 +1456,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._options != nil
   }
   mutating func clearOptions() {
-    return _storage._options = nil
+    _storage._options = nil
   }
 
   ///   Identifies if client streams multiple client messages
@@ -1468,7 +1468,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._clientStreaming != nil
   }
   mutating func clearClientStreaming() {
-    return _storage._clientStreaming = nil
+    _storage._clientStreaming = nil
   }
 
   ///   Identifies if server streams multiple server messages
@@ -1480,7 +1480,7 @@ struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     return _storage._serverStreaming != nil
   }
   mutating func clearServerStreaming() {
-    return _storage._serverStreaming = nil
+    _storage._serverStreaming = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1602,7 +1602,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._javaPackage != nil
   }
   mutating func clearJavaPackage() {
-    return _storage._javaPackage = nil
+    _storage._javaPackage = nil
   }
 
   ///   If set, all the classes from the .proto file are wrapped in a single
@@ -1618,7 +1618,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._javaOuterClassname != nil
   }
   mutating func clearJavaOuterClassname() {
-    return _storage._javaOuterClassname = nil
+    _storage._javaOuterClassname = nil
   }
 
   ///   If set true, then the Java code generator will generate a separate .java
@@ -1635,7 +1635,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._javaMultipleFiles != nil
   }
   mutating func clearJavaMultipleFiles() {
-    return _storage._javaMultipleFiles = nil
+    _storage._javaMultipleFiles = nil
   }
 
   ///   This option does nothing.
@@ -1647,7 +1647,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._javaGenerateEqualsAndHash != nil
   }
   mutating func clearJavaGenerateEqualsAndHash() {
-    return _storage._javaGenerateEqualsAndHash = nil
+    _storage._javaGenerateEqualsAndHash = nil
   }
 
   ///   If set true, then the Java2 code generator will generate code that
@@ -1664,7 +1664,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._javaStringCheckUtf8 != nil
   }
   mutating func clearJavaStringCheckUtf8() {
-    return _storage._javaStringCheckUtf8 = nil
+    _storage._javaStringCheckUtf8 = nil
   }
 
   var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode {
@@ -1675,7 +1675,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._optimizeFor != nil
   }
   mutating func clearOptimizeFor() {
-    return _storage._optimizeFor = nil
+    _storage._optimizeFor = nil
   }
 
   ///   Sets the Go package where structs generated from this .proto will be
@@ -1691,7 +1691,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._goPackage != nil
   }
   mutating func clearGoPackage() {
-    return _storage._goPackage = nil
+    _storage._goPackage = nil
   }
 
   ///   Should generic services be generated in each language?  "Generic" services
@@ -1712,7 +1712,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._ccGenericServices != nil
   }
   mutating func clearCcGenericServices() {
-    return _storage._ccGenericServices = nil
+    _storage._ccGenericServices = nil
   }
 
   var javaGenericServices: Bool {
@@ -1723,7 +1723,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._javaGenericServices != nil
   }
   mutating func clearJavaGenericServices() {
-    return _storage._javaGenericServices = nil
+    _storage._javaGenericServices = nil
   }
 
   var pyGenericServices: Bool {
@@ -1734,7 +1734,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._pyGenericServices != nil
   }
   mutating func clearPyGenericServices() {
-    return _storage._pyGenericServices = nil
+    _storage._pyGenericServices = nil
   }
 
   ///   Is this file deprecated?
@@ -1749,7 +1749,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _storage._deprecated = nil
+    _storage._deprecated = nil
   }
 
   ///   Enables the use of arenas for the proto messages in this file. This applies
@@ -1762,7 +1762,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._ccEnableArenas != nil
   }
   mutating func clearCcEnableArenas() {
-    return _storage._ccEnableArenas = nil
+    _storage._ccEnableArenas = nil
   }
 
   ///   Sets the objective c class prefix which is prepended to all objective c
@@ -1775,7 +1775,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._objcClassPrefix != nil
   }
   mutating func clearObjcClassPrefix() {
-    return _storage._objcClassPrefix = nil
+    _storage._objcClassPrefix = nil
   }
 
   ///   Namespace for generated classes; defaults to the package.
@@ -1787,7 +1787,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._csharpNamespace != nil
   }
   mutating func clearCsharpNamespace() {
-    return _storage._csharpNamespace = nil
+    _storage._csharpNamespace = nil
   }
 
   ///   By default Swift generators will take the proto package and CamelCase it
@@ -1802,7 +1802,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._swiftPrefix != nil
   }
   mutating func clearSwiftPrefix() {
-    return _storage._swiftPrefix = nil
+    _storage._swiftPrefix = nil
   }
 
   ///   Sets the php class prefix which is prepended to all php generated classes
@@ -1815,7 +1815,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _storage._phpClassPrefix != nil
   }
   mutating func clearPhpClassPrefix() {
-    return _storage._phpClassPrefix = nil
+    _storage._phpClassPrefix = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -1999,7 +1999,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     return _messageSetWireFormat != nil
   }
   mutating func clearMessageSetWireFormat() {
-    return _messageSetWireFormat = nil
+    _messageSetWireFormat = nil
   }
 
   ///   Disables the generation of the standard "descriptor()" accessor, which can
@@ -2014,7 +2014,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     return _noStandardDescriptorAccessor != nil
   }
   mutating func clearNoStandardDescriptorAccessor() {
-    return _noStandardDescriptorAccessor = nil
+    _noStandardDescriptorAccessor = nil
   }
 
   ///   Is this message deprecated?
@@ -2030,7 +2030,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     return _deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _deprecated = nil
+    _deprecated = nil
   }
 
   ///   Whether the message is an automatically generated map entry type for the
@@ -2063,7 +2063,7 @@ struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     return _mapEntry != nil
   }
   mutating func clearMapEntry() {
-    return _mapEntry = nil
+    _mapEntry = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2133,7 +2133,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     return _ctype != nil
   }
   mutating func clearCtype() {
-    return _ctype = nil
+    _ctype = nil
   }
 
   ///   The packed option can be enabled for repeated primitive fields to enable
@@ -2150,7 +2150,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     return _packed != nil
   }
   mutating func clearPacked() {
-    return _packed = nil
+    _packed = nil
   }
 
   ///   The jstype option determines the JavaScript type used for values of the
@@ -2171,7 +2171,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     return _jstype != nil
   }
   mutating func clearJstype() {
-    return _jstype = nil
+    _jstype = nil
   }
 
   ///   Should this field be parsed lazily?  Lazy applies only to message-type
@@ -2211,7 +2211,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     return _lazy != nil
   }
   mutating func clearLazy() {
-    return _lazy = nil
+    _lazy = nil
   }
 
   ///   Is this field deprecated?
@@ -2227,7 +2227,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     return _deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _deprecated = nil
+    _deprecated = nil
   }
 
   ///   For Google-internal migration only. Do not use.
@@ -2240,7 +2240,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
     return _weak != nil
   }
   mutating func clearWeak() {
-    return _weak = nil
+    _weak = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2432,7 +2432,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _allowAlias != nil
   }
   mutating func clearAllowAlias() {
-    return _allowAlias = nil
+    _allowAlias = nil
   }
 
   ///   Is this enum deprecated?
@@ -2448,7 +2448,7 @@ struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
     return _deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _deprecated = nil
+    _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2510,7 +2510,7 @@ struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.Ex
     return _deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _deprecated = nil
+    _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2568,7 +2568,7 @@ struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.Exte
     return _deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _deprecated = nil
+    _deprecated = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2626,7 +2626,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
     return _deprecated != nil
   }
   mutating func clearDeprecated() {
-    return _deprecated = nil
+    _deprecated = nil
   }
 
   fileprivate var _idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel? = nil
@@ -2638,7 +2638,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
     return _idempotencyLevel != nil
   }
   mutating func clearIdempotencyLevel() {
-    return _idempotencyLevel = nil
+    _idempotencyLevel = nil
   }
 
   ///   The parser stores options it doesn't recognize here. See above.
@@ -2748,7 +2748,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     return _identifierValue != nil
   }
   mutating func clearIdentifierValue() {
-    return _identifierValue = nil
+    _identifierValue = nil
   }
 
   fileprivate var _positiveIntValue: UInt64? = nil
@@ -2760,7 +2760,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     return _positiveIntValue != nil
   }
   mutating func clearPositiveIntValue() {
-    return _positiveIntValue = nil
+    _positiveIntValue = nil
   }
 
   fileprivate var _negativeIntValue: Int64? = nil
@@ -2772,7 +2772,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     return _negativeIntValue != nil
   }
   mutating func clearNegativeIntValue() {
-    return _negativeIntValue = nil
+    _negativeIntValue = nil
   }
 
   fileprivate var _doubleValue: Double? = nil
@@ -2784,7 +2784,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     return _doubleValue != nil
   }
   mutating func clearDoubleValue() {
-    return _doubleValue = nil
+    _doubleValue = nil
   }
 
   fileprivate var _stringValue: Data? = nil
@@ -2796,7 +2796,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     return _stringValue != nil
   }
   mutating func clearStringValue() {
-    return _stringValue = nil
+    _stringValue = nil
   }
 
   fileprivate var _aggregateValue: String? = nil
@@ -2808,7 +2808,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     return _aggregateValue != nil
   }
   mutating func clearAggregateValue() {
-    return _aggregateValue = nil
+    _aggregateValue = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2830,7 +2830,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
       return _namePart != nil
     }
     mutating func clearNamePart() {
-      return _namePart = nil
+      _namePart = nil
     }
 
     fileprivate var _isExtension: Bool? = nil
@@ -2842,7 +2842,7 @@ struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
       return _isExtension != nil
     }
     mutating func clearIsExtension() {
-      return _isExtension = nil
+      _isExtension = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3067,7 +3067,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
       return _leadingComments != nil
     }
     mutating func clearLeadingComments() {
-      return _leadingComments = nil
+      _leadingComments = nil
     }
 
     fileprivate var _trailingComments: String? = nil
@@ -3079,7 +3079,7 @@ struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
       return _trailingComments != nil
     }
     mutating func clearTrailingComments() {
-      return _trailingComments = nil
+      _trailingComments = nil
     }
 
     var leadingDetachedComments: [String] = []
@@ -3169,7 +3169,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
       return _sourceFile != nil
     }
     mutating func clearSourceFile() {
-      return _sourceFile = nil
+      _sourceFile = nil
     }
 
     ///   Identifies the starting offset in bytes in the generated code
@@ -3183,7 +3183,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
       return _begin != nil
     }
     mutating func clearBegin() {
-      return _begin = nil
+      _begin = nil
     }
 
     ///   Identifies the ending offset in bytes in the generated code that
@@ -3198,7 +3198,7 @@ struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
       return _end != nil
     }
     mutating func clearEnd() {
-      return _end = nil
+      _end = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

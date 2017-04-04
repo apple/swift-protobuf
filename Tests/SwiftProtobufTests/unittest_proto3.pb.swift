@@ -395,7 +395,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     return _storage._singleNestedMessage != nil
   }
   mutating func clearSingleNestedMessage() {
-    return _storage._singleNestedMessage = nil
+    _storage._singleNestedMessage = nil
   }
 
   var singleForeignMessage: Proto3ForeignMessage {
@@ -406,7 +406,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     return _storage._singleForeignMessage != nil
   }
   mutating func clearSingleForeignMessage() {
-    return _storage._singleForeignMessage = nil
+    _storage._singleForeignMessage = nil
   }
 
   var singleImportMessage: Proto3ImportMessage {
@@ -417,7 +417,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     return _storage._singleImportMessage != nil
   }
   mutating func clearSingleImportMessage() {
-    return _storage._singleImportMessage = nil
+    _storage._singleImportMessage = nil
   }
 
   var singleNestedEnum: Proto3TestAllTypes.NestedEnum {
@@ -444,7 +444,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     return _storage._singlePublicImportMessage != nil
   }
   mutating func clearSinglePublicImportMessage() {
-    return _storage._singlePublicImportMessage = nil
+    _storage._singlePublicImportMessage = nil
   }
 
   ///   Repeated
@@ -997,7 +997,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
     return _storage._child != nil
   }
   mutating func clearChild() {
-    return _storage._child = nil
+    _storage._child = nil
   }
 
   var payload: Proto3TestAllTypes {
@@ -1008,7 +1008,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
     return _storage._payload != nil
   }
   mutating func clearPayload() {
-    return _storage._payload = nil
+    _storage._payload = nil
   }
 
   var repeatedChild: [Proto3NestedTestAllTypes] {
@@ -1152,7 +1152,7 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message {
     return _storage._foreignNested != nil
   }
   mutating func clearForeignNested() {
-    return _storage._foreignNested = nil
+    _storage._foreignNested = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1248,7 +1248,7 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
     return _storage._a != nil
   }
   mutating func clearA() {
-    return _storage._a = nil
+    _storage._a = nil
   }
 
   var i: Int32 {
@@ -1317,7 +1317,7 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
     return _storage._bb != nil
   }
   mutating func clearBb() {
-    return _storage._bb = nil
+    _storage._bb = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1378,7 +1378,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
     return _storage._a != nil
   }
   mutating func clearA() {
-    return _storage._a = nil
+    _storage._a = nil
   }
 
   var optionalInt32: Int32 {
@@ -1503,7 +1503,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
     return _storage._messageField != nil
   }
   mutating func clearMessageField() {
-    return _storage._messageField = nil
+    _storage._messageField = nil
   }
 
   var repeatedPrimitiveField: [Int32] {
@@ -1633,7 +1633,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     return _storage._singleNestedMessage != nil
   }
   mutating func clearSingleNestedMessage() {
-    return _storage._singleNestedMessage = nil
+    _storage._singleNestedMessage = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

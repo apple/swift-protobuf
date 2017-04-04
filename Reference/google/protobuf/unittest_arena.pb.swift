@@ -63,7 +63,7 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message {
     return _d != nil
   }
   mutating func clearD() {
-    return _d = nil
+    _d = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
