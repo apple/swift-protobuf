@@ -22,13 +22,15 @@ private let reservedTypeNames: Set<String> = {
     var names: Set<String> = [
         "anyTypeURL",
         "debugDescription",
-        "decodeField",
+        "decodeMessage",
         "description",
         "dynamicType",
         "hashValue",
         "isEmpty",
         "isEqual",
         "jsonFieldNames",
+        "protoMessageName",
+        "SwiftProtobuf",
         "traverse",
         "unknownFields",
     ]
@@ -47,35 +49,30 @@ private let reservedTypeNames: Set<String> = {
     return names
 }()
 
-func sanitizeMessageTypeName(_ s: String) -> String {
+private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
     if reservedTypeNames.contains(s) {
-        return s + "Message"
+        return s + disambiguator
     } else if isAllUnderscore(s) {
-        return s + "Message"
+        return s + disambiguator
+    } else if s.hasSuffix(disambiguator) {
+        let e = s.index(s.endIndex, offsetBy: -disambiguator.characters.count)
+        let truncated = s.substring(to: e)
+        return sanitizeTypeName(truncated, disambiguator: disambiguator) + disambiguator
     } else {
         return s
     }
 }
 
+func sanitizeMessageTypeName(_ s: String) -> String {
+    return sanitizeTypeName(s, disambiguator: "Message")
+}
 
 func sanitizeEnumTypeName(_ s: String) -> String {
-    if reservedTypeNames.contains(s) {
-        return s + "Enum"
-    } else if isAllUnderscore(s) {
-        return s + "Enum"
-    } else {
-        return s
-    }
+    return sanitizeTypeName(s, disambiguator: "Enum")
 }
 
 func sanitizeOneofTypeName(_ s: String) -> String {
-    if reservedTypeNames.contains(s) {
-        return s + "Oneof"
-    } else if isAllUnderscore(s) {
-        return s + "Oneof"
-    } else {
-        return s
-    }
+    return sanitizeTypeName(s, disambiguator: "Oneof")
 }
 
 private let reservedFieldNames: Set<String> =  {
@@ -173,6 +170,9 @@ private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
 /// enum case names are sanitized by adding
 /// backticks `` around them.
 func isAllUnderscore(_ s: String) -> Bool {
+    if s.isEmpty {
+        return false
+    }
     for c in s.characters {
         if c != "_" {return false}
     }
