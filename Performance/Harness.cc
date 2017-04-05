@@ -35,7 +35,6 @@ using std::vector;
 Harness::Harness(std::ostream* results_stream) :
     results_stream(results_stream),
     measurement_count(10),
-    run_count(1000),
     repeated_count(10) {}
 
 void Harness::write_to_log(const string& name,
@@ -47,7 +46,7 @@ void Harness::write_to_log(const string& name,
   (*results_stream) << "\"" << name << "\": [";
   for (const auto& duration : timings) {
     auto micros = duration_cast<microseconds_d>(duration);
-    (*results_stream) << micros.count() / run_count << ", ";
+    (*results_stream) << micros.count() / run_count() << ", ";
   }
   (*results_stream) << "]," << endl;
 }

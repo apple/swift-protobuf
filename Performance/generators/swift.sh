@@ -22,34 +22,34 @@ function print_swift_set_field() {
 
   case "$type" in
     repeated\ bytes)
-      echo "        for _ in 0..<repeatedCount {"
-      echo "          message.field$num.append(Data(repeating:$((num)), count: 20))"
-      echo "        }"
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append(Data(repeating:$((num)), count: 20))"
+      echo "    }"
       ;;
     repeated\ bool)
-      echo "        message.field$num = [true, false, true, false, true, false, true, false]"
+      echo "    message.field$num = [true, false, true, false, true, false, true, false]"
       ;;
     repeated\ string)
-      echo "        for _ in 0..<repeatedCount {"
-      echo "          message.field$num.append(\"$((200+num))\")"
-      echo "        }"
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append(\"$((200+num))\")"
+      echo "    }"
       ;;
     repeated\ *)
-      echo "        for _ in 0..<repeatedCount {"
-      echo "          message.field$num.append($((200+num)))"
-      echo "        }"
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append($((200+num)))"
+      echo "    }"
       ;;
     bytes)
-      echo "        message.field$num = Data(repeating:$((num)), count: 20)"
+      echo "    message.field$num = Data(repeating:$((num)), count: 20)"
       ;;
     bool)
-      echo "        message.field$num = true"
+      echo "    message.field$num = true"
       ;;
     string)
-      echo "        message.field$num = \"$((200+num))\""
+      echo "    message.field$num = \"$((200+num))\""
       ;;
     *)
-      echo "        message.field$num = $((200+num))"
+      echo "    message.field$num = $((200+num))"
       ;;
   esac
 }
@@ -59,9 +59,14 @@ function generate_swift_harness() {
 import Foundation
 
 extension Harness {
+  var runCount: Int { return $run_count }
+
   func run() {
     measure {
-      // Loop enough times to get meaningfully large measurements.
+      _ = measureSubtask("New message") {
+        return PerfMessage()
+      }
+
       var message = PerfMessage()
       measureSubtask("Populate fields") {
         populateFields(of: &message)
@@ -71,7 +76,7 @@ extension Harness {
       let data = try measureSubtask("Encode binary") {
         return try message.serializedData()
       }
-      message = try measureSubtask("Decode binary") {
+      let message2 = try measureSubtask("Decode binary") {
         return try PerfMessage(serializedData: data)
       }
 
@@ -79,7 +84,7 @@ extension Harness {
       let json = try measureSubtask("Encode JSON") {
         return try message.jsonUTF8Data()
       }
-      let jsonDecodedMessage = try measureSubtask("Decode JSON") {
+      _ = try measureSubtask("Decode JSON") {
         return try PerfMessage(jsonUTF8Data: json)
       }
 
@@ -92,10 +97,8 @@ extension Harness {
       }
 
       // Exercise equality.
-      measureSubtask("Equality") {
-        guard message == jsonDecodedMessage else {
-          fatalError("Binary- and JSON-decoded messages were not equal!")
-        }
+      _ = measureSubtask("Equality") {
+        return message == message2
       }
     }
   }
@@ -103,12 +106,102 @@ extension Harness {
   private func populateFields(of message: inout PerfMessage) {
 EOF
 
-  for field_number in $(seq 1 "$field_count"); do
-    print_swift_set_field "$field_number" "$field_type" >>"$gen_harness_path"
-  done
+  if [[ "$proto_type" == "homogeneous" ]]; then
+    generate_swift_homogenerous_populate_fields_body
+  else
+    generate_swift_heterogenerous_populate_fields_body
+  fi
 
   cat >> "$gen_harness_path" <<EOF
   }
 }
+EOF
+}
+
+function generate_swift_homogenerous_populate_fields_body() {
+  for field_number in $(seq 1 "$field_count"); do
+    print_swift_set_field "$field_number" "$field_type" >>"$gen_harness_path"
+  done
+}
+
+function generate_swift_heterogenerous_populate_fields_body() {
+  cat >> "$gen_harness_path" <<EOF
+    message.optionalInt32 = 1
+    message.optionalInt64 = 2
+    message.optionalUint32 = 3
+    message.optionalUint64 = 4
+    message.optionalSint32 = 5
+    message.optionalSint64 = 6
+    message.optionalFixed32 = 7
+    message.optionalFixed64 = 8
+    message.optionalSfixed32 = 9
+    message.optionalSfixed64 = 10
+    message.optionalFloat = 11
+    message.optionalDouble = 12
+    message.optionalBool = true
+    message.optionalString = "14"
+    message.optionalBytes = Data(repeating: 15, count: 20)
+    message.optionalEnum = .foo
+
+EOF
+
+  if [[ "$proto_syntax" == "2" ]]; then
+    cat >>"$gen_harness_path" <<EOF
+    message.optionalGroup.optionalGroupInt32 = 101
+    message.optionalGroup.optionalGroupInt64 = 102
+    message.optionalGroup.optionalGroupUint32 = 103
+    message.optionalGroup.optionalGroupUint64 = 104
+    message.optionalGroup.optionalGroupSint32 = 105
+    message.optionalGroup.optionalGroupSint64 = 106
+    message.optionalGroup.optionalGroupFixed32 = 107
+    message.optionalGroup.optionalGroupFixed64 = 108
+    message.optionalGroup.optionalGroupSfixed32 = 109
+    message.optionalGroup.optionalGroupSfixed64 = 110
+    message.optionalGroup.optionalGroupFloat = 111
+    message.optionalGroup.optionalGroupDouble = 112
+    message.optionalGroup.optionalGroupBool = true
+    message.optionalGroup.optionalGroupString = "114"
+    message.optionalGroup.optionalGroupBytes = Data(repeating: 115, count: 20)
+    message.optionalGroup.optionalGroupEnum = .foo
+EOF
+fi
+
+  cat >>"$gen_harness_path" <<EOF
+    for _ in 0..<repeatedCount {
+      message.repeatedInt32.append(201)
+      message.repeatedInt64.append(202)
+      message.repeatedUint32.append(203)
+      message.repeatedUint64.append(204)
+      message.repeatedSint32.append(205)
+      message.repeatedSint64.append(206)
+      message.repeatedFixed32.append(207)
+      message.repeatedFixed64.append(208)
+      message.repeatedSfixed32.append(209)
+      message.repeatedSfixed64.append(210)
+      message.repeatedFloat.append(211)
+      message.repeatedDouble.append(212)
+      message.repeatedBool.append(true)
+      message.repeatedString.append("214")
+      message.repeatedBytes.append(Data(repeating: 215, count: 20))
+      message.repeatedEnum.append(.foo)
+    }
+
+    // Instead of writing a ton of code that populates the nested messages,
+    // just do some bulk assignments from a snapshot of the message we just
+    // populated.
+    let snapshot = message
+    message.optionalMessage = snapshot
+EOF
+
+  if [[ "$proto_syntax" == "2" ]]; then
+    cat >>"$gen_harness_path" <<EOF
+    message.optionalGroup.optionalGroupMessage = snapshot
+EOF
+fi
+
+  cat >>"$gen_harness_path" <<EOF
+    for _ in 0..<repeatedCount {
+      message.repeatedMessage.append(snapshot)
+    }
 EOF
 }
