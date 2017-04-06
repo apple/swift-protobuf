@@ -249,8 +249,22 @@ extension Google_Protobuf_FieldDescriptorProto {
            default: return defaultValue
            }
         case .bool: return defaultValue
-        case .string: return stringToEscapedStringLiteral(defaultValue)
-        case .bytes: return escapedToDataLiteral(defaultValue)
+        case .string:
+          if defaultValue.isEmpty {
+            // proto file listed the default as "", just pretend it wasn't set since
+            // this is the default.
+            return nil
+          } else {
+            return stringToEscapedStringLiteral(defaultValue)
+          }
+        case .bytes:
+          if defaultValue.isEmpty {
+            // proto file listed the default as "", just pretend it wasn't set since
+            // this is the default.
+            return nil
+          } else {
+            return escapedToDataLiteral(defaultValue)
+          }
         case .enum:
             return context.getSwiftNameForEnumCase(path: typeName, caseName: defaultValue)
         default: return defaultValue
