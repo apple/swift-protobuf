@@ -355,11 +355,11 @@ class FileGenerator {
 
             // Generate the Swift Extensions on the Messages that provide the api
             // for using the protobuf extension.
-            for m in messages {
-                m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
-            }
             for e in extensions {
                 e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+            }
+            for m in messages {
+                m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
             }
 
             // Generate a registry for the file.

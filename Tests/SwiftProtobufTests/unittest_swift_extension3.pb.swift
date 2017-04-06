@@ -129,32 +129,6 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_swift_extension3.proto.
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var ProtobufUnittest_Extend3_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b, value: newValue)}
-  }
-  var hasProtobufUnittest_Extend3_MyMessage_b: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)
-  }
-  mutating func clearProtobufUnittest_Extend3_MyMessage_b() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)
-  }
-}
-
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var ProtobufUnittest_Extend3_MyMessage_c: ProtobufUnittest_Extend3_MyMessage.C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend3_MyMessage.C()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C, value: newValue)}
-  }
-  var hasProtobufUnittest_Extend3_MyMessage_c: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)
-  }
-  mutating func clearProtobufUnittest_Extend3_MyMessage_c() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)
-  }
-}
-
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_b: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b, value: newValue)}
@@ -177,6 +151,32 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   }
   mutating func clearProtobufUnittest_Extend3_c() {
     clearExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C)
+  }
+}
+
+extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+  var ProtobufUnittest_Extend3_MyMessage_b: String {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b) ?? String()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b, value: newValue)}
+  }
+  var hasProtobufUnittest_Extend3_MyMessage_b: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)
+  }
+  mutating func clearProtobufUnittest_Extend3_MyMessage_b() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)
+  }
+}
+
+extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+  var ProtobufUnittest_Extend3_MyMessage_c: ProtobufUnittest_Extend3_MyMessage.C {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend3_MyMessage.C()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C, value: newValue)}
+  }
+  var hasProtobufUnittest_Extend3_MyMessage_c: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)
+  }
+  mutating func clearProtobufUnittest_Extend3_MyMessage_c() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)
   }
 }
 

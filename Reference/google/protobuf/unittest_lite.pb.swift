@@ -2444,45 +2444,6 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
 // MARK: - Extension support defined in unittest_lite.proto.
 
 extension ProtobufUnittest_TestAllExtensionsLite {
-  var ProtobufUnittest_TestNestedExtensionLite_nestedExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension) ?? 0}
-    set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension, value: newValue)}
-  }
-  var hasProtobufUnittest_TestNestedExtensionLite_nestedExtension: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension)
-  }
-  mutating func clearProtobufUnittest_TestNestedExtensionLite_nestedExtension() {
-    clearExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension)
-  }
-}
-
-extension ProtobufUnittest_TestParsingMergeLite {
-  var ProtobufUnittest_TestParsingMergeLite_optionalExt: ProtobufUnittest_TestAllTypesLite {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext) ?? ProtobufUnittest_TestAllTypesLite()}
-    set {setExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext, value: newValue)}
-  }
-  var hasProtobufUnittest_TestParsingMergeLite_optionalExt: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext)
-  }
-  mutating func clearProtobufUnittest_TestParsingMergeLite_optionalExt() {
-    clearExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext)
-  }
-}
-
-extension ProtobufUnittest_TestParsingMergeLite {
-  var ProtobufUnittest_TestParsingMergeLite_repeatedExt: [ProtobufUnittest_TestAllTypesLite] {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext)}
-    set {setExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext, value: newValue)}
-  }
-  var hasProtobufUnittest_TestParsingMergeLite_repeatedExt: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext)
-  }
-  mutating func clearProtobufUnittest_TestParsingMergeLite_repeatedExt() {
-    clearExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext)
-  }
-}
-
-extension ProtobufUnittest_TestAllExtensionsLite {
   /// Singular
   var ProtobufUnittest_optionalInt32ExtensionLite: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension_lite) ?? 0}
@@ -3653,6 +3614,45 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite {
   }
   mutating func clearProtobufUnittest_testAllTypesLite() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types_lite)
+  }
+}
+
+extension ProtobufUnittest_TestAllExtensionsLite {
+  var ProtobufUnittest_TestNestedExtensionLite_nestedExtension: Int32 {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension) ?? 0}
+    set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension, value: newValue)}
+  }
+  var hasProtobufUnittest_TestNestedExtensionLite_nestedExtension: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension)
+  }
+  mutating func clearProtobufUnittest_TestNestedExtensionLite_nestedExtension() {
+    clearExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension)
+  }
+}
+
+extension ProtobufUnittest_TestParsingMergeLite {
+  var ProtobufUnittest_TestParsingMergeLite_optionalExt: ProtobufUnittest_TestAllTypesLite {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext) ?? ProtobufUnittest_TestAllTypesLite()}
+    set {setExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext, value: newValue)}
+  }
+  var hasProtobufUnittest_TestParsingMergeLite_optionalExt: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext)
+  }
+  mutating func clearProtobufUnittest_TestParsingMergeLite_optionalExt() {
+    clearExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.optional_ext)
+  }
+}
+
+extension ProtobufUnittest_TestParsingMergeLite {
+  var ProtobufUnittest_TestParsingMergeLite_repeatedExt: [ProtobufUnittest_TestAllTypesLite] {
+    get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext)}
+    set {setExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext, value: newValue)}
+  }
+  var hasProtobufUnittest_TestParsingMergeLite_repeatedExt: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext)
+  }
+  mutating func clearProtobufUnittest_TestParsingMergeLite_repeatedExt() {
+    clearExtensionValue(ext: ProtobufUnittest_TestParsingMergeLite.Extensions.repeated_ext)
   }
 }
 

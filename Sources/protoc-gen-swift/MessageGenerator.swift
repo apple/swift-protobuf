@@ -278,14 +278,11 @@ class MessageGenerator {
   }
 
   func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
-    // nested messages
-    for m in messages {
-      m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
-    }
-
-    // nested extensions
     for e in extensions {
       e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+    }
+    for m in messages {
+      m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
     }
   }
 
