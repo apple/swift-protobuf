@@ -360,9 +360,13 @@ class FileGenerator {
             m.registerExtensions(registry: &registry)
         }
         if !registry.isEmpty {
-            let filename = toUpperCamelCase(baseFilename)
+            let filenameAsIdentifer = toUpperCamelCase(baseFilename)
             p.print("\n")
-            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filename)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
+            p.print("/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n")
+            p.print("/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n")
+            p.print("/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n")
+            p.print("/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filenameAsIdentifer)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
             p.indent()
             var separator = ""
             for e in registry {
