@@ -316,6 +316,7 @@ for comparison in "${comparisons[@]}"; do
           "$gen_message_path"
 
       harness_swift="$tmp_checkout/Performance/_generated/harness_swift"
+      results_trace="$script_dir/_results/$report_type (swift)"
       run_swift_harness "$tmp_checkout" "$comparison" "$commit_results"
     else
       echo
