@@ -2,7 +2,7 @@
   // The benchmarks that we want to display, in the order they should appear
   // on the plot axis.
   var benchmarks = [
-    'Populate fields',
+    'New message', 'Populate fields',
     'Encode binary', 'Decode binary',
     'Encode JSON', 'Decode JSON',
     'Encode text', 'Decode text',
@@ -23,7 +23,7 @@
       ticks: 'outside',
     },
     yaxis: {
-      title: 'Runtime (&micro;s)',
+      title: 'Runtime (&mu;s)',
       autorange: true,
     },
     margin: {

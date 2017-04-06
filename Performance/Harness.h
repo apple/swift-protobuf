@@ -65,7 +65,7 @@ private:
    * The number of times to loop the body of the run() method.
    * Increase this for better precision.
    */
-  int run_count;
+  int run_count() const;
 
   /** The number of times to measure the function passed to measure(). */
   int measurement_count;
@@ -120,7 +120,7 @@ void Harness::measure(const Function& func) {
   subtask_timings.clear();
   bool displayed_titles = false;
 
-  printf("Running each check %d times, times in µs\n", run_count);
+  printf("Running each check %d times, times in µs\n", run_count());
 
   // Do each measurement multiple times and collect the means and standard
   // deviation to account for noise.
@@ -128,7 +128,7 @@ void Harness::measure(const Function& func) {
     current_subtasks.clear();
 
     auto start = steady_clock::now();
-    for (auto i = 0; i < run_count; i++) {
+    for (auto i = 0; i < run_count(); i++) {
         subtask_names.clear();
         func();
     }
@@ -156,7 +156,7 @@ void Harness::measure(const Function& func) {
     for (const auto& name : subtask_names) {
       const auto& total_interval = current_subtasks[name];
       auto micros = duration_cast<microseconds_d>(total_interval);
-      printf("%9.3f", micros.count() / run_count);
+      printf("%9.3f", micros.count() / run_count());
       subtask_timings[name].push_back(micros);
     }
     printf("\n");

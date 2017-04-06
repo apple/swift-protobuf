@@ -18,18 +18,24 @@ private func padded(_ input: String, to width: Int) -> String {
   return input + String(repeating: " ", count: max(0, width - input.characters.count))
 }
 
+/// It is expected that the generator will provide these in an extension.
+protocol GeneratedHarnessMembers {
+  /// The number of times to loop the body of the run() method.
+  /// Increase this to get better precision.
+  var runCount: Int { get }
+
+  /// The main body of the performance harness.
+  func run()
+}
+
 /// Harness used for performance tests.
 ///
 /// The generator script will generate an extension to this class that adds a
 /// run() method, which the main.swift file calls.
-class Harness {
+class Harness: GeneratedHarnessMembers {
 
   /// The number of times to execute the block passed to measure().
   var measurementCount = 10
-
-  /// The number of times to loop the body of the run() method.
-  /// Increase this to get better precision...
-  var runCount = 1000
 
   /// The number of times to call append() for repeated fields.
   let repeatedCount: Int32 = 10

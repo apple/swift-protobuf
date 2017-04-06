@@ -24,7 +24,7 @@ function run_cpp_harness() {
 
     echo "Generating C++ harness source..."
     gen_harness_path="$script_dir/_generated/Harness+Generated.cc"
-    generate_cpp_harness "$field_count" "$field_type"
+    generate_cpp_harness
 
     echo "Building C++ test harness..."
     time ( g++ --std=c++11 -O \
