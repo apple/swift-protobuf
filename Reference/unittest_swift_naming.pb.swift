@@ -17632,6 +17632,8 @@ let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<Optio
   defaultValue: 0
 )
 
+// MARK: - Extension support defined in unittest_swift_naming.proto.
+
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_http: Int32 {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}

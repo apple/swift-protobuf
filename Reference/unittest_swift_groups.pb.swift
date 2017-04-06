@@ -453,6 +453,8 @@ let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedG
   defaultValue: []
 )
 
+// MARK: - Extension support defined in unittest_swift_groups.proto.
+
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
     get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}

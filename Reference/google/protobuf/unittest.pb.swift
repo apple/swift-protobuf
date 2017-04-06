@@ -6964,6 +6964,8 @@ let ProtobufUnittest_Extensions_test_all_types = SwiftProtobuf.MessageExtension<
   defaultValue: ProtobufUnittest_TestAllTypes()
 )
 
+// MARK: - Extension support defined in unittest.proto.
+
 extension ProtobufUnittest_TestAllExtensions {
   /// Check for bug where string extensions declared in tested scope did not
   /// compile.

@@ -263,15 +263,15 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  func generateTopLevel(printer p: inout CodePrinter) {
+  func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
     // nested messages
     for m in messages {
-      m.generateTopLevel(printer: &p)
+      m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
     }
 
     // nested extensions
     for e in extensions {
-      e.generateTopLevel(printer: &p)
+      e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
     }
   }
 

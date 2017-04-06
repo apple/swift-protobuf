@@ -3009,6 +3009,8 @@ let ProtobufUnittest_Extensions_test_all_types_lite = SwiftProtobuf.MessageExten
   defaultValue: ProtobufUnittest_TestAllTypesLite()
 )
 
+// MARK: - Extension support defined in unittest_lite.proto.
+
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_TestNestedExtensionLite_nestedExtension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtensionLite.Extensions.nested_extension) ?? 0}

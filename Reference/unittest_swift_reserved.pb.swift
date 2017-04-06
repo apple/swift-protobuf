@@ -403,6 +403,8 @@ let ProtobufUnittest_Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExt
   defaultValue: false
 )
 
+// MARK: - Extension support defined in unittest_swift_reserved.proto.
+
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
   /// This will end up in the "struct Extensions" to scope it, but there
   /// the raw form is used ("hash_value", not the Swift one "hashValue"),

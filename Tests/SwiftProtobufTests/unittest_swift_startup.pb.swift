@@ -116,6 +116,8 @@ let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.Mes
   defaultValue: []
 )
 
+// MARK: - Extension support defined in unittest_swift_startup.proto.
+
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? String()}

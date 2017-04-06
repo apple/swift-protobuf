@@ -132,6 +132,8 @@ let Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExtensionField<Swift
   defaultValue: false
 )
 
+// MARK: - Extension support defined in unittest_swift_reserved_ext.proto.
+
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_hashValue: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue) ?? false}

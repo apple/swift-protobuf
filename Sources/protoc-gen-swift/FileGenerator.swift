@@ -344,14 +344,6 @@ class FileGenerator {
             e.generateNested(printer: &p)
         }
 
-        for m in messages {
-            m.generateTopLevel(printer: &p)
-        }
-
-        for e in extensions {
-            e.generateTopLevel(printer: &p)
-        }
-
         var registry = [String]()
         for e in extensions {
             registry.append(e.swiftFullExtensionName)
@@ -360,7 +352,22 @@ class FileGenerator {
             m.registerExtensions(registry: &registry)
         }
         if !registry.isEmpty {
-            let filenameAsIdentifer = toUpperCamelCase(baseFilename)
+            let pathParts = splitPath(pathname: descriptor.name)
+            let filename = pathParts.base + pathParts.suffix
+            p.print("\n")
+            p.print("// MARK: - Extension support defined in \(filename).\n")
+
+            // Generate the Swift Extensions on the Messages that provide the api
+            // for using the protobuf extension.
+            for m in messages {
+                m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+            }
+            for e in extensions {
+                e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+            }
+
+            // Generate a registry for the file.
+            let filenameAsIdentifer = toUpperCamelCase(pathParts.base)
             p.print("\n")
             p.print("/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n")
             p.print("/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n")

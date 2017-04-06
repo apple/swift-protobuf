@@ -154,7 +154,7 @@ struct ExtensionGenerator {
         p.print(")\n")
     }
 
-    func generateTopLevel(printer p: inout CodePrinter) {
+    func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
         p.print("\n")
         p.print("extension \(swiftExtendedMessageName) {\n")
         p.indent()

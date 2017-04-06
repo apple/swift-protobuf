@@ -285,6 +285,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   }
 }
 
+// MARK: - Extension support defined in unittest_mset.proto.
+
 extension Proto2WireformatUnittest_TestMessageSet {
   var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension1()}

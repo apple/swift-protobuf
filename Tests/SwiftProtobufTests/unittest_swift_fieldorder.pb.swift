@@ -277,6 +277,8 @@ let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<
   defaultValue: 0
 )
 
+// MARK: - Extension support defined in unittest_swift_fieldorder.proto.
+
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
     get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}

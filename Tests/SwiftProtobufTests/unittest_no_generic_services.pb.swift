@@ -126,6 +126,8 @@ let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProto
   defaultValue: 0
 )
 
+// MARK: - Extension support defined in unittest_no_generic_services.proto.
+
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}

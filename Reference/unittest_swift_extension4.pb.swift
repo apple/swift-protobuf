@@ -153,6 +153,8 @@ let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionFiel
   defaultValue: Ext4C()
 )
 
+// MARK: - Extension support defined in unittest_swift_extension4.proto.
+
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_b: String {
     get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}

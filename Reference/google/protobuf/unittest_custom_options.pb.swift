@@ -1504,6 +1504,8 @@ let ProtobufUnittest_Extensions_required_enum_opt = SwiftProtobuf.MessageExtensi
   defaultValue: ProtobufUnittest_OldOptionType()
 )
 
+// MARK: - Extension support defined in unittest_custom_options.proto.
+
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
     get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.complex_opt4) ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}

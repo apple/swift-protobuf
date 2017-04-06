@@ -153,6 +153,8 @@ let ProtobufUnittest_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<Optio
   defaultValue: ProtobufUnittest_Extend3_C()
 )
 
+// MARK: - Extension support defined in unittest_swift_extension3.proto.
+
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_MyMessage_b: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b) ?? String()}
