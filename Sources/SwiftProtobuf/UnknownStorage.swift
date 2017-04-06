@@ -24,7 +24,7 @@ import Foundation
 public struct UnknownStorage: Equatable {
   /// The raw protocol buffer binary-encoded bytes that represent the unknown
   /// fields of a decoded message.
-  public private(set) var data = Data()
+  public private(set) var data = Internal.emptyData
 
   public static func ==(lhs: UnknownStorage, rhs: UnknownStorage) -> Bool {
     return lhs.data == rhs.data

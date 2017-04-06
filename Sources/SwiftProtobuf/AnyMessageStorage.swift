@@ -90,17 +90,17 @@ internal class AnyMessageStorage {
         do {
           return try message.serializedData(partial: true)
         } catch {
-          return Data()
+          return Internal.emptyData
         }
       case .contentJSON(let contentJSON):
         guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          return Data()
+          return Internal.emptyData
         }
         do {
           let m = try unpack(contentJSON: contentJSON, as: messageType)
           return try m.serializedData(partial: true)
         } catch {
-          return Data()
+          return Internal.emptyData
         }
       }
     }
@@ -117,7 +117,7 @@ internal class AnyMessageStorage {
     // parsed JSON with the @type removed
     case contentJSON(Data)
   }
-  var state: InternalState = .binary(Data())
+  var state: InternalState = .binary(Internal.emptyData)
 
   init() {}
 
@@ -392,7 +392,7 @@ extension AnyMessageStorage {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
     _typeURL = String()
-    state = .binary(Data())
+    state = .binary(Internal.emptyData)
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }

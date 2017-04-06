@@ -93,7 +93,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
               encoder.endRegularField()
           case .lengthDelimited:
               encoder.emitFieldNumber(number: tag.fieldNumber)
-              var bytes = Data()
+              var bytes = Internal.emptyData
               try decoder.decodeSingularBytesField(value: &bytes)
               bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
                   var testDecoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)

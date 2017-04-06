@@ -393,7 +393,7 @@ public struct ProtobufString: FieldType, MapKeyType, MapValueType {
 ///
 public struct ProtobufBytes: FieldType, MapValueType {
     public typealias BaseType = Data
-    static public var proto3DefaultValue: Data {return Data()}
+    static public var proto3DefaultValue: Data {return Internal.emptyData}
     public static func decodeSingular<D: Decoder>(value: inout BaseType?, from decoder: inout D) throws {
         try decoder.decodeSingularBytesField(value: &value)
     }
