@@ -496,30 +496,7 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
 struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType2"
 
-  fileprivate class _StorageClass {
-    var _bar: ProtobufUnittest_ComplexOptionType1? = nil
-    var _baz: Int32? = nil
-    var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
-    var _barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _bar = source._bar
-      _baz = source._baz
-      _fred = source._fred
-      _barney = source._barney
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var bar: ProtobufUnittest_ComplexOptionType1 {
     get {return _storage._bar ?? ProtobufUnittest_ComplexOptionType1()}
@@ -658,26 +635,7 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
 struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType3"
 
-  fileprivate class _StorageClass {
-    var _qux: Int32? = nil
-    var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _qux = source._qux
-      _complexOptionType5 = source._complexOptionType5
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var qux: Int32 {
     get {return _storage._qux ?? 0}
@@ -898,32 +856,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
 struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Aggregate"
 
-  fileprivate class _StorageClass {
-    var _i: Int32? = nil
-    var _s: String? = nil
-    var _sub: ProtobufUnittest_Aggregate? = nil
-    var _file: Google_Protobuf_FileOptions? = nil
-    var _mset: ProtobufUnittest_AggregateMessageSet? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _i = source._i
-      _s = source._s
-      _sub = source._sub
-      _file = source._file
-      _mset = source._mset
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var i: Int32 {
     get {return _storage._i ?? 0}
@@ -2417,6 +2350,29 @@ extension ProtobufUnittest_ComplexOptionType2: SwiftProtobuf._MessageImplementat
     4: .same(proto: "barney"),
   ]
 
+  fileprivate class _StorageClass {
+    var _bar: ProtobufUnittest_ComplexOptionType1? = nil
+    var _baz: Int32? = nil
+    var _fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4? = nil
+    var _barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _bar = source._bar
+      _baz = source._baz
+      _fred = source._fred
+      _barney = source._barney
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2451,6 +2407,25 @@ extension ProtobufUnittest_ComplexOptionType3: SwiftProtobuf._MessageImplementat
     1: .same(proto: "qux"),
     2: .unique(proto: "ComplexOptionType5", json: "complexoptiontype5"),
   ]
+
+  fileprivate class _StorageClass {
+    var _qux: Int32? = nil
+    var _complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _qux = source._qux
+      _complexOptionType5 = source._complexOptionType5
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3) -> Bool {
     if _storage !== other._storage {
@@ -2529,6 +2504,31 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf._MessageImplementationBase, 
     4: .same(proto: "file"),
     5: .same(proto: "mset"),
   ]
+
+  fileprivate class _StorageClass {
+    var _i: Int32? = nil
+    var _s: String? = nil
+    var _sub: ProtobufUnittest_Aggregate? = nil
+    var _file: Google_Protobuf_FileOptions? = nil
+    var _mset: ProtobufUnittest_AggregateMessageSet? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _i = source._i
+      _s = source._s
+      _sub = source._sub
+      _file = source._file
+      _mset = source._mset
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Aggregate) -> Bool {
     if _storage !== other._storage {

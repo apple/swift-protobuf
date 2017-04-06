@@ -163,166 +163,7 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate class _StorageClass {
-    var _optionalInt32: Int32? = nil
-    var _optionalInt64: Int64? = nil
-    var _optionalUint32: UInt32? = nil
-    var _optionalUint64: UInt64? = nil
-    var _optionalSint32: Int32? = nil
-    var _optionalSint64: Int64? = nil
-    var _optionalFixed32: UInt32? = nil
-    var _optionalFixed64: UInt64? = nil
-    var _optionalSfixed32: Int32? = nil
-    var _optionalSfixed64: Int64? = nil
-    var _optionalFloat: Float? = nil
-    var _optionalDouble: Double? = nil
-    var _optionalBool: Bool? = nil
-    var _optionalString: String? = nil
-    var _optionalBytes: Data? = nil
-    var _optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup? = nil
-    var _optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
-    var _optionalForeignMessage: ProtobufUnittest_ForeignMessage? = nil
-    var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
-    var _optionalNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil
-    var _optionalForeignEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _optionalImportEnum: ProtobufUnittestImport_ImportEnum? = nil
-    var _optionalStringPiece: String? = nil
-    var _optionalCord: String? = nil
-    var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
-    var _optionalLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
-    var _repeatedInt32: [Int32] = []
-    var _repeatedInt64: [Int64] = []
-    var _repeatedUint32: [UInt32] = []
-    var _repeatedUint64: [UInt64] = []
-    var _repeatedSint32: [Int32] = []
-    var _repeatedSint64: [Int64] = []
-    var _repeatedFixed32: [UInt32] = []
-    var _repeatedFixed64: [UInt64] = []
-    var _repeatedSfixed32: [Int32] = []
-    var _repeatedSfixed64: [Int64] = []
-    var _repeatedFloat: [Float] = []
-    var _repeatedDouble: [Double] = []
-    var _repeatedBool: [Bool] = []
-    var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
-    var _repeatedGroup: [ProtobufUnittest_TestAllTypes.RepeatedGroup] = []
-    var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = []
-    var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessage] = []
-    var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
-    var _repeatedNestedEnum: [ProtobufUnittest_TestAllTypes.NestedEnum] = []
-    var _repeatedForeignEnum: [ProtobufUnittest_ForeignEnum] = []
-    var _repeatedImportEnum: [ProtobufUnittestImport_ImportEnum] = []
-    var _repeatedStringPiece: [String] = []
-    var _repeatedCord: [String] = []
-    var _repeatedLazyMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = []
-    var _defaultInt32: Int32? = nil
-    var _defaultInt64: Int64? = nil
-    var _defaultUint32: UInt32? = nil
-    var _defaultUint64: UInt64? = nil
-    var _defaultSint32: Int32? = nil
-    var _defaultSint64: Int64? = nil
-    var _defaultFixed32: UInt32? = nil
-    var _defaultFixed64: UInt64? = nil
-    var _defaultSfixed32: Int32? = nil
-    var _defaultSfixed64: Int64? = nil
-    var _defaultFloat: Float? = nil
-    var _defaultDouble: Double? = nil
-    var _defaultBool: Bool? = nil
-    var _defaultString: String? = nil
-    var _defaultBytes: Data? = nil
-    var _defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil
-    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
-    var _defaultStringPiece: String? = nil
-    var _defaultCord: String? = nil
-    var _oneofField: ProtobufUnittest_TestAllTypes.OneOf_OneofField?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalInt32 = source._optionalInt32
-      _optionalInt64 = source._optionalInt64
-      _optionalUint32 = source._optionalUint32
-      _optionalUint64 = source._optionalUint64
-      _optionalSint32 = source._optionalSint32
-      _optionalSint64 = source._optionalSint64
-      _optionalFixed32 = source._optionalFixed32
-      _optionalFixed64 = source._optionalFixed64
-      _optionalSfixed32 = source._optionalSfixed32
-      _optionalSfixed64 = source._optionalSfixed64
-      _optionalFloat = source._optionalFloat
-      _optionalDouble = source._optionalDouble
-      _optionalBool = source._optionalBool
-      _optionalString = source._optionalString
-      _optionalBytes = source._optionalBytes
-      _optionalGroup = source._optionalGroup
-      _optionalNestedMessage = source._optionalNestedMessage
-      _optionalForeignMessage = source._optionalForeignMessage
-      _optionalImportMessage = source._optionalImportMessage
-      _optionalNestedEnum = source._optionalNestedEnum
-      _optionalForeignEnum = source._optionalForeignEnum
-      _optionalImportEnum = source._optionalImportEnum
-      _optionalStringPiece = source._optionalStringPiece
-      _optionalCord = source._optionalCord
-      _optionalPublicImportMessage = source._optionalPublicImportMessage
-      _optionalLazyMessage = source._optionalLazyMessage
-      _repeatedInt32 = source._repeatedInt32
-      _repeatedInt64 = source._repeatedInt64
-      _repeatedUint32 = source._repeatedUint32
-      _repeatedUint64 = source._repeatedUint64
-      _repeatedSint32 = source._repeatedSint32
-      _repeatedSint64 = source._repeatedSint64
-      _repeatedFixed32 = source._repeatedFixed32
-      _repeatedFixed64 = source._repeatedFixed64
-      _repeatedSfixed32 = source._repeatedSfixed32
-      _repeatedSfixed64 = source._repeatedSfixed64
-      _repeatedFloat = source._repeatedFloat
-      _repeatedDouble = source._repeatedDouble
-      _repeatedBool = source._repeatedBool
-      _repeatedString = source._repeatedString
-      _repeatedBytes = source._repeatedBytes
-      _repeatedGroup = source._repeatedGroup
-      _repeatedNestedMessage = source._repeatedNestedMessage
-      _repeatedForeignMessage = source._repeatedForeignMessage
-      _repeatedImportMessage = source._repeatedImportMessage
-      _repeatedNestedEnum = source._repeatedNestedEnum
-      _repeatedForeignEnum = source._repeatedForeignEnum
-      _repeatedImportEnum = source._repeatedImportEnum
-      _repeatedStringPiece = source._repeatedStringPiece
-      _repeatedCord = source._repeatedCord
-      _repeatedLazyMessage = source._repeatedLazyMessage
-      _defaultInt32 = source._defaultInt32
-      _defaultInt64 = source._defaultInt64
-      _defaultUint32 = source._defaultUint32
-      _defaultUint64 = source._defaultUint64
-      _defaultSint32 = source._defaultSint32
-      _defaultSint64 = source._defaultSint64
-      _defaultFixed32 = source._defaultFixed32
-      _defaultFixed64 = source._defaultFixed64
-      _defaultSfixed32 = source._defaultSfixed32
-      _defaultSfixed64 = source._defaultSfixed64
-      _defaultFloat = source._defaultFloat
-      _defaultDouble = source._defaultDouble
-      _defaultBool = source._defaultBool
-      _defaultString = source._defaultString
-      _defaultBytes = source._defaultBytes
-      _defaultNestedEnum = source._defaultNestedEnum
-      _defaultForeignEnum = source._defaultForeignEnum
-      _defaultImportEnum = source._defaultImportEnum
-      _defaultStringPiece = source._defaultStringPiece
-      _defaultCord = source._defaultCord
-      _oneofField = source._oneofField
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// Singular
   var optionalInt32: Int32 {
@@ -1492,28 +1333,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
 struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
 
-  fileprivate class _StorageClass {
-    var _child: ProtobufUnittest_NestedTestAllTypes? = nil
-    var _payload: ProtobufUnittest_TestAllTypes? = nil
-    var _repeatedChild: [ProtobufUnittest_NestedTestAllTypes] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _child = source._child
-      _payload = source._payload
-      _repeatedChild = source._repeatedChild
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var child: ProtobufUnittest_NestedTestAllTypes {
     get {return _storage._child ?? ProtobufUnittest_NestedTestAllTypes()}
@@ -1844,88 +1664,7 @@ struct ProtobufUnittest_TestNestedExtension: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
 
-  fileprivate class _StorageClass {
-    var _a: Int32? = nil
-    var _dummy2: Int32? = nil
-    var _b: Int32? = nil
-    var _dummy4: Int32? = nil
-    var _dummy5: Int32? = nil
-    var _dummy6: Int32? = nil
-    var _dummy7: Int32? = nil
-    var _dummy8: Int32? = nil
-    var _dummy9: Int32? = nil
-    var _dummy10: Int32? = nil
-    var _dummy11: Int32? = nil
-    var _dummy12: Int32? = nil
-    var _dummy13: Int32? = nil
-    var _dummy14: Int32? = nil
-    var _dummy15: Int32? = nil
-    var _dummy16: Int32? = nil
-    var _dummy17: Int32? = nil
-    var _dummy18: Int32? = nil
-    var _dummy19: Int32? = nil
-    var _dummy20: Int32? = nil
-    var _dummy21: Int32? = nil
-    var _dummy22: Int32? = nil
-    var _dummy23: Int32? = nil
-    var _dummy24: Int32? = nil
-    var _dummy25: Int32? = nil
-    var _dummy26: Int32? = nil
-    var _dummy27: Int32? = nil
-    var _dummy28: Int32? = nil
-    var _dummy29: Int32? = nil
-    var _dummy30: Int32? = nil
-    var _dummy31: Int32? = nil
-    var _dummy32: Int32? = nil
-    var _c: Int32? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _dummy2 = source._dummy2
-      _b = source._b
-      _dummy4 = source._dummy4
-      _dummy5 = source._dummy5
-      _dummy6 = source._dummy6
-      _dummy7 = source._dummy7
-      _dummy8 = source._dummy8
-      _dummy9 = source._dummy9
-      _dummy10 = source._dummy10
-      _dummy11 = source._dummy11
-      _dummy12 = source._dummy12
-      _dummy13 = source._dummy13
-      _dummy14 = source._dummy14
-      _dummy15 = source._dummy15
-      _dummy16 = source._dummy16
-      _dummy17 = source._dummy17
-      _dummy18 = source._dummy18
-      _dummy19 = source._dummy19
-      _dummy20 = source._dummy20
-      _dummy21 = source._dummy21
-      _dummy22 = source._dummy22
-      _dummy23 = source._dummy23
-      _dummy24 = source._dummy24
-      _dummy25 = source._dummy25
-      _dummy26 = source._dummy26
-      _dummy27 = source._dummy27
-      _dummy28 = source._dummy28
-      _dummy29 = source._dummy29
-      _dummy30 = source._dummy30
-      _dummy31 = source._dummy31
-      _dummy32 = source._dummy32
-      _c = source._c
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var a: Int32 {
     get {return _storage._a ?? 0}
@@ -2473,28 +2212,7 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredForeign"
 
-  fileprivate class _StorageClass {
-    var _optionalMessage: ProtobufUnittest_TestRequired? = nil
-    var _repeatedMessage: [ProtobufUnittest_TestRequired] = []
-    var _dummy: Int32? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalMessage = source._optionalMessage
-      _repeatedMessage = source._repeatedMessage
-      _dummy = source._dummy
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var optionalMessage: ProtobufUnittest_TestRequired {
     get {return _storage._optionalMessage ?? ProtobufUnittest_TestRequired()}
@@ -2569,24 +2287,7 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
 
-  fileprivate class _StorageClass {
-    var _foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _foreignNested = source._foreignNested
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return _storage._foreignNested ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
@@ -2761,26 +2462,7 @@ struct ProtobufUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMessage"
 
-  fileprivate class _StorageClass {
-    var _a: ProtobufUnittest_TestRecursiveMessage? = nil
-    var _i: Int32? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _i = source._i
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var a: ProtobufUnittest_TestRecursiveMessage {
     get {return _storage._a ?? ProtobufUnittest_TestRecursiveMessage()}
@@ -2838,24 +2520,7 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
 
-  fileprivate class _StorageClass {
-    var _bb: ProtobufUnittest_TestMutualRecursionB? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _bb = source._bb
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var bb: ProtobufUnittest_TestMutualRecursionB {
     get {return _storage._bb ?? ProtobufUnittest_TestMutualRecursionB()}
@@ -2897,26 +2562,7 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionB"
 
-  fileprivate class _StorageClass {
-    var _a: ProtobufUnittest_TestMutualRecursionA? = nil
-    var _optionalInt32: Int32? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _optionalInt32 = source._optionalInt32
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var a: ProtobufUnittest_TestMutualRecursionA {
     get {return _storage._a ?? ProtobufUnittest_TestMutualRecursionA()}
@@ -2977,28 +2623,7 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDupFieldNumber"
 
-  fileprivate class _StorageClass {
-    var _a: Int32? = nil
-    var _foo: ProtobufUnittest_TestDupFieldNumber.Foo? = nil
-    var _bar: ProtobufUnittest_TestDupFieldNumber.Bar? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _foo = source._foo
-      _bar = source._bar
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// NO_PROTO1
   var a: Int32 {
@@ -3144,24 +2769,7 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEagerMessage"
 
-  fileprivate class _StorageClass {
-    var _subMessage: ProtobufUnittest_TestAllTypes? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _subMessage = source._subMessage
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var subMessage: ProtobufUnittest_TestAllTypes {
     get {return _storage._subMessage ?? ProtobufUnittest_TestAllTypes()}
@@ -3203,24 +2811,7 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestLazyMessage"
 
-  fileprivate class _StorageClass {
-    var _subMessage: ProtobufUnittest_TestAllTypes? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _subMessage = source._subMessage
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var subMessage: ProtobufUnittest_TestAllTypes {
     get {return _storage._subMessage ?? ProtobufUnittest_TestAllTypes()}
@@ -3263,24 +2854,7 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageHasBits"
 
-  fileprivate class _StorageClass {
-    var _optionalNestedMessage: ProtobufUnittest_TestNestedMessageHasBits.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalNestedMessage = source._optionalNestedMessage
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var optionalNestedMessage: ProtobufUnittest_TestNestedMessageHasBits.NestedMessage {
     get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestNestedMessageHasBits.NestedMessage()}
@@ -3356,46 +2930,7 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
 
-  fileprivate class _StorageClass {
-    var _primitiveField: Int32? = nil
-    var _stringField: String? = nil
-    var _enumField: ProtobufUnittest_ForeignEnum? = nil
-    var _messageField: ProtobufUnittest_ForeignMessage? = nil
-    var _stringPieceField: String? = nil
-    var _cordField: String? = nil
-    var _repeatedPrimitiveField: [Int32] = []
-    var _repeatedStringField: [String] = []
-    var _repeatedEnumField: [ProtobufUnittest_ForeignEnum] = []
-    var _repeatedMessageField: [ProtobufUnittest_ForeignMessage] = []
-    var _repeatedStringPieceField: [String] = []
-    var _repeatedCordField: [String] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _primitiveField = source._primitiveField
-      _stringField = source._stringField
-      _enumField = source._enumField
-      _messageField = source._messageField
-      _stringPieceField = source._stringPieceField
-      _cordField = source._cordField
-      _repeatedPrimitiveField = source._repeatedPrimitiveField
-      _repeatedStringField = source._repeatedStringField
-      _repeatedEnumField = source._repeatedEnumField
-      _repeatedMessageField = source._repeatedMessageField
-      _repeatedStringPieceField = source._repeatedStringPieceField
-      _repeatedCordField = source._repeatedCordField
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var primitiveField: Int32 {
     get {return _storage._primitiveField ?? 0}
@@ -3568,30 +3103,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
 
-  fileprivate class _StorageClass {
-    var _myString: String? = nil
-    var _myInt: Int64? = nil
-    var _myFloat: Float? = nil
-    var _optionalNestedMessage: ProtobufUnittest_TestFieldOrderings.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _myString = source._myString
-      _myInt = source._myInt
-      _myFloat = source._myFloat
-      _optionalNestedMessage = source._optionalNestedMessage
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var myString: String {
     get {return _storage._myString ?? String()}
@@ -3744,76 +3256,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
 struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestExtremeDefaultValues"
 
-  fileprivate class _StorageClass {
-    var _escapedBytes: Data? = nil
-    var _largeUint32: UInt32? = nil
-    var _largeUint64: UInt64? = nil
-    var _smallInt32: Int32? = nil
-    var _smallInt64: Int64? = nil
-    var _reallySmallInt32: Int32? = nil
-    var _reallySmallInt64: Int64? = nil
-    var _utf8String: String? = nil
-    var _zeroFloat: Float? = nil
-    var _oneFloat: Float? = nil
-    var _smallFloat: Float? = nil
-    var _negativeOneFloat: Float? = nil
-    var _negativeFloat: Float? = nil
-    var _largeFloat: Float? = nil
-    var _smallNegativeFloat: Float? = nil
-    var _infDouble: Double? = nil
-    var _negInfDouble: Double? = nil
-    var _nanDouble: Double? = nil
-    var _infFloat: Float? = nil
-    var _negInfFloat: Float? = nil
-    var _nanFloat: Float? = nil
-    var _cppTrigraph: String? = nil
-    var _stringWithZero: String? = nil
-    var _bytesWithZero: Data? = nil
-    var _stringPieceWithZero: String? = nil
-    var _cordWithZero: String? = nil
-    var _replacementString: String? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _escapedBytes = source._escapedBytes
-      _largeUint32 = source._largeUint32
-      _largeUint64 = source._largeUint64
-      _smallInt32 = source._smallInt32
-      _smallInt64 = source._smallInt64
-      _reallySmallInt32 = source._reallySmallInt32
-      _reallySmallInt64 = source._reallySmallInt64
-      _utf8String = source._utf8String
-      _zeroFloat = source._zeroFloat
-      _oneFloat = source._oneFloat
-      _smallFloat = source._smallFloat
-      _negativeOneFloat = source._negativeOneFloat
-      _negativeFloat = source._negativeFloat
-      _largeFloat = source._largeFloat
-      _smallNegativeFloat = source._smallNegativeFloat
-      _infDouble = source._infDouble
-      _negInfDouble = source._negInfDouble
-      _nanDouble = source._nanDouble
-      _infFloat = source._infFloat
-      _negInfFloat = source._negInfFloat
-      _nanFloat = source._nanFloat
-      _cppTrigraph = source._cppTrigraph
-      _stringWithZero = source._stringWithZero
-      _bytesWithZero = source._bytesWithZero
-      _stringPieceWithZero = source._stringPieceWithZero
-      _cordWithZero = source._cordWithZero
-      _replacementString = source._replacementString
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var escapedBytes: Data {
     get {return _storage._escapedBytes ?? Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])}
@@ -4600,24 +4043,7 @@ struct ProtobufUnittest_BoolMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
-  fileprivate class _StorageClass {
-    var _foo: ProtobufUnittest_TestOneof.OneOf_Foo?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _foo = source._foo
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var fooInt: Int32 {
     get {
@@ -4774,30 +4200,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneofBackwardsCompatible"
 
-  fileprivate class _StorageClass {
-    var _fooInt: Int32? = nil
-    var _fooString: String? = nil
-    var _fooMessage: ProtobufUnittest_TestAllTypes? = nil
-    var _fooGroup: ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _fooInt = source._fooInt
-      _fooString = source._fooString
-      _fooMessage = source._fooMessage
-      _fooGroup = source._fooGroup
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var fooInt: Int32 {
     get {return _storage._fooInt ?? 0}
@@ -4936,30 +4339,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof2"
 
-  fileprivate class _StorageClass {
-    var _foo: ProtobufUnittest_TestOneof2.OneOf_Foo?
-    var _bar: ProtobufUnittest_TestOneof2.OneOf_Bar?
-    var _bazInt: Int32? = nil
-    var _bazString: String? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _foo = source._foo
-      _bar = source._bar
-      _bazInt = source._bazInt
-      _bazString = source._bazString
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var fooInt: Int32 {
     get {
@@ -5393,24 +4773,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOneof"
 
-  fileprivate class _StorageClass {
-    var _foo: ProtobufUnittest_TestRequiredOneof.OneOf_Foo?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _foo = source._foo
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var fooInt: Int32 {
     get {
@@ -5823,36 +5186,7 @@ struct ProtobufUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftProt
 struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDynamicExtensions"
 
-  fileprivate class _StorageClass {
-    var _scalarExtension: UInt32? = nil
-    var _enumExtension: ProtobufUnittest_ForeignEnum? = nil
-    var _dynamicEnumExtension: ProtobufUnittest_TestDynamicExtensions.DynamicEnumType? = nil
-    var _messageExtension: ProtobufUnittest_ForeignMessage? = nil
-    var _dynamicMessageExtension: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType? = nil
-    var _repeatedExtension: [String] = []
-    var _packedExtension: [Int32] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _scalarExtension = source._scalarExtension
-      _enumExtension = source._enumExtension
-      _dynamicEnumExtension = source._dynamicEnumExtension
-      _messageExtension = source._messageExtension
-      _dynamicMessageExtension = source._dynamicMessageExtension
-      _repeatedExtension = source._repeatedExtension
-      _packedExtension = source._packedExtension
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var scalarExtension: UInt32 {
     get {return _storage._scalarExtension ?? 0}
@@ -6101,32 +5435,7 @@ struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Messa
 struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
 
-  fileprivate class _StorageClass {
-    var _requiredAllTypes: ProtobufUnittest_TestAllTypes? = nil
-    var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
-    var _repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
-    var _optionalGroup: ProtobufUnittest_TestParsingMerge.OptionalGroup? = nil
-    var _repeatedGroup: [ProtobufUnittest_TestParsingMerge.RepeatedGroup] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _requiredAllTypes = source._requiredAllTypes
-      _optionalAllTypes = source._optionalAllTypes
-      _repeatedAllTypes = source._repeatedAllTypes
-      _optionalGroup = source._optionalGroup
-      _repeatedGroup = source._repeatedGroup
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var requiredAllTypes: ProtobufUnittest_TestAllTypes {
     get {return _storage._requiredAllTypes ?? ProtobufUnittest_TestAllTypes()}
@@ -6200,24 +5509,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
     struct Group1: SwiftProtobuf.Message {
       static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group1"
 
-      fileprivate class _StorageClass {
-        var _field1: ProtobufUnittest_TestAllTypes? = nil
-
-        init() {}
-
-        init(copying source: _StorageClass) {
-          _field1 = source._field1
-        }
-      }
-
       fileprivate var _storage = _StorageClass()
-
-      fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-          _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
-      }
 
       var field1: ProtobufUnittest_TestAllTypes {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypes()}
@@ -6259,24 +5551,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
     struct Group2: SwiftProtobuf.Message {
       static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group2"
 
-      fileprivate class _StorageClass {
-        var _field1: ProtobufUnittest_TestAllTypes? = nil
-
-        init() {}
-
-        init(copying source: _StorageClass) {
-          _field1 = source._field1
-        }
-      }
-
       fileprivate var _storage = _StorageClass()
-
-      fileprivate mutating func _uniqueStorage() -> _StorageClass {
-        if !isKnownUniquelyReferenced(&_storage) {
-          _storage = _StorageClass(copying: _storage)
-        }
-        return _storage
-      }
 
       var field1: ProtobufUnittest_TestAllTypes {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypes()}
@@ -6361,24 +5636,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.protoMessageName + ".OptionalGroup"
 
-    fileprivate class _StorageClass {
-      var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
-
-      init() {}
-
-      init(copying source: _StorageClass) {
-        _optionalGroupAllTypes = source._optionalGroupAllTypes
-      }
-    }
-
     fileprivate var _storage = _StorageClass()
-
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(copying: _storage)
-      }
-      return _storage
-    }
 
     var optionalGroupAllTypes: ProtobufUnittest_TestAllTypes {
       get {return _storage._optionalGroupAllTypes ?? ProtobufUnittest_TestAllTypes()}
@@ -6420,24 +5678,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
   struct RepeatedGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.protoMessageName + ".RepeatedGroup"
 
-    fileprivate class _StorageClass {
-      var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
-
-      init() {}
-
-      init(copying source: _StorageClass) {
-        _repeatedGroupAllTypes = source._repeatedGroupAllTypes
-      }
-    }
-
     fileprivate var _storage = _StorageClass()
-
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(copying: _storage)
-      }
-      return _storage
-    }
 
     var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes {
       get {return _storage._repeatedGroupAllTypes ?? ProtobufUnittest_TestAllTypes()}
@@ -6803,44 +6044,7 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbers"
 
-  fileprivate class _StorageClass {
-    var _optionalInt32: Int32? = nil
-    var _fixed32: Int32? = nil
-    var _repeatedInt32: [Int32] = []
-    var _packedInt32: [Int32] = []
-    var _optionalEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _optionalString: String? = nil
-    var _optionalBytes: Data? = nil
-    var _optionalMessage: ProtobufUnittest_ForeignMessage? = nil
-    var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup? = nil
-    var _stringStringMap: Dictionary<String,String> = [:]
-    var _oneofField: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalInt32 = source._optionalInt32
-      _fixed32 = source._fixed32
-      _repeatedInt32 = source._repeatedInt32
-      _packedInt32 = source._packedInt32
-      _optionalEnum = source._optionalEnum
-      _optionalString = source._optionalString
-      _optionalBytes = source._optionalBytes
-      _optionalMessage = source._optionalMessage
-      _optionalGroup = source._optionalGroup
-      _stringStringMap = source._stringStringMap
-      _oneofField = source._oneofField
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -9450,6 +8654,165 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBas
     114: .standard(proto: "oneof_bytes"),
   ]
 
+  fileprivate class _StorageClass {
+    var _optionalInt32: Int32? = nil
+    var _optionalInt64: Int64? = nil
+    var _optionalUint32: UInt32? = nil
+    var _optionalUint64: UInt64? = nil
+    var _optionalSint32: Int32? = nil
+    var _optionalSint64: Int64? = nil
+    var _optionalFixed32: UInt32? = nil
+    var _optionalFixed64: UInt64? = nil
+    var _optionalSfixed32: Int32? = nil
+    var _optionalSfixed64: Int64? = nil
+    var _optionalFloat: Float? = nil
+    var _optionalDouble: Double? = nil
+    var _optionalBool: Bool? = nil
+    var _optionalString: String? = nil
+    var _optionalBytes: Data? = nil
+    var _optionalGroup: ProtobufUnittest_TestAllTypes.OptionalGroup? = nil
+    var _optionalNestedMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
+    var _optionalForeignMessage: ProtobufUnittest_ForeignMessage? = nil
+    var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
+    var _optionalNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil
+    var _optionalForeignEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _optionalImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _optionalStringPiece: String? = nil
+    var _optionalCord: String? = nil
+    var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
+    var _optionalLazyMessage: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
+    var _repeatedInt32: [Int32] = []
+    var _repeatedInt64: [Int64] = []
+    var _repeatedUint32: [UInt32] = []
+    var _repeatedUint64: [UInt64] = []
+    var _repeatedSint32: [Int32] = []
+    var _repeatedSint64: [Int64] = []
+    var _repeatedFixed32: [UInt32] = []
+    var _repeatedFixed64: [UInt64] = []
+    var _repeatedSfixed32: [Int32] = []
+    var _repeatedSfixed64: [Int64] = []
+    var _repeatedFloat: [Float] = []
+    var _repeatedDouble: [Double] = []
+    var _repeatedBool: [Bool] = []
+    var _repeatedString: [String] = []
+    var _repeatedBytes: [Data] = []
+    var _repeatedGroup: [ProtobufUnittest_TestAllTypes.RepeatedGroup] = []
+    var _repeatedNestedMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = []
+    var _repeatedForeignMessage: [ProtobufUnittest_ForeignMessage] = []
+    var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
+    var _repeatedNestedEnum: [ProtobufUnittest_TestAllTypes.NestedEnum] = []
+    var _repeatedForeignEnum: [ProtobufUnittest_ForeignEnum] = []
+    var _repeatedImportEnum: [ProtobufUnittestImport_ImportEnum] = []
+    var _repeatedStringPiece: [String] = []
+    var _repeatedCord: [String] = []
+    var _repeatedLazyMessage: [ProtobufUnittest_TestAllTypes.NestedMessage] = []
+    var _defaultInt32: Int32? = nil
+    var _defaultInt64: Int64? = nil
+    var _defaultUint32: UInt32? = nil
+    var _defaultUint64: UInt64? = nil
+    var _defaultSint32: Int32? = nil
+    var _defaultSint64: Int64? = nil
+    var _defaultFixed32: UInt32? = nil
+    var _defaultFixed64: UInt64? = nil
+    var _defaultSfixed32: Int32? = nil
+    var _defaultSfixed64: Int64? = nil
+    var _defaultFloat: Float? = nil
+    var _defaultDouble: Double? = nil
+    var _defaultBool: Bool? = nil
+    var _defaultString: String? = nil
+    var _defaultBytes: Data? = nil
+    var _defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum? = nil
+    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _defaultStringPiece: String? = nil
+    var _defaultCord: String? = nil
+    var _oneofField: ProtobufUnittest_TestAllTypes.OneOf_OneofField?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalInt64 = source._optionalInt64
+      _optionalUint32 = source._optionalUint32
+      _optionalUint64 = source._optionalUint64
+      _optionalSint32 = source._optionalSint32
+      _optionalSint64 = source._optionalSint64
+      _optionalFixed32 = source._optionalFixed32
+      _optionalFixed64 = source._optionalFixed64
+      _optionalSfixed32 = source._optionalSfixed32
+      _optionalSfixed64 = source._optionalSfixed64
+      _optionalFloat = source._optionalFloat
+      _optionalDouble = source._optionalDouble
+      _optionalBool = source._optionalBool
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalGroup = source._optionalGroup
+      _optionalNestedMessage = source._optionalNestedMessage
+      _optionalForeignMessage = source._optionalForeignMessage
+      _optionalImportMessage = source._optionalImportMessage
+      _optionalNestedEnum = source._optionalNestedEnum
+      _optionalForeignEnum = source._optionalForeignEnum
+      _optionalImportEnum = source._optionalImportEnum
+      _optionalStringPiece = source._optionalStringPiece
+      _optionalCord = source._optionalCord
+      _optionalPublicImportMessage = source._optionalPublicImportMessage
+      _optionalLazyMessage = source._optionalLazyMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedGroup = source._repeatedGroup
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedImportMessage = source._repeatedImportMessage
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedImportEnum = source._repeatedImportEnum
+      _repeatedStringPiece = source._repeatedStringPiece
+      _repeatedCord = source._repeatedCord
+      _repeatedLazyMessage = source._repeatedLazyMessage
+      _defaultInt32 = source._defaultInt32
+      _defaultInt64 = source._defaultInt64
+      _defaultUint32 = source._defaultUint32
+      _defaultUint64 = source._defaultUint64
+      _defaultSint32 = source._defaultSint32
+      _defaultSint64 = source._defaultSint64
+      _defaultFixed32 = source._defaultFixed32
+      _defaultFixed64 = source._defaultFixed64
+      _defaultSfixed32 = source._defaultSfixed32
+      _defaultSfixed64 = source._defaultSfixed64
+      _defaultFloat = source._defaultFloat
+      _defaultDouble = source._defaultDouble
+      _defaultBool = source._defaultBool
+      _defaultString = source._defaultString
+      _defaultBytes = source._defaultBytes
+      _defaultNestedEnum = source._defaultNestedEnum
+      _defaultForeignEnum = source._defaultForeignEnum
+      _defaultImportEnum = source._defaultImportEnum
+      _defaultStringPiece = source._defaultStringPiece
+      _defaultCord = source._defaultCord
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -9645,6 +9008,27 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplementat
     3: .standard(proto: "repeated_child"),
   ]
 
+  fileprivate class _StorageClass {
+    var _child: ProtobufUnittest_NestedTestAllTypes? = nil
+    var _payload: ProtobufUnittest_TestAllTypes? = nil
+    var _repeatedChild: [ProtobufUnittest_NestedTestAllTypes] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _payload = source._payload
+      _repeatedChild = source._repeatedChild
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_NestedTestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -9784,6 +9168,87 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf._MessageImplementationBas
     33: .same(proto: "c"),
   ]
 
+  fileprivate class _StorageClass {
+    var _a: Int32? = nil
+    var _dummy2: Int32? = nil
+    var _b: Int32? = nil
+    var _dummy4: Int32? = nil
+    var _dummy5: Int32? = nil
+    var _dummy6: Int32? = nil
+    var _dummy7: Int32? = nil
+    var _dummy8: Int32? = nil
+    var _dummy9: Int32? = nil
+    var _dummy10: Int32? = nil
+    var _dummy11: Int32? = nil
+    var _dummy12: Int32? = nil
+    var _dummy13: Int32? = nil
+    var _dummy14: Int32? = nil
+    var _dummy15: Int32? = nil
+    var _dummy16: Int32? = nil
+    var _dummy17: Int32? = nil
+    var _dummy18: Int32? = nil
+    var _dummy19: Int32? = nil
+    var _dummy20: Int32? = nil
+    var _dummy21: Int32? = nil
+    var _dummy22: Int32? = nil
+    var _dummy23: Int32? = nil
+    var _dummy24: Int32? = nil
+    var _dummy25: Int32? = nil
+    var _dummy26: Int32? = nil
+    var _dummy27: Int32? = nil
+    var _dummy28: Int32? = nil
+    var _dummy29: Int32? = nil
+    var _dummy30: Int32? = nil
+    var _dummy31: Int32? = nil
+    var _dummy32: Int32? = nil
+    var _c: Int32? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _dummy2 = source._dummy2
+      _b = source._b
+      _dummy4 = source._dummy4
+      _dummy5 = source._dummy5
+      _dummy6 = source._dummy6
+      _dummy7 = source._dummy7
+      _dummy8 = source._dummy8
+      _dummy9 = source._dummy9
+      _dummy10 = source._dummy10
+      _dummy11 = source._dummy11
+      _dummy12 = source._dummy12
+      _dummy13 = source._dummy13
+      _dummy14 = source._dummy14
+      _dummy15 = source._dummy15
+      _dummy16 = source._dummy16
+      _dummy17 = source._dummy17
+      _dummy18 = source._dummy18
+      _dummy19 = source._dummy19
+      _dummy20 = source._dummy20
+      _dummy21 = source._dummy21
+      _dummy22 = source._dummy22
+      _dummy23 = source._dummy23
+      _dummy24 = source._dummy24
+      _dummy25 = source._dummy25
+      _dummy26 = source._dummy26
+      _dummy27 = source._dummy27
+      _dummy28 = source._dummy28
+      _dummy29 = source._dummy29
+      _dummy30 = source._dummy30
+      _dummy31 = source._dummy31
+      _dummy32 = source._dummy32
+      _c = source._c
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequired) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -9836,6 +9301,27 @@ extension ProtobufUnittest_TestRequiredForeign: SwiftProtobuf._MessageImplementa
     3: .same(proto: "dummy"),
   ]
 
+  fileprivate class _StorageClass {
+    var _optionalMessage: ProtobufUnittest_TestRequired? = nil
+    var _repeatedMessage: [ProtobufUnittest_TestRequired] = []
+    var _dummy: Int32? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalMessage = source._optionalMessage
+      _repeatedMessage = source._repeatedMessage
+      _dummy = source._dummy
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredForeign) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -9855,6 +9341,23 @@ extension ProtobufUnittest_TestForeignNested: SwiftProtobuf._MessageImplementati
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "foreign_nested"),
   ]
+
+  fileprivate class _StorageClass {
+    var _foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _foreignNested = source._foreignNested
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestForeignNested) -> Bool {
     if _storage !== other._storage {
@@ -9918,6 +9421,25 @@ extension ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf._MessageImplement
     2: .same(proto: "i"),
   ]
 
+  fileprivate class _StorageClass {
+    var _a: ProtobufUnittest_TestRecursiveMessage? = nil
+    var _i: Int32? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _i = source._i
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRecursiveMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -9937,6 +9459,23 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf._MessageImplement
     1: .same(proto: "bb"),
   ]
 
+  fileprivate class _StorageClass {
+    var _bb: ProtobufUnittest_TestMutualRecursionB? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _bb = source._bb
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -9955,6 +9494,25 @@ extension ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf._MessageImplement
     1: .same(proto: "a"),
     2: .standard(proto: "optional_int32"),
   ]
+
+  fileprivate class _StorageClass {
+    var _a: ProtobufUnittest_TestMutualRecursionA? = nil
+    var _optionalInt32: Int32? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _optionalInt32 = source._optionalInt32
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionB) -> Bool {
     if _storage !== other._storage {
@@ -9976,6 +9534,27 @@ extension ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf._MessageImplementat
     2: .unique(proto: "Foo", json: "foo"),
     3: .unique(proto: "Bar", json: "bar"),
   ]
+
+  fileprivate class _StorageClass {
+    var _a: Int32? = nil
+    var _foo: ProtobufUnittest_TestDupFieldNumber.Foo? = nil
+    var _bar: ProtobufUnittest_TestDupFieldNumber.Bar? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _foo = source._foo
+      _bar = source._bar
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDupFieldNumber) -> Bool {
     if _storage !== other._storage {
@@ -10021,6 +9600,23 @@ extension ProtobufUnittest_TestEagerMessage: SwiftProtobuf._MessageImplementatio
     1: .standard(proto: "sub_message"),
   ]
 
+  fileprivate class _StorageClass {
+    var _subMessage: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _subMessage = source._subMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEagerMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -10039,6 +9635,23 @@ extension ProtobufUnittest_TestLazyMessage: SwiftProtobuf._MessageImplementation
     1: .standard(proto: "sub_message"),
   ]
 
+  fileprivate class _StorageClass {
+    var _subMessage: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _subMessage = source._subMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLazyMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -10056,6 +9669,23 @@ extension ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf._MessageImple
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_nested_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _optionalNestedMessage: ProtobufUnittest_TestNestedMessageHasBits.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalNestedMessage = source._optionalNestedMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestNestedMessageHasBits) -> Bool {
     if _storage !== other._storage {
@@ -10100,6 +9730,45 @@ extension ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf._MessageImplem
     12: .same(proto: "RepeatedCordField"),
   ]
 
+  fileprivate class _StorageClass {
+    var _primitiveField: Int32? = nil
+    var _stringField: String? = nil
+    var _enumField: ProtobufUnittest_ForeignEnum? = nil
+    var _messageField: ProtobufUnittest_ForeignMessage? = nil
+    var _stringPieceField: String? = nil
+    var _cordField: String? = nil
+    var _repeatedPrimitiveField: [Int32] = []
+    var _repeatedStringField: [String] = []
+    var _repeatedEnumField: [ProtobufUnittest_ForeignEnum] = []
+    var _repeatedMessageField: [ProtobufUnittest_ForeignMessage] = []
+    var _repeatedStringPieceField: [String] = []
+    var _repeatedCordField: [String] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _primitiveField = source._primitiveField
+      _stringField = source._stringField
+      _enumField = source._enumField
+      _messageField = source._messageField
+      _stringPieceField = source._stringPieceField
+      _cordField = source._cordField
+      _repeatedPrimitiveField = source._repeatedPrimitiveField
+      _repeatedStringField = source._repeatedStringField
+      _repeatedEnumField = source._repeatedEnumField
+      _repeatedMessageField = source._repeatedMessageField
+      _repeatedStringPieceField = source._repeatedStringPieceField
+      _repeatedCordField = source._repeatedCordField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestCamelCaseFieldNames) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -10131,6 +9800,29 @@ extension ProtobufUnittest_TestFieldOrderings: SwiftProtobuf._MessageImplementat
     101: .standard(proto: "my_float"),
     200: .standard(proto: "optional_nested_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _myString: String? = nil
+    var _myInt: Int64? = nil
+    var _myFloat: Float? = nil
+    var _optionalNestedMessage: ProtobufUnittest_TestFieldOrderings.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _myString = source._myString
+      _myInt = source._myInt
+      _myFloat = source._myFloat
+      _optionalNestedMessage = source._optionalNestedMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestFieldOrderings) -> Bool {
     if _storage !== other._storage {
@@ -10193,6 +9885,75 @@ extension ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf._MessageImple
     26: .standard(proto: "cord_with_zero"),
     27: .standard(proto: "replacement_string"),
   ]
+
+  fileprivate class _StorageClass {
+    var _escapedBytes: Data? = nil
+    var _largeUint32: UInt32? = nil
+    var _largeUint64: UInt64? = nil
+    var _smallInt32: Int32? = nil
+    var _smallInt64: Int64? = nil
+    var _reallySmallInt32: Int32? = nil
+    var _reallySmallInt64: Int64? = nil
+    var _utf8String: String? = nil
+    var _zeroFloat: Float? = nil
+    var _oneFloat: Float? = nil
+    var _smallFloat: Float? = nil
+    var _negativeOneFloat: Float? = nil
+    var _negativeFloat: Float? = nil
+    var _largeFloat: Float? = nil
+    var _smallNegativeFloat: Float? = nil
+    var _infDouble: Double? = nil
+    var _negInfDouble: Double? = nil
+    var _nanDouble: Double? = nil
+    var _infFloat: Float? = nil
+    var _negInfFloat: Float? = nil
+    var _nanFloat: Float? = nil
+    var _cppTrigraph: String? = nil
+    var _stringWithZero: String? = nil
+    var _bytesWithZero: Data? = nil
+    var _stringPieceWithZero: String? = nil
+    var _cordWithZero: String? = nil
+    var _replacementString: String? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _escapedBytes = source._escapedBytes
+      _largeUint32 = source._largeUint32
+      _largeUint64 = source._largeUint64
+      _smallInt32 = source._smallInt32
+      _smallInt64 = source._smallInt64
+      _reallySmallInt32 = source._reallySmallInt32
+      _reallySmallInt64 = source._reallySmallInt64
+      _utf8String = source._utf8String
+      _zeroFloat = source._zeroFloat
+      _oneFloat = source._oneFloat
+      _smallFloat = source._smallFloat
+      _negativeOneFloat = source._negativeOneFloat
+      _negativeFloat = source._negativeFloat
+      _largeFloat = source._largeFloat
+      _smallNegativeFloat = source._smallNegativeFloat
+      _infDouble = source._infDouble
+      _negInfDouble = source._negInfDouble
+      _nanDouble = source._nanDouble
+      _infFloat = source._infFloat
+      _negInfFloat = source._negInfFloat
+      _nanFloat = source._nanFloat
+      _cppTrigraph = source._cppTrigraph
+      _stringWithZero = source._stringWithZero
+      _bytesWithZero = source._bytesWithZero
+      _stringPieceWithZero = source._stringPieceWithZero
+      _cordWithZero = source._cordWithZero
+      _replacementString = source._replacementString
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestExtremeDefaultValues) -> Bool {
     if _storage !== other._storage {
@@ -10361,6 +10122,23 @@ extension ProtobufUnittest_TestOneof: SwiftProtobuf._MessageImplementationBase, 
     4: .unique(proto: "FooGroup", json: "foogroup"),
   ]
 
+  fileprivate class _StorageClass {
+    var _foo: ProtobufUnittest_TestOneof.OneOf_Foo?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _foo = source._foo
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneof) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -10455,6 +10233,29 @@ extension ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf._MessageI
     4: .unique(proto: "FooGroup", json: "foogroup"),
   ]
 
+  fileprivate class _StorageClass {
+    var _fooInt: Int32? = nil
+    var _fooString: String? = nil
+    var _fooMessage: ProtobufUnittest_TestAllTypes? = nil
+    var _fooGroup: ProtobufUnittest_TestOneofBackwardsCompatible.FooGroup? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _fooInt = source._fooInt
+      _fooString = source._fooString
+      _fooMessage = source._fooMessage
+      _fooGroup = source._fooGroup
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneofBackwardsCompatible) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -10505,6 +10306,29 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf._MessageImplementationBase,
     18: .standard(proto: "baz_int"),
     19: .standard(proto: "baz_string"),
   ]
+
+  fileprivate class _StorageClass {
+    var _foo: ProtobufUnittest_TestOneof2.OneOf_Foo?
+    var _bar: ProtobufUnittest_TestOneof2.OneOf_Bar?
+    var _bazInt: Int32? = nil
+    var _bazString: String? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _foo = source._foo
+      _bar = source._bar
+      _bazInt = source._bazInt
+      _bazString = source._bazString
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneof2) -> Bool {
     if _storage !== other._storage {
@@ -10760,6 +10584,23 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobuf._MessageImplementati
     3: .standard(proto: "foo_message"),
   ]
 
+  fileprivate class _StorageClass {
+    var _foo: ProtobufUnittest_TestRequiredOneof.OneOf_Foo?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _foo = source._foo
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOneof) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -10940,6 +10781,35 @@ extension ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf._MessageImplemen
     2006: .standard(proto: "packed_extension"),
   ]
 
+  fileprivate class _StorageClass {
+    var _scalarExtension: UInt32? = nil
+    var _enumExtension: ProtobufUnittest_ForeignEnum? = nil
+    var _dynamicEnumExtension: ProtobufUnittest_TestDynamicExtensions.DynamicEnumType? = nil
+    var _messageExtension: ProtobufUnittest_ForeignMessage? = nil
+    var _dynamicMessageExtension: ProtobufUnittest_TestDynamicExtensions.DynamicMessageType? = nil
+    var _repeatedExtension: [String] = []
+    var _packedExtension: [Int32] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _scalarExtension = source._scalarExtension
+      _enumExtension = source._enumExtension
+      _dynamicEnumExtension = source._dynamicEnumExtension
+      _messageExtension = source._messageExtension
+      _dynamicMessageExtension = source._dynamicMessageExtension
+      _repeatedExtension = source._repeatedExtension
+      _packedExtension = source._packedExtension
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDynamicExtensions) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -11010,6 +10880,31 @@ extension ProtobufUnittest_TestParsingMerge: SwiftProtobuf._MessageImplementatio
     20: .unique(proto: "RepeatedGroup", json: "repeatedgroup"),
   ]
 
+  fileprivate class _StorageClass {
+    var _requiredAllTypes: ProtobufUnittest_TestAllTypes? = nil
+    var _optionalAllTypes: ProtobufUnittest_TestAllTypes? = nil
+    var _repeatedAllTypes: [ProtobufUnittest_TestAllTypes] = []
+    var _optionalGroup: ProtobufUnittest_TestParsingMerge.OptionalGroup? = nil
+    var _repeatedGroup: [ProtobufUnittest_TestParsingMerge.RepeatedGroup] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _requiredAllTypes = source._requiredAllTypes
+      _optionalAllTypes = source._optionalAllTypes
+      _repeatedAllTypes = source._repeatedAllTypes
+      _optionalGroup = source._optionalGroup
+      _repeatedGroup = source._repeatedGroup
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -11057,6 +10952,23 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swif
     11: .same(proto: "field1"),
   ]
 
+  fileprivate class _StorageClass {
+    var _field1: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _field1 = source._field1
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -11074,6 +10986,23 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swif
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .same(proto: "field1"),
   ]
+
+  fileprivate class _StorageClass {
+    var _field1: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _field1 = source._field1
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
     if _storage !== other._storage {
@@ -11093,6 +11022,23 @@ extension ProtobufUnittest_TestParsingMerge.OptionalGroup: SwiftProtobuf._Messag
     11: .standard(proto: "optional_group_all_types"),
   ]
 
+  fileprivate class _StorageClass {
+    var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalGroupAllTypes = source._optionalGroupAllTypes
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.OptionalGroup) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -11110,6 +11056,23 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedGroup: SwiftProtobuf._Messag
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .standard(proto: "repeated_group_all_types"),
   ]
+
+  fileprivate class _StorageClass {
+    var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _repeatedGroupAllTypes = source._repeatedGroupAllTypes
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedGroup) -> Bool {
     if _storage !== other._storage {
@@ -11229,6 +11192,43 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf._MessageImplement
     536870013: .standard(proto: "oneof_string"),
     536870014: .standard(proto: "oneof_bytes"),
   ]
+
+  fileprivate class _StorageClass {
+    var _optionalInt32: Int32? = nil
+    var _fixed32: Int32? = nil
+    var _repeatedInt32: [Int32] = []
+    var _packedInt32: [Int32] = []
+    var _optionalEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _optionalString: String? = nil
+    var _optionalBytes: Data? = nil
+    var _optionalMessage: ProtobufUnittest_ForeignMessage? = nil
+    var _optionalGroup: ProtobufUnittest_TestHugeFieldNumbers.OptionalGroup? = nil
+    var _stringStringMap: Dictionary<String,String> = [:]
+    var _oneofField: ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _fixed32 = source._fixed32
+      _repeatedInt32 = source._repeatedInt32
+      _packedInt32 = source._packedInt32
+      _optionalEnum = source._optionalEnum
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalMessage = source._optionalMessage
+      _optionalGroup = source._optionalGroup
+      _stringStringMap = source._stringStringMap
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestHugeFieldNumbers) -> Bool {
     if _storage !== other._storage {

@@ -181,19 +181,8 @@ class MessageGenerator {
     }
 
     if let storage = storage {
-      // Storage class, if needed
-      p.print("\n")
-      storage.generateNested(printer: &p)
       p.print("\n")
       p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
-      p.print("\n")
-      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
-      p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
-      p.print("    _storage = _StorageClass(copying: _storage)\n")
-      p.print("  }\n")
-      p.print("  return _storage\n")
-      p.print("}\n")
-
       for f in fields {
         f.generateProxyIvar(printer: &p)
         f.generateHasProperty(printer: &p, usesHeapStorage: true)
@@ -300,6 +289,17 @@ class MessageGenerator {
     p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
     generateProtoNameProviding(printer: &p)
+    if let storage = storage {
+      p.print("\n")
+      storage.generateTypeDeclaration(printer: &p)
+      p.print("\n")
+      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
+      p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
+      p.print("    _storage = _StorageClass(copying: _storage)\n")
+      p.print("  }\n")
+      p.print("  return _storage\n")
+      p.print("}\n")
+    }
     p.print("\n")
     generateMessageImplementationBase(printer: &p)
     p.outdent()

@@ -59,24 +59,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
 
-  fileprivate class _StorageClass {
-    var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _messageSet = source._messageSet
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
@@ -341,6 +324,23 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplem
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set"),
   ]
+
+  fileprivate class _StorageClass {
+    var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _messageSet = source._messageSet
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
     if _storage !== other._storage {

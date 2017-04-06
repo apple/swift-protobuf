@@ -134,24 +134,7 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
 struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
 
-  fileprivate class _StorageClass {
-    var _option: ProtobufUnittest_OneOfContainer.OneOf_Option?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _option = source._option
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var option1: ProtobufUnittest_OneOfOptionMessage1 {
     get {
@@ -272,6 +255,23 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf._MessageImplementationB
     1: .same(proto: "option1"),
     2: .same(proto: "option2"),
   ]
+
+  fileprivate class _StorageClass {
+    var _option: ProtobufUnittest_OneOfContainer.OneOf_Option?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _option = source._option
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneOfContainer) -> Bool {
     if _storage !== other._storage {

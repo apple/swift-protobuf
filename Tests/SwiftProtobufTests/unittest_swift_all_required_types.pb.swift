@@ -54,116 +54,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllRequiredTypes"
 
-  fileprivate class _StorageClass {
-    var _requiredInt32: Int32? = nil
-    var _requiredInt64: Int64? = nil
-    var _requiredUint32: UInt32? = nil
-    var _requiredUint64: UInt64? = nil
-    var _requiredSint32: Int32? = nil
-    var _requiredSint64: Int64? = nil
-    var _requiredFixed32: UInt32? = nil
-    var _requiredFixed64: UInt64? = nil
-    var _requiredSfixed32: Int32? = nil
-    var _requiredSfixed64: Int64? = nil
-    var _requiredFloat: Float? = nil
-    var _requiredDouble: Double? = nil
-    var _requiredBool: Bool? = nil
-    var _requiredString: String? = nil
-    var _requiredBytes: Data? = nil
-    var _requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil
-    var _requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
-    var _requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil
-    var _requiredImportMessage: ProtobufUnittestImport_ImportMessage? = nil
-    var _requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
-    var _requiredForeignEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _requiredImportEnum: ProtobufUnittestImport_ImportEnum? = nil
-    var _requiredStringPiece: String? = nil
-    var _requiredCord: String? = nil
-    var _requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
-    var _requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
-    var _defaultInt32: Int32? = nil
-    var _defaultInt64: Int64? = nil
-    var _defaultUint32: UInt32? = nil
-    var _defaultUint64: UInt64? = nil
-    var _defaultSint32: Int32? = nil
-    var _defaultSint64: Int64? = nil
-    var _defaultFixed32: UInt32? = nil
-    var _defaultFixed64: UInt64? = nil
-    var _defaultSfixed32: Int32? = nil
-    var _defaultSfixed64: Int64? = nil
-    var _defaultFloat: Float? = nil
-    var _defaultDouble: Double? = nil
-    var _defaultBool: Bool? = nil
-    var _defaultString: String? = nil
-    var _defaultBytes: Data? = nil
-    var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
-    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
-    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
-    var _defaultStringPiece: String? = nil
-    var _defaultCord: String? = nil
-    var _oneofField: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _requiredInt32 = source._requiredInt32
-      _requiredInt64 = source._requiredInt64
-      _requiredUint32 = source._requiredUint32
-      _requiredUint64 = source._requiredUint64
-      _requiredSint32 = source._requiredSint32
-      _requiredSint64 = source._requiredSint64
-      _requiredFixed32 = source._requiredFixed32
-      _requiredFixed64 = source._requiredFixed64
-      _requiredSfixed32 = source._requiredSfixed32
-      _requiredSfixed64 = source._requiredSfixed64
-      _requiredFloat = source._requiredFloat
-      _requiredDouble = source._requiredDouble
-      _requiredBool = source._requiredBool
-      _requiredString = source._requiredString
-      _requiredBytes = source._requiredBytes
-      _requiredGroup = source._requiredGroup
-      _requiredNestedMessage = source._requiredNestedMessage
-      _requiredForeignMessage = source._requiredForeignMessage
-      _requiredImportMessage = source._requiredImportMessage
-      _requiredNestedEnum = source._requiredNestedEnum
-      _requiredForeignEnum = source._requiredForeignEnum
-      _requiredImportEnum = source._requiredImportEnum
-      _requiredStringPiece = source._requiredStringPiece
-      _requiredCord = source._requiredCord
-      _requiredPublicImportMessage = source._requiredPublicImportMessage
-      _requiredLazyMessage = source._requiredLazyMessage
-      _defaultInt32 = source._defaultInt32
-      _defaultInt64 = source._defaultInt64
-      _defaultUint32 = source._defaultUint32
-      _defaultUint64 = source._defaultUint64
-      _defaultSint32 = source._defaultSint32
-      _defaultSint64 = source._defaultSint64
-      _defaultFixed32 = source._defaultFixed32
-      _defaultFixed64 = source._defaultFixed64
-      _defaultSfixed32 = source._defaultSfixed32
-      _defaultSfixed64 = source._defaultSfixed64
-      _defaultFloat = source._defaultFloat
-      _defaultDouble = source._defaultDouble
-      _defaultBool = source._defaultBool
-      _defaultString = source._defaultString
-      _defaultBytes = source._defaultBytes
-      _defaultNestedEnum = source._defaultNestedEnum
-      _defaultForeignEnum = source._defaultForeignEnum
-      _defaultImportEnum = source._defaultImportEnum
-      _defaultStringPiece = source._defaultStringPiece
-      _defaultCord = source._defaultCord
-      _oneofField = source._oneofField
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// Singular
   var requiredInt32: Int32 {
@@ -1345,6 +1236,115 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplement
     113: .standard(proto: "oneof_string"),
     114: .standard(proto: "oneof_bytes"),
   ]
+
+  fileprivate class _StorageClass {
+    var _requiredInt32: Int32? = nil
+    var _requiredInt64: Int64? = nil
+    var _requiredUint32: UInt32? = nil
+    var _requiredUint64: UInt64? = nil
+    var _requiredSint32: Int32? = nil
+    var _requiredSint64: Int64? = nil
+    var _requiredFixed32: UInt32? = nil
+    var _requiredFixed64: UInt64? = nil
+    var _requiredSfixed32: Int32? = nil
+    var _requiredSfixed64: Int64? = nil
+    var _requiredFloat: Float? = nil
+    var _requiredDouble: Double? = nil
+    var _requiredBool: Bool? = nil
+    var _requiredString: String? = nil
+    var _requiredBytes: Data? = nil
+    var _requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup? = nil
+    var _requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
+    var _requiredForeignMessage: ProtobufUnittest_ForeignMessage? = nil
+    var _requiredImportMessage: ProtobufUnittestImport_ImportMessage? = nil
+    var _requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
+    var _requiredForeignEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _requiredImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _requiredStringPiece: String? = nil
+    var _requiredCord: String? = nil
+    var _requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
+    var _requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage? = nil
+    var _defaultInt32: Int32? = nil
+    var _defaultInt64: Int64? = nil
+    var _defaultUint32: UInt32? = nil
+    var _defaultUint64: UInt64? = nil
+    var _defaultSint32: Int32? = nil
+    var _defaultSint64: Int64? = nil
+    var _defaultFixed32: UInt32? = nil
+    var _defaultFixed64: UInt64? = nil
+    var _defaultSfixed32: Int32? = nil
+    var _defaultSfixed64: Int64? = nil
+    var _defaultFloat: Float? = nil
+    var _defaultDouble: Double? = nil
+    var _defaultBool: Bool? = nil
+    var _defaultString: String? = nil
+    var _defaultBytes: Data? = nil
+    var _defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum? = nil
+    var _defaultForeignEnum: ProtobufUnittest_ForeignEnum? = nil
+    var _defaultImportEnum: ProtobufUnittestImport_ImportEnum? = nil
+    var _defaultStringPiece: String? = nil
+    var _defaultCord: String? = nil
+    var _oneofField: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _requiredInt32 = source._requiredInt32
+      _requiredInt64 = source._requiredInt64
+      _requiredUint32 = source._requiredUint32
+      _requiredUint64 = source._requiredUint64
+      _requiredSint32 = source._requiredSint32
+      _requiredSint64 = source._requiredSint64
+      _requiredFixed32 = source._requiredFixed32
+      _requiredFixed64 = source._requiredFixed64
+      _requiredSfixed32 = source._requiredSfixed32
+      _requiredSfixed64 = source._requiredSfixed64
+      _requiredFloat = source._requiredFloat
+      _requiredDouble = source._requiredDouble
+      _requiredBool = source._requiredBool
+      _requiredString = source._requiredString
+      _requiredBytes = source._requiredBytes
+      _requiredGroup = source._requiredGroup
+      _requiredNestedMessage = source._requiredNestedMessage
+      _requiredForeignMessage = source._requiredForeignMessage
+      _requiredImportMessage = source._requiredImportMessage
+      _requiredNestedEnum = source._requiredNestedEnum
+      _requiredForeignEnum = source._requiredForeignEnum
+      _requiredImportEnum = source._requiredImportEnum
+      _requiredStringPiece = source._requiredStringPiece
+      _requiredCord = source._requiredCord
+      _requiredPublicImportMessage = source._requiredPublicImportMessage
+      _requiredLazyMessage = source._requiredLazyMessage
+      _defaultInt32 = source._defaultInt32
+      _defaultInt64 = source._defaultInt64
+      _defaultUint32 = source._defaultUint32
+      _defaultUint64 = source._defaultUint64
+      _defaultSint32 = source._defaultSint32
+      _defaultSint64 = source._defaultSint64
+      _defaultFixed32 = source._defaultFixed32
+      _defaultFixed64 = source._defaultFixed64
+      _defaultSfixed32 = source._defaultSfixed32
+      _defaultSfixed64 = source._defaultSfixed64
+      _defaultFloat = source._defaultFloat
+      _defaultDouble = source._defaultDouble
+      _defaultBool = source._defaultBool
+      _defaultString = source._defaultString
+      _defaultBytes = source._defaultBytes
+      _defaultNestedEnum = source._defaultNestedEnum
+      _defaultForeignEnum = source._defaultForeignEnum
+      _defaultImportEnum = source._defaultImportEnum
+      _defaultStringPiece = source._defaultStringPiece
+      _defaultCord = source._defaultCord
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
     if _storage !== other._storage {

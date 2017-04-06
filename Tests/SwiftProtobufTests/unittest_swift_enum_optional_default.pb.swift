@@ -43,26 +43,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
 
-    fileprivate class _StorageClass {
-      var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
-      var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
-
-      init() {}
-
-      init(copying source: _StorageClass) {
-        _message = source._message
-        _optionalEnum = source._optionalEnum
-      }
-    }
-
     fileprivate var _storage = _StorageClass()
-
-    fileprivate mutating func _uniqueStorage() -> _StorageClass {
-      if !isKnownUniquelyReferenced(&_storage) {
-        _storage = _StorageClass(copying: _storage)
-      }
-      return _storage
-    }
 
     /// The circular reference here forces the generator to
     /// implement heap-backed storage.
@@ -230,6 +211,25 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage: SwiftProtob
     1: .same(proto: "message"),
     17: .standard(proto: "optional_enum"),
   ]
+
+  fileprivate class _StorageClass {
+    var _message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage? = nil
+    var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _message = source._message
+      _optionalEnum = source._optionalEnum
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage) -> Bool {
     if _storage !== other._storage {

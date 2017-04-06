@@ -91,56 +91,7 @@ enum Proto3MapEnum: SwiftProtobuf.Enum {
 struct Proto3TestMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
 
-  fileprivate class _StorageClass {
-    var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
-    var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
-    var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
-    var _mapUint64Uint64: Dictionary<UInt64,UInt64> = [:]
-    var _mapSint32Sint32: Dictionary<Int32,Int32> = [:]
-    var _mapSint64Sint64: Dictionary<Int64,Int64> = [:]
-    var _mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:]
-    var _mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:]
-    var _mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:]
-    var _mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:]
-    var _mapInt32Float: Dictionary<Int32,Float> = [:]
-    var _mapInt32Double: Dictionary<Int32,Double> = [:]
-    var _mapBoolBool: Dictionary<Bool,Bool> = [:]
-    var _mapStringString: Dictionary<String,String> = [:]
-    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
-    var _mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
-    var _mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _mapInt32Int32 = source._mapInt32Int32
-      _mapInt64Int64 = source._mapInt64Int64
-      _mapUint32Uint32 = source._mapUint32Uint32
-      _mapUint64Uint64 = source._mapUint64Uint64
-      _mapSint32Sint32 = source._mapSint32Sint32
-      _mapSint64Sint64 = source._mapSint64Sint64
-      _mapFixed32Fixed32 = source._mapFixed32Fixed32
-      _mapFixed64Fixed64 = source._mapFixed64Fixed64
-      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
-      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
-      _mapInt32Float = source._mapInt32Float
-      _mapInt32Double = source._mapInt32Double
-      _mapBoolBool = source._mapBoolBool
-      _mapStringString = source._mapStringString
-      _mapInt32Bytes = source._mapInt32Bytes
-      _mapInt32Enum = source._mapInt32Enum
-      _mapInt32ForeignMessage = source._mapInt32ForeignMessage
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
@@ -320,24 +271,7 @@ struct Proto3TestMap: SwiftProtobuf.Message {
 struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMapSubmessage"
 
-  fileprivate class _StorageClass {
-    var _testMap: Proto3TestMap? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _testMap = source._testMap
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var testMap: Proto3TestMap {
     get {return _storage._testMap ?? Proto3TestMap()}
@@ -658,6 +592,55 @@ extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
     17: .standard(proto: "map_int32_foreign_message"),
   ]
 
+  fileprivate class _StorageClass {
+    var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
+    var _mapInt64Int64: Dictionary<Int64,Int64> = [:]
+    var _mapUint32Uint32: Dictionary<UInt32,UInt32> = [:]
+    var _mapUint64Uint64: Dictionary<UInt64,UInt64> = [:]
+    var _mapSint32Sint32: Dictionary<Int32,Int32> = [:]
+    var _mapSint64Sint64: Dictionary<Int64,Int64> = [:]
+    var _mapFixed32Fixed32: Dictionary<UInt32,UInt32> = [:]
+    var _mapFixed64Fixed64: Dictionary<UInt64,UInt64> = [:]
+    var _mapSfixed32Sfixed32: Dictionary<Int32,Int32> = [:]
+    var _mapSfixed64Sfixed64: Dictionary<Int64,Int64> = [:]
+    var _mapInt32Float: Dictionary<Int32,Float> = [:]
+    var _mapInt32Double: Dictionary<Int32,Double> = [:]
+    var _mapBoolBool: Dictionary<Bool,Bool> = [:]
+    var _mapStringString: Dictionary<String,String> = [:]
+    var _mapInt32Bytes: Dictionary<Int32,Data> = [:]
+    var _mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
+    var _mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _mapInt32Int32 = source._mapInt32Int32
+      _mapInt64Int64 = source._mapInt64Int64
+      _mapUint32Uint32 = source._mapUint32Uint32
+      _mapUint64Uint64 = source._mapUint64Uint64
+      _mapSint32Sint32 = source._mapSint32Sint32
+      _mapSint64Sint64 = source._mapSint64Sint64
+      _mapFixed32Fixed32 = source._mapFixed32Fixed32
+      _mapFixed64Fixed64 = source._mapFixed64Fixed64
+      _mapSfixed32Sfixed32 = source._mapSfixed32Sfixed32
+      _mapSfixed64Sfixed64 = source._mapSfixed64Sfixed64
+      _mapInt32Float = source._mapInt32Float
+      _mapInt32Double = source._mapInt32Double
+      _mapBoolBool = source._mapBoolBool
+      _mapStringString = source._mapStringString
+      _mapInt32Bytes = source._mapInt32Bytes
+      _mapInt32Enum = source._mapInt32Enum
+      _mapInt32ForeignMessage = source._mapInt32ForeignMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3TestMap) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -691,6 +674,23 @@ extension Proto3TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, Swi
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "test_map"),
   ]
+
+  fileprivate class _StorageClass {
+    var _testMap: Proto3TestMap? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _testMap = source._testMap
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMapSubmessage) -> Bool {
     if _storage !== other._storage {
