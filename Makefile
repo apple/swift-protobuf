@@ -457,7 +457,7 @@ Protos/generated_swift_names_messages.proto: Protos/mined_words.txt
 	@echo 'syntax = "proto3";' > $@
 	@echo 'package protobuf_unittest;' >> $@
 	@echo 'message GeneratedSwiftReservedMessages {' >> $@
-	@cat Protos/mined_words.txt | awk '{print "  message " $$1 " { int32 a = 1; }"}' >> $@
+	@cat Protos/mined_words.txt | awk '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
 	@echo '}' >> $@
 
 Protos/generated_swift_names_enums.proto: Protos/mined_words.txt
