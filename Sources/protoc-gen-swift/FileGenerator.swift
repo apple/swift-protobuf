@@ -340,10 +340,6 @@ class FileGenerator {
             m.generateMainStruct(printer: &p, file: self, parent: nil)
         }
 
-        for e in extensions {
-            e.generateNested(printer: &p)
-        }
-
         var registry = [String]()
         for e in extensions {
             registry.append(e.swiftFullExtensionName)
@@ -384,6 +380,18 @@ class FileGenerator {
             p.print("\n")
             p.outdent()
             p.print("]\n")
+
+            // Generate the Extension's declarations (used by the two above things).
+            // This is done after the other two as the only time developers will need
+            // these symbols is if they are manually building their own ExtensionMap;
+            // so the others are assumed more interesting.
+            for e in extensions {
+                p.print("\n")
+                e.generateProtobufExtensionDeclarations(printer: &p)
+            }
+            for m in messages {
+                m.generateProtobufExtensionDeclarations(printer: &p)
+            }
         }
 
         let needsProtoPackage: Bool = !protoPackageName.isEmpty && !messages.isEmpty

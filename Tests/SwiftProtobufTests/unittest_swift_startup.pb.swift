@@ -82,15 +82,6 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Extensions {
-
-    static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-      _protobuf_fieldNumber: 3,
-      fieldName: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension",
-      defaultValue: String()
-    )
-  }
-
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -102,19 +93,6 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
-
-/// Singular
-let ProtobufObjcUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_objc_unittest.optional_int32_extension",
-  defaultValue: 0
-)
-
-let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "protobuf_objc_unittest.repeated_int32_extension",
-  defaultValue: []
-)
 
 // MARK: - Extension support defined in unittest_swift_startup.proto.
 
@@ -167,6 +145,29 @@ let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: SwiftProtobuf.SimpleEx
   ProtobufObjcUnittest_Extensions_repeated_int32_extension,
   ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension
 ]
+
+/// Singular
+let ProtobufObjcUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "protobuf_objc_unittest.optional_int32_extension",
+  defaultValue: 0
+)
+
+let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "protobuf_objc_unittest.repeated_int32_extension",
+  defaultValue: []
+)
+
+extension ProtobufObjcUnittest_TestObjCStartupNested {
+  struct Extensions {
+    static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
+      _protobuf_fieldNumber: 3,
+      fieldName: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension",
+      defaultValue: String()
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
