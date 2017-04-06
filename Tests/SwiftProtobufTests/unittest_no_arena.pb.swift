@@ -397,7 +397,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalString: String {
-    get {return _storage._optionalString ?? ""}
+    get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   var hasOptionalString: Bool {
@@ -408,7 +408,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   var hasOptionalBytes: Bool {
@@ -496,7 +496,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece ?? ""}
+    get {return _storage._optionalStringPiece ?? String()}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
   var hasOptionalStringPiece: Bool {
@@ -507,7 +507,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalCord: String {
-    get {return _storage._optionalCord ?? ""}
+    get {return _storage._optionalCord ?? String()}
     set {_uniqueStorage()._optionalCord = newValue}
   }
   var hasOptionalCord: Bool {
@@ -916,7 +916,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -928,7 +928,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)

@@ -137,7 +137,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
 
   /// file name, relative to root of source tree
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -149,7 +149,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
 
   /// e.g. "foo", "foo.bar", etc.
   public var package: String {
-    get {return _storage._package ?? ""}
+    get {return _storage._package ?? String()}
     set {_uniqueStorage()._package = newValue}
   }
   public var hasPackage: Bool {
@@ -228,7 +228,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
   /// The syntax of the proto file.
   /// The supported values are "proto2" and "proto3".
   public var syntax: String {
-    get {return _storage._syntax ?? ""}
+    get {return _storage._syntax ?? String()}
     set {_uniqueStorage()._syntax = newValue}
   }
   public var hasSyntax: Bool {
@@ -361,7 +361,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -649,7 +649,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -700,7 +700,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   /// message are searched, then within the parent, on up to the root
   /// namespace).
   public var typeName: String {
-    get {return _storage._typeName ?? ""}
+    get {return _storage._typeName ?? String()}
     set {_uniqueStorage()._typeName = newValue}
   }
   public var hasTypeName: Bool {
@@ -713,7 +713,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   /// For extensions, this is the name of the type being extended.  It is
   /// resolved in the same manner as type_name.
   public var extendee: String {
-    get {return _storage._extendee ?? ""}
+    get {return _storage._extendee ?? String()}
     set {_uniqueStorage()._extendee = newValue}
   }
   public var hasExtendee: Bool {
@@ -729,7 +729,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   /// For bytes, contains the C escaped value.  All bytes >= 128 are escaped.
   /// TODO(kenton):  Base-64 encode?
   public var defaultValue: String {
-    get {return _storage._defaultValue ?? ""}
+    get {return _storage._defaultValue ?? String()}
     set {_uniqueStorage()._defaultValue = newValue}
   }
   public var hasDefaultValue: Bool {
@@ -757,7 +757,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   /// will be used. Otherwise, it's deduced from the field's name by converting
   /// it to camelCase.
   public var jsonName: String {
-    get {return _storage._jsonName ?? ""}
+    get {return _storage._jsonName ?? String()}
     set {_uniqueStorage()._jsonName = newValue}
   }
   public var hasJsonName: Bool {
@@ -1000,7 +1000,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -1086,7 +1086,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -1182,7 +1182,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -1283,7 +1283,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -1385,7 +1385,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var name: String {
-    get {return _storage._name ?? ""}
+    get {return _storage._name ?? String()}
     set {_uniqueStorage()._name = newValue}
   }
   public var hasName: Bool {
@@ -1398,7 +1398,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
   /// Input and output type names.  These are resolved in the same way as
   /// FieldDescriptorProto.type_name, but must refer to a message type.
   public var inputType: String {
-    get {return _storage._inputType ?? ""}
+    get {return _storage._inputType ?? String()}
     set {_uniqueStorage()._inputType = newValue}
   }
   public var hasInputType: Bool {
@@ -1409,7 +1409,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
   }
 
   public var outputType: String {
-    get {return _storage._outputType ?? ""}
+    get {return _storage._outputType ?? String()}
     set {_uniqueStorage()._outputType = newValue}
   }
   public var hasOutputType: Bool {
@@ -1566,7 +1566,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// inappropriate because proto packages do not normally start with backwards
   /// domain names.
   public var javaPackage: String {
-    get {return _storage._javaPackage ?? ""}
+    get {return _storage._javaPackage ?? String()}
     set {_uniqueStorage()._javaPackage = newValue}
   }
   public var hasJavaPackage: Bool {
@@ -1582,7 +1582,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// a .proto always translates to a single class, but you may want to
   /// explicitly choose the class name).
   public var javaOuterClassname: String {
-    get {return _storage._javaOuterClassname ?? ""}
+    get {return _storage._javaOuterClassname ?? String()}
     set {_uniqueStorage()._javaOuterClassname = newValue}
   }
   public var hasJavaOuterClassname: Bool {
@@ -1655,7 +1655,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   ///   - Otherwise, the package statement in the .proto file, if present.
   ///   - Otherwise, the basename of the .proto file, without extension.
   public var goPackage: String {
-    get {return _storage._goPackage ?? ""}
+    get {return _storage._goPackage ?? String()}
     set {_uniqueStorage()._goPackage = newValue}
   }
   public var hasGoPackage: Bool {
@@ -1739,7 +1739,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// Sets the objective c class prefix which is prepended to all objective c
   /// generated classes from this .proto. There is no default.
   public var objcClassPrefix: String {
-    get {return _storage._objcClassPrefix ?? ""}
+    get {return _storage._objcClassPrefix ?? String()}
     set {_uniqueStorage()._objcClassPrefix = newValue}
   }
   public var hasObjcClassPrefix: Bool {
@@ -1751,7 +1751,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
 
   /// Namespace for generated classes; defaults to the package.
   public var csharpNamespace: String {
-    get {return _storage._csharpNamespace ?? ""}
+    get {return _storage._csharpNamespace ?? String()}
     set {_uniqueStorage()._csharpNamespace = newValue}
   }
   public var hasCsharpNamespace: Bool {
@@ -1766,7 +1766,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// defined. When this options is provided, they will use this value instead
   /// to prefix the types/symbols defined.
   public var swiftPrefix: String {
-    get {return _storage._swiftPrefix ?? ""}
+    get {return _storage._swiftPrefix ?? String()}
     set {_uniqueStorage()._swiftPrefix = newValue}
   }
   public var hasSwiftPrefix: Bool {
@@ -1779,7 +1779,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// Sets the php class prefix which is prepended to all php generated classes
   /// from this .proto. Default is empty.
   public var phpClassPrefix: String {
-    get {return _storage._phpClassPrefix ?? ""}
+    get {return _storage._phpClassPrefix ?? String()}
     set {_uniqueStorage()._phpClassPrefix = newValue}
   }
   public var hasPhpClassPrefix: Bool {
@@ -2688,7 +2688,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
   /// identified it as during parsing. Exactly one of these should be set.
   fileprivate var _identifierValue: String? = nil
   public var identifierValue: String {
-    get {return _identifierValue ?? ""}
+    get {return _identifierValue ?? String()}
     set {_identifierValue = newValue}
   }
   public var hasIdentifierValue: Bool {
@@ -2736,7 +2736,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
 
   fileprivate var _stringValue: Data? = nil
   public var stringValue: Data {
-    get {return _stringValue ?? Data()}
+    get {return _stringValue ?? SwiftProtobuf.Internal.emptyData}
     set {_stringValue = newValue}
   }
   public var hasStringValue: Bool {
@@ -2748,7 +2748,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
 
   fileprivate var _aggregateValue: String? = nil
   public var aggregateValue: String {
-    get {return _aggregateValue ?? ""}
+    get {return _aggregateValue ?? String()}
     set {_aggregateValue = newValue}
   }
   public var hasAggregateValue: Bool {
@@ -2770,7 +2770,7 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
 
     fileprivate var _namePart: String? = nil
     public var namePart: String {
-      get {return _namePart ?? ""}
+      get {return _namePart ?? String()}
       set {_namePart = newValue}
     }
     public var hasNamePart: Bool {
@@ -3007,7 +3007,7 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
     ///   // ignored detached comments.
     fileprivate var _leadingComments: String? = nil
     public var leadingComments: String {
-      get {return _leadingComments ?? ""}
+      get {return _leadingComments ?? String()}
       set {_leadingComments = newValue}
     }
     public var hasLeadingComments: Bool {
@@ -3019,7 +3019,7 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
 
     fileprivate var _trailingComments: String? = nil
     public var trailingComments: String {
-      get {return _trailingComments ?? ""}
+      get {return _trailingComments ?? String()}
       set {_trailingComments = newValue}
     }
     public var hasTrailingComments: Bool {
@@ -3109,7 +3109,7 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
     /// Identifies the filesystem path to the original source .proto.
     fileprivate var _sourceFile: String? = nil
     public var sourceFile: String {
-      get {return _sourceFile ?? ""}
+      get {return _sourceFile ?? String()}
       set {_sourceFile = newValue}
     }
     public var hasSourceFile: Bool {

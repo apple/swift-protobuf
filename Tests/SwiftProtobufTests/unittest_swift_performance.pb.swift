@@ -66,8 +66,8 @@ struct Swift_Performance_TestAllTypes: SwiftProtobuf.Message {
     var _optionalFloat: Float = 0
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _repeatedRecursiveMessage: [Swift_Performance_TestAllTypes] = []
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []

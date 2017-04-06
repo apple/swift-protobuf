@@ -102,15 +102,15 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
     var _optionalFloat: Float = 0
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _optionalNestedMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3ArenaUnittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
     var _optionalNestedEnum: Proto3ArenaUnittest_TestAllTypes.NestedEnum = Proto3ArenaUnittest_TestAllTypes.NestedEnum.zero
     var _optionalForeignEnum: Proto3ArenaUnittest_ForeignEnum = Proto3ArenaUnittest_ForeignEnum.foreignZero
-    var _optionalStringPiece: String = ""
-    var _optionalCord: String = ""
+    var _optionalStringPiece: String = String()
+    var _optionalCord: String = String()
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
@@ -498,7 +498,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -510,7 +510,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)

@@ -83,7 +83,7 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 410,
       fieldName: "protobuf_unittest.extend4.MyMessage.b",
-      defaultValue: ""
+      defaultValue: String()
     )
 
     static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
@@ -144,7 +144,7 @@ struct Ext4C: SwiftProtobuf.Message {
 let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 420,
   fieldName: "protobuf_unittest.extend4.b",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
@@ -155,7 +155,7 @@ let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionFiel
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_b: String {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? ""}
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
   }
   var hasExt4MyMessage_b: Bool {
@@ -181,7 +181,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4b: String {
-    get {return getExtensionValue(ext: Ext4Extensions_b) ?? ""}
+    get {return getExtensionValue(ext: Ext4Extensions_b) ?? String()}
     set {setExtensionValue(ext: Ext4Extensions_b, value: newValue)}
   }
   var hasExt4b: Bool {
