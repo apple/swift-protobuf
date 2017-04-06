@@ -247,6 +247,11 @@ message FieldNames {
   optional int32 associatedtype = 252;
   optional int32 fileprivate = 253;
   optional int32 open = 254;
+  optional int32 serializedData = 255;
+  optional int32 hasSerializedData = 256;
+  optional int32 clearSerializedData = 257;
+  optional int32 jsonUTF8Data = 258;
+   optional int32 jsonString = 259;
 }
 
 message MessageNames {

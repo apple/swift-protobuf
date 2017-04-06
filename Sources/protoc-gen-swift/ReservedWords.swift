@@ -106,7 +106,11 @@ private let reservedFieldNames: Set<String> =  {
 /// It appends "_p" to any name that can't be
 /// used as a field name in Swift source code.
 func sanitizeFieldName(_ s: String, basedOn: String) -> String {
-    if reservedFieldNames.contains(basedOn) {
+    if basedOn.hasPrefix("clear") || s.hasPrefix("clear") {
+        return s + "_p"
+    } else if basedOn.hasPrefix("has") || s.hasPrefix("has") {
+        return s + "_p"
+    } else if reservedFieldNames.contains(basedOn) {
         return s + "_p"
     } else if isAllUnderscore(basedOn) {
         return s + "__"
