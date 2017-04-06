@@ -52,8 +52,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public struct Google_Protobuf_Api: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Api"
 
-  fileprivate var _storage = _StorageClass()
-
   /// The fully qualified name of this api, including package name
   /// followed by the api's simple name.
   public var name: String {
@@ -171,6 +169,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Method represents a method of an api.

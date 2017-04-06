@@ -135,8 +135,6 @@ enum ProtobufUnittest_V2EnumLite: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypesLite"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -1337,6 +1335,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message {
@@ -1675,8 +1675,6 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMergeLite"
 
-  fileprivate var _storage = _StorageClass()
-
   var requiredAllTypes: ProtobufUnittest_TestAllTypesLite {
     get {return _storage._requiredAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
     set {_uniqueStorage()._requiredAllTypes = newValue}
@@ -1744,8 +1742,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     struct Group1: SwiftProtobuf.Message {
       static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.protoMessageName + ".Group1"
 
-      fileprivate var _storage = _StorageClass()
-
       var field1: ProtobufUnittest_TestAllTypesLite {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypesLite()}
         set {_uniqueStorage()._field1 = newValue}
@@ -1781,12 +1777,12 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _storage = _StorageClass()
     }
 
     struct Group2: SwiftProtobuf.Message {
       static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.protoMessageName + ".Group2"
-
-      fileprivate var _storage = _StorageClass()
 
       var field1: ProtobufUnittest_TestAllTypesLite {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypesLite()}
@@ -1823,6 +1819,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _storage = _StorageClass()
     }
 
     init() {}
@@ -1871,8 +1869,6 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.protoMessageName + ".OptionalGroup"
 
-    fileprivate var _storage = _StorageClass()
-
     var optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
       get {return _storage._optionalGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
       set {_uniqueStorage()._optionalGroupAllTypes = newValue}
@@ -1908,12 +1904,12 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMergeLite.protoMessageName + ".RepeatedGroup"
-
-    fileprivate var _storage = _StorageClass()
 
     var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite {
       get {return _storage._repeatedGroupAllTypes ?? ProtobufUnittest_TestAllTypesLite()}
@@ -1950,6 +1946,8 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   struct Extensions {
@@ -2018,6 +2016,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
@@ -2184,8 +2183,6 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
 
 struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbersLite"
-
-  fileprivate var _storage = _StorageClass()
 
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -2463,6 +2460,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Singular

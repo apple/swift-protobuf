@@ -52,8 +52,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
 
-  fileprivate var _storage = _StorageClass()
-
   var int32Value: Int32 {
     get {return _storage._int32Value}
     set {_uniqueStorage()._int32Value = newValue}
@@ -107,6 +105,8 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

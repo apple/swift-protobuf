@@ -59,8 +59,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnormousDescriptor"
 
-  fileprivate var _storage = _StorageClass()
-
   var longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1: String {
     get {return _storage._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 ?? "long default value is also loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong"}
     set {_uniqueStorage()._longFieldNameIsLooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong1 = newValue}
@@ -15081,6 +15079,8 @@ struct Google_Protobuf_TestEnormousDescriptor: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

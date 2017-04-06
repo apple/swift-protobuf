@@ -718,8 +718,6 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FieldNames"
 
-  fileprivate var _storage = _StorageClass()
-
   var string: Int32 {
     get {return _storage._string ?? 0}
     set {_uniqueStorage()._string = newValue}
@@ -3980,6 +3978,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {

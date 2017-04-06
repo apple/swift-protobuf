@@ -51,8 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Message2"
 
-  fileprivate var _storage = _StorageClass()
-
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
@@ -1107,6 +1105,8 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_Msg2NoStorage: SwiftProtobuf.Message {
@@ -1128,8 +1128,6 @@ struct ProtobufUnittest_Msg2NoStorage: SwiftProtobuf.Message {
 
 struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Msg2UsesStorage"
-
-  fileprivate var _storage = _StorageClass()
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: ProtobufUnittest_Msg2UsesStorage {
@@ -1167,6 +1165,8 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

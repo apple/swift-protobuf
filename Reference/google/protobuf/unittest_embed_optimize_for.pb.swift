@@ -58,8 +58,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEmbedOptimizedForSize"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Test that embedding a message which has optimize_for = CODE_SIZE into
   /// one optimized for speed works.
   var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
@@ -114,6 +112,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

@@ -88,8 +88,6 @@ enum Proto3ArenaUnittest_ForeignEnum: SwiftProtobuf.Enum {
 struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
@@ -712,6 +710,8 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3ArenaUnittest_TestPackedTypes: SwiftProtobuf.Message {
@@ -927,8 +927,6 @@ struct Proto3ArenaUnittest_TestUnpackedTypes: SwiftProtobuf.Message {
 struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   var child: Proto3ArenaUnittest_NestedTestAllTypes {
     get {return _storage._child ?? Proto3ArenaUnittest_NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
@@ -979,6 +977,8 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle

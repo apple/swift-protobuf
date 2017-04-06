@@ -156,8 +156,6 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
 struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
 
-  fileprivate var _storage = _StorageClass()
-
   /// The .proto files that were explicitly listed on the command-line.  The
   /// code generator should generate code only for these files.  Each file's
   /// descriptor will be included in proto_file, below.
@@ -249,6 +247,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.

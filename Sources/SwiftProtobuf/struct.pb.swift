@@ -123,8 +123,6 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message {
 public struct Google_Protobuf_Value: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Value"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Represents a null value.
   public var nullValue: Google_Protobuf_NullValue {
     get {
@@ -257,6 +255,8 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// `ListValue` is a wrapper around a repeated field of values.

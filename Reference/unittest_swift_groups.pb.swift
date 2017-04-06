@@ -207,8 +207,6 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
 struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = "SwiftTestNestingGroupsMessage"
 
-  fileprivate var _storage = _StorageClass()
-
   var outerA: Int32 {
     get {return _storage._outerA ?? 0}
     set {_uniqueStorage()._outerA = newValue}
@@ -240,8 +238,6 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
 
   struct SubGroup1: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup1"
-
-    fileprivate var _storage = _StorageClass()
 
     var sub1A: Int32 {
       get {return _storage._sub1A ?? 0}
@@ -329,6 +325,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   struct SubGroup3: SwiftProtobuf.Message {
@@ -439,6 +437,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(

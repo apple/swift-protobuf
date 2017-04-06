@@ -180,9 +180,7 @@ class MessageGenerator {
         p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
     }
 
-    if let storage = storage {
-      p.print("\n")
-      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
+    if storage != nil {
       for f in fields {
         f.generateProxyIvar(printer: &p)
         f.generateHasProperty(printer: &p, usesHeapStorage: true)
@@ -257,6 +255,12 @@ class MessageGenerator {
     if isExtensible {
       p.print("\n")
       p.print("\(visibility)var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
+    }
+    if let storage = storage {
+      if !isExtensible {
+        p.print("\n")
+      }
+      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
     }
 
     p.outdent()

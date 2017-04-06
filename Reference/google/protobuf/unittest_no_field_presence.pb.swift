@@ -87,8 +87,6 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   /// TODO: remove 'optional' labels as soon as CL 69188077 is LGTM'd to make
   /// 'optional' optional.
@@ -689,12 +687,12 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestProto2Required"
-
-  fileprivate var _storage = _StorageClass()
 
   var proto2: ProtobufUnittest_TestRequired {
     get {return _storage._proto2 ?? ProtobufUnittest_TestRequired()}
@@ -738,6 +736,8 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle

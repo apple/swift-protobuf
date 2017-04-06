@@ -84,8 +84,6 @@ enum ProtobufUnittest_MapEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
 
-  fileprivate var _storage = _StorageClass()
-
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -268,12 +266,12 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMapSubmessage"
-
-  fileprivate var _storage = _StorageClass()
 
   var testMap: ProtobufUnittest_TestMap {
     get {return _storage._testMap ?? ProtobufUnittest_TestMap()}
@@ -310,6 +308,8 @@ struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message {
@@ -405,8 +405,6 @@ struct ProtobufUnittest_TestRequiredMessageMap: SwiftProtobuf.Message {
 
 struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestArenaMap"
-
-  fileprivate var _storage = _StorageClass()
 
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
@@ -590,6 +588,8 @@ struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Previously, message containing enum called Type cannot be used as value of

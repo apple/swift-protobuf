@@ -58,8 +58,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
 
-  fileprivate var _storage = _StorageClass()
-
   var i: Int32 {
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
@@ -185,6 +183,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
@@ -231,8 +230,6 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
 
-  fileprivate var _storage = _StorageClass()
-
   var o: ProtobufUnittest_TestRequiredOptimizedForSize {
     get {return _storage._o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {_uniqueStorage()._o = newValue}
@@ -275,6 +272,8 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 extension ProtobufUnittest_TestOptimizedForSize {

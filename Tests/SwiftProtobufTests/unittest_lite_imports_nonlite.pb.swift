@@ -56,8 +56,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestLiteImportsNonlite"
 
-  fileprivate var _storage = _StorageClass()
-
   var message: ProtobufUnittest_TestAllTypes {
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
@@ -93,6 +91,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

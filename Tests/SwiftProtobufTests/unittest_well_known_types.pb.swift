@@ -25,8 +25,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestWellKnownTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   var anyField: Google_Protobuf_Any {
     get {return _storage._anyField ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyField = newValue}
@@ -333,13 +331,13 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// A repeated field for each well-known type.
 struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".RepeatedWellKnownTypes"
-
-  fileprivate var _storage = _StorageClass()
 
   var anyField: [Google_Protobuf_Any] {
     get {return _storage._anyField}
@@ -524,12 +522,12 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
-
-  fileprivate var _storage = _StorageClass()
 
   var anyField: Google_Protobuf_Any {
     get {
@@ -825,6 +823,8 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// A map field for each well-known type. We only
@@ -832,8 +832,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
 /// well-known types, as messages can't be map keys.
 struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MapWellKnownTypes"
-
-  fileprivate var _storage = _StorageClass()
 
   var anyField: Dictionary<Int32,Google_Protobuf_Any> {
     get {return _storage._anyField}
@@ -1017,6 +1015,8 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
