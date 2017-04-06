@@ -431,110 +431,74 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._oneofField {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBytes(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofBool(let v)? = _storage._oneofField {return v}
       return false
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBool(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBool(newValue)}
   }
 
   var oneofUint64: UInt64 {
     get {
-      if case .oneofUint64(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint64(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint64(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint64(newValue)}
   }
 
   var oneofFloat: Float {
     get {
-      if case .oneofFloat(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofFloat(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofFloat(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofFloat(newValue)}
   }
 
   var oneofDouble: Double {
     get {
-      if case .oneofDouble(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofDouble(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofDouble(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofDouble(newValue)}
   }
 
   var oneofEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum {
     get {
-      if case .oneofEnum(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofEnum(let v)? = _storage._oneofField {return v}
       return ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofEnum(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
 
   /// Well-known types

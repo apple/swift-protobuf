@@ -84,26 +84,18 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   var integerField: Int32 {
     get {
-      if case .integerField(let v)? = _storage._foo {
-        return v
-      }
+      if case .integerField(let v)? = _storage._foo {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._foo = .integerField(newValue)
-    }
+    set {_uniqueStorage()._foo = .integerField(newValue)}
   }
 
   var stringField: String {
     get {
-      if case .stringField(let v)? = _storage._foo {
-        return v
-      }
+      if case .stringField(let v)? = _storage._foo {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._foo = .stringField(newValue)
-    }
+    set {_uniqueStorage()._foo = .stringField(newValue)}
   }
 
   var foo: OneOf_Foo? {

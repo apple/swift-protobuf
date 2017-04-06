@@ -138,26 +138,18 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
 
   var option1: ProtobufUnittest_OneOfOptionMessage1 {
     get {
-      if case .option1(let v)? = _storage._option {
-        return v
-      }
+      if case .option1(let v)? = _storage._option {return v}
       return ProtobufUnittest_OneOfOptionMessage1()
     }
-    set {
-      _uniqueStorage()._option = .option1(newValue)
-    }
+    set {_uniqueStorage()._option = .option1(newValue)}
   }
 
   var option2: ProtobufUnittest_OneOfOptionMessage2 {
     get {
-      if case .option2(let v)? = _storage._option {
-        return v
-      }
+      if case .option2(let v)? = _storage._option {return v}
       return ProtobufUnittest_OneOfOptionMessage2()
     }
-    set {
-      _uniqueStorage()._option = .option2(newValue)
-    }
+    set {_uniqueStorage()._option = .option2(newValue)}
   }
 
   var option: OneOf_Option? {

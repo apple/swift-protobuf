@@ -233,207 +233,139 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
 
   var oneofInt32: Int32 {
     get {
-      if case .oneofInt32(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofInt32(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofInt32(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofInt32(newValue)}
   }
 
   var oneofInt64: Int64 {
     get {
-      if case .oneofInt64(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofInt64(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofInt64(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofInt64(newValue)}
   }
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofUint32(newValue)}
   }
 
   var oneofUint64: UInt64 {
     get {
-      if case .oneofUint64(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofUint64(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofUint64(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofUint64(newValue)}
   }
 
   var oneofSint32: Int32 {
     get {
-      if case .oneofSint32(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofSint32(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofSint32(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofSint32(newValue)}
   }
 
   var oneofSint64: Int64 {
     get {
-      if case .oneofSint64(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofSint64(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofSint64(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofSint64(newValue)}
   }
 
   var oneofFixed32: UInt32 {
     get {
-      if case .oneofFixed32(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofFixed32(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofFixed32(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofFixed32(newValue)}
   }
 
   var oneofFixed64: UInt64 {
     get {
-      if case .oneofFixed64(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofFixed64(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofFixed64(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofFixed64(newValue)}
   }
 
   var oneofSfixed32: Int32 {
     get {
-      if case .oneofSfixed32(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofSfixed32(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofSfixed32(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofSfixed32(newValue)}
   }
 
   var oneofSfixed64: Int64 {
     get {
-      if case .oneofSfixed64(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofSfixed64(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofSfixed64(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofSfixed64(newValue)}
   }
 
   var oneofFloat: Float {
     get {
-      if case .oneofFloat(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofFloat(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofFloat(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofFloat(newValue)}
   }
 
   var oneofDouble: Double {
     get {
-      if case .oneofDouble(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofDouble(let v)? = _storage._o {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._o = .oneofDouble(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofDouble(newValue)}
   }
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofBool(let v)? = _storage._o {return v}
       return false
     }
-    set {
-      _uniqueStorage()._o = .oneofBool(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofBool(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._o {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._o = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofBytes(let v)? = _storage._o {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._o = .oneofBytes(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofBytes(newValue)}
   }
 
   /// No 'group' in proto3.
   var oneofMessage: ProtobufUnittest_Message3 {
     get {
-      if case .oneofMessage(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofMessage(let v)? = _storage._o {return v}
       return ProtobufUnittest_Message3()
     }
-    set {
-      _uniqueStorage()._o = .oneofMessage(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofMessage(newValue)}
   }
 
   var oneofEnum: ProtobufUnittest_Message3.Enum {
     get {
-      if case .oneofEnum(let v)? = _storage._o {
-        return v
-      }
+      if case .oneofEnum(let v)? = _storage._o {return v}
       return ProtobufUnittest_Message3.Enum.foo
     }
-    set {
-      _uniqueStorage()._o = .oneofEnum(newValue)
-    }
+    set {_uniqueStorage()._o = .oneofEnum(newValue)}
   }
 
   /// Some token map cases, too many combinations to list them all.
