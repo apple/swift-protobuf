@@ -20,17 +20,14 @@ import PluginLibrary
 private let reservedTypeNames: Set<String> = {
     () -> Set<String> in
     var names: Set<String> = [
-        "anyTypeURL",
+        "SwiftProtobuf",
         "debugDescription",
         "decodeMessage",
         "description",
         "dynamicType",
         "hashValue",
-        "isEmpty",
         "isEqual",
-        "jsonFieldNames",
         "protoMessageName",
-        "SwiftProtobuf",
         "traverse",
         "unknownFields",
     ]
@@ -78,13 +75,16 @@ func sanitizeOneofTypeName(_ s: String) -> String {
 private let reservedFieldNames: Set<String> =  {
     () -> Set<String> in
     var names: Set<String> = [
-            "debugDescription",
-            "description",
-            "dynamicType",
-            "hashValue",
-            "isInitialized",
-            "jsonFieldNames",
-            "unknownFields",
+        "debugDescription",
+        "decoder",
+        "description",
+        "dynamicType",
+        "fieldNumber",
+        "hashValue",
+        "isInitialized",
+        "other",
+        "unknownFields",
+        "visitor",
     ]
 
     // We don't need to protect all of these keywords, just the ones
