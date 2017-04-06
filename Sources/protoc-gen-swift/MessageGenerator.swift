@@ -556,46 +556,6 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  private enum IsInitializedReason {
-    case hasRequiredField
-    case hasFieldWithIsInitialized
-    case hasExtensions
-  }
-
-  /// Examines the message's members and returns a value indicating whether
-  /// an `isInitialized` property needs to be printed, or if the default in
-  /// the runtime library (which returns `true` unconditionally) is
-  /// sufficient.
-  ///
-  /// - Returns: `IsInitializedReason` for the first reason found for why
-  ///     isInitialized is needed.
-  private func needsIsInitialized() -> IsInitializedReason? {
-    if !isProto3 {
-      // Only proto2 syntax can have field presence (required fields); if any
-      // fields are required, we need to generate isInitialized.
-      for f in fields {
-        if f.descriptor.label == .required {
-          return .hasRequiredField
-        }
-      }
-    }
-    // If any nested messages have required fields, we need to generate
-    // isInitialized.
-    for f in fields {
-      if f.fieldHoldsMessage &&
-        messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-        return .hasFieldWithIsInitialized
-      }
-    }
-    if isExtensible {
-      // Extensible messages need to generate isInitialized.
-      return .hasExtensions
-    }
-    // If none of the above conditions were true, the default isInitialized,
-    // which just returns true, is sufficient.
-    return nil
-  }
-
   /// Generates the `isInitialized` property for the message, if needed.
   ///
   /// This may generate nothing, if the `isInitialized` property is not
@@ -603,7 +563,65 @@ class MessageGenerator {
   ///
   /// - Parameter printer: The code printer.
   private func generateIsInitialized(printer p: inout CodePrinter) {
-    guard let reason = needsIsInitialized() else {
+
+    var requiredPrinter: CodePrinter?
+    if !isProto3 {
+      // Only proto2 syntax can have field presence (required fields); ensure required
+      // fields have values.
+      requiredPrinter = CodePrinter()
+      for f in fields {
+        if f.descriptor.label == .required {
+          requiredPrinter!.print("if \(storedProperty(forField: f)) == nil {return false}\n")
+        }
+      }
+    }
+
+    var subMessagePrinter = CodePrinter()
+
+    // Check that all non-oneof embedded messages are initialized.
+    for f in fields {
+      if f.fieldHoldsMessage && f.oneof == nil &&
+        messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+        if f.isRepeated {
+          // TODO: Use storedPeoperty in here.
+          subMessagePrinter.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
+        } else {
+          subMessagePrinter.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
+        }
+      }
+    }
+
+    // Check the oneofs using a switch so we can be more efficent.
+    for oneofField in oneofs {
+      var hasRequiredFields = false
+      for f in oneofField.fields {
+        if f.descriptor.isMessage &&
+          messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+          if !hasRequiredFields {
+            hasRequiredFields = true
+            subMessagePrinter.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
+          }
+          subMessagePrinter.print("case .\(f.swiftName)(let v)?:\n")
+          subMessagePrinter.indent()
+          subMessagePrinter.print("if !v.isInitialized {return false}\n")
+          subMessagePrinter.outdent()
+        }
+      }
+      if hasRequiredFields {
+        // Covers other cases or if the oneof wasn't set (was nil).
+        subMessagePrinter.print("default:\n")
+        subMessagePrinter.indent()
+        subMessagePrinter.print("break\n")
+        subMessagePrinter.outdent()
+        subMessagePrinter.print("}\n")
+      }
+    }
+
+    let hasRequiredFields = requiredPrinter != nil && !requiredPrinter!.isEmpty
+    let hasMessageFieldsToCheck = !subMessagePrinter.isEmpty
+
+    if !isExtensible && !hasRequiredFields && !hasMessageFieldsToCheck {
+      // No need to generate isInitialized.
       return
     }
 
@@ -612,66 +630,16 @@ class MessageGenerator {
     if isExtensible {
       p.print("if !_protobuf_extensionFieldValues.isInitialized {return false}\n")
     }
-    if reason == .hasExtensions {
-      // Only needed isInitialized for extensions, so we're done.
-      p.print("return true\n")
-    } else {
+    if hasRequiredFields || hasMessageFieldsToCheck {
       generateWithLifetimeExtension(printer: &p, returns: true) { p in
-        if !isProto3 {
-          // Only proto2 syntax can have field presence (required fields); ensure required
-          // fields have values.
-          for f in fields {
-            if f.descriptor.label == .required {
-              p.print("if \(storedProperty(forField: f)) == nil {return false}\n")
-            }
-          }
+        if let requiredPrinter = requiredPrinter {
+          p.print(requiredPrinter.content)
         }
-
-        // Check that all non-oneof embedded messages are initialized.
-        for f in fields {
-          if f.fieldHoldsMessage && f.oneof == nil &&
-            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-            if f.isRepeated {
-              p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
-            } else {
-              p.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
-            }
-          }
-        }
-
-        // Check the oneofs using a switch so we can be more efficent.
-        for oneofField in oneofs {
-          var hasRequiredFields = false
-          for f in oneofField.fields {
-            if f.descriptor.isMessage &&
-              messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-              hasRequiredFields = true
-              break
-            }
-          }
-          if !hasRequiredFields {
-            continue
-          }
-
-          p.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
-          for f in oneofField.fields {
-            if f.descriptor.isMessage &&
-              messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-              p.print("case .\(f.swiftName)(let v)?:\n")
-              p.indent()
-              p.print("if !v.isInitialized {return false}\n")
-              p.outdent()
-            }
-          }
-          p.print("default:\n")
-          p.indent()
-          p.print("break\n")
-          p.outdent()
-          p.print("}\n")
-        }
-
+        p.print(subMessagePrinter.content)
         p.print("return true\n")
       }
+    } else {
+      p.print("return true\n")
     }
     p.outdent()
     p.print("}\n")
