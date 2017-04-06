@@ -172,7 +172,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
 
   fileprivate var _str: String? = nil
   var str: String {
-    get {return _str ?? ""}
+    get {return _str ?? String()}
     set {_str = newValue}
   }
   var hasStr: Bool {
@@ -237,7 +237,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
 
     fileprivate var _message: Data? = nil
     var message: Data {
-      get {return _message ?? Data()}
+      get {return _message ?? SwiftProtobuf.Internal.emptyData}
       set {_message = newValue}
     }
     var hasMessage: Bool {

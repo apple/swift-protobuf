@@ -443,7 +443,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   }
 
   var optionalString: String {
-    get {return _storage._optionalString ?? ""}
+    get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   var hasOptionalString: Bool {
@@ -454,7 +454,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   var hasOptionalBytes: Bool {
@@ -542,7 +542,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   }
 
   var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece ?? ""}
+    get {return _storage._optionalStringPiece ?? String()}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
   var hasOptionalStringPiece: Bool {
@@ -553,7 +553,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   }
 
   var optionalCord: String {
-    get {return _storage._optionalCord ?? ""}
+    get {return _storage._optionalCord ?? String()}
     set {_uniqueStorage()._optionalCord = newValue}
   }
   var hasOptionalCord: Bool {
@@ -962,7 +962,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -974,7 +974,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)
@@ -2522,7 +2522,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   }
 
   var optionalString: String {
-    get {return _storage._optionalString ?? ""}
+    get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   var hasOptionalString: Bool {
@@ -2533,7 +2533,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   var hasOptionalBytes: Bool {
@@ -2599,7 +2599,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -2611,7 +2611,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)
@@ -2838,13 +2838,13 @@ let ProtobufUnittest_Extensions_optional_bool_extension_lite = SwiftProtobuf.Mes
 let ProtobufUnittest_Extensions_optional_string_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 14,
   fieldName: "protobuf_unittest.optional_string_extension_lite",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_optional_bytes_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 15,
   fieldName: "protobuf_unittest.optional_bytes_extension_lite",
-  defaultValue: Data()
+  defaultValue: SwiftProtobuf.Internal.emptyData
 )
 
 let ProtobufUnittest_Extensions_OptionalGroup_extension_lite = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_OptionalGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
@@ -2892,13 +2892,13 @@ let ProtobufUnittest_Extensions_optional_import_enum_extension_lite = SwiftProto
 let ProtobufUnittest_Extensions_optional_string_piece_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 24,
   fieldName: "protobuf_unittest.optional_string_piece_extension_lite",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_optional_cord_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 25,
   fieldName: "protobuf_unittest.optional_cord_extension_lite",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_optional_public_import_message_extension_lite = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessageLite>, ProtobufUnittest_TestAllExtensionsLite>(
@@ -3201,13 +3201,13 @@ let ProtobufUnittest_Extensions_oneof_nested_message_extension_lite = SwiftProto
 let ProtobufUnittest_Extensions_oneof_string_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 113,
   fieldName: "protobuf_unittest.oneof_string_extension_lite",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_oneof_bytes_extension_lite = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 114,
   fieldName: "protobuf_unittest.oneof_bytes_extension_lite",
-  defaultValue: Data()
+  defaultValue: SwiftProtobuf.Internal.emptyData
 )
 
 let ProtobufUnittest_Extensions_packed_int32_extension_lite = SwiftProtobuf.MessageExtension<PackedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestPackedExtensionsLite>(
@@ -3511,7 +3511,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_optionalStringExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension_lite, value: newValue)}
   }
   var hasProtobufUnittest_optionalStringExtensionLite: Bool {
@@ -3524,7 +3524,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_optionalBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? Data()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension_lite, value: newValue)}
   }
   var hasProtobufUnittest_optionalBytesExtensionLite: Bool {
@@ -3628,7 +3628,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_optionalStringPieceExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension_lite, value: newValue)}
   }
   var hasProtobufUnittest_optionalStringPieceExtensionLite: Bool {
@@ -3641,7 +3641,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_optionalCordExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension_lite, value: newValue)}
   }
   var hasProtobufUnittest_optionalCordExtensionLite: Bool {
@@ -4294,7 +4294,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_oneofStringExtensionLite: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension_lite, value: newValue)}
   }
   var hasProtobufUnittest_oneofStringExtensionLite: Bool {
@@ -4307,7 +4307,7 @@ extension ProtobufUnittest_TestAllExtensionsLite {
 
 extension ProtobufUnittest_TestAllExtensionsLite {
   var ProtobufUnittest_oneofBytesExtensionLite: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? Data()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension_lite, value: newValue)}
   }
   var hasProtobufUnittest_oneofBytesExtensionLite: Bool {

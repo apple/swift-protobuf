@@ -347,7 +347,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
 let ProtobufUnittest_Extend_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 100,
   fieldName: "protobuf_unittest.extend.b",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extend_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
@@ -394,7 +394,7 @@ let ProtobufUnittest_Extend_Extensions_ext_d = SwiftProtobuf.MessageExtension<Op
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
   }
   var hasProtobufUnittest_Extend_b: Bool {

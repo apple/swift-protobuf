@@ -53,10 +53,10 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Api"
 
   fileprivate class _StorageClass {
-    var _name: String = ""
+    var _name: String = String()
     var _methods: [Google_Protobuf_Method] = []
     var _options: [Google_Protobuf_Option] = []
-    var _version: String = ""
+    var _version: String = String()
     var _sourceContext: Google_Protobuf_SourceContext? = nil
     var _mixins: [Google_Protobuf_Mixin] = []
     var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
@@ -207,16 +207,16 @@ struct Google_Protobuf_Method: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Method"
 
   /// The simple name of this method.
-  var name: String = ""
+  var name: String = String()
 
   /// A URL of the input message type.
-  var requestTypeURL: String = ""
+  var requestTypeURL: String = String()
 
   /// If true, the request is streamed.
   var requestStreaming: Bool = false
 
   /// The URL of the output message type.
-  var responseTypeURL: String = ""
+  var responseTypeURL: String = String()
 
   /// If true, the response is streamed.
   var responseStreaming: Bool = false
@@ -353,11 +353,11 @@ struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Mixin"
 
   /// The fully qualified name of the API which is included.
-  var name: String = ""
+  var name: String = String()
 
   /// If non-empty specifies a path under which inherited HTTP paths
   /// are rooted.
-  var root: String = ""
+  var root: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

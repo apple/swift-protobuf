@@ -469,7 +469,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalString: String {
-    get {return _storage._optionalString ?? ""}
+    get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   var hasOptionalString: Bool {
@@ -480,7 +480,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   var hasOptionalBytes: Bool {
@@ -568,7 +568,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalStringPiece: String {
-    get {return _storage._optionalStringPiece ?? ""}
+    get {return _storage._optionalStringPiece ?? String()}
     set {_uniqueStorage()._optionalStringPiece = newValue}
   }
   var hasOptionalStringPiece: Bool {
@@ -579,7 +579,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   }
 
   var optionalCord: String {
-    get {return _storage._optionalCord ?? ""}
+    get {return _storage._optionalCord ?? String()}
     set {_uniqueStorage()._optionalCord = newValue}
   }
   var hasOptionalCord: Bool {
@@ -988,7 +988,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -1000,7 +1000,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)
@@ -1820,7 +1820,7 @@ struct ProtobufUnittest_TestNestedExtension: SwiftProtobuf.Message {
     static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
       _protobuf_fieldNumber: 1003,
       fieldName: "protobuf_unittest.TestNestedExtension.nested_string_extension",
-      defaultValue: ""
+      defaultValue: String()
     )
   }
 
@@ -3409,7 +3409,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   }
 
   var stringField: String {
-    get {return _storage._stringField ?? ""}
+    get {return _storage._stringField ?? String()}
     set {_uniqueStorage()._stringField = newValue}
   }
   var hasStringField: Bool {
@@ -3442,7 +3442,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   }
 
   var stringPieceField: String {
-    get {return _storage._stringPieceField ?? ""}
+    get {return _storage._stringPieceField ?? String()}
     set {_uniqueStorage()._stringPieceField = newValue}
   }
   var hasStringPieceField: Bool {
@@ -3453,7 +3453,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   }
 
   var cordField: String {
-    get {return _storage._cordField ?? ""}
+    get {return _storage._cordField ?? String()}
     set {_uniqueStorage()._cordField = newValue}
   }
   var hasCordField: Bool {
@@ -3594,7 +3594,7 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   var myString: String {
-    get {return _storage._myString ?? ""}
+    get {return _storage._myString ?? String()}
     set {_uniqueStorage()._myString = newValue}
   }
   var hasMyString: Bool {
@@ -4296,7 +4296,7 @@ struct ProtobufUnittest_OneString: SwiftProtobuf.Message {
 
   fileprivate var _data: String? = nil
   var data: String {
-    get {return _data ?? ""}
+    get {return _data ?? String()}
     set {_data = newValue}
   }
   var hasData: Bool {
@@ -4358,7 +4358,7 @@ struct ProtobufUnittest_OneBytes: SwiftProtobuf.Message {
 
   fileprivate var _data: Data? = nil
   var data: Data {
-    get {return _data ?? Data()}
+    get {return _data ?? SwiftProtobuf.Internal.emptyData}
     set {_data = newValue}
   }
   var hasData: Bool {
@@ -4636,7 +4636,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
       if case .fooString(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .fooString(newValue)
@@ -4710,7 +4710,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
 
     fileprivate var _b: String? = nil
     var b: String {
-      get {return _b ?? ""}
+      get {return _b ?? String()}
       set {_b = newValue}
     }
     var hasB: Bool {
@@ -4811,7 +4811,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
   }
 
   var fooString: String {
-    get {return _storage._fooString ?? ""}
+    get {return _storage._fooString ?? String()}
     set {_uniqueStorage()._fooString = newValue}
   }
   var hasFooString: Bool {
@@ -4862,7 +4862,7 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
 
     fileprivate var _b: String? = nil
     var b: String {
-      get {return _b ?? ""}
+      get {return _b ?? String()}
       set {_b = newValue}
     }
     var hasB: Bool {
@@ -4978,7 +4978,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       if case .fooString(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .fooString(newValue)
@@ -4990,7 +4990,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       if case .fooCord(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .fooCord(newValue)
@@ -5002,7 +5002,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       if case .fooStringPiece(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .fooStringPiece(newValue)
@@ -5014,7 +5014,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
       if case .fooBytes(let v)? = _storage._foo {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._foo = .fooBytes(newValue)
@@ -5273,7 +5273,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
 
     fileprivate var _b: String? = nil
     var b: String {
-      get {return _b ?? ""}
+      get {return _b ?? String()}
       set {_b = newValue}
     }
     var hasB: Bool {
@@ -5429,7 +5429,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
       if case .fooString(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .fooString(newValue)
@@ -6886,7 +6886,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   }
 
   var optionalString: String {
-    get {return _storage._optionalString ?? ""}
+    get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   var hasOptionalString: Bool {
@@ -6897,7 +6897,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   var hasOptionalBytes: Bool {
@@ -6963,7 +6963,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -6975,7 +6975,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)
@@ -7202,13 +7202,13 @@ let ProtobufUnittest_Extensions_optional_bool_extension = SwiftProtobuf.MessageE
 let ProtobufUnittest_Extensions_optional_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 14,
   fieldName: "protobuf_unittest.optional_string_extension",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_optional_bytes_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 15,
   fieldName: "protobuf_unittest.optional_bytes_extension",
-  defaultValue: Data()
+  defaultValue: SwiftProtobuf.Internal.emptyData
 )
 
 let ProtobufUnittest_Extensions_OptionalGroup_extension = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_OptionalGroup_extension>, ProtobufUnittest_TestAllExtensions>(
@@ -7256,13 +7256,13 @@ let ProtobufUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.M
 let ProtobufUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 24,
   fieldName: "protobuf_unittest.optional_string_piece_extension",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_optional_cord_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 25,
   fieldName: "protobuf_unittest.optional_cord_extension",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_optional_public_import_message_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittestImport_PublicImportMessage>, ProtobufUnittest_TestAllExtensions>(
@@ -7565,19 +7565,19 @@ let ProtobufUnittest_Extensions_oneof_nested_message_extension = SwiftProtobuf.M
 let ProtobufUnittest_Extensions_oneof_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 113,
   fieldName: "protobuf_unittest.oneof_string_extension",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_oneof_bytes_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 114,
   fieldName: "protobuf_unittest.oneof_bytes_extension",
-  defaultValue: Data()
+  defaultValue: SwiftProtobuf.Internal.emptyData
 )
 
 let ProtobufUnittest_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
   fieldName: "protobuf_unittest.my_extension_string",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestFieldOrderings>(
@@ -7779,7 +7779,7 @@ extension ProtobufUnittest_TestAllExtensions {
   /// Used to test if generated extension name is correct when there are
   /// underscores.
   var ProtobufUnittest_TestNestedExtension_nestedStringExtension: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension, value: newValue)}
   }
   var hasProtobufUnittest_TestNestedExtension_nestedStringExtension: Bool {
@@ -8014,7 +8014,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalStringExtension: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension, value: newValue)}
   }
   var hasProtobufUnittest_optionalStringExtension: Bool {
@@ -8027,7 +8027,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? Data()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension, value: newValue)}
   }
   var hasProtobufUnittest_optionalBytesExtension: Bool {
@@ -8131,7 +8131,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalStringPieceExtension: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension, value: newValue)}
   }
   var hasProtobufUnittest_optionalStringPieceExtension: Bool {
@@ -8144,7 +8144,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalCordExtension: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension, value: newValue)}
   }
   var hasProtobufUnittest_optionalCordExtension: Bool {
@@ -8797,7 +8797,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_oneofStringExtension: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension, value: newValue)}
   }
   var hasProtobufUnittest_oneofStringExtension: Bool {
@@ -8810,7 +8810,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_oneofBytesExtension: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? Data()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension, value: newValue)}
   }
   var hasProtobufUnittest_oneofBytesExtension: Bool {
@@ -8823,7 +8823,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestFieldOrderings {
   var ProtobufUnittest_myExtensionString: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string, value: newValue)}
   }
   var hasProtobufUnittest_myExtensionString: Bool {

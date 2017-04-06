@@ -90,7 +90,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   /// r/o properties on Message, ensure it gets remapped.
   fileprivate var _isInitialized_p: String? = nil
   var isInitialized_p: String {
-    get {return _isInitialized_p ?? ""}
+    get {return _isInitialized_p ?? String()}
     set {_isInitialized_p = newValue}
   }
   var hasIsInitialized_p: Bool {
@@ -102,7 +102,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
 
   fileprivate var _hashValue_p: String? = nil
   var hashValue_p: String {
-    get {return _hashValue_p ?? ""}
+    get {return _hashValue_p ?? String()}
     set {_hashValue_p = newValue}
   }
   var hasHashValue_p: Bool {
