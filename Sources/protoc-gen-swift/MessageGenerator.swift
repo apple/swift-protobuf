@@ -639,7 +639,6 @@ class MessageGenerator {
           }
 
           p.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
-          var needsDefault = false
           for f in oneofField.fields {
             if f.descriptor.isMessage &&
               messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
@@ -647,16 +646,12 @@ class MessageGenerator {
               p.indent()
               p.print("if !v.isInitialized {return false}\n")
               p.outdent()
-            } else {
-              needsDefault = true
             }
           }
-          if needsDefault {
-            p.print("default:\n")
-            p.indent()
-            p.print("break\n")
-            p.outdent()
-          }
+          p.print("default:\n")
+          p.indent()
+          p.print("break\n")
+          p.outdent()
           p.print("}\n")
         }
 
