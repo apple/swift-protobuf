@@ -52,28 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAny"
 
-  fileprivate class _StorageClass {
-    var _int32Value: Int32 = 0
-    var _anyValue: Google_Protobuf_Any? = nil
-    var _repeatedAnyValue: [Google_Protobuf_Any] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _int32Value = source._int32Value
-      _anyValue = source._anyValue
-      _repeatedAnyValue = source._repeatedAnyValue
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var int32Value: Int32 {
     get {return _storage._int32Value}
@@ -140,6 +119,27 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf._MessageImplementationBase, Sw
     2: .standard(proto: "any_value"),
     3: .standard(proto: "repeated_any_value"),
   ]
+
+  fileprivate class _StorageClass {
+    var _int32Value: Int32 = 0
+    var _anyValue: Google_Protobuf_Any? = nil
+    var _repeatedAnyValue: [Google_Protobuf_Any] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _int32Value = source._int32Value
+      _anyValue = source._anyValue
+      _repeatedAnyValue = source._repeatedAnyValue
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
     if _storage !== other._storage {

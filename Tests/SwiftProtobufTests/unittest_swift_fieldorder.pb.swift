@@ -38,32 +38,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
 
-  fileprivate class _StorageClass {
-    var _myString: String? = nil
-    var _myInt: Int64? = nil
-    var _myFloat: Float? = nil
-    var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
-    var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _myString = source._myString
-      _myInt = source._myInt
-      _myFloat = source._myFloat
-      _options = source._options
-      _optionalNestedMessage = source._optionalNestedMessage
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var myString: String {
     get {return _storage._myString ?? String()}
@@ -348,6 +323,31 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
     10: .standard(proto: "oneof_int32"),
     200: .standard(proto: "optional_nested_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _myString: String? = nil
+    var _myInt: Int64? = nil
+    var _myFloat: Float? = nil
+    var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
+    var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _myString = source._myString
+      _myInt = source._myInt
+      _myFloat = source._myFloat
+      _options = source._options
+      _optionalNestedMessage = source._optionalNestedMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings) -> Bool {
     if _storage !== other._storage {

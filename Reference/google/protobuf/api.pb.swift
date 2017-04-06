@@ -52,36 +52,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Api: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Api"
 
-  fileprivate class _StorageClass {
-    var _name: String = String()
-    var _methods: [Google_Protobuf_Method] = []
-    var _options: [Google_Protobuf_Option] = []
-    var _version: String = String()
-    var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _mixins: [Google_Protobuf_Mixin] = []
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _methods = source._methods
-      _options = source._options
-      _version = source._version
-      _sourceContext = source._sourceContext
-      _mixins = source._mixins
-      _syntax = source._syntax
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// The fully qualified name of this api, including package name
   /// followed by the api's simple name.
@@ -398,6 +369,35 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
     6: .same(proto: "mixins"),
     7: .same(proto: "syntax"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _methods: [Google_Protobuf_Method] = []
+    var _options: [Google_Protobuf_Option] = []
+    var _version: String = String()
+    var _sourceContext: Google_Protobuf_SourceContext? = nil
+    var _mixins: [Google_Protobuf_Mixin] = []
+    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _methods = source._methods
+      _options = source._options
+      _version = source._version
+      _sourceContext = source._sourceContext
+      _mixins = source._mixins
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
     if _storage !== other._storage {

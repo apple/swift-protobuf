@@ -123,24 +123,7 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message {
 public struct Google_Protobuf_Value: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Value"
 
-  fileprivate class _StorageClass {
-    var _kind: Google_Protobuf_Value.OneOf_Kind?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _kind = source._kind
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// Represents a null value.
   public var nullValue: Google_Protobuf_NullValue {
@@ -337,6 +320,23 @@ extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, Swift
     5: .standard(proto: "struct_value"),
     6: .standard(proto: "list_value"),
   ]
+
+  fileprivate class _StorageClass {
+    var _kind: Google_Protobuf_Value.OneOf_Kind?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _kind = source._kind
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
     if _storage !== other._storage {

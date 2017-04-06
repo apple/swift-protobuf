@@ -94,46 +94,7 @@ public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message {
 public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FileDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _package: String? = nil
-    var _dependency: [String] = []
-    var _publicDependency: [Int32] = []
-    var _weakDependency: [Int32] = []
-    var _messageType: [Google_Protobuf_DescriptorProto] = []
-    var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
-    var _service: [Google_Protobuf_ServiceDescriptorProto] = []
-    var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
-    var _options: Google_Protobuf_FileOptions? = nil
-    var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
-    var _syntax: String? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _package = source._package
-      _dependency = source._dependency
-      _publicDependency = source._publicDependency
-      _weakDependency = source._weakDependency
-      _messageType = source._messageType
-      _enumType = source._enumType
-      _service = source._service
-      _extension_p = source._extension_p
-      _options = source._options
-      _sourceCodeInfo = source._sourceCodeInfo
-      _syntax = source._syntax
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// file name, relative to root of source tree
   public var name: String {
@@ -323,42 +284,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".DescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _field: [Google_Protobuf_FieldDescriptorProto] = []
-    var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
-    var _nestedType: [Google_Protobuf_DescriptorProto] = []
-    var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
-    var _extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] = []
-    var _oneofDecl: [Google_Protobuf_OneofDescriptorProto] = []
-    var _options: Google_Protobuf_MessageOptions? = nil
-    var _reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
-    var _reservedName: [String] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _field = source._field
-      _extension_p = source._extension_p
-      _nestedType = source._nestedType
-      _enumType = source._enumType
-      _extensionRange = source._extensionRange
-      _oneofDecl = source._oneofDecl
-      _options = source._options
-      _reservedRange = source._reservedRange
-      _reservedName = source._reservedName
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -611,42 +537,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _number: Int32? = nil
-    var _label: Google_Protobuf_FieldDescriptorProto.Label? = nil
-    var _type: Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
-    var _typeName: String? = nil
-    var _extendee: String? = nil
-    var _defaultValue: String? = nil
-    var _oneofIndex: Int32? = nil
-    var _jsonName: String? = nil
-    var _options: Google_Protobuf_FieldOptions? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _number = source._number
-      _label = source._label
-      _type = source._type
-      _typeName = source._typeName
-      _extendee = source._extendee
-      _defaultValue = source._defaultValue
-      _oneofIndex = source._oneofIndex
-      _jsonName = source._jsonName
-      _options = source._options
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -978,26 +869,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _options: Google_Protobuf_OneofOptions? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _options = source._options
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1062,28 +934,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
-    var _options: Google_Protobuf_EnumOptions? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _value = source._value
-      _options = source._options
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1158,28 +1009,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumValueDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _number: Int32? = nil
-    var _options: Google_Protobuf_EnumValueOptions? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _number = source._number
-      _options = source._options
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1259,28 +1089,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _method: [Google_Protobuf_MethodDescriptorProto] = []
-    var _options: Google_Protobuf_ServiceOptions? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _method = source._method
-      _options = source._options
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1355,34 +1164,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
 
-  fileprivate class _StorageClass {
-    var _name: String? = nil
-    var _inputType: String? = nil
-    var _outputType: String? = nil
-    var _options: Google_Protobuf_MethodOptions? = nil
-    var _clientStreaming: Bool? = nil
-    var _serverStreaming: Bool? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _inputType = source._inputType
-      _outputType = source._outputType
-      _options = source._options
-      _clientStreaming = source._clientStreaming
-      _serverStreaming = source._serverStreaming
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1510,56 +1292,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
 public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".FileOptions"
 
-  fileprivate class _StorageClass {
-    var _javaPackage: String? = nil
-    var _javaOuterClassname: String? = nil
-    var _javaMultipleFiles: Bool? = nil
-    var _javaGenerateEqualsAndHash: Bool? = nil
-    var _javaStringCheckUtf8: Bool? = nil
-    var _optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
-    var _goPackage: String? = nil
-    var _ccGenericServices: Bool? = nil
-    var _javaGenericServices: Bool? = nil
-    var _pyGenericServices: Bool? = nil
-    var _deprecated: Bool? = nil
-    var _ccEnableArenas: Bool? = nil
-    var _objcClassPrefix: String? = nil
-    var _csharpNamespace: String? = nil
-    var _swiftPrefix: String? = nil
-    var _phpClassPrefix: String? = nil
-    var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _javaPackage = source._javaPackage
-      _javaOuterClassname = source._javaOuterClassname
-      _javaMultipleFiles = source._javaMultipleFiles
-      _javaGenerateEqualsAndHash = source._javaGenerateEqualsAndHash
-      _javaStringCheckUtf8 = source._javaStringCheckUtf8
-      _optimizeFor = source._optimizeFor
-      _goPackage = source._goPackage
-      _ccGenericServices = source._ccGenericServices
-      _javaGenericServices = source._javaGenericServices
-      _pyGenericServices = source._pyGenericServices
-      _deprecated = source._deprecated
-      _ccEnableArenas = source._ccEnableArenas
-      _objcClassPrefix = source._objcClassPrefix
-      _csharpNamespace = source._csharpNamespace
-      _swiftPrefix = source._swiftPrefix
-      _phpClassPrefix = source._phpClassPrefix
-      _uninterpretedOption = source._uninterpretedOption
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// Sets the Java package where classes generated from this .proto will be
   /// placed.  By default, the proto package is used, but this is often
@@ -3232,6 +2965,45 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
     12: .same(proto: "syntax"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _package: String? = nil
+    var _dependency: [String] = []
+    var _publicDependency: [Int32] = []
+    var _weakDependency: [Int32] = []
+    var _messageType: [Google_Protobuf_DescriptorProto] = []
+    var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
+    var _service: [Google_Protobuf_ServiceDescriptorProto] = []
+    var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
+    var _options: Google_Protobuf_FileOptions? = nil
+    var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
+    var _syntax: String? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _package = source._package
+      _dependency = source._dependency
+      _publicDependency = source._publicDependency
+      _weakDependency = source._weakDependency
+      _messageType = source._messageType
+      _enumType = source._enumType
+      _service = source._service
+      _extension_p = source._extension_p
+      _options = source._options
+      _sourceCodeInfo = source._sourceCodeInfo
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -3269,6 +3041,41 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
     9: .standard(proto: "reserved_range"),
     10: .standard(proto: "reserved_name"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _field: [Google_Protobuf_FieldDescriptorProto] = []
+    var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
+    var _nestedType: [Google_Protobuf_DescriptorProto] = []
+    var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
+    var _extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] = []
+    var _oneofDecl: [Google_Protobuf_OneofDescriptorProto] = []
+    var _options: Google_Protobuf_MessageOptions? = nil
+    var _reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
+    var _reservedName: [String] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _field = source._field
+      _extension_p = source._extension_p
+      _nestedType = source._nestedType
+      _enumType = source._enumType
+      _extensionRange = source._extensionRange
+      _oneofDecl = source._oneofDecl
+      _options = source._options
+      _reservedRange = source._reservedRange
+      _reservedName = source._reservedName
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
     if _storage !== other._storage {
@@ -3334,6 +3141,41 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
     8: .same(proto: "options"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _number: Int32? = nil
+    var _label: Google_Protobuf_FieldDescriptorProto.Label? = nil
+    var _type: Google_Protobuf_FieldDescriptorProto.TypeEnum? = nil
+    var _typeName: String? = nil
+    var _extendee: String? = nil
+    var _defaultValue: String? = nil
+    var _oneofIndex: Int32? = nil
+    var _jsonName: String? = nil
+    var _options: Google_Protobuf_FieldOptions? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _number = source._number
+      _label = source._label
+      _type = source._type
+      _typeName = source._typeName
+      _extendee = source._extendee
+      _defaultValue = source._defaultValue
+      _oneofIndex = source._oneofIndex
+      _jsonName = source._jsonName
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -3393,6 +3235,25 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementa
     2: .same(proto: "options"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _options: Google_Protobuf_OneofOptions? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -3413,6 +3274,27 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementat
     2: .same(proto: "value"),
     3: .same(proto: "options"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
+    var _options: Google_Protobuf_EnumOptions? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _value = source._value
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
     if _storage !== other._storage {
@@ -3436,6 +3318,27 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplem
     3: .same(proto: "options"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _number: Int32? = nil
+    var _options: Google_Protobuf_EnumValueOptions? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _number = source._number
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -3457,6 +3360,27 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplemen
     2: .same(proto: "method"),
     3: .same(proto: "options"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _method: [Google_Protobuf_MethodDescriptorProto] = []
+    var _options: Google_Protobuf_ServiceOptions? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _method = source._method
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
     if _storage !== other._storage {
@@ -3482,6 +3406,33 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplement
     5: .standard(proto: "client_streaming"),
     6: .standard(proto: "server_streaming"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String? = nil
+    var _inputType: String? = nil
+    var _outputType: String? = nil
+    var _options: Google_Protobuf_MethodOptions? = nil
+    var _clientStreaming: Bool? = nil
+    var _serverStreaming: Bool? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _inputType = source._inputType
+      _outputType = source._outputType
+      _options = source._options
+      _clientStreaming = source._clientStreaming
+      _serverStreaming = source._serverStreaming
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {
     if _storage !== other._storage {
@@ -3521,6 +3472,55 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     40: .standard(proto: "php_class_prefix"),
     999: .standard(proto: "uninterpreted_option"),
   ]
+
+  fileprivate class _StorageClass {
+    var _javaPackage: String? = nil
+    var _javaOuterClassname: String? = nil
+    var _javaMultipleFiles: Bool? = nil
+    var _javaGenerateEqualsAndHash: Bool? = nil
+    var _javaStringCheckUtf8: Bool? = nil
+    var _optimizeFor: Google_Protobuf_FileOptions.OptimizeMode? = nil
+    var _goPackage: String? = nil
+    var _ccGenericServices: Bool? = nil
+    var _javaGenericServices: Bool? = nil
+    var _pyGenericServices: Bool? = nil
+    var _deprecated: Bool? = nil
+    var _ccEnableArenas: Bool? = nil
+    var _objcClassPrefix: String? = nil
+    var _csharpNamespace: String? = nil
+    var _swiftPrefix: String? = nil
+    var _phpClassPrefix: String? = nil
+    var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _javaPackage = source._javaPackage
+      _javaOuterClassname = source._javaOuterClassname
+      _javaMultipleFiles = source._javaMultipleFiles
+      _javaGenerateEqualsAndHash = source._javaGenerateEqualsAndHash
+      _javaStringCheckUtf8 = source._javaStringCheckUtf8
+      _optimizeFor = source._optimizeFor
+      _goPackage = source._goPackage
+      _ccGenericServices = source._ccGenericServices
+      _javaGenericServices = source._javaGenericServices
+      _pyGenericServices = source._pyGenericServices
+      _deprecated = source._deprecated
+      _ccEnableArenas = source._ccEnableArenas
+      _objcClassPrefix = source._objcClassPrefix
+      _csharpNamespace = source._csharpNamespace
+      _swiftPrefix = source._swiftPrefix
+      _phpClassPrefix = source._phpClassPrefix
+      _uninterpretedOption = source._uninterpretedOption
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
     if _storage !== other._storage {

@@ -85,34 +85,7 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 public struct Google_Protobuf_Type: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Type"
 
-  fileprivate class _StorageClass {
-    var _name: String = String()
-    var _fields: [Google_Protobuf_Field] = []
-    var _oneofs: [String] = []
-    var _options: [Google_Protobuf_Option] = []
-    var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _fields = source._fields
-      _oneofs = source._oneofs
-      _options = source._options
-      _sourceContext = source._sourceContext
-      _syntax = source._syntax
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// The fully qualified message name.
   public var name: String {
@@ -460,32 +433,7 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
 public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Enum"
 
-  fileprivate class _StorageClass {
-    var _name: String = String()
-    var _enumvalue: [Google_Protobuf_EnumValue] = []
-    var _options: [Google_Protobuf_Option] = []
-    var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _enumvalue = source._enumvalue
-      _options = source._options
-      _sourceContext = source._sourceContext
-      _syntax = source._syntax
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// Enum type name.
   public var name: String {
@@ -612,26 +560,7 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
 public struct Google_Protobuf_Option: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Option"
 
-  fileprivate class _StorageClass {
-    var _name: String = String()
-    var _value: Google_Protobuf_Any? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _value = source._value
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// The option's name. For protobuf built-in options (options defined in
   /// descriptor.proto), this is the short name. For example, `"map_entry"`.
@@ -707,6 +636,33 @@ extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftP
     5: .standard(proto: "source_context"),
     6: .same(proto: "syntax"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _fields: [Google_Protobuf_Field] = []
+    var _oneofs: [String] = []
+    var _options: [Google_Protobuf_Option] = []
+    var _sourceContext: Google_Protobuf_SourceContext? = nil
+    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _fields = source._fields
+      _oneofs = source._oneofs
+      _options = source._options
+      _sourceContext = source._sourceContext
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
     if _storage !== other._storage {
@@ -798,6 +754,31 @@ extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftP
     5: .same(proto: "syntax"),
   ]
 
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _enumvalue: [Google_Protobuf_EnumValue] = []
+    var _options: [Google_Protobuf_Option] = []
+    var _sourceContext: Google_Protobuf_SourceContext? = nil
+    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _enumvalue = source._enumvalue
+      _options = source._options
+      _sourceContext = source._sourceContext
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -836,6 +817,25 @@ extension Google_Protobuf_Option: SwiftProtobuf._MessageImplementationBase, Swif
     1: .same(proto: "name"),
     2: .same(proto: "value"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _value: Google_Protobuf_Any? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _value = source._value
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
     if _storage !== other._storage {

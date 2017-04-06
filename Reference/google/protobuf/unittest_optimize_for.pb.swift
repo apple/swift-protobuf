@@ -58,28 +58,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestOptimizedForSize"
 
-  fileprivate class _StorageClass {
-    var _i: Int32? = nil
-    var _msg: ProtobufUnittest_ForeignMessage? = nil
-    var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _i = source._i
-      _msg = source._msg
-      _foo = source._foo
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var i: Int32 {
     get {return _storage._i ?? 0}
@@ -252,24 +231,7 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOptionalOptimizedForSize"
 
-  fileprivate class _StorageClass {
-    var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _o = source._o
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var o: ProtobufUnittest_TestRequiredOptimizedForSize {
     get {return _storage._o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
@@ -358,6 +320,27 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf._MessageImplement
     3: .standard(proto: "string_field"),
   ]
 
+  fileprivate class _StorageClass {
+    var _i: Int32? = nil
+    var _msg: ProtobufUnittest_ForeignMessage? = nil
+    var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _i = source._i
+      _msg = source._msg
+      _foo = source._foo
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOptimizedForSize) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -427,6 +410,23 @@ extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf._MessageI
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "o"),
   ]
+
+  fileprivate class _StorageClass {
+    var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _o = source._o
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOptionalOptimizedForSize) -> Bool {
     if _storage !== other._storage {

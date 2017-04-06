@@ -257,26 +257,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
 struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".MsgUsesStorage"
 
-  fileprivate class _StorageClass {
-    var _x: Int32? = nil
-    var _y: ProtobufUnittest_Extend_MsgUsesStorage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _x = source._x
-      _y = source._y
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var x: Int32 {
     get {return _storage._x ?? 0}
@@ -592,6 +573,25 @@ extension ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf._MessageImplemen
     1: .same(proto: "x"),
     2: .same(proto: "y"),
   ]
+
+  fileprivate class _StorageClass {
+    var _x: Int32? = nil
+    var _y: ProtobufUnittest_Extend_MsgUsesStorage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _x = source._x
+      _y = source._y
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgUsesStorage) -> Bool {
     if _storage !== other._storage {

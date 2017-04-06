@@ -156,30 +156,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
 struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
 
-  fileprivate class _StorageClass {
-    var _fileToGenerate: [String] = []
-    var _parameter: String? = nil
-    var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
-    var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _fileToGenerate = source._fileToGenerate
-      _parameter = source._parameter
-      _protoFile = source._protoFile
-      _compilerVersion = source._compilerVersion
-    }
-  }
-
   fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   /// The .proto files that were explicitly listed on the command-line.  The
   /// code generator should generate code only for these files.  Each file's
@@ -472,6 +449,29 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
     15: .standard(proto: "proto_file"),
     3: .standard(proto: "compiler_version"),
   ]
+
+  fileprivate class _StorageClass {
+    var _fileToGenerate: [String] = []
+    var _parameter: String? = nil
+    var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
+    var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _fileToGenerate = source._fileToGenerate
+      _parameter = source._parameter
+      _protoFile = source._protoFile
+      _compilerVersion = source._compilerVersion
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if _storage !== other._storage {
