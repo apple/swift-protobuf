@@ -79,7 +79,7 @@ fileprivate func unpack(contentJSON: Data, as messageType: Message.Type) throws 
 
 internal class AnyMessageStorage {
   // The two properties generated Google_Protobuf_Any will reference.
-  var _typeURL: String = ""
+  var _typeURL = String()
   var _value: Data {
     // Remapped to the internal `state`.
     get {
@@ -391,7 +391,7 @@ extension AnyMessageStorage {
   func decodeJSON(from decoder: inout JSONDecoder) throws {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
-    _typeURL = ""
+    _typeURL = String()
     state = .binary(Data())
     if decoder.scanner.skipOptionalObjectEnd() {
       return

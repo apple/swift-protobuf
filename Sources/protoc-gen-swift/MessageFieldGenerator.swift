@@ -178,7 +178,7 @@ extension Google_Protobuf_FieldDescriptorProto {
         }
         switch type {
         case .bool: return "false"
-        case .string: return "\"\""
+        case .string: return "String()"
         case .bytes: return "Data()"
         case .group, .message:
             return context.getMessageNameForPath(path: typeName)! + "()"

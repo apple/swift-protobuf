@@ -17,7 +17,7 @@
 // message, intersect two fieldmasks, etc.
 
 private func ProtoToJSON(name: String) -> String? {
-  var jsonPath = ""
+  var jsonPath = String()
   var chars = name.characters.makeIterator()
   while let c = chars.next() {
     switch c {
@@ -42,7 +42,7 @@ private func ProtoToJSON(name: String) -> String? {
 }
 
 private func JSONToProto(name: String) -> String? {
-  var path = ""
+  var path = String()
   for c in name.characters {
     switch c {
     case "_":
@@ -59,7 +59,7 @@ private func JSONToProto(name: String) -> String? {
 
 private func parseJSONFieldNames(names: String) -> [String]? {
   var fieldNameCount = 0
-  var fieldName = ""
+  var fieldName = String()
   var split = [String]()
   for c: Character in names.characters {
     switch c {
@@ -72,7 +72,7 @@ private func parseJSONFieldNames(names: String) -> [String]? {
       } else {
         return nil
       }
-      fieldName = ""
+      fieldName = String()
       fieldNameCount = 0
     default:
       fieldName.append(c)

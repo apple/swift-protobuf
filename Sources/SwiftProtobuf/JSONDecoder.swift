@@ -388,7 +388,7 @@ internal struct JSONDecoder: Decoder {
 
   mutating func decodeSingularStringField(value: inout String) throws {
     if scanner.skipOptionalNull() {
-      value = ""
+      value = String()
       return
     }
     value = try scanner.nextQuotedString()
