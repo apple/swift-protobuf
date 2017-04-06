@@ -83,7 +83,7 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 210,
       fieldName: "protobuf_unittest.extend2.MyMessage.b",
-      defaultValue: ""
+      defaultValue: String()
     )
 
     static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
@@ -144,7 +144,7 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
 let ProtobufUnittest_Extend2_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 220,
   fieldName: "protobuf_unittest.extend2.b",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extend2_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
@@ -155,7 +155,7 @@ let ProtobufUnittest_Extend2_Extensions_C = SwiftProtobuf.MessageExtension<Optio
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b, value: newValue)}
   }
   var hasProtobufUnittest_Extend2_MyMessage_b: Bool {
@@ -181,7 +181,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b, value: newValue)}
   }
   var hasProtobufUnittest_Extend2_b: Bool {

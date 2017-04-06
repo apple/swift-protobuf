@@ -110,14 +110,14 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     var _optionalFloat: Float = 0
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage? = nil
     var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
     var _optionalForeignEnum: ProtobufTestMessages_Proto3_ForeignEnum = ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo
-    var _optionalStringPiece: String = ""
-    var _optionalCord: String = ""
+    var _optionalStringPiece: String = String()
+    var _optionalCord: String = String()
     var _recursiveMessage: ProtobufTestMessages_Proto3_TestAllTypes? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -695,7 +695,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -707,7 +707,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)

@@ -91,7 +91,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = payload { return v }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set { payload = .protobufPayload(newValue) }
   }
@@ -101,7 +101,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   var jsonPayload: String {
     get {
       if case .jsonPayload(let v)? = payload { return v }
-      return ""
+      return String()
     }
     set { payload = .jsonPayload(newValue) }
   }
@@ -161,7 +161,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var parseError: String {
     get {
       if case .parseError(let v)? = result { return v }
-      return ""
+      return String()
     }
     set { result = .parseError(newValue) }
   }
@@ -174,7 +174,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var serializeError: String {
     get {
       if case .serializeError(let v)? = result { return v }
-      return ""
+      return String()
     }
     set { result = .serializeError(newValue) }
   }
@@ -185,7 +185,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var runtimeError: String {
     get {
       if case .runtimeError(let v)? = result { return v }
-      return ""
+      return String()
     }
     set { result = .runtimeError(newValue) }
   }
@@ -195,7 +195,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = result { return v }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set { result = .protobufPayload(newValue) }
   }
@@ -205,7 +205,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var jsonPayload: String {
     get {
       if case .jsonPayload(let v)? = result { return v }
-      return ""
+      return String()
     }
     set { result = .jsonPayload(newValue) }
   }
@@ -215,7 +215,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var skipped: String {
     get {
       if case .skipped(let v)? = result { return v }
-      return ""
+      return String()
     }
     set { result = .skipped(newValue) }
   }

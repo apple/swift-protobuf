@@ -310,7 +310,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   }
 
   var requiredString: String {
-    get {return _storage._requiredString ?? ""}
+    get {return _storage._requiredString ?? String()}
     set {_uniqueStorage()._requiredString = newValue}
   }
   var hasRequiredString: Bool {
@@ -321,7 +321,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   }
 
   var requiredBytes: Data {
-    get {return _storage._requiredBytes ?? Data()}
+    get {return _storage._requiredBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._requiredBytes = newValue}
   }
   var hasRequiredBytes: Bool {
@@ -409,7 +409,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   }
 
   var requiredStringPiece: String {
-    get {return _storage._requiredStringPiece ?? ""}
+    get {return _storage._requiredStringPiece ?? String()}
     set {_uniqueStorage()._requiredStringPiece = newValue}
   }
   var hasRequiredStringPiece: Bool {
@@ -420,7 +420,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   }
 
   var requiredCord: String {
-    get {return _storage._requiredCord ?? ""}
+    get {return _storage._requiredCord ?? String()}
     set {_uniqueStorage()._requiredCord = newValue}
   }
   var hasRequiredCord: Bool {
@@ -703,7 +703,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -715,7 +715,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)
@@ -1180,7 +1180,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
 
   fileprivate var _requiredString: String? = nil
   var requiredString: String {
-    get {return _requiredString ?? ""}
+    get {return _requiredString ?? String()}
     set {_requiredString = newValue}
   }
   var hasRequiredString: Bool {
@@ -1192,7 +1192,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
 
   fileprivate var _requiredBytes: Data? = nil
   var requiredBytes: Data {
-    get {return _requiredBytes ?? Data()}
+    get {return _requiredBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_requiredBytes = newValue}
   }
   var hasRequiredBytes: Bool {

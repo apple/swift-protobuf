@@ -120,7 +120,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       if case .stringField(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .stringField(newValue)

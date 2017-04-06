@@ -65,8 +65,8 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
     var _optionalFloat: Float = 0
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _optionalMessage: ProtobufUnittest_Message3? = nil
     var _optionalEnum: ProtobufUnittest_Message3.Enum = ProtobufUnittest_Message3.Enum.foo
     var _repeatedInt32: [Int32] = []
@@ -515,7 +515,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._o {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._o = .oneofString(newValue)
@@ -527,7 +527,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._o {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._o = .oneofBytes(newValue)

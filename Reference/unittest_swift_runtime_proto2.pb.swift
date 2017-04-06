@@ -324,7 +324,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   }
 
   var optionalString: String {
-    get {return _storage._optionalString ?? ""}
+    get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
   var hasOptionalString: Bool {
@@ -335,7 +335,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   }
 
   var optionalBytes: Data {
-    get {return _storage._optionalBytes ?? Data()}
+    get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
   var hasOptionalBytes: Bool {

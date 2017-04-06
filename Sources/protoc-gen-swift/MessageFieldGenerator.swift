@@ -178,8 +178,8 @@ extension Google_Protobuf_FieldDescriptorProto {
         }
         switch type {
         case .bool: return "false"
-        case .string: return "\"\""
-        case .bytes: return "Data()"
+        case .string: return "String()"
+        case .bytes: return "SwiftProtobuf.Internal.emptyData"
         case .group, .message:
             return context.getMessageNameForPath(path: typeName)! + "()"
         case .enum:

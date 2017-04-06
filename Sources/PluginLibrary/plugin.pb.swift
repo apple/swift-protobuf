@@ -109,7 +109,7 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   /// be empty for mainline stable releases.
   fileprivate var _suffix: String? = nil
   public var suffix: String {
-    get {return _suffix ?? ""}
+    get {return _suffix ?? String()}
     set {_suffix = newValue}
   }
   public var hasSuffix: Bool {
@@ -191,7 +191,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
   /// The generator parameter passed on the command-line.
   public var parameter: String {
-    get {return _storage._parameter ?? ""}
+    get {return _storage._parameter ?? String()}
     set {_uniqueStorage()._parameter = newValue}
   }
   public var hasParameter: Bool {
@@ -288,7 +288,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   /// exiting with a non-zero status code.
   fileprivate var _error: String? = nil
   public var error: String {
-    get {return _error ?? ""}
+    get {return _error ?? String()}
     set {_error = newValue}
   }
   public var hasError: Bool {
@@ -319,7 +319,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     /// CodeGeneratorResponse before writing files to disk.
     fileprivate var _name: String? = nil
     public var name: String {
-      get {return _name ?? ""}
+      get {return _name ?? String()}
       set {_name = newValue}
     }
     public var hasName: Bool {
@@ -368,7 +368,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     /// If |insertion_point| is present, |name| must also be present.
     fileprivate var _insertionPoint: String? = nil
     public var insertionPoint: String {
-      get {return _insertionPoint ?? ""}
+      get {return _insertionPoint ?? String()}
       set {_insertionPoint = newValue}
     }
     public var hasInsertionPoint: Bool {
@@ -381,7 +381,7 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     /// The file contents.
     fileprivate var _content: String? = nil
     public var content: String {
-      get {return _content ?? ""}
+      get {return _content ?? String()}
       set {_content = newValue}
     }
     public var hasContent: Bool {

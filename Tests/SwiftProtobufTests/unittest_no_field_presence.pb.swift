@@ -101,15 +101,15 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     var _optionalFloat: Float = 0
     var _optionalDouble: Double = 0
     var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
     var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
     var _optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum = Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
     var _optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum = Proto2NofieldpresenceUnittest_ForeignEnum.foreignFoo
-    var _optionalStringPiece: String = ""
-    var _optionalCord: String = ""
+    var _optionalStringPiece: String = String()
+    var _optionalCord: String = String()
     var _optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -488,7 +488,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)

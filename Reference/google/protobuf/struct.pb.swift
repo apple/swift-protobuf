@@ -174,7 +174,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
       if case .stringValue(let v)? = _storage._kind {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._kind = .stringValue(newValue)

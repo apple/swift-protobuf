@@ -192,8 +192,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     var _singleFloat: Float = 0
     var _singleDouble: Double = 0
     var _singleBool: Bool = false
-    var _singleString: String = ""
-    var _singleBytes: Data = Data()
+    var _singleString: String = String()
+    var _singleBytes: Data = SwiftProtobuf.Internal.emptyData
     var _singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
     var _singleForeignMessage: Proto3ForeignMessage? = nil
     var _singleImportMessage: Proto3ImportMessage? = nil
@@ -562,7 +562,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
       if case .oneofString(let v)? = _storage._oneofField {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._oneofField = .oneofString(newValue)
@@ -574,7 +574,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
       if case .oneofBytes(let v)? = _storage._oneofField {
         return v
       }
-      return Data()
+      return SwiftProtobuf.Internal.emptyData
     }
     set {
       _uniqueStorage()._oneofField = .oneofBytes(newValue)
@@ -1364,7 +1364,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
 
   fileprivate class _StorageClass {
     var _primitiveField: Int32 = 0
-    var _stringField: String = ""
+    var _stringField: String = String()
     var _enumField: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
     var _messageField: Proto3ForeignMessage? = nil
     var _repeatedPrimitiveField: [Int32] = []
@@ -1501,7 +1501,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
 
   fileprivate class _StorageClass {
-    var _myString: String = ""
+    var _myString: String = String()
     var _myInt: Int64 = 0
     var _myFloat: Float = 0
     var _singleNestedMessage: Proto3TestFieldOrderings.NestedMessage? = nil
@@ -1654,7 +1654,7 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
 struct Proto3OneString: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneString"
 
-  var data: String = ""
+  var data: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1706,7 +1706,7 @@ struct Proto3MoreString: SwiftProtobuf.Message {
 struct Proto3OneBytes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneBytes"
 
-  var data: Data = Data()
+  var data: Data = SwiftProtobuf.Internal.emptyData
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1732,7 +1732,7 @@ struct Proto3OneBytes: SwiftProtobuf.Message {
 struct Proto3MoreBytes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MoreBytes"
 
-  var data: Data = Data()
+  var data: Data = SwiftProtobuf.Internal.emptyData
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1926,7 +1926,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
       if case .fooString(let v)? = _storage._foo {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._foo = .fooString(newValue)
@@ -2271,7 +2271,7 @@ struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCommentInjectionMessage"
 
   /// */ <- This should not close the generated doc comment
-  var a: String = ""
+  var a: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

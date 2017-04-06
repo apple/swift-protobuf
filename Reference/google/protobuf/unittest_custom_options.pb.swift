@@ -111,7 +111,7 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
 
   fileprivate var _field1: String? = nil
   var field1: String {
-    get {return _field1 ?? ""}
+    get {return _field1 ?? String()}
     set {_field1 = newValue}
   }
   var hasField1: Bool {
@@ -854,7 +854,7 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
 
   fileprivate var _s: String? = nil
   var s: String {
-    get {return _s ?? ""}
+    get {return _s ?? String()}
     set {_s = newValue}
   }
   var hasS: Bool {
@@ -937,7 +937,7 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
   }
 
   var s: String {
-    get {return _storage._s ?? ""}
+    get {return _storage._s ?? String()}
     set {_uniqueStorage()._s = newValue}
   }
   var hasS: Bool {
@@ -1454,13 +1454,13 @@ let ProtobufUnittest_Extensions_double_opt = SwiftProtobuf.MessageExtension<Opti
 let ProtobufUnittest_Extensions_string_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673285,
   fieldName: "protobuf_unittest.string_opt",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let ProtobufUnittest_Extensions_bytes_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673238,
   fieldName: "protobuf_unittest.bytes_opt",
-  defaultValue: Data()
+  defaultValue: SwiftProtobuf.Internal.emptyData
 )
 
 let ProtobufUnittest_Extensions_enum_opt = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_DummyMessageContainingEnum.TestEnumType>, Google_Protobuf_MessageOptions>(
@@ -1913,7 +1913,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_stringOpt: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_string_opt) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_string_opt) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_string_opt, value: newValue)}
   }
   var hasProtobufUnittest_stringOpt: Bool {
@@ -1926,7 +1926,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_bytesOpt: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? Data()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt, value: newValue)}
   }
   var hasProtobufUnittest_bytesOpt: Bool {

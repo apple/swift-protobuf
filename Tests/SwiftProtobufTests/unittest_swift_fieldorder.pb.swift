@@ -66,7 +66,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   }
 
   var myString: String {
-    get {return _storage._myString ?? ""}
+    get {return _storage._myString ?? String()}
     set {_uniqueStorage()._myString = newValue}
   }
   var hasMyString: Bool {
@@ -127,7 +127,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       if case .oneofString(let v)? = _storage._options {
         return v
       }
-      return ""
+      return String()
     }
     set {
       _uniqueStorage()._options = .oneofString(newValue)
@@ -293,7 +293,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
   fieldName: "swift.protobuf.my_extension_string",
-  defaultValue: ""
+  defaultValue: String()
 )
 
 let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
@@ -304,7 +304,7 @@ let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? ""}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
   var hasSwift_Protobuf_myExtensionString: Bool {

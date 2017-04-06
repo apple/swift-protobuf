@@ -86,7 +86,7 @@ struct Google_Protobuf_Type: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Type"
 
   fileprivate class _StorageClass {
-    var _name: String = ""
+    var _name: String = String()
     var _fields: [Google_Protobuf_Field] = []
     var _oneofs: [String] = []
     var _options: [Google_Protobuf_Option] = []
@@ -216,11 +216,11 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message {
   var number: Int32 = 0
 
   /// The field name.
-  var name: String = ""
+  var name: String = String()
 
   /// The field type URL, without the scheme, for message or enumeration
   /// types. Example: `"type.googleapis.com/google.protobuf.Timestamp"`.
-  var typeURL: String = ""
+  var typeURL: String = String()
 
   /// The index of the field type in `Type.oneofs`, for message or enumeration
   /// types. The first type has index 1; zero means the type is not in the list.
@@ -233,10 +233,10 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message {
   var options: [Google_Protobuf_Option] = []
 
   /// The field JSON name.
-  var jsonName: String = ""
+  var jsonName: String = String()
 
   /// The string value of the default value of this field. Proto2 syntax only.
-  var defaultValue: String = ""
+  var defaultValue: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -461,7 +461,7 @@ struct Google_Protobuf_Enum: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Enum"
 
   fileprivate class _StorageClass {
-    var _name: String = ""
+    var _name: String = String()
     var _enumvalue: [Google_Protobuf_EnumValue] = []
     var _options: [Google_Protobuf_Option] = []
     var _sourceContext: Google_Protobuf_SourceContext? = nil
@@ -570,7 +570,7 @@ struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".EnumValue"
 
   /// Enum value name.
-  var name: String = ""
+  var name: String = String()
 
   /// Enum value number.
   var number: Int32 = 0
@@ -613,7 +613,7 @@ struct Google_Protobuf_Option: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Option"
 
   fileprivate class _StorageClass {
-    var _name: String = ""
+    var _name: String = String()
     var _value: Google_Protobuf_Any? = nil
 
     init() {}

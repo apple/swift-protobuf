@@ -21,7 +21,7 @@
 /// It does not necessarily need to match protoc's JSON field naming
 /// logic, however.
 private func toJsonFieldName(_ s: String) -> String {
-    var result = ""
+    var result = String()
     var capitalizeNext = false
 
     for c in s.characters {

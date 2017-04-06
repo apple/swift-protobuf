@@ -87,7 +87,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message {
     static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
       _protobuf_fieldNumber: 3,
       fieldName: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension",
-      defaultValue: ""
+      defaultValue: String()
     )
   }
 
@@ -118,7 +118,7 @@ let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.Mes
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String {
-    get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? ""}
+    get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension, value: newValue)}
   }
   var hasProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: Bool {
