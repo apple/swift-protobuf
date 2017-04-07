@@ -428,50 +428,34 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: Proto3TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return Proto3TestAllTypes.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._oneofField {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBytes(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
   var oneofField: OneOf_OneofField? {
@@ -1640,38 +1624,26 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
 
   var fooInt: Int32 {
     get {
-      if case .fooInt(let v)? = _storage._foo {
-        return v
-      }
+      if case .fooInt(let v)? = _storage._foo {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._foo = .fooInt(newValue)
-    }
+    set {_uniqueStorage()._foo = .fooInt(newValue)}
   }
 
   var fooString: String {
     get {
-      if case .fooString(let v)? = _storage._foo {
-        return v
-      }
+      if case .fooString(let v)? = _storage._foo {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._foo = .fooString(newValue)
-    }
+    set {_uniqueStorage()._foo = .fooString(newValue)}
   }
 
   var fooMessage: Proto3TestAllTypes {
     get {
-      if case .fooMessage(let v)? = _storage._foo {
-        return v
-      }
+      if case .fooMessage(let v)? = _storage._foo {return v}
       return Proto3TestAllTypes()
     }
-    set {
-      _uniqueStorage()._foo = .fooMessage(newValue)
-    }
+    set {_uniqueStorage()._foo = .fooMessage(newValue)}
   }
 
   var foo: OneOf_Foo? {

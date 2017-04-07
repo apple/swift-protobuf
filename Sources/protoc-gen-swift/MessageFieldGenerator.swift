@@ -422,11 +422,11 @@ struct MessageFieldGenerator {
             p.indent()
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) { return v }\n")
+            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) {return v}\n")
             p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
-            p.print("set { \(oneof.swiftFieldName) = .\(swiftName)(newValue) }\n")
+            p.print("set {\(oneof.swiftFieldName) = .\(swiftName)(newValue)}\n")
             p.outdent()
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
@@ -452,19 +452,11 @@ struct MessageFieldGenerator {
         if let oneof = oneof {
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {\n")
-            p.indent()
-            p.print("return v\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {return v}\n")
             p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
-            p.print("set {\n")
-            p.indent()
-            p.print("_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("set {_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)}\n")
         } else {
             let defaultClause: String
             if isMap || isRepeated {

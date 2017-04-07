@@ -350,50 +350,34 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._oneofField {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
     get {
-      if case .oneofEnum(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofEnum(let v)? = _storage._oneofField {return v}
       return Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofEnum(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
 
   var oneofField: OneOf_OneofField? {

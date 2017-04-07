@@ -772,62 +772,42 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return ProtobufUnittest_TestAllTypesLite.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._oneofField {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBytes(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
   var oneofLazyNestedMessage: ProtobufUnittest_TestAllTypesLite.NestedMessage {
     get {
-      if case .oneofLazyNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofLazyNestedMessage(let v)? = _storage._oneofField {return v}
       return ProtobufUnittest_TestAllTypesLite.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofLazyNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofLazyNestedMessage(newValue)}
   }
 
   /// Tests toString for non-repeated fields with a list suffix
@@ -2278,50 +2258,34 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
 
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofTestAllTypes: ProtobufUnittest_TestAllTypesLite {
     get {
-      if case .oneofTestAllTypes(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofTestAllTypes(let v)? = _storage._oneofField {return v}
       return ProtobufUnittest_TestAllTypesLite()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofTestAllTypes(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofTestAllTypes(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._oneofField {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBytes(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
   var oneofField: OneOf_OneofField? {

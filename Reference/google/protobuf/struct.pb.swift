@@ -126,79 +126,55 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
   /// Represents a null value.
   var nullValue: Google_Protobuf_NullValue {
     get {
-      if case .nullValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .nullValue(let v)? = _storage._kind {return v}
       return Google_Protobuf_NullValue.nullValue
     }
-    set {
-      _uniqueStorage()._kind = .nullValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .nullValue(newValue)}
   }
 
   /// Represents a double value.
   var numberValue: Double {
     get {
-      if case .numberValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .numberValue(let v)? = _storage._kind {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._kind = .numberValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .numberValue(newValue)}
   }
 
   /// Represents a string value.
   var stringValue: String {
     get {
-      if case .stringValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .stringValue(let v)? = _storage._kind {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._kind = .stringValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .stringValue(newValue)}
   }
 
   /// Represents a boolean value.
   var boolValue: Bool {
     get {
-      if case .boolValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .boolValue(let v)? = _storage._kind {return v}
       return false
     }
-    set {
-      _uniqueStorage()._kind = .boolValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .boolValue(newValue)}
   }
 
   /// Represents a structured value.
   var structValue: Google_Protobuf_Struct {
     get {
-      if case .structValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .structValue(let v)? = _storage._kind {return v}
       return Google_Protobuf_Struct()
     }
-    set {
-      _uniqueStorage()._kind = .structValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .structValue(newValue)}
   }
 
   /// Represents a repeated `Value`.
   var listValue: Google_Protobuf_ListValue {
     get {
-      if case .listValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .listValue(let v)? = _storage._kind {return v}
       return Google_Protobuf_ListValue()
     }
-    set {
-      _uniqueStorage()._kind = .listValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .listValue(newValue)}
   }
 
   var kind: OneOf_Kind? {

@@ -73,50 +73,34 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
   var oneofInt64: Int64 {
     get {
-      if case .oneofInt64(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofInt64(let v)? = _storage._options {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._options = .oneofInt64(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofInt64(newValue)}
   }
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofBool(let v)? = _storage._options {return v}
       return false
     }
-    set {
-      _uniqueStorage()._options = .oneofBool(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofBool(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofString(let v)? = _storage._options {return v}
       return String()
     }
-    set {
-      _uniqueStorage()._options = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofString(newValue)}
   }
 
   var oneofInt32: Int32 {
     get {
-      if case .oneofInt32(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofInt32(let v)? = _storage._options {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._options = .oneofInt32(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofInt32(newValue)}
   }
 
   var optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage {

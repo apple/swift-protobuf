@@ -102,20 +102,20 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
 
   var oneofE1: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {
-      if case .oneofE1(let v)? = o { return v }
+      if case .oneofE1(let v)? = o {return v}
       return Proto2PreserveUnknownEnumUnittest_MyEnum.foo
     }
-    set { o = .oneofE1(newValue) }
+    set {o = .oneofE1(newValue)}
   }
 
   var o: Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
 
   var oneofE2: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {
-      if case .oneofE2(let v)? = o { return v }
+      if case .oneofE2(let v)? = o {return v}
       return Proto2PreserveUnknownEnumUnittest_MyEnum.foo
     }
-    set { o = .oneofE2(newValue) }
+    set {o = .oneofE2(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -90,20 +90,20 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
 
   var protobufPayload: Data {
     get {
-      if case .protobufPayload(let v)? = payload { return v }
+      if case .protobufPayload(let v)? = payload {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set { payload = .protobufPayload(newValue) }
+    set {payload = .protobufPayload(newValue)}
   }
 
   var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var jsonPayload: String {
     get {
-      if case .jsonPayload(let v)? = payload { return v }
+      if case .jsonPayload(let v)? = payload {return v}
       return String()
     }
-    set { payload = .jsonPayload(newValue) }
+    set {payload = .jsonPayload(newValue)}
   }
 
   /// Which format should the testee serialize its message to?
@@ -160,10 +160,10 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   /// test.  Some of the test cases are intentionally invalid input.
   var parseError: String {
     get {
-      if case .parseError(let v)? = result { return v }
+      if case .parseError(let v)? = result {return v}
       return String()
     }
-    set { result = .parseError(newValue) }
+    set {result = .parseError(newValue)}
   }
 
   var result: Conformance_ConformanceResponse.OneOf_Result? = nil
@@ -173,10 +173,10 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   /// this field.
   var serializeError: String {
     get {
-      if case .serializeError(let v)? = result { return v }
+      if case .serializeError(let v)? = result {return v}
       return String()
     }
-    set { result = .serializeError(newValue) }
+    set {result = .serializeError(newValue)}
   }
 
   /// This should be set if some other error occurred.  This will always
@@ -184,40 +184,40 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   /// about the failure.
   var runtimeError: String {
     get {
-      if case .runtimeError(let v)? = result { return v }
+      if case .runtimeError(let v)? = result {return v}
       return String()
     }
-    set { result = .runtimeError(newValue) }
+    set {result = .runtimeError(newValue)}
   }
 
   /// If the input was successfully parsed and the requested output was
   /// protobuf, serialize it to protobuf and set it in this field.
   var protobufPayload: Data {
     get {
-      if case .protobufPayload(let v)? = result { return v }
+      if case .protobufPayload(let v)? = result {return v}
       return SwiftProtobuf.Internal.emptyData
     }
-    set { result = .protobufPayload(newValue) }
+    set {result = .protobufPayload(newValue)}
   }
 
   /// If the input was successfully parsed and the requested output was JSON,
   /// serialize to JSON and set it in this field.
   var jsonPayload: String {
     get {
-      if case .jsonPayload(let v)? = result { return v }
+      if case .jsonPayload(let v)? = result {return v}
       return String()
     }
-    set { result = .jsonPayload(newValue) }
+    set {result = .jsonPayload(newValue)}
   }
 
   /// For when the testee skipped the test, likely because a certain feature
   /// wasn't supported, like JSON input/output.
   var skipped: String {
     get {
-      if case .skipped(let v)? = result { return v }
+      if case .skipped(let v)? = result {return v}
       return String()
     }
-    set { result = .skipped(newValue) }
+    set {result = .skipped(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
