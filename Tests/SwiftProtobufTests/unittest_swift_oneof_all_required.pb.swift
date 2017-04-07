@@ -176,13 +176,10 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      switch option {
-      case .option1(let v)?:
-        if !v.isInitialized {return false}
-      case .option2(let v)?:
-        if !v.isInitialized {return false}
-      default:
-        break
+      switch _storage._option {
+      case .option1(let v)?: if !v.isInitialized {return false}
+      case .option2(let v)?: if !v.isInitialized {return false}
+      default: break
       }
       return true
     }

@@ -83,7 +83,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._optionalMessage, !v.isInitialized {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(repeatedMessage) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedMessage) {return false}
       return true
     }
   }

@@ -19,6 +19,9 @@ struct CodePrinter {
   /// The string content that was printed.
   private(set) var content = String()
 
+  /// See if anything was printed.
+  var isEmpty: Bool { return content.isEmpty }
+
   /// The `UnicodeScalarView` representing a single indentation step.
   private let singleIndent = "  ".unicodeScalars
 
