@@ -772,9 +772,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
 
   var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = newValue}
   }
 
   var oneofUint32: UInt32 {
@@ -2234,9 +2232,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
 
   var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = newValue}
   }
 
   var oneofUint32: UInt32 {

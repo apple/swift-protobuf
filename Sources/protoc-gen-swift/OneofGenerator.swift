@@ -156,11 +156,7 @@ class OneofGenerator {
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName)? {\n")
         p.indent()
         p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
-        p.print("set {\n")
-        p.indent()
-        p.print("_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue\n")
-        p.outdent()
-        p.print("}\n")
+        p.print("set {_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue}\n")
         p.outdent()
         p.print("}\n")
     }

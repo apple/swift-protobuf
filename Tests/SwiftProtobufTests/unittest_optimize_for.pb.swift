@@ -82,9 +82,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 
   var foo: OneOf_Foo? {
     get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
+    set {_uniqueStorage()._foo = newValue}
   }
 
   var integerField: Int32 {

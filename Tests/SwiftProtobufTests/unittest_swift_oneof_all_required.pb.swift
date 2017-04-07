@@ -136,9 +136,7 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
 
   var option: OneOf_Option? {
     get {return _storage._option}
-    set {
-      _uniqueStorage()._option = newValue
-    }
+    set {_uniqueStorage()._option = newValue}
   }
 
   var option1: ProtobufUnittest_OneOfOptionMessage1 {

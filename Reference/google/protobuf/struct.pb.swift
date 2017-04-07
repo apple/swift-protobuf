@@ -125,9 +125,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
 
   var kind: OneOf_Kind? {
     get {return _storage._kind}
-    set {
-      _uniqueStorage()._kind = newValue
-    }
+    set {_uniqueStorage()._kind = newValue}
   }
 
   /// Represents a null value.

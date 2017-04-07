@@ -73,9 +73,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
 
   var options: OneOf_Options? {
     get {return _storage._options}
-    set {
-      _uniqueStorage()._options = newValue
-    }
+    set {_uniqueStorage()._options = newValue}
   }
 
   var oneofInt64: Int64 {

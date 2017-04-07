@@ -531,9 +531,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
 
   var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = newValue}
   }
 
   var anyField: Google_Protobuf_Any {

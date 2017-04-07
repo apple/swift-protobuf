@@ -428,9 +428,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
 
   var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = newValue}
   }
 
   var oneofUint32: UInt32 {
@@ -1624,9 +1622,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
 
   var foo: OneOf_Foo? {
     get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
+    set {_uniqueStorage()._foo = newValue}
   }
 
   var fooInt: Int32 {

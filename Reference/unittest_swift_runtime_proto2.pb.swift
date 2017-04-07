@@ -341,9 +341,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
 
   var o: OneOf_O? {
     get {return _storage._o}
-    set {
-      _uniqueStorage()._o = newValue
-    }
+    set {_uniqueStorage()._o = newValue}
   }
 
   var oneofInt32: Int32 {
