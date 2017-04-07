@@ -4739,7 +4739,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      switch foo {
+      switch _storage._foo {
       case .fooMessage(let v)?:
         if !v.isInitialized {return false}
       default:

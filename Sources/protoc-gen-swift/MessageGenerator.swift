@@ -598,7 +598,7 @@ class MessageGenerator {
           messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
           if !hasRequiredFields {
             hasRequiredFields = true
-            subMessagePrinter.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
+            subMessagePrinter.print("switch \(storedProperty(forOneof: oneofField.descriptor)) {\n")
           }
           subMessagePrinter.print("case .\(f.swiftName)(let v)?:\n")
           subMessagePrinter.indent()
