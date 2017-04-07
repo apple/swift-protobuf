@@ -53,6 +53,11 @@ class OneofGenerator {
 
     func generateMainEnum(printer p: inout CodePrinter) {
         p.print("\n")
+        // Repeat the comment from the oneof to provide some context
+        // to this enum we generated.
+        if !comments.isEmpty {
+            p.print(comments)
+        }
         p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): Equatable {\n")
         p.indent()
 

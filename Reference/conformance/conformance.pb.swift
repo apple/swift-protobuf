@@ -118,6 +118,13 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  /// The payload (whether protobuf of JSON) is always for a
+  /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
+  /// src/google/protobuf/proto3_test_messages.proto).
+  ///
+  /// TODO(haberman): if/when we expand the conformance tests to support proto2,
+  /// we will want to include a field that lets the payload/response be a
+  /// protobuf_test_messages.proto2.TestAllTypes message instead.
   enum OneOf_Payload: Equatable {
     case protobufPayload(Data)
     case jsonPayload(String)

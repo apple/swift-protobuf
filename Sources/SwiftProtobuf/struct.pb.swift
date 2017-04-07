@@ -185,6 +185,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  /// The kind of value.
   public enum OneOf_Kind: Equatable {
     /// Represents a null value.
     case nullValue(Google_Protobuf_NullValue)
