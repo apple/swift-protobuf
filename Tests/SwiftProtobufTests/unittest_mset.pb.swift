@@ -305,7 +305,7 @@ let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap =
 ]
 
 extension ProtobufUnittest_TestMessageSetExtension1 {
-  struct Extensions {
+  enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
       _protobuf_fieldNumber: 1545008,
       fieldName: "protobuf_unittest.TestMessageSetExtension1.message_set_extension",
@@ -315,7 +315,7 @@ extension ProtobufUnittest_TestMessageSetExtension1 {
 }
 
 extension ProtobufUnittest_TestMessageSetExtension2 {
-  struct Extensions {
+  enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
       _protobuf_fieldNumber: 1547769,
       fieldName: "protobuf_unittest.TestMessageSetExtension2.message_set_extension",

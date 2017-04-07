@@ -2124,7 +2124,7 @@ let ProtobufUnittest_Extensions_required_enum_opt = SwiftProtobuf.MessageExtensi
 )
 
 extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
-  struct Extensions {
+  enum Extensions {
     static let complex_opt4 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType2.ComplexOptionType4>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 7633546,
       fieldName: "protobuf_unittest.ComplexOptionType2.ComplexOptionType4.complex_opt4",
@@ -2134,7 +2134,7 @@ extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
 }
 
 extension ProtobufUnittest_AggregateMessageSetElement {
-  struct Extensions {
+  enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_AggregateMessageSetElement>, ProtobufUnittest_AggregateMessageSet>(
       _protobuf_fieldNumber: 15447542,
       fieldName: "protobuf_unittest.AggregateMessageSetElement.message_set_extension",
@@ -2144,7 +2144,7 @@ extension ProtobufUnittest_AggregateMessageSetElement {
 }
 
 extension ProtobufUnittest_Aggregate {
-  struct Extensions {
+  enum Extensions {
     static let nested = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 15476903,
       fieldName: "protobuf_unittest.Aggregate.nested",
@@ -2154,7 +2154,7 @@ extension ProtobufUnittest_Aggregate {
 }
 
 extension ProtobufUnittest_NestedOptionType {
-  struct Extensions {
+  enum Extensions {
     static let nested_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 7912573,
       fieldName: "protobuf_unittest.NestedOptionType.nested_extension",

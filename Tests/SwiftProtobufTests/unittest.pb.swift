@@ -8501,7 +8501,7 @@ let ProtobufUnittest_Extensions_test_all_types = SwiftProtobuf.MessageExtension<
 )
 
 extension ProtobufUnittest_TestNestedExtension {
-  struct Extensions {
+  enum Extensions {
     /// Check for bug where string extensions declared in tested scope did not
     /// compile.
     static let test = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
@@ -8521,7 +8521,7 @@ extension ProtobufUnittest_TestNestedExtension {
 }
 
 extension ProtobufUnittest_TestRequired {
-  struct Extensions {
+  enum Extensions {
     static let single = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequired>, ProtobufUnittest_TestAllExtensions>(
       _protobuf_fieldNumber: 1000,
       fieldName: "protobuf_unittest.TestRequired.single",
@@ -8537,7 +8537,7 @@ extension ProtobufUnittest_TestRequired {
 }
 
 extension ProtobufUnittest_TestParsingMerge {
-  struct Extensions {
+  enum Extensions {
     static let optional_ext = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypes>, ProtobufUnittest_TestParsingMerge>(
       _protobuf_fieldNumber: 1000,
       fieldName: "protobuf_unittest.TestParsingMerge.optional_ext",

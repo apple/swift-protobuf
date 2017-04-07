@@ -204,7 +204,7 @@ let ProtobufUnittest_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<Optio
 )
 
 extension ProtobufUnittest_Extend3_MyMessage {
-  struct Extensions {
+  enum Extensions {
     static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 310,
       fieldName: "protobuf_unittest.extend3.MyMessage.b",

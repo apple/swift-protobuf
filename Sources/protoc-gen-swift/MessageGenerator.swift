@@ -256,7 +256,7 @@ class MessageGenerator {
       p.print("\n")
       p.print("extension \(swiftFullName) {\n")
       p.indent()
-      p.print("struct Extensions {\n")
+      p.print("enum Extensions {\n")
       p.indent()
       var addNewline = false
       for e in extensions {

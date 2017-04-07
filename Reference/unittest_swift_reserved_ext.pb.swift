@@ -149,7 +149,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  /// Reserved words, since these end up in the "struct Extensions", they
+  /// Reserved words, since these end up in the "enum Extensions", they
   /// can't just be get their names, and sanitation kicks.
   var SwiftReservedTestExt2_as: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.as) ?? false}
@@ -274,14 +274,14 @@ let Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExtensionField<Swift
 )
 
 extension SwiftReservedTestExt2 {
-  struct Extensions {
+  enum Extensions {
     static let hashValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1001,
       fieldName: "SwiftReservedTestExt2.hashValue",
       defaultValue: false
     )
 
-    /// Reserved words, since these end up in the "struct Extensions", they
+    /// Reserved words, since these end up in the "enum Extensions", they
     /// can't just be get their names, and sanitation kicks.
     static let `as` = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1022,

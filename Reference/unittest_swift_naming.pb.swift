@@ -18447,7 +18447,7 @@ let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<Optio
 )
 
 extension SwiftUnittest_Names_Lowers {
-  struct Extensions {
+  enum Extensions {
     static let http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 1,
       fieldName: "swift_unittest.names.Lowers.http",
@@ -18529,7 +18529,7 @@ extension SwiftUnittest_Names_Lowers {
 }
 
 extension SwiftUnittest_Names_Uppers {
-  struct Extensions {
+  enum Extensions {
     static let HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 101,
       fieldName: "swift_unittest.names.Uppers.HTTP",
@@ -18605,7 +18605,7 @@ extension SwiftUnittest_Names_Uppers {
 }
 
 extension SwiftUnittest_Names_WordCase {
-  struct Extensions {
+  enum Extensions {
     static let Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 201,
       fieldName: "swift_unittest.names.WordCase.Http",

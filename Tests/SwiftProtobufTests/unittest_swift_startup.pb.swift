@@ -160,7 +160,7 @@ let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.Mes
 )
 
 extension ProtobufObjcUnittest_TestObjCStartupNested {
-  struct Extensions {
+  enum Extensions {
     static let nested_string_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
       _protobuf_fieldNumber: 3,
       fieldName: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension",

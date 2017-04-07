@@ -65,7 +65,7 @@ extend SwiftReservedTest.class {
 
 message SwiftReservedTestExt {
     extend SwiftReservedTest.class {
-        // This will end up in the "struct Extensions" to scope it, but there
+        // This will end up in the "enum Extensions" to scope it, but there
         // the raw form is used ("hash_value", not the Swift one "hashValue"),
         // so there is no conflict, and no renaming happens.
         optional bool hash_value = 1001;

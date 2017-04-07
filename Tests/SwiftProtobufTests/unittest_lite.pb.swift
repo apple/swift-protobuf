@@ -4301,7 +4301,7 @@ let ProtobufUnittest_Extensions_test_all_types_lite = SwiftProtobuf.MessageExten
 )
 
 extension ProtobufUnittest_TestNestedExtensionLite {
-  struct Extensions {
+  enum Extensions {
     static let nested_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestAllExtensionsLite>(
       _protobuf_fieldNumber: 12345,
       fieldName: "protobuf_unittest.TestNestedExtensionLite.nested_extension",
@@ -4311,7 +4311,7 @@ extension ProtobufUnittest_TestNestedExtensionLite {
 }
 
 extension ProtobufUnittest_TestParsingMergeLite {
-  struct Extensions {
+  enum Extensions {
     static let optional_ext = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestAllTypesLite>, ProtobufUnittest_TestParsingMergeLite>(
       _protobuf_fieldNumber: 1000,
       fieldName: "protobuf_unittest.TestParsingMergeLite.optional_ext",

@@ -404,7 +404,7 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
 }
 
 extension ProtobufUnittest_SwiftReservedTest.classMessage {
-  /// This will end up in the "struct Extensions" to scope it, but there
+  /// This will end up in the "enum Extensions" to scope it, but there
   /// the raw form is used ("hash_value", not the Swift one "hashValue"),
   /// so there is no conflict, and no renaming happens.
   var ProtobufUnittest_SwiftReservedTestExt_hashValue: Bool {
@@ -545,8 +545,8 @@ let ProtobufUnittest_Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExt
 )
 
 extension ProtobufUnittest_SwiftReservedTestExt {
-  struct Extensions {
-    /// This will end up in the "struct Extensions" to scope it, but there
+  enum Extensions {
+    /// This will end up in the "enum Extensions" to scope it, but there
     /// the raw form is used ("hash_value", not the Swift one "hashValue"),
     /// so there is no conflict, and no renaming happens.
     static let hash_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.classMessage>(

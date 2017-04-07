@@ -300,7 +300,7 @@ let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensi
 ]
 
 extension ProtobufUnittest_TestOptimizedForSize {
-  struct Extensions {
+  enum Extensions {
     static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1234,
       fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension",
