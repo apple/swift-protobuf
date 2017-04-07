@@ -203,10 +203,10 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(messageType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(enumType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(service) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(extension_p) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._messageType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._service) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension_p) {return false}
       if let v = _storage._options, !v.isInitialized {return false}
       return true
     }
@@ -463,11 +463,11 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(field) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(extension_p) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(nestedType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(enumType) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(oneofDecl) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._field) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension_p) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._nestedType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._oneofDecl) {return false}
       if let v = _storage._options, !v.isInitialized {return false}
       return true
     }
@@ -967,7 +967,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(value) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._value) {return false}
       if let v = _storage._options, !v.isInitialized {return false}
       return true
     }
@@ -1122,7 +1122,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(method) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._method) {return false}
       if let v = _storage._options, !v.isInitialized {return false}
       return true
     }
@@ -1569,7 +1569,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   public var isInitialized: Bool {
     if !_protobuf_extensionFieldValues.isInitialized {return false}
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(uninterpretedOption) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._uninterpretedOption) {return false}
       return true
     }
   }

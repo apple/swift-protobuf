@@ -583,8 +583,7 @@ class MessageGenerator {
       if f.fieldHoldsMessage && f.oneof == nil &&
         messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
         if f.isRepeated {
-          // TODO: Use storedPeoperty in here.
-          subMessagePrinter.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
+          subMessagePrinter.print("if !SwiftProtobuf.Internal.areAllInitialized(\(storedProperty(forField: f))) {return false}\n")
         } else {
           subMessagePrinter.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
         }

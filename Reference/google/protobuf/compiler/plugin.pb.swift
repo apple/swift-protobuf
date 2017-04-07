@@ -210,7 +210,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(protoFile) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._protoFile) {return false}
       return true
     }
   }
