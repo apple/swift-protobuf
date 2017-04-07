@@ -726,6 +726,12 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     _storage._defaultCord = nil
   }
 
+  /// For oneof test
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -764,13 +770,6 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
       return ProtobufUnittestNoArena_TestAllTypes.NestedMessage()
     }
     set {_uniqueStorage()._oneofField = .lazyOneofNestedMessage(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

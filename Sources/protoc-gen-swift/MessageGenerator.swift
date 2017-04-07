@@ -102,12 +102,17 @@ class MessageGenerator {
     }
     self.extensions = extensions
 
+    i = 0
     var oneofs = [OneofGenerator]()
     for oneofIndex in (0..<descriptor.oneofDecl.count) {
       let oneofFields = fields.filter {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(oneofIndex)
       }
-      let oneof = OneofGenerator(descriptor: descriptor.oneofDecl[oneofIndex], generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName, isProto3: isProto3)
+      var oneofPath = path
+      oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
+      oneofPath.append(i)
+      i += 1
+      let oneof = OneofGenerator(descriptor: descriptor.oneofDecl[oneofIndex], path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
@@ -180,31 +185,30 @@ class MessageGenerator {
         p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
     }
 
-    if storage != nil {
-      for f in fields {
-        f.generateProxyIvar(printer: &p)
-        f.generateHasProperty(printer: &p, usesHeapStorage: true)
-        f.generateClearMethod(printer: &p, usesHeapStorage: true)
-      }
-      for o in oneofs {
-        o.generateProxyIvar(printer: &p)
-      }
-    } else {
-      // Local ivars if no storage class
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        f.generateTopIvar(printer: &p)
-        f.generateHasProperty(printer: &p, usesHeapStorage: false)
-        f.generateClearMethod(printer: &p, usesHeapStorage: false)
-        if f.descriptor.hasOneofIndex {
-          let oneofIndex = f.descriptor.oneofIndex
-          if !oneofHandled.contains(oneofIndex) {
-            let oneof = oneofs[Int(oneofIndex)]
+    let usesHeadStorage = storage != nil
+    var oneofHandled = Set<Int32>()
+    for f in fields {
+      // If this is in a oneof, generate the oneof first to match the layout in
+      // the proto file.
+      if f.descriptor.hasOneofIndex {
+        let oneofIndex = f.descriptor.oneofIndex
+        if !oneofHandled.contains(oneofIndex) {
+          let oneof = oneofs[Int(oneofIndex)]
+          oneofHandled.insert(oneofIndex)
+          if (usesHeadStorage) {
+            oneof.generateProxyIvar(printer: &p)
+          } else {
             oneof.generateTopIvar(printer: &p)
-            oneofHandled.insert(oneofIndex)
           }
         }
       }
+      if usesHeadStorage {
+        f.generateProxyIvar(printer: &p)
+      } else {
+        f.generateTopIvar(printer: &p)
+      }
+      f.generateHasProperty(printer: &p, usesHeapStorage: usesHeadStorage)
+      f.generateClearMethod(printer: &p, usesHeapStorage: usesHeadStorage)
     }
 
     p.print("\n")

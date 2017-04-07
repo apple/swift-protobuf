@@ -30,21 +30,25 @@ extension Google_Protobuf_OneofDescriptorProto {
 
 class OneofGenerator {
     let descriptor: Google_Protobuf_OneofDescriptorProto
+    let path: [Int32]
     let generatorOptions: GeneratorOptions
     let fields: [MessageFieldGenerator]
     let fieldsSortedByNumber: [MessageFieldGenerator]
     let swiftRelativeName: String
     let swiftFullName: String
     let isProto3: Bool
+    let comments: String
 
-    init(descriptor: Google_Protobuf_OneofDescriptorProto, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String, isProto3: Bool) {
+    init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String) {
         self.descriptor = descriptor
+        self.path = path
         self.generatorOptions = generatorOptions
         self.fields = fields
         self.fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
-        self.isProto3 = isProto3
+        self.isProto3 = file.isProto3
         self.swiftRelativeName = sanitizeOneofTypeName(descriptor.swiftRelativeType)
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
+        self.comments = file.commentsFor(path: path)
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
@@ -153,20 +157,22 @@ class OneofGenerator {
 
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print("\n")
+        if !comments.isEmpty {
+            p.print(comments)
+        }
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName)? {\n")
         p.indent()
         p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
-        p.print("set {\n")
-        p.indent()
-        p.print("_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue\n")
-        p.outdent()
-        p.print("}\n")
+        p.print("set {_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue}\n")
         p.outdent()
         p.print("}\n")
     }
 
     func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n")
+        if !comments.isEmpty {
+            p.print(comments)
+        }
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
     }
 }

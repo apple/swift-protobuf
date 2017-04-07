@@ -426,6 +426,12 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedPublicImportMessage = newValue}
   }
 
+  /// For oneof test
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -456,13 +462,6 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
       return SwiftProtobuf.Internal.emptyData
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1622,6 +1621,11 @@ struct Proto3BoolMessage: SwiftProtobuf.Message {
 struct Proto3TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {_uniqueStorage()._foo = newValue}
+  }
+
   var fooInt: Int32 {
     get {
       if case .fooInt(let v)? = _storage._foo {return v}
@@ -1644,13 +1648,6 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
       return Proto3TestAllTypes()
     }
     set {_uniqueStorage()._foo = .fooMessage(newValue)}
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

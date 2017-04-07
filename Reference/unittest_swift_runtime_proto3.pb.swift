@@ -229,6 +229,11 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedEnum = newValue}
   }
 
+  var o: OneOf_O? {
+    get {return _storage._o}
+    set {_uniqueStorage()._o = newValue}
+  }
+
   var oneofInt32: Int32 {
     get {
       if case .oneofInt32(let v)? = _storage._o {return v}
@@ -460,13 +465,6 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
   var mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message3> {
     get {return _storage._mapInt32Message}
     set {_uniqueStorage()._mapInt32Message = newValue}
-  }
-
-  var o: OneOf_O? {
-    get {return _storage._o}
-    set {
-      _uniqueStorage()._o = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

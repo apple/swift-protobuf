@@ -88,6 +88,15 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
 
+  /// The payload (whether protobuf of JSON) is always for a
+  /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
+  /// src/google/protobuf/proto3_test_messages.proto).
+  ///
+  /// TODO(haberman): if/when we expand the conformance tests to support proto2,
+  /// we will want to include a field that lets the payload/response be a
+  /// protobuf_test_messages.proto2.TestAllTypes message instead.
+  var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
+
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = payload {return v}
@@ -95,8 +104,6 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
     }
     set {payload = .protobufPayload(newValue)}
   }
-
-  var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var jsonPayload: String {
     get {
@@ -153,6 +160,8 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
 
+  var result: Conformance_ConformanceResponse.OneOf_Result? = nil
+
   /// This string should be set to indicate parsing failed.  The string can
   /// provide more information about the parse error if it is available.
   ///
@@ -165,8 +174,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
     set {result = .parseError(newValue)}
   }
-
-  var result: Conformance_ConformanceResponse.OneOf_Result? = nil
 
   /// If the input was successfully parsed but errors occurred when
   /// serializing it to the requested output format, set the error message in

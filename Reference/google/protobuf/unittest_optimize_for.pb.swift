@@ -80,6 +80,11 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     _storage._msg = nil
   }
 
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {_uniqueStorage()._foo = newValue}
+  }
+
   var integerField: Int32 {
     get {
       if case .integerField(let v)? = _storage._foo {return v}
@@ -94,13 +99,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       return String()
     }
     set {_uniqueStorage()._foo = .stringField(newValue)}
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

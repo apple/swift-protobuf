@@ -348,6 +348,11 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -378,13 +383,6 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
       return Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
     }
     set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

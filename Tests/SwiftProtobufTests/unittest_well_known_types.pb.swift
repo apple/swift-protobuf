@@ -529,6 +529,11 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
 struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneofWellKnownTypes"
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var anyField: Google_Protobuf_Any {
     get {
       if case .anyField(let v)? = _storage._oneofField {return v}
@@ -671,13 +676,6 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
       return Google_Protobuf_BytesValue()
     }
     set {_uniqueStorage()._oneofField = .bytesField(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

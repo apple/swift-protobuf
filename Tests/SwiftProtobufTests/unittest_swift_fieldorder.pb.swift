@@ -71,6 +71,11 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     _storage._myFloat = nil
   }
 
+  var options: OneOf_Options? {
+    get {return _storage._options}
+    set {_uniqueStorage()._options = newValue}
+  }
+
   var oneofInt64: Int64 {
     get {
       if case .oneofInt64(let v)? = _storage._options {return v}
@@ -112,13 +117,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   }
   mutating func clearOptionalNestedMessage() {
     _storage._optionalNestedMessage = nil
-  }
-
-  var options: OneOf_Options? {
-    get {return _storage._options}
-    set {
-      _uniqueStorage()._options = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

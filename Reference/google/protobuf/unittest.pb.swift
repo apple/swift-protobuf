@@ -798,6 +798,12 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     _storage._defaultCord = nil
   }
 
+  /// For oneof test
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -828,13 +834,6 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       return SwiftProtobuf.Internal.emptyData
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -3992,6 +3991,11 @@ struct ProtobufUnittest_BoolMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {_uniqueStorage()._foo = newValue}
+  }
+
   var fooInt: Int32 {
     get {
       if case .fooInt(let v)? = _storage._foo {return v}
@@ -4022,13 +4026,6 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
       return ProtobufUnittest_TestOneof.FooGroup()
     }
     set {_uniqueStorage()._foo = .fooGroup(newValue)}
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4272,6 +4269,11 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof2"
 
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {_uniqueStorage()._foo = newValue}
+  }
+
   var fooInt: Int32 {
     get {
       if case .fooInt(let v)? = _storage._foo {return v}
@@ -4344,6 +4346,11 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
     set {_uniqueStorage()._foo = .fooLazyMessage(newValue)}
   }
 
+  var bar: OneOf_Bar? {
+    get {return _storage._bar}
+    set {_uniqueStorage()._bar = newValue}
+  }
+
   var barInt: Int32 {
     get {
       if case .barInt(let v)? = _storage._bar {return v}
@@ -4412,20 +4419,6 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
   }
   mutating func clearBazString() {
     _storage._bazString = nil
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
-  }
-
-  var bar: OneOf_Bar? {
-    get {return _storage._bar}
-    set {
-      _uniqueStorage()._bar = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -4646,6 +4639,11 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOneof"
 
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {_uniqueStorage()._foo = newValue}
+  }
+
   var fooInt: Int32 {
     get {
       if case .fooInt(let v)? = _storage._foo {return v}
@@ -4668,13 +4666,6 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
       return ProtobufUnittest_TestRequiredOneof.NestedMessage()
     }
     set {_uniqueStorage()._foo = .fooMessage(newValue)}
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -5976,6 +5967,11 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
     set {_uniqueStorage()._stringStringMap = newValue}
   }
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -6006,13 +6002,6 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       return SwiftProtobuf.Internal.emptyData
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

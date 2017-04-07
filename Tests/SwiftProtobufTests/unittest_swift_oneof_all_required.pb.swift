@@ -134,6 +134,11 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
 struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
 
+  var option: OneOf_Option? {
+    get {return _storage._option}
+    set {_uniqueStorage()._option = newValue}
+  }
+
   var option1: ProtobufUnittest_OneOfOptionMessage1 {
     get {
       if case .option1(let v)? = _storage._option {return v}
@@ -148,13 +153,6 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
       return ProtobufUnittest_OneOfOptionMessage2()
     }
     set {_uniqueStorage()._option = .option2(newValue)}
-  }
-
-  var option: OneOf_Option? {
-    get {return _storage._option}
-    set {
-      _uniqueStorage()._option = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
