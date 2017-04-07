@@ -600,18 +600,12 @@ class MessageGenerator {
             hasRequiredFields = true
             subMessagePrinter.print("switch \(storedProperty(forOneof: oneofField.descriptor)) {\n")
           }
-          subMessagePrinter.print("case .\(f.swiftName)(let v)?:\n")
-          subMessagePrinter.indent()
-          subMessagePrinter.print("if !v.isInitialized {return false}\n")
-          subMessagePrinter.outdent()
+          subMessagePrinter.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
         }
       }
       if hasRequiredFields {
         // Covers other cases or if the oneof wasn't set (was nil).
-        subMessagePrinter.print("default:\n")
-        subMessagePrinter.indent()
-        subMessagePrinter.print("break\n")
-        subMessagePrinter.outdent()
+        subMessagePrinter.print("default: break\n")
         subMessagePrinter.print("}\n")
       }
     }

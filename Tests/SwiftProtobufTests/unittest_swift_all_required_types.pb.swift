@@ -794,10 +794,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       if let v = _storage._requiredNestedMessage, !v.isInitialized {return false}
       if let v = _storage._requiredLazyMessage, !v.isInitialized {return false}
       switch _storage._oneofField {
-      case .oneofNestedMessage(let v)?:
-        if !v.isInitialized {return false}
-      default:
-        break
+      case .oneofNestedMessage(let v)?: if !v.isInitialized {return false}
+      default: break
       }
       return true
     }
