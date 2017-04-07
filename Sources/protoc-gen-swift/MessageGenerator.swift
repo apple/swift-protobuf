@@ -224,18 +224,6 @@ class MessageGenerator {
       m.generateMainStruct(printer: &p, file: file, parent: self)
     }
 
-    // Nested extension declarations
-    if !extensions.isEmpty {
-      p.print("\n")
-      p.print("struct Extensions {\n")
-      p.indent()
-      for e in extensions {
-          e.generateNested(printer: &p)
-      }
-      p.outdent()
-      p.print("}\n")
-    }
-
     // Generate the default initializer. If we don't, Swift seems to sometimes
     // generate it along with others that can take public proprerties. When it
     // generates the others doesn't seem to be documented.
@@ -267,15 +255,38 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  func generateTopLevel(printer p: inout CodePrinter) {
-    // nested messages
-    for m in messages {
-      m.generateTopLevel(printer: &p)
+  func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
+    if !extensions.isEmpty {
+      p.print("\n")
+      p.print("extension \(swiftFullName) {\n")
+      p.indent()
+      p.print("enum Extensions {\n")
+      p.indent()
+      var addNewline = false
+      for e in extensions {
+        if addNewline {
+          p.print("\n")
+        } else {
+          addNewline = true
+        }
+        e.generateProtobufExtensionDeclarations(printer: &p)
+      }
+      p.outdent()
+      p.print("}\n")
+      p.outdent()
+      p.print("}\n")
     }
+    for m in messages {
+      m.generateProtobufExtensionDeclarations(printer: &p)
+    }
+  }
 
-    // nested extensions
+  func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
     for e in extensions {
-      e.generateTopLevel(printer: &p)
+      e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+    }
+    for m in messages {
+      m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
     }
   }
 

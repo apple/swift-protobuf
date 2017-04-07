@@ -78,21 +78,6 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
     }
   }
 
-  struct Extensions {
-
-    static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-      _protobuf_fieldNumber: 410,
-      fieldName: "protobuf_unittest.extend4.MyMessage.b",
-      defaultValue: String()
-    )
-
-    static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-      _protobuf_fieldNumber: 411,
-      fieldName: "protobuf_unittest.extend4.MyMessage.C",
-      defaultValue: Ext4MyMessage.C()
-    )
-  }
-
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -141,43 +126,7 @@ struct Ext4C: SwiftProtobuf.Message {
   }
 }
 
-let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  _protobuf_fieldNumber: 420,
-  fieldName: "protobuf_unittest.extend4.b",
-  defaultValue: String()
-)
-
-let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  _protobuf_fieldNumber: 421,
-  fieldName: "protobuf_unittest.extend4.C",
-  defaultValue: Ext4C()
-)
-
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var Ext4MyMessage_b: String {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}
-    set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
-  }
-  var hasExt4MyMessage_b: Bool {
-    return hasExtensionValue(ext: Ext4MyMessage.Extensions.b)
-  }
-  mutating func clearExt4MyMessage_b() {
-    clearExtensionValue(ext: Ext4MyMessage.Extensions.b)
-  }
-}
-
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var Ext4MyMessage_c: Ext4MyMessage.C {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C) ?? Ext4MyMessage.C()}
-    set {setExtensionValue(ext: Ext4MyMessage.Extensions.C, value: newValue)}
-  }
-  var hasExt4MyMessage_c: Bool {
-    return hasExtensionValue(ext: Ext4MyMessage.Extensions.C)
-  }
-  mutating func clearExt4MyMessage_c() {
-    clearExtensionValue(ext: Ext4MyMessage.Extensions.C)
-  }
-}
+// MARK: - Extension support defined in unittest_swift_extension4.proto.
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4b: String {
@@ -205,12 +154,70 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   }
 }
 
+extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+  var Ext4MyMessage_b: String {
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}
+    set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
+  }
+  var hasExt4MyMessage_b: Bool {
+    return hasExtensionValue(ext: Ext4MyMessage.Extensions.b)
+  }
+  mutating func clearExt4MyMessage_b() {
+    clearExtensionValue(ext: Ext4MyMessage.Extensions.b)
+  }
+}
+
+extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+  var Ext4MyMessage_c: Ext4MyMessage.C {
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C) ?? Ext4MyMessage.C()}
+    set {setExtensionValue(ext: Ext4MyMessage.Extensions.C, value: newValue)}
+  }
+  var hasExt4MyMessage_c: Bool {
+    return hasExtensionValue(ext: Ext4MyMessage.Extensions.C)
+  }
+  mutating func clearExt4MyMessage_c() {
+    clearExtensionValue(ext: Ext4MyMessage.Extensions.C)
+  }
+}
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let Ext4UnittestSwiftExtension4_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Ext4Extensions_b,
   Ext4Extensions_C,
   Ext4MyMessage.Extensions.b,
   Ext4MyMessage.Extensions.C
 ]
+
+let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+  _protobuf_fieldNumber: 420,
+  fieldName: "protobuf_unittest.extend4.b",
+  defaultValue: String()
+)
+
+let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+  _protobuf_fieldNumber: 421,
+  fieldName: "protobuf_unittest.extend4.C",
+  defaultValue: Ext4C()
+)
+
+extension Ext4MyMessage {
+  enum Extensions {
+    static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+      _protobuf_fieldNumber: 410,
+      fieldName: "protobuf_unittest.extend4.MyMessage.b",
+      defaultValue: String()
+    )
+
+    static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+      _protobuf_fieldNumber: 411,
+      fieldName: "protobuf_unittest.extend4.MyMessage.C",
+      defaultValue: Ext4MyMessage.C()
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

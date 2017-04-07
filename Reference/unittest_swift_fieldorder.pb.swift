@@ -248,17 +248,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   fileprivate var _storage = _StorageClass()
 }
 
-let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
-  _protobuf_fieldNumber: 50,
-  fieldName: "swift.protobuf.my_extension_string",
-  defaultValue: String()
-)
-
-let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
-  _protobuf_fieldNumber: 5,
-  fieldName: "swift.protobuf.my_extension_int",
-  defaultValue: 0
-)
+// MARK: - Extension support defined in unittest_swift_fieldorder.proto.
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
@@ -286,10 +276,26 @@ extension Swift_Protobuf_TestFieldOrderings {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Swift_Protobuf_Extensions_my_extension_string,
   Swift_Protobuf_Extensions_my_extension_int
 ]
+
+let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
+  _protobuf_fieldNumber: 50,
+  fieldName: "swift.protobuf.my_extension_string",
+  defaultValue: String()
+)
+
+let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
+  _protobuf_fieldNumber: 5,
+  fieldName: "swift.protobuf.my_extension_int",
+  defaultValue: 0
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

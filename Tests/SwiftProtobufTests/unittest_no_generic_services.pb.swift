@@ -120,11 +120,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
-  _protobuf_fieldNumber: 1000,
-  fieldName: "google.protobuf.no_generic_services_test.test_extension",
-  defaultValue: 0
-)
+// MARK: - Extension support defined in unittest_no_generic_services.proto.
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
@@ -139,9 +135,19 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]
+
+let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
+  _protobuf_fieldNumber: 1000,
+  fieldName: "google.protobuf.no_generic_services_test.test_extension",
+  defaultValue: 0
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

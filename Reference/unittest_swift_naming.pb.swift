@@ -17049,87 +17049,6 @@ struct SwiftUnittest_Names_Lowers: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Extensions {
-
-    static let http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 1,
-      fieldName: "swift_unittest.names.Lowers.http",
-      defaultValue: 0
-    )
-
-    static let http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 2,
-      fieldName: "swift_unittest.names.Lowers.http_request",
-      defaultValue: 0
-    )
-
-    static let the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 3,
-      fieldName: "swift_unittest.names.Lowers.the_http_request",
-      defaultValue: 0
-    )
-
-    static let the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 4,
-      fieldName: "swift_unittest.names.Lowers.the_http",
-      defaultValue: 0
-    )
-
-    static let https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 11,
-      fieldName: "swift_unittest.names.Lowers.https",
-      defaultValue: 0
-    )
-
-    static let https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 12,
-      fieldName: "swift_unittest.names.Lowers.https_request",
-      defaultValue: 0
-    )
-
-    static let the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 13,
-      fieldName: "swift_unittest.names.Lowers.the_https_request",
-      defaultValue: 0
-    )
-
-    static let the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 14,
-      fieldName: "swift_unittest.names.Lowers.the_https",
-      defaultValue: 0
-    )
-
-    static let url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 21,
-      fieldName: "swift_unittest.names.Lowers.url",
-      defaultValue: 0
-    )
-
-    static let url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 22,
-      fieldName: "swift_unittest.names.Lowers.url_value",
-      defaultValue: 0
-    )
-
-    static let the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 23,
-      fieldName: "swift_unittest.names.Lowers.the_url_value",
-      defaultValue: 0
-    )
-
-    static let the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 24,
-      fieldName: "swift_unittest.names.Lowers.the_url",
-      defaultValue: 0
-    )
-
-    static let a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 31,
-      fieldName: "swift_unittest.names.Lowers.a_b_c",
-      defaultValue: 0
-    )
-  }
-
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -17147,81 +17066,6 @@ struct SwiftUnittest_Names_Uppers: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Extensions {
-
-    static let HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 101,
-      fieldName: "swift_unittest.names.Uppers.HTTP",
-      defaultValue: 0
-    )
-
-    static let HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 102,
-      fieldName: "swift_unittest.names.Uppers.HTTP_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 103,
-      fieldName: "swift_unittest.names.Uppers.the_HTTP_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 104,
-      fieldName: "swift_unittest.names.Uppers.the_HTTP",
-      defaultValue: 0
-    )
-
-    static let HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 111,
-      fieldName: "swift_unittest.names.Uppers.HTTPS",
-      defaultValue: 0
-    )
-
-    static let HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 112,
-      fieldName: "swift_unittest.names.Uppers.HTTPS_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 113,
-      fieldName: "swift_unittest.names.Uppers.the_HTTPS_request",
-      defaultValue: 0
-    )
-
-    static let the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 114,
-      fieldName: "swift_unittest.names.Uppers.the_HTTPS",
-      defaultValue: 0
-    )
-
-    static let URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 121,
-      fieldName: "swift_unittest.names.Uppers.URL",
-      defaultValue: 0
-    )
-
-    static let URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 122,
-      fieldName: "swift_unittest.names.Uppers.URL_value",
-      defaultValue: 0
-    )
-
-    static let the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 123,
-      fieldName: "swift_unittest.names.Uppers.the_URL_value",
-      defaultValue: 0
-    )
-
-    static let the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 124,
-      fieldName: "swift_unittest.names.Uppers.the_URL",
-      defaultValue: 0
-    )
-  }
-
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -17238,81 +17082,6 @@ struct SwiftUnittest_Names_WordCase: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".WordCase"
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 201,
-      fieldName: "swift_unittest.names.WordCase.Http",
-      defaultValue: 0
-    )
-
-    static let HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 202,
-      fieldName: "swift_unittest.names.WordCase.HttpRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 203,
-      fieldName: "swift_unittest.names.WordCase.TheHttpRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 204,
-      fieldName: "swift_unittest.names.WordCase.TheHttp",
-      defaultValue: 0
-    )
-
-    static let Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 211,
-      fieldName: "swift_unittest.names.WordCase.Https",
-      defaultValue: 0
-    )
-
-    static let HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 212,
-      fieldName: "swift_unittest.names.WordCase.HttpsRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 213,
-      fieldName: "swift_unittest.names.WordCase.TheHttpsRequest",
-      defaultValue: 0
-    )
-
-    static let TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 214,
-      fieldName: "swift_unittest.names.WordCase.TheHttps",
-      defaultValue: 0
-    )
-
-    static let Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 221,
-      fieldName: "swift_unittest.names.WordCase.Url",
-      defaultValue: 0
-    )
-
-    static let UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 222,
-      fieldName: "swift_unittest.names.WordCase.UrlValue",
-      defaultValue: 0
-    )
-
-    static let TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 223,
-      fieldName: "swift_unittest.names.WordCase.TheUrlValue",
-      defaultValue: 0
-    )
-
-    static let TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
-      _protobuf_fieldNumber: 224,
-      fieldName: "swift_unittest.names.WordCase.TheUrl",
-      defaultValue: 0
-    )
-  }
 
   init() {}
 
@@ -17410,708 +17179,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Messag
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
-let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.http",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.http_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.the_http_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.the_http",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.https",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.https_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.the_https_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.the_https",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.url",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.url_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.the_url_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.the_url",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
-  _protobuf_fieldNumber: 31,
-  fieldName: "swift_unittest.names.a_b_c",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.HTTP",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.HTTP_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.the_HTTP_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.the_HTTP",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.HTTPS",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.HTTPS_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.the_HTTPS_request",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.the_HTTPS",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.URL",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.URL_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.the_URL_value",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
-  _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.the_URL",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "swift_unittest.names.Http",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "swift_unittest.names.HttpRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "swift_unittest.names.TheHttpRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 4,
-  fieldName: "swift_unittest.names.TheHttp",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 11,
-  fieldName: "swift_unittest.names.Https",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 12,
-  fieldName: "swift_unittest.names.HttpsRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 13,
-  fieldName: "swift_unittest.names.TheHttpsRequest",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 14,
-  fieldName: "swift_unittest.names.TheHttps",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 21,
-  fieldName: "swift_unittest.names.Url",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 22,
-  fieldName: "swift_unittest.names.UrlValue",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 23,
-  fieldName: "swift_unittest.names.TheUrlValue",
-  defaultValue: 0
-)
-
-let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
-  _protobuf_fieldNumber: 24,
-  fieldName: "swift_unittest.names.TheUrl",
-  defaultValue: 0
-)
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Lowers_aBC: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Lowers_aBC: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
-  }
-  mutating func clearSwiftUnittest_Names_Lowers_aBC() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_Uppers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_Uppers_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
-  }
-  mutating func clearSwiftUnittest_Names_Uppers_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_http: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_http() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_httpRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_httpRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTPRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTP: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTP() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_https: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_https() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_httpsRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_httpsRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTPSRequest: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPSRequest() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theHTTPS: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theHTTPS() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_url: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_url() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_urlValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_urlValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theURLValue: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theURLValue() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
-  }
-}
-
-extension SwiftUnittest_Names_ExtensionNamingInitials {
-  var SwiftUnittest_Names_WordCase_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl) ?? 0}
-    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl, value: newValue)}
-  }
-  var hasSwiftUnittest_Names_WordCase_theURL: Bool {
-    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
-  }
-  mutating func clearSwiftUnittest_Names_WordCase_theURL() {
-    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
-  }
-}
+// MARK: - Extension support defined in unittest_swift_naming.proto.
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_http: Int32 {
@@ -18594,6 +17662,491 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   }
 }
 
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_http: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_http: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_http() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_httpRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTP() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_https: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_https: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_https() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_httpsRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theHTTPS() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_url: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_url: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_url() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_urlValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theURLValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theURL: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theURL() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_aBC: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_aBC: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_aBC() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_http: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_http: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_http() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_httpRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTP() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_https: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_https: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_https() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_httpsRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theHTTPS() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_url: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_url: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_url() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_urlValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theURLValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theURL: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theURL() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_http: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_http: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_http() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_httpRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_httpRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_httpRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTPRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTPRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTPRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTP: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTP: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTP() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_https: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_https: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_https() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_httpsRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_httpsRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_httpsRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTPSRequest: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTPSRequest: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTPSRequest() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theHTTPS: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theHTTPS: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theHTTPS() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_url: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_url: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_url() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_urlValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_urlValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_urlValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theURLValue: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theURLValue: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theURLValue() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theURL: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theURL: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theURL() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)
+  }
+}
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   SwiftUnittest_Names_Extensions_http,
   SwiftUnittest_Names_Extensions_http_request,
@@ -18670,6 +18223,462 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_WordCase.Extensions.TheUrlValue,
   SwiftUnittest_Names_WordCase.Extensions.TheUrl
 ]
+
+let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "swift_unittest.names.http",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "swift_unittest.names.http_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "swift_unittest.names.the_http_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 4,
+  fieldName: "swift_unittest.names.the_http",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 11,
+  fieldName: "swift_unittest.names.https",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 12,
+  fieldName: "swift_unittest.names.https_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 13,
+  fieldName: "swift_unittest.names.the_https_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 14,
+  fieldName: "swift_unittest.names.the_https",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 21,
+  fieldName: "swift_unittest.names.url",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 22,
+  fieldName: "swift_unittest.names.url_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 23,
+  fieldName: "swift_unittest.names.the_url_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 24,
+  fieldName: "swift_unittest.names.the_url",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 31,
+  fieldName: "swift_unittest.names.a_b_c",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "swift_unittest.names.HTTP",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "swift_unittest.names.HTTP_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "swift_unittest.names.the_HTTP_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 4,
+  fieldName: "swift_unittest.names.the_HTTP",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 11,
+  fieldName: "swift_unittest.names.HTTPS",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 12,
+  fieldName: "swift_unittest.names.HTTPS_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 13,
+  fieldName: "swift_unittest.names.the_HTTPS_request",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 14,
+  fieldName: "swift_unittest.names.the_HTTPS",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 21,
+  fieldName: "swift_unittest.names.URL",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 22,
+  fieldName: "swift_unittest.names.URL_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 23,
+  fieldName: "swift_unittest.names.the_URL_value",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 24,
+  fieldName: "swift_unittest.names.the_URL",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "swift_unittest.names.Http",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "swift_unittest.names.HttpRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "swift_unittest.names.TheHttpRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 4,
+  fieldName: "swift_unittest.names.TheHttp",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 11,
+  fieldName: "swift_unittest.names.Https",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 12,
+  fieldName: "swift_unittest.names.HttpsRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 13,
+  fieldName: "swift_unittest.names.TheHttpsRequest",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 14,
+  fieldName: "swift_unittest.names.TheHttps",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 21,
+  fieldName: "swift_unittest.names.Url",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 22,
+  fieldName: "swift_unittest.names.UrlValue",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 23,
+  fieldName: "swift_unittest.names.TheUrlValue",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 24,
+  fieldName: "swift_unittest.names.TheUrl",
+  defaultValue: 0
+)
+
+extension SwiftUnittest_Names_Lowers {
+  enum Extensions {
+    static let http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 1,
+      fieldName: "swift_unittest.names.Lowers.http",
+      defaultValue: 0
+    )
+
+    static let http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 2,
+      fieldName: "swift_unittest.names.Lowers.http_request",
+      defaultValue: 0
+    )
+
+    static let the_http_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 3,
+      fieldName: "swift_unittest.names.Lowers.the_http_request",
+      defaultValue: 0
+    )
+
+    static let the_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 4,
+      fieldName: "swift_unittest.names.Lowers.the_http",
+      defaultValue: 0
+    )
+
+    static let https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 11,
+      fieldName: "swift_unittest.names.Lowers.https",
+      defaultValue: 0
+    )
+
+    static let https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 12,
+      fieldName: "swift_unittest.names.Lowers.https_request",
+      defaultValue: 0
+    )
+
+    static let the_https_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 13,
+      fieldName: "swift_unittest.names.Lowers.the_https_request",
+      defaultValue: 0
+    )
+
+    static let the_https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 14,
+      fieldName: "swift_unittest.names.Lowers.the_https",
+      defaultValue: 0
+    )
+
+    static let url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 21,
+      fieldName: "swift_unittest.names.Lowers.url",
+      defaultValue: 0
+    )
+
+    static let url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 22,
+      fieldName: "swift_unittest.names.Lowers.url_value",
+      defaultValue: 0
+    )
+
+    static let the_url_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 23,
+      fieldName: "swift_unittest.names.Lowers.the_url_value",
+      defaultValue: 0
+    )
+
+    static let the_url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 24,
+      fieldName: "swift_unittest.names.Lowers.the_url",
+      defaultValue: 0
+    )
+
+    static let a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 31,
+      fieldName: "swift_unittest.names.Lowers.a_b_c",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_Uppers {
+  enum Extensions {
+    static let HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 101,
+      fieldName: "swift_unittest.names.Uppers.HTTP",
+      defaultValue: 0
+    )
+
+    static let HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 102,
+      fieldName: "swift_unittest.names.Uppers.HTTP_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTP_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 103,
+      fieldName: "swift_unittest.names.Uppers.the_HTTP_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 104,
+      fieldName: "swift_unittest.names.Uppers.the_HTTP",
+      defaultValue: 0
+    )
+
+    static let HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 111,
+      fieldName: "swift_unittest.names.Uppers.HTTPS",
+      defaultValue: 0
+    )
+
+    static let HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 112,
+      fieldName: "swift_unittest.names.Uppers.HTTPS_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTPS_request = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 113,
+      fieldName: "swift_unittest.names.Uppers.the_HTTPS_request",
+      defaultValue: 0
+    )
+
+    static let the_HTTPS = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 114,
+      fieldName: "swift_unittest.names.Uppers.the_HTTPS",
+      defaultValue: 0
+    )
+
+    static let URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 121,
+      fieldName: "swift_unittest.names.Uppers.URL",
+      defaultValue: 0
+    )
+
+    static let URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 122,
+      fieldName: "swift_unittest.names.Uppers.URL_value",
+      defaultValue: 0
+    )
+
+    static let the_URL_value = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 123,
+      fieldName: "swift_unittest.names.Uppers.the_URL_value",
+      defaultValue: 0
+    )
+
+    static let the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 124,
+      fieldName: "swift_unittest.names.Uppers.the_URL",
+      defaultValue: 0
+    )
+  }
+}
+
+extension SwiftUnittest_Names_WordCase {
+  enum Extensions {
+    static let Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 201,
+      fieldName: "swift_unittest.names.WordCase.Http",
+      defaultValue: 0
+    )
+
+    static let HttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 202,
+      fieldName: "swift_unittest.names.WordCase.HttpRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttpRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 203,
+      fieldName: "swift_unittest.names.WordCase.TheHttpRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttp = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 204,
+      fieldName: "swift_unittest.names.WordCase.TheHttp",
+      defaultValue: 0
+    )
+
+    static let Https = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 211,
+      fieldName: "swift_unittest.names.WordCase.Https",
+      defaultValue: 0
+    )
+
+    static let HttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 212,
+      fieldName: "swift_unittest.names.WordCase.HttpsRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttpsRequest = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 213,
+      fieldName: "swift_unittest.names.WordCase.TheHttpsRequest",
+      defaultValue: 0
+    )
+
+    static let TheHttps = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 214,
+      fieldName: "swift_unittest.names.WordCase.TheHttps",
+      defaultValue: 0
+    )
+
+    static let Url = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 221,
+      fieldName: "swift_unittest.names.WordCase.Url",
+      defaultValue: 0
+    )
+
+    static let UrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 222,
+      fieldName: "swift_unittest.names.WordCase.UrlValue",
+      defaultValue: 0
+    )
+
+    static let TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 223,
+      fieldName: "swift_unittest.names.WordCase.TheUrlValue",
+      defaultValue: 0
+    )
+
+    static let TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 224,
+      fieldName: "swift_unittest.names.WordCase.TheUrl",
+      defaultValue: 0
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

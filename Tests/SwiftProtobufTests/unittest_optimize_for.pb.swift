@@ -118,21 +118,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  struct Extensions {
-
-    static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
-      _protobuf_fieldNumber: 1234,
-      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension",
-      defaultValue: 0
-    )
-
-    static let test_extension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
-      _protobuf_fieldNumber: 1235,
-      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension2",
-      defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
-    )
-  }
-
   init() {}
 
   public var isInitialized: Bool {
@@ -268,6 +253,8 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass()
 }
 
+// MARK: - Extension support defined in unittest_optimize_for.proto.
+
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
@@ -294,10 +281,30 @@ extension ProtobufUnittest_TestOptimizedForSize {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension,
   ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2
 ]
+
+extension ProtobufUnittest_TestOptimizedForSize {
+  enum Extensions {
+    static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
+      _protobuf_fieldNumber: 1234,
+      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension",
+      defaultValue: 0
+    )
+
+    static let test_extension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
+      _protobuf_fieldNumber: 1235,
+      fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension2",
+      defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

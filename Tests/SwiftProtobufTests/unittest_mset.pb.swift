@@ -122,15 +122,6 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  struct Extensions {
-
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
-      _protobuf_fieldNumber: 1545008,
-      fieldName: "protobuf_unittest.TestMessageSetExtension1.message_set_extension",
-      defaultValue: ProtobufUnittest_TestMessageSetExtension1()
-    )
-  }
-
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -166,15 +157,6 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
-      _protobuf_fieldNumber: 1547769,
-      fieldName: "protobuf_unittest.TestMessageSetExtension2.message_set_extension",
-      defaultValue: ProtobufUnittest_TestMessageSetExtension2()
-    )
-  }
 
   init() {}
 
@@ -285,6 +267,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   }
 }
 
+// MARK: - Extension support defined in unittest_mset.proto.
+
 extension Proto2WireformatUnittest_TestMessageSet {
   var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension1()}
@@ -311,10 +295,34 @@ extension Proto2WireformatUnittest_TestMessageSet {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]
+
+extension ProtobufUnittest_TestMessageSetExtension1 {
+  enum Extensions {
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
+      _protobuf_fieldNumber: 1545008,
+      fieldName: "protobuf_unittest.TestMessageSetExtension1.message_set_extension",
+      defaultValue: ProtobufUnittest_TestMessageSetExtension1()
+    )
+  }
+}
+
+extension ProtobufUnittest_TestMessageSetExtension2 {
+  enum Extensions {
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
+      _protobuf_fieldNumber: 1547769,
+      fieldName: "protobuf_unittest.TestMessageSetExtension2.message_set_extension",
+      defaultValue: ProtobufUnittest_TestMessageSetExtension2()
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

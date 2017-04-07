@@ -78,21 +78,6 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
     }
   }
 
-  struct Extensions {
-
-    static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-      _protobuf_fieldNumber: 210,
-      fieldName: "protobuf_unittest.extend2.MyMessage.b",
-      defaultValue: String()
-    )
-
-    static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-      _protobuf_fieldNumber: 211,
-      fieldName: "protobuf_unittest.extend2.MyMessage.C",
-      defaultValue: ProtobufUnittest_Extend2_MyMessage.C()
-    )
-  }
-
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -141,43 +126,7 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
   }
 }
 
-let ProtobufUnittest_Extend2_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  _protobuf_fieldNumber: 220,
-  fieldName: "protobuf_unittest.extend2.b",
-  defaultValue: String()
-)
-
-let ProtobufUnittest_Extend2_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  _protobuf_fieldNumber: 221,
-  fieldName: "protobuf_unittest.extend2.C",
-  defaultValue: ProtobufUnittest_Extend2_C()
-)
-
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var ProtobufUnittest_Extend2_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b) ?? String()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b, value: newValue)}
-  }
-  var hasProtobufUnittest_Extend2_MyMessage_b: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)
-  }
-  mutating func clearProtobufUnittest_Extend2_MyMessage_b() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)
-  }
-}
-
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
-  var ProtobufUnittest_Extend2_MyMessage_c: ProtobufUnittest_Extend2_MyMessage.C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend2_MyMessage.C()}
-    set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C, value: newValue)}
-  }
-  var hasProtobufUnittest_Extend2_MyMessage_c: Bool {
-    return hasExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)
-  }
-  mutating func clearProtobufUnittest_Extend2_MyMessage_c() {
-    clearExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)
-  }
-}
+// MARK: - Extension support defined in unittest_swift_extension2.proto.
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_b: String {
@@ -205,12 +154,70 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   }
 }
 
+extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+  var ProtobufUnittest_Extend2_MyMessage_b: String {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b) ?? String()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b, value: newValue)}
+  }
+  var hasProtobufUnittest_Extend2_MyMessage_b: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)
+  }
+  mutating func clearProtobufUnittest_Extend2_MyMessage_b() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)
+  }
+}
+
+extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+  var ProtobufUnittest_Extend2_MyMessage_c: ProtobufUnittest_Extend2_MyMessage.C {
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend2_MyMessage.C()}
+    set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C, value: newValue)}
+  }
+  var hasProtobufUnittest_Extend2_MyMessage_c: Bool {
+    return hasExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)
+  }
+  mutating func clearProtobufUnittest_Extend2_MyMessage_c() {
+    clearExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)
+  }
+}
+
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufUnittest_Extend2_UnittestSwiftExtension2_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extend2_Extensions_b,
   ProtobufUnittest_Extend2_Extensions_C,
   ProtobufUnittest_Extend2_MyMessage.Extensions.b,
   ProtobufUnittest_Extend2_MyMessage.Extensions.C
 ]
+
+let ProtobufUnittest_Extend2_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+  _protobuf_fieldNumber: 220,
+  fieldName: "protobuf_unittest.extend2.b",
+  defaultValue: String()
+)
+
+let ProtobufUnittest_Extend2_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+  _protobuf_fieldNumber: 221,
+  fieldName: "protobuf_unittest.extend2.C",
+  defaultValue: ProtobufUnittest_Extend2_C()
+)
+
+extension ProtobufUnittest_Extend2_MyMessage {
+  enum Extensions {
+    static let b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+      _protobuf_fieldNumber: 210,
+      fieldName: "protobuf_unittest.extend2.MyMessage.b",
+      defaultValue: String()
+    )
+
+    static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend2_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+      _protobuf_fieldNumber: 211,
+      fieldName: "protobuf_unittest.extend2.MyMessage.C",
+      defaultValue: ProtobufUnittest_Extend2_MyMessage.C()
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 

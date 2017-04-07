@@ -441,17 +441,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass()
 }
 
-let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
-  _protobuf_fieldNumber: 2,
-  fieldName: "ExtensionGroup",
-  defaultValue: ExtensionGroup()
-)
-
-let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
-  _protobuf_fieldNumber: 3,
-  fieldName: "RepeatedExtensionGroup",
-  defaultValue: []
-)
+// MARK: - Extension support defined in unittest_swift_groups.proto.
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
@@ -479,10 +469,26 @@ extension SwiftTestGroupExtensions {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_ExtensionGroup,
   Extensions_RepeatedExtensionGroup
 ]
+
+let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
+  _protobuf_fieldNumber: 2,
+  fieldName: "ExtensionGroup",
+  defaultValue: ExtensionGroup()
+)
+
+let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
+  _protobuf_fieldNumber: 3,
+  fieldName: "RepeatedExtensionGroup",
+  defaultValue: []
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
