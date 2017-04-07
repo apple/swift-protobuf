@@ -94,8 +94,6 @@ public struct Google_Protobuf_FileDescriptorSet: SwiftProtobuf.Message {
 public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FileDescriptorProto"
 
-  fileprivate var _storage = _StorageClass()
-
   /// file name, relative to root of source tree
   public var name: String {
     get {return _storage._name ?? String()}
@@ -278,13 +276,13 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes a message type.
 public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".DescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -531,13 +529,13 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes a field within a message.
 public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".FieldDescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -863,13 +861,13 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes a oneof.
 public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".OneofDescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -928,13 +926,13 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes an enum type.
 public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumDescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1003,13 +1001,13 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes a value within an enum.
 public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".EnumValueDescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1083,13 +1081,13 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes a service.
 public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".ServiceDescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1158,13 +1156,13 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Describes a method of a service.
 public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".MethodDescriptorProto"
-
-  fileprivate var _storage = _StorageClass()
 
   public var name: String {
     get {return _storage._name ?? String()}
@@ -1287,12 +1285,12 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   public static let protoMessageName: String = _protobuf_package + ".FileOptions"
-
-  fileprivate var _storage = _StorageClass()
 
   /// Sets the Java package where classes generated from this .proto will be
   /// placed.  By default, the proto package is used, but this is often
@@ -1665,6 +1663,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {

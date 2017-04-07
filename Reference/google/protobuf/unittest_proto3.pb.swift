@@ -178,8 +178,6 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
 struct Proto3TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var singleInt32: Int32 {
     get {return _storage._singleInt32}
@@ -770,13 +768,13 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// This proto includes a recusively nested message.
 struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
-
-  fileprivate var _storage = _StorageClass()
 
   var child: Proto3NestedTestAllTypes {
     get {return _storage._child ?? Proto3NestedTestAllTypes()}
@@ -837,6 +835,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestDeprecatedFields: SwiftProtobuf.Message {
@@ -914,8 +914,6 @@ struct Proto3TestReservedFields: SwiftProtobuf.Message {
 struct Proto3TestForeignNested: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
 
-  fileprivate var _storage = _StorageClass()
-
   var foreignNested: Proto3TestAllTypes.NestedMessage {
     get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
@@ -951,6 +949,8 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that really large tag numbers don't break anything.
@@ -990,8 +990,6 @@ struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Message {
 
 struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMessage"
-
-  fileprivate var _storage = _StorageClass()
 
   var a: Proto3TestRecursiveMessage {
     get {return _storage._a ?? Proto3TestRecursiveMessage()}
@@ -1037,13 +1035,13 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that mutual recursion works.
 struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
-
-  fileprivate var _storage = _StorageClass()
 
   var bb: Proto3TestMutualRecursionB {
     get {return _storage._bb ?? Proto3TestMutualRecursionB()}
@@ -1080,12 +1078,12 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionB"
-
-  fileprivate var _storage = _StorageClass()
 
   var a: Proto3TestMutualRecursionA {
     get {return _storage._a ?? Proto3TestMutualRecursionA()}
@@ -1131,6 +1129,8 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
@@ -1163,8 +1163,6 @@ struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
 /// standard style.
 struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
-
-  fileprivate var _storage = _StorageClass()
 
   var primitiveField: Int32 {
     get {return _storage._primitiveField}
@@ -1264,14 +1262,14 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// We list fields out of order, to ensure that we're using field number and not
 /// field index to determine serialization order.
 struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
-
-  fileprivate var _storage = _StorageClass()
 
   var myString: String {
     get {return _storage._myString}
@@ -1370,6 +1368,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
@@ -1638,8 +1638,6 @@ struct Proto3BoolMessage: SwiftProtobuf.Message {
 struct Proto3TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
-  fileprivate var _storage = _StorageClass()
-
   var fooInt: Int32 {
     get {
       if case .fooInt(let v)? = _storage._foo {
@@ -1724,6 +1722,8 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestPackedTypes: SwiftProtobuf.Message {

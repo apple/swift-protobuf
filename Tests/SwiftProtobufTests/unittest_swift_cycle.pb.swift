@@ -51,8 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
 
-  fileprivate var _storage = _StorageClass()
-
   var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
@@ -118,12 +116,12 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
-
-  fileprivate var _storage = _StorageClass()
 
   var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
@@ -190,12 +188,12 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
-
-  fileprivate var _storage = _StorageClass()
 
   var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
@@ -262,6 +260,8 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

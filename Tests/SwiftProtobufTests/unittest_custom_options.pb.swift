@@ -496,8 +496,6 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
 struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType2"
 
-  fileprivate var _storage = _StorageClass()
-
   var bar: ProtobufUnittest_ComplexOptionType1 {
     get {return _storage._bar ?? ProtobufUnittest_ComplexOptionType1()}
     set {_uniqueStorage()._bar = newValue}
@@ -630,12 +628,11 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType3"
-
-  fileprivate var _storage = _StorageClass()
 
   var qux: Int32 {
     get {return _storage._qux ?? 0}
@@ -723,6 +720,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
@@ -856,8 +855,6 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
 struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Aggregate"
 
-  fileprivate var _storage = _StorageClass()
-
   var i: Int32 {
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
@@ -974,6 +971,8 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {

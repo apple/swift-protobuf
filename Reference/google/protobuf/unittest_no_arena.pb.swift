@@ -91,8 +91,6 @@ enum ProtobufUnittestNoArena_ForeignEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -1269,6 +1267,8 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -1312,8 +1312,6 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message {
 struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestNoArenaMessage"
 
-  fileprivate var _storage = _StorageClass()
-
   var arenaMessage: Proto2ArenaUnittest_ArenaMessage {
     get {return _storage._arenaMessage ?? Proto2ArenaUnittest_ArenaMessage()}
     set {_uniqueStorage()._arenaMessage = newValue}
@@ -1349,6 +1347,8 @@ struct ProtobufUnittestNoArena_TestNoArenaMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

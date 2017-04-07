@@ -85,8 +85,6 @@ public enum Google_Protobuf_Syntax: SwiftProtobuf.Enum {
 public struct Google_Protobuf_Type: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Type"
 
-  fileprivate var _storage = _StorageClass()
-
   /// The fully qualified message name.
   public var name: String {
     get {return _storage._name}
@@ -173,6 +171,8 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// A single field of a message type.
@@ -433,8 +433,6 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
 public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Enum"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Enum type name.
   public var name: String {
     get {return _storage._name}
@@ -511,6 +509,8 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Enum value definition.
@@ -559,8 +559,6 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
 /// enumeration, etc.
 public struct Google_Protobuf_Option: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Option"
-
-  fileprivate var _storage = _StorageClass()
 
   /// The option's name. For protobuf built-in options (options defined in
   /// descriptor.proto), this is the short name. For example, `"map_entry"`.
@@ -614,6 +612,8 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

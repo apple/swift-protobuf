@@ -91,8 +91,6 @@ enum Proto3MapEnum: SwiftProtobuf.Enum {
 struct Proto3TestMap: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMap"
 
-  fileprivate var _storage = _StorageClass()
-
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -266,12 +264,12 @@ struct Proto3TestMap: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMapSubmessage"
-
-  fileprivate var _storage = _StorageClass()
 
   var testMap: Proto3TestMap {
     get {return _storage._testMap ?? Proto3TestMap()}
@@ -308,6 +306,8 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestMessageMap: SwiftProtobuf.Message {

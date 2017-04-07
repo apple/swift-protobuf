@@ -163,8 +163,6 @@ enum ProtobufUnittest_TestSparseEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -1327,13 +1325,13 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// This proto includes a recusively nested message.
 struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
-
-  fileprivate var _storage = _StorageClass()
 
   var child: ProtobufUnittest_NestedTestAllTypes {
     get {return _storage._child ?? ProtobufUnittest_NestedTestAllTypes()}
@@ -1394,6 +1392,8 @@ struct ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestDeprecatedFields: SwiftProtobuf.Message {
@@ -1663,8 +1663,6 @@ struct ProtobufUnittest_TestNestedExtension: SwiftProtobuf.Message {
 /// optional fields for all types.
 struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequired"
-
-  fileprivate var _storage = _StorageClass()
 
   var a: Int32 {
     get {return _storage._a ?? 0}
@@ -2207,12 +2205,12 @@ struct ProtobufUnittest_TestRequired: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredForeign"
-
-  fileprivate var _storage = _StorageClass()
 
   var optionalMessage: ProtobufUnittest_TestRequired {
     get {return _storage._optionalMessage ?? ProtobufUnittest_TestRequired()}
@@ -2281,13 +2279,13 @@ struct ProtobufUnittest_TestRequiredForeign: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that we can use NestedMessage from outside TestAllTypes.
 struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
-
-  fileprivate var _storage = _StorageClass()
 
   var foreignNested: ProtobufUnittest_TestAllTypes.NestedMessage {
     get {return _storage._foreignNested ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
@@ -2324,6 +2322,8 @@ struct ProtobufUnittest_TestForeignNested: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// TestEmptyMessage is used to test unknown field support.
@@ -2462,8 +2462,6 @@ struct ProtobufUnittest_TestReallyLargeTagNumber: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMessage"
 
-  fileprivate var _storage = _StorageClass()
-
   var a: ProtobufUnittest_TestRecursiveMessage {
     get {return _storage._a ?? ProtobufUnittest_TestRecursiveMessage()}
     set {_uniqueStorage()._a = newValue}
@@ -2514,13 +2512,13 @@ struct ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that mutual recursion works.
 struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
-
-  fileprivate var _storage = _StorageClass()
 
   var bb: ProtobufUnittest_TestMutualRecursionB {
     get {return _storage._bb ?? ProtobufUnittest_TestMutualRecursionB()}
@@ -2557,12 +2555,12 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionB"
-
-  fileprivate var _storage = _StorageClass()
 
   var a: ProtobufUnittest_TestMutualRecursionA {
     get {return _storage._a ?? ProtobufUnittest_TestMutualRecursionA()}
@@ -2614,6 +2612,8 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that groups have disjoint field numbers from their siblings and
@@ -2622,8 +2622,6 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
 /// in protobuf_unittest_proto.
 struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDupFieldNumber"
-
-  fileprivate var _storage = _StorageClass()
 
   /// NO_PROTO1
   var a: Int32 {
@@ -2763,14 +2761,14 @@ struct ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Additional messages for testing lazy fields.
 struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEagerMessage"
 
-  fileprivate var _storage = _StorageClass()
-
   var subMessage: ProtobufUnittest_TestAllTypes {
     get {return _storage._subMessage ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._subMessage = newValue}
@@ -2806,13 +2804,13 @@ struct ProtobufUnittest_TestEagerMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestLazyMessage"
 
-  fileprivate var _storage = _StorageClass()
-
   var subMessage: ProtobufUnittest_TestAllTypes {
     get {return _storage._subMessage ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._subMessage = newValue}
@@ -2848,13 +2846,13 @@ struct ProtobufUnittest_TestLazyMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Needed for a Python test.
 struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestNestedMessageHasBits"
-
-  fileprivate var _storage = _StorageClass()
 
   var optionalNestedMessage: ProtobufUnittest_TestNestedMessageHasBits.NestedMessage {
     get {return _storage._optionalNestedMessage ?? ProtobufUnittest_TestNestedMessageHasBits.NestedMessage()}
@@ -2923,14 +2921,14 @@ struct ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test message with CamelCase field names.  This violates Protocol Buffer
 /// standard style.
 struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
-
-  fileprivate var _storage = _StorageClass()
 
   var primitiveField: Int32 {
     get {return _storage._primitiveField ?? 0}
@@ -3096,14 +3094,14 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// We list fields out of order, to ensure that we're using field number and not
 /// field index to determine serialization order.
 struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
-
-  fileprivate var _storage = _StorageClass()
 
   var myString: String {
     get {return _storage._myString ?? String()}
@@ -3251,12 +3249,11 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestExtremeDefaultValues"
-
-  fileprivate var _storage = _StorageClass()
 
   var escapedBytes: Data {
     get {return _storage._escapedBytes ?? Data(bytes: [0, 1, 7, 8, 12, 10, 13, 9, 11, 92, 39, 34, 254])}
@@ -3695,6 +3692,8 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_SparseEnumMessage: SwiftProtobuf.Message {
@@ -4043,8 +4042,6 @@ struct ProtobufUnittest_BoolMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
-  fileprivate var _storage = _StorageClass()
-
   var fooInt: Int32 {
     get {
       if case .fooInt(let v)? = _storage._foo {
@@ -4195,12 +4192,12 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneofBackwardsCompatible"
-
-  fileprivate var _storage = _StorageClass()
 
   var fooInt: Int32 {
     get {return _storage._fooInt ?? 0}
@@ -4334,12 +4331,12 @@ struct ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof2"
-
-  fileprivate var _storage = _StorageClass()
 
   var fooInt: Int32 {
     get {
@@ -4768,12 +4765,12 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOneof"
-
-  fileprivate var _storage = _StorageClass()
 
   var fooInt: Int32 {
     get {
@@ -4912,6 +4909,8 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestPackedTypes: SwiftProtobuf.Message {
@@ -5186,8 +5185,6 @@ struct ProtobufUnittest_TestUnpackedExtensions: SwiftProtobuf.Message, SwiftProt
 struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDynamicExtensions"
 
-  fileprivate var _storage = _StorageClass()
-
   var scalarExtension: UInt32 {
     get {return _storage._scalarExtension ?? 0}
     set {_uniqueStorage()._scalarExtension = newValue}
@@ -5366,6 +5363,8 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Message {
@@ -5434,8 +5433,6 @@ struct ProtobufUnittest_TestRepeatedScalarDifferentTagSizes: SwiftProtobuf.Messa
 /// times in the input, they need to be merged.
 struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestParsingMerge"
-
-  fileprivate var _storage = _StorageClass()
 
   var requiredAllTypes: ProtobufUnittest_TestAllTypes {
     get {return _storage._requiredAllTypes ?? ProtobufUnittest_TestAllTypes()}
@@ -5509,8 +5506,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
     struct Group1: SwiftProtobuf.Message {
       static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group1"
 
-      fileprivate var _storage = _StorageClass()
-
       var field1: ProtobufUnittest_TestAllTypes {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypes()}
         set {_uniqueStorage()._field1 = newValue}
@@ -5546,12 +5541,12 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _storage = _StorageClass()
     }
 
     struct Group2: SwiftProtobuf.Message {
       static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.protoMessageName + ".Group2"
-
-      fileprivate var _storage = _StorageClass()
 
       var field1: ProtobufUnittest_TestAllTypes {
         get {return _storage._field1 ?? ProtobufUnittest_TestAllTypes()}
@@ -5588,6 +5583,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _storage = _StorageClass()
     }
 
     init() {}
@@ -5636,8 +5633,6 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.protoMessageName + ".OptionalGroup"
 
-    fileprivate var _storage = _StorageClass()
-
     var optionalGroupAllTypes: ProtobufUnittest_TestAllTypes {
       get {return _storage._optionalGroupAllTypes ?? ProtobufUnittest_TestAllTypes()}
       set {_uniqueStorage()._optionalGroupAllTypes = newValue}
@@ -5673,12 +5668,12 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestParsingMerge.protoMessageName + ".RepeatedGroup"
-
-    fileprivate var _storage = _StorageClass()
 
     var repeatedGroupAllTypes: ProtobufUnittest_TestAllTypes {
       get {return _storage._repeatedGroupAllTypes ?? ProtobufUnittest_TestAllTypes()}
@@ -5715,6 +5710,8 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   struct Extensions {
@@ -5783,6 +5780,7 @@ struct ProtobufUnittest_TestParsingMerge: SwiftProtobuf.Message, SwiftProtobuf.E
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestCommentInjectionMessage: SwiftProtobuf.Message {
@@ -6043,8 +6041,6 @@ struct ProtobufUnittest_TestJsonName: SwiftProtobuf.Message {
 
 struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestHugeFieldNumbers"
-
-  fileprivate var _storage = _StorageClass()
 
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32 ?? 0}
@@ -6322,6 +6318,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Singular

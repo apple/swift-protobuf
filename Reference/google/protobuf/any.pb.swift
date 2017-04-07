@@ -120,8 +120,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Any: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Any"
 
-  internal var _storage = _StorageClass()
-
   /// A URL/resource name whose content describes the type of the
   /// serialized protocol buffer message.
   ///
@@ -183,6 +181,8 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  internal var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

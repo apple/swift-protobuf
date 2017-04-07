@@ -134,8 +134,6 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
 struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneOfContainer"
 
-  fileprivate var _storage = _StorageClass()
-
   var option1: ProtobufUnittest_OneOfOptionMessage1 {
     get {
       if case .option1(let v)? = _storage._option {
@@ -220,6 +218,8 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

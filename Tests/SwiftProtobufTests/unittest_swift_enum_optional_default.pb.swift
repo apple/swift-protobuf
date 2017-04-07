@@ -43,8 +43,6 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage"
 
-    fileprivate var _storage = _StorageClass()
-
     /// The circular reference here forces the generator to
     /// implement heap-backed storage.
     var message: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage {
@@ -120,6 +118,8 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   struct NestedMessage2: SwiftProtobuf.Message {

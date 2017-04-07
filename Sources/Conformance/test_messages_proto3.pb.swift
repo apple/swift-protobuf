@@ -96,8 +96,6 @@ enum ProtobufTestMessages_Proto3_ForeignEnum: SwiftProtobuf.Enum {
 struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
@@ -945,8 +943,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufTestMessages_Proto3_TestAllTypes.protoMessageName + ".NestedMessage"
 
-    fileprivate var _storage = _StorageClass()
-
     var a: Int32 {
       get {return _storage._a}
       set {_uniqueStorage()._a = newValue}
@@ -991,6 +987,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _storage = _StorageClass()
   }
 
   init() {}
@@ -1457,6 +1455,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {

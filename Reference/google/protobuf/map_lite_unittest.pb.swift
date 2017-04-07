@@ -142,8 +142,6 @@ enum ProtobufUnittest_MapEnumLite: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMapLite"
 
-  fileprivate var _storage = _StorageClass()
-
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
     set {_uniqueStorage()._mapInt32Int32 = newValue}
@@ -326,12 +324,12 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestArenaMapLite"
-
-  fileprivate var _storage = _StorageClass()
 
   var mapInt32Int32: Dictionary<Int32,Int32> {
     get {return _storage._mapInt32Int32}
@@ -515,6 +513,8 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test embedded message with required fields

@@ -54,8 +54,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllRequiredTypes"
 
-  fileprivate var _storage = _StorageClass()
-
   /// Singular
   var requiredInt32: Int32 {
     get {return _storage._requiredInt32 ?? 0}
@@ -1027,6 +1025,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
