@@ -590,20 +590,23 @@ class MessageGenerator {
       }
     }
 
-    // Check the oneofs using a switch so we can be more efficent.
+    // Check that all oneof embedded messages are initialized.
     for oneofField in oneofs {
-      var hasRequiredFields = false
+      var fieldsToCheck: [MessageFieldGenerator] = []
       for f in oneofField.fields {
         if f.descriptor.isMessage &&
           messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-          if !hasRequiredFields {
-            hasRequiredFields = true
-            subMessagePrinter.print("switch \(storedProperty(forOneof: oneofField.descriptor)) {\n")
-          }
-          subMessagePrinter.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
+          fieldsToCheck.append(f)
         }
       }
-      if hasRequiredFields {
+      if fieldsToCheck.count == 1 {
+        let f = fieldsToCheck.first!
+        subMessagePrinter.print("if case .\(f.swiftName)(let v)? = \(storedProperty(forOneof: oneofField.descriptor)), !v.isInitialized {return false}\n")
+      } else if fieldsToCheck.count > 1 {
+        subMessagePrinter.print("switch \(storedProperty(forOneof: oneofField.descriptor)) {\n")
+        for f in fieldsToCheck {
+          subMessagePrinter.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
+        }
         // Covers other cases or if the oneof wasn't set (was nil).
         subMessagePrinter.print("default: break\n")
         subMessagePrinter.print("}\n")
