@@ -1299,8 +1299,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt64Field(value: &oo)
         case 1: try decoder.decodeSingularInt32Field(value: &bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &oo)
         default: break
         }
       }
@@ -1324,8 +1324,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 200: try decoder.decodeSingularMessageField(value: &_storage._singleNestedMessage)
         default: break

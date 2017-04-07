@@ -220,14 +220,14 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
         case 1: try decoder.decodeSingularStringField(value: &_storage._name)
         case 2: try decoder.decodeSingularStringField(value: &_storage._package)
         case 3: try decoder.decodeRepeatedStringField(value: &_storage._dependency)
-        case 10: try decoder.decodeRepeatedInt32Field(value: &_storage._publicDependency)
-        case 11: try decoder.decodeRepeatedInt32Field(value: &_storage._weakDependency)
         case 4: try decoder.decodeRepeatedMessageField(value: &_storage._messageType)
         case 5: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
         case 6: try decoder.decodeRepeatedMessageField(value: &_storage._service)
         case 7: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
         case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
         case 9: try decoder.decodeSingularMessageField(value: &_storage._sourceCodeInfo)
+        case 10: try decoder.decodeRepeatedInt32Field(value: &_storage._publicDependency)
+        case 11: try decoder.decodeRepeatedInt32Field(value: &_storage._weakDependency)
         case 12: try decoder.decodeSingularStringField(value: &_storage._syntax)
         default: break
         }
@@ -480,12 +480,12 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &_storage._name)
         case 2: try decoder.decodeRepeatedMessageField(value: &_storage._field)
-        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
         case 3: try decoder.decodeRepeatedMessageField(value: &_storage._nestedType)
         case 4: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
         case 5: try decoder.decodeRepeatedMessageField(value: &_storage._extensionRange)
-        case 8: try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl)
+        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
         case 7: try decoder.decodeSingularMessageField(value: &_storage._options)
+        case 8: try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl)
         case 9: try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange)
         case 10: try decoder.decodeRepeatedStringField(value: &_storage._reservedName)
         default: break
@@ -811,15 +811,15 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &_storage._name)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._extendee)
         case 3: try decoder.decodeSingularInt32Field(value: &_storage._number)
         case 4: try decoder.decodeSingularEnumField(value: &_storage._label)
         case 5: try decoder.decodeSingularEnumField(value: &_storage._type)
         case 6: try decoder.decodeSingularStringField(value: &_storage._typeName)
-        case 2: try decoder.decodeSingularStringField(value: &_storage._extendee)
         case 7: try decoder.decodeSingularStringField(value: &_storage._defaultValue)
+        case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
         case 9: try decoder.decodeSingularInt32Field(value: &_storage._oneofIndex)
         case 10: try decoder.decodeSingularStringField(value: &_storage._jsonName)
-        case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
         default: break
         }
       }
@@ -1581,15 +1581,15 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &_storage._javaPackage)
         case 8: try decoder.decodeSingularStringField(value: &_storage._javaOuterClassname)
-        case 10: try decoder.decodeSingularBoolField(value: &_storage._javaMultipleFiles)
-        case 20: try decoder.decodeSingularBoolField(value: &_storage._javaGenerateEqualsAndHash)
-        case 27: try decoder.decodeSingularBoolField(value: &_storage._javaStringCheckUtf8)
         case 9: try decoder.decodeSingularEnumField(value: &_storage._optimizeFor)
+        case 10: try decoder.decodeSingularBoolField(value: &_storage._javaMultipleFiles)
         case 11: try decoder.decodeSingularStringField(value: &_storage._goPackage)
         case 16: try decoder.decodeSingularBoolField(value: &_storage._ccGenericServices)
         case 17: try decoder.decodeSingularBoolField(value: &_storage._javaGenericServices)
         case 18: try decoder.decodeSingularBoolField(value: &_storage._pyGenericServices)
+        case 20: try decoder.decodeSingularBoolField(value: &_storage._javaGenerateEqualsAndHash)
         case 23: try decoder.decodeSingularBoolField(value: &_storage._deprecated)
+        case 27: try decoder.decodeSingularBoolField(value: &_storage._javaStringCheckUtf8)
         case 31: try decoder.decodeSingularBoolField(value: &_storage._ccEnableArenas)
         case 36: try decoder.decodeSingularStringField(value: &_storage._objcClassPrefix)
         case 37: try decoder.decodeSingularStringField(value: &_storage._csharpNamespace)
@@ -2024,9 +2024,9 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
       switch fieldNumber {
       case 1: try decoder.decodeSingularEnumField(value: &_ctype)
       case 2: try decoder.decodeSingularBoolField(value: &_packed)
-      case 6: try decoder.decodeSingularEnumField(value: &_jstype)
-      case 5: try decoder.decodeSingularBoolField(value: &_lazy)
       case 3: try decoder.decodeSingularBoolField(value: &_deprecated)
+      case 5: try decoder.decodeSingularBoolField(value: &_lazy)
+      case 6: try decoder.decodeSingularEnumField(value: &_jstype)
       case 10: try decoder.decodeSingularBoolField(value: &_weak)
       case 999: try decoder.decodeRepeatedMessageField(value: &uninterpretedOption)
       case 1000..<536870912:

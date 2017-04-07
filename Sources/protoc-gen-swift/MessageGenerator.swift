@@ -373,7 +373,7 @@ class MessageGenerator {
       if !fields.isEmpty {
         p.print("switch fieldNumber {\n")
         var oneofHandled = Set<Int32>()
-        for f in fields {
+        for f in fieldsSortedByNumber {
           if f.descriptor.hasOneofIndex {
             let oneofIndex = f.descriptor.oneofIndex
             if !oneofHandled.contains(oneofIndex) {

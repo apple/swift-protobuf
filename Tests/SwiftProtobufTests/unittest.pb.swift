@@ -3135,8 +3135,8 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt64Field(value: &_oo)
         case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &_oo)
         default: break
         }
       }
@@ -3165,8 +3165,8 @@ struct ProtobufUnittest_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
         case 2..<11, 12..<101:
@@ -3527,8 +3527,6 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
         case 3: try decoder.decodeSingularUInt64Field(value: &_storage._largeUint64)
         case 4: try decoder.decodeSingularInt32Field(value: &_storage._smallInt32)
         case 5: try decoder.decodeSingularInt64Field(value: &_storage._smallInt64)
-        case 21: try decoder.decodeSingularInt32Field(value: &_storage._reallySmallInt32)
-        case 22: try decoder.decodeSingularInt64Field(value: &_storage._reallySmallInt64)
         case 6: try decoder.decodeSingularStringField(value: &_storage._utf8String)
         case 7: try decoder.decodeSingularFloatField(value: &_storage._zeroFloat)
         case 8: try decoder.decodeSingularFloatField(value: &_storage._oneFloat)
@@ -3544,6 +3542,8 @@ struct ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf.Message {
         case 18: try decoder.decodeSingularFloatField(value: &_storage._negInfFloat)
         case 19: try decoder.decodeSingularFloatField(value: &_storage._nanFloat)
         case 20: try decoder.decodeSingularStringField(value: &_storage._cppTrigraph)
+        case 21: try decoder.decodeSingularInt32Field(value: &_storage._reallySmallInt32)
+        case 22: try decoder.decodeSingularInt64Field(value: &_storage._reallySmallInt64)
         case 23: try decoder.decodeSingularStringField(value: &_storage._stringWithZero)
         case 24: try decoder.decodeSingularBytesField(value: &_storage._bytesWithZero)
         case 25: try decoder.decodeSingularStringField(value: &_storage._stringPieceWithZero)
