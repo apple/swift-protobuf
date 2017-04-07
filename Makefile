@@ -427,10 +427,11 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*
 #
 Protos/generated_swift_names_fields.proto: Protos/mined_words.txt
 	@echo Building $@
-	@echo '// See Makefile for the logic that generates this' > $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' > $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' > $@
-	@echo 'syntax = "proto3";' > $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
 	@echo 'package protobuf_unittest;' >> $@
 	@echo 'message GeneratedSwiftReservedFields {' >> $@
 	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
@@ -438,10 +439,11 @@ Protos/generated_swift_names_fields.proto: Protos/mined_words.txt
 
 Protos/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
 	@echo Building $@
-	@echo '// See Makefile for the logic that generates this' > $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' > $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' > $@
-	@echo 'syntax = "proto3";' > $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
 	@echo 'package protobuf_unittest;' >> $@
 	@echo 'enum GeneratedSwiftReservedEnum {' >> $@
 	@echo '  NONE = 0;' >> $@
@@ -450,10 +452,11 @@ Protos/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
 
 Protos/generated_swift_names_messages.proto: Protos/mined_words.txt
 	@echo Building $@
-	@echo '// See Makefile for the logic that generates this' > $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' > $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' > $@
-	@echo 'syntax = "proto3";' > $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
 	@echo 'package protobuf_unittest;' >> $@
 	@echo 'message GeneratedSwiftReservedMessages {' >> $@
 	@cat Protos/mined_words.txt | awk '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
@@ -461,10 +464,11 @@ Protos/generated_swift_names_messages.proto: Protos/mined_words.txt
 
 Protos/generated_swift_names_enums.proto: Protos/mined_words.txt
 	@echo Building $@
-	@echo '// See Makefile for the logic that generates this' > $@
-	@echo '// Protoc errors imply this file is being generated incorrectly' > $@
-	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' > $@
-	@echo 'syntax = "proto3";' > $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
 	@echo 'package protobuf_unittest;' >> $@
 	@echo 'message GeneratedSwiftReservedEnums {' >> $@
 	@cat Protos/mined_words.txt | awk '{print "  enum " $$1 " { NONE_" $$1 " = 0; }"}' >> $@

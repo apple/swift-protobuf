@@ -1,3 +1,6 @@
+// See Makefile for the logic that generates this
+// Protoc errors imply this file is being generated incorrectly
+// Swift compile errors are probably bugs in protoc-gen-swift
 syntax = "proto3";
 package protobuf_unittest;
 message GeneratedSwiftReservedMessages {

@@ -6,6 +6,10 @@
  *
  */
 
+/// See Makefile for the logic that generates this
+/// Protoc errors imply this file is being generated incorrectly
+/// Swift compile errors are probably bugs in protoc-gen-swift
+
 import Foundation
 import SwiftProtobuf
 
