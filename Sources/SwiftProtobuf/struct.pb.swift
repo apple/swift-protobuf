@@ -186,11 +186,17 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public enum OneOf_Kind: Equatable {
+    /// Represents a null value.
     case nullValue(Google_Protobuf_NullValue)
+    /// Represents a double value.
     case numberValue(Double)
+    /// Represents a string value.
     case stringValue(String)
+    /// Represents a boolean value.
     case boolValue(Bool)
+    /// Represents a structured value.
     case structValue(Google_Protobuf_Struct)
+    /// Represents a repeated `Value`.
     case listValue(Google_Protobuf_ListValue)
 
     public static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {

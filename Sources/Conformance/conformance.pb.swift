@@ -230,11 +230,28 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Result: Equatable {
+    /// This string should be set to indicate parsing failed.  The string can
+    /// provide more information about the parse error if it is available.
+    ///
+    /// Setting this string does not necessarily mean the testee failed the
+    /// test.  Some of the test cases are intentionally invalid input.
     case parseError(String)
+    /// If the input was successfully parsed but errors occurred when
+    /// serializing it to the requested output format, set the error message in
+    /// this field.
     case serializeError(String)
+    /// This should be set if some other error occurred.  This will always
+    /// indicate that the test failed.  The string can provide more information
+    /// about the failure.
     case runtimeError(String)
+    /// If the input was successfully parsed and the requested output was
+    /// protobuf, serialize it to protobuf and set it in this field.
     case protobufPayload(Data)
+    /// If the input was successfully parsed and the requested output was JSON,
+    /// serialize to JSON and set it in this field.
     case jsonPayload(String)
+    /// For when the testee skipped the test, likely because a certain feature
+    /// wasn't supported, like JSON input/output.
     case skipped(String)
 
     static func ==(lhs: Conformance_ConformanceResponse.OneOf_Result, rhs: Conformance_ConformanceResponse.OneOf_Result) -> Bool {

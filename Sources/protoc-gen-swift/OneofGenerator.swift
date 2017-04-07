@@ -58,6 +58,9 @@ class OneofGenerator {
 
         // Oneof case for each ivar
         for f in fields {
+            if !f.comments.isEmpty {
+              p.print(f.comments)
+            }
             p.print("case \(f.swiftName)(\(f.swiftBaseType))\n")
         }
 

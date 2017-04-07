@@ -485,6 +485,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
     case oneofBool(Bool)
     case oneofString(String)
     case oneofBytes(Data)
+    /// No 'group' in proto3.
     case oneofMessage(ProtobufUnittest_Message3)
     case oneofEnum(ProtobufUnittest_Message3.Enum)
 
