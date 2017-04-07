@@ -563,6 +563,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     _storage._defaultCord = nil
   }
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {
+      _uniqueStorage()._oneofField = newValue
+    }
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -593,13 +600,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       return SwiftProtobuf.Internal.emptyData
     }
     set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

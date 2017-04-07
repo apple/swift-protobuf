@@ -121,6 +121,8 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     _field1 = nil
   }
 
+  var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof? = nil
+
   var oneofField: Int32 {
     get {
       if case .oneofField(let v)? = anOneof {return v}
@@ -128,8 +130,6 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     }
     set {anOneof = .oneofField(newValue)}
   }
-
-  var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof? = nil
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

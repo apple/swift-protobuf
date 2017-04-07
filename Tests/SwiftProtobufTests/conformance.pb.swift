@@ -88,6 +88,8 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
 
+  var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
+
   var protobufPayload: Data {
     get {
       if case .protobufPayload(let v)? = payload {return v}
@@ -95,8 +97,6 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
     }
     set {payload = .protobufPayload(newValue)}
   }
-
-  var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var jsonPayload: String {
     get {
@@ -153,6 +153,8 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
 struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceResponse"
 
+  var result: Conformance_ConformanceResponse.OneOf_Result? = nil
+
   /// This string should be set to indicate parsing failed.  The string can
   /// provide more information about the parse error if it is available.
   ///
@@ -165,8 +167,6 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     }
     set {result = .parseError(newValue)}
   }
-
-  var result: Conformance_ConformanceResponse.OneOf_Result? = nil
 
   /// If the input was successfully parsed but errors occurred when
   /// serializing it to the requested output format, set the error message in

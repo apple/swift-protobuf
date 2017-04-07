@@ -123,6 +123,13 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message {
 struct Google_Protobuf_Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Value"
 
+  var kind: OneOf_Kind? {
+    get {return _storage._kind}
+    set {
+      _uniqueStorage()._kind = newValue
+    }
+  }
+
   /// Represents a null value.
   var nullValue: Google_Protobuf_NullValue {
     get {
@@ -175,13 +182,6 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
       return Google_Protobuf_ListValue()
     }
     set {_uniqueStorage()._kind = .listValue(newValue)}
-  }
-
-  var kind: OneOf_Kind? {
-    get {return _storage._kind}
-    set {
-      _uniqueStorage()._kind = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

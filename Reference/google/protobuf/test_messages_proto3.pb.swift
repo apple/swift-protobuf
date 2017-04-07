@@ -427,6 +427,13 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {
+      _uniqueStorage()._oneofField = newValue
+    }
+  }
+
   var oneofUint32: UInt32 {
     get {
       if case .oneofUint32(let v)? = _storage._oneofField {return v}
@@ -830,13 +837,6 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   var fieldName18__: Int32 {
     get {return _storage._fieldName18__}
     set {_uniqueStorage()._fieldName18__ = newValue}
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
