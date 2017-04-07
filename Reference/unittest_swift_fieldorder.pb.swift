@@ -174,8 +174,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt64Field(value: &_oo)
         case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &_oo)
         default: break
         }
       }
@@ -204,14 +204,14 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
-        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 9, 10, 60, 150:
           if _storage._options != nil {
             try decoder.handleConflictingOneOf()
           }
           _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
+        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
         case 2..<9, 12..<56:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)

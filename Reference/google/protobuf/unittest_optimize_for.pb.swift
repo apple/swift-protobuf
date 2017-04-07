@@ -131,12 +131,12 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt32Field(value: &_storage._i)
-        case 19: try decoder.decodeSingularMessageField(value: &_storage._msg)
         case 2, 3:
           if _storage._foo != nil {
             try decoder.handleConflictingOneOf()
           }
           _storage._foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 19: try decoder.decodeSingularMessageField(value: &_storage._msg)
         case 1000..<536870912:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
         default: break

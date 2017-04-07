@@ -222,8 +222,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
         switch fieldNumber {
         case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
         case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
-        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
         case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
+        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
         default: break
         }
       }
