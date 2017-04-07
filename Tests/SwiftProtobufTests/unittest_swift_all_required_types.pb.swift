@@ -563,6 +563,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     _storage._defaultCord = nil
   }
 
+  /// For oneof test
   var oneofField: OneOf_OneofField? {
     get {return _storage._oneofField}
     set {_uniqueStorage()._oneofField = newValue}

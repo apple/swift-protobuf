@@ -88,6 +88,13 @@ enum Conformance_WireFormat: SwiftProtobuf.Enum {
 struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ConformanceRequest"
 
+  /// The payload (whether protobuf of JSON) is always for a
+  /// protobuf_test_messages.proto3.TestAllTypes proto (as defined in
+  /// src/google/protobuf/proto3_test_messages.proto).
+  ///
+  /// TODO(haberman): if/when we expand the conformance tests to support proto2,
+  /// we will want to include a field that lets the payload/response be a
+  /// protobuf_test_messages.proto2.TestAllTypes message instead.
   var payload: Conformance_ConformanceRequest.OneOf_Payload? = nil
 
   var protobufPayload: Data {

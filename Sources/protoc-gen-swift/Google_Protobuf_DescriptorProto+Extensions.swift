@@ -24,6 +24,7 @@ extension Google_Protobuf_DescriptorProto {
     static let nestedType: Int32 = 3
     static let enumType: Int32 = 4
     static let `extension`: Int32 = 6
+    static let oneofDecl: Int32 = 8
   }
 
   /// A `String` containing a comma-delimited list of Swift range expressions

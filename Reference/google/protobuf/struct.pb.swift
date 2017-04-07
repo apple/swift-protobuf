@@ -123,6 +123,7 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message {
 struct Google_Protobuf_Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Value"
 
+  /// The kind of value.
   var kind: OneOf_Kind? {
     get {return _storage._kind}
     set {_uniqueStorage()._kind = newValue}
