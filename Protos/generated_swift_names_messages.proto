@@ -3,7 +3,7 @@ package protobuf_unittest;
 message GeneratedSwiftReservedMessages {
   message a { int32 a = 1; }
   message adjusted { int32 adjusted = 1; }
-  message Any { int32 Any = 1; }
+  message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
   message AnyMessageStorage { int32 AnyMessageStorage = 1; }
   message Api { int32 Api = 1; }
@@ -35,7 +35,7 @@ message GeneratedSwiftReservedMessages {
   message Bool { int32 Bool = 1; }
   message booleanLiteral { int32 booleanLiteral = 1; }
   message BooleanLiteralType { int32 BooleanLiteralType = 1; }
-  message BoolValue { int32 BoolValue = 1; }
+  message boolValue { int32 boolValue = 1; }
   message buffer { int32 buffer = 1; }
   message buildTypeURL { int32 buildTypeURL = 1; }
   message by { int32 by = 1; }
@@ -43,7 +43,7 @@ message GeneratedSwiftReservedMessages {
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
-  message Cardinality { int32 Cardinality = 1; }
+  message cardinality { int32 cardinality = 1; }
   message Character { int32 Character = 1; }
   message characters { int32 characters = 1; }
   message chars { int32 chars = 1; }
@@ -56,11 +56,11 @@ message GeneratedSwiftReservedMessages {
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
   message customCodable { int32 customCodable = 1; }
-  message D { int32 D = 1; }
+  message d { int32 d = 1; }
   message Data { int32 Data = 1; }
   message dataResult { int32 dataResult = 1; }
   message dataSize { int32 dataSize = 1; }
-  message Date { int32 Date = 1; }
+  message date { int32 date = 1; }
   message daySec { int32 daySec = 1; }
   message daysSinceEpoch { int32 daysSinceEpoch = 1; }
   message DD { int32 DD = 1; }
@@ -72,7 +72,7 @@ message GeneratedSwiftReservedMessages {
   message decodeJSON { int32 decodeJSON = 1; }
   message decodeMapField { int32 decodeMapField = 1; }
   message decodeMessage { int32 decodeMessage = 1; }
-  message Decoder { int32 Decoder = 1; }
+  message decoder { int32 decoder = 1; }
   message decodeRepeated { int32 decodeRepeated = 1; }
   message decodeRepeatedBoolField { int32 decodeRepeatedBoolField = 1; }
   message decodeRepeatedBytesField { int32 decodeRepeatedBytesField = 1; }
@@ -126,7 +126,7 @@ message GeneratedSwiftReservedMessages {
   message discardableResult { int32 discardableResult = 1; }
   message DispatchQueue { int32 DispatchQueue = 1; }
   message div { int32 div = 1; }
-  message Double { int32 Double = 1; }
+  message double { int32 double = 1; }
   message doubleToUtf8 { int32 doubleToUtf8 = 1; }
   message DoubleValue { int32 DoubleValue = 1; }
   message Duration { int32 Duration = 1; }
@@ -149,7 +149,7 @@ message GeneratedSwiftReservedMessages {
   message endObject { int32 endObject = 1; }
   message endRegularField { int32 endRegularField = 1; }
   message Enum { int32 Enum = 1; }
-  message EnumValue { int32 EnumValue = 1; }
+  message enumvalue { int32 enumvalue = 1; }
   message Equatable { int32 Equatable = 1; }
   message ext { int32 ext = 1; }
   message extendedGraphemeClusterLiteral { int32 extendedGraphemeClusterLiteral = 1; }
@@ -158,9 +158,9 @@ message GeneratedSwiftReservedMessages {
   message ExtensionMap { int32 ExtensionMap = 1; }
   message extensions { int32 extensions = 1; }
   message extras { int32 extras = 1; }
-  message F { int32 F = 1; }
+  message f { int32 f = 1; }
   message false { int32 false = 1; }
-  message Field { int32 Field = 1; }
+  message field { int32 field = 1; }
   message FieldMask { int32 FieldMask = 1; }
   message fieldName { int32 fieldName = 1; }
   message fieldNameCount { int32 fieldNameCount = 1; }
@@ -169,13 +169,13 @@ message GeneratedSwiftReservedMessages {
   message fields { int32 fields = 1; }
   message fieldSize { int32 fieldSize = 1; }
   message FieldTag { int32 FieldTag = 1; }
-  message FieldType { int32 FieldType = 1; }
+  message fieldType { int32 fieldType = 1; }
   message fieldValue { int32 fieldValue = 1; }
   message fileName { int32 fileName = 1; }
   message fileprivate { int32 fileprivate = 1; }
   message firstItem { int32 firstItem = 1; }
   message flatMap { int32 flatMap = 1; }
-  message Float { int32 Float = 1; }
+  message float { int32 float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
   message FloatLiteralType { int32 FloatLiteralType = 1; }
   message floatToUtf8 { int32 floatToUtf8 = 1; }
@@ -267,7 +267,7 @@ message GeneratedSwiftReservedMessages {
   message i_2166136261 { int32 i_2166136261 = 1; }
   message json { int32 json = 1; }
   message JSONDecoder { int32 JSONDecoder = 1; }
-  message JSONEncoder { int32 JSONEncoder = 1; }
+  message jsonEncoder { int32 jsonEncoder = 1; }
   message JSONEncodingVisitor { int32 JSONEncodingVisitor = 1; }
   message JSONMapEncodingVisitor { int32 JSONMapEncodingVisitor = 1; }
   message jsonName { int32 jsonName = 1; }
@@ -279,11 +279,11 @@ message GeneratedSwiftReservedMessages {
   message JSONToProto { int32 JSONToProto = 1; }
   message jsonUTF8Data { int32 jsonUTF8Data = 1; }
   message julianDayNumberFromSecondsSince1970 { int32 julianDayNumberFromSecondsSince1970 = 1; }
-  message K { int32 K = 1; }
+  message k { int32 k = 1; }
   message Key { int32 Key = 1; }
   message keyField { int32 keyField = 1; }
   message KeyType { int32 KeyType = 1; }
-  message Kind { int32 Kind = 1; }
+  message kind { int32 kind = 1; }
   message knownTypes { int32 knownTypes = 1; }
   message l { int32 l = 1; }
   message label { int32 label = 1; }
@@ -291,7 +291,7 @@ message GeneratedSwiftReservedMessages {
   message let { int32 let = 1; }
   message lhs { int32 lhs = 1; }
   message listOfMessages { int32 listOfMessages = 1; }
-  message ListValue { int32 ListValue = 1; }
+  message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
   message littleEndianBytes { int32 littleEndianBytes = 1; }
   message M { int32 M = 1; }
@@ -306,7 +306,7 @@ message GeneratedSwiftReservedMessages {
   message mdayStart { int32 mdayStart = 1; }
   message members { int32 members = 1; }
   message merge { int32 merge = 1; }
-  message Message { int32 Message = 1; }
+  message message { int32 message = 1; }
   message MessageExtension { int32 MessageExtension = 1; }
   message MessageExtensionBase { int32 MessageExtensionBase = 1; }
   message messageType { int32 messageType = 1; }
@@ -315,12 +315,12 @@ message GeneratedSwiftReservedMessages {
   message minor { int32 minor = 1; }
   message Mixin { int32 Mixin = 1; }
   message mixins { int32 mixins = 1; }
-  message MM { int32 MM = 1; }
+  message mm { int32 mm = 1; }
   message mod { int32 mod = 1; }
   message month { int32 month = 1; }
   message mutating { int32 mutating = 1; }
   message n { int32 n = 1; }
-  message Name { int32 Name = 1; }
+  message name { int32 name = 1; }
   message NameDescription { int32 NameDescription = 1; }
   message NameMap { int32 NameMap = 1; }
   message nameResolver { int32 nameResolver = 1; }
@@ -431,7 +431,7 @@ message GeneratedSwiftReservedMessages {
   message sawBackslash { int32 sawBackslash = 1; }
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
-  message Self { int32 Self = 1; }
+  message self { int32 self = 1; }
   message separator { int32 separator = 1; }
   message serializeAnyJSON { int32 serializeAnyJSON = 1; }
   message serializedData { int32 serializedData = 1; }
@@ -444,7 +444,7 @@ message GeneratedSwiftReservedMessages {
   message SimpleExtensionMap { int32 SimpleExtensionMap = 1; }
   message sizer { int32 sizer = 1; }
   message slowUtf8ToString { int32 slowUtf8ToString = 1; }
-  message SourceContext { int32 SourceContext = 1; }
+  message sourceContext { int32 sourceContext = 1; }
   message split { int32 split = 1; }
   message ss { int32 ss = 1; }
   message start { int32 start = 1; }
@@ -463,7 +463,7 @@ message GeneratedSwiftReservedMessages {
   message stringLiteral { int32 stringLiteral = 1; }
   message StringLiteralType { int32 StringLiteralType = 1; }
   message stringResult { int32 stringResult = 1; }
-  message StringValue { int32 StringValue = 1; }
+  message stringValue { int32 stringValue = 1; }
   message Struct { int32 Struct = 1; }
   message structValue { int32 structValue = 1; }
   message subDecoder { int32 subDecoder = 1; }
@@ -486,7 +486,7 @@ message GeneratedSwiftReservedMessages {
   message that { int32 that = 1; }
   message they { int32 they = 1; }
   message throws { int32 throws = 1; }
-  message TimeInterval { int32 TimeInterval = 1; }
+  message timeInterval { int32 timeInterval = 1; }
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message timeOfDayFromSecondsSince1970 { int32 timeOfDayFromSecondsSince1970 = 1; }
@@ -528,15 +528,15 @@ message GeneratedSwiftReservedMessages {
   message UnsafePointer { int32 UnsafePointer = 1; }
   message url { int32 url = 1; }
   message used { int32 used = 1; }
-  message UTF8 { int32 UTF8 = 1; }
+  message utf8 { int32 utf8 = 1; }
   message utf8Buffer { int32 utf8Buffer = 1; }
   message utf8Codec { int32 utf8Codec = 1; }
   message utf8Pointer { int32 utf8Pointer = 1; }
   message utf8ToDouble { int32 utf8ToDouble = 1; }
   message utf8ToString { int32 utf8ToString = 1; }
   message UTF8View { int32 UTF8View = 1; }
-  message V { int32 V = 1; }
-  message Value { int32 Value = 1; }
+  message v { int32 v = 1; }
+  message value { int32 value = 1; }
   message valueField { int32 valueField = 1; }
   message values { int32 values = 1; }
   message ValueType { int32 ValueType = 1; }
@@ -545,7 +545,7 @@ message GeneratedSwiftReservedMessages {
   message versionString { int32 versionString = 1; }
   message visitExtensionFields { int32 visitExtensionFields = 1; }
   message visitMapField { int32 visitMapField = 1; }
-  message Visitor { int32 Visitor = 1; }
+  message visitor { int32 visitor = 1; }
   message visitPacked { int32 visitPacked = 1; }
   message visitPackedBoolField { int32 visitPackedBoolField = 1; }
   message visitPackedDoubleField { int32 visitPackedDoubleField = 1; }
@@ -601,7 +601,7 @@ message GeneratedSwiftReservedMessages {
   message visitSingularUInt64Field { int32 visitSingularUInt64Field = 1; }
   message visitUnknown { int32 visitUnknown = 1; }
   message where { int32 where = 1; }
-  message WireFormat { int32 WireFormat = 1; }
+  message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
   message WrappedType { int32 WrappedType = 1; }
   message wrapped_vsnprintf { int32 wrapped_vsnprintf = 1; }

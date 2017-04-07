@@ -171,7 +171,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     var _endObject: Int32 = 0
     var _endRegularField: Int32 = 0
     var _enum_p: Int32 = 0
-    var _enumValue: Int32 = 0
+    var _enumvalue: Int32 = 0
     var _equatable: Int32 = 0
     var _ext: Int32 = 0
     var _extendedGraphemeClusterLiteral: Int32 = 0
@@ -289,7 +289,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     var _i2166136261: Int32 = 0
     var _json: Int32 = 0
     var _jsondecoder: Int32 = 0
-    var _jsonencoder: Int32 = 0
+    var _jsonEncoder: Int32 = 0
     var _jsonencodingVisitor: Int32 = 0
     var _jsonmapEncodingVisitor: Int32 = 0
     var _jsonName: Int32 = 0
@@ -781,7 +781,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       _endObject = source._endObject
       _endRegularField = source._endRegularField
       _enum_p = source._enum_p
-      _enumValue = source._enumValue
+      _enumvalue = source._enumvalue
       _equatable = source._equatable
       _ext = source._ext
       _extendedGraphemeClusterLiteral = source._extendedGraphemeClusterLiteral
@@ -899,7 +899,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       _i2166136261 = source._i2166136261
       _json = source._json
       _jsondecoder = source._jsondecoder
-      _jsonencoder = source._jsonencoder
+      _jsonEncoder = source._jsonEncoder
       _jsonencodingVisitor = source._jsonencodingVisitor
       _jsonmapEncodingVisitor = source._jsonmapEncodingVisitor
       _jsonName = source._jsonName
@@ -1991,9 +1991,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._enum_p = newValue}
   }
 
-  var enumValue: Int32 {
-    get {return _storage._enumValue}
-    set {_uniqueStorage()._enumValue = newValue}
+  var enumvalue: Int32 {
+    get {return _storage._enumvalue}
+    set {_uniqueStorage()._enumvalue = newValue}
   }
 
   var equatable: Int32 {
@@ -2581,9 +2581,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._jsondecoder = newValue}
   }
 
-  var jsonencoder: Int32 {
-    get {return _storage._jsonencoder}
-    set {_uniqueStorage()._jsonencoder = newValue}
+  var jsonEncoder: Int32 {
+    get {return _storage._jsonEncoder}
+    set {_uniqueStorage()._jsonEncoder = newValue}
   }
 
   var jsonencodingVisitor: Int32 {
@@ -4438,7 +4438,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 146: try decoder.decodeSingularInt32Field(value: &_storage._endObject)
         case 147: try decoder.decodeSingularInt32Field(value: &_storage._endRegularField)
         case 148: try decoder.decodeSingularInt32Field(value: &_storage._enum_p)
-        case 149: try decoder.decodeSingularInt32Field(value: &_storage._enumValue)
+        case 149: try decoder.decodeSingularInt32Field(value: &_storage._enumvalue)
         case 150: try decoder.decodeSingularInt32Field(value: &_storage._equatable)
         case 151: try decoder.decodeSingularInt32Field(value: &_storage._ext)
         case 152: try decoder.decodeSingularInt32Field(value: &_storage._extendedGraphemeClusterLiteral)
@@ -4556,7 +4556,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 264: try decoder.decodeSingularInt32Field(value: &_storage._i2166136261)
         case 265: try decoder.decodeSingularInt32Field(value: &_storage._json)
         case 266: try decoder.decodeSingularInt32Field(value: &_storage._jsondecoder)
-        case 267: try decoder.decodeSingularInt32Field(value: &_storage._jsonencoder)
+        case 267: try decoder.decodeSingularInt32Field(value: &_storage._jsonEncoder)
         case 268: try decoder.decodeSingularInt32Field(value: &_storage._jsonencodingVisitor)
         case 269: try decoder.decodeSingularInt32Field(value: &_storage._jsonmapEncodingVisitor)
         case 270: try decoder.decodeSingularInt32Field(value: &_storage._jsonName)
@@ -5348,8 +5348,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._enum_p != 0 {
         try visitor.visitSingularInt32Field(value: _storage._enum_p, fieldNumber: 148)
       }
-      if _storage._enumValue != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._enumValue, fieldNumber: 149)
+      if _storage._enumvalue != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._enumvalue, fieldNumber: 149)
       }
       if _storage._equatable != 0 {
         try visitor.visitSingularInt32Field(value: _storage._equatable, fieldNumber: 150)
@@ -5702,8 +5702,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._jsondecoder != 0 {
         try visitor.visitSingularInt32Field(value: _storage._jsondecoder, fieldNumber: 266)
       }
-      if _storage._jsonencoder != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._jsonencoder, fieldNumber: 267)
+      if _storage._jsonEncoder != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._jsonEncoder, fieldNumber: 267)
       }
       if _storage._jsonencodingVisitor != 0 {
         try visitor.visitSingularInt32Field(value: _storage._jsonencodingVisitor, fieldNumber: 268)
@@ -6735,7 +6735,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "a"),
     2: .same(proto: "adjusted"),
-    3: .same(proto: "Any"),
+    3: .same(proto: "any"),
     4: .same(proto: "AnyExtensionField"),
     5: .same(proto: "AnyMessageStorage"),
     6: .same(proto: "Api"),
@@ -6767,7 +6767,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     32: .same(proto: "Bool"),
     33: .same(proto: "booleanLiteral"),
     34: .same(proto: "BooleanLiteralType"),
-    35: .same(proto: "BoolValue"),
+    35: .same(proto: "boolValue"),
     36: .same(proto: "buffer"),
     37: .same(proto: "buildTypeURL"),
     38: .same(proto: "by"),
@@ -6775,7 +6775,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     40: .same(proto: "BytesValue"),
     41: .same(proto: "c"),
     42: .same(proto: "capitalizeNext"),
-    43: .same(proto: "Cardinality"),
+    43: .same(proto: "cardinality"),
     44: .same(proto: "Character"),
     45: .same(proto: "characters"),
     46: .same(proto: "chars"),
@@ -6788,11 +6788,11 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     53: .same(proto: "contentsOf"),
     54: .same(proto: "count"),
     55: .same(proto: "customCodable"),
-    56: .same(proto: "D"),
+    56: .same(proto: "d"),
     57: .same(proto: "Data"),
     58: .same(proto: "dataResult"),
     59: .same(proto: "dataSize"),
-    60: .same(proto: "Date"),
+    60: .same(proto: "date"),
     61: .same(proto: "daySec"),
     62: .same(proto: "daysSinceEpoch"),
     63: .same(proto: "DD"),
@@ -6804,7 +6804,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     69: .same(proto: "decodeJSON"),
     70: .same(proto: "decodeMapField"),
     71: .same(proto: "decodeMessage"),
-    72: .same(proto: "Decoder"),
+    72: .same(proto: "decoder"),
     73: .same(proto: "decodeRepeated"),
     74: .same(proto: "decodeRepeatedBoolField"),
     75: .same(proto: "decodeRepeatedBytesField"),
@@ -6858,7 +6858,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     123: .same(proto: "discardableResult"),
     124: .same(proto: "DispatchQueue"),
     125: .same(proto: "div"),
-    126: .same(proto: "Double"),
+    126: .same(proto: "double"),
     127: .same(proto: "doubleToUtf8"),
     128: .same(proto: "DoubleValue"),
     129: .same(proto: "Duration"),
@@ -6881,7 +6881,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     146: .same(proto: "endObject"),
     147: .same(proto: "endRegularField"),
     148: .same(proto: "Enum"),
-    149: .same(proto: "EnumValue"),
+    149: .same(proto: "enumvalue"),
     150: .same(proto: "Equatable"),
     151: .same(proto: "ext"),
     152: .same(proto: "extendedGraphemeClusterLiteral"),
@@ -6890,9 +6890,9 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     155: .same(proto: "ExtensionMap"),
     156: .same(proto: "extensions"),
     157: .same(proto: "extras"),
-    158: .same(proto: "F"),
+    158: .same(proto: "f"),
     159: .same(proto: "false"),
-    160: .same(proto: "Field"),
+    160: .same(proto: "field"),
     161: .same(proto: "FieldMask"),
     162: .same(proto: "fieldName"),
     163: .same(proto: "fieldNameCount"),
@@ -6901,13 +6901,13 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     166: .same(proto: "fields"),
     167: .same(proto: "fieldSize"),
     168: .same(proto: "FieldTag"),
-    169: .same(proto: "FieldType"),
+    169: .same(proto: "fieldType"),
     170: .same(proto: "fieldValue"),
     171: .same(proto: "fileName"),
     172: .same(proto: "fileprivate"),
     173: .same(proto: "firstItem"),
     174: .same(proto: "flatMap"),
-    175: .same(proto: "Float"),
+    175: .same(proto: "float"),
     176: .same(proto: "floatLiteral"),
     177: .same(proto: "FloatLiteralType"),
     178: .same(proto: "floatToUtf8"),
@@ -6999,7 +6999,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     264: .standard(proto: "i_2166136261"),
     265: .same(proto: "json"),
     266: .same(proto: "JSONDecoder"),
-    267: .same(proto: "JSONEncoder"),
+    267: .same(proto: "jsonEncoder"),
     268: .same(proto: "JSONEncodingVisitor"),
     269: .same(proto: "JSONMapEncodingVisitor"),
     270: .same(proto: "jsonName"),
@@ -7011,11 +7011,11 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     276: .same(proto: "JSONToProto"),
     277: .same(proto: "jsonUTF8Data"),
     278: .same(proto: "julianDayNumberFromSecondsSince1970"),
-    279: .same(proto: "K"),
+    279: .same(proto: "k"),
     280: .same(proto: "Key"),
     281: .same(proto: "keyField"),
     282: .same(proto: "KeyType"),
-    283: .same(proto: "Kind"),
+    283: .same(proto: "kind"),
     284: .same(proto: "knownTypes"),
     285: .same(proto: "l"),
     286: .same(proto: "label"),
@@ -7023,7 +7023,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     288: .same(proto: "let"),
     289: .same(proto: "lhs"),
     290: .same(proto: "listOfMessages"),
-    291: .same(proto: "ListValue"),
+    291: .same(proto: "listValue"),
     292: .same(proto: "littleEndian"),
     293: .same(proto: "littleEndianBytes"),
     294: .same(proto: "M"),
@@ -7038,7 +7038,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     303: .same(proto: "mdayStart"),
     304: .same(proto: "members"),
     305: .same(proto: "merge"),
-    306: .same(proto: "Message"),
+    306: .same(proto: "message"),
     307: .same(proto: "MessageExtension"),
     308: .same(proto: "MessageExtensionBase"),
     309: .same(proto: "messageType"),
@@ -7047,12 +7047,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     312: .same(proto: "minor"),
     313: .same(proto: "Mixin"),
     314: .same(proto: "mixins"),
-    315: .same(proto: "MM"),
+    315: .same(proto: "mm"),
     316: .same(proto: "mod"),
     317: .same(proto: "month"),
     318: .same(proto: "mutating"),
     319: .same(proto: "n"),
-    320: .same(proto: "Name"),
+    320: .same(proto: "name"),
     321: .same(proto: "NameDescription"),
     322: .same(proto: "NameMap"),
     323: .same(proto: "nameResolver"),
@@ -7163,7 +7163,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     428: .same(proto: "sawBackslash"),
     429: .same(proto: "scanner"),
     430: .same(proto: "seconds"),
-    431: .same(proto: "Self"),
+    431: .same(proto: "self"),
     432: .same(proto: "separator"),
     433: .same(proto: "serializeAnyJSON"),
     434: .same(proto: "serializedData"),
@@ -7176,7 +7176,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     441: .same(proto: "SimpleExtensionMap"),
     442: .same(proto: "sizer"),
     443: .same(proto: "slowUtf8ToString"),
-    444: .same(proto: "SourceContext"),
+    444: .same(proto: "sourceContext"),
     445: .same(proto: "split"),
     446: .same(proto: "ss"),
     447: .same(proto: "start"),
@@ -7195,7 +7195,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     460: .same(proto: "stringLiteral"),
     461: .same(proto: "StringLiteralType"),
     462: .same(proto: "stringResult"),
-    463: .same(proto: "StringValue"),
+    463: .same(proto: "stringValue"),
     464: .same(proto: "Struct"),
     465: .same(proto: "structValue"),
     466: .same(proto: "subDecoder"),
@@ -7218,7 +7218,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     483: .same(proto: "that"),
     484: .same(proto: "they"),
     485: .same(proto: "throws"),
-    486: .same(proto: "TimeInterval"),
+    486: .same(proto: "timeInterval"),
     487: .same(proto: "timeIntervalSince1970"),
     488: .same(proto: "timeIntervalSinceReferenceDate"),
     489: .same(proto: "timeOfDayFromSecondsSince1970"),
@@ -7260,15 +7260,15 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     525: .same(proto: "UnsafePointer"),
     526: .same(proto: "url"),
     527: .same(proto: "used"),
-    528: .same(proto: "UTF8"),
+    528: .same(proto: "utf8"),
     529: .same(proto: "utf8Buffer"),
     530: .same(proto: "utf8Codec"),
     531: .same(proto: "utf8Pointer"),
     532: .same(proto: "utf8ToDouble"),
     533: .same(proto: "utf8ToString"),
     534: .same(proto: "UTF8View"),
-    535: .same(proto: "V"),
-    536: .same(proto: "Value"),
+    535: .same(proto: "v"),
+    536: .same(proto: "value"),
     537: .same(proto: "valueField"),
     538: .same(proto: "values"),
     539: .same(proto: "ValueType"),
@@ -7277,7 +7277,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     542: .same(proto: "versionString"),
     543: .same(proto: "visitExtensionFields"),
     544: .same(proto: "visitMapField"),
-    545: .same(proto: "Visitor"),
+    545: .same(proto: "visitor"),
     546: .same(proto: "visitPacked"),
     547: .same(proto: "visitPackedBoolField"),
     548: .same(proto: "visitPackedDoubleField"),
@@ -7333,7 +7333,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     598: .same(proto: "visitSingularUInt64Field"),
     599: .same(proto: "visitUnknown"),
     600: .same(proto: "where"),
-    601: .same(proto: "WireFormat"),
+    601: .same(proto: "wireFormat"),
     602: .same(proto: "with"),
     603: .same(proto: "WrappedType"),
     604: .standard(proto: "wrapped_vsnprintf"),
@@ -7492,7 +7492,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._endObject != other_storage._endObject {return false}
         if _storage._endRegularField != other_storage._endRegularField {return false}
         if _storage._enum_p != other_storage._enum_p {return false}
-        if _storage._enumValue != other_storage._enumValue {return false}
+        if _storage._enumvalue != other_storage._enumvalue {return false}
         if _storage._equatable != other_storage._equatable {return false}
         if _storage._ext != other_storage._ext {return false}
         if _storage._extendedGraphemeClusterLiteral != other_storage._extendedGraphemeClusterLiteral {return false}
@@ -7610,7 +7610,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._i2166136261 != other_storage._i2166136261 {return false}
         if _storage._json != other_storage._json {return false}
         if _storage._jsondecoder != other_storage._jsondecoder {return false}
-        if _storage._jsonencoder != other_storage._jsonencoder {return false}
+        if _storage._jsonEncoder != other_storage._jsonEncoder {return false}
         if _storage._jsonencodingVisitor != other_storage._jsonencodingVisitor {return false}
         if _storage._jsonmapEncodingVisitor != other_storage._jsonmapEncodingVisitor {return false}
         if _storage._jsonName != other_storage._jsonName {return false}

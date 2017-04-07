@@ -76,8 +76,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct AnyMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Any"
+  struct any: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".any"
 
     var any: Int32 = 0
 
@@ -908,8 +908,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct BoolValue: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".BoolValue"
+  struct boolValue: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".boolValue"
 
     var boolValue: Int32 = 0
 
@@ -1116,8 +1116,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Cardinality: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Cardinality"
+  struct cardinality: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".cardinality"
 
     var cardinality: Int32 = 0
 
@@ -1454,8 +1454,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct D: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".D"
+  struct d: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".d"
 
     var d: Int32 = 0
 
@@ -1558,8 +1558,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Date: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Date"
+  struct date: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".date"
 
     var date: Int32 = 0
 
@@ -1870,8 +1870,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Decoder: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Decoder"
+  struct decoder: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".decoder"
 
     var decoder_p: Int32 = 0
 
@@ -3274,8 +3274,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct DoubleMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Double"
+  struct double: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".double"
 
     var double: Int32 = 0
 
@@ -3872,10 +3872,10 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct EnumValue: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".EnumValue"
+  struct enumvalue: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".enumvalue"
 
-    var enumValue: Int32 = 0
+    var enumvalue: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -3884,15 +3884,15 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &enumValue)
+        case 1: try decoder.decodeSingularInt32Field(value: &enumvalue)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if enumValue != 0 {
-        try visitor.visitSingularInt32Field(value: enumValue, fieldNumber: 1)
+      if enumvalue != 0 {
+        try visitor.visitSingularInt32Field(value: enumvalue, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -4106,8 +4106,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct F: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".F"
+  struct f: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".f"
 
     var f: Int32 = 0
 
@@ -4158,8 +4158,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Field: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Field"
+  struct field: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".field"
 
     var field: Int32 = 0
 
@@ -4392,8 +4392,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct FieldType: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".FieldType"
+  struct fieldType: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".fieldType"
 
     var fieldType: Int32 = 0
 
@@ -4548,8 +4548,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct FloatMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Float"
+  struct float: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".float"
 
     var float: Int32 = 0
 
@@ -6940,10 +6940,10 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct JSONEncoder: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".JSONEncoder"
+  struct jsonEncoder: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".jsonEncoder"
 
-    var jsonencoder: Int32 = 0
+    var jsonEncoder: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6952,15 +6952,15 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &jsonencoder)
+        case 1: try decoder.decodeSingularInt32Field(value: &jsonEncoder)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if jsonencoder != 0 {
-        try visitor.visitSingularInt32Field(value: jsonencoder, fieldNumber: 1)
+      if jsonEncoder != 0 {
+        try visitor.visitSingularInt32Field(value: jsonEncoder, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -7252,8 +7252,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct K: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".K"
+  struct k: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".k"
 
     var k: Int32 = 0
 
@@ -7356,8 +7356,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Kind: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Kind"
+  struct kind: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".kind"
 
     var kind: Int32 = 0
 
@@ -7564,8 +7564,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct ListValue: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".ListValue"
+  struct listValue: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".listValue"
 
     var listValue: Int32 = 0
 
@@ -7954,8 +7954,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Message: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Message"
+  struct message: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".message"
 
     var message: Int32 = 0
 
@@ -8188,8 +8188,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct MM: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".MM"
+  struct mm: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".mm"
 
     var mm: Int32 = 0
 
@@ -8318,8 +8318,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Name: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Name"
+  struct name: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".name"
 
     var name: Int32 = 0
 
@@ -11204,8 +11204,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct SelfMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Self"
+  struct selfMessage: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".self"
 
     var self_p: Int32 = 0
 
@@ -11542,8 +11542,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct SourceContext: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".SourceContext"
+  struct sourceContext: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".sourceContext"
 
     var sourceContext: Int32 = 0
 
@@ -12036,8 +12036,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct StringValue: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".StringValue"
+  struct stringValue: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".stringValue"
 
     var stringValue: Int32 = 0
 
@@ -12634,8 +12634,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct TimeInterval: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".TimeInterval"
+  struct timeInterval: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".timeInterval"
 
     var timeInterval: Int32 = 0
 
@@ -13726,8 +13726,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct UTF8: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".UTF8"
+  struct utf8: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".utf8"
 
     var utf8: Int32 = 0
 
@@ -13908,8 +13908,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct V: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".V"
+  struct v: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".v"
 
     var v: Int32 = 0
 
@@ -13934,8 +13934,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Value: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Value"
+  struct value: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".value"
 
     var value: Int32 = 0
 
@@ -14168,8 +14168,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct Visitor: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Visitor"
+  struct visitor: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".visitor"
 
     var visitor_p: Int32 = 0
 
@@ -15624,8 +15624,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct WireFormat: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".WireFormat"
+  struct wireFormat: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".wireFormat"
 
     var wireFormat: Int32 = 0
 
@@ -15829,12 +15829,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.adjusted: SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.AnyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.any: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Any"),
+    1: .same(proto: "any"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.AnyMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.any) -> Bool {
     if any != other.any {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -16213,12 +16213,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.BooleanLiteralType: Sw
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.BoolValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.boolValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "BoolValue"),
+    1: .same(proto: "boolValue"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.BoolValue) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.boolValue) -> Bool {
     if boolValue != other.boolValue {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -16309,12 +16309,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.capitalizeNext: SwiftP
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Cardinality: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.cardinality: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Cardinality"),
+    1: .same(proto: "cardinality"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Cardinality) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.cardinality) -> Bool {
     if cardinality != other.cardinality {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -16465,12 +16465,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.customCodable: SwiftPr
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.D: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.d: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "D"),
+    1: .same(proto: "d"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.D) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.d) -> Bool {
     if d != other.d {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -16513,12 +16513,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.dataSize: SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Date: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.date: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Date"),
+    1: .same(proto: "date"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Date) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.date) -> Bool {
     if date != other.date {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -16657,12 +16657,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.decodeMessageMessage: 
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Decoder: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.decoder: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Decoder"),
+    1: .same(proto: "decoder"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Decoder) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.decoder) -> Bool {
     if decoder_p != other.decoder_p {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -17305,12 +17305,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.div: SwiftProtobuf._Me
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.DoubleMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.double: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Double"),
+    1: .same(proto: "double"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.DoubleMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.double) -> Bool {
     if double != other.double {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -17581,13 +17581,13 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.Enum: SwiftProtobuf._M
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.EnumValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.enumvalue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "EnumValue"),
+    1: .same(proto: "enumvalue"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.EnumValue) -> Bool {
-    if enumValue != other.enumValue {return false}
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.enumvalue) -> Bool {
+    if enumvalue != other.enumvalue {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -17689,12 +17689,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.extras: SwiftProtobuf.
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.F: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.f: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "F"),
+    1: .same(proto: "f"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.F) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.f) -> Bool {
     if f != other.f {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -17713,12 +17713,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.falseMessage: SwiftPro
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Field: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.field: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Field"),
+    1: .same(proto: "field"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Field) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.field) -> Bool {
     if field != other.field {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -17821,12 +17821,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.FieldTag: SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.FieldType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.fieldType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "FieldType"),
+    1: .same(proto: "fieldType"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.FieldType) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.fieldType) -> Bool {
     if fieldType != other.fieldType {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -17893,12 +17893,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.flatMap: SwiftProtobuf
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.FloatMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.float: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Float"),
+    1: .same(proto: "float"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.FloatMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.float) -> Bool {
     if float != other.float {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -18997,13 +18997,13 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.JSONDecoder: SwiftProt
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.JSONEncoder: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.jsonEncoder: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "JSONEncoder"),
+    1: .same(proto: "jsonEncoder"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.JSONEncoder) -> Bool {
-    if jsonencoder != other.jsonencoder {return false}
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.jsonEncoder) -> Bool {
+    if jsonEncoder != other.jsonEncoder {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -19141,12 +19141,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.julianDayNumberFromSec
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.K: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.k: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "K"),
+    1: .same(proto: "k"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.K) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.k) -> Bool {
     if k != other.k {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -19189,12 +19189,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.KeyType: SwiftProtobuf
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Kind: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.kind: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Kind"),
+    1: .same(proto: "kind"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Kind) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.kind) -> Bool {
     if kind != other.kind {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -19285,12 +19285,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.listOfMessages: SwiftP
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.ListValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.listValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "ListValue"),
+    1: .same(proto: "listValue"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.ListValue) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.listValue) -> Bool {
     if listValue != other.listValue {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -19465,12 +19465,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.merge: SwiftProtobuf._
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.message: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Message"),
+    1: .same(proto: "message"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Message) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.message) -> Bool {
     if message != other.message {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -19573,12 +19573,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.mixins: SwiftProtobuf.
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.MM: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.mm: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "MM"),
+    1: .same(proto: "mm"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.MM) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.mm) -> Bool {
     if mm != other.mm {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -19633,12 +19633,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.n: SwiftProtobuf._Mess
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Name: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.name: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Name"),
+    1: .same(proto: "name"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Name) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.name) -> Bool {
     if name != other.name {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -20965,12 +20965,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.seconds: SwiftProtobuf
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.SelfMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.selfMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Self"),
+    1: .same(proto: "self"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.SelfMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.selfMessage) -> Bool {
     if self_p != other.self_p {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -21121,12 +21121,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.slowUtf8ToString: Swif
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.SourceContext: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.sourceContext: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "SourceContext"),
+    1: .same(proto: "sourceContext"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.SourceContext) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.sourceContext) -> Bool {
     if sourceContext != other.sourceContext {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -21349,12 +21349,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.stringResult: SwiftPro
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.StringValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.stringValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "StringValue"),
+    1: .same(proto: "stringValue"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.StringValue) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.stringValue) -> Bool {
     if stringValue != other.stringValue {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -21625,12 +21625,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.throwsMessage: SwiftPr
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.TimeInterval: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.timeInterval: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "TimeInterval"),
+    1: .same(proto: "timeInterval"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.TimeInterval) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.timeInterval) -> Bool {
     if timeInterval != other.timeInterval {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -22129,12 +22129,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.used: SwiftProtobuf._M
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.UTF8: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.utf8: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "UTF8"),
+    1: .same(proto: "utf8"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.UTF8) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.utf8) -> Bool {
     if utf8 != other.utf8 {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -22213,24 +22213,24 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.UTF8View: SwiftProtobu
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.V: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.v: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "V"),
+    1: .same(proto: "v"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.V) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.v) -> Bool {
     if v != other.v {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Value"),
+    1: .same(proto: "value"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Value) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.value) -> Bool {
     if value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -22333,12 +22333,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.visitMapField: SwiftPr
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.Visitor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.visitor: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "Visitor"),
+    1: .same(proto: "visitor"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Visitor) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.visitor) -> Bool {
     if visitor_p != other.visitor_p {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -23005,12 +23005,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.whereMessage: SwiftPro
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.WireFormat: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.wireFormat: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "WireFormat"),
+    1: .same(proto: "wireFormat"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.WireFormat) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.wireFormat) -> Bool {
     if wireFormat != other.wireFormat {return false}
     if unknownFields != other.unknownFields {return false}
     return true

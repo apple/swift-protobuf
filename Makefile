@@ -408,8 +408,7 @@ Protos/mined_words.txt: Sources/SwiftProtobuf/*
 	sed -e 's/[^a-zA-Z0-9_]/ /g' | \
 	tr " " "\n" | \
 	sed -e 's/^_//' | \
-	sort -f | \
-	uniq -i | \
+	sort -uf | \
 	grep '^[a-zA-Z_]' > $@
 
 # Build some proto files full of landmines

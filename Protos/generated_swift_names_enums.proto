@@ -3,7 +3,7 @@ package protobuf_unittest;
 message GeneratedSwiftReservedEnums {
   enum a { NONE_a = 0; }
   enum adjusted { NONE_adjusted = 0; }
-  enum Any { NONE_Any = 0; }
+  enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
   enum AnyMessageStorage { NONE_AnyMessageStorage = 0; }
   enum Api { NONE_Api = 0; }
@@ -35,7 +35,7 @@ message GeneratedSwiftReservedEnums {
   enum Bool { NONE_Bool = 0; }
   enum booleanLiteral { NONE_booleanLiteral = 0; }
   enum BooleanLiteralType { NONE_BooleanLiteralType = 0; }
-  enum BoolValue { NONE_BoolValue = 0; }
+  enum boolValue { NONE_boolValue = 0; }
   enum buffer { NONE_buffer = 0; }
   enum buildTypeURL { NONE_buildTypeURL = 0; }
   enum by { NONE_by = 0; }
@@ -43,7 +43,7 @@ message GeneratedSwiftReservedEnums {
   enum BytesValue { NONE_BytesValue = 0; }
   enum c { NONE_c = 0; }
   enum capitalizeNext { NONE_capitalizeNext = 0; }
-  enum Cardinality { NONE_Cardinality = 0; }
+  enum cardinality { NONE_cardinality = 0; }
   enum Character { NONE_Character = 0; }
   enum characters { NONE_characters = 0; }
   enum chars { NONE_chars = 0; }
@@ -56,11 +56,11 @@ message GeneratedSwiftReservedEnums {
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
   enum customCodable { NONE_customCodable = 0; }
-  enum D { NONE_D = 0; }
+  enum d { NONE_d = 0; }
   enum Data { NONE_Data = 0; }
   enum dataResult { NONE_dataResult = 0; }
   enum dataSize { NONE_dataSize = 0; }
-  enum Date { NONE_Date = 0; }
+  enum date { NONE_date = 0; }
   enum daySec { NONE_daySec = 0; }
   enum daysSinceEpoch { NONE_daysSinceEpoch = 0; }
   enum DD { NONE_DD = 0; }
@@ -72,7 +72,7 @@ message GeneratedSwiftReservedEnums {
   enum decodeJSON { NONE_decodeJSON = 0; }
   enum decodeMapField { NONE_decodeMapField = 0; }
   enum decodeMessage { NONE_decodeMessage = 0; }
-  enum Decoder { NONE_Decoder = 0; }
+  enum decoder { NONE_decoder = 0; }
   enum decodeRepeated { NONE_decodeRepeated = 0; }
   enum decodeRepeatedBoolField { NONE_decodeRepeatedBoolField = 0; }
   enum decodeRepeatedBytesField { NONE_decodeRepeatedBytesField = 0; }
@@ -126,7 +126,7 @@ message GeneratedSwiftReservedEnums {
   enum discardableResult { NONE_discardableResult = 0; }
   enum DispatchQueue { NONE_DispatchQueue = 0; }
   enum div { NONE_div = 0; }
-  enum Double { NONE_Double = 0; }
+  enum double { NONE_double = 0; }
   enum doubleToUtf8 { NONE_doubleToUtf8 = 0; }
   enum DoubleValue { NONE_DoubleValue = 0; }
   enum Duration { NONE_Duration = 0; }
@@ -149,7 +149,7 @@ message GeneratedSwiftReservedEnums {
   enum endObject { NONE_endObject = 0; }
   enum endRegularField { NONE_endRegularField = 0; }
   enum Enum { NONE_Enum = 0; }
-  enum EnumValue { NONE_EnumValue = 0; }
+  enum enumvalue { NONE_enumvalue = 0; }
   enum Equatable { NONE_Equatable = 0; }
   enum ext { NONE_ext = 0; }
   enum extendedGraphemeClusterLiteral { NONE_extendedGraphemeClusterLiteral = 0; }
@@ -158,9 +158,9 @@ message GeneratedSwiftReservedEnums {
   enum ExtensionMap { NONE_ExtensionMap = 0; }
   enum extensions { NONE_extensions = 0; }
   enum extras { NONE_extras = 0; }
-  enum F { NONE_F = 0; }
+  enum f { NONE_f = 0; }
   enum false { NONE_false = 0; }
-  enum Field { NONE_Field = 0; }
+  enum field { NONE_field = 0; }
   enum FieldMask { NONE_FieldMask = 0; }
   enum fieldName { NONE_fieldName = 0; }
   enum fieldNameCount { NONE_fieldNameCount = 0; }
@@ -169,13 +169,13 @@ message GeneratedSwiftReservedEnums {
   enum fields { NONE_fields = 0; }
   enum fieldSize { NONE_fieldSize = 0; }
   enum FieldTag { NONE_FieldTag = 0; }
-  enum FieldType { NONE_FieldType = 0; }
+  enum fieldType { NONE_fieldType = 0; }
   enum fieldValue { NONE_fieldValue = 0; }
   enum fileName { NONE_fileName = 0; }
   enum fileprivate { NONE_fileprivate = 0; }
   enum firstItem { NONE_firstItem = 0; }
   enum flatMap { NONE_flatMap = 0; }
-  enum Float { NONE_Float = 0; }
+  enum float { NONE_float = 0; }
   enum floatLiteral { NONE_floatLiteral = 0; }
   enum FloatLiteralType { NONE_FloatLiteralType = 0; }
   enum floatToUtf8 { NONE_floatToUtf8 = 0; }
@@ -267,7 +267,7 @@ message GeneratedSwiftReservedEnums {
   enum i_2166136261 { NONE_i_2166136261 = 0; }
   enum json { NONE_json = 0; }
   enum JSONDecoder { NONE_JSONDecoder = 0; }
-  enum JSONEncoder { NONE_JSONEncoder = 0; }
+  enum jsonEncoder { NONE_jsonEncoder = 0; }
   enum JSONEncodingVisitor { NONE_JSONEncodingVisitor = 0; }
   enum JSONMapEncodingVisitor { NONE_JSONMapEncodingVisitor = 0; }
   enum jsonName { NONE_jsonName = 0; }
@@ -279,11 +279,11 @@ message GeneratedSwiftReservedEnums {
   enum JSONToProto { NONE_JSONToProto = 0; }
   enum jsonUTF8Data { NONE_jsonUTF8Data = 0; }
   enum julianDayNumberFromSecondsSince1970 { NONE_julianDayNumberFromSecondsSince1970 = 0; }
-  enum K { NONE_K = 0; }
+  enum k { NONE_k = 0; }
   enum Key { NONE_Key = 0; }
   enum keyField { NONE_keyField = 0; }
   enum KeyType { NONE_KeyType = 0; }
-  enum Kind { NONE_Kind = 0; }
+  enum kind { NONE_kind = 0; }
   enum knownTypes { NONE_knownTypes = 0; }
   enum l { NONE_l = 0; }
   enum label { NONE_label = 0; }
@@ -291,7 +291,7 @@ message GeneratedSwiftReservedEnums {
   enum let { NONE_let = 0; }
   enum lhs { NONE_lhs = 0; }
   enum listOfMessages { NONE_listOfMessages = 0; }
-  enum ListValue { NONE_ListValue = 0; }
+  enum listValue { NONE_listValue = 0; }
   enum littleEndian { NONE_littleEndian = 0; }
   enum littleEndianBytes { NONE_littleEndianBytes = 0; }
   enum M { NONE_M = 0; }
@@ -306,7 +306,7 @@ message GeneratedSwiftReservedEnums {
   enum mdayStart { NONE_mdayStart = 0; }
   enum members { NONE_members = 0; }
   enum merge { NONE_merge = 0; }
-  enum Message { NONE_Message = 0; }
+  enum message { NONE_message = 0; }
   enum MessageExtension { NONE_MessageExtension = 0; }
   enum MessageExtensionBase { NONE_MessageExtensionBase = 0; }
   enum messageType { NONE_messageType = 0; }
@@ -315,12 +315,12 @@ message GeneratedSwiftReservedEnums {
   enum minor { NONE_minor = 0; }
   enum Mixin { NONE_Mixin = 0; }
   enum mixins { NONE_mixins = 0; }
-  enum MM { NONE_MM = 0; }
+  enum mm { NONE_mm = 0; }
   enum mod { NONE_mod = 0; }
   enum month { NONE_month = 0; }
   enum mutating { NONE_mutating = 0; }
   enum n { NONE_n = 0; }
-  enum Name { NONE_Name = 0; }
+  enum name { NONE_name = 0; }
   enum NameDescription { NONE_NameDescription = 0; }
   enum NameMap { NONE_NameMap = 0; }
   enum nameResolver { NONE_nameResolver = 0; }
@@ -431,7 +431,7 @@ message GeneratedSwiftReservedEnums {
   enum sawBackslash { NONE_sawBackslash = 0; }
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }
-  enum Self { NONE_Self = 0; }
+  enum self { NONE_self = 0; }
   enum separator { NONE_separator = 0; }
   enum serializeAnyJSON { NONE_serializeAnyJSON = 0; }
   enum serializedData { NONE_serializedData = 0; }
@@ -444,7 +444,7 @@ message GeneratedSwiftReservedEnums {
   enum SimpleExtensionMap { NONE_SimpleExtensionMap = 0; }
   enum sizer { NONE_sizer = 0; }
   enum slowUtf8ToString { NONE_slowUtf8ToString = 0; }
-  enum SourceContext { NONE_SourceContext = 0; }
+  enum sourceContext { NONE_sourceContext = 0; }
   enum split { NONE_split = 0; }
   enum ss { NONE_ss = 0; }
   enum start { NONE_start = 0; }
@@ -463,7 +463,7 @@ message GeneratedSwiftReservedEnums {
   enum stringLiteral { NONE_stringLiteral = 0; }
   enum StringLiteralType { NONE_StringLiteralType = 0; }
   enum stringResult { NONE_stringResult = 0; }
-  enum StringValue { NONE_StringValue = 0; }
+  enum stringValue { NONE_stringValue = 0; }
   enum Struct { NONE_Struct = 0; }
   enum structValue { NONE_structValue = 0; }
   enum subDecoder { NONE_subDecoder = 0; }
@@ -486,7 +486,7 @@ message GeneratedSwiftReservedEnums {
   enum that { NONE_that = 0; }
   enum they { NONE_they = 0; }
   enum throws { NONE_throws = 0; }
-  enum TimeInterval { NONE_TimeInterval = 0; }
+  enum timeInterval { NONE_timeInterval = 0; }
   enum timeIntervalSince1970 { NONE_timeIntervalSince1970 = 0; }
   enum timeIntervalSinceReferenceDate { NONE_timeIntervalSinceReferenceDate = 0; }
   enum timeOfDayFromSecondsSince1970 { NONE_timeOfDayFromSecondsSince1970 = 0; }
@@ -528,15 +528,15 @@ message GeneratedSwiftReservedEnums {
   enum UnsafePointer { NONE_UnsafePointer = 0; }
   enum url { NONE_url = 0; }
   enum used { NONE_used = 0; }
-  enum UTF8 { NONE_UTF8 = 0; }
+  enum utf8 { NONE_utf8 = 0; }
   enum utf8Buffer { NONE_utf8Buffer = 0; }
   enum utf8Codec { NONE_utf8Codec = 0; }
   enum utf8Pointer { NONE_utf8Pointer = 0; }
   enum utf8ToDouble { NONE_utf8ToDouble = 0; }
   enum utf8ToString { NONE_utf8ToString = 0; }
   enum UTF8View { NONE_UTF8View = 0; }
-  enum V { NONE_V = 0; }
-  enum Value { NONE_Value = 0; }
+  enum v { NONE_v = 0; }
+  enum value { NONE_value = 0; }
   enum valueField { NONE_valueField = 0; }
   enum values { NONE_values = 0; }
   enum ValueType { NONE_ValueType = 0; }
@@ -545,7 +545,7 @@ message GeneratedSwiftReservedEnums {
   enum versionString { NONE_versionString = 0; }
   enum visitExtensionFields { NONE_visitExtensionFields = 0; }
   enum visitMapField { NONE_visitMapField = 0; }
-  enum Visitor { NONE_Visitor = 0; }
+  enum visitor { NONE_visitor = 0; }
   enum visitPacked { NONE_visitPacked = 0; }
   enum visitPackedBoolField { NONE_visitPackedBoolField = 0; }
   enum visitPackedDoubleField { NONE_visitPackedDoubleField = 0; }
@@ -601,7 +601,7 @@ message GeneratedSwiftReservedEnums {
   enum visitSingularUInt64Field { NONE_visitSingularUInt64Field = 0; }
   enum visitUnknown { NONE_visitUnknown = 0; }
   enum where { NONE_where = 0; }
-  enum WireFormat { NONE_WireFormat = 0; }
+  enum wireFormat { NONE_wireFormat = 0; }
   enum with { NONE_with = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
   enum wrapped_vsnprintf { NONE_wrapped_vsnprintf = 0; }

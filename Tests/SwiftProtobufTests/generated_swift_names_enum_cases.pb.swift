@@ -170,7 +170,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   case endObject // = 146
   case endRegularField // = 147
   case `enum` // = 148
-  case enumValue // = 149
+  case enumvalue // = 149
   case equatable // = 150
   case ext // = 151
   case extendedGraphemeClusterLiteral // = 152
@@ -288,7 +288,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   case i2166136261 // = 264
   case json // = 265
   case jsondecoder // = 266
-  case jsonencoder // = 267
+  case jsonEncoder // = 267
   case jsonencodingVisitor // = 268
   case jsonmapEncodingVisitor // = 269
   case jsonName // = 270
@@ -785,7 +785,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 146: self = .endObject
     case 147: self = .endRegularField
     case 148: self = .`enum`
-    case 149: self = .enumValue
+    case 149: self = .enumvalue
     case 150: self = .equatable
     case 151: self = .ext
     case 152: self = .extendedGraphemeClusterLiteral
@@ -903,7 +903,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 264: self = .i2166136261
     case 265: self = .json
     case 266: self = .jsondecoder
-    case 267: self = .jsonencoder
+    case 267: self = .jsonEncoder
     case 268: self = .jsonencodingVisitor
     case 269: self = .jsonmapEncodingVisitor
     case 270: self = .jsonName
@@ -1398,7 +1398,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .endObject: return 146
     case .endRegularField: return 147
     case .`enum`: return 148
-    case .enumValue: return 149
+    case .enumvalue: return 149
     case .equatable: return 150
     case .ext: return 151
     case .extendedGraphemeClusterLiteral: return 152
@@ -1516,7 +1516,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .i2166136261: return 264
     case .json: return 265
     case .jsondecoder: return 266
-    case .jsonencoder: return 267
+    case .jsonEncoder: return 267
     case .jsonencodingVisitor: return 268
     case .jsonmapEncodingVisitor: return 269
     case .jsonName: return 270
@@ -1869,7 +1869,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     0: .same(proto: "NONE"),
     1: .same(proto: "a"),
     2: .same(proto: "adjusted"),
-    3: .same(proto: "Any"),
+    3: .same(proto: "any"),
     4: .same(proto: "AnyExtensionField"),
     5: .same(proto: "AnyMessageStorage"),
     6: .same(proto: "Api"),
@@ -1901,7 +1901,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     32: .same(proto: "Bool"),
     33: .same(proto: "booleanLiteral"),
     34: .same(proto: "BooleanLiteralType"),
-    35: .same(proto: "BoolValue"),
+    35: .same(proto: "boolValue"),
     36: .same(proto: "buffer"),
     37: .same(proto: "buildTypeURL"),
     38: .same(proto: "by"),
@@ -1909,7 +1909,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     40: .same(proto: "BytesValue"),
     41: .same(proto: "c"),
     42: .same(proto: "capitalizeNext"),
-    43: .same(proto: "Cardinality"),
+    43: .same(proto: "cardinality"),
     44: .same(proto: "Character"),
     45: .same(proto: "characters"),
     46: .same(proto: "chars"),
@@ -1922,11 +1922,11 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     53: .same(proto: "contentsOf"),
     54: .same(proto: "count"),
     55: .same(proto: "customCodable"),
-    56: .same(proto: "D"),
+    56: .same(proto: "d"),
     57: .same(proto: "Data"),
     58: .same(proto: "dataResult"),
     59: .same(proto: "dataSize"),
-    60: .same(proto: "Date"),
+    60: .same(proto: "date"),
     61: .same(proto: "daySec"),
     62: .same(proto: "daysSinceEpoch"),
     63: .same(proto: "DD"),
@@ -1938,7 +1938,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     69: .same(proto: "decodeJSON"),
     70: .same(proto: "decodeMapField"),
     71: .same(proto: "decodeMessage"),
-    72: .same(proto: "Decoder"),
+    72: .same(proto: "decoder"),
     73: .same(proto: "decodeRepeated"),
     74: .same(proto: "decodeRepeatedBoolField"),
     75: .same(proto: "decodeRepeatedBytesField"),
@@ -1992,7 +1992,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     123: .same(proto: "discardableResult"),
     124: .same(proto: "DispatchQueue"),
     125: .same(proto: "div"),
-    126: .same(proto: "Double"),
+    126: .same(proto: "double"),
     127: .same(proto: "doubleToUtf8"),
     128: .same(proto: "DoubleValue"),
     129: .same(proto: "Duration"),
@@ -2015,7 +2015,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     146: .same(proto: "endObject"),
     147: .same(proto: "endRegularField"),
     148: .same(proto: "Enum"),
-    149: .same(proto: "EnumValue"),
+    149: .same(proto: "enumvalue"),
     150: .same(proto: "Equatable"),
     151: .same(proto: "ext"),
     152: .same(proto: "extendedGraphemeClusterLiteral"),
@@ -2024,9 +2024,9 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     155: .same(proto: "ExtensionMap"),
     156: .same(proto: "extensions"),
     157: .same(proto: "extras"),
-    158: .same(proto: "F"),
+    158: .same(proto: "f"),
     159: .same(proto: "false"),
-    160: .same(proto: "Field"),
+    160: .same(proto: "field"),
     161: .same(proto: "FieldMask"),
     162: .same(proto: "fieldName"),
     163: .same(proto: "fieldNameCount"),
@@ -2035,13 +2035,13 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     166: .same(proto: "fields"),
     167: .same(proto: "fieldSize"),
     168: .same(proto: "FieldTag"),
-    169: .same(proto: "FieldType"),
+    169: .same(proto: "fieldType"),
     170: .same(proto: "fieldValue"),
     171: .same(proto: "fileName"),
     172: .same(proto: "fileprivate"),
     173: .same(proto: "firstItem"),
     174: .same(proto: "flatMap"),
-    175: .same(proto: "Float"),
+    175: .same(proto: "float"),
     176: .same(proto: "floatLiteral"),
     177: .same(proto: "FloatLiteralType"),
     178: .same(proto: "floatToUtf8"),
@@ -2133,7 +2133,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     264: .same(proto: "i_2166136261"),
     265: .same(proto: "json"),
     266: .same(proto: "JSONDecoder"),
-    267: .same(proto: "JSONEncoder"),
+    267: .same(proto: "jsonEncoder"),
     268: .same(proto: "JSONEncodingVisitor"),
     269: .same(proto: "JSONMapEncodingVisitor"),
     270: .same(proto: "jsonName"),
@@ -2145,11 +2145,11 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     276: .same(proto: "JSONToProto"),
     277: .same(proto: "jsonUTF8Data"),
     278: .same(proto: "julianDayNumberFromSecondsSince1970"),
-    279: .same(proto: "K"),
+    279: .same(proto: "k"),
     280: .same(proto: "Key"),
     281: .same(proto: "keyField"),
     282: .same(proto: "KeyType"),
-    283: .same(proto: "Kind"),
+    283: .same(proto: "kind"),
     284: .same(proto: "knownTypes"),
     285: .same(proto: "l"),
     286: .same(proto: "label"),
@@ -2157,7 +2157,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     288: .same(proto: "let"),
     289: .same(proto: "lhs"),
     290: .same(proto: "listOfMessages"),
-    291: .same(proto: "ListValue"),
+    291: .same(proto: "listValue"),
     292: .same(proto: "littleEndian"),
     293: .same(proto: "littleEndianBytes"),
     294: .same(proto: "M"),
@@ -2172,7 +2172,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     303: .same(proto: "mdayStart"),
     304: .same(proto: "members"),
     305: .same(proto: "merge"),
-    306: .same(proto: "Message"),
+    306: .same(proto: "message"),
     307: .same(proto: "MessageExtension"),
     308: .same(proto: "MessageExtensionBase"),
     309: .same(proto: "messageType"),
@@ -2181,12 +2181,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     312: .same(proto: "minor"),
     313: .same(proto: "Mixin"),
     314: .same(proto: "mixins"),
-    315: .same(proto: "MM"),
+    315: .same(proto: "mm"),
     316: .same(proto: "mod"),
     317: .same(proto: "month"),
     318: .same(proto: "mutating"),
     319: .same(proto: "n"),
-    320: .same(proto: "Name"),
+    320: .same(proto: "name"),
     321: .same(proto: "NameDescription"),
     322: .same(proto: "NameMap"),
     323: .same(proto: "nameResolver"),
@@ -2297,7 +2297,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     428: .same(proto: "sawBackslash"),
     429: .same(proto: "scanner"),
     430: .same(proto: "seconds"),
-    431: .same(proto: "Self"),
+    431: .same(proto: "self"),
     432: .same(proto: "separator"),
     433: .same(proto: "serializeAnyJSON"),
     434: .same(proto: "serializedData"),
@@ -2310,7 +2310,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     441: .same(proto: "SimpleExtensionMap"),
     442: .same(proto: "sizer"),
     443: .same(proto: "slowUtf8ToString"),
-    444: .same(proto: "SourceContext"),
+    444: .same(proto: "sourceContext"),
     445: .same(proto: "split"),
     446: .same(proto: "ss"),
     447: .same(proto: "start"),
@@ -2329,7 +2329,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     460: .same(proto: "stringLiteral"),
     461: .same(proto: "StringLiteralType"),
     462: .same(proto: "stringResult"),
-    463: .same(proto: "StringValue"),
+    463: .same(proto: "stringValue"),
     464: .same(proto: "Struct"),
     465: .same(proto: "structValue"),
     466: .same(proto: "subDecoder"),
@@ -2352,7 +2352,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     483: .same(proto: "that"),
     484: .same(proto: "they"),
     485: .same(proto: "throws"),
-    486: .same(proto: "TimeInterval"),
+    486: .same(proto: "timeInterval"),
     487: .same(proto: "timeIntervalSince1970"),
     488: .same(proto: "timeIntervalSinceReferenceDate"),
     489: .same(proto: "timeOfDayFromSecondsSince1970"),
@@ -2394,15 +2394,15 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     525: .same(proto: "UnsafePointer"),
     526: .same(proto: "url"),
     527: .same(proto: "used"),
-    528: .same(proto: "UTF8"),
+    528: .same(proto: "utf8"),
     529: .same(proto: "utf8Buffer"),
     530: .same(proto: "utf8Codec"),
     531: .same(proto: "utf8Pointer"),
     532: .same(proto: "utf8ToDouble"),
     533: .same(proto: "utf8ToString"),
     534: .same(proto: "UTF8View"),
-    535: .same(proto: "V"),
-    536: .same(proto: "Value"),
+    535: .same(proto: "v"),
+    536: .same(proto: "value"),
     537: .same(proto: "valueField"),
     538: .same(proto: "values"),
     539: .same(proto: "ValueType"),
@@ -2411,7 +2411,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     542: .same(proto: "versionString"),
     543: .same(proto: "visitExtensionFields"),
     544: .same(proto: "visitMapField"),
-    545: .same(proto: "Visitor"),
+    545: .same(proto: "visitor"),
     546: .same(proto: "visitPacked"),
     547: .same(proto: "visitPackedBoolField"),
     548: .same(proto: "visitPackedDoubleField"),
@@ -2467,7 +2467,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf._ProtoNameP
     598: .same(proto: "visitSingularUInt64Field"),
     599: .same(proto: "visitUnknown"),
     600: .same(proto: "where"),
-    601: .same(proto: "WireFormat"),
+    601: .same(proto: "wireFormat"),
     602: .same(proto: "with"),
     603: .same(proto: "WrappedType"),
     604: .same(proto: "wrapped_vsnprintf"),
