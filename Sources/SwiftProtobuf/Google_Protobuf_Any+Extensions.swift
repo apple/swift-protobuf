@@ -12,6 +12,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 public extension Google_Protobuf_Any {
   /// Initialize an Any object from the provided message.
   ///
