@@ -60,10 +60,10 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message {
     set {_e = newValue}
   }
   var hasE: Bool {
-    return _e != nil
+    return self._e != nil
   }
   mutating func clearE() {
-    _e = nil
+    self._e = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -73,14 +73,14 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_e)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._e)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _e {
+    if let v = self._e {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -97,7 +97,7 @@ extension ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf._Message
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestImport_PublicImportMessageLite) -> Bool {
-    if _e != other._e {return false}
+    if self._e != other._e {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

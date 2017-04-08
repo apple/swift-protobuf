@@ -120,19 +120,19 @@ public struct Google_Protobuf_Timestamp: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &seconds)
-      case 2: try decoder.decodeSingularInt32Field(value: &nanos)
+      case 1: try decoder.decodeSingularInt64Field(value: &self.seconds)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.nanos)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if seconds != 0 {
-      try visitor.visitSingularInt64Field(value: seconds, fieldNumber: 1)
+    if self.seconds != 0 {
+      try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
     }
-    if nanos != 0 {
-      try visitor.visitSingularInt32Field(value: nanos, fieldNumber: 2)
+    if self.nanos != 0 {
+      try visitor.visitSingularInt32Field(value: self.nanos, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -149,8 +149,8 @@ extension Google_Protobuf_Timestamp: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Timestamp) -> Bool {
-    if seconds != other.seconds {return false}
-    if nanos != other.nanos {return false}
+    if self.seconds != other.seconds {return false}
+    if self.nanos != other.nanos {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

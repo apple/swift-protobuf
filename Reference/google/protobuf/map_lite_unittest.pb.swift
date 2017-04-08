@@ -637,15 +637,15 @@ struct ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &mapField)
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: &self.mapField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !mapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: mapField, fieldNumber: 1)
+    if !self.mapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestRequiredLite>.self, value: self.mapField, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -665,19 +665,19 @@ struct ProtobufUnittest_TestEnumMapLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &knownMapField)
-      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &unknownMapField)
+      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &self.knownMapField)
+      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: &self.unknownMapField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: knownMapField, fieldNumber: 101)
+    if !self.knownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: self.knownMapField, fieldNumber: 101)
     }
-    if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: unknownMapField, fieldNumber: 102)
+    if !self.unknownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumLite>.self, value: self.unknownMapField, fieldNumber: 102)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -697,19 +697,19 @@ struct ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &knownMapField)
-      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &unknownMapField)
+      case 101: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &self.knownMapField)
+      case 102: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: &self.unknownMapField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !knownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: knownMapField, fieldNumber: 101)
+    if !self.knownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: self.knownMapField, fieldNumber: 101)
     }
-    if !unknownMapField.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: unknownMapField, fieldNumber: 102)
+    if !self.unknownMapField.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_Proto2MapEnumPlusExtraLite>.self, value: self.unknownMapField, fieldNumber: 102)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -727,15 +727,15 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: &mapInt32Message)
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: &self.mapInt32Message)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !mapInt32Message.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: mapInt32Message, fieldNumber: 1)
+    if !self.mapInt32Message.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypesLite>.self, value: self.mapInt32Message, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -750,10 +750,10 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   fileprivate var _b: Int32? = nil
@@ -762,10 +762,10 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     set {_b = newValue}
   }
   var hasB: Bool {
-    return _b != nil
+    return self._b != nil
   }
   mutating func clearB() {
-    _b = nil
+    self._b = nil
   }
 
   fileprivate var _c: Int32? = nil
@@ -774,10 +774,10 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -785,31 +785,31 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _a == nil {return false}
-    if _b == nil {return false}
-    if _c == nil {return false}
+    if self._a == nil {return false}
+    if self._b == nil {return false}
+    if self._c == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
-      case 2: try decoder.decodeSingularInt32Field(value: &_b)
-      case 3: try decoder.decodeSingularInt32Field(value: &_c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._b)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    if let v = _b {
+    if let v = self._b {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     }
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -825,10 +825,10 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -838,14 +838,14 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -991,7 +991,7 @@ extension ProtobufUnittest_TestRequiredMessageMapLite: SwiftProtobuf._MessageImp
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredMessageMapLite) -> Bool {
-    if mapField != other.mapField {return false}
+    if self.mapField != other.mapField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1004,8 +1004,8 @@ extension ProtobufUnittest_TestEnumMapLite: SwiftProtobuf._MessageImplementation
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapLite) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
+    if self.knownMapField != other.knownMapField {return false}
+    if self.unknownMapField != other.unknownMapField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1018,8 +1018,8 @@ extension ProtobufUnittest_TestEnumMapPlusExtraLite: SwiftProtobuf._MessageImple
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEnumMapPlusExtraLite) -> Bool {
-    if knownMapField != other.knownMapField {return false}
-    if unknownMapField != other.unknownMapField {return false}
+    if self.knownMapField != other.knownMapField {return false}
+    if self.unknownMapField != other.unknownMapField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1031,7 +1031,7 @@ extension ProtobufUnittest_TestMessageMapLite: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageMapLite) -> Bool {
-    if mapInt32Message != other.mapInt32Message {return false}
+    if self.mapInt32Message != other.mapInt32Message {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1045,9 +1045,9 @@ extension ProtobufUnittest_TestRequiredLite: SwiftProtobuf._MessageImplementatio
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredLite) -> Bool {
-    if _a != other._a {return false}
-    if _b != other._b {return false}
-    if _c != other._c {return false}
+    if self._a != other._a {return false}
+    if self._b != other._b {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1059,7 +1059,7 @@ extension ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf._MessageImplem
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageArenaLite) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

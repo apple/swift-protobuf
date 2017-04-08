@@ -1727,15 +1727,15 @@ struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if c != 0 {
-      try visitor.visitSingularInt32Field(value: c, fieldNumber: 1)
+    if self.c != 0 {
+      try visitor.visitSingularInt32Field(value: self.c, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -2132,7 +2132,7 @@ extension ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf._MessageImpl
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto3_ForeignMessage) -> Bool {
-    if c != other.c {return false}
+    if self.c != other.c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

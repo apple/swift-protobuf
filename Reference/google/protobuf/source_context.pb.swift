@@ -64,15 +64,15 @@ struct Google_Protobuf_SourceContext: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &fileName)
+      case 1: try decoder.decodeSingularStringField(value: &self.fileName)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !fileName.isEmpty {
-      try visitor.visitSingularStringField(value: fileName, fieldNumber: 1)
+    if !self.fileName.isEmpty {
+      try visitor.visitSingularStringField(value: self.fileName, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -88,7 +88,7 @@ extension Google_Protobuf_SourceContext: SwiftProtobuf._MessageImplementationBas
   ]
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_SourceContext) -> Bool {
-    if fileName != other.fileName {return false}
+    if self.fileName != other.fileName {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

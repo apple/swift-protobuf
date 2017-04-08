@@ -45,10 +45,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_protoMessageName = newValue}
   }
   var hasProtoMessageName: Bool {
-    return _protoMessageName != nil
+    return self._protoMessageName != nil
   }
   mutating func clearProtoMessageName() {
-    _protoMessageName = nil
+    self._protoMessageName = nil
   }
 
   fileprivate var _protoPackageName: Int32? = nil
@@ -57,10 +57,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_protoPackageName = newValue}
   }
   var hasProtoPackageName: Bool {
-    return _protoPackageName != nil
+    return self._protoPackageName != nil
   }
   mutating func clearProtoPackageName() {
-    _protoPackageName = nil
+    self._protoPackageName = nil
   }
 
   fileprivate var _anyTypePrefix: Int32? = nil
@@ -69,10 +69,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_anyTypePrefix = newValue}
   }
   var hasAnyTypePrefix: Bool {
-    return _anyTypePrefix != nil
+    return self._anyTypePrefix != nil
   }
   mutating func clearAnyTypePrefix() {
-    _anyTypePrefix = nil
+    self._anyTypePrefix = nil
   }
 
   fileprivate var _anyTypeURL: Int32? = nil
@@ -81,10 +81,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_anyTypeURL = newValue}
   }
   var hasAnyTypeURL: Bool {
-    return _anyTypeURL != nil
+    return self._anyTypeURL != nil
   }
   mutating func clearAnyTypeURL() {
-    _anyTypeURL = nil
+    self._anyTypeURL = nil
   }
 
   /// r/o properties on Message, ensure it gets remapped.
@@ -94,10 +94,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_isInitialized_p = newValue}
   }
   var hasIsInitialized_p: Bool {
-    return _isInitialized_p != nil
+    return self._isInitialized_p != nil
   }
   mutating func clearIsInitialized_p() {
-    _isInitialized_p = nil
+    self._isInitialized_p = nil
   }
 
   fileprivate var _hashValue_p: String? = nil
@@ -106,10 +106,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_hashValue_p = newValue}
   }
   var hasHashValue_p: Bool {
-    return _hashValue_p != nil
+    return self._hashValue_p != nil
   }
   mutating func clearHashValue_p() {
-    _hashValue_p = nil
+    self._hashValue_p = nil
   }
 
   fileprivate var _debugDescription_p: Int32? = nil
@@ -118,10 +118,10 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     set {_debugDescription_p = newValue}
   }
   var hasDebugDescription_p: Bool {
-    return _debugDescription_p != nil
+    return self._debugDescription_p != nil
   }
   mutating func clearDebugDescription_p() {
-    _debugDescription_p = nil
+    self._debugDescription_p = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -265,38 +265,38 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 10: try decoder.decodeSingularInt32Field(value: &_protoMessageName)
-      case 11: try decoder.decodeSingularInt32Field(value: &_protoPackageName)
-      case 12: try decoder.decodeSingularInt32Field(value: &_anyTypePrefix)
-      case 13: try decoder.decodeSingularInt32Field(value: &_anyTypeURL)
-      case 20: try decoder.decodeSingularStringField(value: &_isInitialized_p)
-      case 21: try decoder.decodeSingularStringField(value: &_hashValue_p)
-      case 22: try decoder.decodeSingularInt32Field(value: &_debugDescription_p)
+      case 10: try decoder.decodeSingularInt32Field(value: &self._protoMessageName)
+      case 11: try decoder.decodeSingularInt32Field(value: &self._protoPackageName)
+      case 12: try decoder.decodeSingularInt32Field(value: &self._anyTypePrefix)
+      case 13: try decoder.decodeSingularInt32Field(value: &self._anyTypeURL)
+      case 20: try decoder.decodeSingularStringField(value: &self._isInitialized_p)
+      case 21: try decoder.decodeSingularStringField(value: &self._hashValue_p)
+      case 22: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _protoMessageName {
+    if let v = self._protoMessageName {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
     }
-    if let v = _protoPackageName {
+    if let v = self._protoPackageName {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
     }
-    if let v = _anyTypePrefix {
+    if let v = self._anyTypePrefix {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
     }
-    if let v = _anyTypeURL {
+    if let v = self._anyTypeURL {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
     }
-    if let v = _isInitialized_p {
+    if let v = self._isInitialized_p {
       try visitor.visitSingularStringField(value: v, fieldNumber: 20)
     }
-    if let v = _hashValue_p {
+    if let v = self._hashValue_p {
       try visitor.visitSingularStringField(value: v, fieldNumber: 21)
     }
-    if let v = _debugDescription_p {
+    if let v = self._debugDescription_p {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -598,13 +598,13 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementati
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
-    if _protoMessageName != other._protoMessageName {return false}
-    if _protoPackageName != other._protoPackageName {return false}
-    if _anyTypePrefix != other._anyTypePrefix {return false}
-    if _anyTypeURL != other._anyTypeURL {return false}
-    if _isInitialized_p != other._isInitialized_p {return false}
-    if _hashValue_p != other._hashValue_p {return false}
-    if _debugDescription_p != other._debugDescription_p {return false}
+    if self._protoMessageName != other._protoMessageName {return false}
+    if self._protoPackageName != other._protoPackageName {return false}
+    if self._anyTypePrefix != other._anyTypePrefix {return false}
+    if self._anyTypeURL != other._anyTypeURL {return false}
+    if self._isInitialized_p != other._isInitialized_p {return false}
+    if self._hashValue_p != other._hashValue_p {return false}
+    if self._debugDescription_p != other._debugDescription_p {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

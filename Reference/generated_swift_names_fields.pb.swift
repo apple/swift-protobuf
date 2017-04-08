@@ -6,6 +6,10 @@
  *
  */
 
+/// See Makefile for the logic that generates this
+/// Protoc errors imply this file is being generated incorrectly
+/// Swift compile errors are probably bugs in protoc-gen-swift
+
 import Foundation
 import SwiftProtobuf
 
@@ -94,7 +98,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     var _decodeJson: Int32 = 0
     var _decodeMapField: Int32 = 0
     var _decodeMessage: Int32 = 0
-    var _decoder_p: Int32 = 0
+    var _decoder: Int32 = 0
     var _decodeRepeated: Int32 = 0
     var _decodeRepeatedBoolField: Int32 = 0
     var _decodeRepeatedBytesField: Int32 = 0
@@ -186,7 +190,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     var _fieldMask: Int32 = 0
     var _fieldName: Int32 = 0
     var _fieldNameCount: Int32 = 0
-    var _fieldNumber_p: Int32 = 0
+    var _fieldNumber: Int32 = 0
     var _fieldNumberForProto: Int32 = 0
     var _fields: Int32 = 0
     var _fieldSize: Int32 = 0
@@ -372,7 +376,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     var _optionalGroupExtensionField: Int32 = 0
     var _optionalMessageExtensionField: Int32 = 0
     var _options: Int32 = 0
-    var _other_p: Int32 = 0
+    var _other: Int32 = 0
     var _out: Int32 = 0
     var _output: Int32 = 0
     var _p: Int32 = 0
@@ -567,7 +571,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     var _versionString: Int32 = 0
     var _visitExtensionFields: Int32 = 0
     var _visitMapField: Int32 = 0
-    var _visitor_p: Int32 = 0
+    var _visitor: Int32 = 0
     var _visitPacked: Int32 = 0
     var _visitPackedBoolField: Int32 = 0
     var _visitPackedDoubleField: Int32 = 0
@@ -704,7 +708,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       _decodeJson = source._decodeJson
       _decodeMapField = source._decodeMapField
       _decodeMessage = source._decodeMessage
-      _decoder_p = source._decoder_p
+      _decoder = source._decoder
       _decodeRepeated = source._decodeRepeated
       _decodeRepeatedBoolField = source._decodeRepeatedBoolField
       _decodeRepeatedBytesField = source._decodeRepeatedBytesField
@@ -796,7 +800,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       _fieldMask = source._fieldMask
       _fieldName = source._fieldName
       _fieldNameCount = source._fieldNameCount
-      _fieldNumber_p = source._fieldNumber_p
+      _fieldNumber = source._fieldNumber
       _fieldNumberForProto = source._fieldNumberForProto
       _fields = source._fields
       _fieldSize = source._fieldSize
@@ -982,7 +986,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       _optionalGroupExtensionField = source._optionalGroupExtensionField
       _optionalMessageExtensionField = source._optionalMessageExtensionField
       _options = source._options
-      _other_p = source._other_p
+      _other = source._other
       _out = source._out
       _output = source._output
       _p = source._p
@@ -1177,7 +1181,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       _versionString = source._versionString
       _visitExtensionFields = source._visitExtensionFields
       _visitMapField = source._visitMapField
-      _visitor_p = source._visitor_p
+      _visitor = source._visitor
       _visitPacked = source._visitPacked
       _visitPackedBoolField = source._visitPackedBoolField
       _visitPackedDoubleField = source._visitPackedDoubleField
@@ -1606,9 +1610,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._decodeMessage = newValue}
   }
 
-  var decoder_p: Int32 {
-    get {return _storage._decoder_p}
-    set {_uniqueStorage()._decoder_p = newValue}
+  var decoder: Int32 {
+    get {return _storage._decoder}
+    set {_uniqueStorage()._decoder = newValue}
   }
 
   var decodeRepeated: Int32 {
@@ -2066,9 +2070,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._fieldNameCount = newValue}
   }
 
-  var fieldNumber_p: Int32 {
-    get {return _storage._fieldNumber_p}
-    set {_uniqueStorage()._fieldNumber_p = newValue}
+  var fieldNumber: Int32 {
+    get {return _storage._fieldNumber}
+    set {_uniqueStorage()._fieldNumber = newValue}
   }
 
   var fieldNumberForProto: Int32 {
@@ -2996,9 +3000,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._options = newValue}
   }
 
-  var other_p: Int32 {
-    get {return _storage._other_p}
-    set {_uniqueStorage()._other_p = newValue}
+  var other: Int32 {
+    get {return _storage._other}
+    set {_uniqueStorage()._other = newValue}
   }
 
   var out: Int32 {
@@ -3971,9 +3975,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._visitMapField = newValue}
   }
 
-  var visitor_p: Int32 {
-    get {return _storage._visitor_p}
-    set {_uniqueStorage()._visitor_p = newValue}
+  var visitor: Int32 {
+    get {return _storage._visitor}
+    set {_uniqueStorage()._visitor = newValue}
   }
 
   var visitPacked: Int32 {
@@ -4361,7 +4365,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 69: try decoder.decodeSingularInt32Field(value: &_storage._decodeJson)
         case 70: try decoder.decodeSingularInt32Field(value: &_storage._decodeMapField)
         case 71: try decoder.decodeSingularInt32Field(value: &_storage._decodeMessage)
-        case 72: try decoder.decodeSingularInt32Field(value: &_storage._decoder_p)
+        case 72: try decoder.decodeSingularInt32Field(value: &_storage._decoder)
         case 73: try decoder.decodeSingularInt32Field(value: &_storage._decodeRepeated)
         case 74: try decoder.decodeSingularInt32Field(value: &_storage._decodeRepeatedBoolField)
         case 75: try decoder.decodeSingularInt32Field(value: &_storage._decodeRepeatedBytesField)
@@ -4453,7 +4457,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 161: try decoder.decodeSingularInt32Field(value: &_storage._fieldMask)
         case 162: try decoder.decodeSingularInt32Field(value: &_storage._fieldName)
         case 163: try decoder.decodeSingularInt32Field(value: &_storage._fieldNameCount)
-        case 164: try decoder.decodeSingularInt32Field(value: &_storage._fieldNumber_p)
+        case 164: try decoder.decodeSingularInt32Field(value: &_storage._fieldNumber)
         case 165: try decoder.decodeSingularInt32Field(value: &_storage._fieldNumberForProto)
         case 166: try decoder.decodeSingularInt32Field(value: &_storage._fields)
         case 167: try decoder.decodeSingularInt32Field(value: &_storage._fieldSize)
@@ -4639,7 +4643,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 347: try decoder.decodeSingularInt32Field(value: &_storage._optionalGroupExtensionField)
         case 348: try decoder.decodeSingularInt32Field(value: &_storage._optionalMessageExtensionField)
         case 349: try decoder.decodeSingularInt32Field(value: &_storage._options)
-        case 350: try decoder.decodeSingularInt32Field(value: &_storage._other_p)
+        case 350: try decoder.decodeSingularInt32Field(value: &_storage._other)
         case 351: try decoder.decodeSingularInt32Field(value: &_storage._out)
         case 352: try decoder.decodeSingularInt32Field(value: &_storage._output)
         case 353: try decoder.decodeSingularInt32Field(value: &_storage._p)
@@ -4834,7 +4838,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 542: try decoder.decodeSingularInt32Field(value: &_storage._versionString)
         case 543: try decoder.decodeSingularInt32Field(value: &_storage._visitExtensionFields)
         case 544: try decoder.decodeSingularInt32Field(value: &_storage._visitMapField)
-        case 545: try decoder.decodeSingularInt32Field(value: &_storage._visitor_p)
+        case 545: try decoder.decodeSingularInt32Field(value: &_storage._visitor)
         case 546: try decoder.decodeSingularInt32Field(value: &_storage._visitPacked)
         case 547: try decoder.decodeSingularInt32Field(value: &_storage._visitPackedBoolField)
         case 548: try decoder.decodeSingularInt32Field(value: &_storage._visitPackedDoubleField)
@@ -5117,8 +5121,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._decodeMessage != 0 {
         try visitor.visitSingularInt32Field(value: _storage._decodeMessage, fieldNumber: 71)
       }
-      if _storage._decoder_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._decoder_p, fieldNumber: 72)
+      if _storage._decoder != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._decoder, fieldNumber: 72)
       }
       if _storage._decodeRepeated != 0 {
         try visitor.visitSingularInt32Field(value: _storage._decodeRepeated, fieldNumber: 73)
@@ -5393,8 +5397,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._fieldNameCount != 0 {
         try visitor.visitSingularInt32Field(value: _storage._fieldNameCount, fieldNumber: 163)
       }
-      if _storage._fieldNumber_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._fieldNumber_p, fieldNumber: 164)
+      if _storage._fieldNumber != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fieldNumber, fieldNumber: 164)
       }
       if _storage._fieldNumberForProto != 0 {
         try visitor.visitSingularInt32Field(value: _storage._fieldNumberForProto, fieldNumber: 165)
@@ -5951,8 +5955,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._options != 0 {
         try visitor.visitSingularInt32Field(value: _storage._options, fieldNumber: 349)
       }
-      if _storage._other_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._other_p, fieldNumber: 350)
+      if _storage._other != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._other, fieldNumber: 350)
       }
       if _storage._out != 0 {
         try visitor.visitSingularInt32Field(value: _storage._out, fieldNumber: 351)
@@ -6536,8 +6540,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._visitMapField != 0 {
         try visitor.visitSingularInt32Field(value: _storage._visitMapField, fieldNumber: 544)
       }
-      if _storage._visitor_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._visitor_p, fieldNumber: 545)
+      if _storage._visitor != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._visitor, fieldNumber: 545)
       }
       if _storage._visitPacked != 0 {
         try visitor.visitSingularInt32Field(value: _storage._visitPacked, fieldNumber: 546)
@@ -7415,7 +7419,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._decodeJson != other_storage._decodeJson {return false}
         if _storage._decodeMapField != other_storage._decodeMapField {return false}
         if _storage._decodeMessage != other_storage._decodeMessage {return false}
-        if _storage._decoder_p != other_storage._decoder_p {return false}
+        if _storage._decoder != other_storage._decoder {return false}
         if _storage._decodeRepeated != other_storage._decodeRepeated {return false}
         if _storage._decodeRepeatedBoolField != other_storage._decodeRepeatedBoolField {return false}
         if _storage._decodeRepeatedBytesField != other_storage._decodeRepeatedBytesField {return false}
@@ -7507,7 +7511,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._fieldMask != other_storage._fieldMask {return false}
         if _storage._fieldName != other_storage._fieldName {return false}
         if _storage._fieldNameCount != other_storage._fieldNameCount {return false}
-        if _storage._fieldNumber_p != other_storage._fieldNumber_p {return false}
+        if _storage._fieldNumber != other_storage._fieldNumber {return false}
         if _storage._fieldNumberForProto != other_storage._fieldNumberForProto {return false}
         if _storage._fields != other_storage._fields {return false}
         if _storage._fieldSize != other_storage._fieldSize {return false}
@@ -7693,7 +7697,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._optionalGroupExtensionField != other_storage._optionalGroupExtensionField {return false}
         if _storage._optionalMessageExtensionField != other_storage._optionalMessageExtensionField {return false}
         if _storage._options != other_storage._options {return false}
-        if _storage._other_p != other_storage._other_p {return false}
+        if _storage._other != other_storage._other {return false}
         if _storage._out != other_storage._out {return false}
         if _storage._output != other_storage._output {return false}
         if _storage._p != other_storage._p {return false}
@@ -7888,7 +7892,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._versionString != other_storage._versionString {return false}
         if _storage._visitExtensionFields != other_storage._visitExtensionFields {return false}
         if _storage._visitMapField != other_storage._visitMapField {return false}
-        if _storage._visitor_p != other_storage._visitor_p {return false}
+        if _storage._visitor != other_storage._visitor {return false}
         if _storage._visitPacked != other_storage._visitPacked {return false}
         if _storage._visitPackedBoolField != other_storage._visitPackedBoolField {return false}
         if _storage._visitPackedDoubleField != other_storage._visitPackedDoubleField {return false}

@@ -1071,10 +1071,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       set {_bb = newValue}
     }
     var hasBb: Bool {
-      return _bb != nil
+      return self._bb != nil
     }
     mutating func clearBb() {
-      _bb = nil
+      self._bb = nil
     }
 
     fileprivate var _cc: Int64? = nil
@@ -1083,10 +1083,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       set {_cc = newValue}
     }
     var hasCc: Bool {
-      return _cc != nil
+      return self._cc != nil
     }
     mutating func clearCc() {
-      _cc = nil
+      self._cc = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1096,18 +1096,18 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
-        case 2: try decoder.decodeSingularInt64Field(value: &_cc)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &self._cc)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _bb {
+      if let v = self._bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = _cc {
+      if let v = self._cc {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -1123,10 +1123,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       set {_a = newValue}
     }
     var hasA: Bool {
-      return _a != nil
+      return self._a != nil
     }
     mutating func clearA() {
-      _a = nil
+      self._a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1136,14 +1136,14 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 17: try decoder.decodeSingularInt32Field(value: &_a)
+        case 17: try decoder.decodeSingularInt32Field(value: &self._a)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -1159,10 +1159,10 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       set {_a = newValue}
     }
     var hasA: Bool {
-      return _a != nil
+      return self._a != nil
     }
     mutating func clearA() {
-      _a = nil
+      self._a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1172,14 +1172,14 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 47: try decoder.decodeSingularInt32Field(value: &_a)
+        case 47: try decoder.decodeSingularInt32Field(value: &self._a)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -1509,10 +1509,10 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1522,14 +1522,14 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1574,67 +1574,67 @@ struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 90: try decoder.decodeRepeatedInt32Field(value: &packedInt32)
-      case 91: try decoder.decodeRepeatedInt64Field(value: &packedInt64)
-      case 92: try decoder.decodeRepeatedUInt32Field(value: &packedUint32)
-      case 93: try decoder.decodeRepeatedUInt64Field(value: &packedUint64)
-      case 94: try decoder.decodeRepeatedSInt32Field(value: &packedSint32)
-      case 95: try decoder.decodeRepeatedSInt64Field(value: &packedSint64)
-      case 96: try decoder.decodeRepeatedFixed32Field(value: &packedFixed32)
-      case 97: try decoder.decodeRepeatedFixed64Field(value: &packedFixed64)
-      case 98: try decoder.decodeRepeatedSFixed32Field(value: &packedSfixed32)
-      case 99: try decoder.decodeRepeatedSFixed64Field(value: &packedSfixed64)
-      case 100: try decoder.decodeRepeatedFloatField(value: &packedFloat)
-      case 101: try decoder.decodeRepeatedDoubleField(value: &packedDouble)
-      case 102: try decoder.decodeRepeatedBoolField(value: &packedBool)
-      case 103: try decoder.decodeRepeatedEnumField(value: &packedEnum)
+      case 90: try decoder.decodeRepeatedInt32Field(value: &self.packedInt32)
+      case 91: try decoder.decodeRepeatedInt64Field(value: &self.packedInt64)
+      case 92: try decoder.decodeRepeatedUInt32Field(value: &self.packedUint32)
+      case 93: try decoder.decodeRepeatedUInt64Field(value: &self.packedUint64)
+      case 94: try decoder.decodeRepeatedSInt32Field(value: &self.packedSint32)
+      case 95: try decoder.decodeRepeatedSInt64Field(value: &self.packedSint64)
+      case 96: try decoder.decodeRepeatedFixed32Field(value: &self.packedFixed32)
+      case 97: try decoder.decodeRepeatedFixed64Field(value: &self.packedFixed64)
+      case 98: try decoder.decodeRepeatedSFixed32Field(value: &self.packedSfixed32)
+      case 99: try decoder.decodeRepeatedSFixed64Field(value: &self.packedSfixed64)
+      case 100: try decoder.decodeRepeatedFloatField(value: &self.packedFloat)
+      case 101: try decoder.decodeRepeatedDoubleField(value: &self.packedDouble)
+      case 102: try decoder.decodeRepeatedBoolField(value: &self.packedBool)
+      case 103: try decoder.decodeRepeatedEnumField(value: &self.packedEnum)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !packedInt32.isEmpty {
-      try visitor.visitPackedInt32Field(value: packedInt32, fieldNumber: 90)
+    if !self.packedInt32.isEmpty {
+      try visitor.visitPackedInt32Field(value: self.packedInt32, fieldNumber: 90)
     }
-    if !packedInt64.isEmpty {
-      try visitor.visitPackedInt64Field(value: packedInt64, fieldNumber: 91)
+    if !self.packedInt64.isEmpty {
+      try visitor.visitPackedInt64Field(value: self.packedInt64, fieldNumber: 91)
     }
-    if !packedUint32.isEmpty {
-      try visitor.visitPackedUInt32Field(value: packedUint32, fieldNumber: 92)
+    if !self.packedUint32.isEmpty {
+      try visitor.visitPackedUInt32Field(value: self.packedUint32, fieldNumber: 92)
     }
-    if !packedUint64.isEmpty {
-      try visitor.visitPackedUInt64Field(value: packedUint64, fieldNumber: 93)
+    if !self.packedUint64.isEmpty {
+      try visitor.visitPackedUInt64Field(value: self.packedUint64, fieldNumber: 93)
     }
-    if !packedSint32.isEmpty {
-      try visitor.visitPackedSInt32Field(value: packedSint32, fieldNumber: 94)
+    if !self.packedSint32.isEmpty {
+      try visitor.visitPackedSInt32Field(value: self.packedSint32, fieldNumber: 94)
     }
-    if !packedSint64.isEmpty {
-      try visitor.visitPackedSInt64Field(value: packedSint64, fieldNumber: 95)
+    if !self.packedSint64.isEmpty {
+      try visitor.visitPackedSInt64Field(value: self.packedSint64, fieldNumber: 95)
     }
-    if !packedFixed32.isEmpty {
-      try visitor.visitPackedFixed32Field(value: packedFixed32, fieldNumber: 96)
+    if !self.packedFixed32.isEmpty {
+      try visitor.visitPackedFixed32Field(value: self.packedFixed32, fieldNumber: 96)
     }
-    if !packedFixed64.isEmpty {
-      try visitor.visitPackedFixed64Field(value: packedFixed64, fieldNumber: 97)
+    if !self.packedFixed64.isEmpty {
+      try visitor.visitPackedFixed64Field(value: self.packedFixed64, fieldNumber: 97)
     }
-    if !packedSfixed32.isEmpty {
-      try visitor.visitPackedSFixed32Field(value: packedSfixed32, fieldNumber: 98)
+    if !self.packedSfixed32.isEmpty {
+      try visitor.visitPackedSFixed32Field(value: self.packedSfixed32, fieldNumber: 98)
     }
-    if !packedSfixed64.isEmpty {
-      try visitor.visitPackedSFixed64Field(value: packedSfixed64, fieldNumber: 99)
+    if !self.packedSfixed64.isEmpty {
+      try visitor.visitPackedSFixed64Field(value: self.packedSfixed64, fieldNumber: 99)
     }
-    if !packedFloat.isEmpty {
-      try visitor.visitPackedFloatField(value: packedFloat, fieldNumber: 100)
+    if !self.packedFloat.isEmpty {
+      try visitor.visitPackedFloatField(value: self.packedFloat, fieldNumber: 100)
     }
-    if !packedDouble.isEmpty {
-      try visitor.visitPackedDoubleField(value: packedDouble, fieldNumber: 101)
+    if !self.packedDouble.isEmpty {
+      try visitor.visitPackedDoubleField(value: self.packedDouble, fieldNumber: 101)
     }
-    if !packedBool.isEmpty {
-      try visitor.visitPackedBoolField(value: packedBool, fieldNumber: 102)
+    if !self.packedBool.isEmpty {
+      try visitor.visitPackedBoolField(value: self.packedBool, fieldNumber: 102)
     }
-    if !packedEnum.isEmpty {
-      try visitor.visitPackedEnumField(value: packedEnum, fieldNumber: 103)
+    if !self.packedEnum.isEmpty {
+      try visitor.visitPackedEnumField(value: self.packedEnum, fieldNumber: 103)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1677,10 +1677,10 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message {
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1690,14 +1690,14 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 17: try decoder.decodeSingularInt32Field(value: &_a)
+      case 17: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1713,10 +1713,10 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message {
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1726,14 +1726,14 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 47: try decoder.decodeSingularInt32Field(value: &_a)
+      case 47: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1805,10 +1805,10 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
     set {_deprecatedField = newValue}
   }
   var hasDeprecatedField: Bool {
-    return _deprecatedField != nil
+    return self._deprecatedField != nil
   }
   mutating func clearDeprecatedField() {
-    _deprecatedField = nil
+    self._deprecatedField = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1818,14 +1818,14 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_deprecatedField)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._deprecatedField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _deprecatedField {
+    if let v = self._deprecatedField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2050,39 +2050,39 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeRepeatedMessageField(value: &field1)
-        case 2: try decoder.decodeRepeatedMessageField(value: &field2)
-        case 3: try decoder.decodeRepeatedMessageField(value: &field3)
-        case 10: try decoder.decodeRepeatedGroupField(value: &group1)
-        case 20: try decoder.decodeRepeatedGroupField(value: &group2)
-        case 1000: try decoder.decodeRepeatedMessageField(value: &ext1)
-        case 1001: try decoder.decodeRepeatedMessageField(value: &ext2)
+        case 1: try decoder.decodeRepeatedMessageField(value: &self.field1)
+        case 2: try decoder.decodeRepeatedMessageField(value: &self.field2)
+        case 3: try decoder.decodeRepeatedMessageField(value: &self.field3)
+        case 10: try decoder.decodeRepeatedGroupField(value: &self.group1)
+        case 20: try decoder.decodeRepeatedGroupField(value: &self.group2)
+        case 1000: try decoder.decodeRepeatedMessageField(value: &self.ext1)
+        case 1001: try decoder.decodeRepeatedMessageField(value: &self.ext2)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !field1.isEmpty {
-        try visitor.visitRepeatedMessageField(value: field1, fieldNumber: 1)
+      if !self.field1.isEmpty {
+        try visitor.visitRepeatedMessageField(value: self.field1, fieldNumber: 1)
       }
-      if !field2.isEmpty {
-        try visitor.visitRepeatedMessageField(value: field2, fieldNumber: 2)
+      if !self.field2.isEmpty {
+        try visitor.visitRepeatedMessageField(value: self.field2, fieldNumber: 2)
       }
-      if !field3.isEmpty {
-        try visitor.visitRepeatedMessageField(value: field3, fieldNumber: 3)
+      if !self.field3.isEmpty {
+        try visitor.visitRepeatedMessageField(value: self.field3, fieldNumber: 3)
       }
-      if !group1.isEmpty {
-        try visitor.visitRepeatedGroupField(value: group1, fieldNumber: 10)
+      if !self.group1.isEmpty {
+        try visitor.visitRepeatedGroupField(value: self.group1, fieldNumber: 10)
       }
-      if !group2.isEmpty {
-        try visitor.visitRepeatedGroupField(value: group2, fieldNumber: 20)
+      if !self.group2.isEmpty {
+        try visitor.visitRepeatedGroupField(value: self.group2, fieldNumber: 20)
       }
-      if !ext1.isEmpty {
-        try visitor.visitRepeatedMessageField(value: ext1, fieldNumber: 1000)
+      if !self.ext1.isEmpty {
+        try visitor.visitRepeatedMessageField(value: self.ext1, fieldNumber: 1000)
       }
-      if !ext2.isEmpty {
-        try visitor.visitRepeatedMessageField(value: ext2, fieldNumber: 1001)
+      if !self.ext2.isEmpty {
+        try visitor.visitRepeatedMessageField(value: self.ext2, fieldNumber: 1001)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -2331,10 +2331,10 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message {
     set {_intField = newValue}
   }
   var hasIntField: Bool {
-    return _intField != nil
+    return self._intField != nil
   }
   mutating func clearIntField() {
-    _intField = nil
+    self._intField = nil
   }
 
   fileprivate var _enumField: ProtobufUnittest_V1EnumLite? = nil
@@ -2343,10 +2343,10 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message {
     set {_enumField = newValue}
   }
   var hasEnumField: Bool {
-    return _enumField != nil
+    return self._enumField != nil
   }
   mutating func clearEnumField() {
-    _enumField = nil
+    self._enumField = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2354,25 +2354,25 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _intField == nil {return false}
+    if self._intField == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_intField)
-      case 2: try decoder.decodeSingularEnumField(value: &_enumField)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._intField)
+      case 2: try decoder.decodeSingularEnumField(value: &self._enumField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _intField {
+    if let v = self._intField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    if let v = _enumField {
+    if let v = self._enumField {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2388,10 +2388,10 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
     set {_intField = newValue}
   }
   var hasIntField: Bool {
-    return _intField != nil
+    return self._intField != nil
   }
   mutating func clearIntField() {
-    _intField = nil
+    self._intField = nil
   }
 
   fileprivate var _enumField: ProtobufUnittest_V2EnumLite? = nil
@@ -2400,10 +2400,10 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
     set {_enumField = newValue}
   }
   var hasEnumField: Bool {
-    return _enumField != nil
+    return self._enumField != nil
   }
   mutating func clearEnumField() {
-    _enumField = nil
+    self._enumField = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2411,25 +2411,25 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _intField == nil {return false}
+    if self._intField == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_intField)
-      case 2: try decoder.decodeSingularEnumField(value: &_enumField)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._intField)
+      case 2: try decoder.decodeSingularEnumField(value: &self._enumField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _intField {
+    if let v = self._intField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    if let v = _enumField {
+    if let v = self._enumField {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2653,10 +2653,10 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       set {_groupA = newValue}
     }
     var hasGroupA: Bool {
-      return _groupA != nil
+      return self._groupA != nil
     }
     mutating func clearGroupA() {
-      _groupA = nil
+      self._groupA = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -2666,14 +2666,14 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 536870009: try decoder.decodeSingularInt32Field(value: &_groupA)
+        case 536870009: try decoder.decodeSingularInt32Field(value: &self._groupA)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _groupA {
+      if let v = self._groupA {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 536870009)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -4885,8 +4885,8 @@ extension ProtobufUnittest_TestAllTypesLite.NestedMessage: SwiftProtobuf._Messag
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypesLite.NestedMessage) -> Bool {
-    if _bb != other._bb {return false}
-    if _cc != other._cc {return false}
+    if self._bb != other._bb {return false}
+    if self._cc != other._cc {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4898,7 +4898,7 @@ extension ProtobufUnittest_TestAllTypesLite.OptionalGroup: SwiftProtobuf._Messag
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypesLite.OptionalGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4910,7 +4910,7 @@ extension ProtobufUnittest_TestAllTypesLite.RepeatedGroup: SwiftProtobuf._Messag
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypesLite.RepeatedGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4922,7 +4922,7 @@ extension ProtobufUnittest_ForeignMessageLite: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ForeignMessageLite) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4947,20 +4947,20 @@ extension ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf._MessageImplementa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestPackedTypesLite) -> Bool {
-    if packedInt32 != other.packedInt32 {return false}
-    if packedInt64 != other.packedInt64 {return false}
-    if packedUint32 != other.packedUint32 {return false}
-    if packedUint64 != other.packedUint64 {return false}
-    if packedSint32 != other.packedSint32 {return false}
-    if packedSint64 != other.packedSint64 {return false}
-    if packedFixed32 != other.packedFixed32 {return false}
-    if packedFixed64 != other.packedFixed64 {return false}
-    if packedSfixed32 != other.packedSfixed32 {return false}
-    if packedSfixed64 != other.packedSfixed64 {return false}
-    if packedFloat != other.packedFloat {return false}
-    if packedDouble != other.packedDouble {return false}
-    if packedBool != other.packedBool {return false}
-    if packedEnum != other.packedEnum {return false}
+    if self.packedInt32 != other.packedInt32 {return false}
+    if self.packedInt64 != other.packedInt64 {return false}
+    if self.packedUint32 != other.packedUint32 {return false}
+    if self.packedUint64 != other.packedUint64 {return false}
+    if self.packedSint32 != other.packedSint32 {return false}
+    if self.packedSint64 != other.packedSint64 {return false}
+    if self.packedFixed32 != other.packedFixed32 {return false}
+    if self.packedFixed64 != other.packedFixed64 {return false}
+    if self.packedSfixed32 != other.packedSfixed32 {return false}
+    if self.packedSfixed64 != other.packedSfixed64 {return false}
+    if self.packedFloat != other.packedFloat {return false}
+    if self.packedDouble != other.packedDouble {return false}
+    if self.packedBool != other.packedBool {return false}
+    if self.packedEnum != other.packedEnum {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4982,7 +4982,7 @@ extension ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf._MessageI
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OptionalGroup_extension_lite) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -4994,7 +4994,7 @@ extension ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf._MessageI
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedGroup_extension_lite) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -5025,7 +5025,7 @@ extension ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDeprecatedLite) -> Bool {
-    if _deprecatedField != other._deprecatedField {return false}
+    if self._deprecatedField != other._deprecatedField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -5070,13 +5070,13 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator: SwiftPr
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator) -> Bool {
-    if field1 != other.field1 {return false}
-    if field2 != other.field2 {return false}
-    if field3 != other.field3 {return false}
-    if group1 != other.group1 {return false}
-    if group2 != other.group2 {return false}
-    if ext1 != other.ext1 {return false}
-    if ext2 != other.ext2 {return false}
+    if self.field1 != other.field1 {return false}
+    if self.field2 != other.field2 {return false}
+    if self.field3 != other.field3 {return false}
+    if self.group1 != other.group1 {return false}
+    if self.group2 != other.group2 {return false}
+    if self.ext1 != other.ext1 {return false}
+    if self.ext2 != other.ext2 {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -5180,8 +5180,8 @@ extension ProtobufUnittest_V1MessageLite: SwiftProtobuf._MessageImplementationBa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_V1MessageLite) -> Bool {
-    if _intField != other._intField {return false}
-    if _enumField != other._enumField {return false}
+    if self._intField != other._intField {return false}
+    if self._enumField != other._enumField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -5194,8 +5194,8 @@ extension ProtobufUnittest_V2MessageLite: SwiftProtobuf._MessageImplementationBa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_V2MessageLite) -> Bool {
-    if _intField != other._intField {return false}
-    if _enumField != other._enumField {return false}
+    if self._intField != other._intField {return false}
+    if self._enumField != other._enumField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -5308,7 +5308,7 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: SwiftProtobuf
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup) -> Bool {
-    if _groupA != other._groupA {return false}
+    if self._groupA != other._groupA {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

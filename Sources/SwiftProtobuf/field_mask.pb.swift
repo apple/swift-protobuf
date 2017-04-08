@@ -262,15 +262,15 @@ public struct Google_Protobuf_FieldMask: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedStringField(value: &paths)
+      case 1: try decoder.decodeRepeatedStringField(value: &self.paths)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !paths.isEmpty {
-      try visitor.visitRepeatedStringField(value: paths, fieldNumber: 1)
+    if !self.paths.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.paths, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -286,7 +286,7 @@ extension Google_Protobuf_FieldMask: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldMask) -> Bool {
-    if paths != other.paths {return false}
+    if self.paths != other.paths {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

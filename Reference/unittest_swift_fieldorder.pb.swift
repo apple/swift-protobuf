@@ -192,10 +192,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       set {_oo = newValue}
     }
     var hasOo: Bool {
-      return _oo != nil
+      return self._oo != nil
     }
     mutating func clearOo() {
-      _oo = nil
+      self._oo = nil
     }
 
     fileprivate var _bb: Int32? = nil
@@ -204,10 +204,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       set {_bb = newValue}
     }
     var hasBb: Bool {
-      return _bb != nil
+      return self._bb != nil
     }
     mutating func clearBb() {
-      _bb = nil
+      self._bb = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -217,18 +217,18 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt64Field(value: &_oo)
-        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &self._oo)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _bb {
+      if let v = self._bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if let v = _oo {
+      if let v = self._oo {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -433,8 +433,8 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._Messag
   ]
 
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings.NestedMessage) -> Bool {
-    if _oo != other._oo {return false}
-    if _bb != other._bb {return false}
+    if self._oo != other._oo {return false}
+    if self._bb != other._bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

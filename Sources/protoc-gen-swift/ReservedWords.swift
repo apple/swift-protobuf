@@ -76,15 +76,11 @@ private let reservedFieldNames: Set<String> =  {
     () -> Set<String> in
     var names: Set<String> = [
         "debugDescription",
-        "decoder",
         "description",
         "dynamicType",
-        "fieldNumber",
         "hashValue",
         "isInitialized",
-        "other",
         "unknownFields",
-        "visitor",
     ]
 
     // We don't need to protect all of these keywords, just the ones

@@ -69,15 +69,15 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularDoubleField(value: &value)
+      case 1: try decoder.decodeSingularDoubleField(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != 0 {
-      try visitor.visitSingularDoubleField(value: value, fieldNumber: 1)
+    if self.value != 0 {
+      try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -99,15 +99,15 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularFloatField(value: &value)
+      case 1: try decoder.decodeSingularFloatField(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != 0 {
-      try visitor.visitSingularFloatField(value: value, fieldNumber: 1)
+    if self.value != 0 {
+      try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -129,15 +129,15 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt64Field(value: &value)
+      case 1: try decoder.decodeSingularInt64Field(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != 0 {
-      try visitor.visitSingularInt64Field(value: value, fieldNumber: 1)
+    if self.value != 0 {
+      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -159,15 +159,15 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularUInt64Field(value: &value)
+      case 1: try decoder.decodeSingularUInt64Field(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != 0 {
-      try visitor.visitSingularUInt64Field(value: value, fieldNumber: 1)
+    if self.value != 0 {
+      try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -189,15 +189,15 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &value)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != 0 {
-      try visitor.visitSingularInt32Field(value: value, fieldNumber: 1)
+    if self.value != 0 {
+      try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -219,15 +219,15 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularUInt32Field(value: &value)
+      case 1: try decoder.decodeSingularUInt32Field(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != 0 {
-      try visitor.visitSingularUInt32Field(value: value, fieldNumber: 1)
+    if self.value != 0 {
+      try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -249,15 +249,15 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularBoolField(value: &value)
+      case 1: try decoder.decodeSingularBoolField(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if value != false {
-      try visitor.visitSingularBoolField(value: value, fieldNumber: 1)
+    if self.value != false {
+      try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -279,15 +279,15 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &value)
+      case 1: try decoder.decodeSingularStringField(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !value.isEmpty {
-      try visitor.visitSingularStringField(value: value, fieldNumber: 1)
+    if !self.value.isEmpty {
+      try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -309,15 +309,15 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularBytesField(value: &value)
+      case 1: try decoder.decodeSingularBytesField(value: &self.value)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !value.isEmpty {
-      try visitor.visitSingularBytesField(value: value, fieldNumber: 1)
+    if !self.value.isEmpty {
+      try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -333,7 +333,7 @@ extension Google_Protobuf_DoubleValue: SwiftProtobuf._MessageImplementationBase,
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -345,7 +345,7 @@ extension Google_Protobuf_FloatValue: SwiftProtobuf._MessageImplementationBase, 
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -357,7 +357,7 @@ extension Google_Protobuf_Int64Value: SwiftProtobuf._MessageImplementationBase, 
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -369,7 +369,7 @@ extension Google_Protobuf_UInt64Value: SwiftProtobuf._MessageImplementationBase,
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -381,7 +381,7 @@ extension Google_Protobuf_Int32Value: SwiftProtobuf._MessageImplementationBase, 
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -393,7 +393,7 @@ extension Google_Protobuf_UInt32Value: SwiftProtobuf._MessageImplementationBase,
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -405,7 +405,7 @@ extension Google_Protobuf_BoolValue: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -417,7 +417,7 @@ extension Google_Protobuf_StringValue: SwiftProtobuf._MessageImplementationBase,
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -429,7 +429,7 @@ extension Google_Protobuf_BytesValue: SwiftProtobuf._MessageImplementationBase, 
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_BytesValue) -> Bool {
-    if value != other.value {return false}
+    if self.value != other.value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

@@ -131,10 +131,10 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
     set {_i = newValue}
   }
   var hasI: Bool {
-    return _i != nil
+    return self._i != nil
   }
   mutating func clearI() {
-    _i = nil
+    self._i = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -153,14 +153,14 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 15: try decoder.decodeSingularInt32Field(value: &_i)
+      case 15: try decoder.decodeSingularInt32Field(value: &self._i)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _i {
+    if let v = self._i {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -176,10 +176,10 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
     set {_str = newValue}
   }
   var hasStr: Bool {
-    return _str != nil
+    return self._str != nil
   }
   mutating func clearStr() {
-    _str = nil
+    self._str = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -198,14 +198,14 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 25: try decoder.decodeSingularStringField(value: &_str)
+      case 25: try decoder.decodeSingularStringField(value: &self._str)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _str {
+    if let v = self._str {
       try visitor.visitSingularStringField(value: v, fieldNumber: 25)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -229,10 +229,10 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       set {_typeId = newValue}
     }
     var hasTypeId: Bool {
-      return _typeId != nil
+      return self._typeId != nil
     }
     mutating func clearTypeId() {
-      _typeId = nil
+      self._typeId = nil
     }
 
     fileprivate var _message: Data? = nil
@@ -241,10 +241,10 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       set {_message = newValue}
     }
     var hasMessage: Bool {
-      return _message != nil
+      return self._message != nil
     }
     mutating func clearMessage() {
-      _message = nil
+      self._message = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -252,26 +252,26 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
     init() {}
 
     public var isInitialized: Bool {
-      if _typeId == nil {return false}
-      if _message == nil {return false}
+      if self._typeId == nil {return false}
+      if self._message == nil {return false}
       return true
     }
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt32Field(value: &_typeId)
-        case 3: try decoder.decodeSingularBytesField(value: &_message)
+        case 2: try decoder.decodeSingularInt32Field(value: &self._typeId)
+        case 3: try decoder.decodeSingularBytesField(value: &self._message)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _typeId {
+      if let v = self._typeId {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      if let v = _message {
+      if let v = self._message {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -288,15 +288,15 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedGroupField(value: &item)
+      case 1: try decoder.decodeRepeatedGroupField(value: &self.item)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !item.isEmpty {
-      try visitor.visitRepeatedGroupField(value: item, fieldNumber: 1)
+    if !self.item.isEmpty {
+      try visitor.visitRepeatedGroupField(value: self.item, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -361,7 +361,7 @@ extension ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf._MessageImple
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension1) -> Bool {
-    if _i != other._i {return false}
+    if self._i != other._i {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -373,7 +373,7 @@ extension ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf._MessageImple
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetExtension2) -> Bool {
-    if _str != other._str {return false}
+    if self._str != other._str {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -385,7 +385,7 @@ extension ProtobufUnittest_RawMessageSet: SwiftProtobuf._MessageImplementationBa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet) -> Bool {
-    if item != other.item {return false}
+    if self.item != other.item {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -398,8 +398,8 @@ extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
-    if _typeId != other._typeId {return false}
-    if _message != other._message {return false}
+    if self._typeId != other._typeId {return false}
+    if self._message != other._message {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

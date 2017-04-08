@@ -597,15 +597,15 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &bb)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.bb)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if bb != 0 {
-        try visitor.visitSingularInt32Field(value: bb, fieldNumber: 1)
+      if self.bb != 0 {
+        try visitor.visitSingularInt32Field(value: self.bb, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -863,67 +863,67 @@ struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 90: try decoder.decodeRepeatedInt32Field(value: &packedInt32)
-      case 91: try decoder.decodeRepeatedInt64Field(value: &packedInt64)
-      case 92: try decoder.decodeRepeatedUInt32Field(value: &packedUint32)
-      case 93: try decoder.decodeRepeatedUInt64Field(value: &packedUint64)
-      case 94: try decoder.decodeRepeatedSInt32Field(value: &packedSint32)
-      case 95: try decoder.decodeRepeatedSInt64Field(value: &packedSint64)
-      case 96: try decoder.decodeRepeatedFixed32Field(value: &packedFixed32)
-      case 97: try decoder.decodeRepeatedFixed64Field(value: &packedFixed64)
-      case 98: try decoder.decodeRepeatedSFixed32Field(value: &packedSfixed32)
-      case 99: try decoder.decodeRepeatedSFixed64Field(value: &packedSfixed64)
-      case 100: try decoder.decodeRepeatedFloatField(value: &packedFloat)
-      case 101: try decoder.decodeRepeatedDoubleField(value: &packedDouble)
-      case 102: try decoder.decodeRepeatedBoolField(value: &packedBool)
-      case 103: try decoder.decodeRepeatedEnumField(value: &packedEnum)
+      case 90: try decoder.decodeRepeatedInt32Field(value: &self.packedInt32)
+      case 91: try decoder.decodeRepeatedInt64Field(value: &self.packedInt64)
+      case 92: try decoder.decodeRepeatedUInt32Field(value: &self.packedUint32)
+      case 93: try decoder.decodeRepeatedUInt64Field(value: &self.packedUint64)
+      case 94: try decoder.decodeRepeatedSInt32Field(value: &self.packedSint32)
+      case 95: try decoder.decodeRepeatedSInt64Field(value: &self.packedSint64)
+      case 96: try decoder.decodeRepeatedFixed32Field(value: &self.packedFixed32)
+      case 97: try decoder.decodeRepeatedFixed64Field(value: &self.packedFixed64)
+      case 98: try decoder.decodeRepeatedSFixed32Field(value: &self.packedSfixed32)
+      case 99: try decoder.decodeRepeatedSFixed64Field(value: &self.packedSfixed64)
+      case 100: try decoder.decodeRepeatedFloatField(value: &self.packedFloat)
+      case 101: try decoder.decodeRepeatedDoubleField(value: &self.packedDouble)
+      case 102: try decoder.decodeRepeatedBoolField(value: &self.packedBool)
+      case 103: try decoder.decodeRepeatedEnumField(value: &self.packedEnum)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !packedInt32.isEmpty {
-      try visitor.visitPackedInt32Field(value: packedInt32, fieldNumber: 90)
+    if !self.packedInt32.isEmpty {
+      try visitor.visitPackedInt32Field(value: self.packedInt32, fieldNumber: 90)
     }
-    if !packedInt64.isEmpty {
-      try visitor.visitPackedInt64Field(value: packedInt64, fieldNumber: 91)
+    if !self.packedInt64.isEmpty {
+      try visitor.visitPackedInt64Field(value: self.packedInt64, fieldNumber: 91)
     }
-    if !packedUint32.isEmpty {
-      try visitor.visitPackedUInt32Field(value: packedUint32, fieldNumber: 92)
+    if !self.packedUint32.isEmpty {
+      try visitor.visitPackedUInt32Field(value: self.packedUint32, fieldNumber: 92)
     }
-    if !packedUint64.isEmpty {
-      try visitor.visitPackedUInt64Field(value: packedUint64, fieldNumber: 93)
+    if !self.packedUint64.isEmpty {
+      try visitor.visitPackedUInt64Field(value: self.packedUint64, fieldNumber: 93)
     }
-    if !packedSint32.isEmpty {
-      try visitor.visitPackedSInt32Field(value: packedSint32, fieldNumber: 94)
+    if !self.packedSint32.isEmpty {
+      try visitor.visitPackedSInt32Field(value: self.packedSint32, fieldNumber: 94)
     }
-    if !packedSint64.isEmpty {
-      try visitor.visitPackedSInt64Field(value: packedSint64, fieldNumber: 95)
+    if !self.packedSint64.isEmpty {
+      try visitor.visitPackedSInt64Field(value: self.packedSint64, fieldNumber: 95)
     }
-    if !packedFixed32.isEmpty {
-      try visitor.visitPackedFixed32Field(value: packedFixed32, fieldNumber: 96)
+    if !self.packedFixed32.isEmpty {
+      try visitor.visitPackedFixed32Field(value: self.packedFixed32, fieldNumber: 96)
     }
-    if !packedFixed64.isEmpty {
-      try visitor.visitPackedFixed64Field(value: packedFixed64, fieldNumber: 97)
+    if !self.packedFixed64.isEmpty {
+      try visitor.visitPackedFixed64Field(value: self.packedFixed64, fieldNumber: 97)
     }
-    if !packedSfixed32.isEmpty {
-      try visitor.visitPackedSFixed32Field(value: packedSfixed32, fieldNumber: 98)
+    if !self.packedSfixed32.isEmpty {
+      try visitor.visitPackedSFixed32Field(value: self.packedSfixed32, fieldNumber: 98)
     }
-    if !packedSfixed64.isEmpty {
-      try visitor.visitPackedSFixed64Field(value: packedSfixed64, fieldNumber: 99)
+    if !self.packedSfixed64.isEmpty {
+      try visitor.visitPackedSFixed64Field(value: self.packedSfixed64, fieldNumber: 99)
     }
-    if !packedFloat.isEmpty {
-      try visitor.visitPackedFloatField(value: packedFloat, fieldNumber: 100)
+    if !self.packedFloat.isEmpty {
+      try visitor.visitPackedFloatField(value: self.packedFloat, fieldNumber: 100)
     }
-    if !packedDouble.isEmpty {
-      try visitor.visitPackedDoubleField(value: packedDouble, fieldNumber: 101)
+    if !self.packedDouble.isEmpty {
+      try visitor.visitPackedDoubleField(value: self.packedDouble, fieldNumber: 101)
     }
-    if !packedBool.isEmpty {
-      try visitor.visitPackedBoolField(value: packedBool, fieldNumber: 102)
+    if !self.packedBool.isEmpty {
+      try visitor.visitPackedBoolField(value: self.packedBool, fieldNumber: 102)
     }
-    if !packedEnum.isEmpty {
-      try visitor.visitPackedEnumField(value: packedEnum, fieldNumber: 103)
+    if !self.packedEnum.isEmpty {
+      try visitor.visitPackedEnumField(value: self.packedEnum, fieldNumber: 103)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -968,67 +968,67 @@ struct Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedInt32Field(value: &repeatedInt32)
-      case 2: try decoder.decodeRepeatedInt64Field(value: &repeatedInt64)
-      case 3: try decoder.decodeRepeatedUInt32Field(value: &repeatedUint32)
-      case 4: try decoder.decodeRepeatedUInt64Field(value: &repeatedUint64)
-      case 5: try decoder.decodeRepeatedSInt32Field(value: &repeatedSint32)
-      case 6: try decoder.decodeRepeatedSInt64Field(value: &repeatedSint64)
-      case 7: try decoder.decodeRepeatedFixed32Field(value: &repeatedFixed32)
-      case 8: try decoder.decodeRepeatedFixed64Field(value: &repeatedFixed64)
-      case 9: try decoder.decodeRepeatedSFixed32Field(value: &repeatedSfixed32)
-      case 10: try decoder.decodeRepeatedSFixed64Field(value: &repeatedSfixed64)
-      case 11: try decoder.decodeRepeatedFloatField(value: &repeatedFloat)
-      case 12: try decoder.decodeRepeatedDoubleField(value: &repeatedDouble)
-      case 13: try decoder.decodeRepeatedBoolField(value: &repeatedBool)
-      case 14: try decoder.decodeRepeatedEnumField(value: &repeatedNestedEnum)
+      case 1: try decoder.decodeRepeatedInt32Field(value: &self.repeatedInt32)
+      case 2: try decoder.decodeRepeatedInt64Field(value: &self.repeatedInt64)
+      case 3: try decoder.decodeRepeatedUInt32Field(value: &self.repeatedUint32)
+      case 4: try decoder.decodeRepeatedUInt64Field(value: &self.repeatedUint64)
+      case 5: try decoder.decodeRepeatedSInt32Field(value: &self.repeatedSint32)
+      case 6: try decoder.decodeRepeatedSInt64Field(value: &self.repeatedSint64)
+      case 7: try decoder.decodeRepeatedFixed32Field(value: &self.repeatedFixed32)
+      case 8: try decoder.decodeRepeatedFixed64Field(value: &self.repeatedFixed64)
+      case 9: try decoder.decodeRepeatedSFixed32Field(value: &self.repeatedSfixed32)
+      case 10: try decoder.decodeRepeatedSFixed64Field(value: &self.repeatedSfixed64)
+      case 11: try decoder.decodeRepeatedFloatField(value: &self.repeatedFloat)
+      case 12: try decoder.decodeRepeatedDoubleField(value: &self.repeatedDouble)
+      case 13: try decoder.decodeRepeatedBoolField(value: &self.repeatedBool)
+      case 14: try decoder.decodeRepeatedEnumField(value: &self.repeatedNestedEnum)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !repeatedInt32.isEmpty {
-      try visitor.visitRepeatedInt32Field(value: repeatedInt32, fieldNumber: 1)
+    if !self.repeatedInt32.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.repeatedInt32, fieldNumber: 1)
     }
-    if !repeatedInt64.isEmpty {
-      try visitor.visitRepeatedInt64Field(value: repeatedInt64, fieldNumber: 2)
+    if !self.repeatedInt64.isEmpty {
+      try visitor.visitRepeatedInt64Field(value: self.repeatedInt64, fieldNumber: 2)
     }
-    if !repeatedUint32.isEmpty {
-      try visitor.visitRepeatedUInt32Field(value: repeatedUint32, fieldNumber: 3)
+    if !self.repeatedUint32.isEmpty {
+      try visitor.visitRepeatedUInt32Field(value: self.repeatedUint32, fieldNumber: 3)
     }
-    if !repeatedUint64.isEmpty {
-      try visitor.visitRepeatedUInt64Field(value: repeatedUint64, fieldNumber: 4)
+    if !self.repeatedUint64.isEmpty {
+      try visitor.visitRepeatedUInt64Field(value: self.repeatedUint64, fieldNumber: 4)
     }
-    if !repeatedSint32.isEmpty {
-      try visitor.visitRepeatedSInt32Field(value: repeatedSint32, fieldNumber: 5)
+    if !self.repeatedSint32.isEmpty {
+      try visitor.visitRepeatedSInt32Field(value: self.repeatedSint32, fieldNumber: 5)
     }
-    if !repeatedSint64.isEmpty {
-      try visitor.visitRepeatedSInt64Field(value: repeatedSint64, fieldNumber: 6)
+    if !self.repeatedSint64.isEmpty {
+      try visitor.visitRepeatedSInt64Field(value: self.repeatedSint64, fieldNumber: 6)
     }
-    if !repeatedFixed32.isEmpty {
-      try visitor.visitRepeatedFixed32Field(value: repeatedFixed32, fieldNumber: 7)
+    if !self.repeatedFixed32.isEmpty {
+      try visitor.visitRepeatedFixed32Field(value: self.repeatedFixed32, fieldNumber: 7)
     }
-    if !repeatedFixed64.isEmpty {
-      try visitor.visitRepeatedFixed64Field(value: repeatedFixed64, fieldNumber: 8)
+    if !self.repeatedFixed64.isEmpty {
+      try visitor.visitRepeatedFixed64Field(value: self.repeatedFixed64, fieldNumber: 8)
     }
-    if !repeatedSfixed32.isEmpty {
-      try visitor.visitRepeatedSFixed32Field(value: repeatedSfixed32, fieldNumber: 9)
+    if !self.repeatedSfixed32.isEmpty {
+      try visitor.visitRepeatedSFixed32Field(value: self.repeatedSfixed32, fieldNumber: 9)
     }
-    if !repeatedSfixed64.isEmpty {
-      try visitor.visitRepeatedSFixed64Field(value: repeatedSfixed64, fieldNumber: 10)
+    if !self.repeatedSfixed64.isEmpty {
+      try visitor.visitRepeatedSFixed64Field(value: self.repeatedSfixed64, fieldNumber: 10)
     }
-    if !repeatedFloat.isEmpty {
-      try visitor.visitRepeatedFloatField(value: repeatedFloat, fieldNumber: 11)
+    if !self.repeatedFloat.isEmpty {
+      try visitor.visitRepeatedFloatField(value: self.repeatedFloat, fieldNumber: 11)
     }
-    if !repeatedDouble.isEmpty {
-      try visitor.visitRepeatedDoubleField(value: repeatedDouble, fieldNumber: 12)
+    if !self.repeatedDouble.isEmpty {
+      try visitor.visitRepeatedDoubleField(value: self.repeatedDouble, fieldNumber: 12)
     }
-    if !repeatedBool.isEmpty {
-      try visitor.visitRepeatedBoolField(value: repeatedBool, fieldNumber: 13)
+    if !self.repeatedBool.isEmpty {
+      try visitor.visitRepeatedBoolField(value: self.repeatedBool, fieldNumber: 13)
     }
-    if !repeatedNestedEnum.isEmpty {
-      try visitor.visitRepeatedEnumField(value: repeatedNestedEnum, fieldNumber: 14)
+    if !self.repeatedNestedEnum.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.repeatedNestedEnum, fieldNumber: 14)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1125,15 +1125,15 @@ struct Proto3LiteUnittest_ForeignMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if c != 0 {
-      try visitor.visitSingularInt32Field(value: c, fieldNumber: 1)
+    if self.c != 0 {
+      try visitor.visitSingularInt32Field(value: self.c, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1354,7 +1354,7 @@ extension Proto3LiteUnittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageI
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto3LiteUnittest_TestAllTypes.NestedMessage) -> Bool {
-    if bb != other.bb {return false}
+    if self.bb != other.bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1379,20 +1379,20 @@ extension Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf._MessageImplementati
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto3LiteUnittest_TestPackedTypes) -> Bool {
-    if packedInt32 != other.packedInt32 {return false}
-    if packedInt64 != other.packedInt64 {return false}
-    if packedUint32 != other.packedUint32 {return false}
-    if packedUint64 != other.packedUint64 {return false}
-    if packedSint32 != other.packedSint32 {return false}
-    if packedSint64 != other.packedSint64 {return false}
-    if packedFixed32 != other.packedFixed32 {return false}
-    if packedFixed64 != other.packedFixed64 {return false}
-    if packedSfixed32 != other.packedSfixed32 {return false}
-    if packedSfixed64 != other.packedSfixed64 {return false}
-    if packedFloat != other.packedFloat {return false}
-    if packedDouble != other.packedDouble {return false}
-    if packedBool != other.packedBool {return false}
-    if packedEnum != other.packedEnum {return false}
+    if self.packedInt32 != other.packedInt32 {return false}
+    if self.packedInt64 != other.packedInt64 {return false}
+    if self.packedUint32 != other.packedUint32 {return false}
+    if self.packedUint64 != other.packedUint64 {return false}
+    if self.packedSint32 != other.packedSint32 {return false}
+    if self.packedSint64 != other.packedSint64 {return false}
+    if self.packedFixed32 != other.packedFixed32 {return false}
+    if self.packedFixed64 != other.packedFixed64 {return false}
+    if self.packedSfixed32 != other.packedSfixed32 {return false}
+    if self.packedSfixed64 != other.packedSfixed64 {return false}
+    if self.packedFloat != other.packedFloat {return false}
+    if self.packedDouble != other.packedDouble {return false}
+    if self.packedBool != other.packedBool {return false}
+    if self.packedEnum != other.packedEnum {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1417,20 +1417,20 @@ extension Proto3LiteUnittest_TestUnpackedTypes: SwiftProtobuf._MessageImplementa
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto3LiteUnittest_TestUnpackedTypes) -> Bool {
-    if repeatedInt32 != other.repeatedInt32 {return false}
-    if repeatedInt64 != other.repeatedInt64 {return false}
-    if repeatedUint32 != other.repeatedUint32 {return false}
-    if repeatedUint64 != other.repeatedUint64 {return false}
-    if repeatedSint32 != other.repeatedSint32 {return false}
-    if repeatedSint64 != other.repeatedSint64 {return false}
-    if repeatedFixed32 != other.repeatedFixed32 {return false}
-    if repeatedFixed64 != other.repeatedFixed64 {return false}
-    if repeatedSfixed32 != other.repeatedSfixed32 {return false}
-    if repeatedSfixed64 != other.repeatedSfixed64 {return false}
-    if repeatedFloat != other.repeatedFloat {return false}
-    if repeatedDouble != other.repeatedDouble {return false}
-    if repeatedBool != other.repeatedBool {return false}
-    if repeatedNestedEnum != other.repeatedNestedEnum {return false}
+    if self.repeatedInt32 != other.repeatedInt32 {return false}
+    if self.repeatedInt64 != other.repeatedInt64 {return false}
+    if self.repeatedUint32 != other.repeatedUint32 {return false}
+    if self.repeatedUint64 != other.repeatedUint64 {return false}
+    if self.repeatedSint32 != other.repeatedSint32 {return false}
+    if self.repeatedSint64 != other.repeatedSint64 {return false}
+    if self.repeatedFixed32 != other.repeatedFixed32 {return false}
+    if self.repeatedFixed64 != other.repeatedFixed64 {return false}
+    if self.repeatedSfixed32 != other.repeatedSfixed32 {return false}
+    if self.repeatedSfixed64 != other.repeatedSfixed64 {return false}
+    if self.repeatedFloat != other.repeatedFloat {return false}
+    if self.repeatedDouble != other.repeatedDouble {return false}
+    if self.repeatedBool != other.repeatedBool {return false}
+    if self.repeatedNestedEnum != other.repeatedNestedEnum {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1462,7 +1462,7 @@ extension Proto3LiteUnittest_ForeignMessage: SwiftProtobuf._MessageImplementatio
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto3LiteUnittest_ForeignMessage) -> Bool {
-    if c != other.c {return false}
+    if self.c != other.c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

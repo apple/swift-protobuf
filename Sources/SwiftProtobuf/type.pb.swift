@@ -406,51 +406,51 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &kind)
-      case 2: try decoder.decodeSingularEnumField(value: &cardinality)
-      case 3: try decoder.decodeSingularInt32Field(value: &number)
-      case 4: try decoder.decodeSingularStringField(value: &name)
-      case 6: try decoder.decodeSingularStringField(value: &typeURL)
-      case 7: try decoder.decodeSingularInt32Field(value: &oneofIndex)
-      case 8: try decoder.decodeSingularBoolField(value: &packed)
-      case 9: try decoder.decodeRepeatedMessageField(value: &options)
-      case 10: try decoder.decodeSingularStringField(value: &jsonName)
-      case 11: try decoder.decodeSingularStringField(value: &defaultValue)
+      case 1: try decoder.decodeSingularEnumField(value: &self.kind)
+      case 2: try decoder.decodeSingularEnumField(value: &self.cardinality)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.number)
+      case 4: try decoder.decodeSingularStringField(value: &self.name)
+      case 6: try decoder.decodeSingularStringField(value: &self.typeURL)
+      case 7: try decoder.decodeSingularInt32Field(value: &self.oneofIndex)
+      case 8: try decoder.decodeSingularBoolField(value: &self.packed)
+      case 9: try decoder.decodeRepeatedMessageField(value: &self.options)
+      case 10: try decoder.decodeSingularStringField(value: &self.jsonName)
+      case 11: try decoder.decodeSingularStringField(value: &self.defaultValue)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if kind != Google_Protobuf_Field.Kind.typeUnknown {
-      try visitor.visitSingularEnumField(value: kind, fieldNumber: 1)
+    if self.kind != Google_Protobuf_Field.Kind.typeUnknown {
+      try visitor.visitSingularEnumField(value: self.kind, fieldNumber: 1)
     }
-    if cardinality != Google_Protobuf_Field.Cardinality.unknown {
-      try visitor.visitSingularEnumField(value: cardinality, fieldNumber: 2)
+    if self.cardinality != Google_Protobuf_Field.Cardinality.unknown {
+      try visitor.visitSingularEnumField(value: self.cardinality, fieldNumber: 2)
     }
-    if number != 0 {
-      try visitor.visitSingularInt32Field(value: number, fieldNumber: 3)
+    if self.number != 0 {
+      try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 3)
     }
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 4)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 4)
     }
-    if !typeURL.isEmpty {
-      try visitor.visitSingularStringField(value: typeURL, fieldNumber: 6)
+    if !self.typeURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.typeURL, fieldNumber: 6)
     }
-    if oneofIndex != 0 {
-      try visitor.visitSingularInt32Field(value: oneofIndex, fieldNumber: 7)
+    if self.oneofIndex != 0 {
+      try visitor.visitSingularInt32Field(value: self.oneofIndex, fieldNumber: 7)
     }
-    if packed != false {
-      try visitor.visitSingularBoolField(value: packed, fieldNumber: 8)
+    if self.packed != false {
+      try visitor.visitSingularBoolField(value: self.packed, fieldNumber: 8)
     }
-    if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, fieldNumber: 9)
+    if !self.options.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 9)
     }
-    if !jsonName.isEmpty {
-      try visitor.visitSingularStringField(value: jsonName, fieldNumber: 10)
+    if !self.jsonName.isEmpty {
+      try visitor.visitSingularStringField(value: self.jsonName, fieldNumber: 10)
     }
-    if !defaultValue.isEmpty {
-      try visitor.visitSingularStringField(value: defaultValue, fieldNumber: 11)
+    if !self.defaultValue.isEmpty {
+      try visitor.visitSingularStringField(value: self.defaultValue, fieldNumber: 11)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -585,23 +585,23 @@ public struct Google_Protobuf_EnumValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &name)
-      case 2: try decoder.decodeSingularInt32Field(value: &number)
-      case 3: try decoder.decodeRepeatedMessageField(value: &options)
+      case 1: try decoder.decodeSingularStringField(value: &self.name)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.number)
+      case 3: try decoder.decodeRepeatedMessageField(value: &self.options)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 1)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if number != 0 {
-      try visitor.visitSingularInt32Field(value: number, fieldNumber: 2)
+    if self.number != 0 {
+      try visitor.visitSingularInt32Field(value: self.number, fieldNumber: 2)
     }
-    if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, fieldNumber: 3)
+    if !self.options.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -741,16 +741,16 @@ extension Google_Protobuf_Field: SwiftProtobuf._MessageImplementationBase, Swift
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Field) -> Bool {
-    if kind != other.kind {return false}
-    if cardinality != other.cardinality {return false}
-    if number != other.number {return false}
-    if name != other.name {return false}
-    if typeURL != other.typeURL {return false}
-    if oneofIndex != other.oneofIndex {return false}
-    if packed != other.packed {return false}
-    if options != other.options {return false}
-    if jsonName != other.jsonName {return false}
-    if defaultValue != other.defaultValue {return false}
+    if self.kind != other.kind {return false}
+    if self.cardinality != other.cardinality {return false}
+    if self.number != other.number {return false}
+    if self.name != other.name {return false}
+    if self.typeURL != other.typeURL {return false}
+    if self.oneofIndex != other.oneofIndex {return false}
+    if self.packed != other.packed {return false}
+    if self.options != other.options {return false}
+    if self.jsonName != other.jsonName {return false}
+    if self.defaultValue != other.defaultValue {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -823,9 +823,9 @@ extension Google_Protobuf_EnumValue: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValue) -> Bool {
-    if name != other.name {return false}
-    if number != other.number {return false}
-    if options != other.options {return false}
+    if self.name != other.name {return false}
+    if self.number != other.number {return false}
+    if self.options != other.options {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

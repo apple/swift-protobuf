@@ -150,10 +150,10 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       set {_optionalEnum = newValue}
     }
     var hasOptionalEnum: Bool {
-      return _optionalEnum != nil
+      return self._optionalEnum != nil
     }
     mutating func clearOptionalEnum() {
-      _optionalEnum = nil
+      self._optionalEnum = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -186,14 +186,14 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 17: try decoder.decodeSingularEnumField(value: &_optionalEnum)
+        case 17: try decoder.decodeSingularEnumField(value: &self._optionalEnum)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _optionalEnum {
+      if let v = self._optionalEnum {
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -257,7 +257,7 @@ extension ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2: SwiftProto
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2) -> Bool {
-    if _optionalEnum != other._optionalEnum {return false}
+    if self._optionalEnum != other._optionalEnum {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

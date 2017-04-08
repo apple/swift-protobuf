@@ -100,15 +100,15 @@ public struct Google_Protobuf_Struct: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &fields)
+      case 1: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: &self.fields)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !fields.isEmpty {
-      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: fields, fieldNumber: 1)
+    if !self.fields.isEmpty {
+      try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,Google_Protobuf_Value>.self, value: self.fields, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -292,15 +292,15 @@ public struct Google_Protobuf_ListValue: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedMessageField(value: &values)
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.values)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !values.isEmpty {
-      try visitor.visitRepeatedMessageField(value: values, fieldNumber: 1)
+    if !self.values.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -322,7 +322,7 @@ extension Google_Protobuf_Struct: SwiftProtobuf._MessageImplementationBase, Swif
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Struct) -> Bool {
-    if fields != other.fields {return false}
+    if self.fields != other.fields {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -430,7 +430,7 @@ extension Google_Protobuf_ListValue: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ListValue) -> Bool {
-    if values != other.values {return false}
+    if self.values != other.values {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

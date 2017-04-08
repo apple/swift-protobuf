@@ -54,10 +54,10 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
         set {_a = newValue}
       }
       var hasA: Bool {
-        return _a != nil
+        return self._a != nil
       }
       mutating func clearA() {
-        _a = nil
+        self._a = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -72,7 +72,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
       mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           switch fieldNumber {
-          case 1: try decoder.decodeSingularInt32Field(value: &_a)
+          case 1: try decoder.decodeSingularInt32Field(value: &self._a)
           case 100..<1001:
             try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Baz.self, fieldNumber: fieldNumber)
           default: break
@@ -81,7 +81,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
       }
 
       func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if let v = _a {
+        if let v = self._a {
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 1001)
@@ -125,10 +125,10 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -138,14 +138,14 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 999: try decoder.decodeSingularInt64Field(value: &_c)
+      case 999: try decoder.decodeSingularInt64Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 999)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -217,10 +217,10 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
     set {_x = newValue}
   }
   var hasX: Bool {
-    return _x != nil
+    return self._x != nil
   }
   mutating func clearX() {
-    _x = nil
+    self._x = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -235,7 +235,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_x)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._x)
       case 100..<201:
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_Extend_MsgNoStorage.self, fieldNumber: fieldNumber)
       default: break
@@ -244,7 +244,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _x {
+    if let v = self._x {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 201)
@@ -535,7 +535,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_Foo.Bar.Baz) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
@@ -548,7 +548,7 @@ extension ProtobufUnittest_Extend_C: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_C) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -580,7 +580,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf._MessageImplementa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgNoStorage) -> Bool {
-    if _x != other._x {return false}
+    if self._x != other._x {return false}
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true

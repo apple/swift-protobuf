@@ -59,10 +59,10 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -77,7 +77,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       case 2..<11:
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftTestGroupExtensions.self, fieldNumber: fieldNumber)
       default: break
@@ -86,7 +86,7 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 11)
@@ -105,10 +105,10 @@ struct ExtensionGroup: SwiftProtobuf.Message {
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -118,14 +118,14 @@ struct ExtensionGroup: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -141,10 +141,10 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message {
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -154,14 +154,14 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -177,10 +177,10 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -190,14 +190,14 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -316,10 +316,10 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         set {_sub2A = newValue}
       }
       var hasSub2A: Bool {
-        return _sub2A != nil
+        return self._sub2A != nil
       }
       mutating func clearSub2A() {
-        _sub2A = nil
+        self._sub2A = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -329,14 +329,14 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           switch fieldNumber {
-          case 1: try decoder.decodeSingularInt32Field(value: &_sub2A)
+          case 1: try decoder.decodeSingularInt32Field(value: &self._sub2A)
           default: break
           }
         }
       }
 
       func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if let v = _sub2A {
+        if let v = self._sub2A {
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try unknownFields.traverse(visitor: &visitor)
@@ -380,10 +380,10 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       set {_sub3A = newValue}
     }
     var hasSub3A: Bool {
-      return _sub3A != nil
+      return self._sub3A != nil
     }
     mutating func clearSub3A() {
-      _sub3A = nil
+      self._sub3A = nil
     }
 
     var subGroup4: [SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4] = []
@@ -399,10 +399,10 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         set {_sub4A = newValue}
       }
       var hasSub4A: Bool {
-        return _sub4A != nil
+        return self._sub4A != nil
       }
       mutating func clearSub4A() {
-        _sub4A = nil
+        self._sub4A = nil
       }
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -412,14 +412,14 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
         while let fieldNumber = try decoder.nextFieldNumber() {
           switch fieldNumber {
-          case 1: try decoder.decodeSingularInt32Field(value: &_sub4A)
+          case 1: try decoder.decodeSingularInt32Field(value: &self._sub4A)
           default: break
           }
         }
       }
 
       func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-        if let v = _sub4A {
+        if let v = self._sub4A {
           try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
         }
         try unknownFields.traverse(visitor: &visitor)
@@ -431,19 +431,19 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_sub3A)
-        case 2: try decoder.decodeRepeatedGroupField(value: &subGroup4)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._sub3A)
+        case 2: try decoder.decodeRepeatedGroupField(value: &self.subGroup4)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _sub3A {
+      if let v = self._sub3A {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      if !subGroup4.isEmpty {
-        try visitor.visitRepeatedGroupField(value: subGroup4, fieldNumber: 2)
+      if !self.subGroup4.isEmpty {
+        try visitor.visitRepeatedGroupField(value: self.subGroup4, fieldNumber: 2)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -532,7 +532,7 @@ extension SwiftTestGroupExtensions: SwiftProtobuf._MessageImplementationBase, Sw
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftTestGroupExtensions) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
@@ -545,7 +545,7 @@ extension ExtensionGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobu
   ]
 
   func _protobuf_generated_isEqualTo(other: ExtensionGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -557,7 +557,7 @@ extension RepeatedExtensionGroup: SwiftProtobuf._MessageImplementationBase, Swif
   ]
 
   func _protobuf_generated_isEqualTo(other: RepeatedExtensionGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -569,7 +569,7 @@ extension SwiftTestGroupUnextended: SwiftProtobuf._MessageImplementationBase, Sw
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftTestGroupUnextended) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -623,7 +623,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2: SwiftProtobuf._Mess
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2) -> Bool {
-    if _sub2A != other._sub2A {return false}
+    if self._sub2A != other._sub2A {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -636,8 +636,8 @@ extension SwiftTestNestingGroupsMessage.SubGroup3: SwiftProtobuf._MessageImpleme
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3) -> Bool {
-    if _sub3A != other._sub3A {return false}
-    if subGroup4 != other.subGroup4 {return false}
+    if self._sub3A != other._sub3A {return false}
+    if self.subGroup4 != other.subGroup4 {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -649,7 +649,7 @@ extension SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4: SwiftProtobuf._Mess
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4) -> Bool {
-    if _sub4A != other._sub4A {return false}
+    if self._sub4A != other._sub4A {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

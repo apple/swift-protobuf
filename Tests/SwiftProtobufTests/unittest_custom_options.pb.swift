@@ -115,10 +115,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     set {_field1 = newValue}
   }
   var hasField1: Bool {
-    return _field1 != nil
+    return self._field1 != nil
   }
   mutating func clearField1() {
-    _field1 = nil
+    self._field1 = nil
   }
 
   var oneofField: Int32 {
@@ -174,22 +174,22 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_field1)
+      case 1: try decoder.decodeSingularStringField(value: &self._field1)
       case 2:
-        if anOneof != nil {
+        if self.anOneof != nil {
           try decoder.handleConflictingOneOf()
         }
-        anOneof = try ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        self.anOneof = try ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _field1 {
+    if let v = self._field1 {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
-    try anOneof?.traverse(visitor: &visitor, start: 2, end: 3)
+    try self.anOneof?.traverse(visitor: &visitor, start: 2, end: 3)
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -418,10 +418,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     set {_foo = newValue}
   }
   var hasFoo: Bool {
-    return _foo != nil
+    return self._foo != nil
   }
   mutating func clearFoo() {
-    _foo = nil
+    self._foo = nil
   }
 
   fileprivate var _foo2: Int32? = nil
@@ -430,10 +430,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     set {_foo2 = newValue}
   }
   var hasFoo2: Bool {
-    return _foo2 != nil
+    return self._foo2 != nil
   }
   mutating func clearFoo2() {
-    _foo2 = nil
+    self._foo2 = nil
   }
 
   fileprivate var _foo3: Int32? = nil
@@ -442,10 +442,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     set {_foo3 = newValue}
   }
   var hasFoo3: Bool {
-    return _foo3 != nil
+    return self._foo3 != nil
   }
   mutating func clearFoo3() {
-    _foo3 = nil
+    self._foo3 = nil
   }
 
   var foo4: [Int32] = []
@@ -462,10 +462,10 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_foo)
-      case 2: try decoder.decodeSingularInt32Field(value: &_foo2)
-      case 3: try decoder.decodeSingularInt32Field(value: &_foo3)
-      case 4: try decoder.decodeRepeatedInt32Field(value: &foo4)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._foo)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._foo2)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._foo3)
+      case 4: try decoder.decodeRepeatedInt32Field(value: &self.foo4)
       case 100..<536870912:
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_ComplexOptionType1.self, fieldNumber: fieldNumber)
       default: break
@@ -474,17 +474,17 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _foo {
+    if let v = self._foo {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    if let v = _foo2 {
+    if let v = self._foo2 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     }
-    if let v = _foo3 {
+    if let v = self._foo3 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     }
-    if !foo4.isEmpty {
-      try visitor.visitRepeatedInt32Field(value: foo4, fieldNumber: 4)
+    if !self.foo4.isEmpty {
+      try visitor.visitRepeatedInt32Field(value: self.foo4, fieldNumber: 4)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 100, end: 536870912)
     try unknownFields.traverse(visitor: &visitor)
@@ -570,10 +570,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       set {_waldo = newValue}
     }
     var hasWaldo: Bool {
-      return _waldo != nil
+      return self._waldo != nil
     }
     mutating func clearWaldo() {
-      _waldo = nil
+      self._waldo = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -592,14 +592,14 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_waldo)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._waldo)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _waldo {
+      if let v = self._waldo {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -712,10 +712,10 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
       set {_plugh = newValue}
     }
     var hasPlugh: Bool {
-      return _plugh != nil
+      return self._plugh != nil
     }
     mutating func clearPlugh() {
-      _plugh = nil
+      self._plugh = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -725,14 +725,14 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 3: try decoder.decodeSingularInt32Field(value: &_plugh)
+        case 3: try decoder.decodeSingularInt32Field(value: &self._plugh)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _plugh {
+      if let v = self._plugh {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -776,10 +776,10 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
     set {_xyzzy = newValue}
   }
   var hasXyzzy: Bool {
-    return _xyzzy != nil
+    return self._xyzzy != nil
   }
   mutating func clearXyzzy() {
-    _xyzzy = nil
+    self._xyzzy = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -789,14 +789,14 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 7593951: try decoder.decodeSingularInt32Field(value: &_xyzzy)
+      case 7593951: try decoder.decodeSingularInt32Field(value: &self._xyzzy)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _xyzzy {
+    if let v = self._xyzzy {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 7593951)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -858,10 +858,10 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
     set {_s = newValue}
   }
   var hasS: Bool {
-    return _s != nil
+    return self._s != nil
   }
   mutating func clearS() {
-    _s = nil
+    self._s = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -880,14 +880,14 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_s)
+      case 1: try decoder.decodeSingularStringField(value: &self._s)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _s {
+    if let v = self._s {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1052,10 +1052,10 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
     set {_fieldname = newValue}
   }
   var hasFieldname: Bool {
-    return _fieldname != nil
+    return self._fieldname != nil
   }
   mutating func clearFieldname() {
-    _fieldname = nil
+    self._fieldname = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1065,14 +1065,14 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_fieldname)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._fieldname)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _fieldname {
+    if let v = self._fieldname {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1117,10 +1117,10 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
       set {_nestedField = newValue}
     }
     var hasNestedField: Bool {
-      return _nestedField != nil
+      return self._nestedField != nil
     }
     mutating func clearNestedField() {
-      _nestedField = nil
+      self._nestedField = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1130,14 +1130,14 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_nestedField)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._nestedField)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _nestedField {
+      if let v = self._nestedField {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -1176,10 +1176,10 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
     set {_value = newValue}
   }
   var hasValue: Bool {
-    return _value != nil
+    return self._value != nil
   }
   mutating func clearValue() {
-    _value = nil
+    self._value = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1210,21 +1210,21 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _value == nil {return false}
+    if self._value == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &_value)
+      case 1: try decoder.decodeSingularEnumField(value: &self._value)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _value {
+    if let v = self._value {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1241,10 +1241,10 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
     set {_value = newValue}
   }
   var hasValue: Bool {
-    return _value != nil
+    return self._value != nil
   }
   mutating func clearValue() {
-    _value = nil
+    self._value = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1278,21 +1278,21 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _value == nil {return false}
+    if self._value == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &_value)
+      case 1: try decoder.decodeSingularEnumField(value: &self._value)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _value {
+    if let v = self._value {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2244,8 +2244,8 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageI
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageWithCustomOptions) -> Bool {
-    if _field1 != other._field1 {return false}
-    if anOneof != other.anOneof {return false}
+    if self._field1 != other._field1 {return false}
+    if self.anOneof != other.anOneof {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2399,10 +2399,10 @@ extension ProtobufUnittest_ComplexOptionType1: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType1) -> Bool {
-    if _foo != other._foo {return false}
-    if _foo2 != other._foo2 {return false}
-    if _foo3 != other._foo3 {return false}
-    if foo4 != other.foo4 {return false}
+    if self._foo != other._foo {return false}
+    if self._foo2 != other._foo2 {return false}
+    if self._foo3 != other._foo3 {return false}
+    if self.foo4 != other.foo4 {return false}
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
@@ -2440,7 +2440,7 @@ extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4: SwiftProtobuf.
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4) -> Bool {
-    if _waldo != other._waldo {return false}
+    if self._waldo != other._waldo {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2472,7 +2472,7 @@ extension ProtobufUnittest_ComplexOptionType3.ComplexOptionType5: SwiftProtobuf.
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5) -> Bool {
-    if _plugh != other._plugh {return false}
+    if self._plugh != other._plugh {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2484,7 +2484,7 @@ extension ProtobufUnittest_ComplexOpt6: SwiftProtobuf._MessageImplementationBase
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOpt6) -> Bool {
-    if _xyzzy != other._xyzzy {return false}
+    if self._xyzzy != other._xyzzy {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2515,7 +2515,7 @@ extension ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf._MessageImp
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_AggregateMessageSetElement) -> Bool {
-    if _s != other._s {return false}
+    if self._s != other._s {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2553,7 +2553,7 @@ extension ProtobufUnittest_AggregateMessage: SwiftProtobuf._MessageImplementatio
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_AggregateMessage) -> Bool {
-    if _fieldname != other._fieldname {return false}
+    if self._fieldname != other._fieldname {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2580,7 +2580,7 @@ extension ProtobufUnittest_NestedOptionType.NestedMessage: SwiftProtobuf._Messag
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_NestedOptionType.NestedMessage) -> Bool {
-    if _nestedField != other._nestedField {return false}
+    if self._nestedField != other._nestedField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2592,7 +2592,7 @@ extension ProtobufUnittest_OldOptionType: SwiftProtobuf._MessageImplementationBa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OldOptionType) -> Bool {
-    if _value != other._value {return false}
+    if self._value != other._value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -2610,7 +2610,7 @@ extension ProtobufUnittest_NewOptionType: SwiftProtobuf._MessageImplementationBa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_NewOptionType) -> Bool {
-    if _value != other._value {return false}
+    if self._value != other._value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
