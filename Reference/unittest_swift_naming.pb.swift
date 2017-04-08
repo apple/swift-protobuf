@@ -247,6 +247,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
   case timeScale // = 241
   case timeBase // = 242
   case timeRecord // = 243
+  case extensions // = 244
 
   init() {
     self = .a
@@ -462,6 +463,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case 241: self = .timeScale
     case 242: self = .timeBase
     case 243: self = .timeRecord
+    case 244: self = .extensions
     default: return nil
     }
   }
@@ -676,6 +678,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case .timeScale: return 241
     case .timeBase: return 242
     case .timeRecord: return 243
+    case .extensions: return 244
     }
   }
 
@@ -715,6 +718,34 @@ enum SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf.Enum {
 
 }
 
+struct SwiftUnittest_Names_Foo: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  static let protoMessageName: String = _protobuf_package + ".Foo"
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      if (1 <= fieldNumber && fieldNumber < 5001) {
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: SwiftUnittest_Names_Foo.self, fieldNumber: fieldNumber)
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1, end: 5001)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".FieldNames"
 
@@ -732,7 +763,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     var _class_p: Int32? = nil
     var _deinit_p: Int32? = nil
     var _enum_p: Int32? = nil
-    var _extension_p: Int32? = nil
     var _func_p: Int32? = nil
     var _import_p: Int32? = nil
     var _init_p: Int32? = nil
@@ -940,6 +970,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     var _clearSerializedData_p: Int32? = nil
     var _jsonUtf8Data: Int32? = nil
     var _jsonString: Int32? = nil
+    var _extension_p: Int32? = nil
+    var _extensions: Int32? = nil
 
     init() {}
 
@@ -957,7 +989,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
       _class_p = source._class_p
       _deinit_p = source._deinit_p
       _enum_p = source._enum_p
-      _extension_p = source._extension_p
       _func_p = source._func_p
       _import_p = source._import_p
       _init_p = source._init_p
@@ -1165,6 +1196,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
       _clearSerializedData_p = source._clearSerializedData_p
       _jsonUtf8Data = source._jsonUtf8Data
       _jsonString = source._jsonString
+      _extension_p = source._extension_p
+      _extensions = source._extensions
     }
   }
 
@@ -1318,17 +1351,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   }
   mutating func clearEnum_p() {
     _storage._enum_p = nil
-  }
-
-  var extension_p: Int32 {
-    get {return _storage._extension_p ?? 0}
-    set {_uniqueStorage()._extension_p = newValue}
-  }
-  var hasExtension_p: Bool {
-    return _storage._extension_p != nil
-  }
-  mutating func clearExtension_p() {
-    _storage._extension_p = nil
   }
 
   var func_p: Int32 {
@@ -3608,7 +3630,38 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     _storage._jsonString = nil
   }
 
+  var extension_p: Int32 {
+    get {return _storage._extension_p ?? 0}
+    set {_uniqueStorage()._extension_p = newValue}
+  }
+  var hasExtension_p: Bool {
+    return _storage._extension_p != nil
+  }
+  mutating func clearExtension_p() {
+    _storage._extension_p = nil
+  }
+
+  var extensions: Int32 {
+    get {return _storage._extensions ?? 0}
+    set {_uniqueStorage()._extensions = newValue}
+  }
+  var hasExtensions: Bool {
+    return _storage._extensions != nil
+  }
+  mutating func clearExtensions() {
+    _storage._extensions = nil
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct Extensions {
+
+    static let foo1 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 1,
+      fieldName: "swift_unittest.names.FieldNames.foo1",
+      defaultValue: 0
+    )
+  }
 
   init() {}
 
@@ -3630,7 +3683,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
         case 11: try decoder.decodeSingularInt32Field(value: &_storage._class_p)
         case 12: try decoder.decodeSingularInt32Field(value: &_storage._deinit_p)
         case 13: try decoder.decodeSingularInt32Field(value: &_storage._enum_p)
-        case 14: try decoder.decodeSingularInt32Field(value: &_storage._extension_p)
         case 15: try decoder.decodeSingularInt32Field(value: &_storage._func_p)
         case 16: try decoder.decodeSingularInt32Field(value: &_storage._import_p)
         case 17: try decoder.decodeSingularInt32Field(value: &_storage._init_p)
@@ -3838,6 +3890,8 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
         case 257: try decoder.decodeSingularInt32Field(value: &_storage._clearSerializedData_p)
         case 258: try decoder.decodeSingularInt32Field(value: &_storage._jsonUtf8Data)
         case 259: try decoder.decodeSingularInt32Field(value: &_storage._jsonString)
+        case 260: try decoder.decodeSingularInt32Field(value: &_storage._extension_p)
+        case 261: try decoder.decodeSingularInt32Field(value: &_storage._extensions)
         default: break
         }
       }
@@ -3884,9 +3938,6 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
       }
       if let v = _storage._enum_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      }
-      if let v = _storage._extension_p {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
       }
       if let v = _storage._func_p {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 15)
@@ -4509,6 +4560,12 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
       if let v = _storage._jsonString {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 259)
       }
+      if let v = _storage._extension_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 260)
+      }
+      if let v = _storage._extensions {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 261)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4535,6 +4592,15 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    struct Extensions {
+
+      static let foo3 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+        _protobuf_fieldNumber: 3,
+        fieldName: "swift_unittest.names.MessageNames.String.foo3",
+        defaultValue: 0
+      )
+    }
 
     init() {}
 
@@ -12151,6 +12217,93 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
     }
   }
 
+  struct Extension: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
+
+    fileprivate var _extension_p: Int32? = nil
+    var extension_p: Int32 {
+      get {return _extension_p ?? 0}
+      set {_extension_p = newValue}
+    }
+    var hasExtension_p: Bool {
+      return self._extension_p != nil
+    }
+    mutating func clearExtension_p() {
+      self._extension_p = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extension_p)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._extension_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct ExtensionsMessage: SwiftProtobuf.Message {
+    static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
+
+    fileprivate var _extensions: Int32? = nil
+    var extensions: Int32 {
+      get {return _extensions ?? 0}
+      set {_extensions = newValue}
+    }
+    var hasExtensions: Bool {
+      return self._extensions != nil
+    }
+    mutating func clearExtensions() {
+      self._extensions = nil
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self._extensions)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._extensions {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct Extensions {
+
+    static let foo2 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 2,
+      fieldName: "swift_unittest.names.MessageNames.foo2",
+      defaultValue: 0
+    )
+
+    static let foo4 = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_Foo>(
+      _protobuf_fieldNumber: 4,
+      fieldName: "swift_unittest.names.MessageNames.foo4",
+      defaultValue: 0
+    )
+  }
+
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -16975,6 +17128,52 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message {
 
   }
 
+  enum Extension: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case aExtension // = 0
+
+    init() {
+      self = .aExtension
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .aExtension
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .aExtension: return 0
+      }
+    }
+
+  }
+
+  enum ExtensionsEnum: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case aExtensions // = 0
+
+    init() {
+      self = .aExtensions
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .aExtensions
+      default: return nil
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .aExtensions: return 0
+      }
+    }
+
+  }
+
   init() {}
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -18272,6 +18471,58 @@ let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<Optio
   defaultValue: 0
 )
 
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_FieldNames_foo1: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_FieldNames_foo1: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)
+  }
+  mutating func clearSwiftUnittest_Names_FieldNames_foo1() {
+    clearExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)
+  }
+}
+
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_MessageNames_StringMessage_foo3: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_MessageNames_StringMessage_foo3: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)
+  }
+  mutating func clearSwiftUnittest_Names_MessageNames_StringMessage_foo3() {
+    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)
+  }
+}
+
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_MessageNames_foo2: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_MessageNames_foo2: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)
+  }
+  mutating func clearSwiftUnittest_Names_MessageNames_foo2() {
+    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)
+  }
+}
+
+extension SwiftUnittest_Names_Foo {
+  var SwiftUnittest_Names_MessageNames_foo4: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_MessageNames_foo4: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)
+  }
+  mutating func clearSwiftUnittest_Names_MessageNames_foo4() {
+    clearExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)
+  }
+}
+
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_http: Int32 {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
@@ -19272,6 +19523,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Extensions_UrlValue,
   SwiftUnittest_Names_Extensions_TheUrlValue,
   SwiftUnittest_Names_Extensions_TheUrl,
+  SwiftUnittest_Names_FieldNames.Extensions.foo1,
+  SwiftUnittest_Names_MessageNames.Extensions.foo2,
+  SwiftUnittest_Names_MessageNames.Extensions.foo4,
+  SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3,
   SwiftUnittest_Names_Lowers.Extensions.http,
   SwiftUnittest_Names_Lowers.Extensions.http_request,
   SwiftUnittest_Names_Lowers.Extensions.the_http_request,
@@ -19525,6 +19780,7 @@ extension SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding 
     241: .same(proto: "TimeScale"),
     242: .same(proto: "TimeBase"),
     243: .same(proto: "TimeRecord"),
+    244: .same(proto: "Extensions"),
   ]
 }
 
@@ -19533,6 +19789,16 @@ extension SwiftUnittest_Names_EnumFieldNames2: SwiftProtobuf._ProtoNameProviding
     0: .same(proto: "AA"),
     1065: .same(proto: "__"),
   ]
+}
+
+extension SwiftUnittest_Names_Foo: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_Foo) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
 }
 
 extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -19550,7 +19816,6 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
     11: .same(proto: "class"),
     12: .same(proto: "deinit"),
     13: .same(proto: "enum"),
-    14: .same(proto: "extension"),
     15: .same(proto: "func"),
     16: .same(proto: "import"),
     17: .same(proto: "init"),
@@ -19758,6 +20023,8 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
     257: .same(proto: "clearSerializedData"),
     258: .same(proto: "jsonUTF8Data"),
     259: .same(proto: "jsonString"),
+    260: .same(proto: "Extension"),
+    261: .same(proto: "Extensions"),
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
@@ -19776,7 +20043,6 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
         if _storage._class_p != other_storage._class_p {return false}
         if _storage._deinit_p != other_storage._deinit_p {return false}
         if _storage._enum_p != other_storage._enum_p {return false}
-        if _storage._extension_p != other_storage._extension_p {return false}
         if _storage._func_p != other_storage._func_p {return false}
         if _storage._import_p != other_storage._import_p {return false}
         if _storage._init_p != other_storage._init_p {return false}
@@ -19984,6 +20250,8 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
         if _storage._clearSerializedData_p != other_storage._clearSerializedData_p {return false}
         if _storage._jsonUtf8Data != other_storage._jsonUtf8Data {return false}
         if _storage._jsonString != other_storage._jsonString {return false}
+        if _storage._extension_p != other_storage._extension_p {return false}
+        if _storage._extensions != other_storage._extensions {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -22546,6 +22814,30 @@ extension SwiftUnittest_Names_MessageNames.jsonString: SwiftProtobuf._MessageImp
   }
 }
 
+extension SwiftUnittest_Names_MessageNames.Extension: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Extension"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.Extension) -> Bool {
+    if self._extension_p != other._extension_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension SwiftUnittest_Names_MessageNames.ExtensionsMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Extensions"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.ExtensionsMessage) -> Bool {
+    if self._extensions != other._extensions {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
 extension SwiftUnittest_Names_EnumNames: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
@@ -23806,6 +24098,18 @@ extension SwiftUnittest_Names_EnumNames.TimeBase: SwiftProtobuf._ProtoNameProvid
 extension SwiftUnittest_Names_EnumNames.TimeRecord: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aTimeRecord"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.Extension: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aExtension"),
+  ]
+}
+
+extension SwiftUnittest_Names_EnumNames.ExtensionsEnum: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "aExtensions"),
   ]
 }
 

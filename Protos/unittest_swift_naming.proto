@@ -21,7 +21,12 @@ package swift_unittest.names;
 // TODO: Build a MessageNames message with a submessage of every name below
 // TODO: Create tests that access every field, enum, message to verify the name is generated correctly
 
+message Foo {
+  extensions 1 to 5000;
+}
+
 message FieldNames {
+  extend Foo { optional int32 foo1 = 1; }
   optional int32 String = 1;
   optional int32 Int = 2;
   optional int32 Double = 3;
@@ -35,7 +40,6 @@ message FieldNames {
   optional int32 class = 11;
   optional int32 deinit = 12;
   optional int32 enum = 13;
-  optional int32 extension = 14;
   optional int32 func = 15;
   optional int32 import = 16;
   optional int32 init = 17;
@@ -251,11 +255,14 @@ message FieldNames {
   optional int32 hasSerializedData = 256;
   optional int32 clearSerializedData = 257;
   optional int32 jsonUTF8Data = 258;
-   optional int32 jsonString = 259;
+  optional int32 jsonString = 259;
+  optional int32 Extension = 260;
+  optional int32 Extensions = 261;
 }
 
 message MessageNames {
-    message String { optional int32 String = 1; }
+    extend Foo { optional int32 foo2 = 2; }
+    message String { extend Foo { optional int32 foo3 = 3; }; optional int32 String = 1; }
     message Protocol { optional int32 Protocol = 1; }
     message Int { optional int32 Int = 1; }
     message Double { optional int32 Double = 1; }
@@ -467,6 +474,9 @@ message MessageNames {
     message serializedData { optional int32 serializedData = 1; }
     message jsonUTF8Data { optional int32 jsonUTF8Data = 1; }
     message jsonString { optional int32 jsonString = 1; }
+    message Extension {optional int32 Extension = 1; }
+    message Extensions {optional int32 Extensions = 1; }
+    extend Foo { optional int32 foo4 = 4; }
 }
 
 message EnumNames {
@@ -679,6 +689,8 @@ message EnumNames {
     enum TimeScale { aTimeScale = 0; }
     enum TimeBase { aTimeBase = 0; }
     enum TimeRecord { aTimeRecord = 0; }
+    enum Extension { aExtension = 0; }
+    enum Extensions { aExtensions = 0; }
 }
 
 enum EnumFieldNames {
@@ -890,6 +902,7 @@ enum EnumFieldNames {
     TimeScale = 241;
     TimeBase = 242;
     TimeRecord = 243;
+    Extensions = 244;
 }
 
 enum EnumFieldNames2 {

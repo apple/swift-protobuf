@@ -20,6 +20,7 @@ import PluginLibrary
 private let reservedTypeNames: Set<String> = {
     () -> Set<String> in
     var names: Set<String> = [
+        "Extensions",
         "SwiftProtobuf",
         "debugDescription",
         "decodeMessage",

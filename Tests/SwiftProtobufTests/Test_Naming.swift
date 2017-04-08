@@ -25,7 +25,7 @@ import SwiftProtobuf
 
 class Test_FieldNamingInitials: XCTestCase {
   func testHidingFunctions() throws {
-    var msg = SwiftUnittest_Names_FieldNames()
+    let msg = SwiftUnittest_Names_FieldNames()
     _ = try msg.serializedData()
     _ = try msg.jsonUTF8Data()
     _ = try msg.jsonString()
