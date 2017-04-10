@@ -427,10 +427,7 @@ class MessageGenerator {
   /// - Parameter index: The index of the `oneof`.
   /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
   private func oneofFieldNumbersPattern(index: Int32) -> String {
-    let oneofFields = fields.lazy.filter {
-      $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == index
-    }.map { $0.number }.sorted()
-
+    let oneofFields = oneofs[Int(index)].fieldsSortedByNumber.map { $0.number }
     assert(oneofFields.count > 0)
 
     if oneofFields.count <= 2 {
