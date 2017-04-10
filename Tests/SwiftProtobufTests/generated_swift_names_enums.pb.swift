@@ -6503,7 +6503,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
-  enum isEqualEnum: SwiftProtobuf.Enum {
+  enum isEqual: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneIsEqual // = 0
     case UNRECOGNIZED(Int)
@@ -6553,7 +6553,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
-  enum isInitialized: SwiftProtobuf.Enum {
+  enum isInitializedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneIsInitialized // = 0
     case UNRECOGNIZED(Int)
@@ -16757,7 +16757,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.isA: SwiftProtobuf._Proto
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.isEqualEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.isEqual: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isEqual"),
   ]
@@ -16769,7 +16769,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.isEqualTo: SwiftProtobuf.
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.isInitialized: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isInitialized"),
   ]

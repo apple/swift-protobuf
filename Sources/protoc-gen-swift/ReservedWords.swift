@@ -19,19 +19,37 @@ import PluginLibrary
 ///
 private let reservedTypeNames: Set<String> = {
     () -> Set<String> in
-    var names: Set<String> = [
-        "Extensions",
-        "SwiftProtobuf",
-        "debugDescription",
-        "decodeMessage",
-        "description",
-        "dynamicType",
-        "hashValue",
-        "isEqual",
-        "protoMessageName",
-        "traverse",
-        "unknownFields",
-    ]
+
+    var names: Set<String> = []
+
+    // Main SwiftProtobuf namespace
+    // Shadowing this leads to Bad Things.
+    names.insert("SwiftProtobuf")
+
+    // Subtype of many messages, used to scope nested extensions
+    names.insert("Extensions")
+
+    // Subtypes are static references, so can conflict with static
+    // class properties:
+    names.insert("protoMessageName")
+
+    // Methods on Message that we need to avoid shadowing.
+    // XXX Testing shows we do not need to avoid `serializedData` or
+    // `isEqualTo`, but it's not obvious to me what's different about
+    // them.  Maybe because these two are generic?  Because they throw? XXX
+    names.insert("decodeMessage")
+    names.insert("traverse")
+
+    // Basic Message properties we don't want to shadow:
+    names.insert("isInitialized")
+    names.insert("unknownFields")
+
+    // Standard Swift property names we don't want
+    // to conflict with:
+    names.insert("debugDescription")
+    names.insert("description")
+    names.insert("dynamicType")
+    names.insert("hashValue")
 
     // We don't need to protect all of these keywords, just the ones
     // that interfere with type expressions:
@@ -53,6 +71,12 @@ private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
     } else if isAllUnderscore(s) {
         return s + disambiguator
     } else if s.hasSuffix(disambiguator) {
+        // If `foo` and `fooMessage` both exist, and `foo` gets
+        // expanded to `fooMessage`, then we also should expand
+        // `fooMessage` to `fooMessageMessage` to avoid creating a new
+        // conflict.  This can be resolved recursively by stripping
+        // the disambiguator, sanitizing the root, then re-adding the
+        // disambiguator:
         let e = s.index(s.endIndex, offsetBy: -disambiguator.characters.count)
         let truncated = s.substring(to: e)
         return sanitizeTypeName(truncated, disambiguator: disambiguator) + disambiguator
@@ -75,14 +99,24 @@ func sanitizeOneofTypeName(_ s: String) -> String {
 
 private let reservedFieldNames: Set<String> =  {
     () -> Set<String> in
-    var names: Set<String> = [
-        "debugDescription",
-        "description",
-        "dynamicType",
-        "hashValue",
-        "isInitialized",
-        "unknownFields",
-    ]
+    var names: Set<String> = []
+
+    // Properties are instance names, so can't shadow static class
+    // properties such as `protoMessageName`.
+
+    // Properties can't shadow methods.  For example, we don't need to
+    // avoid `isEqualTo` as a field name.
+
+    // Basic Message properties that we don't want to shadow
+    names.insert("isInitialized")
+    names.insert("unknownFields")
+
+    // Standard Swift property names we don't want
+    // to conflict with:
+    names.insert("debugDescription")
+    names.insert("description")
+    names.insert("dynamicType")
+    names.insert("hashValue")
 
     // We don't need to protect all of these keywords, just the ones
     // that interfere with type expressions:
@@ -152,7 +186,10 @@ private let quotableEnumCases: Set<String> = {
  * are quoted with backticks:
  */
 private let reservedEnumCases: Set<String> = [
+            // Don't conflict with standard Swift property names:
             "debugDescription",
+            "description",
+            "dynamicType",
             "hashValue",
             "init",
             "rawValue",

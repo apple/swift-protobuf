@@ -48,6 +48,9 @@ message SwiftReservedTest {
     optional string is_initialized = 20;
     optional string hash_value = 21;
     optional int32 debug_description = 22;
+
+    // Prompt code generator to build an 'isInitialized' test
+    required int32 required_int = 30;
 }
 
 extend SwiftReservedTest.class {

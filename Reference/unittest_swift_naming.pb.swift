@@ -46,7 +46,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
   case float // = 4
   case uint // = 5
   case hashValue_ // = 6
-  case description // = 7
+  case description_ // = 7
   case debugDescription_ // = 8
   case swift // = 9
   case unrecognized // = 10
@@ -88,7 +88,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
   case `while` // = 46
   case `as` // = 47
   case `catch` // = 48
-  case `dynamicType` // = 49
+  case dynamicType_ // = 49
   case `false` // = 50
   case `is` // = 51
   case `nil` // = 52
@@ -262,7 +262,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case 4: self = .float
     case 5: self = .uint
     case 6: self = .hashValue_
-    case 7: self = .description
+    case 7: self = .description_
     case 8: self = .debugDescription_
     case 9: self = .swift
     case 10: self = .unrecognized
@@ -304,7 +304,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case 46: self = .`while`
     case 47: self = .`as`
     case 48: self = .`catch`
-    case 49: self = .`dynamicType`
+    case 49: self = .dynamicType_
     case 50: self = .`false`
     case 51: self = .`is`
     case 52: self = .`nil`
@@ -477,7 +477,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case .float: return 4
     case .uint: return 5
     case .hashValue_: return 6
-    case .description: return 7
+    case .description_: return 7
     case .debugDescription_: return 8
     case .swift: return 9
     case .unrecognized: return 10
@@ -519,7 +519,7 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case .`while`: return 46
     case .`as`: return 47
     case .`catch`: return 48
-    case .`dynamicType`: return 49
+    case .dynamicType_: return 49
     case .`false`: return 50
     case .`is`: return 51
     case .`nil`: return 52
@@ -10993,7 +10993,7 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
     }
   }
 
-  struct isInitialized: SwiftProtobuf.Message {
+  struct isInitializedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
 
     fileprivate var _isInitialized_p: Int32? = nil
@@ -16415,7 +16415,7 @@ struct SwiftUnittest_Names_EnumNames: SwiftProtobuf.Message {
 
   }
 
-  enum isInitialized: SwiftProtobuf.Enum {
+  enum isInitializedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case aisInitialized // = 0
 
@@ -22406,12 +22406,12 @@ extension SwiftUnittest_Names_MessageNames.extensionsCurrentlySet: SwiftProtobuf
   }
 }
 
-extension SwiftUnittest_Names_MessageNames.isInitialized: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_MessageNames.isInitializedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isInitialized"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitialized) -> Bool {
+  func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.isInitializedMessage) -> Bool {
     if self._isInitialized_p != other._isInitialized_p {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -23915,7 +23915,7 @@ extension SwiftUnittest_Names_EnumNames.extensionsCurrentlySet: SwiftProtobuf._P
   ]
 }
 
-extension SwiftUnittest_Names_EnumNames.isInitialized: SwiftProtobuf._ProtoNameProviding {
+extension SwiftUnittest_Names_EnumNames.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "aisInitialized"),
   ]

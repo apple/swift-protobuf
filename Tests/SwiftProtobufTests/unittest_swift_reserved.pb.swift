@@ -124,6 +124,19 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     self._debugDescription_p = nil
   }
 
+  /// Prompt code generator to build an 'isInitialized' test
+  fileprivate var _requiredInt: Int32? = nil
+  var requiredInt: Int32 {
+    get {return _requiredInt ?? 0}
+    set {_requiredInt = newValue}
+  }
+  var hasRequiredInt: Bool {
+    return self._requiredInt != nil
+  }
+  mutating func clearRequiredInt() {
+    self._requiredInt = nil
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum Enum: SwiftProtobuf.Enum {
@@ -243,7 +256,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
   }
 
-  struct isEqualMessage: SwiftProtobuf.Message {
+  struct isEqual: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_SwiftReservedTest.protoMessageName + ".isEqual"
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -262,6 +275,11 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
 
   init() {}
 
+  public var isInitialized: Bool {
+    if self._requiredInt == nil {return false}
+    return true
+  }
+
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -272,6 +290,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
       case 20: try decoder.decodeSingularStringField(value: &self._isInitialized_p)
       case 21: try decoder.decodeSingularStringField(value: &self._hashValue_p)
       case 22: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
+      case 30: try decoder.decodeSingularInt32Field(value: &self._requiredInt)
       default: break
       }
     }
@@ -298,6 +317,9 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     }
     if let v = self._debugDescription_p {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
+    }
+    if let v = self._requiredInt {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 30)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -595,6 +617,7 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementati
     20: .standard(proto: "is_initialized"),
     21: .standard(proto: "hash_value"),
     22: .standard(proto: "debug_description"),
+    30: .standard(proto: "required_int"),
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest) -> Bool {
@@ -605,6 +628,7 @@ extension ProtobufUnittest_SwiftReservedTest: SwiftProtobuf._MessageImplementati
     if self._isInitialized_p != other._isInitialized_p {return false}
     if self._hashValue_p != other._hashValue_p {return false}
     if self._debugDescription_p != other._debugDescription_p {return false}
+    if self._requiredInt != other._requiredInt {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -647,10 +671,10 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage: SwiftProtobuf._Message
   }
 }
 
-extension ProtobufUnittest_SwiftReservedTest.isEqualMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_SwiftReservedTest.isEqual: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqualMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftReservedTest.isEqual) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }

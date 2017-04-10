@@ -139,7 +139,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
   case decodeString // = 111
   case decodeTextFormat // = 112
   case defaultValue // = 113
-  case description // = 114
+  case description_ // = 114
   case destination // = 115
   case dictionary // = 116
   case dictionaryLiteral // = 117
@@ -754,7 +754,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 111: self = .decodeString
     case 112: self = .decodeTextFormat
     case 113: self = .defaultValue
-    case 114: self = .description
+    case 114: self = .description_
     case 115: self = .destination
     case 116: self = .dictionary
     case 117: self = .dictionaryLiteral
@@ -1367,7 +1367,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .decodeString: return 111
     case .decodeTextFormat: return 112
     case .defaultValue: return 113
-    case .description: return 114
+    case .description_: return 114
     case .destination: return 115
     case .dictionary: return 116
     case .dictionaryLiteral: return 117

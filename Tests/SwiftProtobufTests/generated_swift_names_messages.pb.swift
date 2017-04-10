@@ -6762,7 +6762,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct isEqualMessage: SwiftProtobuf.Message {
+  struct isEqual: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".isEqual"
 
     var isEqual: Int32 = 0
@@ -6814,7 +6814,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct isInitialized: SwiftProtobuf.Message {
+  struct isInitializedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".isInitialized"
 
     var isInitialized_p: Int32 = 0
@@ -18917,12 +18917,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.isA: SwiftProtobuf._Me
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.isEqualMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.isEqual: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isEqual"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.isEqualMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.isEqual) -> Bool {
     if self.isEqual != other.isEqual {return false}
     if unknownFields != other.unknownFields {return false}
     return true
@@ -18941,12 +18941,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.isEqualTo: SwiftProtob
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.isInitialized: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.isInitializedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "isInitialized"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.isInitialized) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.isInitializedMessage) -> Bool {
     if self.isInitialized_p != other.isInitialized_p {return false}
     if unknownFields != other.unknownFields {return false}
     return true
