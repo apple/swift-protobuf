@@ -51,29 +51,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleFoo"
 
-  fileprivate class _StorageClass {
-    var _aFoo: ProtobufUnittest_CycleFoo? = nil
-    var _aBar: ProtobufUnittest_CycleBar? = nil
-    var _aBaz: ProtobufUnittest_CycleBaz? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _aFoo = source._aFoo
-      _aBar = source._aBar
-      _aBaz = source._aBaz
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
@@ -139,33 +116,12 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleBar"
-
-  fileprivate class _StorageClass {
-    var _aBar: ProtobufUnittest_CycleBar? = nil
-    var _aBaz: ProtobufUnittest_CycleBaz? = nil
-    var _aFoo: ProtobufUnittest_CycleFoo? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _aBar = source._aBar
-      _aBaz = source._aBaz
-      _aFoo = source._aFoo
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
@@ -232,33 +188,12 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CycleBaz"
-
-  fileprivate class _StorageClass {
-    var _aBaz: ProtobufUnittest_CycleBaz? = nil
-    var _aFoo: ProtobufUnittest_CycleFoo? = nil
-    var _aBar: ProtobufUnittest_CycleBar? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _aBaz = source._aBaz
-      _aFoo = source._aFoo
-      _aBar = source._aBar
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
@@ -325,6 +260,8 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -337,6 +274,27 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, S
     2: .standard(proto: "a_bar"),
     3: .standard(proto: "a_baz"),
   ]
+
+  fileprivate class _StorageClass {
+    var _aFoo: ProtobufUnittest_CycleFoo? = nil
+    var _aBar: ProtobufUnittest_CycleBar? = nil
+    var _aBaz: ProtobufUnittest_CycleBaz? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _aFoo = source._aFoo
+      _aBar = source._aBar
+      _aBaz = source._aBaz
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
     if _storage !== other._storage {
@@ -360,6 +318,27 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, S
     3: .standard(proto: "a_foo"),
   ]
 
+  fileprivate class _StorageClass {
+    var _aBar: ProtobufUnittest_CycleBar? = nil
+    var _aBaz: ProtobufUnittest_CycleBaz? = nil
+    var _aFoo: ProtobufUnittest_CycleFoo? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _aBar = source._aBar
+      _aBaz = source._aBaz
+      _aFoo = source._aFoo
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -381,6 +360,27 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf._MessageImplementationBase, S
     2: .standard(proto: "a_foo"),
     3: .standard(proto: "a_bar"),
   ]
+
+  fileprivate class _StorageClass {
+    var _aBaz: ProtobufUnittest_CycleBaz? = nil
+    var _aFoo: ProtobufUnittest_CycleFoo? = nil
+    var _aBar: ProtobufUnittest_CycleBar? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _aBaz = source._aBaz
+      _aFoo = source._aFoo
+      _aBar = source._aBar
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
     if _storage !== other._storage {

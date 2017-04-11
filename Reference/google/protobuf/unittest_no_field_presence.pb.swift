@@ -87,117 +87,6 @@ enum Proto2NofieldpresenceUnittest_ForeignEnum: SwiftProtobuf.Enum {
 struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate class _StorageClass {
-    var _optionalInt32: Int32 = 0
-    var _optionalInt64: Int64 = 0
-    var _optionalUint32: UInt32 = 0
-    var _optionalUint64: UInt64 = 0
-    var _optionalSint32: Int32 = 0
-    var _optionalSint64: Int64 = 0
-    var _optionalFixed32: UInt32 = 0
-    var _optionalFixed64: UInt64 = 0
-    var _optionalSfixed32: Int32 = 0
-    var _optionalSfixed64: Int64 = 0
-    var _optionalFloat: Float = 0
-    var _optionalDouble: Double = 0
-    var _optionalBool: Bool = false
-    var _optionalString: String = ""
-    var _optionalBytes: Data = Data()
-    var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
-    var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
-    var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
-    var _optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum = Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
-    var _optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum = Proto2NofieldpresenceUnittest_ForeignEnum.foreignFoo
-    var _optionalStringPiece: String = ""
-    var _optionalCord: String = ""
-    var _optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
-    var _repeatedInt32: [Int32] = []
-    var _repeatedInt64: [Int64] = []
-    var _repeatedUint32: [UInt32] = []
-    var _repeatedUint64: [UInt64] = []
-    var _repeatedSint32: [Int32] = []
-    var _repeatedSint64: [Int64] = []
-    var _repeatedFixed32: [UInt32] = []
-    var _repeatedFixed64: [UInt64] = []
-    var _repeatedSfixed32: [Int32] = []
-    var _repeatedSfixed64: [Int64] = []
-    var _repeatedFloat: [Float] = []
-    var _repeatedDouble: [Double] = []
-    var _repeatedBool: [Bool] = []
-    var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
-    var _repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
-    var _repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = []
-    var _repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = []
-    var _repeatedNestedEnum: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = []
-    var _repeatedForeignEnum: [Proto2NofieldpresenceUnittest_ForeignEnum] = []
-    var _repeatedStringPiece: [String] = []
-    var _repeatedCord: [String] = []
-    var _repeatedLazyMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
-    var _oneofField: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalInt32 = source._optionalInt32
-      _optionalInt64 = source._optionalInt64
-      _optionalUint32 = source._optionalUint32
-      _optionalUint64 = source._optionalUint64
-      _optionalSint32 = source._optionalSint32
-      _optionalSint64 = source._optionalSint64
-      _optionalFixed32 = source._optionalFixed32
-      _optionalFixed64 = source._optionalFixed64
-      _optionalSfixed32 = source._optionalSfixed32
-      _optionalSfixed64 = source._optionalSfixed64
-      _optionalFloat = source._optionalFloat
-      _optionalDouble = source._optionalDouble
-      _optionalBool = source._optionalBool
-      _optionalString = source._optionalString
-      _optionalBytes = source._optionalBytes
-      _optionalNestedMessage = source._optionalNestedMessage
-      _optionalForeignMessage = source._optionalForeignMessage
-      _optionalProto2Message = source._optionalProto2Message
-      _optionalNestedEnum = source._optionalNestedEnum
-      _optionalForeignEnum = source._optionalForeignEnum
-      _optionalStringPiece = source._optionalStringPiece
-      _optionalCord = source._optionalCord
-      _optionalLazyMessage = source._optionalLazyMessage
-      _repeatedInt32 = source._repeatedInt32
-      _repeatedInt64 = source._repeatedInt64
-      _repeatedUint32 = source._repeatedUint32
-      _repeatedUint64 = source._repeatedUint64
-      _repeatedSint32 = source._repeatedSint32
-      _repeatedSint64 = source._repeatedSint64
-      _repeatedFixed32 = source._repeatedFixed32
-      _repeatedFixed64 = source._repeatedFixed64
-      _repeatedSfixed32 = source._repeatedSfixed32
-      _repeatedSfixed64 = source._repeatedSfixed64
-      _repeatedFloat = source._repeatedFloat
-      _repeatedDouble = source._repeatedDouble
-      _repeatedBool = source._repeatedBool
-      _repeatedString = source._repeatedString
-      _repeatedBytes = source._repeatedBytes
-      _repeatedNestedMessage = source._repeatedNestedMessage
-      _repeatedForeignMessage = source._repeatedForeignMessage
-      _repeatedProto2Message = source._repeatedProto2Message
-      _repeatedNestedEnum = source._repeatedNestedEnum
-      _repeatedForeignEnum = source._repeatedForeignEnum
-      _repeatedStringPiece = source._repeatedStringPiece
-      _repeatedCord = source._repeatedCord
-      _repeatedLazyMessage = source._repeatedLazyMessage
-      _oneofField = source._oneofField
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   /// Singular
   /// TODO: remove 'optional' labels as soon as CL 69188077 is LGTM'd to make
   /// 'optional' optional.
@@ -459,59 +348,41 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
 
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
-      return ""
+      if case .oneofString(let v)? = _storage._oneofField {return v}
+      return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
     get {
-      if case .oneofEnum(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofEnum(let v)? = _storage._oneofField {return v}
       return Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofEnum(newValue)
-    }
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -798,29 +669,12 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestProto2Required"
-
-  fileprivate class _StorageClass {
-    var _proto2: ProtobufUnittest_TestRequired? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _proto2 = source._proto2
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var proto2: ProtobufUnittest_TestRequired {
     get {return _storage._proto2 ?? ProtobufUnittest_TestRequired()}
@@ -864,6 +718,8 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -959,6 +815,115 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf._MessageImpl
     113: .standard(proto: "oneof_string"),
     114: .standard(proto: "oneof_enum"),
   ]
+
+  fileprivate class _StorageClass {
+    var _optionalInt32: Int32 = 0
+    var _optionalInt64: Int64 = 0
+    var _optionalUint32: UInt32 = 0
+    var _optionalUint64: UInt64 = 0
+    var _optionalSint32: Int32 = 0
+    var _optionalSint64: Int64 = 0
+    var _optionalFixed32: UInt32 = 0
+    var _optionalFixed64: UInt64 = 0
+    var _optionalSfixed32: Int32 = 0
+    var _optionalSfixed64: Int64 = 0
+    var _optionalFloat: Float = 0
+    var _optionalDouble: Double = 0
+    var _optionalBool: Bool = false
+    var _optionalString: String = String()
+    var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
+    var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
+    var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
+    var _optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum = Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
+    var _optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum = Proto2NofieldpresenceUnittest_ForeignEnum.foreignFoo
+    var _optionalStringPiece: String = String()
+    var _optionalCord: String = String()
+    var _optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
+    var _repeatedInt32: [Int32] = []
+    var _repeatedInt64: [Int64] = []
+    var _repeatedUint32: [UInt32] = []
+    var _repeatedUint64: [UInt64] = []
+    var _repeatedSint32: [Int32] = []
+    var _repeatedSint64: [Int64] = []
+    var _repeatedFixed32: [UInt32] = []
+    var _repeatedFixed64: [UInt64] = []
+    var _repeatedSfixed32: [Int32] = []
+    var _repeatedSfixed64: [Int64] = []
+    var _repeatedFloat: [Float] = []
+    var _repeatedDouble: [Double] = []
+    var _repeatedBool: [Bool] = []
+    var _repeatedString: [String] = []
+    var _repeatedBytes: [Data] = []
+    var _repeatedNestedMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
+    var _repeatedForeignMessage: [Proto2NofieldpresenceUnittest_ForeignMessage] = []
+    var _repeatedProto2Message: [ProtobufUnittest_TestAllTypes] = []
+    var _repeatedNestedEnum: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum] = []
+    var _repeatedForeignEnum: [Proto2NofieldpresenceUnittest_ForeignEnum] = []
+    var _repeatedStringPiece: [String] = []
+    var _repeatedCord: [String] = []
+    var _repeatedLazyMessage: [Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage] = []
+    var _oneofField: Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalInt32 = source._optionalInt32
+      _optionalInt64 = source._optionalInt64
+      _optionalUint32 = source._optionalUint32
+      _optionalUint64 = source._optionalUint64
+      _optionalSint32 = source._optionalSint32
+      _optionalSint64 = source._optionalSint64
+      _optionalFixed32 = source._optionalFixed32
+      _optionalFixed64 = source._optionalFixed64
+      _optionalSfixed32 = source._optionalSfixed32
+      _optionalSfixed64 = source._optionalSfixed64
+      _optionalFloat = source._optionalFloat
+      _optionalDouble = source._optionalDouble
+      _optionalBool = source._optionalBool
+      _optionalString = source._optionalString
+      _optionalBytes = source._optionalBytes
+      _optionalNestedMessage = source._optionalNestedMessage
+      _optionalForeignMessage = source._optionalForeignMessage
+      _optionalProto2Message = source._optionalProto2Message
+      _optionalNestedEnum = source._optionalNestedEnum
+      _optionalForeignEnum = source._optionalForeignEnum
+      _optionalStringPiece = source._optionalStringPiece
+      _optionalCord = source._optionalCord
+      _optionalLazyMessage = source._optionalLazyMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedProto2Message = source._repeatedProto2Message
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedStringPiece = source._repeatedStringPiece
+      _repeatedCord = source._repeatedCord
+      _repeatedLazyMessage = source._repeatedLazyMessage
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto2NofieldpresenceUnittest_TestAllTypes) -> Bool {
     if _storage !== other._storage {
@@ -1096,6 +1061,23 @@ extension Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf._Messa
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "proto2"),
   ]
+
+  fileprivate class _StorageClass {
+    var _proto2: ProtobufUnittest_TestRequired? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _proto2 = source._proto2
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto2NofieldpresenceUnittest_TestProto2Required) -> Bool {
     if _storage !== other._storage {

@@ -252,6 +252,9 @@ func escapedToDataLiteral(_ s: String) -> String {
 private let hexdigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
 
 func stringToEscapedStringLiteral(_ s: String) -> String {
+  if s.isEmpty {
+    return "String()"
+  }
   var out = "\""
   for c in s.unicodeScalars {
     switch c.value {

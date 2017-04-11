@@ -340,18 +340,6 @@ class FileGenerator {
             m.generateMainStruct(printer: &p, file: self, parent: nil)
         }
 
-        for e in extensions {
-            e.generateNested(printer: &p)
-        }
-
-        for m in messages {
-            m.generateTopLevel(printer: &p)
-        }
-
-        for e in extensions {
-            e.generateTopLevel(printer: &p)
-        }
-
         var registry = [String]()
         for e in extensions {
             registry.append(e.swiftFullExtensionName)
@@ -360,9 +348,28 @@ class FileGenerator {
             m.registerExtensions(registry: &registry)
         }
         if !registry.isEmpty {
-            let filename = toUpperCamelCase(baseFilename)
+            let pathParts = splitPath(pathname: descriptor.name)
+            let filename = pathParts.base + pathParts.suffix
             p.print("\n")
-            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filename)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
+            p.print("// MARK: - Extension support defined in \(filename).\n")
+
+            // Generate the Swift Extensions on the Messages that provide the api
+            // for using the protobuf extension.
+            for e in extensions {
+                e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+            }
+            for m in messages {
+                m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+            }
+
+            // Generate a registry for the file.
+            let filenameAsIdentifer = toUpperCamelCase(pathParts.base)
+            p.print("\n")
+            p.print("/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n")
+            p.print("/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n")
+            p.print("/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n")
+            p.print("/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n")
+            p.print("\(generatorOptions.visibilitySourceSnippet)let \(descriptor.swiftPrefix)\(filenameAsIdentifer)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
             p.indent()
             var separator = ""
             for e in registry {
@@ -373,6 +380,18 @@ class FileGenerator {
             p.print("\n")
             p.outdent()
             p.print("]\n")
+
+            // Generate the Extension's declarations (used by the two above things).
+            // This is done after the other two as the only time developers will need
+            // these symbols is if they are manually building their own ExtensionMap;
+            // so the others are assumed more interesting.
+            for e in extensions {
+                p.print("\n")
+                e.generateProtobufExtensionDeclarations(printer: &p)
+            }
+            for m in messages {
+                m.generateProtobufExtensionDeclarations(printer: &p)
+            }
         }
 
         let needsProtoPackage: Bool = !protoPackageName.isEmpty && !messages.isEmpty

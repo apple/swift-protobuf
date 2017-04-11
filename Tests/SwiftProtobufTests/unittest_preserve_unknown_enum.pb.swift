@@ -126,22 +126,22 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   /// not packed
   var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
+
   var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
-      if case .oneofE1(let v)? = o { return v }
+      if case .oneofE1(let v)? = o {return v}
       return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
     }
-    set { o = .oneofE1(newValue) }
+    set {o = .oneofE1(newValue)}
   }
-
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O? = nil
 
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
-      if case .oneofE2(let v)? = o { return v }
+      if case .oneofE2(let v)? = o {return v}
       return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
     }
-    set { o = .oneofE2(newValue) }
+    set {o = .oneofE2(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -207,22 +207,22 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
 
   var repeatedPackedUnexpectedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
+  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O? = nil
+
   var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
-      if case .oneofE1(let v)? = o { return v }
+      if case .oneofE1(let v)? = o {return v}
       return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
     }
-    set { o = .oneofE1(newValue) }
+    set {o = .oneofE1(newValue)}
   }
-
-  var o: Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O? = nil
 
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
-      if case .oneofE2(let v)? = o { return v }
+      if case .oneofE2(let v)? = o {return v}
       return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
     }
-    set { o = .oneofE2(newValue) }
+    set {o = .oneofE2(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -270,7 +270,7 @@ struct Google_Protobuf_StringValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".StringValue"
 
   /// The string value.
-  var value: String = ""
+  var value: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -300,7 +300,7 @@ struct Google_Protobuf_BytesValue: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".BytesValue"
 
   /// The bytes value.
-  var value: Data = Data()
+  var value: Data = SwiftProtobuf.Internal.emptyData
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

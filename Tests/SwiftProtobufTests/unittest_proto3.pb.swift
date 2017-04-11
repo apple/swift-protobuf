@@ -178,113 +178,6 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
 struct Proto3TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
-  fileprivate class _StorageClass {
-    var _singleInt32: Int32 = 0
-    var _singleInt64: Int64 = 0
-    var _singleUint32: UInt32 = 0
-    var _singleUint64: UInt64 = 0
-    var _singleSint32: Int32 = 0
-    var _singleSint64: Int64 = 0
-    var _singleFixed32: UInt32 = 0
-    var _singleFixed64: UInt64 = 0
-    var _singleSfixed32: Int32 = 0
-    var _singleSfixed64: Int64 = 0
-    var _singleFloat: Float = 0
-    var _singleDouble: Double = 0
-    var _singleBool: Bool = false
-    var _singleString: String = ""
-    var _singleBytes: Data = Data()
-    var _singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
-    var _singleForeignMessage: Proto3ForeignMessage? = nil
-    var _singleImportMessage: Proto3ImportMessage? = nil
-    var _singleNestedEnum: Proto3TestAllTypes.NestedEnum = Proto3TestAllTypes.NestedEnum.nestedEnumUnspecified
-    var _singleForeignEnum: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
-    var _singleImportEnum: Proto3ImportEnum = Proto3ImportEnum.importEnumUnspecified
-    var _singlePublicImportMessage: Proto3PublicImportMessage? = nil
-    var _repeatedInt32: [Int32] = []
-    var _repeatedInt64: [Int64] = []
-    var _repeatedUint32: [UInt32] = []
-    var _repeatedUint64: [UInt64] = []
-    var _repeatedSint32: [Int32] = []
-    var _repeatedSint64: [Int64] = []
-    var _repeatedFixed32: [UInt32] = []
-    var _repeatedFixed64: [UInt64] = []
-    var _repeatedSfixed32: [Int32] = []
-    var _repeatedSfixed64: [Int64] = []
-    var _repeatedFloat: [Float] = []
-    var _repeatedDouble: [Double] = []
-    var _repeatedBool: [Bool] = []
-    var _repeatedString: [String] = []
-    var _repeatedBytes: [Data] = []
-    var _repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] = []
-    var _repeatedForeignMessage: [Proto3ForeignMessage] = []
-    var _repeatedImportMessage: [Proto3ImportMessage] = []
-    var _repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] = []
-    var _repeatedForeignEnum: [Proto3ForeignEnum] = []
-    var _repeatedImportEnum: [Proto3ImportEnum] = []
-    var _repeatedPublicImportMessage: [Proto3PublicImportMessage] = []
-    var _oneofField: Proto3TestAllTypes.OneOf_OneofField?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _singleInt32 = source._singleInt32
-      _singleInt64 = source._singleInt64
-      _singleUint32 = source._singleUint32
-      _singleUint64 = source._singleUint64
-      _singleSint32 = source._singleSint32
-      _singleSint64 = source._singleSint64
-      _singleFixed32 = source._singleFixed32
-      _singleFixed64 = source._singleFixed64
-      _singleSfixed32 = source._singleSfixed32
-      _singleSfixed64 = source._singleSfixed64
-      _singleFloat = source._singleFloat
-      _singleDouble = source._singleDouble
-      _singleBool = source._singleBool
-      _singleString = source._singleString
-      _singleBytes = source._singleBytes
-      _singleNestedMessage = source._singleNestedMessage
-      _singleForeignMessage = source._singleForeignMessage
-      _singleImportMessage = source._singleImportMessage
-      _singleNestedEnum = source._singleNestedEnum
-      _singleForeignEnum = source._singleForeignEnum
-      _singleImportEnum = source._singleImportEnum
-      _singlePublicImportMessage = source._singlePublicImportMessage
-      _repeatedInt32 = source._repeatedInt32
-      _repeatedInt64 = source._repeatedInt64
-      _repeatedUint32 = source._repeatedUint32
-      _repeatedUint64 = source._repeatedUint64
-      _repeatedSint32 = source._repeatedSint32
-      _repeatedSint64 = source._repeatedSint64
-      _repeatedFixed32 = source._repeatedFixed32
-      _repeatedFixed64 = source._repeatedFixed64
-      _repeatedSfixed32 = source._repeatedSfixed32
-      _repeatedSfixed64 = source._repeatedSfixed64
-      _repeatedFloat = source._repeatedFloat
-      _repeatedDouble = source._repeatedDouble
-      _repeatedBool = source._repeatedBool
-      _repeatedString = source._repeatedString
-      _repeatedBytes = source._repeatedBytes
-      _repeatedNestedMessage = source._repeatedNestedMessage
-      _repeatedForeignMessage = source._repeatedForeignMessage
-      _repeatedImportMessage = source._repeatedImportMessage
-      _repeatedNestedEnum = source._repeatedNestedEnum
-      _repeatedForeignEnum = source._repeatedForeignEnum
-      _repeatedImportEnum = source._repeatedImportEnum
-      _repeatedPublicImportMessage = source._repeatedPublicImportMessage
-      _oneofField = source._oneofField
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   /// Singular
   var singleInt32: Int32 {
     get {return _storage._singleInt32}
@@ -533,63 +426,47 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedPublicImportMessage = newValue}
   }
 
+  /// For oneof test
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
   var oneofUint32: UInt32 {
     get {
-      if case .oneofUint32(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofUint32(let v)? = _storage._oneofField {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofUint32(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
   var oneofNestedMessage: Proto3TestAllTypes.NestedMessage {
     get {
-      if case .oneofNestedMessage(let v)? = _storage._oneofField {
-        return v
-      }
+      if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
       return Proto3TestAllTypes.NestedMessage()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofNestedMessage(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._oneofField {
-        return v
-      }
-      return ""
+      if case .oneofString(let v)? = _storage._oneofField {return v}
+      return String()
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
   }
 
   var oneofBytes: Data {
     get {
-      if case .oneofBytes(let v)? = _storage._oneofField {
-        return v
-      }
-      return Data()
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
+      return SwiftProtobuf.Internal.emptyData
     }
-    set {
-      _uniqueStorage()._oneofField = .oneofBytes(newValue)
-    }
-  }
-
-  var oneofField: OneOf_OneofField? {
-    get {return _storage._oneofField}
-    set {
-      _uniqueStorage()._oneofField = newValue
-    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  /// For oneof test
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
     case oneofNestedMessage(Proto3TestAllTypes.NestedMessage)
@@ -875,34 +752,13 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// This proto includes a recusively nested message.
 struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
-
-  fileprivate class _StorageClass {
-    var _child: Proto3NestedTestAllTypes? = nil
-    var _payload: Proto3TestAllTypes? = nil
-    var _repeatedChild: [Proto3NestedTestAllTypes] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _child = source._child
-      _payload = source._payload
-      _repeatedChild = source._repeatedChild
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var child: Proto3NestedTestAllTypes {
     get {return _storage._child ?? Proto3NestedTestAllTypes()}
@@ -963,6 +819,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestDeprecatedFields: SwiftProtobuf.Message {
@@ -1040,25 +898,6 @@ struct Proto3TestReservedFields: SwiftProtobuf.Message {
 struct Proto3TestForeignNested: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestForeignNested"
 
-  fileprivate class _StorageClass {
-    var _foreignNested: Proto3TestAllTypes.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _foreignNested = source._foreignNested
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var foreignNested: Proto3TestAllTypes.NestedMessage {
     get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
@@ -1094,6 +933,8 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that really large tag numbers don't break anything.
@@ -1133,27 +974,6 @@ struct Proto3TestReallyLargeTagNumber: SwiftProtobuf.Message {
 
 struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRecursiveMessage"
-
-  fileprivate class _StorageClass {
-    var _a: Proto3TestRecursiveMessage? = nil
-    var _i: Int32 = 0
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _i = source._i
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var a: Proto3TestRecursiveMessage {
     get {return _storage._a ?? Proto3TestRecursiveMessage()}
@@ -1199,30 +1019,13 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Test that mutual recursion works.
 struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionA"
-
-  fileprivate class _StorageClass {
-    var _bb: Proto3TestMutualRecursionB? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _bb = source._bb
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var bb: Proto3TestMutualRecursionB {
     get {return _storage._bb ?? Proto3TestMutualRecursionB()}
@@ -1259,31 +1062,12 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMutualRecursionB"
-
-  fileprivate class _StorageClass {
-    var _a: Proto3TestMutualRecursionA? = nil
-    var _optionalInt32: Int32 = 0
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _a = source._a
-      _optionalInt32 = source._optionalInt32
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var a: Proto3TestMutualRecursionA {
     get {return _storage._a ?? Proto3TestMutualRecursionA()}
@@ -1329,6 +1113,8 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
@@ -1361,39 +1147,6 @@ struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
 /// standard style.
 struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCamelCaseFieldNames"
-
-  fileprivate class _StorageClass {
-    var _primitiveField: Int32 = 0
-    var _stringField: String = ""
-    var _enumField: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
-    var _messageField: Proto3ForeignMessage? = nil
-    var _repeatedPrimitiveField: [Int32] = []
-    var _repeatedStringField: [String] = []
-    var _repeatedEnumField: [Proto3ForeignEnum] = []
-    var _repeatedMessageField: [Proto3ForeignMessage] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _primitiveField = source._primitiveField
-      _stringField = source._stringField
-      _enumField = source._enumField
-      _messageField = source._messageField
-      _repeatedPrimitiveField = source._repeatedPrimitiveField
-      _repeatedStringField = source._repeatedStringField
-      _repeatedEnumField = source._repeatedEnumField
-      _repeatedMessageField = source._repeatedMessageField
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var primitiveField: Int32 {
     get {return _storage._primitiveField}
@@ -1493,37 +1246,14 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// We list fields out of order, to ensure that we're using field number and not
 /// field index to determine serialization order.
 struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
-
-  fileprivate class _StorageClass {
-    var _myString: String = ""
-    var _myInt: Int64 = 0
-    var _myFloat: Float = 0
-    var _singleNestedMessage: Proto3TestFieldOrderings.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _myString = source._myString
-      _myInt = source._myInt
-      _myFloat = source._myFloat
-      _singleNestedMessage = source._singleNestedMessage
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
 
   var myString: String {
     get {return _storage._myString}
@@ -1570,8 +1300,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt64Field(value: &self.oo)
         case 1: try decoder.decodeSingularInt32Field(value: &self.bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &self.oo)
         default: break
         }
       }
@@ -1595,8 +1325,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 200: try decoder.decodeSingularMessageField(value: &_storage._singleNestedMessage)
         default: break
@@ -1622,6 +1352,8 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
@@ -1654,7 +1386,7 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
 struct Proto3OneString: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneString"
 
-  var data: String = ""
+  var data: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1706,7 +1438,7 @@ struct Proto3MoreString: SwiftProtobuf.Message {
 struct Proto3OneBytes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneBytes"
 
-  var data: Data = Data()
+  var data: Data = SwiftProtobuf.Internal.emptyData
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1732,7 +1464,7 @@ struct Proto3OneBytes: SwiftProtobuf.Message {
 struct Proto3MoreBytes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MoreBytes"
 
-  var data: Data = Data()
+  var data: Data = SwiftProtobuf.Internal.emptyData
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1890,66 +1622,33 @@ struct Proto3BoolMessage: SwiftProtobuf.Message {
 struct Proto3TestOneof: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestOneof"
 
-  fileprivate class _StorageClass {
-    var _foo: Proto3TestOneof.OneOf_Foo?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _foo = source._foo
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
+  var foo: OneOf_Foo? {
+    get {return _storage._foo}
+    set {_uniqueStorage()._foo = newValue}
   }
 
   var fooInt: Int32 {
     get {
-      if case .fooInt(let v)? = _storage._foo {
-        return v
-      }
+      if case .fooInt(let v)? = _storage._foo {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._foo = .fooInt(newValue)
-    }
+    set {_uniqueStorage()._foo = .fooInt(newValue)}
   }
 
   var fooString: String {
     get {
-      if case .fooString(let v)? = _storage._foo {
-        return v
-      }
-      return ""
+      if case .fooString(let v)? = _storage._foo {return v}
+      return String()
     }
-    set {
-      _uniqueStorage()._foo = .fooString(newValue)
-    }
+    set {_uniqueStorage()._foo = .fooString(newValue)}
   }
 
   var fooMessage: Proto3TestAllTypes {
     get {
-      if case .fooMessage(let v)? = _storage._foo {
-        return v
-      }
+      if case .fooMessage(let v)? = _storage._foo {return v}
       return Proto3TestAllTypes()
     }
-    set {
-      _uniqueStorage()._foo = .fooMessage(newValue)
-    }
-  }
-
-  var foo: OneOf_Foo? {
-    get {return _storage._foo}
-    set {
-      _uniqueStorage()._foo = newValue
-    }
+    set {_uniqueStorage()._foo = .fooMessage(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1993,6 +1692,8 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct Proto3TestPackedTypes: SwiftProtobuf.Message {
@@ -2271,7 +1972,7 @@ struct Proto3TestCommentInjectionMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestCommentInjectionMessage"
 
   /// */ <- This should not close the generated doc comment
-  var a: String = ""
+  var a: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -2483,6 +2184,111 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     114: .standard(proto: "oneof_bytes"),
   ]
 
+  fileprivate class _StorageClass {
+    var _singleInt32: Int32 = 0
+    var _singleInt64: Int64 = 0
+    var _singleUint32: UInt32 = 0
+    var _singleUint64: UInt64 = 0
+    var _singleSint32: Int32 = 0
+    var _singleSint64: Int64 = 0
+    var _singleFixed32: UInt32 = 0
+    var _singleFixed64: UInt64 = 0
+    var _singleSfixed32: Int32 = 0
+    var _singleSfixed64: Int64 = 0
+    var _singleFloat: Float = 0
+    var _singleDouble: Double = 0
+    var _singleBool: Bool = false
+    var _singleString: String = String()
+    var _singleBytes: Data = SwiftProtobuf.Internal.emptyData
+    var _singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
+    var _singleForeignMessage: Proto3ForeignMessage? = nil
+    var _singleImportMessage: Proto3ImportMessage? = nil
+    var _singleNestedEnum: Proto3TestAllTypes.NestedEnum = Proto3TestAllTypes.NestedEnum.nestedEnumUnspecified
+    var _singleForeignEnum: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
+    var _singleImportEnum: Proto3ImportEnum = Proto3ImportEnum.importEnumUnspecified
+    var _singlePublicImportMessage: Proto3PublicImportMessage? = nil
+    var _repeatedInt32: [Int32] = []
+    var _repeatedInt64: [Int64] = []
+    var _repeatedUint32: [UInt32] = []
+    var _repeatedUint64: [UInt64] = []
+    var _repeatedSint32: [Int32] = []
+    var _repeatedSint64: [Int64] = []
+    var _repeatedFixed32: [UInt32] = []
+    var _repeatedFixed64: [UInt64] = []
+    var _repeatedSfixed32: [Int32] = []
+    var _repeatedSfixed64: [Int64] = []
+    var _repeatedFloat: [Float] = []
+    var _repeatedDouble: [Double] = []
+    var _repeatedBool: [Bool] = []
+    var _repeatedString: [String] = []
+    var _repeatedBytes: [Data] = []
+    var _repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] = []
+    var _repeatedForeignMessage: [Proto3ForeignMessage] = []
+    var _repeatedImportMessage: [Proto3ImportMessage] = []
+    var _repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] = []
+    var _repeatedForeignEnum: [Proto3ForeignEnum] = []
+    var _repeatedImportEnum: [Proto3ImportEnum] = []
+    var _repeatedPublicImportMessage: [Proto3PublicImportMessage] = []
+    var _oneofField: Proto3TestAllTypes.OneOf_OneofField?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _singleInt32 = source._singleInt32
+      _singleInt64 = source._singleInt64
+      _singleUint32 = source._singleUint32
+      _singleUint64 = source._singleUint64
+      _singleSint32 = source._singleSint32
+      _singleSint64 = source._singleSint64
+      _singleFixed32 = source._singleFixed32
+      _singleFixed64 = source._singleFixed64
+      _singleSfixed32 = source._singleSfixed32
+      _singleSfixed64 = source._singleSfixed64
+      _singleFloat = source._singleFloat
+      _singleDouble = source._singleDouble
+      _singleBool = source._singleBool
+      _singleString = source._singleString
+      _singleBytes = source._singleBytes
+      _singleNestedMessage = source._singleNestedMessage
+      _singleForeignMessage = source._singleForeignMessage
+      _singleImportMessage = source._singleImportMessage
+      _singleNestedEnum = source._singleNestedEnum
+      _singleForeignEnum = source._singleForeignEnum
+      _singleImportEnum = source._singleImportEnum
+      _singlePublicImportMessage = source._singlePublicImportMessage
+      _repeatedInt32 = source._repeatedInt32
+      _repeatedInt64 = source._repeatedInt64
+      _repeatedUint32 = source._repeatedUint32
+      _repeatedUint64 = source._repeatedUint64
+      _repeatedSint32 = source._repeatedSint32
+      _repeatedSint64 = source._repeatedSint64
+      _repeatedFixed32 = source._repeatedFixed32
+      _repeatedFixed64 = source._repeatedFixed64
+      _repeatedSfixed32 = source._repeatedSfixed32
+      _repeatedSfixed64 = source._repeatedSfixed64
+      _repeatedFloat = source._repeatedFloat
+      _repeatedDouble = source._repeatedDouble
+      _repeatedBool = source._repeatedBool
+      _repeatedString = source._repeatedString
+      _repeatedBytes = source._repeatedBytes
+      _repeatedNestedMessage = source._repeatedNestedMessage
+      _repeatedForeignMessage = source._repeatedForeignMessage
+      _repeatedImportMessage = source._repeatedImportMessage
+      _repeatedNestedEnum = source._repeatedNestedEnum
+      _repeatedForeignEnum = source._repeatedForeignEnum
+      _repeatedImportEnum = source._repeatedImportEnum
+      _repeatedPublicImportMessage = source._repeatedPublicImportMessage
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3TestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2622,6 +2428,27 @@ extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, Sw
     3: .standard(proto: "repeated_child"),
   ]
 
+  fileprivate class _StorageClass {
+    var _child: Proto3NestedTestAllTypes? = nil
+    var _payload: Proto3TestAllTypes? = nil
+    var _repeatedChild: [Proto3NestedTestAllTypes] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _child = source._child
+      _payload = source._payload
+      _repeatedChild = source._repeatedChild
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3NestedTestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2675,6 +2502,23 @@ extension Proto3TestForeignNested: SwiftProtobuf._MessageImplementationBase, Swi
     1: .standard(proto: "foreign_nested"),
   ]
 
+  fileprivate class _StorageClass {
+    var _foreignNested: Proto3TestAllTypes.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _foreignNested = source._foreignNested
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3TestForeignNested) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2708,6 +2552,25 @@ extension Proto3TestRecursiveMessage: SwiftProtobuf._MessageImplementationBase, 
     2: .same(proto: "i"),
   ]
 
+  fileprivate class _StorageClass {
+    var _a: Proto3TestRecursiveMessage? = nil
+    var _i: Int32 = 0
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _i = source._i
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3TestRecursiveMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2727,6 +2590,23 @@ extension Proto3TestMutualRecursionA: SwiftProtobuf._MessageImplementationBase, 
     1: .same(proto: "bb"),
   ]
 
+  fileprivate class _StorageClass {
+    var _bb: Proto3TestMutualRecursionB? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _bb = source._bb
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3TestMutualRecursionA) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2745,6 +2625,25 @@ extension Proto3TestMutualRecursionB: SwiftProtobuf._MessageImplementationBase, 
     1: .same(proto: "a"),
     2: .standard(proto: "optional_int32"),
   ]
+
+  fileprivate class _StorageClass {
+    var _a: Proto3TestMutualRecursionA? = nil
+    var _optionalInt32: Int32 = 0
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _a = source._a
+      _optionalInt32 = source._optionalInt32
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMutualRecursionB) -> Bool {
     if _storage !== other._storage {
@@ -2784,6 +2683,37 @@ extension Proto3TestCamelCaseFieldNames: SwiftProtobuf._MessageImplementationBas
     10: .same(proto: "RepeatedMessageField"),
   ]
 
+  fileprivate class _StorageClass {
+    var _primitiveField: Int32 = 0
+    var _stringField: String = String()
+    var _enumField: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
+    var _messageField: Proto3ForeignMessage? = nil
+    var _repeatedPrimitiveField: [Int32] = []
+    var _repeatedStringField: [String] = []
+    var _repeatedEnumField: [Proto3ForeignEnum] = []
+    var _repeatedMessageField: [Proto3ForeignMessage] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _primitiveField = source._primitiveField
+      _stringField = source._stringField
+      _enumField = source._enumField
+      _messageField = source._messageField
+      _repeatedPrimitiveField = source._repeatedPrimitiveField
+      _repeatedStringField = source._repeatedStringField
+      _repeatedEnumField = source._repeatedEnumField
+      _repeatedMessageField = source._repeatedMessageField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: Proto3TestCamelCaseFieldNames) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
@@ -2811,6 +2741,29 @@ extension Proto3TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, Sw
     101: .standard(proto: "my_float"),
     200: .standard(proto: "single_nested_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _myString: String = String()
+    var _myInt: Int64 = 0
+    var _myFloat: Float = 0
+    var _singleNestedMessage: Proto3TestFieldOrderings.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _myString = source._myString
+      _myInt = source._myInt
+      _myFloat = source._myFloat
+      _singleNestedMessage = source._singleNestedMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestFieldOrderings) -> Bool {
     if _storage !== other._storage {
@@ -2968,6 +2921,23 @@ extension Proto3TestOneof: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     2: .standard(proto: "foo_string"),
     3: .standard(proto: "foo_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _foo: Proto3TestOneof.OneOf_Foo?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _foo = source._foo
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto3TestOneof) -> Bool {
     if _storage !== other._storage {

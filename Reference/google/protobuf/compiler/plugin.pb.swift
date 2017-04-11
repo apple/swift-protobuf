@@ -109,7 +109,7 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   /// be empty for mainline stable releases.
   fileprivate var _suffix: String? = nil
   var suffix: String {
-    get {return _suffix ?? ""}
+    get {return _suffix ?? String()}
     set {_suffix = newValue}
   }
   var hasSuffix: Bool {
@@ -156,31 +156,6 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
 struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
 
-  fileprivate class _StorageClass {
-    var _fileToGenerate: [String] = []
-    var _parameter: String? = nil
-    var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
-    var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _fileToGenerate = source._fileToGenerate
-      _parameter = source._parameter
-      _protoFile = source._protoFile
-      _compilerVersion = source._compilerVersion
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   /// The .proto files that were explicitly listed on the command-line.  The
   /// code generator should generate code only for these files.  Each file's
   /// descriptor will be included in proto_file, below.
@@ -191,7 +166,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
 
   /// The generator parameter passed on the command-line.
   var parameter: String {
-    get {return _storage._parameter ?? ""}
+    get {return _storage._parameter ?? String()}
     set {_uniqueStorage()._parameter = newValue}
   }
   var hasParameter: Bool {
@@ -235,7 +210,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
 
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(protoFile) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._protoFile) {return false}
       return true
     }
   }
@@ -247,8 +222,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
         switch fieldNumber {
         case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
         case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
-        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
         case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
+        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
         default: break
         }
       }
@@ -272,6 +247,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.
@@ -288,7 +265,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
   /// exiting with a non-zero status code.
   fileprivate var _error: String? = nil
   var error: String {
-    get {return _error ?? ""}
+    get {return _error ?? String()}
     set {_error = newValue}
   }
   var hasError: Bool {
@@ -319,7 +296,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// CodeGeneratorResponse before writing files to disk.
     fileprivate var _name: String? = nil
     var name: String {
-      get {return _name ?? ""}
+      get {return _name ?? String()}
       set {_name = newValue}
     }
     var hasName: Bool {
@@ -368,7 +345,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// If |insertion_point| is present, |name| must also be present.
     fileprivate var _insertionPoint: String? = nil
     var insertionPoint: String {
-      get {return _insertionPoint ?? ""}
+      get {return _insertionPoint ?? String()}
       set {_insertionPoint = newValue}
     }
     var hasInsertionPoint: Bool {
@@ -381,7 +358,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// The file contents.
     fileprivate var _content: String? = nil
     var content: String {
-      get {return _content ?? ""}
+      get {return _content ?? String()}
       set {_content = newValue}
     }
     var hasContent: Bool {
@@ -472,6 +449,29 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
     15: .standard(proto: "proto_file"),
     3: .standard(proto: "compiler_version"),
   ]
+
+  fileprivate class _StorageClass {
+    var _fileToGenerate: [String] = []
+    var _parameter: String? = nil
+    var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
+    var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _fileToGenerate = source._fileToGenerate
+      _parameter = source._parameter
+      _protoFile = source._protoFile
+      _compilerVersion = source._compilerVersion
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if _storage !== other._storage {

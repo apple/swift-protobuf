@@ -141,6 +141,7 @@ message GeneratedSwiftReservedEnums {
   enum emitFieldNumber { NONE_emitFieldNumber = 0; }
   enum emitVerboseTextForm { NONE_emitVerboseTextForm = 0; }
   enum Empty { NONE_Empty = 0; }
+  enum emptyData { NONE_emptyData = 0; }
   enum encoded { NONE_encoded = 0; }
   enum encodedJSONString { NONE_encodedJSONString = 0; }
   enum encodedSize { NONE_encodedSize = 0; }
@@ -260,7 +261,7 @@ message GeneratedSwiftReservedEnums {
   enum integerLiteral { NONE_integerLiteral = 0; }
   enum IntegerLiteralType { NONE_IntegerLiteralType = 0; }
   enum intern { NONE_intern = 0; }
-  enum internal { NONE_internal = 0; }
+  enum Internal { NONE_Internal = 0; }
   enum InternalState { NONE_InternalState = 0; }
   enum isA { NONE_isA = 0; }
   enum isEqual { NONE_isEqual = 0; }
@@ -361,6 +362,9 @@ message GeneratedSwiftReservedEnums {
   enum PackedEnumExtensionField { NONE_PackedEnumExtensionField = 0; }
   enum PackedExtensionField { NONE_PackedExtensionField = 0; }
   enum packedSize { NONE_packedSize = 0; }
+  enum parseBareFloatString { NONE_parseBareFloatString = 0; }
+  enum parseBareSInt { NONE_parseBareSInt = 0; }
+  enum parseBareUInt { NONE_parseBareUInt = 0; }
   enum parseDuration { NONE_parseDuration = 0; }
   enum parseJSONFieldNames { NONE_parseJSONFieldNames = 0; }
   enum parseTimestamp { NONE_parseTimestamp = 0; }
@@ -447,6 +451,7 @@ message GeneratedSwiftReservedEnums {
   enum SimpleExtensionMap { NONE_SimpleExtensionMap = 0; }
   enum sizer { NONE_sizer = 0; }
   enum slowUtf8ToString { NONE_slowUtf8ToString = 0; }
+  enum source { NONE_source = 0; }
   enum sourceContext { NONE_sourceContext = 0; }
   enum split { NONE_split = 0; }
   enum ss { NONE_ss = 0; }
@@ -534,7 +539,6 @@ message GeneratedSwiftReservedEnums {
   enum utf8 { NONE_utf8 = 0; }
   enum utf8Buffer { NONE_utf8Buffer = 0; }
   enum utf8Codec { NONE_utf8Codec = 0; }
-  enum utf8Pointer { NONE_utf8Pointer = 0; }
   enum utf8ToDouble { NONE_utf8ToDouble = 0; }
   enum utf8ToString { NONE_utf8ToString = 0; }
   enum UTF8View { NONE_UTF8View = 0; }

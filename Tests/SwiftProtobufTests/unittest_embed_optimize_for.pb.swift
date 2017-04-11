@@ -58,27 +58,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEmbedOptimizedForSize"
 
-  fileprivate class _StorageClass {
-    var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
-    var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _optionalMessage = source._optionalMessage
-      _repeatedMessage = source._repeatedMessage
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   /// Test that embedding a message which has optimize_for = CODE_SIZE into
   /// one optimized for speed works.
   var optionalMessage: ProtobufUnittest_TestOptimizedForSize {
@@ -104,7 +83,7 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._optionalMessage, !v.isInitialized {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(repeatedMessage) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._repeatedMessage) {return false}
       return true
     }
   }
@@ -133,6 +112,8 @@ struct ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -144,6 +125,25 @@ extension ProtobufUnittest_TestEmbedOptimizedForSize: SwiftProtobuf._MessageImpl
     1: .standard(proto: "optional_message"),
     2: .standard(proto: "repeated_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _optionalMessage: ProtobufUnittest_TestOptimizedForSize? = nil
+    var _repeatedMessage: [ProtobufUnittest_TestOptimizedForSize] = []
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _optionalMessage = source._optionalMessage
+      _repeatedMessage = source._repeatedMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEmbedOptimizedForSize) -> Bool {
     if _storage !== other._storage {

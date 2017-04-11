@@ -128,6 +128,7 @@ TEST_PROTOS= \
 	Protos/unittest_swift_groups.proto \
 	Protos/unittest_swift_naming.proto \
 	Protos/unittest_swift_naming_no_prefix.proto \
+	Protos/unittest_swift_oneof_all_required.proto \
 	Protos/unittest_swift_performance.proto \
 	Protos/unittest_swift_reserved.proto \
 	Protos/unittest_swift_reserved_ext.proto \

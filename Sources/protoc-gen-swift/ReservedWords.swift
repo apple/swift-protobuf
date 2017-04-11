@@ -230,7 +230,7 @@ func sanitizeEnumCase(_ s: String) -> String {
 }
 
 func sanitizeMessageScopedExtensionName(_ s: String, skipBackticks: Bool = false) -> String {
-  // Since thing else is added to the "struct Extensions" for scoped
+  // Since thing else is added to the "enum Extensions" for scoped
   // extensions, there is no need to have a reserved list.
   if quotableMessageScopedExtensionNames.contains(s) {
     if skipBackticks {

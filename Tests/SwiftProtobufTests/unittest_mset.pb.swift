@@ -59,25 +59,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetContainer"
 
-  fileprivate class _StorageClass {
-    var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _messageSet = source._messageSet
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
@@ -120,6 +101,8 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
@@ -138,15 +121,6 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
-      _protobuf_fieldNumber: 1545008,
-      fieldName: "protobuf_unittest.TestMessageSetExtension1.message_set_extension",
-      defaultValue: ProtobufUnittest_TestMessageSetExtension1()
-    )
-  }
 
   init() {}
 
@@ -172,7 +146,7 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
 
   fileprivate var _str: String? = nil
   var str: String {
-    get {return _str ?? ""}
+    get {return _str ?? String()}
     set {_str = newValue}
   }
   var hasStr: Bool {
@@ -183,15 +157,6 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  struct Extensions {
-
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
-      _protobuf_fieldNumber: 1547769,
-      fieldName: "protobuf_unittest.TestMessageSetExtension2.message_set_extension",
-      defaultValue: ProtobufUnittest_TestMessageSetExtension2()
-    )
-  }
 
   init() {}
 
@@ -237,7 +202,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
 
     fileprivate var _message: Data? = nil
     var message: Data {
-      get {return _message ?? Data()}
+      get {return _message ?? SwiftProtobuf.Internal.emptyData}
       set {_message = newValue}
     }
     var hasMessage: Bool {
@@ -281,7 +246,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if !SwiftProtobuf.Internal.areAllInitialized(item) {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.item) {return false}
     return true
   }
 
@@ -301,6 +266,8 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 }
+
+// MARK: - Extension support defined in unittest_mset.proto.
 
 extension Proto2WireformatUnittest_TestMessageSet {
   var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
@@ -328,10 +295,34 @@ extension Proto2WireformatUnittest_TestMessageSet {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension,
   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension
 ]
+
+extension ProtobufUnittest_TestMessageSetExtension1 {
+  enum Extensions {
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
+      _protobuf_fieldNumber: 1545008,
+      fieldName: "protobuf_unittest.TestMessageSetExtension1.message_set_extension",
+      defaultValue: ProtobufUnittest_TestMessageSetExtension1()
+    )
+  }
+}
+
+extension ProtobufUnittest_TestMessageSetExtension2 {
+  enum Extensions {
+    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
+      _protobuf_fieldNumber: 1547769,
+      fieldName: "protobuf_unittest.TestMessageSetExtension2.message_set_extension",
+      defaultValue: ProtobufUnittest_TestMessageSetExtension2()
+    )
+  }
+}
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -341,6 +332,23 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplem
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set"),
   ]
+
+  fileprivate class _StorageClass {
+    var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _messageSet = source._messageSet
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMessageSetContainer) -> Bool {
     if _storage !== other._storage {

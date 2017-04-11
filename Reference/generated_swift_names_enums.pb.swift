@@ -3453,6 +3453,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum emptyData: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneEmptyData // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneEmptyData
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneEmptyData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneEmptyData: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum encoded: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneEncoded // = 0
@@ -6428,7 +6453,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
-  enum internalEnum: SwiftProtobuf.Enum {
+  enum Internal: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneInternal // = 0
     case UNRECOGNIZED(Int)
@@ -8953,6 +8978,81 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum parseBareFloatString: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneParseBareFloatString // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneParseBareFloatString
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneParseBareFloatString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneParseBareFloatString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum parseBareSInt: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneParseBareSint // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneParseBareSint
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneParseBareSint
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneParseBareSint: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum parseBareUInt: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneParseBareUint // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneParseBareUint
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneParseBareUint
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneParseBareUint: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum parseDuration: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneParseDuration // = 0
@@ -11097,6 +11197,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneSlowUtf8ToString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum source: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSource // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSource
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSource
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSource: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -13272,31 +13397,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneUtf8Codec: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
-  enum utf8Pointer: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneUtf8Pointer // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneUtf8Pointer
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneUtf8Pointer
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneUtf8Pointer: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -16025,6 +16125,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.Empty: SwiftProtobuf._Pro
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.emptyData: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_emptyData"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.encoded: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encoded"),
@@ -16739,9 +16845,9 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.intern: SwiftProtobuf._Pr
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.internalEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.Internal: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_internal"),
+    0: .same(proto: "NONE_Internal"),
   ]
 }
 
@@ -17345,6 +17451,24 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.packedSize: SwiftProtobuf
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.parseBareFloatString: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_parseBareFloatString"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.parseBareSInt: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_parseBareSInt"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.parseBareUInt: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_parseBareUInt"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.parseDuration: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_parseDuration"),
@@ -17858,6 +17982,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.sizer: SwiftProtobuf._Pro
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.slowUtf8ToString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_slowUtf8ToString"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.source: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_source"),
   ]
 }
 
@@ -18380,12 +18510,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.utf8Buffer: SwiftProtobuf
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.utf8Codec: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_utf8Codec"),
-  ]
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.utf8Pointer: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_utf8Pointer"),
   ]
 }
 

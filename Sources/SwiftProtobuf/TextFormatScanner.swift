@@ -251,7 +251,7 @@ private func decodeString(_ s: String) -> String? {
     if let addr = ptr.baseAddress {
         return utf8ToString(bytes: addr, count: ptr.count)
     } else {
-      return ""
+      return String()
     }
   }
 }

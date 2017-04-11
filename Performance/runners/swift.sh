@@ -33,7 +33,7 @@ function run_swift_harness() {
 
     echo "Generating Swift harness source..."
     gen_harness_path="$perf_dir/_generated/Harness+Generated.swift"
-    generate_swift_harness "$field_count" "$field_type"
+    generate_swift_harness
 
     # Build the dynamic library to use in the tests.
     # TODO: Make the dylib a product again in the package manifest and just use

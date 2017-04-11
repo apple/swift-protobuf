@@ -38,35 +38,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestFieldOrderings"
 
-  fileprivate class _StorageClass {
-    var _myString: String? = nil
-    var _myInt: Int64? = nil
-    var _myFloat: Float? = nil
-    var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
-    var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _myString = source._myString
-      _myInt = source._myInt
-      _myFloat = source._myFloat
-      _options = source._options
-      _optionalNestedMessage = source._optionalNestedMessage
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var myString: String {
-    get {return _storage._myString ?? ""}
+    get {return _storage._myString ?? String()}
     set {_uniqueStorage()._myString = newValue}
   }
   var hasMyString: Bool {
@@ -98,52 +71,41 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     _storage._myFloat = nil
   }
 
+  var options: OneOf_Options? {
+    get {return _storage._options}
+    set {_uniqueStorage()._options = newValue}
+  }
+
   var oneofInt64: Int64 {
     get {
-      if case .oneofInt64(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofInt64(let v)? = _storage._options {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._options = .oneofInt64(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofInt64(newValue)}
   }
 
   var oneofBool: Bool {
     get {
-      if case .oneofBool(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofBool(let v)? = _storage._options {return v}
       return false
     }
-    set {
-      _uniqueStorage()._options = .oneofBool(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofBool(newValue)}
   }
 
   var oneofString: String {
     get {
-      if case .oneofString(let v)? = _storage._options {
-        return v
-      }
-      return ""
+      if case .oneofString(let v)? = _storage._options {return v}
+      return String()
     }
-    set {
-      _uniqueStorage()._options = .oneofString(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofString(newValue)}
   }
 
   var oneofInt32: Int32 {
     get {
-      if case .oneofInt32(let v)? = _storage._options {
-        return v
-      }
+      if case .oneofInt32(let v)? = _storage._options {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._options = .oneofInt32(newValue)
-    }
+    set {_uniqueStorage()._options = .oneofInt32(newValue)}
   }
 
   var optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage {
@@ -155,13 +117,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   }
   mutating func clearOptionalNestedMessage() {
     _storage._optionalNestedMessage = nil
-  }
-
-  var options: OneOf_Options? {
-    get {return _storage._options}
-    set {
-      _uniqueStorage()._options = newValue
-    }
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -217,8 +172,8 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt64Field(value: &self._oo)
         case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
+        case 2: try decoder.decodeSingularInt64Field(value: &self._oo)
         default: break
         }
       }
@@ -247,14 +202,14 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
-        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 9, 10, 60, 150:
           if _storage._options != nil {
             try decoder.handleConflictingOneOf()
           }
           _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
+        case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
         case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
         case 2..<9, 12..<56:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
@@ -288,23 +243,14 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
-let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
-  _protobuf_fieldNumber: 50,
-  fieldName: "swift.protobuf.my_extension_string",
-  defaultValue: ""
-)
-
-let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
-  _protobuf_fieldNumber: 5,
-  fieldName: "swift.protobuf.my_extension_int",
-  defaultValue: 0
-)
+// MARK: - Extension support defined in unittest_swift_fieldorder.proto.
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? ""}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
   var hasSwift_Protobuf_myExtensionString: Bool {
@@ -328,10 +274,26 @@ extension Swift_Protobuf_TestFieldOrderings {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Swift_Protobuf_Extensions_my_extension_string,
   Swift_Protobuf_Extensions_my_extension_int
 ]
+
+let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
+  _protobuf_fieldNumber: 50,
+  fieldName: "swift.protobuf.my_extension_string",
+  defaultValue: String()
+)
+
+let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
+  _protobuf_fieldNumber: 5,
+  fieldName: "swift.protobuf.my_extension_int",
+  defaultValue: 0
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -348,6 +310,31 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
     10: .standard(proto: "oneof_int32"),
     200: .standard(proto: "optional_nested_message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _myString: String? = nil
+    var _myInt: Int64? = nil
+    var _myFloat: Float? = nil
+    var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
+    var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _myString = source._myString
+      _myInt = source._myInt
+      _myFloat = source._myFloat
+      _options = source._options
+      _optionalNestedMessage = source._optionalNestedMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Swift_Protobuf_TestFieldOrderings) -> Bool {
     if _storage !== other._storage {

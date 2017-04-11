@@ -12,6 +12,10 @@
 ///
 // -----------------------------------------------------------------------------
 
+// Explicit import of Foundation is necessary on Linux,
+// don't remove unless obsolete on all platforms
+import Foundation
+
 public extension Google_Protobuf_Any {
   /// Initialize an Any object from the provided message.
   ///

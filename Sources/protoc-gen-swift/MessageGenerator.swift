@@ -102,12 +102,17 @@ class MessageGenerator {
     }
     self.extensions = extensions
 
+    i = 0
     var oneofs = [OneofGenerator]()
     for oneofIndex in (0..<descriptor.oneofDecl.count) {
       let oneofFields = fields.filter {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(oneofIndex)
       }
-      let oneof = OneofGenerator(descriptor: descriptor.oneofDecl[oneofIndex], generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName, isProto3: isProto3)
+      var oneofPath = path
+      oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
+      oneofPath.append(i)
+      i += 1
+      let oneof = OneofGenerator(descriptor: descriptor.oneofDecl[oneofIndex], path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
@@ -180,44 +185,30 @@ class MessageGenerator {
         p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
     }
 
-    if let storage = storage {
-      // Storage class, if needed
-      p.print("\n")
-      storage.generateNested(printer: &p)
-      p.print("\n")
-      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
-      p.print("\n")
-      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
-      p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
-      p.print("    _storage = _StorageClass(copying: _storage)\n")
-      p.print("  }\n")
-      p.print("  return _storage\n")
-      p.print("}\n")
-
-      for f in fields {
-        f.generateProxyIvar(printer: &p)
-        f.generateHasProperty(printer: &p, usesHeapStorage: true)
-        f.generateClearMethod(printer: &p, usesHeapStorage: true)
-      }
-      for o in oneofs {
-        o.generateProxyIvar(printer: &p)
-      }
-    } else {
-      // Local ivars if no storage class
-      var oneofHandled = Set<Int32>()
-      for f in fields {
-        f.generateTopIvar(printer: &p)
-        f.generateHasProperty(printer: &p, usesHeapStorage: false)
-        f.generateClearMethod(printer: &p, usesHeapStorage: false)
-        if f.descriptor.hasOneofIndex {
-          let oneofIndex = f.descriptor.oneofIndex
-          if !oneofHandled.contains(oneofIndex) {
-            let oneof = oneofs[Int(oneofIndex)]
+    let usesHeadStorage = storage != nil
+    var oneofHandled = Set<Int32>()
+    for f in fields {
+      // If this is in a oneof, generate the oneof first to match the layout in
+      // the proto file.
+      if f.descriptor.hasOneofIndex {
+        let oneofIndex = f.descriptor.oneofIndex
+        if !oneofHandled.contains(oneofIndex) {
+          let oneof = oneofs[Int(oneofIndex)]
+          oneofHandled.insert(oneofIndex)
+          if (usesHeadStorage) {
+            oneof.generateProxyIvar(printer: &p)
+          } else {
             oneof.generateTopIvar(printer: &p)
-            oneofHandled.insert(oneofIndex)
           }
         }
       }
+      if usesHeadStorage {
+        f.generateProxyIvar(printer: &p)
+      } else {
+        f.generateTopIvar(printer: &p)
+      }
+      f.generateHasProperty(printer: &p, usesHeapStorage: usesHeadStorage)
+      f.generateClearMethod(printer: &p, usesHeapStorage: usesHeadStorage)
     }
 
     p.print("\n")
@@ -235,18 +226,6 @@ class MessageGenerator {
     // Nested messages
     for m in messages {
       m.generateMainStruct(printer: &p, file: file, parent: self)
-    }
-
-    // Nested extension declarations
-    if !extensions.isEmpty {
-      p.print("\n")
-      p.print("struct Extensions {\n")
-      p.indent()
-      for e in extensions {
-          e.generateNested(printer: &p)
-      }
-      p.outdent()
-      p.print("}\n")
     }
 
     // Generate the default initializer. If we don't, Swift seems to sometimes
@@ -269,20 +248,49 @@ class MessageGenerator {
       p.print("\n")
       p.print("\(visibility)var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
     }
+    if let storage = storage {
+      if !isExtensible {
+        p.print("\n")
+      }
+      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
+    }
 
     p.outdent()
     p.print("}\n")
   }
 
-  func generateTopLevel(printer p: inout CodePrinter) {
-    // nested messages
-    for m in messages {
-      m.generateTopLevel(printer: &p)
+  func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
+    if !extensions.isEmpty {
+      p.print("\n")
+      p.print("extension \(swiftFullName) {\n")
+      p.indent()
+      p.print("enum Extensions {\n")
+      p.indent()
+      var addNewline = false
+      for e in extensions {
+        if addNewline {
+          p.print("\n")
+        } else {
+          addNewline = true
+        }
+        e.generateProtobufExtensionDeclarations(printer: &p)
+      }
+      p.outdent()
+      p.print("}\n")
+      p.outdent()
+      p.print("}\n")
     }
+    for m in messages {
+      m.generateProtobufExtensionDeclarations(printer: &p)
+    }
+  }
 
-    // nested extensions
+  func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
     for e in extensions {
-      e.generateTopLevel(printer: &p)
+      e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
+    }
+    for m in messages {
+      m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
     }
   }
 
@@ -300,6 +308,17 @@ class MessageGenerator {
     p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
     generateProtoNameProviding(printer: &p)
+    if let storage = storage {
+      p.print("\n")
+      storage.generateTypeDeclaration(printer: &p)
+      p.print("\n")
+      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
+      p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
+      p.print("    _storage = _StorageClass(copying: _storage)\n")
+      p.print("  }\n")
+      p.print("  return _storage\n")
+      p.print("}\n")
+    }
     p.print("\n")
     generateMessageImplementationBase(printer: &p)
     p.outdent()
@@ -354,7 +373,7 @@ class MessageGenerator {
       if !fields.isEmpty {
         p.print("switch fieldNumber {\n")
         var oneofHandled = Set<Int32>()
-        for f in fields {
+        for f in fieldsSortedByNumber {
           if f.descriptor.hasOneofIndex {
             let oneofIndex = f.descriptor.oneofIndex
             if !oneofHandled.contains(oneofIndex) {
@@ -408,10 +427,7 @@ class MessageGenerator {
   /// - Parameter index: The index of the `oneof`.
   /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
   private func oneofFieldNumbersPattern(index: Int32) -> String {
-    let oneofFields = fields.lazy.filter {
-      $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == index
-    }.map { $0.number }.sorted()
-
+    let oneofFields = oneofs[Int(index)].fieldsSortedByNumber.map { $0.number }
     assert(oneofFields.count > 0)
 
     if oneofFields.count <= 2 {
@@ -420,24 +436,17 @@ class MessageGenerator {
       return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
     }
 
-    var it = oneofFields.makeIterator()
-
-    // Safe force-unwraps from here on down: We know there's at least one.
-    let first = it.next()!
-    var previous = first
-    while let current = it.next() {
-      if current - previous > 1 {
-        // Not a contiguous range, so just print the comma-delimited list of
-        // field numbers. (We could consider optimizing this to print ranges
-        // for contiguous subsequences later, as well.)
-        return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
-      }
-      previous = current
-    }
-
-    // The field numbers were contiguous, so return a range instead.
+    let first = oneofFields.first!
     let last = oneofFields.last!
-    return "\(first)...\(last)"
+
+    if first + oneofFields.count - 1 == last {
+      // The field numbers were contiguous, so return a range instead.
+      return "\(first)...\(last)"
+    }
+    // Not a contiguous range, so just print the comma-delimited list of
+    // field numbers. (We could consider optimizing this to print ranges
+    // for contiguous subsequences later, as well.)
+    return oneofFields.lazy.map { String($0) }.joined(separator: ", ")
   }
 
   /// Generates the `traverse` method for the message.
@@ -541,46 +550,6 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  private enum IsInitializedReason {
-    case hasRequiredField
-    case hasFieldWithIsInitialized
-    case hasExtensions
-  }
-
-  /// Examines the message's members and returns a value indicating whether
-  /// an `isInitialized` property needs to be printed, or if the default in
-  /// the runtime library (which returns `true` unconditionally) is
-  /// sufficient.
-  ///
-  /// - Returns: `IsInitializedReason` for the first reason found for why
-  ///     isInitialized is needed.
-  private func needsIsInitialized() -> IsInitializedReason? {
-    if !isProto3 {
-      // Only proto2 syntax can have field presence (required fields); if any
-      // fields are required, we need to generate isInitialized.
-      for f in fields {
-        if f.descriptor.label == .required {
-          return .hasRequiredField
-        }
-      }
-    }
-    // If any nested messages have required fields, we need to generate
-    // isInitialized.
-    for f in fields {
-      if f.fieldHoldsMessage &&
-        messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-        return .hasFieldWithIsInitialized
-      }
-    }
-    if isExtensible {
-      // Extensible messages need to generate isInitialized.
-      return .hasExtensions
-    }
-    // If none of the above conditions were true, the default isInitialized,
-    // which just returns true, is sufficient.
-    return nil
-  }
-
   /// Generates the `isInitialized` property for the message, if needed.
   ///
   /// This may generate nothing, if the `isInitialized` property is not
@@ -588,7 +557,61 @@ class MessageGenerator {
   ///
   /// - Parameter printer: The code printer.
   private func generateIsInitialized(printer p: inout CodePrinter) {
-    guard let reason = needsIsInitialized() else {
+
+    var requiredPrinter: CodePrinter?
+    if !isProto3 {
+      // Only proto2 syntax can have field presence (required fields); ensure required
+      // fields have values.
+      requiredPrinter = CodePrinter()
+      for f in fields {
+        if f.descriptor.label == .required {
+          requiredPrinter!.print("if \(storedProperty(forField: f)) == nil {return false}\n")
+        }
+      }
+    }
+
+    var subMessagePrinter = CodePrinter()
+
+    // Check that all non-oneof embedded messages are initialized.
+    for f in fields {
+      if f.fieldHoldsMessage && f.oneof == nil &&
+        messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+        if f.isRepeated {
+          subMessagePrinter.print("if !SwiftProtobuf.Internal.areAllInitialized(\(storedProperty(forField: f))) {return false}\n")
+        } else {
+          subMessagePrinter.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
+        }
+      }
+    }
+
+    // Check that all oneof embedded messages are initialized.
+    for oneofField in oneofs {
+      var fieldsToCheck: [MessageFieldGenerator] = []
+      for f in oneofField.fields {
+        if f.descriptor.isMessage &&
+          messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+          fieldsToCheck.append(f)
+        }
+      }
+      if fieldsToCheck.count == 1 {
+        let f = fieldsToCheck.first!
+        subMessagePrinter.print("if case .\(f.swiftName)(let v)? = \(storedProperty(forOneof: oneofField.descriptor)), !v.isInitialized {return false}\n")
+      } else if fieldsToCheck.count > 1 {
+        subMessagePrinter.print("switch \(storedProperty(forOneof: oneofField.descriptor)) {\n")
+        for f in fieldsToCheck {
+          subMessagePrinter.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
+        }
+        // Covers other cases or if the oneof wasn't set (was nil).
+        subMessagePrinter.print("default: break\n")
+        subMessagePrinter.print("}\n")
+      }
+    }
+
+    let hasRequiredFields = requiredPrinter != nil && !requiredPrinter!.isEmpty
+    let hasMessageFieldsToCheck = !subMessagePrinter.isEmpty
+
+    if !isExtensible && !hasRequiredFields && !hasMessageFieldsToCheck {
+      // No need to generate isInitialized.
       return
     }
 
@@ -597,71 +620,16 @@ class MessageGenerator {
     if isExtensible {
       p.print("if !_protobuf_extensionFieldValues.isInitialized {return false}\n")
     }
-    if reason == .hasExtensions {
-      // Only needed isInitialized for extensions, so we're done.
-      p.print("return true\n")
-    } else {
+    if hasRequiredFields || hasMessageFieldsToCheck {
       generateWithLifetimeExtension(printer: &p, returns: true) { p in
-        if !isProto3 {
-          // Only proto2 syntax can have field presence (required fields); ensure required
-          // fields have values.
-          for f in fields {
-            if f.descriptor.label == .required {
-              p.print("if \(storedProperty(forField: f)) == nil {return false}\n")
-            }
-          }
+        if let requiredPrinter = requiredPrinter {
+          p.print(requiredPrinter.content)
         }
-
-        // Check that all non-oneof embedded messages are initialized.
-        for f in fields {
-          if f.fieldHoldsMessage && f.oneof == nil &&
-            messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-            if f.isRepeated {
-              p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(f.swiftName)) {return false}\n")
-            } else {
-              p.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
-            }
-          }
-        }
-
-        // Check the oneofs using a switch so we can be more efficent.
-        for oneofField in oneofs {
-          var hasRequiredFields = false
-          for f in oneofField.fields {
-            if f.descriptor.isMessage &&
-              messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-              hasRequiredFields = true
-              break
-            }
-          }
-          if !hasRequiredFields {
-            continue
-          }
-
-          p.print("switch \(oneofField.descriptor.swiftFieldName) {\n")
-          var needsDefault = false
-          for f in oneofField.fields {
-            if f.descriptor.isMessage &&
-              messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-              p.print("case .\(f.swiftName)(let v)?:\n")
-              p.indent()
-              p.print("if !v.isInitialized {return false}\n")
-              p.outdent()
-            } else {
-              needsDefault = true
-            }
-          }
-          if needsDefault {
-            p.print("default:\n")
-            p.indent()
-            p.print("break\n")
-            p.outdent()
-          }
-          p.print("}\n")
-        }
-
+        p.print(subMessagePrinter.content)
         p.print("return true\n")
       }
+    } else {
+      p.print("return true\n")
     }
     p.outdent()
     p.print("}\n")

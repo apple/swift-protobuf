@@ -52,37 +52,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 public struct Google_Protobuf_Api: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Api"
 
-  fileprivate class _StorageClass {
-    var _name: String = ""
-    var _methods: [Google_Protobuf_Method] = []
-    var _options: [Google_Protobuf_Option] = []
-    var _version: String = ""
-    var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _mixins: [Google_Protobuf_Mixin] = []
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _name = source._name
-      _methods = source._methods
-      _options = source._options
-      _version = source._version
-      _sourceContext = source._sourceContext
-      _mixins = source._mixins
-      _syntax = source._syntax
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   /// The fully qualified name of this api, including package name
   /// followed by the api's simple name.
   public var name: String {
@@ -200,6 +169,8 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// Method represents a method of an api.
@@ -207,16 +178,16 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Method"
 
   /// The simple name of this method.
-  public var name: String = ""
+  public var name: String = String()
 
   /// A URL of the input message type.
-  public var requestTypeURL: String = ""
+  public var requestTypeURL: String = String()
 
   /// If true, the request is streamed.
   public var requestStreaming: Bool = false
 
   /// The URL of the output message type.
-  public var responseTypeURL: String = ""
+  public var responseTypeURL: String = String()
 
   /// If true, the response is streamed.
   public var responseStreaming: Bool = false
@@ -353,11 +324,11 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Mixin"
 
   /// The fully qualified name of the API which is included.
-  public var name: String = ""
+  public var name: String = String()
 
   /// If non-empty specifies a path under which inherited HTTP paths
   /// are rooted.
-  public var root: String = ""
+  public var root: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -398,6 +369,35 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
     6: .same(proto: "mixins"),
     7: .same(proto: "syntax"),
   ]
+
+  fileprivate class _StorageClass {
+    var _name: String = String()
+    var _methods: [Google_Protobuf_Method] = []
+    var _options: [Google_Protobuf_Option] = []
+    var _version: String = String()
+    var _sourceContext: Google_Protobuf_SourceContext? = nil
+    var _mixins: [Google_Protobuf_Mixin] = []
+    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _name = source._name
+      _methods = source._methods
+      _options = source._options
+      _version = source._version
+      _sourceContext = source._sourceContext
+      _mixins = source._mixins
+      _syntax = source._syntax
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
     if _storage !== other._storage {

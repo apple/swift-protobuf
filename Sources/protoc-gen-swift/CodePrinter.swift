@@ -12,42 +12,76 @@
 /// source code text.
 ///
 // -----------------------------------------------------------------------------
-import Foundation
 
+/// Prints code with automatic indentation based on calls to `indent` and
+/// `outdent`.
 struct CodePrinter {
-    private(set) var content = ""
-    private var currentIndentDepth = 0
-    private var currentIndent = ""
-    private var atLineStart = true
+  /// The string content that was printed.
+  private(set) var content = String()
 
-    mutating func print(_ text: String...) {
-         for t in text {
-            for c in t.characters {
-                if c == "\n" {
-                  content.append(c)
-                  atLineStart = true
-                } else {
-                  if atLineStart {
-                    content.append(currentIndent)
-                    atLineStart = false
-                  }
-                  content.append(c)
-                }
+  /// See if anything was printed.
+  var isEmpty: Bool { return content.isEmpty }
+
+  /// The `UnicodeScalarView` representing a single indentation step.
+  private let singleIndent = "  ".unicodeScalars
+
+  /// The current indentation level (a collection of spaces).
+  private var indentation = String.UnicodeScalarView()
+
+  /// Keeps track of whether the printer is currently sitting at the beginning
+  /// of a line.
+  private var atLineStart = true
+
+  /// Writes the given strings to the printer.
+  ///
+  /// - Parameter text: A variable-length list of strings to be printed.
+  mutating func print(_ text: String...) {
+    for t in text {
+      let scalars = t.unicodeScalars
+      var index = scalars.startIndex
+      let end = scalars.endIndex
+
+      while index != end {
+        let remainingSlice = scalars[index..<end]
+        if let newLineIndex = remainingSlice.index(of: "\n") {
+          if index != newLineIndex {
+            // Only append indentation if the line isn't blank (i.e., there
+            // aren't two adjacent newlines).
+            if atLineStart {
+              content.unicodeScalars.append(contentsOf: indentation)
             }
-         }
-    }
+            content.unicodeScalars.append(
+              contentsOf: scalars[index..<newLineIndex])
+          }
+          content.unicodeScalars.append("\n")
 
-    mutating private func resetIndent() {
-        currentIndent = (0..<currentIndentDepth).map { Int -> String in return "  " } .joined(separator:"")
+          atLineStart = true
+          index = scalars.index(after: newLineIndex)
+        } else {
+          // We reached the end of the string, so just copy over whatever is
+          // left.
+          if atLineStart {
+            content.unicodeScalars.append(contentsOf: indentation)
+            atLineStart = false
+          }
+          content.unicodeScalars.append(contentsOf: remainingSlice)
+          index = end
+        }
+      }
     }
+  }
 
-    mutating func indent() {
-        currentIndentDepth += 1
-        resetIndent()
-    }
-    mutating func outdent() {
-        currentIndentDepth -= 1
-        resetIndent()
-    }
+  /// Increases the printer's indentation level by 2 spaces.
+  mutating func indent() {
+    indentation.append(contentsOf: singleIndent)
+  }
+
+  /// Decreases the printer's indentation level by 2 spaces.
+  ///
+  /// - Precondition: The printer must not have an indentation level less than
+  ///   2.
+  mutating func outdent() {
+    precondition(indentation.count >= 2, "Cannot outdent past the left margin")
+    indentation.removeLast(2)
+  }
 }
-

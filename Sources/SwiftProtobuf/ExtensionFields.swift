@@ -78,7 +78,7 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
       if let value = value {
         return String(reflecting: value)
       }
-      return ""
+      return String()
     }
   }
 
@@ -224,7 +224,7 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
       if let value = value {
         return String(reflecting: value)
       }
-      return ""
+      return String()
     }
   }
 
@@ -377,7 +377,7 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
       if let value = value {
         return String(reflecting: value)
       }
-      return ""
+      return String()
     }
   }
 
@@ -482,7 +482,7 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
 
   public var hashValue: Int {return value?.hashValue ?? 0}
 
-  public var debugDescription: String { get {return value?.debugDescription ?? ""} }
+  public var debugDescription: String { get {return value?.debugDescription ?? String()} }
 
   public func isEqual(other: AnyExtensionField) -> Bool {
     let o = other as! OptionalGroupExtensionField<G>

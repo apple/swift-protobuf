@@ -55,7 +55,7 @@ public struct Google_Protobuf_SourceContext: SwiftProtobuf.Message {
 
   /// The path-qualified name of the .proto file that contained the associated
   /// protobuf element.  For example: `"google/protobuf/source_context.proto"`.
-  public var fileName: String = ""
+  public var fileName: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -118,7 +118,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   private mutating func _visitRepeated<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
+    var arraySeparator = String()
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
@@ -227,7 +227,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
+    var arraySeparator = String()
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)
@@ -243,7 +243,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
   mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = ""
+    var arraySeparator = String()
     encoder.append(text: "[")
     for v in value {
       encoder.append(text: arraySeparator)

@@ -123,118 +123,81 @@ struct Google_Protobuf_Struct: SwiftProtobuf.Message {
 struct Google_Protobuf_Value: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Value"
 
-  fileprivate class _StorageClass {
-    var _kind: Google_Protobuf_Value.OneOf_Kind?
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _kind = source._kind
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
+  /// The kind of value.
+  var kind: OneOf_Kind? {
+    get {return _storage._kind}
+    set {_uniqueStorage()._kind = newValue}
   }
 
   /// Represents a null value.
   var nullValue: Google_Protobuf_NullValue {
     get {
-      if case .nullValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .nullValue(let v)? = _storage._kind {return v}
       return Google_Protobuf_NullValue.nullValue
     }
-    set {
-      _uniqueStorage()._kind = .nullValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .nullValue(newValue)}
   }
 
   /// Represents a double value.
   var numberValue: Double {
     get {
-      if case .numberValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .numberValue(let v)? = _storage._kind {return v}
       return 0
     }
-    set {
-      _uniqueStorage()._kind = .numberValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .numberValue(newValue)}
   }
 
   /// Represents a string value.
   var stringValue: String {
     get {
-      if case .stringValue(let v)? = _storage._kind {
-        return v
-      }
-      return ""
+      if case .stringValue(let v)? = _storage._kind {return v}
+      return String()
     }
-    set {
-      _uniqueStorage()._kind = .stringValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .stringValue(newValue)}
   }
 
   /// Represents a boolean value.
   var boolValue: Bool {
     get {
-      if case .boolValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .boolValue(let v)? = _storage._kind {return v}
       return false
     }
-    set {
-      _uniqueStorage()._kind = .boolValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .boolValue(newValue)}
   }
 
   /// Represents a structured value.
   var structValue: Google_Protobuf_Struct {
     get {
-      if case .structValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .structValue(let v)? = _storage._kind {return v}
       return Google_Protobuf_Struct()
     }
-    set {
-      _uniqueStorage()._kind = .structValue(newValue)
-    }
+    set {_uniqueStorage()._kind = .structValue(newValue)}
   }
 
   /// Represents a repeated `Value`.
   var listValue: Google_Protobuf_ListValue {
     get {
-      if case .listValue(let v)? = _storage._kind {
-        return v
-      }
+      if case .listValue(let v)? = _storage._kind {return v}
       return Google_Protobuf_ListValue()
     }
-    set {
-      _uniqueStorage()._kind = .listValue(newValue)
-    }
-  }
-
-  var kind: OneOf_Kind? {
-    get {return _storage._kind}
-    set {
-      _uniqueStorage()._kind = newValue
-    }
+    set {_uniqueStorage()._kind = .listValue(newValue)}
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
+  /// The kind of value.
   enum OneOf_Kind: Equatable {
+    /// Represents a null value.
     case nullValue(Google_Protobuf_NullValue)
+    /// Represents a double value.
     case numberValue(Double)
+    /// Represents a string value.
     case stringValue(String)
+    /// Represents a boolean value.
     case boolValue(Bool)
+    /// Represents a structured value.
     case structValue(Google_Protobuf_Struct)
+    /// Represents a repeated `Value`.
     case listValue(Google_Protobuf_ListValue)
 
     static func ==(lhs: Google_Protobuf_Value.OneOf_Kind, rhs: Google_Protobuf_Value.OneOf_Kind) -> Bool {
@@ -274,6 +237,8 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 /// `ListValue` is a wrapper around a repeated field of values.
@@ -337,6 +302,23 @@ extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, Swift
     5: .standard(proto: "struct_value"),
     6: .standard(proto: "list_value"),
   ]
+
+  fileprivate class _StorageClass {
+    var _kind: Google_Protobuf_Value.OneOf_Kind?
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _kind = source._kind
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Value) -> Bool {
     if _storage !== other._storage {

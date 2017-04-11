@@ -59,8 +59,8 @@ fileprivate func unpack(contentJSON: Data, as messageType: Message.Type) throws 
 
   var value = String()
   try contentJSON.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
-    var scanner = JSONScanner(utf8Pointer: bytes,
-                              count: contentJSON.count)
+    let buffer = UnsafeBufferPointer(start: bytes, count: contentJSON.count)
+    var scanner = JSONScanner(source: buffer)
     let key = try scanner.nextQuotedString()
     if key != "value" {
       // The only thing within a WKT should be "value".
@@ -79,7 +79,7 @@ fileprivate func unpack(contentJSON: Data, as messageType: Message.Type) throws 
 
 internal class AnyMessageStorage {
   // The two properties generated Google_Protobuf_Any will reference.
-  var _typeURL: String = ""
+  var _typeURL = String()
   var _value: Data {
     // Remapped to the internal `state`.
     get {
@@ -90,17 +90,17 @@ internal class AnyMessageStorage {
         do {
           return try message.serializedData(partial: true)
         } catch {
-          return Data()
+          return Internal.emptyData
         }
       case .contentJSON(let contentJSON):
         guard let messageType = Google_Protobuf_Any.messageType(forTypeURL: _typeURL) else {
-          return Data()
+          return Internal.emptyData
         }
         do {
           let m = try unpack(contentJSON: contentJSON, as: messageType)
           return try m.serializedData(partial: true)
         } catch {
-          return Data()
+          return Internal.emptyData
         }
       }
     }
@@ -117,7 +117,7 @@ internal class AnyMessageStorage {
     // parsed JSON with the @type removed
     case contentJSON(Data)
   }
-  var state: InternalState = .binary(Data())
+  var state: InternalState = .binary(Internal.emptyData)
 
   init() {}
 
@@ -391,8 +391,8 @@ extension AnyMessageStorage {
   func decodeJSON(from decoder: inout JSONDecoder) throws {
     try decoder.scanner.skipRequiredObjectStart()
     // Reset state
-    _typeURL = ""
-    state = .binary(Data())
+    _typeURL = String()
+    state = .binary(Internal.emptyData)
     if decoder.scanner.skipOptionalObjectEnd() {
       return
     }

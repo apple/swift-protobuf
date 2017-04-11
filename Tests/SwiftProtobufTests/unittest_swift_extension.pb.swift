@@ -257,27 +257,6 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
 struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".MsgUsesStorage"
 
-  fileprivate class _StorageClass {
-    var _x: Int32? = nil
-    var _y: ProtobufUnittest_Extend_MsgUsesStorage? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _x = source._x
-      _y = source._y
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var x: Int32 {
     get {return _storage._x ?? 0}
     set {_uniqueStorage()._x = newValue}
@@ -342,59 +321,14 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _storage = _StorageClass()
 }
 
-let ProtobufUnittest_Extend_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.extend.b",
-  defaultValue: ""
-)
-
-let ProtobufUnittest_Extend_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
-  _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.C",
-  defaultValue: ProtobufUnittest_Extend_C()
-)
-
-let ProtobufUnittest_Extend_Extensions_a_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg1>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.extend.a_b",
-  defaultValue: 0
-)
-
-let ProtobufUnittest_Extend_Extensions_aB = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg2>(
-  _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.extend.aB",
-  defaultValue: 0
-)
-
-let ProtobufUnittest_Extend_Extensions_ext_a = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgNoStorage>(
-  _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.extend.ext_a",
-  defaultValue: 0
-)
-
-let ProtobufUnittest_Extend_Extensions_ext_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgNoStorage>(
-  _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.ext_b",
-  defaultValue: 0
-)
-
-let ProtobufUnittest_Extend_Extensions_ext_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgUsesStorage>(
-  _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.extend.ext_c",
-  defaultValue: 0
-)
-
-let ProtobufUnittest_Extend_Extensions_ext_d = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgUsesStorage>(
-  _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.ext_d",
-  defaultValue: 0
-)
+// MARK: - Extension support defined in unittest_swift_extension.proto.
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? ""}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
   }
   var hasProtobufUnittest_Extend_b: Bool {
@@ -496,6 +430,10 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
   }
 }
 
+/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
+/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
+/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
+/// a larger `SwiftProtobuf.SimpleExtensionMap`.
 let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   ProtobufUnittest_Extend_Extensions_b,
   ProtobufUnittest_Extend_Extensions_C,
@@ -506,6 +444,54 @@ let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.Sim
   ProtobufUnittest_Extend_Extensions_ext_c,
   ProtobufUnittest_Extend_Extensions_ext_d
 ]
+
+let ProtobufUnittest_Extend_Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+  _protobuf_fieldNumber: 100,
+  fieldName: "protobuf_unittest.extend.b",
+  defaultValue: String()
+)
+
+let ProtobufUnittest_Extend_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
+  _protobuf_fieldNumber: 101,
+  fieldName: "protobuf_unittest.extend.C",
+  defaultValue: ProtobufUnittest_Extend_C()
+)
+
+let ProtobufUnittest_Extend_Extensions_a_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg1>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "protobuf_unittest.extend.a_b",
+  defaultValue: 0
+)
+
+let ProtobufUnittest_Extend_Extensions_aB = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg2>(
+  _protobuf_fieldNumber: 1,
+  fieldName: "protobuf_unittest.extend.aB",
+  defaultValue: 0
+)
+
+let ProtobufUnittest_Extend_Extensions_ext_a = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgNoStorage>(
+  _protobuf_fieldNumber: 100,
+  fieldName: "protobuf_unittest.extend.ext_a",
+  defaultValue: 0
+)
+
+let ProtobufUnittest_Extend_Extensions_ext_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgNoStorage>(
+  _protobuf_fieldNumber: 101,
+  fieldName: "protobuf_unittest.extend.ext_b",
+  defaultValue: 0
+)
+
+let ProtobufUnittest_Extend_Extensions_ext_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgUsesStorage>(
+  _protobuf_fieldNumber: 100,
+  fieldName: "protobuf_unittest.extend.ext_c",
+  defaultValue: 0
+)
+
+let ProtobufUnittest_Extend_Extensions_ext_d = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgUsesStorage>(
+  _protobuf_fieldNumber: 101,
+  fieldName: "protobuf_unittest.extend.ext_d",
+  defaultValue: 0
+)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -592,6 +578,25 @@ extension ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf._MessageImplemen
     1: .same(proto: "x"),
     2: .same(proto: "y"),
   ]
+
+  fileprivate class _StorageClass {
+    var _x: Int32? = nil
+    var _y: ProtobufUnittest_Extend_MsgUsesStorage? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _x = source._x
+      _y = source._y
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Extend_MsgUsesStorage) -> Bool {
     if _storage !== other._storage {

@@ -178,8 +178,8 @@ extension Google_Protobuf_FieldDescriptorProto {
         }
         switch type {
         case .bool: return "false"
-        case .string: return "\"\""
-        case .bytes: return "Data()"
+        case .string: return "String()"
+        case .bytes: return "SwiftProtobuf.Internal.emptyData"
         case .group, .message:
             return context.getMessageNameForPath(path: typeName)! + "()"
         case .enum:
@@ -249,8 +249,22 @@ extension Google_Protobuf_FieldDescriptorProto {
            default: return defaultValue
            }
         case .bool: return defaultValue
-        case .string: return stringToEscapedStringLiteral(defaultValue)
-        case .bytes: return escapedToDataLiteral(defaultValue)
+        case .string:
+          if defaultValue.isEmpty {
+            // proto file listed the default as "", just pretend it wasn't set since
+            // this is the default.
+            return nil
+          } else {
+            return stringToEscapedStringLiteral(defaultValue)
+          }
+        case .bytes:
+          if defaultValue.isEmpty {
+            // proto file listed the default as "", just pretend it wasn't set since
+            // this is the default.
+            return nil
+          } else {
+            return escapedToDataLiteral(defaultValue)
+          }
         case .enum:
             return context.getSwiftNameForEnumCase(path: typeName, caseName: defaultValue)
         default: return defaultValue
@@ -408,11 +422,11 @@ struct MessageFieldGenerator {
             p.indent()
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) { return v }\n")
+            p.print("if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) {return v}\n")
             p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
-            p.print("set { \(oneof.swiftFieldName) = .\(swiftName)(newValue) }\n")
+            p.print("set {\(oneof.swiftFieldName) = .\(swiftName)(newValue)}\n")
             p.outdent()
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
@@ -438,19 +452,11 @@ struct MessageFieldGenerator {
         if let oneof = oneof {
             p.print("get {\n")
             p.indent()
-            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {\n")
-            p.indent()
-            p.print("return v\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {return v}\n")
             p.print("return \(swiftDefaultValue)\n")
             p.outdent()
             p.print("}\n")
-            p.print("set {\n")
-            p.indent()
-            p.print("_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)\n")
-            p.outdent()
-            p.print("}\n")
+            p.print("set {_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)}\n")
         } else {
             let defaultClause: String
             if isMap || isRepeated {

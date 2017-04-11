@@ -56,25 +56,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestLiteImportsNonlite"
 
-  fileprivate class _StorageClass {
-    var _message: ProtobufUnittest_TestAllTypes? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _message = source._message
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var message: ProtobufUnittest_TestAllTypes {
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
@@ -110,6 +91,8 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -120,6 +103,23 @@ extension ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf._MessageImpleme
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "message"),
   ]
+
+  fileprivate class _StorageClass {
+    var _message: ProtobufUnittest_TestAllTypes? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _message = source._message
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLiteImportsNonlite) -> Bool {
     if _storage !== other._storage {

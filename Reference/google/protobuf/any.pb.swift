@@ -120,17 +120,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Any: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Any"
 
-  typealias _StorageClass = AnyMessageStorage
-
-  internal var _storage = _StorageClass()
-
-  internal mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   /// A URL/resource name whose content describes the type of the
   /// serialized protocol buffer message.
   ///
@@ -192,6 +181,8 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  internal var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -203,6 +194,15 @@ extension Google_Protobuf_Any: SwiftProtobuf._MessageImplementationBase, SwiftPr
     1: .standard(proto: "type_url"),
     2: .same(proto: "value"),
   ]
+
+  typealias _StorageClass = AnyMessageStorage
+
+  internal mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Any) -> Bool {
     if _storage !== other._storage {

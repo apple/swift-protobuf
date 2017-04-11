@@ -141,6 +141,7 @@ message GeneratedSwiftReservedMessages {
   message emitFieldNumber { int32 emitFieldNumber = 1; }
   message emitVerboseTextForm { int32 emitVerboseTextForm = 1; }
   message Empty { int32 Empty = 1; }
+  message emptyData { int32 emptyData = 1; }
   message encoded { int32 encoded = 1; }
   message encodedJSONString { int32 encodedJSONString = 1; }
   message encodedSize { int32 encodedSize = 1; }
@@ -260,7 +261,7 @@ message GeneratedSwiftReservedMessages {
   message integerLiteral { int32 integerLiteral = 1; }
   message IntegerLiteralType { int32 IntegerLiteralType = 1; }
   message intern { int32 intern = 1; }
-  message internal { int32 internal = 1; }
+  message Internal { int32 Internal = 1; }
   message InternalState { int32 InternalState = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
@@ -361,6 +362,9 @@ message GeneratedSwiftReservedMessages {
   message PackedEnumExtensionField { int32 PackedEnumExtensionField = 1; }
   message PackedExtensionField { int32 PackedExtensionField = 1; }
   message packedSize { int32 packedSize = 1; }
+  message parseBareFloatString { int32 parseBareFloatString = 1; }
+  message parseBareSInt { int32 parseBareSInt = 1; }
+  message parseBareUInt { int32 parseBareUInt = 1; }
   message parseDuration { int32 parseDuration = 1; }
   message parseJSONFieldNames { int32 parseJSONFieldNames = 1; }
   message parseTimestamp { int32 parseTimestamp = 1; }
@@ -447,6 +451,7 @@ message GeneratedSwiftReservedMessages {
   message SimpleExtensionMap { int32 SimpleExtensionMap = 1; }
   message sizer { int32 sizer = 1; }
   message slowUtf8ToString { int32 slowUtf8ToString = 1; }
+  message source { int32 source = 1; }
   message sourceContext { int32 sourceContext = 1; }
   message split { int32 split = 1; }
   message ss { int32 ss = 1; }
@@ -534,7 +539,6 @@ message GeneratedSwiftReservedMessages {
   message utf8 { int32 utf8 = 1; }
   message utf8Buffer { int32 utf8Buffer = 1; }
   message utf8Codec { int32 utf8Codec = 1; }
-  message utf8Pointer { int32 utf8Pointer = 1; }
   message utf8ToDouble { int32 utf8ToDouble = 1; }
   message utf8ToString { int32 utf8ToString = 1; }
   message UTF8View { int32 UTF8View = 1; }

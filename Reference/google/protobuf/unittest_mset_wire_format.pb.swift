@@ -87,25 +87,6 @@ struct Proto2WireformatUnittest_TestMessageSet: SwiftProtobuf.Message, SwiftProt
 struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetWireFormatContainer"
 
-  fileprivate class _StorageClass {
-    var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
-
-    init() {}
-
-    init(copying source: _StorageClass) {
-      _messageSet = source._messageSet
-    }
-  }
-
-  fileprivate var _storage = _StorageClass()
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
   var messageSet: Proto2WireformatUnittest_TestMessageSet {
     get {return _storage._messageSet ?? Proto2WireformatUnittest_TestMessageSet()}
     set {_uniqueStorage()._messageSet = newValue}
@@ -148,6 +129,8 @@ struct Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProtobuf
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _storage = _StorageClass()
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -168,6 +151,23 @@ extension Proto2WireformatUnittest_TestMessageSetWireFormatContainer: SwiftProto
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "message_set"),
   ]
+
+  fileprivate class _StorageClass {
+    var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _messageSet = source._messageSet
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
 
   func _protobuf_generated_isEqualTo(other: Proto2WireformatUnittest_TestMessageSetWireFormatContainer) -> Bool {
     if _storage !== other._storage {

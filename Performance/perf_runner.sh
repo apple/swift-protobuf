@@ -42,7 +42,7 @@ readonly GOOGLE_PROTOBUF_CHECKOUT=${GOOGLE_PROTOBUF_CHECKOUT:-"$script_dir/../..
 function usage() {
   cat >&2 <<EOF
 SYNOPSIS
-    $0 [-c <rev|c++> -c <rev|c++> ...] [-p <true|false>] [-s2|-s3] <field count> <field types...>
+    $0 [-c <rev|c++> -c <rev|c++> ...] [-p <true|false>] [-s2|-s3] [<field count> <field type>]
 
     Currently supported field types:
         int32, sint32, uint32, fixed32, sfixed32,
@@ -50,9 +50,9 @@ SYNOPSIS
         float, double, string,
         ...and repeated variants of the above.
 
-        Additionally, you can specify "all" to run the harness multiple
-        times with all of the (non-repeated) field types listed above.
-        ("all" is not compatible with revision comparisons.)
+        If you omit the field count and type, the harness will run with
+        a message that contains multiple field types -- both singular and
+        repeated -- and nested messages.
 
 OPTIONS
     -c <rev|c++> [-c <rev|c++> ...]
@@ -87,42 +87,13 @@ EXAMPLES
         Runs the Swift harness in its state at commit 4d0b78, the C++
         harness, and then the Swift harness in the current working tree,
         using a proto2 message with 100 bytes fields.
+
+    $0 -c 4d0b78
+        Runs the Swift harness in its state at commit 4d0b78 and then
+        the Swift harness in the current working tree, using a proto3
+        message with multiple field types.
 EOF
   exit 1
-}
-
-# ---------------------------------------------------------------
-# Functions for generating the .proto file.
-
-function print_proto_field() {
-  num="$1"
-  if [[ "$proto_syntax" == "2" ]] && [[ "$field_type" != repeated* ]]; then
-    type="optional $2"
-  else
-    type="$2"
-  fi
-
-  if [[ -n "$packed" ]]; then
-    echo "  $type field$num = $num [packed=$packed];"
-  else
-    echo "  $type field$num = $num;"
-  fi
-}
-
-function generate_test_proto() {
-  cat >"$gen_message_path" <<EOF
-syntax = "proto$proto_syntax";
-
-message PerfMessage {
-EOF
-
-  for field_number in $(seq 1 "$field_count"); do
-    print_proto_field "$field_number" "$field_type" >>"$gen_message_path"
-  done
-
-  cat >>"$gen_message_path" <<EOF
-}
-EOF
 }
 
 # ---------------------------------------------------------------
@@ -236,19 +207,20 @@ if [[ "$proto_syntax" != "2" ]] && [[ "$proto_syntax" != "3" ]]; then
   usage
 fi
 
-if [[ "$#" -lt 2 ]]; then
+if [[ "$#" -eq 0 ]]; then
+  readonly proto_type=heterogeneous
+  readonly run_count=100
+elif [[ "$#" -eq 2 ]]; then
+  readonly proto_type=homogeneous
+  readonly run_count=1000
+  readonly field_count="$1"
+  readonly field_type="$2"
+else
   usage
 fi
 
-readonly field_count="$1"; shift
-if [[ "$1" == "all" ]]; then
-  readonly requested_field_types=( \
-    int32 sint32 uint32 fixed32 sfixed32 \
-    int64 sint64 uint64 fixed64 sfixed64 \
-    float double string \
-  )
-else
-  readonly requested_field_types=( "$@" )
+if [[ "${#comparisons[@]}" -eq 0 ]]; then
+  comparisons+=("c++")
 fi
 
 # ---------------------------------------------------------------
@@ -263,7 +235,8 @@ function cleanup_revision_checkouts() {
 trap cleanup_revision_checkouts EXIT HUP INT QUIT TERM
 
 # ---------------------------------------------------------------
-# Pull in language-specific runners.
+# Pull in language-specific helpers.
+source "$script_dir/generators/proto.sh"
 source "$script_dir/runners/swift.sh"
 
 # ---------------------------------------------------------------
@@ -279,102 +252,104 @@ if [[ ! -f "$results_js" ]]; then
   cp "$script_dir/js/results.js.template" "$results_js"
 fi
 
-# Iterate over the requested field types and run the harnesses.
-# TODO: Get rid of this multi-run; instead, just create a proto like
-# TestAllTypes that tests multiple field types in one message. This is more
-# realistic.
-for field_type in "${requested_field_types[@]}"; do
-  gen_message_path="$script_dir/_generated/message.proto"
+# Generate the harness.
+gen_message_path="$script_dir/_generated/message.proto"
 
+if [[ "$proto_type" == "homogeneous" ]]; then
   echo "Generating test proto with $field_count fields of type $field_type..."
-  generate_test_proto "$field_count" "$field_type"
+  generate_homogeneous_test_proto "$gen_message_path"
+  report_type="$field_count fields of type $field_type"
+  commit_results_suffix="${field_type}_${field_count}"
+else
+  echo "Generating test proto with various fields..."
+  generate_heterogeneous_test_proto "$gen_message_path"
+  report_type="various fields"
+  commit_results_suffix="heterogeneous"
+fi
 
-  # Start a session.
-  partial_results="$script_dir/_results/partial.js"
-  pretty_head_rev="$(git rev-parse --abbrev-ref HEAD)"
-  cat > "$partial_results" <<EOF
-  {
-    date: "$(date -u +"%FT%T.000Z")",
-    type: "$field_count fields of type $field_type",
-    branch: "$pretty_head_rev",
-    commit: "$(git rev-parse HEAD)",
-    uncommitted_changes: $([[ -z $(git status -s) ]] && echo false || echo true),
-    series: [
+# Start a session.
+partial_results="$script_dir/_results/partial.js"
+pretty_head_rev="$(git rev-parse --abbrev-ref HEAD)"
+cat > "$partial_results" <<EOF
+{
+  date: "$(date -u +"%FT%T.000Z")",
+  type: "$report_type",
+  branch: "$pretty_head_rev",
+  commit: "$(git rev-parse HEAD)",
+  uncommitted_changes: $([[ -z $(git status -s) ]] && echo false || echo true),
+  series: [
 EOF
 
-  for comparison in "${comparisons[@]}"; do
-    if [[ "$comparison" == "c++" ]]; then
-      source "$script_dir/runners/cpp.sh"
+for comparison in "${comparisons[@]}"; do
+  if [[ "$comparison" == "c++" ]]; then
+    source "$script_dir/runners/cpp.sh"
 
+    echo
+    echo "==== Building/running C++ harness ===================="
+    echo
+
+    protoc --cpp_out="$script_dir" "$gen_message_path"
+
+    harness_cpp="$script_dir/_generated/harness_cpp"
+    run_cpp_harness "$harness_cpp"
+  else
+    commit_hash="$(git rev-parse $comparison)"
+    commit_results="$script_dir/_results/${commit_hash}_${commit_results_suffix}.js"
+
+    # Check to see if we have past results from that commit cached. If so, we
+    # don't need to run it again.
+    if [[ ! -f "$commit_results" ]]; then
       echo
-      echo "==== Building/running C++ harness ===================="
+      echo "==== Building/running Swift harness ($comparison) ===================="
       echo
 
-      protoc --cpp_out="$script_dir" "$gen_message_path"
+      # Check out the commit to a temporary directory and create its _generated
+      # directory. (Results will still go in the working tree.)
+      tmp_checkout="$(mktemp -d -t swiftprotoperf)"
+      CLEANUP_WHEN_DONE+=("$tmp_checkout")
+      git --work-tree="$tmp_checkout" checkout "$comparison" -- .
+      mkdir "$tmp_checkout/Performance/_generated"
 
-      harness_cpp="$script_dir/_generated/harness_cpp"
-      results_trace="$script_dir/_results/$field_count fields of $field_type (cpp)"
-      run_cpp_harness "$harness_cpp"
+      build_swift_packages "$tmp_checkout" "ForRev"
+      protoc --plugin="$tmp_checkout/.build/release/protoc-gen-swiftForRev" \
+          --swiftForRev_out=FileNaming=DropPath:"$tmp_checkout/Performance/_generated" \
+          "$gen_message_path"
+
+      harness_swift="$tmp_checkout/Performance/_generated/harness_swift"
+      results_trace="$script_dir/_results/$report_type (swift)"
+      run_swift_harness "$tmp_checkout" "$comparison" "$commit_results"
     else
-      commit_hash="$(git rev-parse $comparison)"
-      commit_results="$script_dir/_results/${commit_hash}_${field_type}_${field_count}.js"
-
-      # Check to see if we have past results from that commit cached. If so, we
-      # don't need to run it again.
-      if [[ ! -f "$commit_results" ]]; then
-        echo
-        echo "==== Building/running Swift harness ($comparison) ===================="
-        echo
-
-        # Check out the commit to a temporary directory and create its _generated
-        # directory. (Results will still go in the working tree.)
-        tmp_checkout="$(mktemp -d -t swiftprotoperf)"
-        CLEANUP_WHEN_DONE+=("$tmp_checkout")
-        git --work-tree="$tmp_checkout" checkout "$comparison" -- .
-        mkdir "$tmp_checkout/Performance/_generated"
-
-        build_swift_packages "$tmp_checkout" "ForRev"
-        protoc --plugin="$tmp_checkout/.build/release/protoc-gen-swiftForRev" \
-            --swiftForRev_out=FileNaming=DropPath:"$tmp_checkout/Performance/_generated" \
-            "$gen_message_path"
-
-        harness_swift="$tmp_checkout/Performance/_generated/harness_swift"
-        results_trace="$script_dir/_results/$field_count fields of $field_type (swift)"
-        run_swift_harness "$tmp_checkout" "$comparison" "$commit_results"
-      else
-        echo
-        echo "==== Found cached results for Swift ($comparison) ===================="
-      fi
-
-      cat "$commit_results" >> "$partial_results"
+      echo
+      echo "==== Found cached results for Swift ($comparison) ===================="
     fi
-  done
 
-  echo
-  echo "==== Building/running Swift harness (working tree) ===================="
-  echo
-
-  build_swift_packages "$script_dir/.." "ForWorkTree"
-  protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForWorkTree" \
-      --swiftForWorkTree_out=FileNaming=DropPath:"$script_dir/_generated" \
-      --cpp_out="$script_dir" \
-      "$gen_message_path"
-
-  harness_swift="$script_dir/_generated/harness_swift"
-  results_trace="$script_dir/_results/$field_count fields of $field_type (swift)"
-  display_results_trace="$results_trace"
-  run_swift_harness "$script_dir/.." "working tree" "$partial_results"
-
-  # Close out the session.
-  cat >> "$partial_results" <<EOF
-    ],
-  },
-EOF
-
-  insert_visualization_results "$partial_results" "$results_js"
-
-  open -g "$display_results_trace.trace"
+    cat "$commit_results" >> "$partial_results"
+  fi
 done
 
-# Open the HTML once at the end.
+echo
+echo "==== Building/running Swift harness (working tree) ===================="
+echo
+
+build_swift_packages "$script_dir/.." "ForWorkTree"
+protoc --plugin="$script_dir/../.build/release/protoc-gen-swiftForWorkTree" \
+    --swiftForWorkTree_out=FileNaming=DropPath:"$script_dir/_generated" \
+    --cpp_out="$script_dir" \
+    "$gen_message_path"
+
+harness_swift="$script_dir/_generated/harness_swift"
+results_trace="$script_dir/_results/$report_type (swift)"
+display_results_trace="$results_trace"
+run_swift_harness "$script_dir/.." "working tree" "$partial_results"
+
+# Close out the session.
+cat >> "$partial_results" <<EOF
+  ],
+},
+EOF
+
+insert_visualization_results "$partial_results" "$results_js"
+
+# Open the Instruments trace and HTML report at the end.
+open -g "$display_results_trace.trace"
 open -g "$script_dir/harness-visualization.html"
