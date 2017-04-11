@@ -38,6 +38,7 @@ class OneofGenerator {
     let swiftFullName: String
     let isProto3: Bool
     let comments: String
+    let oneofIsContinuousInParent: Bool
 
     init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String) {
         self.descriptor = descriptor
@@ -49,6 +50,33 @@ class OneofGenerator {
         self.swiftRelativeName = sanitizeOneofTypeName(descriptor.swiftRelativeType)
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
         self.comments = file.commentsFor(path: path)
+
+        // This test requires they are continous in number, but all we really need
+        // is for the continous when sorted by number and with no fields (or
+        // extension ranges) in the parent message intermixed. i.e. -
+        //    message Good {
+        //      oneof o {
+        //        int32 a = 1;
+        //        int32 z = 26;
+        //      }
+        //    }
+        //    message Bad {
+        //      oneof o {
+        //        int32 a = 1;
+        //        int32 z = 26;
+        //      }
+        //      int32 m = 13;
+        //    }
+        //    message AlsoBad {
+        //      oneof o {
+        //        int32 a = 1;
+        //        int32 z = 26;
+        //      }
+        //      extensions 10 to 16;
+        //    }
+        let first = fieldsSortedByNumber.first!.number
+        let last = fieldsSortedByNumber.last!.number
+        self.oneofIsContinuousInParent = first + fields.count - 1 == last
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
@@ -140,19 +168,27 @@ class OneofGenerator {
 
         // Traverse the current value
         p.print("\n")
-        p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
+        if oneofIsContinuousInParent {
+            p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
+        } else {
+            p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
+        }
         p.indent()
         p.print("switch self {\n")
         for f in fieldsSortedByNumber {
             p.print("case .\(f.swiftName)(let v):\n")
             p.indent()
-            p.print("if start <= \(f.number) && \(f.number) < end {\n")
-            p.indent()
+            if !oneofIsContinuousInParent {
+                p.print("if start <= \(f.number) && \(f.number) < end {\n")
+                p.indent()
+            }
             let special = f.isGroup ? "Group" : f.isMessage ? "Message" : f.isEnum ? "Enum" : f.protoTypeName;
             let visitorMethod = "visitSingular\(special)Field"
             p.print("try visitor.\(visitorMethod)(value: v, fieldNumber: \(f.number))\n")
-            p.outdent()
-            p.print("}\n")
+            if !oneofIsContinuousInParent {
+                p.outdent()
+                p.print("}\n")
+            }
             p.outdent()
         }
         p.print("}\n")

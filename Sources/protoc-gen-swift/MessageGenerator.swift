@@ -461,7 +461,7 @@ class MessageGenerator {
       }
       var ranges = descriptor.extensionRange.makeIterator()
       var nextRange = ranges.next()
-      var currentOneof: Google_Protobuf_OneofDescriptorProto?
+      var currentOneofGenerator: OneofGenerator?
       var oneofStart = 0
       var oneofEnd = 0
       for f in fieldsSortedByNumber {
@@ -469,24 +469,32 @@ class MessageGenerator {
           p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
           nextRange = ranges.next()
         }
-        if let c = currentOneof, let n = f.oneof, n.name == c.name {
+        if let c = currentOneofGenerator, let n = f.oneof, n.name == c.descriptor.name {
           oneofEnd = f.number + 1
         } else {
-          if let oneof = currentOneof {
-            p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
-            currentOneof = nil
+          if let oneof = currentOneofGenerator {
+            if oneof.oneofIsContinuousInParent {
+              p.print("try \(storedProperty(forOneof: oneof.descriptor))?.traverse(visitor: &visitor)\n")
+            } else {
+              p.print("try \(storedProperty(forOneof: oneof.descriptor))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+            }
+            currentOneofGenerator = nil
           }
-          if let newOneof = f.oneof {
+          if f.descriptor.hasOneofIndex {
             oneofStart = f.number
             oneofEnd = f.number + 1
-            currentOneof = newOneof
+            currentOneofGenerator = oneofs[Int(f.descriptor.oneofIndex)]
           } else {
             f.generateTraverse(printer: &p, usesStorage: storage != nil)
           }
         }
       }
-      if let oneof = currentOneof {
-        p.print("try \(storedProperty(forOneof: oneof))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+      if let oneof = currentOneofGenerator {
+        if oneof.oneofIsContinuousInParent {
+          p.print("try \(storedProperty(forOneof: oneof.descriptor))?.traverse(visitor: &visitor)\n")
+        } else {
+          p.print("try \(storedProperty(forOneof: oneof.descriptor))?.traverse(visitor: &visitor, start: \(oneofStart), end: \(oneofEnd))\n")
+        }
       }
       while nextRange != nil {
         p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")

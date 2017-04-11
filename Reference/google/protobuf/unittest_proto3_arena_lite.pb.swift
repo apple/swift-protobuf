@@ -688,7 +688,7 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
       if !_storage._repeatedLazyMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
+      try _storage._oneofField?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1279,24 +1279,16 @@ extension Proto3ArenaLiteUnittest_TestAllTypes.OneOf_OneofField {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .oneofUint32(let v):
-      if start <= 111 && 111 < end {
-        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-      }
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
     case .oneofNestedMessage(let v):
-      if start <= 112 && 112 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
     case .oneofString(let v):
-      if start <= 113 && 113 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
     case .oneofBytes(let v):
-      if start <= 114 && 114 < end {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
     }
   }
 }

@@ -148,7 +148,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       if let v = _storage._i {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
-      try _storage._foo?.traverse(visitor: &visitor, start: 2, end: 4)
+      try _storage._foo?.traverse(visitor: &visitor)
       if let v = _storage._msg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
@@ -376,16 +376,12 @@ extension ProtobufUnittest_TestOptimizedForSize.OneOf_Foo {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .integerField(let v):
-      if start <= 2 && 2 < end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     case .stringField(let v):
-      if start <= 3 && 3 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
     }
   }
 }
