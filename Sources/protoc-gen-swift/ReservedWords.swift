@@ -33,10 +33,10 @@ private let reservedTypeNames: Set<String> = {
     // class properties:
     names.insert("protoMessageName")
 
-    // Methods on Message that we need to avoid shadowing.
-    // XXX Testing shows we do not need to avoid `serializedData` or
-    // `isEqualTo`, but it's not obvious to me what's different about
-    // them.  Maybe because these two are generic?  Because they throw? XXX
+    // Methods on Message that we need to avoid shadowing.  Testing
+    // shows we do not need to avoid `serializedData` or `isEqualTo`,
+    // but it's not obvious to me what's different about them.  Maybe
+    // because these two are generic?  Because they throw?
     names.insert("decodeMessage")
     names.insert("traverse")
 
