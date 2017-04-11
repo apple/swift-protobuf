@@ -71,14 +71,9 @@ class OneofGenerator {
             //      }
             //      int32 m = 13;
             //    }
+            let sortedOneofFieldNumbers = fieldsSortedByNumber.map { $0.number }
             let firstIndex = parentFieldNumbersSorted.index(of: first)!
-            var isContinuousInParent = true
-            for i in 0..<fields.count {
-                if fieldsSortedByNumber[i].number != parentFieldNumbersSorted[firstIndex + i] {
-                    isContinuousInParent = false
-                    break
-                }
-            }
+            var isContinuousInParent = sortedOneofFieldNumbers == Array(parentFieldNumbersSorted[firstIndex..<(firstIndex + fields.count)])
             if isContinuousInParent {
                 // Make sure there isn't an extension range in the middle of the fields.
                 //    message AlsoBad {
