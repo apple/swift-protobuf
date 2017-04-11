@@ -90,6 +90,7 @@ class MessageGenerator {
     }
     self.fields = fields
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
+    let sortedFieldNumbers = fieldsSortedByNumber.map { $0.number }
 
     i = 0
     var extensions = [ExtensionGenerator]()
@@ -112,7 +113,7 @@ class MessageGenerator {
       oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
       oneofPath.append(i)
       i += 1
-      let oneof = OneofGenerator(descriptor: o, path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName)
+      let oneof = OneofGenerator(descriptor: o, path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: descriptor.extensionRange)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs

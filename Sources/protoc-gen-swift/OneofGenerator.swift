@@ -40,7 +40,7 @@ class OneofGenerator {
     let comments: String
     let oneofIsContinuousInParent: Bool
 
-    init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String) {
+    init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String, parentFieldNumbersSorted: [Int], parentExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]) {
         self.descriptor = descriptor
         self.path = path
         self.generatorOptions = generatorOptions
@@ -51,32 +51,52 @@ class OneofGenerator {
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
         self.comments = file.commentsFor(path: path)
 
-        // This test requires they are continous in number, but all we really need
-        // is for the continous when sorted by number and with no fields (or
-        // extension ranges) in the parent message intermixed. i.e. -
-        //    message Good {
-        //      oneof o {
-        //        int32 a = 1;
-        //        int32 z = 26;
-        //      }
-        //    }
-        //    message Bad {
-        //      oneof o {
-        //        int32 a = 1;
-        //        int32 z = 26;
-        //      }
-        //      int32 m = 13;
-        //    }
-        //    message AlsoBad {
-        //      oneof o {
-        //        int32 a = 1;
-        //        int32 z = 26;
-        //      }
-        //      extensions 10 to 16;
-        //    }
         let first = fieldsSortedByNumber.first!.number
         let last = fieldsSortedByNumber.last!.number
-        self.oneofIsContinuousInParent = first + fields.count - 1 == last
+        // Easy case, all in order and no gaps:
+        if first + fields.count - 1 == last {
+            oneofIsContinuousInParent = true
+        } else {
+            // See if all the oneof fields were in order within the (even if there were number gaps).
+            //    message Good {
+            //      oneof o {
+            //        int32 a = 1;
+            //        int32 z = 26;
+            //      }
+            //    }
+            //    message Bad {
+            //      oneof o {
+            //        int32 a = 1;
+            //        int32 z = 26;
+            //      }
+            //      int32 m = 13;
+            //    }
+            let firstIndex = parentFieldNumbersSorted.index(of: first)!
+            var isContinuousInParent = true
+            for i in 0..<fields.count {
+                if fieldsSortedByNumber[i].number != parentFieldNumbersSorted[firstIndex + i] {
+                    isContinuousInParent = false
+                    break
+                }
+            }
+            if isContinuousInParent {
+                // Make sure there isn't an extension range in the middle of the fields.
+                //    message AlsoBad {
+                //      oneof o {
+                //        int32 a = 1;
+                //        int32 z = 26;
+                //      }
+                //      extensions 10 to 16;
+                //    }
+                for e in parentExtensionRanges {
+                    if e.start > Int32(first) && e.end <= Int32(last) {
+                        isContinuousInParent = false
+                        break
+                    }
+                }
+            }
+            oneofIsContinuousInParent = isContinuousInParent
+        }
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
