@@ -1305,7 +1305,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
       if let v = _storage._defaultCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor, start: 111, end: 115)
+      try _storage._oneofField?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4120,7 +4120,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._foo?.traverse(visitor: &visitor, start: 1, end: 5)
+      try _storage._foo?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -4622,8 +4622,8 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._foo?.traverse(visitor: &visitor, start: 1, end: 12)
-      try _storage._bar?.traverse(visitor: &visitor, start: 12, end: 18)
+      try _storage._foo?.traverse(visitor: &visitor)
+      try _storage._bar?.traverse(visitor: &visitor)
       if let v = _storage._bazInt {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
       }
@@ -4754,7 +4754,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._foo?.traverse(visitor: &visitor, start: 1, end: 4)
+      try _storage._foo?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -6128,7 +6128,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
       if !_storage._stringStringMap.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._stringStringMap, fieldNumber: 536870010)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor, start: 536870011, end: 536870015)
+      try _storage._oneofField?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -8805,24 +8805,16 @@ extension ProtobufUnittest_TestAllTypes.OneOf_OneofField {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .oneofUint32(let v):
-      if start <= 111 && 111 < end {
-        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-      }
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
     case .oneofNestedMessage(let v):
-      if start <= 112 && 112 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
     case .oneofString(let v):
-      if start <= 113 && 113 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
     case .oneofBytes(let v):
-      if start <= 114 && 114 < end {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
     }
   }
 }
@@ -10060,24 +10052,16 @@ extension ProtobufUnittest_TestOneof.OneOf_Foo {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .fooInt(let v):
-      if start <= 1 && 1 < end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     case .fooString(let v):
-      if start <= 2 && 2 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
     case .fooMessage(let v):
-      if start <= 3 && 3 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     case .fooGroup(let v):
-      if start <= 4 && 4 < end {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
-      }
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
     }
   }
 }
@@ -10289,44 +10273,26 @@ extension ProtobufUnittest_TestOneof2.OneOf_Foo {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .fooInt(let v):
-      if start <= 1 && 1 < end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     case .fooString(let v):
-      if start <= 2 && 2 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
     case .fooCord(let v):
-      if start <= 3 && 3 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
     case .fooStringPiece(let v):
-      if start <= 4 && 4 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     case .fooBytes(let v):
-      if start <= 5 && 5 < end {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
-      }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
     case .fooEnum(let v):
-      if start <= 6 && 6 < end {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-      }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     case .fooMessage(let v):
-      if start <= 7 && 7 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     case .fooGroup(let v):
-      if start <= 8 && 8 < end {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
-      }
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
     case .fooLazyMessage(let v):
-      if start <= 11 && 11 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
     }
   }
 }
@@ -10382,32 +10348,20 @@ extension ProtobufUnittest_TestOneof2.OneOf_Bar {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .barInt(let v):
-      if start <= 12 && 12 < end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
     case .barString(let v):
-      if start <= 13 && 13 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 13)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 13)
     case .barCord(let v):
-      if start <= 14 && 14 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 14)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 14)
     case .barStringPiece(let v):
-      if start <= 15 && 15 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 15)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 15)
     case .barBytes(let v):
-      if start <= 16 && 16 < end {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
-      }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
     case .barEnum(let v):
-      if start <= 17 && 17 < end {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-      }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
     }
   }
 }
@@ -10515,20 +10469,14 @@ extension ProtobufUnittest_TestRequiredOneof.OneOf_Foo {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .fooInt(let v):
-      if start <= 1 && 1 < end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     case .fooString(let v):
-      if start <= 2 && 2 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
     case .fooMessage(let v):
-      if start <= 3 && 3 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     }
   }
 }
@@ -11162,24 +11110,16 @@ extension ProtobufUnittest_TestHugeFieldNumbers.OneOf_OneofField {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .oneofUint32(let v):
-      if start <= 536870011 && 536870011 < end {
-        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
-      }
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
     case .oneofTestAllTypes(let v):
-      if start <= 536870012 && 536870012 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
     case .oneofString(let v):
-      if start <= 536870013 && 536870013 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
     case .oneofBytes(let v):
-      if start <= 536870014 && 536870014 < end {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
-      }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
     }
   }
 }

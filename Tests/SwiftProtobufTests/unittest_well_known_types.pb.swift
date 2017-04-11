@@ -745,7 +745,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._oneofField?.traverse(visitor: &visitor, start: 1, end: 19)
+      try _storage._oneofField?.traverse(visitor: &visitor)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1346,80 +1346,44 @@ extension ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .anyField(let v):
-      if start <= 1 && 1 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     case .apiField(let v):
-      if start <= 2 && 2 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     case .durationField(let v):
-      if start <= 3 && 3 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     case .emptyField(let v):
-      if start <= 4 && 4 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     case .fieldMaskField(let v):
-      if start <= 5 && 5 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
     case .sourceContextField(let v):
-      if start <= 6 && 6 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
     case .structField(let v):
-      if start <= 7 && 7 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     case .timestampField(let v):
-      if start <= 8 && 8 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
     case .typeField(let v):
-      if start <= 9 && 9 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
     case .doubleField(let v):
-      if start <= 10 && 10 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
     case .floatField(let v):
-      if start <= 11 && 11 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
     case .int64Field(let v):
-      if start <= 12 && 12 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
     case .uint64Field(let v):
-      if start <= 13 && 13 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
     case .int32Field(let v):
-      if start <= 14 && 14 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
     case .uint32Field(let v):
-      if start <= 15 && 15 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
     case .boolField(let v):
-      if start <= 16 && 16 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
     case .stringField(let v):
-      if start <= 17 && 17 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
     case .bytesField(let v):
-      if start <= 18 && 18 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
     }
   }
 }

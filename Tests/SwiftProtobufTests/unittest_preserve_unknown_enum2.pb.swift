@@ -165,7 +165,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
     if !self.repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitRepeatedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try self.o?.traverse(visitor: &visitor, start: 5, end: 7)
+    try self.o?.traverse(visitor: &visitor)
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -226,16 +226,12 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .oneofE1(let v):
-      if start <= 5 && 5 < end {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-      }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
     case .oneofE2(let v):
-      if start <= 6 && 6 < end {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-      }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     }
   }
 }

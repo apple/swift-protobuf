@@ -38,8 +38,9 @@ class OneofGenerator {
     let swiftFullName: String
     let isProto3: Bool
     let comments: String
+    let oneofIsContinuousInParent: Bool
 
-    init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String) {
+    init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String, parentFieldNumbersSorted: [Int], parentExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]) {
         self.descriptor = descriptor
         self.path = path
         self.generatorOptions = generatorOptions
@@ -49,6 +50,48 @@ class OneofGenerator {
         self.swiftRelativeName = sanitizeOneofTypeName(descriptor.swiftRelativeType)
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
         self.comments = file.commentsFor(path: path)
+
+        let first = fieldsSortedByNumber.first!.number
+        let last = fieldsSortedByNumber.last!.number
+        // Easy case, all in order and no gaps:
+        if first + fields.count - 1 == last {
+            oneofIsContinuousInParent = true
+        } else {
+            // See if all the oneof fields were in order within the (even if there were number gaps).
+            //    message Good {
+            //      oneof o {
+            //        int32 a = 1;
+            //        int32 z = 26;
+            //      }
+            //    }
+            //    message Bad {
+            //      oneof o {
+            //        int32 a = 1;
+            //        int32 z = 26;
+            //      }
+            //      int32 m = 13;
+            //    }
+            let sortedOneofFieldNumbers = fieldsSortedByNumber.map { $0.number }
+            let firstIndex = parentFieldNumbersSorted.index(of: first)!
+            var isContinuousInParent = sortedOneofFieldNumbers == Array(parentFieldNumbersSorted[firstIndex..<(firstIndex + fields.count)])
+            if isContinuousInParent {
+                // Make sure there isn't an extension range in the middle of the fields.
+                //    message AlsoBad {
+                //      oneof o {
+                //        int32 a = 1;
+                //        int32 z = 26;
+                //      }
+                //      extensions 10 to 16;
+                //    }
+                for e in parentExtensionRanges {
+                    if e.start > Int32(first) && e.end <= Int32(last) {
+                        isContinuousInParent = false
+                        break
+                    }
+                }
+            }
+            oneofIsContinuousInParent = isContinuousInParent
+        }
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
@@ -140,19 +183,27 @@ class OneofGenerator {
 
         // Traverse the current value
         p.print("\n")
-        p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
+        if oneofIsContinuousInParent {
+            p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
+        } else {
+            p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
+        }
         p.indent()
         p.print("switch self {\n")
         for f in fieldsSortedByNumber {
             p.print("case .\(f.swiftName)(let v):\n")
             p.indent()
-            p.print("if start <= \(f.number) && \(f.number) < end {\n")
-            p.indent()
+            if !oneofIsContinuousInParent {
+                p.print("if start <= \(f.number) && \(f.number) < end {\n")
+                p.indent()
+            }
             let special = f.isGroup ? "Group" : f.isMessage ? "Message" : f.isEnum ? "Enum" : f.protoTypeName;
             let visitorMethod = "visitSingular\(special)Field"
             p.print("try visitor.\(visitorMethod)(value: v, fieldNumber: \(f.number))\n")
-            p.outdent()
-            p.print("}\n")
+            if !oneofIsContinuousInParent {
+                p.outdent()
+                p.print("}\n")
+            }
             p.outdent()
         }
         p.print("}\n")

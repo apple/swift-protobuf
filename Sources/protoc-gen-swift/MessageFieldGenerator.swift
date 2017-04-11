@@ -275,7 +275,6 @@ extension Google_Protobuf_FieldDescriptorProto {
 struct MessageFieldGenerator {
     let descriptor: Google_Protobuf_FieldDescriptorProto
     let oneof: Google_Protobuf_OneofDescriptorProto?
-    let messageDescriptor: Google_Protobuf_DescriptorProto
     let jsonName: String?
     let swiftName: String
     let swiftHasName: String
@@ -317,7 +316,6 @@ struct MessageFieldGenerator {
             self.oneof = nil
         }
         self.swiftStorageName = "_" + self.swiftName
-        self.messageDescriptor = messageDescriptor
         self.path = path
         self.comments = file.commentsFor(path: path)
         self.isProto3 = file.isProto3

@@ -246,6 +246,213 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   fileprivate var _storage = _StorageClass()
 }
 
+/// These checks how the traverse() generated for a oneof
+/// deals with field orders.  Currently requires inspecting the code.
+struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  static let protoMessageName: String = _protobuf_package + ".OneofTraversalGeneration"
+
+  /// Gaps, not no issues, no start:end: on traverse().
+  var oGood: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood? = nil
+
+  var a: Int32 {
+    get {
+      if case .a(let v)? = oGood {return v}
+      return 0
+    }
+    set {oGood = .a(newValue)}
+  }
+
+  var b: Int32 {
+    get {
+      if case .b(let v)? = oGood {return v}
+      return 0
+    }
+    set {oGood = .b(newValue)}
+  }
+
+  /// Gaps with a field in the middle of the range.
+  var oConflictField: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField? = nil
+
+  var a2: Int32 {
+    get {
+      if case .a2(let v)? = oConflictField {return v}
+      return 0
+    }
+    set {oConflictField = .a2(newValue)}
+  }
+
+  var b2: Int32 {
+    get {
+      if case .b2(let v)? = oConflictField {return v}
+      return 0
+    }
+    set {oConflictField = .b2(newValue)}
+  }
+
+  /// In the middle of previous oneof field ranges.
+  fileprivate var _m: Int32? = nil
+  var m: Int32 {
+    get {return _m ?? 0}
+    set {_m = newValue}
+  }
+  var hasM: Bool {
+    return self._m != nil
+  }
+  mutating func clearM() {
+    self._m = nil
+  }
+
+  /// Gaps with an extension range in the middle of the range.
+  var oConflictExtensionsStart: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart? = nil
+
+  var a3: Int32 {
+    get {
+      if case .a3(let v)? = oConflictExtensionsStart {return v}
+      return 0
+    }
+    set {oConflictExtensionsStart = .a3(newValue)}
+  }
+
+  var b3: Int32 {
+    get {
+      if case .b3(let v)? = oConflictExtensionsStart {return v}
+      return 0
+    }
+    set {oConflictExtensionsStart = .b3(newValue)}
+  }
+
+  /// Gaps with an extension range in the middle of the range.
+  var oConflictExtensionsEnd: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd? = nil
+
+  var a4: Int32 {
+    get {
+      if case .a4(let v)? = oConflictExtensionsEnd {return v}
+      return 0
+    }
+    set {oConflictExtensionsEnd = .a4(newValue)}
+  }
+
+  var b4: Int32 {
+    get {
+      if case .b4(let v)? = oConflictExtensionsEnd {return v}
+      return 0
+    }
+    set {oConflictExtensionsEnd = .b4(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  /// Gaps, not no issues, no start:end: on traverse().
+  enum OneOf_OGood: Equatable {
+    case a(Int32)
+    case b(Int32)
+
+    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood) -> Bool {
+      switch (lhs, rhs) {
+      case (.a(let l), .a(let r)): return l == r
+      case (.b(let l), .b(let r)): return l == r
+      default: return false
+      }
+    }
+  }
+
+  /// Gaps with a field in the middle of the range.
+  enum OneOf_OConflictField: Equatable {
+    case a2(Int32)
+    case b2(Int32)
+
+    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField) -> Bool {
+      switch (lhs, rhs) {
+      case (.a2(let l), .a2(let r)): return l == r
+      case (.b2(let l), .b2(let r)): return l == r
+      default: return false
+      }
+    }
+  }
+
+  /// Gaps with an extension range in the middle of the range.
+  enum OneOf_OConflictExtensionsStart: Equatable {
+    case a3(Int32)
+    case b3(Int32)
+
+    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart) -> Bool {
+      switch (lhs, rhs) {
+      case (.a3(let l), .a3(let r)): return l == r
+      case (.b3(let l), .b3(let r)): return l == r
+      default: return false
+      }
+    }
+  }
+
+  /// Gaps with an extension range in the middle of the range.
+  enum OneOf_OConflictExtensionsEnd: Equatable {
+    case a4(Int32)
+    case b4(Int32)
+
+    static func ==(lhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd, rhs: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd) -> Bool {
+      switch (lhs, rhs) {
+      case (.a4(let l), .a4(let r)): return l == r
+      case (.b4(let l), .b4(let r)): return l == r
+      default: return false
+      }
+    }
+  }
+
+  init() {}
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    return true
+  }
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1, 26:
+        if self.oGood != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        self.oGood = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 101, 126:
+        if self.oConflictField != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        self.oConflictField = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 113: try decoder.decodeSingularInt32Field(value: &self._m)
+      case 201, 226:
+        if self.oConflictExtensionsStart != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        self.oConflictExtensionsStart = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 301, 326:
+        if self.oConflictExtensionsEnd != nil {
+          try decoder.handleConflictingOneOf()
+        }
+        self.oConflictExtensionsEnd = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 202..<203, 325..<326:
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try self.oGood?.traverse(visitor: &visitor)
+    try self.oConflictField?.traverse(visitor: &visitor, start: 101, end: 102)
+    if let v = self._m {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 113)
+    }
+    try self.oConflictField?.traverse(visitor: &visitor, start: 126, end: 127)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 202, end: 203)
+    try self.oConflictExtensionsStart?.traverse(visitor: &visitor, start: 201, end: 227)
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 325, end: 326)
+    try self.oConflictExtensionsEnd?.traverse(visitor: &visitor, start: 301, end: 327)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+}
+
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.
 
 extension Swift_Protobuf_TestFieldOrderings {
@@ -424,5 +631,174 @@ extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._Messag
     if self._bb != other._bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
+  }
+}
+
+extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "a"),
+    26: .same(proto: "b"),
+    101: .same(proto: "a2"),
+    126: .same(proto: "b2"),
+    113: .same(proto: "m"),
+    201: .same(proto: "a3"),
+    226: .same(proto: "b3"),
+    301: .same(proto: "a4"),
+    326: .same(proto: "b4"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: Swift_Protobuf_OneofTraversalGeneration) -> Bool {
+    if self.oGood != other.oGood {return false}
+    if self.oConflictField != other.oConflictField {return false}
+    if self._m != other._m {return false}
+    if self.oConflictExtensionsStart != other.oConflictExtensionsStart {return false}
+    if self.oConflictExtensionsEnd != other.oConflictExtensionsEnd {return false}
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
+    return true
+  }
+}
+
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 1:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .a(value)
+        return
+      }
+    case 26:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .b(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    switch self {
+    case .a(let v):
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    case .b(let v):
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
+    }
+  }
+}
+
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 101:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .a2(value)
+        return
+      }
+    case 126:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .b2(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .a2(let v):
+      if start <= 101 && 101 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)
+      }
+    case .b2(let v):
+      if start <= 126 && 126 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 126)
+      }
+    }
+  }
+}
+
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 201:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .a3(value)
+        return
+      }
+    case 226:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .b3(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .a3(let v):
+      if start <= 201 && 201 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
+      }
+    case .b3(let v):
+      if start <= 226 && 226 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
+      }
+    }
+  }
+}
+
+extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd {
+  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
+    switch fieldNumber {
+    case 301:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .a4(value)
+        return
+      }
+    case 326:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .b4(value)
+        return
+      }
+    default:
+      break
+    }
+    return nil
+  }
+
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+    switch self {
+    case .a4(let v):
+      if start <= 301 && 301 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 301)
+      }
+    case .b4(let v):
+      if start <= 326 && 326 < end {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 326)
+      }
+    }
   }
 }

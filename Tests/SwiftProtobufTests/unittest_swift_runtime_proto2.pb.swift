@@ -970,7 +970,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       if !_storage._repeatedEnum.isEmpty {
         try visitor.visitRepeatedEnumField(value: _storage._repeatedEnum, fieldNumber: 49)
       }
-      try _storage._o?.traverse(visitor: &visitor, start: 51, end: 70)
+      try _storage._o?.traverse(visitor: &visitor)
       if !_storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 70)
       }
@@ -1506,80 +1506,44 @@ extension ProtobufUnittest_Message2.OneOf_O {
     return nil
   }
 
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {
+  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     switch self {
     case .oneofInt32(let v):
-      if start <= 51 && 51 < end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
-      }
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
     case .oneofInt64(let v):
-      if start <= 52 && 52 < end {
-        try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
-      }
+      try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
     case .oneofUint32(let v):
-      if start <= 53 && 53 < end {
-        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
-      }
+      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
     case .oneofUint64(let v):
-      if start <= 54 && 54 < end {
-        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
-      }
+      try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
     case .oneofSint32(let v):
-      if start <= 55 && 55 < end {
-        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
-      }
+      try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
     case .oneofSint64(let v):
-      if start <= 56 && 56 < end {
-        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
-      }
+      try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
     case .oneofFixed32(let v):
-      if start <= 57 && 57 < end {
-        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
-      }
+      try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
     case .oneofFixed64(let v):
-      if start <= 58 && 58 < end {
-        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
-      }
+      try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
     case .oneofSfixed32(let v):
-      if start <= 59 && 59 < end {
-        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
-      }
+      try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
     case .oneofSfixed64(let v):
-      if start <= 60 && 60 < end {
-        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
-      }
+      try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
     case .oneofFloat(let v):
-      if start <= 61 && 61 < end {
-        try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
-      }
+      try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
     case .oneofDouble(let v):
-      if start <= 62 && 62 < end {
-        try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
-      }
+      try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
     case .oneofBool(let v):
-      if start <= 63 && 63 < end {
-        try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
-      }
+      try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
     case .oneofString(let v):
-      if start <= 64 && 64 < end {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 64)
-      }
+      try visitor.visitSingularStringField(value: v, fieldNumber: 64)
     case .oneofBytes(let v):
-      if start <= 65 && 65 < end {
-        try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
-      }
+      try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
     case .oneofGroup(let v):
-      if start <= 66 && 66 < end {
-        try visitor.visitSingularGroupField(value: v, fieldNumber: 66)
-      }
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 66)
     case .oneofMessage(let v):
-      if start <= 68 && 68 < end {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
-      }
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
     case .oneofEnum(let v):
-      if start <= 69 && 69 < end {
-        try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
-      }
+      try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
     }
   }
 }
