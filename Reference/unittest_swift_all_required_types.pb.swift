@@ -667,10 +667,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       set {_bb = newValue}
     }
     var hasBb: Bool {
-      return _bb != nil
+      return self._bb != nil
     }
     mutating func clearBb() {
-      _bb = nil
+      self._bb = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -678,21 +678,21 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     init() {}
 
     public var isInitialized: Bool {
-      if _bb == nil {return false}
+      if self._bb == nil {return false}
       return true
     }
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _bb {
+      if let v = self._bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -708,10 +708,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       set {_a = newValue}
     }
     var hasA: Bool {
-      return _a != nil
+      return self._a != nil
     }
     mutating func clearA() {
-      _a = nil
+      self._a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -719,21 +719,21 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     init() {}
 
     public var isInitialized: Bool {
-      if _a == nil {return false}
+      if self._a == nil {return false}
       return true
     }
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 17: try decoder.decodeSingularInt32Field(value: &_a)
+        case 17: try decoder.decodeSingularInt32Field(value: &self._a)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -1018,10 +1018,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     set {_requiredInt32 = newValue}
   }
   var hasRequiredInt32: Bool {
-    return _requiredInt32 != nil
+    return self._requiredInt32 != nil
   }
   mutating func clearRequiredInt32() {
-    _requiredInt32 = nil
+    self._requiredInt32 = nil
   }
 
   fileprivate var _requiredFloat: Float? = nil
@@ -1030,10 +1030,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     set {_requiredFloat = newValue}
   }
   var hasRequiredFloat: Bool {
-    return _requiredFloat != nil
+    return self._requiredFloat != nil
   }
   mutating func clearRequiredFloat() {
-    _requiredFloat = nil
+    self._requiredFloat = nil
   }
 
   fileprivate var _requiredBool: Bool? = nil
@@ -1042,10 +1042,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     set {_requiredBool = newValue}
   }
   var hasRequiredBool: Bool {
-    return _requiredBool != nil
+    return self._requiredBool != nil
   }
   mutating func clearRequiredBool() {
-    _requiredBool = nil
+    self._requiredBool = nil
   }
 
   fileprivate var _requiredString: String? = nil
@@ -1054,10 +1054,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     set {_requiredString = newValue}
   }
   var hasRequiredString: Bool {
-    return _requiredString != nil
+    return self._requiredString != nil
   }
   mutating func clearRequiredString() {
-    _requiredString = nil
+    self._requiredString = nil
   }
 
   fileprivate var _requiredBytes: Data? = nil
@@ -1066,10 +1066,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     set {_requiredBytes = newValue}
   }
   var hasRequiredBytes: Bool {
-    return _requiredBytes != nil
+    return self._requiredBytes != nil
   }
   mutating func clearRequiredBytes() {
-    _requiredBytes = nil
+    self._requiredBytes = nil
   }
 
   fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
@@ -1078,10 +1078,10 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     set {_requiredNestedEnum = newValue}
   }
   var hasRequiredNestedEnum: Bool {
-    return _requiredNestedEnum != nil
+    return self._requiredNestedEnum != nil
   }
   mutating func clearRequiredNestedEnum() {
-    _requiredNestedEnum = nil
+    self._requiredNestedEnum = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1112,46 +1112,46 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _requiredInt32 == nil {return false}
-    if _requiredFloat == nil {return false}
-    if _requiredBool == nil {return false}
-    if _requiredString == nil {return false}
-    if _requiredBytes == nil {return false}
-    if _requiredNestedEnum == nil {return false}
+    if self._requiredInt32 == nil {return false}
+    if self._requiredFloat == nil {return false}
+    if self._requiredBool == nil {return false}
+    if self._requiredString == nil {return false}
+    if self._requiredBytes == nil {return false}
+    if self._requiredNestedEnum == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_requiredInt32)
-      case 2: try decoder.decodeSingularFloatField(value: &_requiredFloat)
-      case 3: try decoder.decodeSingularBoolField(value: &_requiredBool)
-      case 4: try decoder.decodeSingularStringField(value: &_requiredString)
-      case 5: try decoder.decodeSingularBytesField(value: &_requiredBytes)
-      case 6: try decoder.decodeSingularEnumField(value: &_requiredNestedEnum)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._requiredInt32)
+      case 2: try decoder.decodeSingularFloatField(value: &self._requiredFloat)
+      case 3: try decoder.decodeSingularBoolField(value: &self._requiredBool)
+      case 4: try decoder.decodeSingularStringField(value: &self._requiredString)
+      case 5: try decoder.decodeSingularBytesField(value: &self._requiredBytes)
+      case 6: try decoder.decodeSingularEnumField(value: &self._requiredNestedEnum)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _requiredInt32 {
+    if let v = self._requiredInt32 {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    if let v = _requiredFloat {
+    if let v = self._requiredFloat {
       try visitor.visitSingularFloatField(value: v, fieldNumber: 2)
     }
-    if let v = _requiredBool {
+    if let v = self._requiredBool {
       try visitor.visitSingularBoolField(value: v, fieldNumber: 3)
     }
-    if let v = _requiredString {
+    if let v = self._requiredString {
       try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     }
-    if let v = _requiredBytes {
+    if let v = self._requiredBytes {
       try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
     }
-    if let v = _requiredNestedEnum {
+    if let v = self._requiredNestedEnum {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1458,7 +1458,7 @@ extension ProtobufUnittest_TestAllRequiredTypes.NestedMessage: SwiftProtobuf._Me
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.NestedMessage) -> Bool {
-    if _bb != other._bb {return false}
+    if self._bb != other._bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1470,7 +1470,7 @@ extension ProtobufUnittest_TestAllRequiredTypes.RequiredGroup: SwiftProtobuf._Me
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1487,12 +1487,12 @@ extension ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf._MessageImplemen
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSomeRequiredTypes) -> Bool {
-    if _requiredInt32 != other._requiredInt32 {return false}
-    if _requiredFloat != other._requiredFloat {return false}
-    if _requiredBool != other._requiredBool {return false}
-    if _requiredString != other._requiredString {return false}
-    if _requiredBytes != other._requiredBytes {return false}
-    if _requiredNestedEnum != other._requiredNestedEnum {return false}
+    if self._requiredInt32 != other._requiredInt32 {return false}
+    if self._requiredFloat != other._requiredFloat {return false}
+    if self._requiredBool != other._requiredBool {return false}
+    if self._requiredString != other._requiredString {return false}
+    if self._requiredBytes != other._requiredBytes {return false}
+    if self._requiredNestedEnum != other._requiredNestedEnum {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

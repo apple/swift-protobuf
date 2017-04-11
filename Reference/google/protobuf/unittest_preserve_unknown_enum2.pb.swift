@@ -87,10 +87,10 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
     set {_e = newValue}
   }
   var hasE: Bool {
-    return _e != nil
+    return self._e != nil
   }
   mutating func clearE() {
-    _e = nil
+    self._e = nil
   }
 
   var repeatedE: [Proto2PreserveUnknownEnumUnittest_MyEnum] = []
@@ -138,34 +138,34 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularEnumField(value: &_e)
-      case 2: try decoder.decodeRepeatedEnumField(value: &repeatedE)
-      case 3: try decoder.decodeRepeatedEnumField(value: &repeatedPackedE)
-      case 4: try decoder.decodeRepeatedEnumField(value: &repeatedPackedUnexpectedE)
+      case 1: try decoder.decodeSingularEnumField(value: &self._e)
+      case 2: try decoder.decodeRepeatedEnumField(value: &self.repeatedE)
+      case 3: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedE)
+      case 4: try decoder.decodeRepeatedEnumField(value: &self.repeatedPackedUnexpectedE)
       case 5, 6:
-        if o != nil {
+        if self.o != nil {
           try decoder.handleConflictingOneOf()
         }
-        o = try Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        self.o = try Proto2PreserveUnknownEnumUnittest_MyMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _e {
+    if let v = self._e {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
     }
-    if !repeatedE.isEmpty {
-      try visitor.visitRepeatedEnumField(value: repeatedE, fieldNumber: 2)
+    if !self.repeatedE.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.repeatedE, fieldNumber: 2)
     }
-    if !repeatedPackedE.isEmpty {
-      try visitor.visitPackedEnumField(value: repeatedPackedE, fieldNumber: 3)
+    if !self.repeatedPackedE.isEmpty {
+      try visitor.visitPackedEnumField(value: self.repeatedPackedE, fieldNumber: 3)
     }
-    if !repeatedPackedUnexpectedE.isEmpty {
-      try visitor.visitRepeatedEnumField(value: repeatedPackedUnexpectedE, fieldNumber: 4)
+    if !self.repeatedPackedUnexpectedE.isEmpty {
+      try visitor.visitRepeatedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try o?.traverse(visitor: &visitor, start: 5, end: 7)
+    try self.o?.traverse(visitor: &visitor, start: 5, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -193,11 +193,11 @@ extension Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf._MessageImp
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto2PreserveUnknownEnumUnittest_MyMessage) -> Bool {
-    if _e != other._e {return false}
-    if repeatedE != other.repeatedE {return false}
-    if repeatedPackedE != other.repeatedPackedE {return false}
-    if repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
-    if o != other.o {return false}
+    if self._e != other._e {return false}
+    if self.repeatedE != other.repeatedE {return false}
+    if self.repeatedPackedE != other.repeatedPackedE {return false}
+    if self.repeatedPackedUnexpectedE != other.repeatedPackedUnexpectedE {return false}
+    if self.o != other.o {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

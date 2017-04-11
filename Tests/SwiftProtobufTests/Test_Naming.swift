@@ -24,6 +24,24 @@ import SwiftProtobuf
 // NOTE: If this code fails to compile, make sure the name changes make sense.
 
 class Test_FieldNamingInitials: XCTestCase {
+  func testHidingFunctions() throws {
+    // Check that we can access the standard `serializeData`, etc
+    // methods even on messages that define fields or submessages with
+    // such names:
+    let msg = SwiftUnittest_Names_FieldNames()
+    _ = try msg.serializedData()
+    _ = try msg.jsonUTF8Data()
+    _ = try msg.jsonString()
+
+    let msg2 = ProtobufUnittest_GeneratedSwiftReservedMessages()
+    // The submessage is a static type name:
+    _ = ProtobufUnittest_GeneratedSwiftReservedMessages.serializedData()
+    // The method is an instance property:
+    _ = try msg2.serializedData()
+    _ = try msg2.jsonUTF8Data()
+    _ = try msg2.jsonString()
+  }
+
   func testLowers() {
     var msg = SwiftUnittest_Names_FieldNamingInitials.Lowers()
 

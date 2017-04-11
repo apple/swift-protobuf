@@ -58,10 +58,10 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message {
     set {_d = newValue}
   }
   var hasD: Bool {
-    return _d != nil
+    return self._d != nil
   }
   mutating func clearD() {
-    _d = nil
+    self._d = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -71,14 +71,14 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_d)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._d)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _d {
+    if let v = self._d {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -99,19 +99,19 @@ struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedMessageField(value: &repeatedNestedMessage)
-      case 2: try decoder.decodeRepeatedMessageField(value: &repeatedImportNoArenaMessage)
+      case 1: try decoder.decodeRepeatedMessageField(value: &self.repeatedNestedMessage)
+      case 2: try decoder.decodeRepeatedMessageField(value: &self.repeatedImportNoArenaMessage)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !repeatedNestedMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: repeatedNestedMessage, fieldNumber: 1)
+    if !self.repeatedNestedMessage.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedNestedMessage, fieldNumber: 1)
     }
-    if !repeatedImportNoArenaMessage.isEmpty {
-      try visitor.visitRepeatedMessageField(value: repeatedImportNoArenaMessage, fieldNumber: 2)
+    if !self.repeatedImportNoArenaMessage.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.repeatedImportNoArenaMessage, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -127,7 +127,7 @@ extension Proto2ArenaUnittest_NestedMessage: SwiftProtobuf._MessageImplementatio
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_NestedMessage) -> Bool {
-    if _d != other._d {return false}
+    if self._d != other._d {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -140,8 +140,8 @@ extension Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf._MessageImplementation
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto2ArenaUnittest_ArenaMessage) -> Bool {
-    if repeatedNestedMessage != other.repeatedNestedMessage {return false}
-    if repeatedImportNoArenaMessage != other.repeatedImportNoArenaMessage {return false}
+    if self.repeatedNestedMessage != other.repeatedNestedMessage {return false}
+    if self.repeatedImportNoArenaMessage != other.repeatedImportNoArenaMessage {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

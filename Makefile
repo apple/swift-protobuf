@@ -80,6 +80,10 @@ CONFORMANCE_HOST=${GOOGLE_PROTOBUF_CHECKOUT}/conformance/conformance-test-runner
 # Protos used for the unit and functional tests
 TEST_PROTOS= \
 	Protos/conformance/conformance.proto \
+	Protos/generated_swift_names_enums.proto \
+	Protos/generated_swift_names_enum_cases.proto \
+	Protos/generated_swift_names_fields.proto \
+	Protos/generated_swift_names_messages.proto \
 	Protos/google/protobuf/any_test.proto \
 	Protos/google/protobuf/descriptor.proto \
 	Protos/google/protobuf/map_proto2_unittest.proto \
@@ -375,13 +379,101 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 # Note: Some of these protos define the same package.(message|enum)s, so they
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
-regenerate-test-protos: build ${PROTOC_GEN_SWIFT}
+regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_enums.proto Protos/generated_swift_names_enum_cases.proto Protos/generated_swift_names_fields.proto Protos/generated_swift_names_messages.proto
 	for t in ${TEST_PROTOS}; do \
 		${GENERATE_SRCS} \
 			--tfiws_opt=FileNaming=DropPath \
 			--tfiws_out=Tests/SwiftProtobufTests \
 			$$t; \
 	done
+
+#
+# Collect a list of words that appear in the SwiftProtobuf library
+# source.  These are words that may cause problems for generated code.
+#
+# The logic here builds a word list as follows:
+#  = Look at every Swift source file in the library
+#  = Take every line with the word 'public', 'func', or 'var'
+#  = Break each such line into words (stripping all punctuation)
+#  = Remove words that differ only in case
+#
+# Selecting lines with 'public', 'func' or 'var' ensures we get every
+# public protocol, struct, enum, or class name, as well as every
+# method or property defined in a public protocol, struct, or class.
+# It also gives us a large collection of Swift names.
+Protos/mined_words.txt: Sources/SwiftProtobuf/*
+	@echo Building $@
+	@cat Sources/SwiftProtobuf/* | \
+	grep ' \(public\|func\|var\) ' | \
+	grep -v ' \(private\|internal\) ' | \
+	sed -e 's/[^a-zA-Z0-9_]/ /g' | \
+	tr " " "\n" | \
+	sed -e 's/^_//' | \
+	sort -uf | \
+	grep '^[a-zA-Z_]' > $@
+
+# Build some proto files full of landmines
+#
+# This takes the word list Protos/mined_words.txt and uses
+# it to build several proto files:
+#  = Build a message with one `int32` field for each word
+#  = Build an enum with a case for each such word
+#  = Build a message with a submessage named with each word
+#  = Build a message with an enum named with each word
+#
+# If the Swift compiler can actually compile the result, that suggests
+# we can correctly handle every symbol in the library itself that
+# might cause problems.  Failures compiling this indicate weaknesses
+# in protoc-gen-swift's name sanitization logic.
+#
+Protos/generated_swift_names_fields.proto: Protos/mined_words.txt
+	@echo Building $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
+	@echo 'package protobuf_unittest;' >> $@
+	@echo 'message GeneratedSwiftReservedFields {' >> $@
+	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  int32 " $$1 " = " n ";"; n += 1 }' >> $@
+	@echo '}' >> $@
+
+Protos/generated_swift_names_enum_cases.proto: Protos/mined_words.txt
+	@echo Building $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
+	@echo 'package protobuf_unittest;' >> $@
+	@echo 'enum GeneratedSwiftReservedEnum {' >> $@
+	@echo '  NONE = 0;' >> $@
+	@cat Protos/mined_words.txt | awk 'BEGIN{n = 1} {print "  " $$1 " = " n ";"; n += 1 }' >> $@
+	@echo '}' >> $@
+
+Protos/generated_swift_names_messages.proto: Protos/mined_words.txt
+	@echo Building $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
+	@echo 'package protobuf_unittest;' >> $@
+	@echo 'message GeneratedSwiftReservedMessages {' >> $@
+	@cat Protos/mined_words.txt | awk '{print "  message " $$1 " { int32 " $$1 " = 1; }"}' >> $@
+	@echo '}' >> $@
+
+Protos/generated_swift_names_enums.proto: Protos/mined_words.txt
+	@echo Building $@
+	@rm $@
+	@echo '// See Makefile for the logic that generates this' >> $@
+	@echo '// Protoc errors imply this file is being generated incorrectly' >> $@
+	@echo '// Swift compile errors are probably bugs in protoc-gen-swift' >> $@
+	@echo 'syntax = "proto3";' >> $@
+	@echo 'package protobuf_unittest;' >> $@
+	@echo 'message GeneratedSwiftReservedEnums {' >> $@
+	@cat Protos/mined_words.txt | awk '{print "  enum " $$1 " { NONE_" $$1 " = 0; }"}' >> $@
+	@echo '}' >> $@
 
 # Rebuild just the protos used by the conformance test runner.
 regenerate-conformance-protos: build ${PROTOC_GEN_SWIFT}

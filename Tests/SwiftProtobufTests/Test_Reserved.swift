@@ -37,7 +37,7 @@ class Test_Reserved: XCTestCase {
 
     func testMessageNames() {
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.classMessage.protoMessageName, "protobuf_unittest.SwiftReservedTest.class")
-        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.isEqualMessage.protoMessageName, "protobuf_unittest.SwiftReservedTest.isEqual")
+        XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.isEqual.protoMessageName, "protobuf_unittest.SwiftReservedTest.isEqual")
         XCTAssertEqual(ProtobufUnittest_SwiftReservedTest.TypeMessage.protoMessageName, "protobuf_unittest.SwiftReservedTest.Type")
     }
 

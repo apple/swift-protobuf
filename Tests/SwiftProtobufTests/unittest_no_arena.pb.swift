@@ -840,10 +840,10 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
       set {_bb = newValue}
     }
     var hasBb: Bool {
-      return _bb != nil
+      return self._bb != nil
     }
     mutating func clearBb() {
-      _bb = nil
+      self._bb = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -853,14 +853,14 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &_bb)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._bb)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _bb {
+      if let v = self._bb {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -876,10 +876,10 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
       set {_a = newValue}
     }
     var hasA: Bool {
-      return _a != nil
+      return self._a != nil
     }
     mutating func clearA() {
-      _a = nil
+      self._a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -889,14 +889,14 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 17: try decoder.decodeSingularInt32Field(value: &_a)
+        case 17: try decoder.decodeSingularInt32Field(value: &self._a)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 17)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -912,10 +912,10 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
       set {_a = newValue}
     }
     var hasA: Bool {
-      return _a != nil
+      return self._a != nil
     }
     mutating func clearA() {
-      _a = nil
+      self._a = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -925,14 +925,14 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 47: try decoder.decodeSingularInt32Field(value: &_a)
+        case 47: try decoder.decodeSingularInt32Field(value: &self._a)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _a {
+      if let v = self._a {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 47)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -1262,10 +1262,10 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1275,14 +1275,14 @@ struct ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1751,7 +1751,7 @@ extension ProtobufUnittestNoArena_TestAllTypes.NestedMessage: SwiftProtobuf._Mes
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.NestedMessage) -> Bool {
-    if _bb != other._bb {return false}
+    if self._bb != other._bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1763,7 +1763,7 @@ extension ProtobufUnittestNoArena_TestAllTypes.OptionalGroup: SwiftProtobuf._Mes
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.OptionalGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1775,7 +1775,7 @@ extension ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup: SwiftProtobuf._Mes
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_TestAllTypes.RepeatedGroup) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1787,7 +1787,7 @@ extension ProtobufUnittestNoArena_ForeignMessage: SwiftProtobuf._MessageImplemen
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessage) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

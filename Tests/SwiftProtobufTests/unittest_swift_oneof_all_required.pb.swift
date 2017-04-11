@@ -58,10 +58,10 @@ struct ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message {
     set {_requiredField = newValue}
   }
   var hasRequiredField: Bool {
-    return _requiredField != nil
+    return self._requiredField != nil
   }
   mutating func clearRequiredField() {
-    _requiredField = nil
+    self._requiredField = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -69,21 +69,21 @@ struct ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _requiredField == nil {return false}
+    if self._requiredField == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_requiredField)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._requiredField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _requiredField {
+    if let v = self._requiredField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -99,10 +99,10 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
     set {_requiredField = newValue}
   }
   var hasRequiredField: Bool {
-    return _requiredField != nil
+    return self._requiredField != nil
   }
   mutating func clearRequiredField() {
-    _requiredField = nil
+    self._requiredField = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -110,21 +110,21 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _requiredField == nil {return false}
+    if self._requiredField == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_requiredField)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._requiredField)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _requiredField {
+    if let v = self._requiredField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -219,7 +219,7 @@ extension ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf._MessageImplementa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneOfOptionMessage1) -> Bool {
-    if _requiredField != other._requiredField {return false}
+    if self._requiredField != other._requiredField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -231,7 +231,7 @@ extension ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf._MessageImplementa
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneOfOptionMessage2) -> Bool {
-    if _requiredField != other._requiredField {return false}
+    if self._requiredField != other._requiredField {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

@@ -144,20 +144,20 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1, 2:
-        if payload != nil {
+        if self.payload != nil {
           try decoder.handleConflictingOneOf()
         }
-        payload = try Conformance_ConformanceRequest.OneOf_Payload(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-      case 3: try decoder.decodeSingularEnumField(value: &requestedOutputFormat)
+        self.payload = try Conformance_ConformanceRequest.OneOf_Payload(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try payload?.traverse(visitor: &visitor, start: 1, end: 3)
-    if requestedOutputFormat != Conformance_WireFormat.unspecified {
-      try visitor.visitSingularEnumField(value: requestedOutputFormat, fieldNumber: 3)
+    try self.payload?.traverse(visitor: &visitor, start: 1, end: 3)
+    if self.requestedOutputFormat != Conformance_WireFormat.unspecified {
+      try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -280,17 +280,17 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1...6:
-        if result != nil {
+        if self.result != nil {
           try decoder.handleConflictingOneOf()
         }
-        result = try Conformance_ConformanceResponse.OneOf_Result(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        self.result = try Conformance_ConformanceResponse.OneOf_Result(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try result?.traverse(visitor: &visitor, start: 1, end: 7)
+    try self.result?.traverse(visitor: &visitor, start: 1, end: 7)
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -315,8 +315,8 @@ extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBa
   ]
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
-    if payload != other.payload {return false}
-    if requestedOutputFormat != other.requestedOutputFormat {return false}
+    if self.payload != other.payload {return false}
+    if self.requestedOutputFormat != other.requestedOutputFormat {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -366,7 +366,7 @@ extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationB
   ]
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceResponse) -> Bool {
-    if result != other.result {return false}
+    if self.result != other.result {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

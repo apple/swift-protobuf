@@ -83,10 +83,10 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
     set {_a = newValue}
   }
   var hasA: Bool {
-    return _a != nil
+    return self._a != nil
   }
   mutating func clearA() {
-    _a = nil
+    self._a = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -101,7 +101,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_a)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._a)
       case 1000..<536870912:
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_NoGenericServicesTest_TestMessage.self, fieldNumber: fieldNumber)
       default: break
@@ -110,7 +110,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _a {
+    if let v = self._a {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
@@ -165,7 +165,7 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf._Mess
   ]
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_NoGenericServicesTest_TestMessage) -> Bool {
-    if _a != other._a {return false}
+    if self._a != other._a {return false}
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true

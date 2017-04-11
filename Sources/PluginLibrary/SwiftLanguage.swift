@@ -155,7 +155,7 @@ public let swiftKeywordsReservedInParticularContexts: Set<String> = [
 /// These are standard Swift types that are heavily used, although
 /// they are not technically reserved.  Defining fields or structs
 /// with these names would break our generated code quite badly:
-public let swiftCommonTypes: Set<String> = [ "Data", "Double", "Float", "Int",
+public let swiftCommonTypes: Set<String> = [ "Bool", "Data", "Double", "Float", "Int",
     "Int32", "Int64", "String", "UInt", "UInt32", "UInt64",
 ]
 

@@ -75,10 +75,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     set {_major = newValue}
   }
   public var hasMajor: Bool {
-    return _major != nil
+    return self._major != nil
   }
   public mutating func clearMajor() {
-    _major = nil
+    self._major = nil
   }
 
   fileprivate var _minor: Int32? = nil
@@ -87,10 +87,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     set {_minor = newValue}
   }
   public var hasMinor: Bool {
-    return _minor != nil
+    return self._minor != nil
   }
   public mutating func clearMinor() {
-    _minor = nil
+    self._minor = nil
   }
 
   fileprivate var _patch: Int32? = nil
@@ -99,10 +99,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     set {_patch = newValue}
   }
   public var hasPatch: Bool {
-    return _patch != nil
+    return self._patch != nil
   }
   public mutating func clearPatch() {
-    _patch = nil
+    self._patch = nil
   }
 
   /// A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
@@ -113,10 +113,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     set {_suffix = newValue}
   }
   public var hasSuffix: Bool {
-    return _suffix != nil
+    return self._suffix != nil
   }
   public mutating func clearSuffix() {
-    _suffix = nil
+    self._suffix = nil
   }
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -126,26 +126,26 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_major)
-      case 2: try decoder.decodeSingularInt32Field(value: &_minor)
-      case 3: try decoder.decodeSingularInt32Field(value: &_patch)
-      case 4: try decoder.decodeSingularStringField(value: &_suffix)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._major)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._minor)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._patch)
+      case 4: try decoder.decodeSingularStringField(value: &self._suffix)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _major {
+    if let v = self._major {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
-    if let v = _minor {
+    if let v = self._minor {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     }
-    if let v = _patch {
+    if let v = self._patch {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
     }
-    if let v = _suffix {
+    if let v = self._suffix {
       try visitor.visitSingularStringField(value: v, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -269,10 +269,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     set {_error = newValue}
   }
   public var hasError: Bool {
-    return _error != nil
+    return self._error != nil
   }
   public mutating func clearError() {
-    _error = nil
+    self._error = nil
   }
 
   public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
@@ -300,10 +300,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
       set {_name = newValue}
     }
     public var hasName: Bool {
-      return _name != nil
+      return self._name != nil
     }
     public mutating func clearName() {
-      _name = nil
+      self._name = nil
     }
 
     /// If non-empty, indicates that the named file should already exist, and the
@@ -349,10 +349,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
       set {_insertionPoint = newValue}
     }
     public var hasInsertionPoint: Bool {
-      return _insertionPoint != nil
+      return self._insertionPoint != nil
     }
     public mutating func clearInsertionPoint() {
-      _insertionPoint = nil
+      self._insertionPoint = nil
     }
 
     /// The file contents.
@@ -362,10 +362,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
       set {_content = newValue}
     }
     public var hasContent: Bool {
-      return _content != nil
+      return self._content != nil
     }
     public mutating func clearContent() {
-      _content = nil
+      self._content = nil
     }
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -375,22 +375,22 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &_name)
-        case 2: try decoder.decodeSingularStringField(value: &_insertionPoint)
-        case 15: try decoder.decodeSingularStringField(value: &_content)
+        case 1: try decoder.decodeSingularStringField(value: &self._name)
+        case 2: try decoder.decodeSingularStringField(value: &self._insertionPoint)
+        case 15: try decoder.decodeSingularStringField(value: &self._content)
         default: break
         }
       }
     }
 
     public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _name {
+      if let v = self._name {
         try visitor.visitSingularStringField(value: v, fieldNumber: 1)
       }
-      if let v = _insertionPoint {
+      if let v = self._insertionPoint {
         try visitor.visitSingularStringField(value: v, fieldNumber: 2)
       }
-      if let v = _content {
+      if let v = self._content {
         try visitor.visitSingularStringField(value: v, fieldNumber: 15)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -402,19 +402,19 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &_error)
-      case 15: try decoder.decodeRepeatedMessageField(value: &file)
+      case 1: try decoder.decodeSingularStringField(value: &self._error)
+      case 15: try decoder.decodeRepeatedMessageField(value: &self.file)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _error {
+    if let v = self._error {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
-    if !file.isEmpty {
-      try visitor.visitRepeatedMessageField(value: file, fieldNumber: 15)
+    if !self.file.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 15)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -433,10 +433,10 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementation
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
-    if _major != other._major {return false}
-    if _minor != other._minor {return false}
-    if _patch != other._patch {return false}
-    if _suffix != other._suffix {return false}
+    if self._major != other._major {return false}
+    if self._minor != other._minor {return false}
+    if self._patch != other._patch {return false}
+    if self._suffix != other._suffix {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -496,8 +496,8 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._Message
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
-    if _error != other._error {return false}
-    if file != other.file {return false}
+    if self._error != other._error {return false}
+    if self.file != other.file {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -511,9 +511,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf._Me
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
-    if _name != other._name {return false}
-    if _insertionPoint != other._insertionPoint {return false}
-    if _content != other._content {return false}
+    if self._name != other._name {return false}
+    if self._insertionPoint != other._insertionPoint {return false}
+    if self._content != other._content {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

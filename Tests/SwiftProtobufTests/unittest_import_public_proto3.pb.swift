@@ -63,15 +63,15 @@ struct Proto3PublicImportMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &e)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.e)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if e != 0 {
-      try visitor.visitSingularInt32Field(value: e, fieldNumber: 1)
+    if self.e != 0 {
+      try visitor.visitSingularInt32Field(value: self.e, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -87,7 +87,7 @@ extension Proto3PublicImportMessage: SwiftProtobuf._MessageImplementationBase, S
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto3PublicImportMessage) -> Bool {
-    if e != other.e {return false}
+    if self.e != other.e {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

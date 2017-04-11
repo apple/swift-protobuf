@@ -447,15 +447,15 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &bb)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.bb)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if bb != 0 {
-        try visitor.visitSingularInt32Field(value: bb, fieldNumber: 1)
+      if self.bb != 0 {
+        try visitor.visitSingularInt32Field(value: self.bb, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -736,15 +736,15 @@ struct Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if c != 0 {
-      try visitor.visitSingularInt32Field(value: c, fieldNumber: 1)
+    if self.c != 0 {
+      try visitor.visitSingularInt32Field(value: self.c, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1051,7 +1051,7 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage: SwiftProtobu
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage) -> Bool {
-    if bb != other.bb {return false}
+    if self.bb != other.bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -1098,7 +1098,7 @@ extension Proto2NofieldpresenceUnittest_ForeignMessage: SwiftProtobuf._MessageIm
   ]
 
   func _protobuf_generated_isEqualTo(other: Proto2NofieldpresenceUnittest_ForeignMessage) -> Bool {
-    if c != other.c {return false}
+    if self.c != other.c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

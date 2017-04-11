@@ -94,19 +94,19 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
-      case 2: try decoder.decodeSingularEnumField(value: &enumValue)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if int32Value != 0 {
-      try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
+    if self.int32Value != 0 {
+      try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
     }
-    if enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
-      try visitor.visitSingularEnumField(value: enumValue, fieldNumber: 2)
+    if self.enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
+      try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -162,23 +162,23 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &int32Value)
-      case 2: try decoder.decodeSingularEnumField(value: &enumValue)
-      case 3: try decoder.decodeSingularInt32Field(value: &extraInt32Value)
+      case 1: try decoder.decodeSingularInt32Field(value: &self.int32Value)
+      case 2: try decoder.decodeSingularEnumField(value: &self.enumValue)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.extraInt32Value)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if int32Value != 0 {
-      try visitor.visitSingularInt32Field(value: int32Value, fieldNumber: 1)
+    if self.int32Value != 0 {
+      try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
     }
-    if enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
-      try visitor.visitSingularEnumField(value: enumValue, fieldNumber: 2)
+    if self.enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
+      try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
     }
-    if extraInt32Value != 0 {
-      try visitor.visitSingularInt32Field(value: extraInt32Value, fieldNumber: 3)
+    if self.extraInt32Value != 0 {
+      try visitor.visitSingularInt32Field(value: self.extraInt32Value, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -195,8 +195,8 @@ extension UnittestDropUnknownFields_Foo: SwiftProtobuf._MessageImplementationBas
   ]
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_Foo) -> Bool {
-    if int32Value != other.int32Value {return false}
-    if enumValue != other.enumValue {return false}
+    if self.int32Value != other.int32Value {return false}
+    if self.enumValue != other.enumValue {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -218,9 +218,9 @@ extension UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf._MessageIm
   ]
 
   func _protobuf_generated_isEqualTo(other: UnittestDropUnknownFields_FooWithExtraFields) -> Bool {
-    if int32Value != other.int32Value {return false}
-    if enumValue != other.enumValue {return false}
-    if extraInt32Value != other.extraInt32Value {return false}
+    if self.int32Value != other.int32Value {return false}
+    if self.enumValue != other.enumValue {return false}
+    if self.extraInt32Value != other.extraInt32Value {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

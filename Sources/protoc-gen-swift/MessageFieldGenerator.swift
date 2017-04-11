@@ -479,7 +479,7 @@ struct MessageFieldGenerator {
         if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
             return
         }
-        let storagePrefix = usesHeapStorage ? "_storage." : ""
+        let storagePrefix = usesHeapStorage ? "_storage." : "self."
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {\n")
         p.indent()
         p.print("return \(storagePrefix)\(swiftStorageName) != nil\n")
@@ -491,7 +491,7 @@ struct MessageFieldGenerator {
         if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
             return
         }
-        let storagePrefix = usesHeapStorage ? "_storage." : ""
+        let storagePrefix = usesHeapStorage ? "_storage." : "self."
         p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\n")
         p.indent()
         p.print("\(storagePrefix)\(swiftStorageName) = nil\n")
@@ -504,9 +504,9 @@ struct MessageFieldGenerator {
         if usesStorage {
             prefix = "_storage._"
         } else if !isRepeated && !isMap && !isProto3 {
-            prefix = "_"
+            prefix = "self._"
         } else {
-            prefix = ""
+            prefix = "self."
         }
 
         let decoderMethod: String
@@ -544,9 +544,9 @@ struct MessageFieldGenerator {
         if usesStorage {
             prefix = "_storage._"
         } else if !isRepeated && !isMap && !isProto3 {
-            prefix = "_"
+            prefix = "self._"
         } else {
-            prefix = ""
+            prefix = "self."
         }
 
         let visitMethod: String

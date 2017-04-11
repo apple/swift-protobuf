@@ -170,10 +170,10 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
     set {_x = newValue}
   }
   var hasX: Bool {
-    return _x != nil
+    return self._x != nil
   }
   mutating func clearX() {
-    _x = nil
+    self._x = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -181,21 +181,21 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
   init() {}
 
   public var isInitialized: Bool {
-    if _x == nil {return false}
+    if self._x == nil {return false}
     return true
   }
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_x)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._x)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _x {
+    if let v = self._x {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -396,7 +396,7 @@ extension ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf._MessageI
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOptimizedForSize) -> Bool {
-    if _x != other._x {return false}
+    if self._x != other._x {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

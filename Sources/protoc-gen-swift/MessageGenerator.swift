@@ -656,7 +656,7 @@ class MessageGenerator {
     if storage != nil {
       return "\(variable)_storage.\(field.swiftStorageName)"
     }
-    let prefix = variable.isEmpty ? "" : "\(variable)."
+    let prefix = variable.isEmpty ? "self." : "\(variable)."
     if field.isRepeated || field.isMap {
       return "\(prefix)\(field.swiftName)"
     }
@@ -686,7 +686,7 @@ class MessageGenerator {
     if storage != nil {
       return "\(variable)_storage._\(oneof.swiftFieldName)"
     }
-    let prefix = variable.isEmpty ? "" : "\(variable)."
+    let prefix = variable.isEmpty ? "self." : "\(variable)."
     return "\(prefix)\(oneof.swiftFieldName)"
   }
 

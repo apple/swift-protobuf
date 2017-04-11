@@ -58,10 +58,10 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -71,14 +71,14 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &_c)
+      case 1: try decoder.decodeSingularInt32Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -95,7 +95,7 @@ extension ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf._MessageImpl
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittestNoArena_ForeignMessageLite) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

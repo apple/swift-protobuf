@@ -51,10 +51,10 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
       set {_c = newValue}
     }
     var hasC: Bool {
-      return _c != nil
+      return self._c != nil
     }
     mutating func clearC() {
-      _c = nil
+      self._c = nil
     }
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -64,14 +64,14 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1410: try decoder.decodeSingularInt64Field(value: &_c)
+        case 1410: try decoder.decodeSingularInt64Field(value: &self._c)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = _c {
+      if let v = self._c {
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 1410)
       }
       try unknownFields.traverse(visitor: &visitor)
@@ -99,10 +99,10 @@ struct Ext4C: SwiftProtobuf.Message {
     set {_c = newValue}
   }
   var hasC: Bool {
-    return _c != nil
+    return self._c != nil
   }
   mutating func clearC() {
-    _c = nil
+    self._c = nil
   }
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -112,14 +112,14 @@ struct Ext4C: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1420: try decoder.decodeSingularInt64Field(value: &_c)
+      case 1420: try decoder.decodeSingularInt64Field(value: &self._c)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = _c {
+    if let v = self._c {
       try visitor.visitSingularInt64Field(value: v, fieldNumber: 1420)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -238,7 +238,7 @@ extension Ext4MyMessage.C: SwiftProtobuf._MessageImplementationBase, SwiftProtob
   ]
 
   func _protobuf_generated_isEqualTo(other: Ext4MyMessage.C) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -250,7 +250,7 @@ extension Ext4C: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoN
   ]
 
   func _protobuf_generated_isEqualTo(other: Ext4C) -> Bool {
-    if _c != other._c {return false}
+    if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

@@ -205,39 +205,39 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &name)
-      case 2: try decoder.decodeSingularStringField(value: &requestTypeURL)
-      case 3: try decoder.decodeSingularBoolField(value: &requestStreaming)
-      case 4: try decoder.decodeSingularStringField(value: &responseTypeURL)
-      case 5: try decoder.decodeSingularBoolField(value: &responseStreaming)
-      case 6: try decoder.decodeRepeatedMessageField(value: &options)
-      case 7: try decoder.decodeSingularEnumField(value: &syntax)
+      case 1: try decoder.decodeSingularStringField(value: &self.name)
+      case 2: try decoder.decodeSingularStringField(value: &self.requestTypeURL)
+      case 3: try decoder.decodeSingularBoolField(value: &self.requestStreaming)
+      case 4: try decoder.decodeSingularStringField(value: &self.responseTypeURL)
+      case 5: try decoder.decodeSingularBoolField(value: &self.responseStreaming)
+      case 6: try decoder.decodeRepeatedMessageField(value: &self.options)
+      case 7: try decoder.decodeSingularEnumField(value: &self.syntax)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 1)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !requestTypeURL.isEmpty {
-      try visitor.visitSingularStringField(value: requestTypeURL, fieldNumber: 2)
+    if !self.requestTypeURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.requestTypeURL, fieldNumber: 2)
     }
-    if requestStreaming != false {
-      try visitor.visitSingularBoolField(value: requestStreaming, fieldNumber: 3)
+    if self.requestStreaming != false {
+      try visitor.visitSingularBoolField(value: self.requestStreaming, fieldNumber: 3)
     }
-    if !responseTypeURL.isEmpty {
-      try visitor.visitSingularStringField(value: responseTypeURL, fieldNumber: 4)
+    if !self.responseTypeURL.isEmpty {
+      try visitor.visitSingularStringField(value: self.responseTypeURL, fieldNumber: 4)
     }
-    if responseStreaming != false {
-      try visitor.visitSingularBoolField(value: responseStreaming, fieldNumber: 5)
+    if self.responseStreaming != false {
+      try visitor.visitSingularBoolField(value: self.responseStreaming, fieldNumber: 5)
     }
-    if !options.isEmpty {
-      try visitor.visitRepeatedMessageField(value: options, fieldNumber: 6)
+    if !self.options.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 6)
     }
-    if syntax != Google_Protobuf_Syntax.proto2 {
-      try visitor.visitSingularEnumField(value: syntax, fieldNumber: 7)
+    if self.syntax != Google_Protobuf_Syntax.proto2 {
+      try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -337,19 +337,19 @@ public struct Google_Protobuf_Mixin: SwiftProtobuf.Message {
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &name)
-      case 2: try decoder.decodeSingularStringField(value: &root)
+      case 1: try decoder.decodeSingularStringField(value: &self.name)
+      case 2: try decoder.decodeSingularStringField(value: &self.root)
       default: break
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !name.isEmpty {
-      try visitor.visitSingularStringField(value: name, fieldNumber: 1)
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
-    if !root.isEmpty {
-      try visitor.visitSingularStringField(value: root, fieldNumber: 2)
+    if !self.root.isEmpty {
+      try visitor.visitSingularStringField(value: self.root, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -430,13 +430,13 @@ extension Google_Protobuf_Method: SwiftProtobuf._MessageImplementationBase, Swif
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Method) -> Bool {
-    if name != other.name {return false}
-    if requestTypeURL != other.requestTypeURL {return false}
-    if requestStreaming != other.requestStreaming {return false}
-    if responseTypeURL != other.responseTypeURL {return false}
-    if responseStreaming != other.responseStreaming {return false}
-    if options != other.options {return false}
-    if syntax != other.syntax {return false}
+    if self.name != other.name {return false}
+    if self.requestTypeURL != other.requestTypeURL {return false}
+    if self.requestStreaming != other.requestStreaming {return false}
+    if self.responseTypeURL != other.responseTypeURL {return false}
+    if self.responseStreaming != other.responseStreaming {return false}
+    if self.options != other.options {return false}
+    if self.syntax != other.syntax {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -449,8 +449,8 @@ extension Google_Protobuf_Mixin: SwiftProtobuf._MessageImplementationBase, Swift
   ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Mixin) -> Bool {
-    if name != other.name {return false}
-    if root != other.root {return false}
+    if self.name != other.name {return false}
+    if self.root != other.root {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

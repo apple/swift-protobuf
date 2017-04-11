@@ -210,15 +210,15 @@ struct ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeRepeatedEnumField(value: &values)
+      case 1: try decoder.decodeRepeatedEnumField(value: &self.values)
       default: break
       }
     }
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !values.isEmpty {
-      try visitor.visitPackedEnumField(value: values, fieldNumber: 1)
+    if !self.values.isEmpty {
+      try visitor.visitPackedEnumField(value: self.values, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -271,7 +271,7 @@ extension ProtobufUnittest_SwiftEnumWithAliasTest: SwiftProtobuf._MessageImpleme
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_SwiftEnumWithAliasTest) -> Bool {
-    if values != other.values {return false}
+    if self.values != other.values {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
