@@ -104,15 +104,15 @@ class MessageGenerator {
 
     i = 0
     var oneofs = [OneofGenerator]()
-    for oneofIndex in (0..<descriptor.oneofDecl.count) {
+    for o in descriptor.oneofDecl {
       let oneofFields = fields.filter {
-        $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(oneofIndex)
+        $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(i)
       }
       var oneofPath = path
       oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
       oneofPath.append(i)
       i += 1
-      let oneof = OneofGenerator(descriptor: descriptor.oneofDecl[oneofIndex], path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName)
+      let oneof = OneofGenerator(descriptor: o, path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
