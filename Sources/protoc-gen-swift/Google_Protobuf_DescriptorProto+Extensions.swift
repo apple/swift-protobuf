@@ -49,19 +49,6 @@ extension Google_Protobuf_DescriptorProto {
     }.joined(separator: " || ")
   }
 
-  func getMessageForPath(path: String, parentPath: String) -> Google_Protobuf_DescriptorProto? {
-    for m in nestedType {
-      let messagePath = parentPath + "." + m.name
-      if messagePath == path {
-        return m
-      }
-      if let n = m.getMessageForPath(path: path, parentPath: messagePath) {
-        return n
-      }
-    }
-    return nil
-  }
-
   func getMessageNameForPath(path: String, parentPath: String, swiftPrefix: String) -> String? {
     for m in nestedType {
       let messagePath = parentPath + "." + m.name
