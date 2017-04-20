@@ -143,7 +143,7 @@ here to match the `protoc-gen-swift` version you checked above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf-runtime.git", Version(0,9,12))
+        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,12))
 ]
 ```
 
