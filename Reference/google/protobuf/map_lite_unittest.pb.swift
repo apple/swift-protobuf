@@ -642,7 +642,6 @@ struct ProtobufUnittest_TestMessageMapLite: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredLite"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -654,7 +653,6 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     self._a = nil
   }
 
-  fileprivate var _b: Int32? = nil
   var b: Int32 {
     get {return _b ?? 0}
     set {_b = newValue}
@@ -666,7 +664,6 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     self._b = nil
   }
 
-  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -712,12 +709,15 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
+  fileprivate var _b: Int32? = nil
+  fileprivate var _c: Int32? = nil
 }
 
 struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageArenaLite"
 
-  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -748,6 +748,8 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _c: Int32? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

@@ -69,7 +69,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Version"
 
-  fileprivate var _major: Int32? = nil
   var major: Int32 {
     get {return _major ?? 0}
     set {_major = newValue}
@@ -81,7 +80,6 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     self._major = nil
   }
 
-  fileprivate var _minor: Int32? = nil
   var minor: Int32 {
     get {return _minor ?? 0}
     set {_minor = newValue}
@@ -93,7 +91,6 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     self._minor = nil
   }
 
-  fileprivate var _patch: Int32? = nil
   var patch: Int32 {
     get {return _patch ?? 0}
     set {_patch = newValue}
@@ -107,7 +104,6 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
 
   /// A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
   /// be empty for mainline stable releases.
-  fileprivate var _suffix: String? = nil
   var suffix: String {
     get {return _suffix ?? String()}
     set {_suffix = newValue}
@@ -150,6 +146,11 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _major: Int32? = nil
+  fileprivate var _minor: Int32? = nil
+  fileprivate var _patch: Int32? = nil
+  fileprivate var _suffix: String? = nil
 }
 
 /// An encoded CodeGeneratorRequest is written to the plugin's stdin.
@@ -263,7 +264,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
   /// problem in protoc itself -- such as the input CodeGeneratorRequest being
   /// unparseable -- should be reported by writing a message to stderr and
   /// exiting with a non-zero status code.
-  fileprivate var _error: String? = nil
   var error: String {
     get {return _error ?? String()}
     set {_error = newValue}
@@ -294,7 +294,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// files need not reside completely in memory at one time.  Note that as of
     /// this writing protoc does not optimize for this -- it will read the entire
     /// CodeGeneratorResponse before writing files to disk.
-    fileprivate var _name: String? = nil
     var name: String {
       get {return _name ?? String()}
       set {_name = newValue}
@@ -343,7 +342,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// command line.
     ///
     /// If |insertion_point| is present, |name| must also be present.
-    fileprivate var _insertionPoint: String? = nil
     var insertionPoint: String {
       get {return _insertionPoint ?? String()}
       set {_insertionPoint = newValue}
@@ -356,7 +354,6 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     }
 
     /// The file contents.
-    fileprivate var _content: String? = nil
     var content: String {
       get {return _content ?? String()}
       set {_content = newValue}
@@ -395,6 +392,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _name: String? = nil
+    fileprivate var _insertionPoint: String? = nil
+    fileprivate var _content: String? = nil
   }
 
   init() {}
@@ -418,6 +419,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _error: String? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

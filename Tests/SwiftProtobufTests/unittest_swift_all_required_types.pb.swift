@@ -661,7 +661,6 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     /// The field name "b" fails to compile in proto1 because it conflicts with
     /// a local variable named "b" in one of the generated methods.  Doh.
     /// This file needs to compile in proto1 to test backwards-compatibility.
-    fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
       set {_bb = newValue}
@@ -697,12 +696,13 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bb: Int32? = nil
   }
 
   struct RequiredGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllRequiredTypes.protoMessageName + ".RequiredGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -738,6 +738,8 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   init() {}
@@ -1012,7 +1014,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestSomeRequiredTypes"
 
   /// Singular
-  fileprivate var _requiredInt32: Int32? = nil
   var requiredInt32: Int32 {
     get {return _requiredInt32 ?? 0}
     set {_requiredInt32 = newValue}
@@ -1024,7 +1025,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     self._requiredInt32 = nil
   }
 
-  fileprivate var _requiredFloat: Float? = nil
   var requiredFloat: Float {
     get {return _requiredFloat ?? 0}
     set {_requiredFloat = newValue}
@@ -1036,7 +1036,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     self._requiredFloat = nil
   }
 
-  fileprivate var _requiredBool: Bool? = nil
   var requiredBool: Bool {
     get {return _requiredBool ?? false}
     set {_requiredBool = newValue}
@@ -1048,7 +1047,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     self._requiredBool = nil
   }
 
-  fileprivate var _requiredString: String? = nil
   var requiredString: String {
     get {return _requiredString ?? String()}
     set {_requiredString = newValue}
@@ -1060,7 +1058,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     self._requiredString = nil
   }
 
-  fileprivate var _requiredBytes: Data? = nil
   var requiredBytes: Data {
     get {return _requiredBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_requiredBytes = newValue}
@@ -1072,7 +1069,6 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     self._requiredBytes = nil
   }
 
-  fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
   var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum {
     get {return _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo}
     set {_requiredNestedEnum = newValue}
@@ -1156,6 +1152,13 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _requiredInt32: Int32? = nil
+  fileprivate var _requiredFloat: Float? = nil
+  fileprivate var _requiredBool: Bool? = nil
+  fileprivate var _requiredString: String? = nil
+  fileprivate var _requiredBytes: Data? = nil
+  fileprivate var _requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

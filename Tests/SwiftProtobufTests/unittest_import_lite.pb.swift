@@ -85,7 +85,6 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
 
-  fileprivate var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
@@ -116,6 +115,8 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _d: Int32? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

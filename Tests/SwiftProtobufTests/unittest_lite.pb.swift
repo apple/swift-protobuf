@@ -882,7 +882,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".NestedMessage"
 
-    fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
       set {_bb = newValue}
@@ -894,7 +893,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       self._bb = nil
     }
 
-    fileprivate var _cc: Int64? = nil
     var cc: Int64 {
       get {return _cc ?? 0}
       set {_cc = newValue}
@@ -929,12 +927,14 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bb: Int32? = nil
+    fileprivate var _cc: Int64? = nil
   }
 
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".OptionalGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -965,12 +965,13 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestAllTypesLite.protoMessageName + ".RepeatedGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -1001,6 +1002,8 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   init() {}
@@ -1322,7 +1325,6 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
 struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessageLite"
 
-  fileprivate var _c: Int32? = nil
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -1353,6 +1355,8 @@ struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _c: Int32? = nil
 }
 
 struct ProtobufUnittest_TestPackedTypesLite: SwiftProtobuf.Message {
@@ -1490,7 +1494,6 @@ struct ProtobufUnittest_TestAllExtensionsLite: SwiftProtobuf.Message, SwiftProto
 struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OptionalGroup_extension_lite"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -1521,12 +1524,13 @@ struct ProtobufUnittest_OptionalGroup_extension_lite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".RepeatedGroup_extension_lite"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -1557,6 +1561,8 @@ struct ProtobufUnittest_RepeatedGroup_extension_lite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct ProtobufUnittest_TestPackedExtensionsLite: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -1609,7 +1615,6 @@ struct ProtobufUnittest_TestNestedExtensionLite: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestDeprecatedLite"
 
-  fileprivate var _deprecatedField: Int32? = nil
   var deprecatedField: Int32 {
     get {return _deprecatedField ?? 0}
     set {_deprecatedField = newValue}
@@ -1640,6 +1645,8 @@ struct ProtobufUnittest_TestDeprecatedLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _deprecatedField: Int32? = nil
 }
 
 /// See the comments of the same type in unittest.proto.
@@ -2026,7 +2033,6 @@ struct ProtobufUnittest_TestEmptyMessageWithExtensionsLite: SwiftProtobuf.Messag
 struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".V1MessageLite"
 
-  fileprivate var _intField: Int32? = nil
   var intField: Int32 {
     get {return _intField ?? 0}
     set {_intField = newValue}
@@ -2038,7 +2044,6 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message {
     self._intField = nil
   }
 
-  fileprivate var _enumField: ProtobufUnittest_V1EnumLite? = nil
   var enumField: ProtobufUnittest_V1EnumLite {
     get {return _enumField ?? ProtobufUnittest_V1EnumLite.v1First}
     set {_enumField = newValue}
@@ -2078,12 +2083,14 @@ struct ProtobufUnittest_V1MessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _intField: Int32? = nil
+  fileprivate var _enumField: ProtobufUnittest_V1EnumLite? = nil
 }
 
 struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".V2MessageLite"
 
-  fileprivate var _intField: Int32? = nil
   var intField: Int32 {
     get {return _intField ?? 0}
     set {_intField = newValue}
@@ -2095,7 +2102,6 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
     self._intField = nil
   }
 
-  fileprivate var _enumField: ProtobufUnittest_V2EnumLite? = nil
   var enumField: ProtobufUnittest_V2EnumLite {
     get {return _enumField ?? ProtobufUnittest_V2EnumLite.v2First}
     set {_enumField = newValue}
@@ -2135,6 +2141,9 @@ struct ProtobufUnittest_V2MessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _intField: Int32? = nil
+  fileprivate var _enumField: ProtobufUnittest_V2EnumLite? = nil
 }
 
 struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -2291,7 +2300,6 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_TestHugeFieldNumbersLite.protoMessageName + ".OptionalGroup"
 
-    fileprivate var _groupA: Int32? = nil
     var groupA: Int32 {
       get {return _groupA ?? 0}
       set {_groupA = newValue}
@@ -2322,6 +2330,8 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _groupA: Int32? = nil
   }
 
   init() {}

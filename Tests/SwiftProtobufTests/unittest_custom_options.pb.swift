@@ -109,7 +109,6 @@ enum ProtobufUnittest_AggregateEnum: SwiftProtobuf.Enum {
 struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageWithCustomOptions"
 
-  fileprivate var _field1: String? = nil
   var field1: String {
     get {return _field1 ?? String()}
     set {_field1 = newValue}
@@ -192,6 +191,8 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     try self.anOneof?.traverse(visitor: &visitor)
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _field1: String? = nil
 }
 
 /// A test RPC service with custom options at all possible locations (and also
@@ -412,7 +413,6 @@ struct ProtobufUnittest_SettingRealsFromNegativeInts: SwiftProtobuf.Message {
 struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".ComplexOptionType1"
 
-  fileprivate var _foo: Int32? = nil
   var foo: Int32 {
     get {return _foo ?? 0}
     set {_foo = newValue}
@@ -424,7 +424,6 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     self._foo = nil
   }
 
-  fileprivate var _foo2: Int32? = nil
   var foo2: Int32 {
     get {return _foo2 ?? 0}
     set {_foo2 = newValue}
@@ -436,7 +435,6 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     self._foo2 = nil
   }
 
-  fileprivate var _foo3: Int32? = nil
   var foo3: Int32 {
     get {return _foo3 ?? 0}
     set {_foo3 = newValue}
@@ -491,6 +489,9 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _foo: Int32? = nil
+  fileprivate var _foo2: Int32? = nil
+  fileprivate var _foo3: Int32? = nil
 }
 
 struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -539,7 +540,6 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
   struct ComplexOptionType4: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_ComplexOptionType2.protoMessageName + ".ComplexOptionType4"
 
-    fileprivate var _waldo: Int32? = nil
     var waldo: Int32 {
       get {return _waldo ?? 0}
       set {_waldo = newValue}
@@ -570,6 +570,8 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _waldo: Int32? = nil
   }
 
   init() {}
@@ -652,7 +654,6 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
   struct ComplexOptionType5: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_ComplexOptionType3.protoMessageName + ".ComplexOptionType5"
 
-    fileprivate var _plugh: Int32? = nil
     var plugh: Int32 {
       get {return _plugh ?? 0}
       set {_plugh = newValue}
@@ -683,6 +684,8 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _plugh: Int32? = nil
   }
 
   init() {}
@@ -718,7 +721,6 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
 struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ComplexOpt6"
 
-  fileprivate var _xyzzy: Int32? = nil
   var xyzzy: Int32 {
     get {return _xyzzy ?? 0}
     set {_xyzzy = newValue}
@@ -749,6 +751,8 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _xyzzy: Int32? = nil
 }
 
 /// Note that we try various different ways of naming the same extension.
@@ -800,7 +804,6 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
 struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".AggregateMessageSetElement"
 
-  fileprivate var _s: String? = nil
   var s: String {
     get {return _s ?? String()}
     set {_s = newValue}
@@ -831,6 +834,8 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _s: String? = nil
 }
 
 /// A helper type used to test aggregate option parsing
@@ -951,7 +956,6 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
 struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".AggregateMessage"
 
-  fileprivate var _fieldname: Int32? = nil
   var fieldname: Int32 {
     get {return _fieldname ?? 0}
     set {_fieldname = newValue}
@@ -982,6 +986,8 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _fieldname: Int32? = nil
 }
 
 /// Test custom options for nested type.
@@ -1016,7 +1022,6 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_NestedOptionType.protoMessageName + ".NestedMessage"
 
-    fileprivate var _nestedField: Int32? = nil
     var nestedField: Int32 {
       get {return _nestedField ?? 0}
       set {_nestedField = newValue}
@@ -1047,6 +1052,8 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nestedField: Int32? = nil
   }
 
   init() {}
@@ -1066,7 +1073,6 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
 struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OldOptionType"
 
-  fileprivate var _value: ProtobufUnittest_OldOptionType.TestEnum? = nil
   var value: ProtobufUnittest_OldOptionType.TestEnum {
     get {return _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue}
     set {_value = newValue}
@@ -1125,13 +1131,14 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _value: ProtobufUnittest_OldOptionType.TestEnum? = nil
 }
 
 /// Updated version of the custom option above.
 struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NewOptionType"
 
-  fileprivate var _value: ProtobufUnittest_NewOptionType.TestEnum? = nil
   var value: ProtobufUnittest_NewOptionType.TestEnum {
     get {return _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue}
     set {_value = newValue}
@@ -1193,6 +1200,8 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _value: ProtobufUnittest_NewOptionType.TestEnum? = nil
 }
 
 /// Test message using the "required_enum_opt" option defined above.

@@ -48,7 +48,6 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
     struct Baz: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
       static let protoMessageName: String = ProtobufUnittest_Extend_Foo.Bar.protoMessageName + ".Baz"
 
-      fileprivate var _a: Int32? = nil
       var a: Int32 {
         get {return _a ?? 0}
         set {_a = newValue}
@@ -89,6 +88,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
       }
 
       var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+      fileprivate var _a: Int32? = nil
     }
 
     init() {}
@@ -119,7 +119,6 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
 
   ///      extensions 10 to 20;
-  fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -150,6 +149,8 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _c: Int64? = nil
 }
 
 struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -211,7 +212,6 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Extens
 struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".MsgNoStorage"
 
-  fileprivate var _x: Int32? = nil
   var x: Int32 {
     get {return _x ?? 0}
     set {_x = newValue}
@@ -252,6 +252,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _x: Int32? = nil
 }
 
 struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {

@@ -108,7 +108,6 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
 struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension1"
 
-  fileprivate var _i: Int32? = nil
   var i: Int32 {
     get {return _i ?? 0}
     set {_i = newValue}
@@ -139,12 +138,13 @@ struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _i: Int32? = nil
 }
 
 struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestMessageSetExtension2"
 
-  fileprivate var _str: String? = nil
   var str: String {
     get {return _str ?? String()}
     set {_str = newValue}
@@ -175,6 +175,8 @@ struct ProtobufUnittest_TestMessageSetExtension2: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _str: String? = nil
 }
 
 /// MessageSet wire format is equivalent to this.
@@ -188,7 +190,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   struct Item: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_RawMessageSet.protoMessageName + ".Item"
 
-    fileprivate var _typeId: Int32? = nil
     var typeId: Int32 {
       get {return _typeId ?? 0}
       set {_typeId = newValue}
@@ -200,7 +201,6 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       self._typeId = nil
     }
 
-    fileprivate var _message: Data? = nil
     var message: Data {
       get {return _message ?? SwiftProtobuf.Internal.emptyData}
       set {_message = newValue}
@@ -241,6 +241,9 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typeId: Int32? = nil
+    fileprivate var _message: Data? = nil
   }
 
   init() {}

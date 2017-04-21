@@ -39,7 +39,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SwiftReservedTest"
 
   /// static r/o properties on Message, ensure they still work as fields.
-  fileprivate var _protoMessageName: Int32? = nil
   var protoMessageName: Int32 {
     get {return _protoMessageName ?? 0}
     set {_protoMessageName = newValue}
@@ -51,7 +50,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     self._protoMessageName = nil
   }
 
-  fileprivate var _protoPackageName: Int32? = nil
   var protoPackageName: Int32 {
     get {return _protoPackageName ?? 0}
     set {_protoPackageName = newValue}
@@ -63,7 +61,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     self._protoPackageName = nil
   }
 
-  fileprivate var _anyTypePrefix: Int32? = nil
   var anyTypePrefix: Int32 {
     get {return _anyTypePrefix ?? 0}
     set {_anyTypePrefix = newValue}
@@ -75,7 +72,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     self._anyTypePrefix = nil
   }
 
-  fileprivate var _anyTypeURL: Int32? = nil
   var anyTypeURL: Int32 {
     get {return _anyTypeURL ?? 0}
     set {_anyTypeURL = newValue}
@@ -88,7 +84,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   }
 
   /// r/o properties on Message, ensure it gets remapped.
-  fileprivate var _isInitialized_p: String? = nil
   var isInitialized_p: String {
     get {return _isInitialized_p ?? String()}
     set {_isInitialized_p = newValue}
@@ -100,7 +95,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     self._isInitialized_p = nil
   }
 
-  fileprivate var _hashValue_p: String? = nil
   var hashValue_p: String {
     get {return _hashValue_p ?? String()}
     set {_hashValue_p = newValue}
@@ -112,7 +106,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     self._hashValue_p = nil
   }
 
-  fileprivate var _debugDescription_p: Int32? = nil
   var debugDescription_p: Int32 {
     get {return _debugDescription_p ?? 0}
     set {_debugDescription_p = newValue}
@@ -125,7 +118,6 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
   }
 
   /// Prompt code generator to build an 'isInitialized' test
-  fileprivate var _requiredInt: Int32? = nil
   var requiredInt: Int32 {
     get {return _requiredInt ?? 0}
     set {_requiredInt = newValue}
@@ -323,6 +315,15 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _protoMessageName: Int32? = nil
+  fileprivate var _protoPackageName: Int32? = nil
+  fileprivate var _anyTypePrefix: Int32? = nil
+  fileprivate var _anyTypeURL: Int32? = nil
+  fileprivate var _isInitialized_p: String? = nil
+  fileprivate var _hashValue_p: String? = nil
+  fileprivate var _debugDescription_p: Int32? = nil
+  fileprivate var _requiredInt: Int32? = nil
 }
 
 struct ProtobufUnittest_SwiftReservedTestExt: SwiftProtobuf.Message {

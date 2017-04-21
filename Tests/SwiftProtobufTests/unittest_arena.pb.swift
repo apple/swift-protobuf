@@ -52,7 +52,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedMessage"
 
-  fileprivate var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
@@ -83,6 +82,8 @@ struct Proto2ArenaUnittest_NestedMessage: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _d: Int32? = nil
 }
 
 struct Proto2ArenaUnittest_ArenaMessage: SwiftProtobuf.Message {

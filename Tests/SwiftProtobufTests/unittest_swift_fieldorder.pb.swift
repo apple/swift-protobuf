@@ -141,7 +141,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   struct NestedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = Swift_Protobuf_TestFieldOrderings.protoMessageName + ".NestedMessage"
 
-    fileprivate var _oo: Int64? = nil
     var oo: Int64 {
       get {return _oo ?? 0}
       set {_oo = newValue}
@@ -153,7 +152,6 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       self._oo = nil
     }
 
-    fileprivate var _bb: Int32? = nil
     var bb: Int32 {
       get {return _bb ?? 0}
       set {_bb = newValue}
@@ -188,6 +186,9 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _oo: Int64? = nil
+    fileprivate var _bb: Int32? = nil
   }
 
   init() {}
@@ -290,7 +291,6 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
   }
 
   /// In the middle of previous oneof field ranges.
-  fileprivate var _m: Int32? = nil
   var m: Int32 {
     get {return _m ?? 0}
     set {_m = newValue}
@@ -451,6 +451,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _m: Int32? = nil
 }
 
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.

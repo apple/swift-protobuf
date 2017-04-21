@@ -45,7 +45,6 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
   struct C: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend2_MyMessage.protoMessageName + ".C"
 
-    fileprivate var _c: Int64? = nil
     var c: Int64 {
       get {return _c ?? 0}
       set {_c = newValue}
@@ -76,6 +75,8 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _c: Int64? = nil
   }
 
   init() {}
@@ -93,7 +94,6 @@ struct ProtobufUnittest_Extend2_MyMessage: SwiftProtobuf.Message {
 struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
 
-  fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
@@ -124,6 +124,8 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _c: Int64? = nil
 }
 
 // MARK: - Extension support defined in unittest_swift_extension2.proto.

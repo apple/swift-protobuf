@@ -353,7 +353,6 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   public struct ExtensionRange: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ExtensionRange"
 
-    fileprivate var _start: Int32? = nil
     public var start: Int32 {
       get {return _start ?? 0}
       set {_start = newValue}
@@ -365,7 +364,6 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       self._start = nil
     }
 
-    fileprivate var _end: Int32? = nil
     public var end: Int32 {
       get {return _end ?? 0}
       set {_end = newValue}
@@ -400,6 +398,9 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _start: Int32? = nil
+    fileprivate var _end: Int32? = nil
   }
 
   /// Range of reserved tag numbers. Reserved tag numbers may not be used by
@@ -409,7 +410,6 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ReservedRange"
 
     /// Inclusive.
-    fileprivate var _start: Int32? = nil
     public var start: Int32 {
       get {return _start ?? 0}
       set {_start = newValue}
@@ -422,7 +422,6 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     }
 
     /// Exclusive.
-    fileprivate var _end: Int32? = nil
     public var end: Int32 {
       get {return _end ?? 0}
       set {_end = newValue}
@@ -457,6 +456,9 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _start: Int32? = nil
+    fileprivate var _end: Int32? = nil
   }
 
   public init() {}
@@ -1687,7 +1689,6 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
   ///
   /// Because this is an option, the above two restrictions are not enforced by
   /// the protocol compiler.
-  fileprivate var _messageSetWireFormat: Bool? = nil
   public var messageSetWireFormat: Bool {
     get {return _messageSetWireFormat ?? false}
     set {_messageSetWireFormat = newValue}
@@ -1702,7 +1703,6 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
   /// Disables the generation of the standard "descriptor()" accessor, which can
   /// conflict with a field of the same name.  This is meant to make migration
   /// from proto1 easier; new code should avoid fields named "descriptor".
-  fileprivate var _noStandardDescriptorAccessor: Bool? = nil
   public var noStandardDescriptorAccessor: Bool {
     get {return _noStandardDescriptorAccessor ?? false}
     set {_noStandardDescriptorAccessor = newValue}
@@ -1718,7 +1718,6 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for the message, or it will be completely ignored; in the very least,
   /// this is a formalization for deprecating messages.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
@@ -1751,7 +1750,6 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
   /// NOTE: Do not set the option in .proto files. Always use the maps syntax
   /// instead. The option should only be implicitly set by the proto compiler
   /// parser.
-  fileprivate var _mapEntry: Bool? = nil
   public var mapEntry: Bool {
     get {return _mapEntry ?? false}
     set {_mapEntry = newValue}
@@ -1812,6 +1810,10 @@ public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtob
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _messageSetWireFormat: Bool? = nil
+  fileprivate var _noStandardDescriptorAccessor: Bool? = nil
+  fileprivate var _deprecated: Bool? = nil
+  fileprivate var _mapEntry: Bool? = nil
 }
 
 public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -1821,7 +1823,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   /// representation of the field than it normally would.  See the specific
   /// options below.  This option is not yet implemented in the open source
   /// release -- sorry, we'll try to include it in a future version!
-  fileprivate var _ctype: Google_Protobuf_FieldOptions.CType? = nil
   public var ctype: Google_Protobuf_FieldOptions.CType {
     get {return _ctype ?? Google_Protobuf_FieldOptions.CType.string}
     set {_ctype = newValue}
@@ -1838,7 +1839,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   /// writing the tag and type for each element, the entire array is encoded as
   /// a single length-delimited blob. In proto3, only explicit setting it to
   /// false will avoid using packed encoding.
-  fileprivate var _packed: Bool? = nil
   public var packed: Bool {
     get {return _packed ?? false}
     set {_packed = newValue}
@@ -1859,7 +1859,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   /// JavaScript code to use the JavaScript "number" type instead of strings.
   /// This option is an enum to permit additional types to be added,
   /// e.g. goog.math.Integer.
-  fileprivate var _jstype: Google_Protobuf_FieldOptions.JSType? = nil
   public var jstype: Google_Protobuf_FieldOptions.JSType {
     get {return _jstype ?? Google_Protobuf_FieldOptions.JSType.jsNormal}
     set {_jstype = newValue}
@@ -1899,7 +1898,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   /// implementation must either *always* check its required fields, or *never*
   /// check its required fields, regardless of whether or not the message has
   /// been parsed.
-  fileprivate var _lazy: Bool? = nil
   public var lazy: Bool {
     get {return _lazy ?? false}
     set {_lazy = newValue}
@@ -1915,7 +1913,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for accessors, or it will be completely ignored; in the very least, this
   /// is a formalization for deprecating fields.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
@@ -1928,7 +1925,6 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   /// For Google-internal migration only. Do not use.
-  fileprivate var _weak: Bool? = nil
   public var weak: Bool {
     get {return _weak ?? false}
     set {_weak = newValue}
@@ -2063,6 +2059,12 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _ctype: Google_Protobuf_FieldOptions.CType? = nil
+  fileprivate var _packed: Bool? = nil
+  fileprivate var _jstype: Google_Protobuf_FieldOptions.JSType? = nil
+  fileprivate var _lazy: Bool? = nil
+  fileprivate var _deprecated: Bool? = nil
+  fileprivate var _weak: Bool? = nil
 }
 
 public struct Google_Protobuf_OneofOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -2108,7 +2110,6 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
 
   /// Set this option to true to allow mapping different tag names to the same
   /// value.
-  fileprivate var _allowAlias: Bool? = nil
   public var allowAlias: Bool {
     get {return _allowAlias ?? false}
     set {_allowAlias = newValue}
@@ -2124,7 +2125,6 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for the enum, or it will be completely ignored; in the very least, this
   /// is a formalization for deprecating enums.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
@@ -2177,6 +2177,8 @@ public struct Google_Protobuf_EnumOptions: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _allowAlias: Bool? = nil
+  fileprivate var _deprecated: Bool? = nil
 }
 
 public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -2186,7 +2188,6 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for the enum value, or it will be completely ignored; in the very least,
   /// this is a formalization for deprecating enum values.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
@@ -2235,6 +2236,7 @@ public struct Google_Protobuf_EnumValueOptions: SwiftProtobuf.Message, SwiftProt
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _deprecated: Bool? = nil
 }
 
 public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -2244,7 +2246,6 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for the service, or it will be completely ignored; in the very least,
   /// this is a formalization for deprecating services.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
@@ -2293,6 +2294,7 @@ public struct Google_Protobuf_ServiceOptions: SwiftProtobuf.Message, SwiftProtob
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _deprecated: Bool? = nil
 }
 
 public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -2302,7 +2304,6 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for the method, or it will be completely ignored; in the very least,
   /// this is a formalization for deprecating methods.
-  fileprivate var _deprecated: Bool? = nil
   public var deprecated: Bool {
     get {return _deprecated ?? false}
     set {_deprecated = newValue}
@@ -2314,7 +2315,6 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
     self._deprecated = nil
   }
 
-  fileprivate var _idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel? = nil
   public var idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel {
     get {return _idempotencyLevel ?? Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown}
     set {_idempotencyLevel = newValue}
@@ -2403,6 +2403,8 @@ public struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobu
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _deprecated: Bool? = nil
+  fileprivate var _idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel? = nil
 }
 
 /// A message representing a option the parser does not recognize. This only
@@ -2418,7 +2420,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
 
   /// The value of the uninterpreted option, in whatever type the tokenizer
   /// identified it as during parsing. Exactly one of these should be set.
-  fileprivate var _identifierValue: String? = nil
   public var identifierValue: String {
     get {return _identifierValue ?? String()}
     set {_identifierValue = newValue}
@@ -2430,7 +2431,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     self._identifierValue = nil
   }
 
-  fileprivate var _positiveIntValue: UInt64? = nil
   public var positiveIntValue: UInt64 {
     get {return _positiveIntValue ?? 0}
     set {_positiveIntValue = newValue}
@@ -2442,7 +2442,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     self._positiveIntValue = nil
   }
 
-  fileprivate var _negativeIntValue: Int64? = nil
   public var negativeIntValue: Int64 {
     get {return _negativeIntValue ?? 0}
     set {_negativeIntValue = newValue}
@@ -2454,7 +2453,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     self._negativeIntValue = nil
   }
 
-  fileprivate var _doubleValue: Double? = nil
   public var doubleValue: Double {
     get {return _doubleValue ?? 0}
     set {_doubleValue = newValue}
@@ -2466,7 +2464,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     self._doubleValue = nil
   }
 
-  fileprivate var _stringValue: Data? = nil
   public var stringValue: Data {
     get {return _stringValue ?? SwiftProtobuf.Internal.emptyData}
     set {_stringValue = newValue}
@@ -2478,7 +2475,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     self._stringValue = nil
   }
 
-  fileprivate var _aggregateValue: String? = nil
   public var aggregateValue: String {
     get {return _aggregateValue ?? String()}
     set {_aggregateValue = newValue}
@@ -2500,7 +2496,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
   public struct NamePart: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_UninterpretedOption.protoMessageName + ".NamePart"
 
-    fileprivate var _namePart: String? = nil
     public var namePart: String {
       get {return _namePart ?? String()}
       set {_namePart = newValue}
@@ -2512,7 +2507,6 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
       self._namePart = nil
     }
 
-    fileprivate var _isExtension: Bool? = nil
     public var isExtension: Bool {
       get {return _isExtension ?? false}
       set {_isExtension = newValue}
@@ -2553,6 +2547,9 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _namePart: String? = nil
+    fileprivate var _isExtension: Bool? = nil
   }
 
   public init() {}
@@ -2601,6 +2598,13 @@ public struct Google_Protobuf_UninterpretedOption: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _identifierValue: String? = nil
+  fileprivate var _positiveIntValue: UInt64? = nil
+  fileprivate var _negativeIntValue: Int64? = nil
+  fileprivate var _doubleValue: Double? = nil
+  fileprivate var _stringValue: Data? = nil
+  fileprivate var _aggregateValue: String? = nil
 }
 
 /// Encapsulates information about the original source file from which a
@@ -2737,7 +2741,6 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
     ///   optional int32 grault = 6;
     ///
     ///   // ignored detached comments.
-    fileprivate var _leadingComments: String? = nil
     public var leadingComments: String {
       get {return _leadingComments ?? String()}
       set {_leadingComments = newValue}
@@ -2749,7 +2752,6 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
       self._leadingComments = nil
     }
 
-    fileprivate var _trailingComments: String? = nil
     public var trailingComments: String {
       get {return _trailingComments ?? String()}
       set {_trailingComments = newValue}
@@ -2798,6 +2800,9 @@ public struct Google_Protobuf_SourceCodeInfo: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _leadingComments: String? = nil
+    fileprivate var _trailingComments: String? = nil
   }
 
   public init() {}
@@ -2839,7 +2844,6 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
     public var path: [Int32] = []
 
     /// Identifies the filesystem path to the original source .proto.
-    fileprivate var _sourceFile: String? = nil
     public var sourceFile: String {
       get {return _sourceFile ?? String()}
       set {_sourceFile = newValue}
@@ -2853,7 +2857,6 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
 
     /// Identifies the starting offset in bytes in the generated code
     /// that relates to the identified object.
-    fileprivate var _begin: Int32? = nil
     public var begin: Int32 {
       get {return _begin ?? 0}
       set {_begin = newValue}
@@ -2868,7 +2871,6 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
     /// Identifies the ending offset in bytes in the generated code that
     /// relates to the identified offset. The end offset should be one past
     /// the last relevant byte (so the length of the text = end - begin).
-    fileprivate var _end: Int32? = nil
     public var end: Int32 {
       get {return _end ?? 0}
       set {_end = newValue}
@@ -2911,6 +2913,10 @@ public struct Google_Protobuf_GeneratedCodeInfo: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sourceFile: String? = nil
+    fileprivate var _begin: Int32? = nil
+    fileprivate var _end: Int32? = nil
   }
 
   public init() {}

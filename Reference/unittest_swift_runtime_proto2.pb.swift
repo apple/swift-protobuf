@@ -666,7 +666,6 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Message2.protoMessageName + ".OptionalGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -697,12 +696,13 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Message2.protoMessageName + ".RepeatedGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
@@ -733,12 +733,13 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   struct OneofGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Message2.protoMessageName + ".OneofGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 116}
       set {_a = newValue}
@@ -750,7 +751,6 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       self._a = nil
     }
 
-    fileprivate var _b: Int32? = nil
     var b: Int32 {
       get {return _b ?? 0}
       set {_b = newValue}
@@ -785,6 +785,9 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
+    fileprivate var _b: Int32? = nil
   }
 
   init() {}

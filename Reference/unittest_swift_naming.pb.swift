@@ -4111,7 +4111,6 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct StringMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".String"
 
-    fileprivate var _string: Int32? = nil
     var string: Int32 {
       get {return _string ?? 0}
       set {_string = newValue}
@@ -4142,12 +4141,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _string: Int32? = nil
   }
 
   struct ProtocolMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Protocol"
 
-    fileprivate var _protocol_p: Int32? = nil
     var protocol_p: Int32 {
       get {return _protocol_p ?? 0}
       set {_protocol_p = newValue}
@@ -4178,12 +4178,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _protocol_p: Int32? = nil
   }
 
   struct IntMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Int"
 
-    fileprivate var _int: Int32? = nil
     var int: Int32 {
       get {return _int ?? 0}
       set {_int = newValue}
@@ -4214,12 +4215,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _int: Int32? = nil
   }
 
   struct DoubleMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Double"
 
-    fileprivate var _double: Int32? = nil
     var double: Int32 {
       get {return _double ?? 0}
       set {_double = newValue}
@@ -4250,12 +4252,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _double: Int32? = nil
   }
 
   struct FloatMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Float"
 
-    fileprivate var _float: Int32? = nil
     var float: Int32 {
       get {return _float ?? 0}
       set {_float = newValue}
@@ -4286,12 +4289,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _float: Int32? = nil
   }
 
   struct UIntMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UInt"
 
-    fileprivate var _uint: Int32? = nil
     var uint: Int32 {
       get {return _uint ?? 0}
       set {_uint = newValue}
@@ -4322,12 +4326,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _uint: Int32? = nil
   }
 
   struct hashValueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hashValue"
 
-    fileprivate var _hashValue_p: Int32? = nil
     var hashValue_p: Int32 {
       get {return _hashValue_p ?? 0}
       set {_hashValue_p = newValue}
@@ -4358,12 +4363,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _hashValue_p: Int32? = nil
   }
 
   struct descriptionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".description"
 
-    fileprivate var _description_p: Int32? = nil
     var description_p: Int32 {
       get {return _description_p ?? 0}
       set {_description_p = newValue}
@@ -4394,12 +4400,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _description_p: Int32? = nil
   }
 
   struct debugDescriptionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".debugDescription"
 
-    fileprivate var _debugDescription_p: Int32? = nil
     var debugDescription_p: Int32 {
       get {return _debugDescription_p ?? 0}
       set {_debugDescription_p = newValue}
@@ -4430,12 +4437,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _debugDescription_p: Int32? = nil
   }
 
   struct Swift: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
 
-    fileprivate var _swift: Int32? = nil
     var swift: Int32 {
       get {return _swift ?? 0}
       set {_swift = newValue}
@@ -4466,12 +4474,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _swift: Int32? = nil
   }
 
   struct UNRECOGNIZED: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
 
-    fileprivate var _unrecognized: Int32? = nil
     var unrecognized: Int32 {
       get {return _unrecognized ?? 0}
       set {_unrecognized = newValue}
@@ -4502,12 +4511,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unrecognized: Int32? = nil
   }
 
   struct classMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".class"
 
-    fileprivate var _class_p: Int32? = nil
     var class_p: Int32 {
       get {return _class_p ?? 0}
       set {_class_p = newValue}
@@ -4538,12 +4548,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _class_p: Int32? = nil
   }
 
   struct deinitMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".deinit"
 
-    fileprivate var _deinit_p: Int32? = nil
     var deinit_p: Int32 {
       get {return _deinit_p ?? 0}
       set {_deinit_p = newValue}
@@ -4574,12 +4585,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _deinit_p: Int32? = nil
   }
 
   struct enumMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".enum"
 
-    fileprivate var _enum_p: Int32? = nil
     var enum_p: Int32 {
       get {return _enum_p ?? 0}
       set {_enum_p = newValue}
@@ -4610,12 +4622,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _enum_p: Int32? = nil
   }
 
   struct extensionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extension"
 
-    fileprivate var _extension_p: Int32? = nil
     var extension_p: Int32 {
       get {return _extension_p ?? 0}
       set {_extension_p = newValue}
@@ -4646,12 +4659,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extension_p: Int32? = nil
   }
 
   struct funcMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".func"
 
-    fileprivate var _func_p: Int32? = nil
     var func_p: Int32 {
       get {return _func_p ?? 0}
       set {_func_p = newValue}
@@ -4682,12 +4696,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _func_p: Int32? = nil
   }
 
   struct importMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".import"
 
-    fileprivate var _import_p: Int32? = nil
     var import_p: Int32 {
       get {return _import_p ?? 0}
       set {_import_p = newValue}
@@ -4718,12 +4733,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _import_p: Int32? = nil
   }
 
   struct initMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".init"
 
-    fileprivate var _init_p: Int32? = nil
     var init_p: Int32 {
       get {return _init_p ?? 0}
       set {_init_p = newValue}
@@ -4754,12 +4770,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _init_p: Int32? = nil
   }
 
   struct inoutMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inout"
 
-    fileprivate var _inout_p: Int32? = nil
     var inout_p: Int32 {
       get {return _inout_p ?? 0}
       set {_inout_p = newValue}
@@ -4790,12 +4807,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _inout_p: Int32? = nil
   }
 
   struct internalMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".internal"
 
-    fileprivate var _internal_p: Int32? = nil
     var internal_p: Int32 {
       get {return _internal_p ?? 0}
       set {_internal_p = newValue}
@@ -4826,12 +4844,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _internal_p: Int32? = nil
   }
 
   struct letMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".let"
 
-    fileprivate var _let_p: Int32? = nil
     var let_p: Int32 {
       get {return _let_p ?? 0}
       set {_let_p = newValue}
@@ -4862,12 +4881,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _let_p: Int32? = nil
   }
 
   struct operatorMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".operator"
 
-    fileprivate var _operator_p: Int32? = nil
     var operator_p: Int32 {
       get {return _operator_p ?? 0}
       set {_operator_p = newValue}
@@ -4898,12 +4918,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _operator_p: Int32? = nil
   }
 
   struct privateMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".private"
 
-    fileprivate var _private_p: Int32? = nil
     var private_p: Int32 {
       get {return _private_p ?? 0}
       set {_private_p = newValue}
@@ -4934,12 +4955,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _private_p: Int32? = nil
   }
 
   struct protocolMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protocol"
 
-    fileprivate var _protocol_p: Int32? = nil
     var protocol_p: Int32 {
       get {return _protocol_p ?? 0}
       set {_protocol_p = newValue}
@@ -4970,12 +4992,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _protocol_p: Int32? = nil
   }
 
   struct publicMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".public"
 
-    fileprivate var _public_p: Int32? = nil
     var public_p: Int32 {
       get {return _public_p ?? 0}
       set {_public_p = newValue}
@@ -5006,12 +5029,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _public_p: Int32? = nil
   }
 
   struct staticMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static"
 
-    fileprivate var _static_p: Int32? = nil
     var static_p: Int32 {
       get {return _static_p ?? 0}
       set {_static_p = newValue}
@@ -5042,12 +5066,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _static_p: Int32? = nil
   }
 
   struct structMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".struct"
 
-    fileprivate var _struct_p: Int32? = nil
     var struct_p: Int32 {
       get {return _struct_p ?? 0}
       set {_struct_p = newValue}
@@ -5078,12 +5103,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _struct_p: Int32? = nil
   }
 
   struct subscriptMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".subscript"
 
-    fileprivate var _subscript_p: Int32? = nil
     var subscript_p: Int32 {
       get {return _subscript_p ?? 0}
       set {_subscript_p = newValue}
@@ -5114,12 +5140,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _subscript_p: Int32? = nil
   }
 
   struct typealiasMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typealias"
 
-    fileprivate var _typealias_p: Int32? = nil
     var typealias_p: Int32 {
       get {return _typealias_p ?? 0}
       set {_typealias_p = newValue}
@@ -5150,12 +5177,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typealias_p: Int32? = nil
   }
 
   struct varMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".var"
 
-    fileprivate var _var_p: Int32? = nil
     var var_p: Int32 {
       get {return _var_p ?? 0}
       set {_var_p = newValue}
@@ -5186,12 +5214,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _var_p: Int32? = nil
   }
 
   struct breakMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".break"
 
-    fileprivate var _break_p: Int32? = nil
     var break_p: Int32 {
       get {return _break_p ?? 0}
       set {_break_p = newValue}
@@ -5222,12 +5251,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _break_p: Int32? = nil
   }
 
   struct caseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".case"
 
-    fileprivate var _case_p: Int32? = nil
     var case_p: Int32 {
       get {return _case_p ?? 0}
       set {_case_p = newValue}
@@ -5258,12 +5288,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _case_p: Int32? = nil
   }
 
   struct continueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".continue"
 
-    fileprivate var _continue_p: Int32? = nil
     var continue_p: Int32 {
       get {return _continue_p ?? 0}
       set {_continue_p = newValue}
@@ -5294,12 +5325,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _continue_p: Int32? = nil
   }
 
   struct defaultMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".default"
 
-    fileprivate var _default_p: Int32? = nil
     var default_p: Int32 {
       get {return _default_p ?? 0}
       set {_default_p = newValue}
@@ -5330,12 +5362,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _default_p: Int32? = nil
   }
 
   struct deferMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".defer"
 
-    fileprivate var _defer_p: Int32? = nil
     var defer_p: Int32 {
       get {return _defer_p ?? 0}
       set {_defer_p = newValue}
@@ -5366,12 +5399,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _defer_p: Int32? = nil
   }
 
   struct doMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".do"
 
-    fileprivate var _do_p: Int32? = nil
     var do_p: Int32 {
       get {return _do_p ?? 0}
       set {_do_p = newValue}
@@ -5402,12 +5436,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _do_p: Int32? = nil
   }
 
   struct elseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".else"
 
-    fileprivate var _else_p: Int32? = nil
     var else_p: Int32 {
       get {return _else_p ?? 0}
       set {_else_p = newValue}
@@ -5438,12 +5473,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _else_p: Int32? = nil
   }
 
   struct fallthroughMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".fallthrough"
 
-    fileprivate var _fallthrough_p: Int32? = nil
     var fallthrough_p: Int32 {
       get {return _fallthrough_p ?? 0}
       set {_fallthrough_p = newValue}
@@ -5474,12 +5510,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fallthrough_p: Int32? = nil
   }
 
   struct forMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".for"
 
-    fileprivate var _for_p: Int32? = nil
     var for_p: Int32 {
       get {return _for_p ?? 0}
       set {_for_p = newValue}
@@ -5510,12 +5547,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _for_p: Int32? = nil
   }
 
   struct guardMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".guard"
 
-    fileprivate var _guard_p: Int32? = nil
     var guard_p: Int32 {
       get {return _guard_p ?? 0}
       set {_guard_p = newValue}
@@ -5546,12 +5584,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _guard_p: Int32? = nil
   }
 
   struct ifMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".if"
 
-    fileprivate var _if_p: Int32? = nil
     var if_p: Int32 {
       get {return _if_p ?? 0}
       set {_if_p = newValue}
@@ -5582,12 +5621,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _if_p: Int32? = nil
   }
 
   struct inMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".in"
 
-    fileprivate var _in_p: Int32? = nil
     var in_p: Int32 {
       get {return _in_p ?? 0}
       set {_in_p = newValue}
@@ -5618,12 +5658,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _in_p: Int32? = nil
   }
 
   struct repeatMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".repeat"
 
-    fileprivate var _repeat_p: Int32? = nil
     var repeat_p: Int32 {
       get {return _repeat_p ?? 0}
       set {_repeat_p = newValue}
@@ -5654,12 +5695,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _repeat_p: Int32? = nil
   }
 
   struct returnMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".return"
 
-    fileprivate var _return_p: Int32? = nil
     var return_p: Int32 {
       get {return _return_p ?? 0}
       set {_return_p = newValue}
@@ -5690,12 +5732,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _return_p: Int32? = nil
   }
 
   struct switchMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".switch"
 
-    fileprivate var _switch_p: Int32? = nil
     var switch_p: Int32 {
       get {return _switch_p ?? 0}
       set {_switch_p = newValue}
@@ -5726,12 +5769,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _switch_p: Int32? = nil
   }
 
   struct whereMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".where"
 
-    fileprivate var _where_p: Int32? = nil
     var where_p: Int32 {
       get {return _where_p ?? 0}
       set {_where_p = newValue}
@@ -5762,12 +5806,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _where_p: Int32? = nil
   }
 
   struct whileMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".while"
 
-    fileprivate var _while_p: Int32? = nil
     var while_p: Int32 {
       get {return _while_p ?? 0}
       set {_while_p = newValue}
@@ -5798,12 +5843,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _while_p: Int32? = nil
   }
 
   struct asMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".as"
 
-    fileprivate var _as_p: Int32? = nil
     var as_p: Int32 {
       get {return _as_p ?? 0}
       set {_as_p = newValue}
@@ -5834,12 +5880,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _as_p: Int32? = nil
   }
 
   struct catchMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".catch"
 
-    fileprivate var _catch_p: Int32? = nil
     var catch_p: Int32 {
       get {return _catch_p ?? 0}
       set {_catch_p = newValue}
@@ -5870,12 +5917,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _catch_p: Int32? = nil
   }
 
   struct dynamicTypeMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamicType"
 
-    fileprivate var _dynamicType_p: Int32? = nil
     var dynamicType_p: Int32 {
       get {return _dynamicType_p ?? 0}
       set {_dynamicType_p = newValue}
@@ -5906,12 +5954,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dynamicType_p: Int32? = nil
   }
 
   struct falseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".false"
 
-    fileprivate var _false_p: Int32? = nil
     var false_p: Int32 {
       get {return _false_p ?? 0}
       set {_false_p = newValue}
@@ -5942,12 +5991,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _false_p: Int32? = nil
   }
 
   struct isMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".is"
 
-    fileprivate var _is_p: Int32? = nil
     var is_p: Int32 {
       get {return _is_p ?? 0}
       set {_is_p = newValue}
@@ -5978,12 +6028,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _is_p: Int32? = nil
   }
 
   struct nilMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nil"
 
-    fileprivate var _nil_p: Int32? = nil
     var nil_p: Int32 {
       get {return _nil_p ?? 0}
       set {_nil_p = newValue}
@@ -6014,12 +6065,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nil_p: Int32? = nil
   }
 
   struct rethrowsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".rethrows"
 
-    fileprivate var _rethrows_p: Int32? = nil
     var rethrows_p: Int32 {
       get {return _rethrows_p ?? 0}
       set {_rethrows_p = newValue}
@@ -6050,12 +6102,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _rethrows_p: Int32? = nil
   }
 
   struct superMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".super"
 
-    fileprivate var _super_p: Int32? = nil
     var super_p: Int32 {
       get {return _super_p ?? 0}
       set {_super_p = newValue}
@@ -6086,12 +6139,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _super_p: Int32? = nil
   }
 
   struct selfMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".self"
 
-    fileprivate var _self_p: Int32? = nil
     var self_p: Int32 {
       get {return _self_p ?? 0}
       set {_self_p = newValue}
@@ -6122,12 +6176,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _self_p: Int32? = nil
   }
 
   struct throwMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throw"
 
-    fileprivate var _throw_p: Int32? = nil
     var throw_p: Int32 {
       get {return _throw_p ?? 0}
       set {_throw_p = newValue}
@@ -6158,12 +6213,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _throw_p: Int32? = nil
   }
 
   struct throwsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throws"
 
-    fileprivate var _throws_p: Int32? = nil
     var throws_p: Int32 {
       get {return _throws_p ?? 0}
       set {_throws_p = newValue}
@@ -6194,12 +6250,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _throws_p: Int32? = nil
   }
 
   struct trueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".true"
 
-    fileprivate var _true_p: Int32? = nil
     var true_p: Int32 {
       get {return _true_p ?? 0}
       set {_true_p = newValue}
@@ -6230,12 +6287,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _true_p: Int32? = nil
   }
 
   struct tryMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".try"
 
-    fileprivate var _try_p: Int32? = nil
     var try_p: Int32 {
       get {return _try_p ?? 0}
       set {_try_p = newValue}
@@ -6266,12 +6324,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _try_p: Int32? = nil
   }
 
   struct __COLUMN__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__COLUMN__"
 
-    fileprivate var __Column__: Int32? = nil
     var _Column__: Int32 {
       get {return __Column__ ?? 0}
       set {__Column__ = newValue}
@@ -6302,12 +6361,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __Column__: Int32? = nil
   }
 
   struct __FILE__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FILE__"
 
-    fileprivate var __File__: Int32? = nil
     var _File__: Int32 {
       get {return __File__ ?? 0}
       set {__File__ = newValue}
@@ -6338,12 +6398,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __File__: Int32? = nil
   }
 
   struct __FUNCTION__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FUNCTION__"
 
-    fileprivate var __Function__: Int32? = nil
     var _Function__: Int32 {
       get {return __Function__ ?? 0}
       set {__Function__ = newValue}
@@ -6374,12 +6435,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __Function__: Int32? = nil
   }
 
   struct __LINE__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__LINE__"
 
-    fileprivate var __Line__: Int32? = nil
     var _Line__: Int32 {
       get {return __Line__ ?? 0}
       set {__Line__ = newValue}
@@ -6410,12 +6472,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __Line__: Int32? = nil
   }
 
   struct _Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._"
 
-    fileprivate var ____: Int32? = nil
     var ___: Int32 {
       get {return ____ ?? 0}
       set {____ = newValue}
@@ -6446,12 +6509,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var ____: Int32? = nil
   }
 
   struct __Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__"
 
-    fileprivate var _____: Int32? = nil
     var ____: Int32 {
       get {return _____ ?? 0}
       set {_____ = newValue}
@@ -6482,12 +6546,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _____: Int32? = nil
   }
 
   struct associativity: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
 
-    fileprivate var _associativity: Int32? = nil
     var associativity: Int32 {
       get {return _associativity ?? 0}
       set {_associativity = newValue}
@@ -6518,12 +6583,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _associativity: Int32? = nil
   }
 
   struct convenience: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".convenience"
 
-    fileprivate var _convenience: Int32? = nil
     var convenience: Int32 {
       get {return _convenience ?? 0}
       set {_convenience = newValue}
@@ -6554,12 +6620,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _convenience: Int32? = nil
   }
 
   struct dynamic: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic"
 
-    fileprivate var _dynamic: Int32? = nil
     var dynamic: Int32 {
       get {return _dynamic ?? 0}
       set {_dynamic = newValue}
@@ -6590,12 +6657,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dynamic: Int32? = nil
   }
 
   struct didSet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".didSet"
 
-    fileprivate var _didSet: Int32? = nil
     var didSet: Int32 {
       get {return _didSet ?? 0}
       set {_didSet = newValue}
@@ -6626,12 +6694,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _didSet: Int32? = nil
   }
 
   struct final: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".final"
 
-    fileprivate var _final: Int32? = nil
     var final: Int32 {
       get {return _final ?? 0}
       set {_final = newValue}
@@ -6662,12 +6731,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _final: Int32? = nil
   }
 
   struct get: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".get"
 
-    fileprivate var _get: Int32? = nil
     var get: Int32 {
       get {return _get ?? 0}
       set {_get = newValue}
@@ -6698,12 +6768,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _get: Int32? = nil
   }
 
   struct infix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".infix"
 
-    fileprivate var _infix: Int32? = nil
     var infix: Int32 {
       get {return _infix ?? 0}
       set {_infix = newValue}
@@ -6734,12 +6805,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _infix: Int32? = nil
   }
 
   struct indirect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".indirect"
 
-    fileprivate var _indirect: Int32? = nil
     var indirect: Int32 {
       get {return _indirect ?? 0}
       set {_indirect = newValue}
@@ -6770,12 +6842,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _indirect: Int32? = nil
   }
 
   struct lazy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".lazy"
 
-    fileprivate var _lazy: Int32? = nil
     var lazy: Int32 {
       get {return _lazy ?? 0}
       set {_lazy = newValue}
@@ -6806,12 +6879,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _lazy: Int32? = nil
   }
 
   struct left: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".left"
 
-    fileprivate var _left: Int32? = nil
     var left: Int32 {
       get {return _left ?? 0}
       set {_left = newValue}
@@ -6842,12 +6916,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _left: Int32? = nil
   }
 
   struct mutating: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutating"
 
-    fileprivate var _mutating: Int32? = nil
     var mutating: Int32 {
       get {return _mutating ?? 0}
       set {_mutating = newValue}
@@ -6878,12 +6953,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _mutating: Int32? = nil
   }
 
   struct none: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".none"
 
-    fileprivate var _none: Int32? = nil
     var none: Int32 {
       get {return _none ?? 0}
       set {_none = newValue}
@@ -6914,12 +6990,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _none: Int32? = nil
   }
 
   struct nonmutating: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nonmutating"
 
-    fileprivate var _nonmutating: Int32? = nil
     var nonmutating: Int32 {
       get {return _nonmutating ?? 0}
       set {_nonmutating = newValue}
@@ -6950,12 +7027,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nonmutating: Int32? = nil
   }
 
   struct optional: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
 
-    fileprivate var _optional: Int32? = nil
     var optional: Int32 {
       get {return _optional ?? 0}
       set {_optional = newValue}
@@ -6986,12 +7064,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _optional: Int32? = nil
   }
 
   struct override: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".override"
 
-    fileprivate var _override: Int32? = nil
     var override: Int32 {
       get {return _override ?? 0}
       set {_override = newValue}
@@ -7022,12 +7101,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _override: Int32? = nil
   }
 
   struct postfix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".postfix"
 
-    fileprivate var _postfix: Int32? = nil
     var postfix: Int32 {
       get {return _postfix ?? 0}
       set {_postfix = newValue}
@@ -7058,12 +7138,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _postfix: Int32? = nil
   }
 
   struct precedence: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".precedence"
 
-    fileprivate var _precedence: Int32? = nil
     var precedence: Int32 {
       get {return _precedence ?? 0}
       set {_precedence = newValue}
@@ -7094,12 +7175,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _precedence: Int32? = nil
   }
 
   struct prefix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".prefix"
 
-    fileprivate var _prefix: Int32? = nil
     var prefix: Int32 {
       get {return _prefix ?? 0}
       set {_prefix = newValue}
@@ -7130,12 +7212,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _prefix: Int32? = nil
   }
 
   struct required: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
 
-    fileprivate var _required: Int32? = nil
     var required: Int32 {
       get {return _required ?? 0}
       set {_required = newValue}
@@ -7166,12 +7249,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _required: Int32? = nil
   }
 
   struct right: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".right"
 
-    fileprivate var _right: Int32? = nil
     var right: Int32 {
       get {return _right ?? 0}
       set {_right = newValue}
@@ -7202,12 +7286,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _right: Int32? = nil
   }
 
   struct set: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".set"
 
-    fileprivate var _set: Int32? = nil
     var set: Int32 {
       get {return _set ?? 0}
       set {_set = newValue}
@@ -7238,12 +7323,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _set: Int32? = nil
   }
 
   struct TypeMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Type"
 
-    fileprivate var _type: Int32? = nil
     var type: Int32 {
       get {return _type ?? 0}
       set {_type = newValue}
@@ -7274,12 +7360,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _type: Int32? = nil
   }
 
   struct unowned: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unowned"
 
-    fileprivate var _unowned: Int32? = nil
     var unowned: Int32 {
       get {return _unowned ?? 0}
       set {_unowned = newValue}
@@ -7310,12 +7397,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unowned: Int32? = nil
   }
 
   struct weak: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".weak"
 
-    fileprivate var _weak: Int32? = nil
     var weak: Int32 {
       get {return _weak ?? 0}
       set {_weak = newValue}
@@ -7346,12 +7434,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _weak: Int32? = nil
   }
 
   struct willSet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".willSet"
 
-    fileprivate var _willSet: Int32? = nil
     var willSet: Int32 {
       get {return _willSet ?? 0}
       set {_willSet = newValue}
@@ -7382,12 +7471,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _willSet: Int32? = nil
   }
 
   struct id: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".id"
 
-    fileprivate var _id: Int32? = nil
     var id: Int32 {
       get {return _id ?? 0}
       set {_id = newValue}
@@ -7418,12 +7508,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _id: Int32? = nil
   }
 
   struct _cmd: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._cmd"
 
-    fileprivate var _cmd: Int32? = nil
     var cmd: Int32 {
       get {return _cmd ?? 0}
       set {_cmd = newValue}
@@ -7454,12 +7545,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _cmd: Int32? = nil
   }
 
   struct out: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".out"
 
-    fileprivate var _out: Int32? = nil
     var out: Int32 {
       get {return _out ?? 0}
       set {_out = newValue}
@@ -7490,12 +7582,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _out: Int32? = nil
   }
 
   struct bycopy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bycopy"
 
-    fileprivate var _bycopy: Int32? = nil
     var bycopy: Int32 {
       get {return _bycopy ?? 0}
       set {_bycopy = newValue}
@@ -7526,12 +7619,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bycopy: Int32? = nil
   }
 
   struct byref: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".byref"
 
-    fileprivate var _byref: Int32? = nil
     var byref: Int32 {
       get {return _byref ?? 0}
       set {_byref = newValue}
@@ -7562,12 +7656,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _byref: Int32? = nil
   }
 
   struct oneway: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".oneway"
 
-    fileprivate var _oneway: Int32? = nil
     var oneway: Int32 {
       get {return _oneway ?? 0}
       set {_oneway = newValue}
@@ -7598,12 +7693,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _oneway: Int32? = nil
   }
 
   struct and: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and"
 
-    fileprivate var _and: Int32? = nil
     var and: Int32 {
       get {return _and ?? 0}
       set {_and = newValue}
@@ -7634,12 +7730,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _and: Int32? = nil
   }
 
   struct and_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and_eq"
 
-    fileprivate var _andEq: Int32? = nil
     var andEq: Int32 {
       get {return _andEq ?? 0}
       set {_andEq = newValue}
@@ -7670,12 +7767,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _andEq: Int32? = nil
   }
 
   struct alignas: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignas"
 
-    fileprivate var _alignas: Int32? = nil
     var alignas: Int32 {
       get {return _alignas ?? 0}
       set {_alignas = newValue}
@@ -7706,12 +7804,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _alignas: Int32? = nil
   }
 
   struct alignof: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignof"
 
-    fileprivate var _alignof: Int32? = nil
     var alignof: Int32 {
       get {return _alignof ?? 0}
       set {_alignof = newValue}
@@ -7742,12 +7841,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _alignof: Int32? = nil
   }
 
   struct asm: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".asm"
 
-    fileprivate var _asm: Int32? = nil
     var asm: Int32 {
       get {return _asm ?? 0}
       set {_asm = newValue}
@@ -7778,12 +7878,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _asm: Int32? = nil
   }
 
   struct auto: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".auto"
 
-    fileprivate var _auto: Int32? = nil
     var auto: Int32 {
       get {return _auto ?? 0}
       set {_auto = newValue}
@@ -7814,12 +7915,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _auto: Int32? = nil
   }
 
   struct bitand: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitand"
 
-    fileprivate var _bitand: Int32? = nil
     var bitand: Int32 {
       get {return _bitand ?? 0}
       set {_bitand = newValue}
@@ -7850,12 +7952,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bitand: Int32? = nil
   }
 
   struct bitor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitor"
 
-    fileprivate var _bitor: Int32? = nil
     var bitor: Int32 {
       get {return _bitor ?? 0}
       set {_bitor = newValue}
@@ -7886,12 +7989,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bitor: Int32? = nil
   }
 
   struct bool: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bool"
 
-    fileprivate var _bool: Int32? = nil
     var bool: Int32 {
       get {return _bool ?? 0}
       set {_bool = newValue}
@@ -7922,12 +8026,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bool: Int32? = nil
   }
 
   struct char: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char"
 
-    fileprivate var _char: Int32? = nil
     var char: Int32 {
       get {return _char ?? 0}
       set {_char = newValue}
@@ -7958,12 +8063,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _char: Int32? = nil
   }
 
   struct char16_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char16_t"
 
-    fileprivate var _char16T: Int32? = nil
     var char16T: Int32 {
       get {return _char16T ?? 0}
       set {_char16T = newValue}
@@ -7994,12 +8100,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _char16T: Int32? = nil
   }
 
   struct char32_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char32_t"
 
-    fileprivate var _char32T: Int32? = nil
     var char32T: Int32 {
       get {return _char32T ?? 0}
       set {_char32T = newValue}
@@ -8030,12 +8137,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _char32T: Int32? = nil
   }
 
   struct compl: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".compl"
 
-    fileprivate var _compl: Int32? = nil
     var compl: Int32 {
       get {return _compl ?? 0}
       set {_compl = newValue}
@@ -8066,12 +8174,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _compl: Int32? = nil
   }
 
   struct const: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const"
 
-    fileprivate var _const: Int32? = nil
     var const: Int32 {
       get {return _const ?? 0}
       set {_const = newValue}
@@ -8102,12 +8211,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _const: Int32? = nil
   }
 
   struct constexpr: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".constexpr"
 
-    fileprivate var _constexpr: Int32? = nil
     var constexpr: Int32 {
       get {return _constexpr ?? 0}
       set {_constexpr = newValue}
@@ -8138,12 +8248,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _constexpr: Int32? = nil
   }
 
   struct const_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const_cast"
 
-    fileprivate var _constCast: Int32? = nil
     var constCast: Int32 {
       get {return _constCast ?? 0}
       set {_constCast = newValue}
@@ -8174,12 +8285,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _constCast: Int32? = nil
   }
 
   struct decltype: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".decltype"
 
-    fileprivate var _decltype: Int32? = nil
     var decltype: Int32 {
       get {return _decltype ?? 0}
       set {_decltype = newValue}
@@ -8210,12 +8322,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _decltype: Int32? = nil
   }
 
   struct delete: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delete"
 
-    fileprivate var _delete: Int32? = nil
     var delete: Int32 {
       get {return _delete ?? 0}
       set {_delete = newValue}
@@ -8246,12 +8359,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _delete: Int32? = nil
   }
 
   struct dynamic_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic_cast"
 
-    fileprivate var _dynamicCast: Int32? = nil
     var dynamicCast: Int32 {
       get {return _dynamicCast ?? 0}
       set {_dynamicCast = newValue}
@@ -8282,12 +8396,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dynamicCast: Int32? = nil
   }
 
   struct explicit: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".explicit"
 
-    fileprivate var _explicit: Int32? = nil
     var explicit: Int32 {
       get {return _explicit ?? 0}
       set {_explicit = newValue}
@@ -8318,12 +8433,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _explicit: Int32? = nil
   }
 
   struct export: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".export"
 
-    fileprivate var _export: Int32? = nil
     var export: Int32 {
       get {return _export ?? 0}
       set {_export = newValue}
@@ -8354,12 +8470,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _export: Int32? = nil
   }
 
   struct extern: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extern"
 
-    fileprivate var _extern: Int32? = nil
     var extern: Int32 {
       get {return _extern ?? 0}
       set {_extern = newValue}
@@ -8390,12 +8507,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extern: Int32? = nil
   }
 
   struct friend: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".friend"
 
-    fileprivate var _friend: Int32? = nil
     var friend: Int32 {
       get {return _friend ?? 0}
       set {_friend = newValue}
@@ -8426,12 +8544,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _friend: Int32? = nil
   }
 
   struct goto: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".goto"
 
-    fileprivate var _goto: Int32? = nil
     var goto: Int32 {
       get {return _goto ?? 0}
       set {_goto = newValue}
@@ -8462,12 +8581,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _goto: Int32? = nil
   }
 
   struct inline: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inline"
 
-    fileprivate var _inline: Int32? = nil
     var inline: Int32 {
       get {return _inline ?? 0}
       set {_inline = newValue}
@@ -8498,12 +8618,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _inline: Int32? = nil
   }
 
   struct long: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".long"
 
-    fileprivate var _long: Int32? = nil
     var long: Int32 {
       get {return _long ?? 0}
       set {_long = newValue}
@@ -8534,12 +8655,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _long: Int32? = nil
   }
 
   struct mutable: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutable"
 
-    fileprivate var _mutable: Int32? = nil
     var mutable: Int32 {
       get {return _mutable ?? 0}
       set {_mutable = newValue}
@@ -8570,12 +8692,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _mutable: Int32? = nil
   }
 
   struct namespace: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".namespace"
 
-    fileprivate var _namespace: Int32? = nil
     var namespace: Int32 {
       get {return _namespace ?? 0}
       set {_namespace = newValue}
@@ -8606,12 +8729,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _namespace: Int32? = nil
   }
 
   struct new: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".new"
 
-    fileprivate var _new: Int32? = nil
     var new: Int32 {
       get {return _new ?? 0}
       set {_new = newValue}
@@ -8642,12 +8766,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _new: Int32? = nil
   }
 
   struct noexcept: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".noexcept"
 
-    fileprivate var _noexcept: Int32? = nil
     var noexcept: Int32 {
       get {return _noexcept ?? 0}
       set {_noexcept = newValue}
@@ -8678,12 +8803,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _noexcept: Int32? = nil
   }
 
   struct not: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not"
 
-    fileprivate var _not: Int32? = nil
     var not: Int32 {
       get {return _not ?? 0}
       set {_not = newValue}
@@ -8714,12 +8840,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _not: Int32? = nil
   }
 
   struct not_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not_eq"
 
-    fileprivate var _notEq: Int32? = nil
     var notEq: Int32 {
       get {return _notEq ?? 0}
       set {_notEq = newValue}
@@ -8750,12 +8877,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _notEq: Int32? = nil
   }
 
   struct nullptr: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nullptr"
 
-    fileprivate var _nullptr: Int32? = nil
     var nullptr: Int32 {
       get {return _nullptr ?? 0}
       set {_nullptr = newValue}
@@ -8786,12 +8914,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nullptr: Int32? = nil
   }
 
   struct or: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or"
 
-    fileprivate var _or: Int32? = nil
     var or: Int32 {
       get {return _or ?? 0}
       set {_or = newValue}
@@ -8822,12 +8951,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _or: Int32? = nil
   }
 
   struct or_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or_eq"
 
-    fileprivate var _orEq: Int32? = nil
     var orEq: Int32 {
       get {return _orEq ?? 0}
       set {_orEq = newValue}
@@ -8858,12 +8988,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _orEq: Int32? = nil
   }
 
   struct protected: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protected"
 
-    fileprivate var _protected: Int32? = nil
     var protected: Int32 {
       get {return _protected ?? 0}
       set {_protected = newValue}
@@ -8894,12 +9025,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _protected: Int32? = nil
   }
 
   struct register: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".register"
 
-    fileprivate var _register: Int32? = nil
     var register: Int32 {
       get {return _register ?? 0}
       set {_register = newValue}
@@ -8930,12 +9062,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _register: Int32? = nil
   }
 
   struct reinterpret_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".reinterpret_cast"
 
-    fileprivate var _reinterpretCast: Int32? = nil
     var reinterpretCast: Int32 {
       get {return _reinterpretCast ?? 0}
       set {_reinterpretCast = newValue}
@@ -8966,12 +9099,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _reinterpretCast: Int32? = nil
   }
 
   struct short: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".short"
 
-    fileprivate var _short: Int32? = nil
     var short: Int32 {
       get {return _short ?? 0}
       set {_short = newValue}
@@ -9002,12 +9136,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _short: Int32? = nil
   }
 
   struct signed: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".signed"
 
-    fileprivate var _signed: Int32? = nil
     var signed: Int32 {
       get {return _signed ?? 0}
       set {_signed = newValue}
@@ -9038,12 +9173,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _signed: Int32? = nil
   }
 
   struct sizeof: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sizeof"
 
-    fileprivate var _sizeof: Int32? = nil
     var sizeof: Int32 {
       get {return _sizeof ?? 0}
       set {_sizeof = newValue}
@@ -9074,12 +9210,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sizeof: Int32? = nil
   }
 
   struct static_assert: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_assert"
 
-    fileprivate var _staticAssert: Int32? = nil
     var staticAssert: Int32 {
       get {return _staticAssert ?? 0}
       set {_staticAssert = newValue}
@@ -9110,12 +9247,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _staticAssert: Int32? = nil
   }
 
   struct static_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_cast"
 
-    fileprivate var _staticCast: Int32? = nil
     var staticCast: Int32 {
       get {return _staticCast ?? 0}
       set {_staticCast = newValue}
@@ -9146,12 +9284,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _staticCast: Int32? = nil
   }
 
   struct template: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".template"
 
-    fileprivate var _template: Int32? = nil
     var template: Int32 {
       get {return _template ?? 0}
       set {_template = newValue}
@@ -9182,12 +9321,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _template: Int32? = nil
   }
 
   struct this: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".this"
 
-    fileprivate var _this: Int32? = nil
     var this: Int32 {
       get {return _this ?? 0}
       set {_this = newValue}
@@ -9218,12 +9358,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _this: Int32? = nil
   }
 
   struct thread_local: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".thread_local"
 
-    fileprivate var _threadLocal: Int32? = nil
     var threadLocal: Int32 {
       get {return _threadLocal ?? 0}
       set {_threadLocal = newValue}
@@ -9254,12 +9395,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _threadLocal: Int32? = nil
   }
 
   struct typedef: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typedef"
 
-    fileprivate var _typedef: Int32? = nil
     var typedef: Int32 {
       get {return _typedef ?? 0}
       set {_typedef = newValue}
@@ -9290,12 +9432,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typedef: Int32? = nil
   }
 
   struct typeid: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typeid"
 
-    fileprivate var _typeid: Int32? = nil
     var typeid: Int32 {
       get {return _typeid ?? 0}
       set {_typeid = newValue}
@@ -9326,12 +9469,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typeid: Int32? = nil
   }
 
   struct typename: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typename"
 
-    fileprivate var _typename: Int32? = nil
     var typename: Int32 {
       get {return _typename ?? 0}
       set {_typename = newValue}
@@ -9362,12 +9506,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typename: Int32? = nil
   }
 
   struct union: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".union"
 
-    fileprivate var _union: Int32? = nil
     var union: Int32 {
       get {return _union ?? 0}
       set {_union = newValue}
@@ -9398,12 +9543,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _union: Int32? = nil
   }
 
   struct unsigned: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unsigned"
 
-    fileprivate var _unsigned: Int32? = nil
     var unsigned: Int32 {
       get {return _unsigned ?? 0}
       set {_unsigned = newValue}
@@ -9434,12 +9580,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unsigned: Int32? = nil
   }
 
   struct using: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".using"
 
-    fileprivate var _using: Int32? = nil
     var using: Int32 {
       get {return _using ?? 0}
       set {_using = newValue}
@@ -9470,12 +9617,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _using: Int32? = nil
   }
 
   struct virtual: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".virtual"
 
-    fileprivate var _virtual: Int32? = nil
     var virtual: Int32 {
       get {return _virtual ?? 0}
       set {_virtual = newValue}
@@ -9506,12 +9654,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _virtual: Int32? = nil
   }
 
   struct void: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".void"
 
-    fileprivate var _void: Int32? = nil
     var void: Int32 {
       get {return _void ?? 0}
       set {_void = newValue}
@@ -9542,12 +9691,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _void: Int32? = nil
   }
 
   struct volatile: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".volatile"
 
-    fileprivate var _volatile: Int32? = nil
     var volatile: Int32 {
       get {return _volatile ?? 0}
       set {_volatile = newValue}
@@ -9578,12 +9728,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _volatile: Int32? = nil
   }
 
   struct wchar_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".wchar_t"
 
-    fileprivate var _wcharT: Int32? = nil
     var wcharT: Int32 {
       get {return _wcharT ?? 0}
       set {_wcharT = newValue}
@@ -9614,12 +9765,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _wcharT: Int32? = nil
   }
 
   struct xor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor"
 
-    fileprivate var _xor: Int32? = nil
     var xor: Int32 {
       get {return _xor ?? 0}
       set {_xor = newValue}
@@ -9650,12 +9802,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _xor: Int32? = nil
   }
 
   struct xor_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor_eq"
 
-    fileprivate var _xorEq: Int32? = nil
     var xorEq: Int32 {
       get {return _xorEq ?? 0}
       set {_xorEq = newValue}
@@ -9686,12 +9839,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _xorEq: Int32? = nil
   }
 
   struct restrict: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".restrict"
 
-    fileprivate var _restrict: Int32? = nil
     var restrict: Int32 {
       get {return _restrict ?? 0}
       set {_restrict = newValue}
@@ -9722,12 +9876,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _restrict: Int32? = nil
   }
 
   struct Category: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Category"
 
-    fileprivate var _category: Int32? = nil
     var category: Int32 {
       get {return _category ?? 0}
       set {_category = newValue}
@@ -9758,12 +9913,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _category: Int32? = nil
   }
 
   struct Ivar: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Ivar"
 
-    fileprivate var _ivar: Int32? = nil
     var ivar: Int32 {
       get {return _ivar ?? 0}
       set {_ivar = newValue}
@@ -9794,12 +9950,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _ivar: Int32? = nil
   }
 
   struct Method: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Method"
 
-    fileprivate var _method: Int32? = nil
     var method: Int32 {
       get {return _method ?? 0}
       set {_method = newValue}
@@ -9830,12 +9987,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _method: Int32? = nil
   }
 
   struct finalize: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".finalize"
 
-    fileprivate var _finalize: Int32? = nil
     var finalize: Int32 {
       get {return _finalize ?? 0}
       set {_finalize = newValue}
@@ -9866,12 +10024,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _finalize: Int32? = nil
   }
 
   struct hash: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
 
-    fileprivate var _hash_p: Int32? = nil
     var hash_p: Int32 {
       get {return _hash_p ?? 0}
       set {_hash_p = newValue}
@@ -9902,12 +10061,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _hash_p: Int32? = nil
   }
 
   struct dealloc: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dealloc"
 
-    fileprivate var _dealloc: Int32? = nil
     var dealloc: Int32 {
       get {return _dealloc ?? 0}
       set {_dealloc = newValue}
@@ -9938,12 +10098,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dealloc: Int32? = nil
   }
 
   struct superclass: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".superclass"
 
-    fileprivate var _superclass: Int32? = nil
     var superclass: Int32 {
       get {return _superclass ?? 0}
       set {_superclass = newValue}
@@ -9974,12 +10135,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _superclass: Int32? = nil
   }
 
   struct retain: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retain"
 
-    fileprivate var _retain: Int32? = nil
     var retain: Int32 {
       get {return _retain ?? 0}
       set {_retain = newValue}
@@ -10010,12 +10172,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _retain: Int32? = nil
   }
 
   struct release: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".release"
 
-    fileprivate var _release: Int32? = nil
     var release: Int32 {
       get {return _release ?? 0}
       set {_release = newValue}
@@ -10046,12 +10209,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _release: Int32? = nil
   }
 
   struct autorelease: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".autorelease"
 
-    fileprivate var _autorelease: Int32? = nil
     var autorelease: Int32 {
       get {return _autorelease ?? 0}
       set {_autorelease = newValue}
@@ -10082,12 +10246,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _autorelease: Int32? = nil
   }
 
   struct retainCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retainCount"
 
-    fileprivate var _retainCount: Int32? = nil
     var retainCount: Int32 {
       get {return _retainCount ?? 0}
       set {_retainCount = newValue}
@@ -10118,12 +10283,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _retainCount: Int32? = nil
   }
 
   struct zone: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".zone"
 
-    fileprivate var _zone: Int32? = nil
     var zone: Int32 {
       get {return _zone ?? 0}
       set {_zone = newValue}
@@ -10154,12 +10320,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _zone: Int32? = nil
   }
 
   struct isProxy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isProxy"
 
-    fileprivate var _isProxy: Int32? = nil
     var isProxy: Int32 {
       get {return _isProxy ?? 0}
       set {_isProxy = newValue}
@@ -10190,12 +10357,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _isProxy: Int32? = nil
   }
 
   struct copy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".copy"
 
-    fileprivate var _copy: Int32? = nil
     var copy: Int32 {
       get {return _copy ?? 0}
       set {_copy = newValue}
@@ -10226,12 +10394,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _copy: Int32? = nil
   }
 
   struct mutableCopy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutableCopy"
 
-    fileprivate var _mutableCopy: Int32? = nil
     var mutableCopy: Int32 {
       get {return _mutableCopy ?? 0}
       set {_mutableCopy = newValue}
@@ -10262,12 +10431,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _mutableCopy: Int32? = nil
   }
 
   struct classForCoder: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".classForCoder"
 
-    fileprivate var _classForCoder: Int32? = nil
     var classForCoder: Int32 {
       get {return _classForCoder ?? 0}
       set {_classForCoder = newValue}
@@ -10298,12 +10468,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _classForCoder: Int32? = nil
   }
 
   struct clear: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
 
-    fileprivate var _clear_p: Int32? = nil
     var clear_p: Int32 {
       get {return _clear_p ?? 0}
       set {_clear_p = newValue}
@@ -10334,12 +10505,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _clear_p: Int32? = nil
   }
 
   struct data: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".data"
 
-    fileprivate var _data: Int32? = nil
     var data: Int32 {
       get {return _data ?? 0}
       set {_data = newValue}
@@ -10370,12 +10542,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _data: Int32? = nil
   }
 
   struct delimitedData: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delimitedData"
 
-    fileprivate var _delimitedData: Int32? = nil
     var delimitedData: Int32 {
       get {return _delimitedData ?? 0}
       set {_delimitedData = newValue}
@@ -10406,12 +10579,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _delimitedData: Int32? = nil
   }
 
   struct descriptor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".descriptor"
 
-    fileprivate var _descriptor: Int32? = nil
     var descriptor: Int32 {
       get {return _descriptor ?? 0}
       set {_descriptor = newValue}
@@ -10442,12 +10616,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _descriptor: Int32? = nil
   }
 
   struct extensionRegistry: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionRegistry"
 
-    fileprivate var _extensionRegistry: Int32? = nil
     var extensionRegistry: Int32 {
       get {return _extensionRegistry ?? 0}
       set {_extensionRegistry = newValue}
@@ -10478,12 +10653,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extensionRegistry: Int32? = nil
   }
 
   struct extensionsCurrentlySet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
 
-    fileprivate var _extensionsCurrentlySet: Int32? = nil
     var extensionsCurrentlySet: Int32 {
       get {return _extensionsCurrentlySet ?? 0}
       set {_extensionsCurrentlySet = newValue}
@@ -10514,12 +10690,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extensionsCurrentlySet: Int32? = nil
   }
 
   struct isInitializedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
 
-    fileprivate var _isInitialized_p: Int32? = nil
     var isInitialized_p: Int32 {
       get {return _isInitialized_p ?? 0}
       set {_isInitialized_p = newValue}
@@ -10550,12 +10727,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _isInitialized_p: Int32? = nil
   }
 
   struct serializedSize: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedSize"
 
-    fileprivate var _serializedSize: Int32? = nil
     var serializedSize: Int32 {
       get {return _serializedSize ?? 0}
       set {_serializedSize = newValue}
@@ -10586,12 +10764,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _serializedSize: Int32? = nil
   }
 
   struct sortedExtensionsInUse: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
 
-    fileprivate var _sortedExtensionsInUse: Int32? = nil
     var sortedExtensionsInUse: Int32 {
       get {return _sortedExtensionsInUse ?? 0}
       set {_sortedExtensionsInUse = newValue}
@@ -10622,12 +10801,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sortedExtensionsInUse: Int32? = nil
   }
 
   struct unknownFieldsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unknownFields"
 
-    fileprivate var _unknownFields_p: Int32? = nil
     var unknownFields_p: Int32 {
       get {return _unknownFields_p ?? 0}
       set {_unknownFields_p = newValue}
@@ -10658,12 +10838,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unknownFields_p: Int32? = nil
   }
 
   struct Fixed: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fixed"
 
-    fileprivate var _fixed: Int32? = nil
     var fixed: Int32 {
       get {return _fixed ?? 0}
       set {_fixed = newValue}
@@ -10694,12 +10875,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fixed: Int32? = nil
   }
 
   struct Fract: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fract"
 
-    fileprivate var _fract: Int32? = nil
     var fract: Int32 {
       get {return _fract ?? 0}
       set {_fract = newValue}
@@ -10730,12 +10912,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fract: Int32? = nil
   }
 
   struct Size: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Size"
 
-    fileprivate var _size: Int32? = nil
     var size: Int32 {
       get {return _size ?? 0}
       set {_size = newValue}
@@ -10766,12 +10949,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _size: Int32? = nil
   }
 
   struct LogicalAddress: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LogicalAddress"
 
-    fileprivate var _logicalAddress: Int32? = nil
     var logicalAddress: Int32 {
       get {return _logicalAddress ?? 0}
       set {_logicalAddress = newValue}
@@ -10802,12 +10986,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _logicalAddress: Int32? = nil
   }
 
   struct PhysicalAddress: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PhysicalAddress"
 
-    fileprivate var _physicalAddress: Int32? = nil
     var physicalAddress: Int32 {
       get {return _physicalAddress ?? 0}
       set {_physicalAddress = newValue}
@@ -10838,12 +11023,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _physicalAddress: Int32? = nil
   }
 
   struct ByteCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteCount"
 
-    fileprivate var _byteCount: Int32? = nil
     var byteCount: Int32 {
       get {return _byteCount ?? 0}
       set {_byteCount = newValue}
@@ -10874,12 +11060,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _byteCount: Int32? = nil
   }
 
   struct ByteOffset: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteOffset"
 
-    fileprivate var _byteOffset: Int32? = nil
     var byteOffset: Int32 {
       get {return _byteOffset ?? 0}
       set {_byteOffset = newValue}
@@ -10910,12 +11097,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _byteOffset: Int32? = nil
   }
 
   struct Duration: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Duration"
 
-    fileprivate var _duration: Int32? = nil
     var duration: Int32 {
       get {return _duration ?? 0}
       set {_duration = newValue}
@@ -10946,12 +11134,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _duration: Int32? = nil
   }
 
   struct AbsoluteTime: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".AbsoluteTime"
 
-    fileprivate var _absoluteTime: Int32? = nil
     var absoluteTime: Int32 {
       get {return _absoluteTime ?? 0}
       set {_absoluteTime = newValue}
@@ -10982,12 +11171,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _absoluteTime: Int32? = nil
   }
 
   struct OptionBits: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OptionBits"
 
-    fileprivate var _optionBits: Int32? = nil
     var optionBits: Int32 {
       get {return _optionBits ?? 0}
       set {_optionBits = newValue}
@@ -11018,12 +11208,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _optionBits: Int32? = nil
   }
 
   struct ItemCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ItemCount"
 
-    fileprivate var _itemCount: Int32? = nil
     var itemCount: Int32 {
       get {return _itemCount ?? 0}
       set {_itemCount = newValue}
@@ -11054,12 +11245,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _itemCount: Int32? = nil
   }
 
   struct PBVersion: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PBVersion"
 
-    fileprivate var _pbversion: Int32? = nil
     var pbversion: Int32 {
       get {return _pbversion ?? 0}
       set {_pbversion = newValue}
@@ -11090,12 +11282,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _pbversion: Int32? = nil
   }
 
   struct ScriptCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ScriptCode"
 
-    fileprivate var _scriptCode: Int32? = nil
     var scriptCode: Int32 {
       get {return _scriptCode ?? 0}
       set {_scriptCode = newValue}
@@ -11126,12 +11319,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _scriptCode: Int32? = nil
   }
 
   struct LangCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LangCode"
 
-    fileprivate var _langCode: Int32? = nil
     var langCode: Int32 {
       get {return _langCode ?? 0}
       set {_langCode = newValue}
@@ -11162,12 +11356,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _langCode: Int32? = nil
   }
 
   struct RegionCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".RegionCode"
 
-    fileprivate var _regionCode: Int32? = nil
     var regionCode: Int32 {
       get {return _regionCode ?? 0}
       set {_regionCode = newValue}
@@ -11198,12 +11393,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _regionCode: Int32? = nil
   }
 
   struct OSType: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OSType"
 
-    fileprivate var _ostype: Int32? = nil
     var ostype: Int32 {
       get {return _ostype ?? 0}
       set {_ostype = newValue}
@@ -11234,12 +11430,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _ostype: Int32? = nil
   }
 
   struct ProcessSerialNumber: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
 
-    fileprivate var _processSerialNumber: Int32? = nil
     var processSerialNumber: Int32 {
       get {return _processSerialNumber ?? 0}
       set {_processSerialNumber = newValue}
@@ -11270,12 +11467,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _processSerialNumber: Int32? = nil
   }
 
   struct Point: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Point"
 
-    fileprivate var _point: Int32? = nil
     var point: Int32 {
       get {return _point ?? 0}
       set {_point = newValue}
@@ -11306,12 +11504,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _point: Int32? = nil
   }
 
   struct Rect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Rect"
 
-    fileprivate var _rect: Int32? = nil
     var rect: Int32 {
       get {return _rect ?? 0}
       set {_rect = newValue}
@@ -11342,12 +11541,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _rect: Int32? = nil
   }
 
   struct FixedPoint: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedPoint"
 
-    fileprivate var _fixedPoint: Int32? = nil
     var fixedPoint: Int32 {
       get {return _fixedPoint ?? 0}
       set {_fixedPoint = newValue}
@@ -11378,12 +11578,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fixedPoint: Int32? = nil
   }
 
   struct FixedRect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedRect"
 
-    fileprivate var _fixedRect: Int32? = nil
     var fixedRect: Int32 {
       get {return _fixedRect ?? 0}
       set {_fixedRect = newValue}
@@ -11414,12 +11615,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fixedRect: Int32? = nil
   }
 
   struct Style: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Style"
 
-    fileprivate var _style: Int32? = nil
     var style: Int32 {
       get {return _style ?? 0}
       set {_style = newValue}
@@ -11450,12 +11652,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _style: Int32? = nil
   }
 
   struct StyleParameter: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleParameter"
 
-    fileprivate var _styleParameter: Int32? = nil
     var styleParameter: Int32 {
       get {return _styleParameter ?? 0}
       set {_styleParameter = newValue}
@@ -11486,12 +11689,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _styleParameter: Int32? = nil
   }
 
   struct StyleField: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleField"
 
-    fileprivate var _styleField: Int32? = nil
     var styleField: Int32 {
       get {return _styleField ?? 0}
       set {_styleField = newValue}
@@ -11522,12 +11726,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _styleField: Int32? = nil
   }
 
   struct TimeScale: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeScale"
 
-    fileprivate var _timeScale: Int32? = nil
     var timeScale: Int32 {
       get {return _timeScale ?? 0}
       set {_timeScale = newValue}
@@ -11558,12 +11763,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _timeScale: Int32? = nil
   }
 
   struct TimeBase: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeBase"
 
-    fileprivate var _timeBase: Int32? = nil
     var timeBase: Int32 {
       get {return _timeBase ?? 0}
       set {_timeBase = newValue}
@@ -11594,12 +11800,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _timeBase: Int32? = nil
   }
 
   struct TimeRecord: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeRecord"
 
-    fileprivate var _timeRecord: Int32? = nil
     var timeRecord: Int32 {
       get {return _timeRecord ?? 0}
       set {_timeRecord = newValue}
@@ -11630,12 +11837,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _timeRecord: Int32? = nil
   }
 
   struct serializedData: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedData"
 
-    fileprivate var _serializedData: Int32? = nil
     var serializedData: Int32 {
       get {return _serializedData ?? 0}
       set {_serializedData = newValue}
@@ -11666,12 +11874,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _serializedData: Int32? = nil
   }
 
   struct jsonUTF8Data: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
 
-    fileprivate var _jsonUtf8Data: Int32? = nil
     var jsonUtf8Data: Int32 {
       get {return _jsonUtf8Data ?? 0}
       set {_jsonUtf8Data = newValue}
@@ -11702,12 +11911,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _jsonUtf8Data: Int32? = nil
   }
 
   struct jsonString: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonString"
 
-    fileprivate var _jsonString: Int32? = nil
     var jsonString: Int32 {
       get {return _jsonString ?? 0}
       set {_jsonString = newValue}
@@ -11738,12 +11948,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _jsonString: Int32? = nil
   }
 
   struct Extension: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
 
-    fileprivate var _extension_p: Int32? = nil
     var extension_p: Int32 {
       get {return _extension_p ?? 0}
       set {_extension_p = newValue}
@@ -11774,12 +11985,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extension_p: Int32? = nil
   }
 
   struct ExtensionsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
 
-    fileprivate var _extensions: Int32? = nil
     var extensions: Int32 {
       get {return _extensions ?? 0}
       set {_extensions = newValue}
@@ -11810,6 +12022,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extensions: Int32? = nil
   }
 
   init() {}
@@ -16702,7 +16916,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
   struct Lowers: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
 
-    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
@@ -16714,7 +16927,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._http = nil
     }
 
-    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
@@ -16726,7 +16938,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._httpRequest = nil
     }
 
-    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
@@ -16738,7 +16949,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPRequest = nil
     }
 
-    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
@@ -16750,7 +16960,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTP = nil
     }
 
-    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
@@ -16762,7 +16971,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._https = nil
     }
 
-    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
@@ -16774,7 +16982,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._httpsRequest = nil
     }
 
-    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
@@ -16786,7 +16993,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPSRequest = nil
     }
 
-    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
@@ -16798,7 +17004,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPS = nil
     }
 
-    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
@@ -16810,7 +17015,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._url = nil
     }
 
-    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
@@ -16822,7 +17026,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._urlValue = nil
     }
 
-    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
@@ -16834,7 +17037,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theURLValue = nil
     }
 
-    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
@@ -16846,7 +17048,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theURL = nil
     }
 
-    fileprivate var _aBC: Int32? = nil
     var aBC: Int32 {
       get {return _aBC ?? 0}
       set {_aBC = newValue}
@@ -16925,12 +17126,25 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _http: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
+    fileprivate var _https: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
+    fileprivate var _url: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
+    fileprivate var _aBC: Int32? = nil
   }
 
   struct Uppers: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
 
-    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
@@ -16942,7 +17156,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._http = nil
     }
 
-    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
@@ -16954,7 +17167,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._httpRequest = nil
     }
 
-    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
@@ -16966,7 +17178,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPRequest = nil
     }
 
-    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
@@ -16978,7 +17189,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTP = nil
     }
 
-    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
@@ -16990,7 +17200,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._https = nil
     }
 
-    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
@@ -17002,7 +17211,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._httpsRequest = nil
     }
 
-    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
@@ -17014,7 +17222,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPSRequest = nil
     }
 
-    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
@@ -17026,7 +17233,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPS = nil
     }
 
-    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
@@ -17038,7 +17244,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._url = nil
     }
 
-    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
@@ -17050,7 +17255,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._urlValue = nil
     }
 
-    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
@@ -17062,7 +17266,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theURLValue = nil
     }
 
-    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
@@ -17137,12 +17340,24 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _http: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
+    fileprivate var _https: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
+    fileprivate var _url: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
   }
 
   struct WordCase: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".WordCase"
 
-    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
@@ -17154,7 +17369,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._http = nil
     }
 
-    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
@@ -17166,7 +17380,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._httpRequest = nil
     }
 
-    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
@@ -17178,7 +17391,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPRequest = nil
     }
 
-    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
@@ -17190,7 +17402,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTP = nil
     }
 
-    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
@@ -17202,7 +17413,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._https = nil
     }
 
-    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
@@ -17214,7 +17424,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._httpsRequest = nil
     }
 
-    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
@@ -17226,7 +17435,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPSRequest = nil
     }
 
-    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
@@ -17238,7 +17446,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theHTTPS = nil
     }
 
-    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
@@ -17250,7 +17457,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._url = nil
     }
 
-    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
@@ -17262,7 +17468,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._urlValue = nil
     }
 
-    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
@@ -17274,7 +17479,6 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       self._theURLValue = nil
     }
 
-    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
@@ -17349,6 +17553,19 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _http: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
+    fileprivate var _https: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
+    fileprivate var _url: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
   }
 
   init() {}

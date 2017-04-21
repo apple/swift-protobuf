@@ -164,7 +164,6 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
 struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestRequiredOptimizedForSize"
 
-  fileprivate var _x: Int32? = nil
   var x: Int32 {
     get {return _x ?? 0}
     set {_x = newValue}
@@ -200,6 +199,8 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _x: Int32? = nil
 }
 
 struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {

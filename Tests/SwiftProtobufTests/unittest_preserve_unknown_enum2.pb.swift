@@ -81,7 +81,6 @@ enum Proto2PreserveUnknownEnumUnittest_MyEnum: SwiftProtobuf.Enum {
 struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
 
-  fileprivate var _e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
   var e: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {return _e ?? Proto2PreserveUnknownEnumUnittest_MyEnum.foo}
     set {_e = newValue}
@@ -168,6 +167,8 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
     try self.o?.traverse(visitor: &visitor)
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _e: Proto2PreserveUnknownEnumUnittest_MyEnum? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

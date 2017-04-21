@@ -428,7 +428,6 @@ struct MessageFieldGenerator {
             p.outdent()
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
-            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print("get {return \(swiftStorageName) ?? \(swiftDefaultValue)}\n")
@@ -437,6 +436,12 @@ struct MessageFieldGenerator {
             p.print("}\n")
         } else {
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+        }
+    }
+
+    func generateTopIvarStorage(printer p: inout CodePrinter) {
+        if oneof == nil && !isRepeated && !isMap && !isProto3 {
+            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
         }
     }
 

@@ -54,7 +54,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".PublicImportMessageLite"
 
-  fileprivate var _e: Int32? = nil
   var e: Int32 {
     get {return _e ?? 0}
     set {_e = newValue}
@@ -85,6 +84,8 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _e: Int32? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

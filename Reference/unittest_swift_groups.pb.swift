@@ -53,7 +53,6 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = "SwiftTestGroupExtensions"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -94,12 +93,12 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _a: Int32? = nil
 }
 
 struct ExtensionGroup: SwiftProtobuf.Message {
   static let protoMessageName: String = "ExtensionGroup"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -130,12 +129,13 @@ struct ExtensionGroup: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct RepeatedExtensionGroup: SwiftProtobuf.Message {
   static let protoMessageName: String = "RepeatedExtensionGroup"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -166,12 +166,13 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
   static let protoMessageName: String = "SwiftTestGroupUnextended"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
@@ -202,6 +203,8 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
@@ -266,7 +269,6 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     struct SubGroup2: SwiftProtobuf.Message {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
 
-      fileprivate var _sub2A: Int32? = nil
       var sub2A: Int32 {
         get {return _sub2A ?? 0}
         set {_sub2A = newValue}
@@ -297,6 +299,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _sub2A: Int32? = nil
     }
 
     init() {}
@@ -332,7 +336,6 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
   struct SubGroup3: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
 
-    fileprivate var _sub3A: Int32? = nil
     var sub3A: Int32 {
       get {return _sub3A ?? 0}
       set {_sub3A = newValue}
@@ -351,7 +354,6 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     struct SubGroup4: SwiftProtobuf.Message {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
 
-      fileprivate var _sub4A: Int32? = nil
       var sub4A: Int32 {
         get {return _sub4A ?? 0}
         set {_sub4A = newValue}
@@ -382,6 +384,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _sub4A: Int32? = nil
     }
 
     init() {}
@@ -405,6 +409,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sub3A: Int32? = nil
   }
 
   init() {}
