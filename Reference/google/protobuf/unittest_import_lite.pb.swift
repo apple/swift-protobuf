@@ -85,17 +85,14 @@ enum ProtobufUnittestImport_ImportEnumLite: SwiftProtobuf.Enum {
 struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ImportMessageLite"
 
-  fileprivate var _d: Int32? = nil
   var d: Int32 {
     get {return _d ?? 0}
     set {_d = newValue}
   }
-  var hasD: Bool {
-    return self._d != nil
-  }
-  mutating func clearD() {
-    self._d = nil
-  }
+  /// Returns true if `d` has been explicitly set.
+  var hasD: Bool {return self._d != nil}
+  /// Clears the value of `d`. Subsequent reads from it will return its default value.
+  mutating func clearD() {self._d = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -116,6 +113,8 @@ struct ProtobufUnittestImport_ImportMessageLite: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _d: Int32? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

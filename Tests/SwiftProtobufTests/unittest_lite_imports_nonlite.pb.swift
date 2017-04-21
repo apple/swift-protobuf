@@ -60,12 +60,10 @@ struct ProtobufUnittest_TestLiteImportsNonlite: SwiftProtobuf.Message {
     get {return _storage._message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._message = newValue}
   }
-  var hasMessage: Bool {
-    return _storage._message != nil
-  }
-  mutating func clearMessage() {
-    _storage._message = nil
-  }
+  /// Returns true if `message` has been explicitly set.
+  var hasMessage: Bool {return _storage._message != nil}
+  /// Clears the value of `message`. Subsequent reads from it will return its default value.
+  mutating func clearMessage() {_storage._message = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

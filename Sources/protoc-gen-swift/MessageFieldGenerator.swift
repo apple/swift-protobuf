@@ -428,7 +428,6 @@ struct MessageFieldGenerator {
             p.outdent()
             p.print("}\n")
         } else if !isRepeated && !isMap && !isProto3 {
-            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print("get {return \(swiftStorageName) ?? \(swiftDefaultValue)}\n")
@@ -437,6 +436,12 @@ struct MessageFieldGenerator {
             p.print("}\n")
         } else {
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+        }
+    }
+
+    func generateTopIvarStorage(printer p: inout CodePrinter) {
+        if oneof == nil && !isRepeated && !isMap && !isProto3 {
+            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
         }
     }
 
@@ -478,11 +483,8 @@ struct MessageFieldGenerator {
             return
         }
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
-        p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {\n")
-        p.indent()
-        p.print("return \(storagePrefix)\(swiftStorageName) != nil\n")
-        p.outdent()
-        p.print("}\n")
+        p.print("/// Returns true if `\(swiftName)` has been explicitly set.\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {return \(storagePrefix)\(swiftStorageName) != nil}\n")
     }
 
     func generateClearMethod(printer p: inout CodePrinter, usesHeapStorage: Bool) {
@@ -490,11 +492,8 @@ struct MessageFieldGenerator {
             return
         }
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
-        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\n")
-        p.indent()
-        p.print("\(storagePrefix)\(swiftStorageName) = nil\n")
-        p.outdent()
-        p.print("}\n")
+        p.print("/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.\n")
+        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\(storagePrefix)\(swiftStorageName) = nil}\n")
     }
 
     func generateDecodeFieldCase(printer p: inout CodePrinter, usesStorage: Bool) {

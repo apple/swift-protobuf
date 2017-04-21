@@ -753,2443 +753,1999 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     get {return _storage._string ?? 0}
     set {_uniqueStorage()._string = newValue}
   }
-  var hasString: Bool {
-    return _storage._string != nil
-  }
-  mutating func clearString() {
-    _storage._string = nil
-  }
+  /// Returns true if `string` has been explicitly set.
+  var hasString: Bool {return _storage._string != nil}
+  /// Clears the value of `string`. Subsequent reads from it will return its default value.
+  mutating func clearString() {_storage._string = nil}
 
   var int: Int32 {
     get {return _storage._int ?? 0}
     set {_uniqueStorage()._int = newValue}
   }
-  var hasInt: Bool {
-    return _storage._int != nil
-  }
-  mutating func clearInt() {
-    _storage._int = nil
-  }
+  /// Returns true if `int` has been explicitly set.
+  var hasInt: Bool {return _storage._int != nil}
+  /// Clears the value of `int`. Subsequent reads from it will return its default value.
+  mutating func clearInt() {_storage._int = nil}
 
   var double: Int32 {
     get {return _storage._double ?? 0}
     set {_uniqueStorage()._double = newValue}
   }
-  var hasDouble: Bool {
-    return _storage._double != nil
-  }
-  mutating func clearDouble() {
-    _storage._double = nil
-  }
+  /// Returns true if `double` has been explicitly set.
+  var hasDouble: Bool {return _storage._double != nil}
+  /// Clears the value of `double`. Subsequent reads from it will return its default value.
+  mutating func clearDouble() {_storage._double = nil}
 
   var float: Int32 {
     get {return _storage._float ?? 0}
     set {_uniqueStorage()._float = newValue}
   }
-  var hasFloat: Bool {
-    return _storage._float != nil
-  }
-  mutating func clearFloat() {
-    _storage._float = nil
-  }
+  /// Returns true if `float` has been explicitly set.
+  var hasFloat: Bool {return _storage._float != nil}
+  /// Clears the value of `float`. Subsequent reads from it will return its default value.
+  mutating func clearFloat() {_storage._float = nil}
 
   var uint: Int32 {
     get {return _storage._uint ?? 0}
     set {_uniqueStorage()._uint = newValue}
   }
-  var hasUint: Bool {
-    return _storage._uint != nil
-  }
-  mutating func clearUint() {
-    _storage._uint = nil
-  }
+  /// Returns true if `uint` has been explicitly set.
+  var hasUint: Bool {return _storage._uint != nil}
+  /// Clears the value of `uint`. Subsequent reads from it will return its default value.
+  mutating func clearUint() {_storage._uint = nil}
 
   var hashValue_p: Int32 {
     get {return _storage._hashValue_p ?? 0}
     set {_uniqueStorage()._hashValue_p = newValue}
   }
-  var hasHashValue_p: Bool {
-    return _storage._hashValue_p != nil
-  }
-  mutating func clearHashValue_p() {
-    _storage._hashValue_p = nil
-  }
+  /// Returns true if `hashValue_p` has been explicitly set.
+  var hasHashValue_p: Bool {return _storage._hashValue_p != nil}
+  /// Clears the value of `hashValue_p`. Subsequent reads from it will return its default value.
+  mutating func clearHashValue_p() {_storage._hashValue_p = nil}
 
   var description_p: Int32 {
     get {return _storage._description_p ?? 0}
     set {_uniqueStorage()._description_p = newValue}
   }
-  var hasDescription_p: Bool {
-    return _storage._description_p != nil
-  }
-  mutating func clearDescription_p() {
-    _storage._description_p = nil
-  }
+  /// Returns true if `description_p` has been explicitly set.
+  var hasDescription_p: Bool {return _storage._description_p != nil}
+  /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
+  mutating func clearDescription_p() {_storage._description_p = nil}
 
   var debugDescription_p: Int32 {
     get {return _storage._debugDescription_p ?? 0}
     set {_uniqueStorage()._debugDescription_p = newValue}
   }
-  var hasDebugDescription_p: Bool {
-    return _storage._debugDescription_p != nil
-  }
-  mutating func clearDebugDescription_p() {
-    _storage._debugDescription_p = nil
-  }
+  /// Returns true if `debugDescription_p` has been explicitly set.
+  var hasDebugDescription_p: Bool {return _storage._debugDescription_p != nil}
+  /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
+  mutating func clearDebugDescription_p() {_storage._debugDescription_p = nil}
 
   var swift: Int32 {
     get {return _storage._swift ?? 0}
     set {_uniqueStorage()._swift = newValue}
   }
-  var hasSwift: Bool {
-    return _storage._swift != nil
-  }
-  mutating func clearSwift() {
-    _storage._swift = nil
-  }
+  /// Returns true if `swift` has been explicitly set.
+  var hasSwift: Bool {return _storage._swift != nil}
+  /// Clears the value of `swift`. Subsequent reads from it will return its default value.
+  mutating func clearSwift() {_storage._swift = nil}
 
   var unrecognized: Int32 {
     get {return _storage._unrecognized ?? 0}
     set {_uniqueStorage()._unrecognized = newValue}
   }
-  var hasUnrecognized: Bool {
-    return _storage._unrecognized != nil
-  }
-  mutating func clearUnrecognized() {
-    _storage._unrecognized = nil
-  }
+  /// Returns true if `unrecognized` has been explicitly set.
+  var hasUnrecognized: Bool {return _storage._unrecognized != nil}
+  /// Clears the value of `unrecognized`. Subsequent reads from it will return its default value.
+  mutating func clearUnrecognized() {_storage._unrecognized = nil}
 
   var class_p: Int32 {
     get {return _storage._class_p ?? 0}
     set {_uniqueStorage()._class_p = newValue}
   }
-  var hasClass_p: Bool {
-    return _storage._class_p != nil
-  }
-  mutating func clearClass_p() {
-    _storage._class_p = nil
-  }
+  /// Returns true if `class_p` has been explicitly set.
+  var hasClass_p: Bool {return _storage._class_p != nil}
+  /// Clears the value of `class_p`. Subsequent reads from it will return its default value.
+  mutating func clearClass_p() {_storage._class_p = nil}
 
   var deinit_p: Int32 {
     get {return _storage._deinit_p ?? 0}
     set {_uniqueStorage()._deinit_p = newValue}
   }
-  var hasDeinit_p: Bool {
-    return _storage._deinit_p != nil
-  }
-  mutating func clearDeinit_p() {
-    _storage._deinit_p = nil
-  }
+  /// Returns true if `deinit_p` has been explicitly set.
+  var hasDeinit_p: Bool {return _storage._deinit_p != nil}
+  /// Clears the value of `deinit_p`. Subsequent reads from it will return its default value.
+  mutating func clearDeinit_p() {_storage._deinit_p = nil}
 
   var enum_p: Int32 {
     get {return _storage._enum_p ?? 0}
     set {_uniqueStorage()._enum_p = newValue}
   }
-  var hasEnum_p: Bool {
-    return _storage._enum_p != nil
-  }
-  mutating func clearEnum_p() {
-    _storage._enum_p = nil
-  }
+  /// Returns true if `enum_p` has been explicitly set.
+  var hasEnum_p: Bool {return _storage._enum_p != nil}
+  /// Clears the value of `enum_p`. Subsequent reads from it will return its default value.
+  mutating func clearEnum_p() {_storage._enum_p = nil}
 
   var func_p: Int32 {
     get {return _storage._func_p ?? 0}
     set {_uniqueStorage()._func_p = newValue}
   }
-  var hasFunc_p: Bool {
-    return _storage._func_p != nil
-  }
-  mutating func clearFunc_p() {
-    _storage._func_p = nil
-  }
+  /// Returns true if `func_p` has been explicitly set.
+  var hasFunc_p: Bool {return _storage._func_p != nil}
+  /// Clears the value of `func_p`. Subsequent reads from it will return its default value.
+  mutating func clearFunc_p() {_storage._func_p = nil}
 
   var import_p: Int32 {
     get {return _storage._import_p ?? 0}
     set {_uniqueStorage()._import_p = newValue}
   }
-  var hasImport_p: Bool {
-    return _storage._import_p != nil
-  }
-  mutating func clearImport_p() {
-    _storage._import_p = nil
-  }
+  /// Returns true if `import_p` has been explicitly set.
+  var hasImport_p: Bool {return _storage._import_p != nil}
+  /// Clears the value of `import_p`. Subsequent reads from it will return its default value.
+  mutating func clearImport_p() {_storage._import_p = nil}
 
   var init_p: Int32 {
     get {return _storage._init_p ?? 0}
     set {_uniqueStorage()._init_p = newValue}
   }
-  var hasInit_p: Bool {
-    return _storage._init_p != nil
-  }
-  mutating func clearInit_p() {
-    _storage._init_p = nil
-  }
+  /// Returns true if `init_p` has been explicitly set.
+  var hasInit_p: Bool {return _storage._init_p != nil}
+  /// Clears the value of `init_p`. Subsequent reads from it will return its default value.
+  mutating func clearInit_p() {_storage._init_p = nil}
 
   var inout_p: Int32 {
     get {return _storage._inout_p ?? 0}
     set {_uniqueStorage()._inout_p = newValue}
   }
-  var hasInout_p: Bool {
-    return _storage._inout_p != nil
-  }
-  mutating func clearInout_p() {
-    _storage._inout_p = nil
-  }
+  /// Returns true if `inout_p` has been explicitly set.
+  var hasInout_p: Bool {return _storage._inout_p != nil}
+  /// Clears the value of `inout_p`. Subsequent reads from it will return its default value.
+  mutating func clearInout_p() {_storage._inout_p = nil}
 
   var internal_p: Int32 {
     get {return _storage._internal_p ?? 0}
     set {_uniqueStorage()._internal_p = newValue}
   }
-  var hasInternal_p: Bool {
-    return _storage._internal_p != nil
-  }
-  mutating func clearInternal_p() {
-    _storage._internal_p = nil
-  }
+  /// Returns true if `internal_p` has been explicitly set.
+  var hasInternal_p: Bool {return _storage._internal_p != nil}
+  /// Clears the value of `internal_p`. Subsequent reads from it will return its default value.
+  mutating func clearInternal_p() {_storage._internal_p = nil}
 
   var let_p: Int32 {
     get {return _storage._let_p ?? 0}
     set {_uniqueStorage()._let_p = newValue}
   }
-  var hasLet_p: Bool {
-    return _storage._let_p != nil
-  }
-  mutating func clearLet_p() {
-    _storage._let_p = nil
-  }
+  /// Returns true if `let_p` has been explicitly set.
+  var hasLet_p: Bool {return _storage._let_p != nil}
+  /// Clears the value of `let_p`. Subsequent reads from it will return its default value.
+  mutating func clearLet_p() {_storage._let_p = nil}
 
   var operator_p: Int32 {
     get {return _storage._operator_p ?? 0}
     set {_uniqueStorage()._operator_p = newValue}
   }
-  var hasOperator_p: Bool {
-    return _storage._operator_p != nil
-  }
-  mutating func clearOperator_p() {
-    _storage._operator_p = nil
-  }
+  /// Returns true if `operator_p` has been explicitly set.
+  var hasOperator_p: Bool {return _storage._operator_p != nil}
+  /// Clears the value of `operator_p`. Subsequent reads from it will return its default value.
+  mutating func clearOperator_p() {_storage._operator_p = nil}
 
   var private_p: Int32 {
     get {return _storage._private_p ?? 0}
     set {_uniqueStorage()._private_p = newValue}
   }
-  var hasPrivate_p: Bool {
-    return _storage._private_p != nil
-  }
-  mutating func clearPrivate_p() {
-    _storage._private_p = nil
-  }
+  /// Returns true if `private_p` has been explicitly set.
+  var hasPrivate_p: Bool {return _storage._private_p != nil}
+  /// Clears the value of `private_p`. Subsequent reads from it will return its default value.
+  mutating func clearPrivate_p() {_storage._private_p = nil}
 
   var protocol_p: Int32 {
     get {return _storage._protocol_p ?? 0}
     set {_uniqueStorage()._protocol_p = newValue}
   }
-  var hasProtocol_p: Bool {
-    return _storage._protocol_p != nil
-  }
-  mutating func clearProtocol_p() {
-    _storage._protocol_p = nil
-  }
+  /// Returns true if `protocol_p` has been explicitly set.
+  var hasProtocol_p: Bool {return _storage._protocol_p != nil}
+  /// Clears the value of `protocol_p`. Subsequent reads from it will return its default value.
+  mutating func clearProtocol_p() {_storage._protocol_p = nil}
 
   var public_p: Int32 {
     get {return _storage._public_p ?? 0}
     set {_uniqueStorage()._public_p = newValue}
   }
-  var hasPublic_p: Bool {
-    return _storage._public_p != nil
-  }
-  mutating func clearPublic_p() {
-    _storage._public_p = nil
-  }
+  /// Returns true if `public_p` has been explicitly set.
+  var hasPublic_p: Bool {return _storage._public_p != nil}
+  /// Clears the value of `public_p`. Subsequent reads from it will return its default value.
+  mutating func clearPublic_p() {_storage._public_p = nil}
 
   var static_p: Int32 {
     get {return _storage._static_p ?? 0}
     set {_uniqueStorage()._static_p = newValue}
   }
-  var hasStatic_p: Bool {
-    return _storage._static_p != nil
-  }
-  mutating func clearStatic_p() {
-    _storage._static_p = nil
-  }
+  /// Returns true if `static_p` has been explicitly set.
+  var hasStatic_p: Bool {return _storage._static_p != nil}
+  /// Clears the value of `static_p`. Subsequent reads from it will return its default value.
+  mutating func clearStatic_p() {_storage._static_p = nil}
 
   var struct_p: Int32 {
     get {return _storage._struct_p ?? 0}
     set {_uniqueStorage()._struct_p = newValue}
   }
-  var hasStruct_p: Bool {
-    return _storage._struct_p != nil
-  }
-  mutating func clearStruct_p() {
-    _storage._struct_p = nil
-  }
+  /// Returns true if `struct_p` has been explicitly set.
+  var hasStruct_p: Bool {return _storage._struct_p != nil}
+  /// Clears the value of `struct_p`. Subsequent reads from it will return its default value.
+  mutating func clearStruct_p() {_storage._struct_p = nil}
 
   var subscript_p: Int32 {
     get {return _storage._subscript_p ?? 0}
     set {_uniqueStorage()._subscript_p = newValue}
   }
-  var hasSubscript_p: Bool {
-    return _storage._subscript_p != nil
-  }
-  mutating func clearSubscript_p() {
-    _storage._subscript_p = nil
-  }
+  /// Returns true if `subscript_p` has been explicitly set.
+  var hasSubscript_p: Bool {return _storage._subscript_p != nil}
+  /// Clears the value of `subscript_p`. Subsequent reads from it will return its default value.
+  mutating func clearSubscript_p() {_storage._subscript_p = nil}
 
   var typealias_p: Int32 {
     get {return _storage._typealias_p ?? 0}
     set {_uniqueStorage()._typealias_p = newValue}
   }
-  var hasTypealias_p: Bool {
-    return _storage._typealias_p != nil
-  }
-  mutating func clearTypealias_p() {
-    _storage._typealias_p = nil
-  }
+  /// Returns true if `typealias_p` has been explicitly set.
+  var hasTypealias_p: Bool {return _storage._typealias_p != nil}
+  /// Clears the value of `typealias_p`. Subsequent reads from it will return its default value.
+  mutating func clearTypealias_p() {_storage._typealias_p = nil}
 
   var var_p: Int32 {
     get {return _storage._var_p ?? 0}
     set {_uniqueStorage()._var_p = newValue}
   }
-  var hasVar_p: Bool {
-    return _storage._var_p != nil
-  }
-  mutating func clearVar_p() {
-    _storage._var_p = nil
-  }
+  /// Returns true if `var_p` has been explicitly set.
+  var hasVar_p: Bool {return _storage._var_p != nil}
+  /// Clears the value of `var_p`. Subsequent reads from it will return its default value.
+  mutating func clearVar_p() {_storage._var_p = nil}
 
   var break_p: Int32 {
     get {return _storage._break_p ?? 0}
     set {_uniqueStorage()._break_p = newValue}
   }
-  var hasBreak_p: Bool {
-    return _storage._break_p != nil
-  }
-  mutating func clearBreak_p() {
-    _storage._break_p = nil
-  }
+  /// Returns true if `break_p` has been explicitly set.
+  var hasBreak_p: Bool {return _storage._break_p != nil}
+  /// Clears the value of `break_p`. Subsequent reads from it will return its default value.
+  mutating func clearBreak_p() {_storage._break_p = nil}
 
   var case_p: Int32 {
     get {return _storage._case_p ?? 0}
     set {_uniqueStorage()._case_p = newValue}
   }
-  var hasCase_p: Bool {
-    return _storage._case_p != nil
-  }
-  mutating func clearCase_p() {
-    _storage._case_p = nil
-  }
+  /// Returns true if `case_p` has been explicitly set.
+  var hasCase_p: Bool {return _storage._case_p != nil}
+  /// Clears the value of `case_p`. Subsequent reads from it will return its default value.
+  mutating func clearCase_p() {_storage._case_p = nil}
 
   var continue_p: Int32 {
     get {return _storage._continue_p ?? 0}
     set {_uniqueStorage()._continue_p = newValue}
   }
-  var hasContinue_p: Bool {
-    return _storage._continue_p != nil
-  }
-  mutating func clearContinue_p() {
-    _storage._continue_p = nil
-  }
+  /// Returns true if `continue_p` has been explicitly set.
+  var hasContinue_p: Bool {return _storage._continue_p != nil}
+  /// Clears the value of `continue_p`. Subsequent reads from it will return its default value.
+  mutating func clearContinue_p() {_storage._continue_p = nil}
 
   var default_p: Int32 {
     get {return _storage._default_p ?? 0}
     set {_uniqueStorage()._default_p = newValue}
   }
-  var hasDefault_p: Bool {
-    return _storage._default_p != nil
-  }
-  mutating func clearDefault_p() {
-    _storage._default_p = nil
-  }
+  /// Returns true if `default_p` has been explicitly set.
+  var hasDefault_p: Bool {return _storage._default_p != nil}
+  /// Clears the value of `default_p`. Subsequent reads from it will return its default value.
+  mutating func clearDefault_p() {_storage._default_p = nil}
 
   var defer_p: Int32 {
     get {return _storage._defer_p ?? 0}
     set {_uniqueStorage()._defer_p = newValue}
   }
-  var hasDefer_p: Bool {
-    return _storage._defer_p != nil
-  }
-  mutating func clearDefer_p() {
-    _storage._defer_p = nil
-  }
+  /// Returns true if `defer_p` has been explicitly set.
+  var hasDefer_p: Bool {return _storage._defer_p != nil}
+  /// Clears the value of `defer_p`. Subsequent reads from it will return its default value.
+  mutating func clearDefer_p() {_storage._defer_p = nil}
 
   var do_p: Int32 {
     get {return _storage._do_p ?? 0}
     set {_uniqueStorage()._do_p = newValue}
   }
-  var hasDo_p: Bool {
-    return _storage._do_p != nil
-  }
-  mutating func clearDo_p() {
-    _storage._do_p = nil
-  }
+  /// Returns true if `do_p` has been explicitly set.
+  var hasDo_p: Bool {return _storage._do_p != nil}
+  /// Clears the value of `do_p`. Subsequent reads from it will return its default value.
+  mutating func clearDo_p() {_storage._do_p = nil}
 
   var else_p: Int32 {
     get {return _storage._else_p ?? 0}
     set {_uniqueStorage()._else_p = newValue}
   }
-  var hasElse_p: Bool {
-    return _storage._else_p != nil
-  }
-  mutating func clearElse_p() {
-    _storage._else_p = nil
-  }
+  /// Returns true if `else_p` has been explicitly set.
+  var hasElse_p: Bool {return _storage._else_p != nil}
+  /// Clears the value of `else_p`. Subsequent reads from it will return its default value.
+  mutating func clearElse_p() {_storage._else_p = nil}
 
   var fallthrough_p: Int32 {
     get {return _storage._fallthrough_p ?? 0}
     set {_uniqueStorage()._fallthrough_p = newValue}
   }
-  var hasFallthrough_p: Bool {
-    return _storage._fallthrough_p != nil
-  }
-  mutating func clearFallthrough_p() {
-    _storage._fallthrough_p = nil
-  }
+  /// Returns true if `fallthrough_p` has been explicitly set.
+  var hasFallthrough_p: Bool {return _storage._fallthrough_p != nil}
+  /// Clears the value of `fallthrough_p`. Subsequent reads from it will return its default value.
+  mutating func clearFallthrough_p() {_storage._fallthrough_p = nil}
 
   var for_p: Int32 {
     get {return _storage._for_p ?? 0}
     set {_uniqueStorage()._for_p = newValue}
   }
-  var hasFor_p: Bool {
-    return _storage._for_p != nil
-  }
-  mutating func clearFor_p() {
-    _storage._for_p = nil
-  }
+  /// Returns true if `for_p` has been explicitly set.
+  var hasFor_p: Bool {return _storage._for_p != nil}
+  /// Clears the value of `for_p`. Subsequent reads from it will return its default value.
+  mutating func clearFor_p() {_storage._for_p = nil}
 
   var guard_p: Int32 {
     get {return _storage._guard_p ?? 0}
     set {_uniqueStorage()._guard_p = newValue}
   }
-  var hasGuard_p: Bool {
-    return _storage._guard_p != nil
-  }
-  mutating func clearGuard_p() {
-    _storage._guard_p = nil
-  }
+  /// Returns true if `guard_p` has been explicitly set.
+  var hasGuard_p: Bool {return _storage._guard_p != nil}
+  /// Clears the value of `guard_p`. Subsequent reads from it will return its default value.
+  mutating func clearGuard_p() {_storage._guard_p = nil}
 
   var if_p: Int32 {
     get {return _storage._if_p ?? 0}
     set {_uniqueStorage()._if_p = newValue}
   }
-  var hasIf_p: Bool {
-    return _storage._if_p != nil
-  }
-  mutating func clearIf_p() {
-    _storage._if_p = nil
-  }
+  /// Returns true if `if_p` has been explicitly set.
+  var hasIf_p: Bool {return _storage._if_p != nil}
+  /// Clears the value of `if_p`. Subsequent reads from it will return its default value.
+  mutating func clearIf_p() {_storage._if_p = nil}
 
   var in_p: Int32 {
     get {return _storage._in_p ?? 0}
     set {_uniqueStorage()._in_p = newValue}
   }
-  var hasIn_p: Bool {
-    return _storage._in_p != nil
-  }
-  mutating func clearIn_p() {
-    _storage._in_p = nil
-  }
+  /// Returns true if `in_p` has been explicitly set.
+  var hasIn_p: Bool {return _storage._in_p != nil}
+  /// Clears the value of `in_p`. Subsequent reads from it will return its default value.
+  mutating func clearIn_p() {_storage._in_p = nil}
 
   var repeat_p: Int32 {
     get {return _storage._repeat_p ?? 0}
     set {_uniqueStorage()._repeat_p = newValue}
   }
-  var hasRepeat_p: Bool {
-    return _storage._repeat_p != nil
-  }
-  mutating func clearRepeat_p() {
-    _storage._repeat_p = nil
-  }
+  /// Returns true if `repeat_p` has been explicitly set.
+  var hasRepeat_p: Bool {return _storage._repeat_p != nil}
+  /// Clears the value of `repeat_p`. Subsequent reads from it will return its default value.
+  mutating func clearRepeat_p() {_storage._repeat_p = nil}
 
   var return_p: Int32 {
     get {return _storage._return_p ?? 0}
     set {_uniqueStorage()._return_p = newValue}
   }
-  var hasReturn_p: Bool {
-    return _storage._return_p != nil
-  }
-  mutating func clearReturn_p() {
-    _storage._return_p = nil
-  }
+  /// Returns true if `return_p` has been explicitly set.
+  var hasReturn_p: Bool {return _storage._return_p != nil}
+  /// Clears the value of `return_p`. Subsequent reads from it will return its default value.
+  mutating func clearReturn_p() {_storage._return_p = nil}
 
   var switch_p: Int32 {
     get {return _storage._switch_p ?? 0}
     set {_uniqueStorage()._switch_p = newValue}
   }
-  var hasSwitch_p: Bool {
-    return _storage._switch_p != nil
-  }
-  mutating func clearSwitch_p() {
-    _storage._switch_p = nil
-  }
+  /// Returns true if `switch_p` has been explicitly set.
+  var hasSwitch_p: Bool {return _storage._switch_p != nil}
+  /// Clears the value of `switch_p`. Subsequent reads from it will return its default value.
+  mutating func clearSwitch_p() {_storage._switch_p = nil}
 
   var where_p: Int32 {
     get {return _storage._where_p ?? 0}
     set {_uniqueStorage()._where_p = newValue}
   }
-  var hasWhere_p: Bool {
-    return _storage._where_p != nil
-  }
-  mutating func clearWhere_p() {
-    _storage._where_p = nil
-  }
+  /// Returns true if `where_p` has been explicitly set.
+  var hasWhere_p: Bool {return _storage._where_p != nil}
+  /// Clears the value of `where_p`. Subsequent reads from it will return its default value.
+  mutating func clearWhere_p() {_storage._where_p = nil}
 
   var while_p: Int32 {
     get {return _storage._while_p ?? 0}
     set {_uniqueStorage()._while_p = newValue}
   }
-  var hasWhile_p: Bool {
-    return _storage._while_p != nil
-  }
-  mutating func clearWhile_p() {
-    _storage._while_p = nil
-  }
+  /// Returns true if `while_p` has been explicitly set.
+  var hasWhile_p: Bool {return _storage._while_p != nil}
+  /// Clears the value of `while_p`. Subsequent reads from it will return its default value.
+  mutating func clearWhile_p() {_storage._while_p = nil}
 
   var as_p: Int32 {
     get {return _storage._as_p ?? 0}
     set {_uniqueStorage()._as_p = newValue}
   }
-  var hasAs_p: Bool {
-    return _storage._as_p != nil
-  }
-  mutating func clearAs_p() {
-    _storage._as_p = nil
-  }
+  /// Returns true if `as_p` has been explicitly set.
+  var hasAs_p: Bool {return _storage._as_p != nil}
+  /// Clears the value of `as_p`. Subsequent reads from it will return its default value.
+  mutating func clearAs_p() {_storage._as_p = nil}
 
   var catch_p: Int32 {
     get {return _storage._catch_p ?? 0}
     set {_uniqueStorage()._catch_p = newValue}
   }
-  var hasCatch_p: Bool {
-    return _storage._catch_p != nil
-  }
-  mutating func clearCatch_p() {
-    _storage._catch_p = nil
-  }
+  /// Returns true if `catch_p` has been explicitly set.
+  var hasCatch_p: Bool {return _storage._catch_p != nil}
+  /// Clears the value of `catch_p`. Subsequent reads from it will return its default value.
+  mutating func clearCatch_p() {_storage._catch_p = nil}
 
   var dynamicType_p: Int32 {
     get {return _storage._dynamicType_p ?? 0}
     set {_uniqueStorage()._dynamicType_p = newValue}
   }
-  var hasDynamicType_p: Bool {
-    return _storage._dynamicType_p != nil
-  }
-  mutating func clearDynamicType_p() {
-    _storage._dynamicType_p = nil
-  }
+  /// Returns true if `dynamicType_p` has been explicitly set.
+  var hasDynamicType_p: Bool {return _storage._dynamicType_p != nil}
+  /// Clears the value of `dynamicType_p`. Subsequent reads from it will return its default value.
+  mutating func clearDynamicType_p() {_storage._dynamicType_p = nil}
 
   var false_p: Int32 {
     get {return _storage._false_p ?? 0}
     set {_uniqueStorage()._false_p = newValue}
   }
-  var hasFalse_p: Bool {
-    return _storage._false_p != nil
-  }
-  mutating func clearFalse_p() {
-    _storage._false_p = nil
-  }
+  /// Returns true if `false_p` has been explicitly set.
+  var hasFalse_p: Bool {return _storage._false_p != nil}
+  /// Clears the value of `false_p`. Subsequent reads from it will return its default value.
+  mutating func clearFalse_p() {_storage._false_p = nil}
 
   var is_p: Int32 {
     get {return _storage._is_p ?? 0}
     set {_uniqueStorage()._is_p = newValue}
   }
-  var hasIs_p: Bool {
-    return _storage._is_p != nil
-  }
-  mutating func clearIs_p() {
-    _storage._is_p = nil
-  }
+  /// Returns true if `is_p` has been explicitly set.
+  var hasIs_p: Bool {return _storage._is_p != nil}
+  /// Clears the value of `is_p`. Subsequent reads from it will return its default value.
+  mutating func clearIs_p() {_storage._is_p = nil}
 
   var nil_p: Int32 {
     get {return _storage._nil_p ?? 0}
     set {_uniqueStorage()._nil_p = newValue}
   }
-  var hasNil_p: Bool {
-    return _storage._nil_p != nil
-  }
-  mutating func clearNil_p() {
-    _storage._nil_p = nil
-  }
+  /// Returns true if `nil_p` has been explicitly set.
+  var hasNil_p: Bool {return _storage._nil_p != nil}
+  /// Clears the value of `nil_p`. Subsequent reads from it will return its default value.
+  mutating func clearNil_p() {_storage._nil_p = nil}
 
   var rethrows_p: Int32 {
     get {return _storage._rethrows_p ?? 0}
     set {_uniqueStorage()._rethrows_p = newValue}
   }
-  var hasRethrows_p: Bool {
-    return _storage._rethrows_p != nil
-  }
-  mutating func clearRethrows_p() {
-    _storage._rethrows_p = nil
-  }
+  /// Returns true if `rethrows_p` has been explicitly set.
+  var hasRethrows_p: Bool {return _storage._rethrows_p != nil}
+  /// Clears the value of `rethrows_p`. Subsequent reads from it will return its default value.
+  mutating func clearRethrows_p() {_storage._rethrows_p = nil}
 
   var super_p: Int32 {
     get {return _storage._super_p ?? 0}
     set {_uniqueStorage()._super_p = newValue}
   }
-  var hasSuper_p: Bool {
-    return _storage._super_p != nil
-  }
-  mutating func clearSuper_p() {
-    _storage._super_p = nil
-  }
+  /// Returns true if `super_p` has been explicitly set.
+  var hasSuper_p: Bool {return _storage._super_p != nil}
+  /// Clears the value of `super_p`. Subsequent reads from it will return its default value.
+  mutating func clearSuper_p() {_storage._super_p = nil}
 
   var self_p: Int32 {
     get {return _storage._self_p ?? 0}
     set {_uniqueStorage()._self_p = newValue}
   }
-  var hasSelf_p: Bool {
-    return _storage._self_p != nil
-  }
-  mutating func clearSelf_p() {
-    _storage._self_p = nil
-  }
+  /// Returns true if `self_p` has been explicitly set.
+  var hasSelf_p: Bool {return _storage._self_p != nil}
+  /// Clears the value of `self_p`. Subsequent reads from it will return its default value.
+  mutating func clearSelf_p() {_storage._self_p = nil}
 
   var throw_p: Int32 {
     get {return _storage._throw_p ?? 0}
     set {_uniqueStorage()._throw_p = newValue}
   }
-  var hasThrow_p: Bool {
-    return _storage._throw_p != nil
-  }
-  mutating func clearThrow_p() {
-    _storage._throw_p = nil
-  }
+  /// Returns true if `throw_p` has been explicitly set.
+  var hasThrow_p: Bool {return _storage._throw_p != nil}
+  /// Clears the value of `throw_p`. Subsequent reads from it will return its default value.
+  mutating func clearThrow_p() {_storage._throw_p = nil}
 
   var throws_p: Int32 {
     get {return _storage._throws_p ?? 0}
     set {_uniqueStorage()._throws_p = newValue}
   }
-  var hasThrows_p: Bool {
-    return _storage._throws_p != nil
-  }
-  mutating func clearThrows_p() {
-    _storage._throws_p = nil
-  }
+  /// Returns true if `throws_p` has been explicitly set.
+  var hasThrows_p: Bool {return _storage._throws_p != nil}
+  /// Clears the value of `throws_p`. Subsequent reads from it will return its default value.
+  mutating func clearThrows_p() {_storage._throws_p = nil}
 
   var true_p: Int32 {
     get {return _storage._true_p ?? 0}
     set {_uniqueStorage()._true_p = newValue}
   }
-  var hasTrue_p: Bool {
-    return _storage._true_p != nil
-  }
-  mutating func clearTrue_p() {
-    _storage._true_p = nil
-  }
+  /// Returns true if `true_p` has been explicitly set.
+  var hasTrue_p: Bool {return _storage._true_p != nil}
+  /// Clears the value of `true_p`. Subsequent reads from it will return its default value.
+  mutating func clearTrue_p() {_storage._true_p = nil}
 
   var try_p: Int32 {
     get {return _storage._try_p ?? 0}
     set {_uniqueStorage()._try_p = newValue}
   }
-  var hasTry_p: Bool {
-    return _storage._try_p != nil
-  }
-  mutating func clearTry_p() {
-    _storage._try_p = nil
-  }
+  /// Returns true if `try_p` has been explicitly set.
+  var hasTry_p: Bool {return _storage._try_p != nil}
+  /// Clears the value of `try_p`. Subsequent reads from it will return its default value.
+  mutating func clearTry_p() {_storage._try_p = nil}
 
   var _Column__: Int32 {
     get {return _storage.__Column__ ?? 0}
     set {_uniqueStorage().__Column__ = newValue}
   }
-  var has_Column__: Bool {
-    return _storage.__Column__ != nil
-  }
-  mutating func clear_Column__() {
-    _storage.__Column__ = nil
-  }
+  /// Returns true if `_Column__` has been explicitly set.
+  var has_Column__: Bool {return _storage.__Column__ != nil}
+  /// Clears the value of `_Column__`. Subsequent reads from it will return its default value.
+  mutating func clear_Column__() {_storage.__Column__ = nil}
 
   var _File__: Int32 {
     get {return _storage.__File__ ?? 0}
     set {_uniqueStorage().__File__ = newValue}
   }
-  var has_File__: Bool {
-    return _storage.__File__ != nil
-  }
-  mutating func clear_File__() {
-    _storage.__File__ = nil
-  }
+  /// Returns true if `_File__` has been explicitly set.
+  var has_File__: Bool {return _storage.__File__ != nil}
+  /// Clears the value of `_File__`. Subsequent reads from it will return its default value.
+  mutating func clear_File__() {_storage.__File__ = nil}
 
   var _Function__: Int32 {
     get {return _storage.__Function__ ?? 0}
     set {_uniqueStorage().__Function__ = newValue}
   }
-  var has_Function__: Bool {
-    return _storage.__Function__ != nil
-  }
-  mutating func clear_Function__() {
-    _storage.__Function__ = nil
-  }
+  /// Returns true if `_Function__` has been explicitly set.
+  var has_Function__: Bool {return _storage.__Function__ != nil}
+  /// Clears the value of `_Function__`. Subsequent reads from it will return its default value.
+  mutating func clear_Function__() {_storage.__Function__ = nil}
 
   var _Line__: Int32 {
     get {return _storage.__Line__ ?? 0}
     set {_uniqueStorage().__Line__ = newValue}
   }
-  var has_Line__: Bool {
-    return _storage.__Line__ != nil
-  }
-  mutating func clear_Line__() {
-    _storage.__Line__ = nil
-  }
+  /// Returns true if `_Line__` has been explicitly set.
+  var has_Line__: Bool {return _storage.__Line__ != nil}
+  /// Clears the value of `_Line__`. Subsequent reads from it will return its default value.
+  mutating func clear_Line__() {_storage.__Line__ = nil}
 
   var ___: Int32 {
     get {return _storage.____ ?? 0}
     set {_uniqueStorage().____ = newValue}
   }
-  var has___: Bool {
-    return _storage.____ != nil
-  }
-  mutating func clear___() {
-    _storage.____ = nil
-  }
+  /// Returns true if `___` has been explicitly set.
+  var has___: Bool {return _storage.____ != nil}
+  /// Clears the value of `___`. Subsequent reads from it will return its default value.
+  mutating func clear___() {_storage.____ = nil}
 
   var associativity: Int32 {
     get {return _storage._associativity ?? 0}
     set {_uniqueStorage()._associativity = newValue}
   }
-  var hasAssociativity: Bool {
-    return _storage._associativity != nil
-  }
-  mutating func clearAssociativity() {
-    _storage._associativity = nil
-  }
+  /// Returns true if `associativity` has been explicitly set.
+  var hasAssociativity: Bool {return _storage._associativity != nil}
+  /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
+  mutating func clearAssociativity() {_storage._associativity = nil}
 
   var convenience: Int32 {
     get {return _storage._convenience ?? 0}
     set {_uniqueStorage()._convenience = newValue}
   }
-  var hasConvenience: Bool {
-    return _storage._convenience != nil
-  }
-  mutating func clearConvenience() {
-    _storage._convenience = nil
-  }
+  /// Returns true if `convenience` has been explicitly set.
+  var hasConvenience: Bool {return _storage._convenience != nil}
+  /// Clears the value of `convenience`. Subsequent reads from it will return its default value.
+  mutating func clearConvenience() {_storage._convenience = nil}
 
   var dynamic: Int32 {
     get {return _storage._dynamic ?? 0}
     set {_uniqueStorage()._dynamic = newValue}
   }
-  var hasDynamic: Bool {
-    return _storage._dynamic != nil
-  }
-  mutating func clearDynamic() {
-    _storage._dynamic = nil
-  }
+  /// Returns true if `dynamic` has been explicitly set.
+  var hasDynamic: Bool {return _storage._dynamic != nil}
+  /// Clears the value of `dynamic`. Subsequent reads from it will return its default value.
+  mutating func clearDynamic() {_storage._dynamic = nil}
 
   var didSet: Int32 {
     get {return _storage._didSet ?? 0}
     set {_uniqueStorage()._didSet = newValue}
   }
-  var hasDidSet: Bool {
-    return _storage._didSet != nil
-  }
-  mutating func clearDidSet() {
-    _storage._didSet = nil
-  }
+  /// Returns true if `didSet` has been explicitly set.
+  var hasDidSet: Bool {return _storage._didSet != nil}
+  /// Clears the value of `didSet`. Subsequent reads from it will return its default value.
+  mutating func clearDidSet() {_storage._didSet = nil}
 
   var final: Int32 {
     get {return _storage._final ?? 0}
     set {_uniqueStorage()._final = newValue}
   }
-  var hasFinal: Bool {
-    return _storage._final != nil
-  }
-  mutating func clearFinal() {
-    _storage._final = nil
-  }
+  /// Returns true if `final` has been explicitly set.
+  var hasFinal: Bool {return _storage._final != nil}
+  /// Clears the value of `final`. Subsequent reads from it will return its default value.
+  mutating func clearFinal() {_storage._final = nil}
 
   var get: Int32 {
     get {return _storage._get ?? 0}
     set {_uniqueStorage()._get = newValue}
   }
-  var hasGet: Bool {
-    return _storage._get != nil
-  }
-  mutating func clearGet() {
-    _storage._get = nil
-  }
+  /// Returns true if `get` has been explicitly set.
+  var hasGet: Bool {return _storage._get != nil}
+  /// Clears the value of `get`. Subsequent reads from it will return its default value.
+  mutating func clearGet() {_storage._get = nil}
 
   var infix: Int32 {
     get {return _storage._infix ?? 0}
     set {_uniqueStorage()._infix = newValue}
   }
-  var hasInfix: Bool {
-    return _storage._infix != nil
-  }
-  mutating func clearInfix() {
-    _storage._infix = nil
-  }
+  /// Returns true if `infix` has been explicitly set.
+  var hasInfix: Bool {return _storage._infix != nil}
+  /// Clears the value of `infix`. Subsequent reads from it will return its default value.
+  mutating func clearInfix() {_storage._infix = nil}
 
   var indirect: Int32 {
     get {return _storage._indirect ?? 0}
     set {_uniqueStorage()._indirect = newValue}
   }
-  var hasIndirect: Bool {
-    return _storage._indirect != nil
-  }
-  mutating func clearIndirect() {
-    _storage._indirect = nil
-  }
+  /// Returns true if `indirect` has been explicitly set.
+  var hasIndirect: Bool {return _storage._indirect != nil}
+  /// Clears the value of `indirect`. Subsequent reads from it will return its default value.
+  mutating func clearIndirect() {_storage._indirect = nil}
 
   var lazy: Int32 {
     get {return _storage._lazy ?? 0}
     set {_uniqueStorage()._lazy = newValue}
   }
-  var hasLazy: Bool {
-    return _storage._lazy != nil
-  }
-  mutating func clearLazy() {
-    _storage._lazy = nil
-  }
+  /// Returns true if `lazy` has been explicitly set.
+  var hasLazy: Bool {return _storage._lazy != nil}
+  /// Clears the value of `lazy`. Subsequent reads from it will return its default value.
+  mutating func clearLazy() {_storage._lazy = nil}
 
   var left: Int32 {
     get {return _storage._left ?? 0}
     set {_uniqueStorage()._left = newValue}
   }
-  var hasLeft: Bool {
-    return _storage._left != nil
-  }
-  mutating func clearLeft() {
-    _storage._left = nil
-  }
+  /// Returns true if `left` has been explicitly set.
+  var hasLeft: Bool {return _storage._left != nil}
+  /// Clears the value of `left`. Subsequent reads from it will return its default value.
+  mutating func clearLeft() {_storage._left = nil}
 
   var mutating: Int32 {
     get {return _storage._mutating ?? 0}
     set {_uniqueStorage()._mutating = newValue}
   }
-  var hasMutating: Bool {
-    return _storage._mutating != nil
-  }
-  mutating func clearMutating() {
-    _storage._mutating = nil
-  }
+  /// Returns true if `mutating` has been explicitly set.
+  var hasMutating: Bool {return _storage._mutating != nil}
+  /// Clears the value of `mutating`. Subsequent reads from it will return its default value.
+  mutating func clearMutating() {_storage._mutating = nil}
 
   var none: Int32 {
     get {return _storage._none ?? 0}
     set {_uniqueStorage()._none = newValue}
   }
-  var hasNone: Bool {
-    return _storage._none != nil
-  }
-  mutating func clearNone() {
-    _storage._none = nil
-  }
+  /// Returns true if `none` has been explicitly set.
+  var hasNone: Bool {return _storage._none != nil}
+  /// Clears the value of `none`. Subsequent reads from it will return its default value.
+  mutating func clearNone() {_storage._none = nil}
 
   var nonmutating: Int32 {
     get {return _storage._nonmutating ?? 0}
     set {_uniqueStorage()._nonmutating = newValue}
   }
-  var hasNonmutating: Bool {
-    return _storage._nonmutating != nil
-  }
-  mutating func clearNonmutating() {
-    _storage._nonmutating = nil
-  }
+  /// Returns true if `nonmutating` has been explicitly set.
+  var hasNonmutating: Bool {return _storage._nonmutating != nil}
+  /// Clears the value of `nonmutating`. Subsequent reads from it will return its default value.
+  mutating func clearNonmutating() {_storage._nonmutating = nil}
 
   var optional: Int32 {
     get {return _storage._optional ?? 0}
     set {_uniqueStorage()._optional = newValue}
   }
-  var hasOptional: Bool {
-    return _storage._optional != nil
-  }
-  mutating func clearOptional() {
-    _storage._optional = nil
-  }
+  /// Returns true if `optional` has been explicitly set.
+  var hasOptional: Bool {return _storage._optional != nil}
+  /// Clears the value of `optional`. Subsequent reads from it will return its default value.
+  mutating func clearOptional() {_storage._optional = nil}
 
   var override: Int32 {
     get {return _storage._override ?? 0}
     set {_uniqueStorage()._override = newValue}
   }
-  var hasOverride: Bool {
-    return _storage._override != nil
-  }
-  mutating func clearOverride() {
-    _storage._override = nil
-  }
+  /// Returns true if `override` has been explicitly set.
+  var hasOverride: Bool {return _storage._override != nil}
+  /// Clears the value of `override`. Subsequent reads from it will return its default value.
+  mutating func clearOverride() {_storage._override = nil}
 
   var postfix: Int32 {
     get {return _storage._postfix ?? 0}
     set {_uniqueStorage()._postfix = newValue}
   }
-  var hasPostfix: Bool {
-    return _storage._postfix != nil
-  }
-  mutating func clearPostfix() {
-    _storage._postfix = nil
-  }
+  /// Returns true if `postfix` has been explicitly set.
+  var hasPostfix: Bool {return _storage._postfix != nil}
+  /// Clears the value of `postfix`. Subsequent reads from it will return its default value.
+  mutating func clearPostfix() {_storage._postfix = nil}
 
   var precedence: Int32 {
     get {return _storage._precedence ?? 0}
     set {_uniqueStorage()._precedence = newValue}
   }
-  var hasPrecedence: Bool {
-    return _storage._precedence != nil
-  }
-  mutating func clearPrecedence() {
-    _storage._precedence = nil
-  }
+  /// Returns true if `precedence` has been explicitly set.
+  var hasPrecedence: Bool {return _storage._precedence != nil}
+  /// Clears the value of `precedence`. Subsequent reads from it will return its default value.
+  mutating func clearPrecedence() {_storage._precedence = nil}
 
   var prefix: Int32 {
     get {return _storage._prefix ?? 0}
     set {_uniqueStorage()._prefix = newValue}
   }
-  var hasPrefix: Bool {
-    return _storage._prefix != nil
-  }
-  mutating func clearPrefix() {
-    _storage._prefix = nil
-  }
+  /// Returns true if `prefix` has been explicitly set.
+  var hasPrefix: Bool {return _storage._prefix != nil}
+  /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
+  mutating func clearPrefix() {_storage._prefix = nil}
 
   var required: Int32 {
     get {return _storage._required ?? 0}
     set {_uniqueStorage()._required = newValue}
   }
-  var hasRequired: Bool {
-    return _storage._required != nil
-  }
-  mutating func clearRequired() {
-    _storage._required = nil
-  }
+  /// Returns true if `required` has been explicitly set.
+  var hasRequired: Bool {return _storage._required != nil}
+  /// Clears the value of `required`. Subsequent reads from it will return its default value.
+  mutating func clearRequired() {_storage._required = nil}
 
   var right: Int32 {
     get {return _storage._right ?? 0}
     set {_uniqueStorage()._right = newValue}
   }
-  var hasRight: Bool {
-    return _storage._right != nil
-  }
-  mutating func clearRight() {
-    _storage._right = nil
-  }
+  /// Returns true if `right` has been explicitly set.
+  var hasRight: Bool {return _storage._right != nil}
+  /// Clears the value of `right`. Subsequent reads from it will return its default value.
+  mutating func clearRight() {_storage._right = nil}
 
   var set: Int32 {
     get {return _storage._set ?? 0}
     set {_uniqueStorage()._set = newValue}
   }
-  var hasSet: Bool {
-    return _storage._set != nil
-  }
-  mutating func clearSet() {
-    _storage._set = nil
-  }
+  /// Returns true if `set` has been explicitly set.
+  var hasSet: Bool {return _storage._set != nil}
+  /// Clears the value of `set`. Subsequent reads from it will return its default value.
+  mutating func clearSet() {_storage._set = nil}
 
   var type: Int32 {
     get {return _storage._type ?? 0}
     set {_uniqueStorage()._type = newValue}
   }
-  var hasType: Bool {
-    return _storage._type != nil
-  }
-  mutating func clearType() {
-    _storage._type = nil
-  }
+  /// Returns true if `type` has been explicitly set.
+  var hasType: Bool {return _storage._type != nil}
+  /// Clears the value of `type`. Subsequent reads from it will return its default value.
+  mutating func clearType() {_storage._type = nil}
 
   var unowned: Int32 {
     get {return _storage._unowned ?? 0}
     set {_uniqueStorage()._unowned = newValue}
   }
-  var hasUnowned: Bool {
-    return _storage._unowned != nil
-  }
-  mutating func clearUnowned() {
-    _storage._unowned = nil
-  }
+  /// Returns true if `unowned` has been explicitly set.
+  var hasUnowned: Bool {return _storage._unowned != nil}
+  /// Clears the value of `unowned`. Subsequent reads from it will return its default value.
+  mutating func clearUnowned() {_storage._unowned = nil}
 
   var weak: Int32 {
     get {return _storage._weak ?? 0}
     set {_uniqueStorage()._weak = newValue}
   }
-  var hasWeak: Bool {
-    return _storage._weak != nil
-  }
-  mutating func clearWeak() {
-    _storage._weak = nil
-  }
+  /// Returns true if `weak` has been explicitly set.
+  var hasWeak: Bool {return _storage._weak != nil}
+  /// Clears the value of `weak`. Subsequent reads from it will return its default value.
+  mutating func clearWeak() {_storage._weak = nil}
 
   var willSet: Int32 {
     get {return _storage._willSet ?? 0}
     set {_uniqueStorage()._willSet = newValue}
   }
-  var hasWillSet: Bool {
-    return _storage._willSet != nil
-  }
-  mutating func clearWillSet() {
-    _storage._willSet = nil
-  }
+  /// Returns true if `willSet` has been explicitly set.
+  var hasWillSet: Bool {return _storage._willSet != nil}
+  /// Clears the value of `willSet`. Subsequent reads from it will return its default value.
+  mutating func clearWillSet() {_storage._willSet = nil}
 
   var id: Int32 {
     get {return _storage._id ?? 0}
     set {_uniqueStorage()._id = newValue}
   }
-  var hasId: Bool {
-    return _storage._id != nil
-  }
-  mutating func clearId() {
-    _storage._id = nil
-  }
+  /// Returns true if `id` has been explicitly set.
+  var hasId: Bool {return _storage._id != nil}
+  /// Clears the value of `id`. Subsequent reads from it will return its default value.
+  mutating func clearId() {_storage._id = nil}
 
   var cmd: Int32 {
     get {return _storage._cmd ?? 0}
     set {_uniqueStorage()._cmd = newValue}
   }
-  var hasCmd: Bool {
-    return _storage._cmd != nil
-  }
-  mutating func clearCmd() {
-    _storage._cmd = nil
-  }
+  /// Returns true if `cmd` has been explicitly set.
+  var hasCmd: Bool {return _storage._cmd != nil}
+  /// Clears the value of `cmd`. Subsequent reads from it will return its default value.
+  mutating func clearCmd() {_storage._cmd = nil}
 
   var out: Int32 {
     get {return _storage._out ?? 0}
     set {_uniqueStorage()._out = newValue}
   }
-  var hasOut: Bool {
-    return _storage._out != nil
-  }
-  mutating func clearOut() {
-    _storage._out = nil
-  }
+  /// Returns true if `out` has been explicitly set.
+  var hasOut: Bool {return _storage._out != nil}
+  /// Clears the value of `out`. Subsequent reads from it will return its default value.
+  mutating func clearOut() {_storage._out = nil}
 
   var bycopy: Int32 {
     get {return _storage._bycopy ?? 0}
     set {_uniqueStorage()._bycopy = newValue}
   }
-  var hasBycopy: Bool {
-    return _storage._bycopy != nil
-  }
-  mutating func clearBycopy() {
-    _storage._bycopy = nil
-  }
+  /// Returns true if `bycopy` has been explicitly set.
+  var hasBycopy: Bool {return _storage._bycopy != nil}
+  /// Clears the value of `bycopy`. Subsequent reads from it will return its default value.
+  mutating func clearBycopy() {_storage._bycopy = nil}
 
   var byref: Int32 {
     get {return _storage._byref ?? 0}
     set {_uniqueStorage()._byref = newValue}
   }
-  var hasByref: Bool {
-    return _storage._byref != nil
-  }
-  mutating func clearByref() {
-    _storage._byref = nil
-  }
+  /// Returns true if `byref` has been explicitly set.
+  var hasByref: Bool {return _storage._byref != nil}
+  /// Clears the value of `byref`. Subsequent reads from it will return its default value.
+  mutating func clearByref() {_storage._byref = nil}
 
   var oneway: Int32 {
     get {return _storage._oneway ?? 0}
     set {_uniqueStorage()._oneway = newValue}
   }
-  var hasOneway: Bool {
-    return _storage._oneway != nil
-  }
-  mutating func clearOneway() {
-    _storage._oneway = nil
-  }
+  /// Returns true if `oneway` has been explicitly set.
+  var hasOneway: Bool {return _storage._oneway != nil}
+  /// Clears the value of `oneway`. Subsequent reads from it will return its default value.
+  mutating func clearOneway() {_storage._oneway = nil}
 
   var and: Int32 {
     get {return _storage._and ?? 0}
     set {_uniqueStorage()._and = newValue}
   }
-  var hasAnd: Bool {
-    return _storage._and != nil
-  }
-  mutating func clearAnd() {
-    _storage._and = nil
-  }
+  /// Returns true if `and` has been explicitly set.
+  var hasAnd: Bool {return _storage._and != nil}
+  /// Clears the value of `and`. Subsequent reads from it will return its default value.
+  mutating func clearAnd() {_storage._and = nil}
 
   var andEq: Int32 {
     get {return _storage._andEq ?? 0}
     set {_uniqueStorage()._andEq = newValue}
   }
-  var hasAndEq: Bool {
-    return _storage._andEq != nil
-  }
-  mutating func clearAndEq() {
-    _storage._andEq = nil
-  }
+  /// Returns true if `andEq` has been explicitly set.
+  var hasAndEq: Bool {return _storage._andEq != nil}
+  /// Clears the value of `andEq`. Subsequent reads from it will return its default value.
+  mutating func clearAndEq() {_storage._andEq = nil}
 
   var alignas: Int32 {
     get {return _storage._alignas ?? 0}
     set {_uniqueStorage()._alignas = newValue}
   }
-  var hasAlignas: Bool {
-    return _storage._alignas != nil
-  }
-  mutating func clearAlignas() {
-    _storage._alignas = nil
-  }
+  /// Returns true if `alignas` has been explicitly set.
+  var hasAlignas: Bool {return _storage._alignas != nil}
+  /// Clears the value of `alignas`. Subsequent reads from it will return its default value.
+  mutating func clearAlignas() {_storage._alignas = nil}
 
   var alignof: Int32 {
     get {return _storage._alignof ?? 0}
     set {_uniqueStorage()._alignof = newValue}
   }
-  var hasAlignof: Bool {
-    return _storage._alignof != nil
-  }
-  mutating func clearAlignof() {
-    _storage._alignof = nil
-  }
+  /// Returns true if `alignof` has been explicitly set.
+  var hasAlignof: Bool {return _storage._alignof != nil}
+  /// Clears the value of `alignof`. Subsequent reads from it will return its default value.
+  mutating func clearAlignof() {_storage._alignof = nil}
 
   var asm: Int32 {
     get {return _storage._asm ?? 0}
     set {_uniqueStorage()._asm = newValue}
   }
-  var hasAsm: Bool {
-    return _storage._asm != nil
-  }
-  mutating func clearAsm() {
-    _storage._asm = nil
-  }
+  /// Returns true if `asm` has been explicitly set.
+  var hasAsm: Bool {return _storage._asm != nil}
+  /// Clears the value of `asm`. Subsequent reads from it will return its default value.
+  mutating func clearAsm() {_storage._asm = nil}
 
   var auto: Int32 {
     get {return _storage._auto ?? 0}
     set {_uniqueStorage()._auto = newValue}
   }
-  var hasAuto: Bool {
-    return _storage._auto != nil
-  }
-  mutating func clearAuto() {
-    _storage._auto = nil
-  }
+  /// Returns true if `auto` has been explicitly set.
+  var hasAuto: Bool {return _storage._auto != nil}
+  /// Clears the value of `auto`. Subsequent reads from it will return its default value.
+  mutating func clearAuto() {_storage._auto = nil}
 
   var bitand: Int32 {
     get {return _storage._bitand ?? 0}
     set {_uniqueStorage()._bitand = newValue}
   }
-  var hasBitand: Bool {
-    return _storage._bitand != nil
-  }
-  mutating func clearBitand() {
-    _storage._bitand = nil
-  }
+  /// Returns true if `bitand` has been explicitly set.
+  var hasBitand: Bool {return _storage._bitand != nil}
+  /// Clears the value of `bitand`. Subsequent reads from it will return its default value.
+  mutating func clearBitand() {_storage._bitand = nil}
 
   var bitor: Int32 {
     get {return _storage._bitor ?? 0}
     set {_uniqueStorage()._bitor = newValue}
   }
-  var hasBitor: Bool {
-    return _storage._bitor != nil
-  }
-  mutating func clearBitor() {
-    _storage._bitor = nil
-  }
+  /// Returns true if `bitor` has been explicitly set.
+  var hasBitor: Bool {return _storage._bitor != nil}
+  /// Clears the value of `bitor`. Subsequent reads from it will return its default value.
+  mutating func clearBitor() {_storage._bitor = nil}
 
   var bool: Int32 {
     get {return _storage._bool ?? 0}
     set {_uniqueStorage()._bool = newValue}
   }
-  var hasBool: Bool {
-    return _storage._bool != nil
-  }
-  mutating func clearBool() {
-    _storage._bool = nil
-  }
+  /// Returns true if `bool` has been explicitly set.
+  var hasBool: Bool {return _storage._bool != nil}
+  /// Clears the value of `bool`. Subsequent reads from it will return its default value.
+  mutating func clearBool() {_storage._bool = nil}
 
   var char: Int32 {
     get {return _storage._char ?? 0}
     set {_uniqueStorage()._char = newValue}
   }
-  var hasChar: Bool {
-    return _storage._char != nil
-  }
-  mutating func clearChar() {
-    _storage._char = nil
-  }
+  /// Returns true if `char` has been explicitly set.
+  var hasChar: Bool {return _storage._char != nil}
+  /// Clears the value of `char`. Subsequent reads from it will return its default value.
+  mutating func clearChar() {_storage._char = nil}
 
   var char16T: Int32 {
     get {return _storage._char16T ?? 0}
     set {_uniqueStorage()._char16T = newValue}
   }
-  var hasChar16T: Bool {
-    return _storage._char16T != nil
-  }
-  mutating func clearChar16T() {
-    _storage._char16T = nil
-  }
+  /// Returns true if `char16T` has been explicitly set.
+  var hasChar16T: Bool {return _storage._char16T != nil}
+  /// Clears the value of `char16T`. Subsequent reads from it will return its default value.
+  mutating func clearChar16T() {_storage._char16T = nil}
 
   var char32T: Int32 {
     get {return _storage._char32T ?? 0}
     set {_uniqueStorage()._char32T = newValue}
   }
-  var hasChar32T: Bool {
-    return _storage._char32T != nil
-  }
-  mutating func clearChar32T() {
-    _storage._char32T = nil
-  }
+  /// Returns true if `char32T` has been explicitly set.
+  var hasChar32T: Bool {return _storage._char32T != nil}
+  /// Clears the value of `char32T`. Subsequent reads from it will return its default value.
+  mutating func clearChar32T() {_storage._char32T = nil}
 
   var compl: Int32 {
     get {return _storage._compl ?? 0}
     set {_uniqueStorage()._compl = newValue}
   }
-  var hasCompl: Bool {
-    return _storage._compl != nil
-  }
-  mutating func clearCompl() {
-    _storage._compl = nil
-  }
+  /// Returns true if `compl` has been explicitly set.
+  var hasCompl: Bool {return _storage._compl != nil}
+  /// Clears the value of `compl`. Subsequent reads from it will return its default value.
+  mutating func clearCompl() {_storage._compl = nil}
 
   var const: Int32 {
     get {return _storage._const ?? 0}
     set {_uniqueStorage()._const = newValue}
   }
-  var hasConst: Bool {
-    return _storage._const != nil
-  }
-  mutating func clearConst() {
-    _storage._const = nil
-  }
+  /// Returns true if `const` has been explicitly set.
+  var hasConst: Bool {return _storage._const != nil}
+  /// Clears the value of `const`. Subsequent reads from it will return its default value.
+  mutating func clearConst() {_storage._const = nil}
 
   var constexpr: Int32 {
     get {return _storage._constexpr ?? 0}
     set {_uniqueStorage()._constexpr = newValue}
   }
-  var hasConstexpr: Bool {
-    return _storage._constexpr != nil
-  }
-  mutating func clearConstexpr() {
-    _storage._constexpr = nil
-  }
+  /// Returns true if `constexpr` has been explicitly set.
+  var hasConstexpr: Bool {return _storage._constexpr != nil}
+  /// Clears the value of `constexpr`. Subsequent reads from it will return its default value.
+  mutating func clearConstexpr() {_storage._constexpr = nil}
 
   var constCast: Int32 {
     get {return _storage._constCast ?? 0}
     set {_uniqueStorage()._constCast = newValue}
   }
-  var hasConstCast: Bool {
-    return _storage._constCast != nil
-  }
-  mutating func clearConstCast() {
-    _storage._constCast = nil
-  }
+  /// Returns true if `constCast` has been explicitly set.
+  var hasConstCast: Bool {return _storage._constCast != nil}
+  /// Clears the value of `constCast`. Subsequent reads from it will return its default value.
+  mutating func clearConstCast() {_storage._constCast = nil}
 
   var decltype: Int32 {
     get {return _storage._decltype ?? 0}
     set {_uniqueStorage()._decltype = newValue}
   }
-  var hasDecltype: Bool {
-    return _storage._decltype != nil
-  }
-  mutating func clearDecltype() {
-    _storage._decltype = nil
-  }
+  /// Returns true if `decltype` has been explicitly set.
+  var hasDecltype: Bool {return _storage._decltype != nil}
+  /// Clears the value of `decltype`. Subsequent reads from it will return its default value.
+  mutating func clearDecltype() {_storage._decltype = nil}
 
   var delete: Int32 {
     get {return _storage._delete ?? 0}
     set {_uniqueStorage()._delete = newValue}
   }
-  var hasDelete: Bool {
-    return _storage._delete != nil
-  }
-  mutating func clearDelete() {
-    _storage._delete = nil
-  }
+  /// Returns true if `delete` has been explicitly set.
+  var hasDelete: Bool {return _storage._delete != nil}
+  /// Clears the value of `delete`. Subsequent reads from it will return its default value.
+  mutating func clearDelete() {_storage._delete = nil}
 
   var dynamicCast: Int32 {
     get {return _storage._dynamicCast ?? 0}
     set {_uniqueStorage()._dynamicCast = newValue}
   }
-  var hasDynamicCast: Bool {
-    return _storage._dynamicCast != nil
-  }
-  mutating func clearDynamicCast() {
-    _storage._dynamicCast = nil
-  }
+  /// Returns true if `dynamicCast` has been explicitly set.
+  var hasDynamicCast: Bool {return _storage._dynamicCast != nil}
+  /// Clears the value of `dynamicCast`. Subsequent reads from it will return its default value.
+  mutating func clearDynamicCast() {_storage._dynamicCast = nil}
 
   var explicit: Int32 {
     get {return _storage._explicit ?? 0}
     set {_uniqueStorage()._explicit = newValue}
   }
-  var hasExplicit: Bool {
-    return _storage._explicit != nil
-  }
-  mutating func clearExplicit() {
-    _storage._explicit = nil
-  }
+  /// Returns true if `explicit` has been explicitly set.
+  var hasExplicit: Bool {return _storage._explicit != nil}
+  /// Clears the value of `explicit`. Subsequent reads from it will return its default value.
+  mutating func clearExplicit() {_storage._explicit = nil}
 
   var export: Int32 {
     get {return _storage._export ?? 0}
     set {_uniqueStorage()._export = newValue}
   }
-  var hasExport: Bool {
-    return _storage._export != nil
-  }
-  mutating func clearExport() {
-    _storage._export = nil
-  }
+  /// Returns true if `export` has been explicitly set.
+  var hasExport: Bool {return _storage._export != nil}
+  /// Clears the value of `export`. Subsequent reads from it will return its default value.
+  mutating func clearExport() {_storage._export = nil}
 
   var extern: Int32 {
     get {return _storage._extern ?? 0}
     set {_uniqueStorage()._extern = newValue}
   }
-  var hasExtern: Bool {
-    return _storage._extern != nil
-  }
-  mutating func clearExtern() {
-    _storage._extern = nil
-  }
+  /// Returns true if `extern` has been explicitly set.
+  var hasExtern: Bool {return _storage._extern != nil}
+  /// Clears the value of `extern`. Subsequent reads from it will return its default value.
+  mutating func clearExtern() {_storage._extern = nil}
 
   var friend: Int32 {
     get {return _storage._friend ?? 0}
     set {_uniqueStorage()._friend = newValue}
   }
-  var hasFriend: Bool {
-    return _storage._friend != nil
-  }
-  mutating func clearFriend() {
-    _storage._friend = nil
-  }
+  /// Returns true if `friend` has been explicitly set.
+  var hasFriend: Bool {return _storage._friend != nil}
+  /// Clears the value of `friend`. Subsequent reads from it will return its default value.
+  mutating func clearFriend() {_storage._friend = nil}
 
   var goto: Int32 {
     get {return _storage._goto ?? 0}
     set {_uniqueStorage()._goto = newValue}
   }
-  var hasGoto: Bool {
-    return _storage._goto != nil
-  }
-  mutating func clearGoto() {
-    _storage._goto = nil
-  }
+  /// Returns true if `goto` has been explicitly set.
+  var hasGoto: Bool {return _storage._goto != nil}
+  /// Clears the value of `goto`. Subsequent reads from it will return its default value.
+  mutating func clearGoto() {_storage._goto = nil}
 
   var inline: Int32 {
     get {return _storage._inline ?? 0}
     set {_uniqueStorage()._inline = newValue}
   }
-  var hasInline: Bool {
-    return _storage._inline != nil
-  }
-  mutating func clearInline() {
-    _storage._inline = nil
-  }
+  /// Returns true if `inline` has been explicitly set.
+  var hasInline: Bool {return _storage._inline != nil}
+  /// Clears the value of `inline`. Subsequent reads from it will return its default value.
+  mutating func clearInline() {_storage._inline = nil}
 
   var long: Int32 {
     get {return _storage._long ?? 0}
     set {_uniqueStorage()._long = newValue}
   }
-  var hasLong: Bool {
-    return _storage._long != nil
-  }
-  mutating func clearLong() {
-    _storage._long = nil
-  }
+  /// Returns true if `long` has been explicitly set.
+  var hasLong: Bool {return _storage._long != nil}
+  /// Clears the value of `long`. Subsequent reads from it will return its default value.
+  mutating func clearLong() {_storage._long = nil}
 
   var mutable: Int32 {
     get {return _storage._mutable ?? 0}
     set {_uniqueStorage()._mutable = newValue}
   }
-  var hasMutable: Bool {
-    return _storage._mutable != nil
-  }
-  mutating func clearMutable() {
-    _storage._mutable = nil
-  }
+  /// Returns true if `mutable` has been explicitly set.
+  var hasMutable: Bool {return _storage._mutable != nil}
+  /// Clears the value of `mutable`. Subsequent reads from it will return its default value.
+  mutating func clearMutable() {_storage._mutable = nil}
 
   var namespace: Int32 {
     get {return _storage._namespace ?? 0}
     set {_uniqueStorage()._namespace = newValue}
   }
-  var hasNamespace: Bool {
-    return _storage._namespace != nil
-  }
-  mutating func clearNamespace() {
-    _storage._namespace = nil
-  }
+  /// Returns true if `namespace` has been explicitly set.
+  var hasNamespace: Bool {return _storage._namespace != nil}
+  /// Clears the value of `namespace`. Subsequent reads from it will return its default value.
+  mutating func clearNamespace() {_storage._namespace = nil}
 
   var new: Int32 {
     get {return _storage._new ?? 0}
     set {_uniqueStorage()._new = newValue}
   }
-  var hasNew: Bool {
-    return _storage._new != nil
-  }
-  mutating func clearNew() {
-    _storage._new = nil
-  }
+  /// Returns true if `new` has been explicitly set.
+  var hasNew: Bool {return _storage._new != nil}
+  /// Clears the value of `new`. Subsequent reads from it will return its default value.
+  mutating func clearNew() {_storage._new = nil}
 
   var noexcept: Int32 {
     get {return _storage._noexcept ?? 0}
     set {_uniqueStorage()._noexcept = newValue}
   }
-  var hasNoexcept: Bool {
-    return _storage._noexcept != nil
-  }
-  mutating func clearNoexcept() {
-    _storage._noexcept = nil
-  }
+  /// Returns true if `noexcept` has been explicitly set.
+  var hasNoexcept: Bool {return _storage._noexcept != nil}
+  /// Clears the value of `noexcept`. Subsequent reads from it will return its default value.
+  mutating func clearNoexcept() {_storage._noexcept = nil}
 
   var not: Int32 {
     get {return _storage._not ?? 0}
     set {_uniqueStorage()._not = newValue}
   }
-  var hasNot: Bool {
-    return _storage._not != nil
-  }
-  mutating func clearNot() {
-    _storage._not = nil
-  }
+  /// Returns true if `not` has been explicitly set.
+  var hasNot: Bool {return _storage._not != nil}
+  /// Clears the value of `not`. Subsequent reads from it will return its default value.
+  mutating func clearNot() {_storage._not = nil}
 
   var notEq: Int32 {
     get {return _storage._notEq ?? 0}
     set {_uniqueStorage()._notEq = newValue}
   }
-  var hasNotEq: Bool {
-    return _storage._notEq != nil
-  }
-  mutating func clearNotEq() {
-    _storage._notEq = nil
-  }
+  /// Returns true if `notEq` has been explicitly set.
+  var hasNotEq: Bool {return _storage._notEq != nil}
+  /// Clears the value of `notEq`. Subsequent reads from it will return its default value.
+  mutating func clearNotEq() {_storage._notEq = nil}
 
   var nullptr: Int32 {
     get {return _storage._nullptr ?? 0}
     set {_uniqueStorage()._nullptr = newValue}
   }
-  var hasNullptr: Bool {
-    return _storage._nullptr != nil
-  }
-  mutating func clearNullptr() {
-    _storage._nullptr = nil
-  }
+  /// Returns true if `nullptr` has been explicitly set.
+  var hasNullptr: Bool {return _storage._nullptr != nil}
+  /// Clears the value of `nullptr`. Subsequent reads from it will return its default value.
+  mutating func clearNullptr() {_storage._nullptr = nil}
 
   var or: Int32 {
     get {return _storage._or ?? 0}
     set {_uniqueStorage()._or = newValue}
   }
-  var hasOr: Bool {
-    return _storage._or != nil
-  }
-  mutating func clearOr() {
-    _storage._or = nil
-  }
+  /// Returns true if `or` has been explicitly set.
+  var hasOr: Bool {return _storage._or != nil}
+  /// Clears the value of `or`. Subsequent reads from it will return its default value.
+  mutating func clearOr() {_storage._or = nil}
 
   var orEq: Int32 {
     get {return _storage._orEq ?? 0}
     set {_uniqueStorage()._orEq = newValue}
   }
-  var hasOrEq: Bool {
-    return _storage._orEq != nil
-  }
-  mutating func clearOrEq() {
-    _storage._orEq = nil
-  }
+  /// Returns true if `orEq` has been explicitly set.
+  var hasOrEq: Bool {return _storage._orEq != nil}
+  /// Clears the value of `orEq`. Subsequent reads from it will return its default value.
+  mutating func clearOrEq() {_storage._orEq = nil}
 
   var protected: Int32 {
     get {return _storage._protected ?? 0}
     set {_uniqueStorage()._protected = newValue}
   }
-  var hasProtected: Bool {
-    return _storage._protected != nil
-  }
-  mutating func clearProtected() {
-    _storage._protected = nil
-  }
+  /// Returns true if `protected` has been explicitly set.
+  var hasProtected: Bool {return _storage._protected != nil}
+  /// Clears the value of `protected`. Subsequent reads from it will return its default value.
+  mutating func clearProtected() {_storage._protected = nil}
 
   var register: Int32 {
     get {return _storage._register ?? 0}
     set {_uniqueStorage()._register = newValue}
   }
-  var hasRegister: Bool {
-    return _storage._register != nil
-  }
-  mutating func clearRegister() {
-    _storage._register = nil
-  }
+  /// Returns true if `register` has been explicitly set.
+  var hasRegister: Bool {return _storage._register != nil}
+  /// Clears the value of `register`. Subsequent reads from it will return its default value.
+  mutating func clearRegister() {_storage._register = nil}
 
   var reinterpretCast: Int32 {
     get {return _storage._reinterpretCast ?? 0}
     set {_uniqueStorage()._reinterpretCast = newValue}
   }
-  var hasReinterpretCast: Bool {
-    return _storage._reinterpretCast != nil
-  }
-  mutating func clearReinterpretCast() {
-    _storage._reinterpretCast = nil
-  }
+  /// Returns true if `reinterpretCast` has been explicitly set.
+  var hasReinterpretCast: Bool {return _storage._reinterpretCast != nil}
+  /// Clears the value of `reinterpretCast`. Subsequent reads from it will return its default value.
+  mutating func clearReinterpretCast() {_storage._reinterpretCast = nil}
 
   var short: Int32 {
     get {return _storage._short ?? 0}
     set {_uniqueStorage()._short = newValue}
   }
-  var hasShort: Bool {
-    return _storage._short != nil
-  }
-  mutating func clearShort() {
-    _storage._short = nil
-  }
+  /// Returns true if `short` has been explicitly set.
+  var hasShort: Bool {return _storage._short != nil}
+  /// Clears the value of `short`. Subsequent reads from it will return its default value.
+  mutating func clearShort() {_storage._short = nil}
 
   var signed: Int32 {
     get {return _storage._signed ?? 0}
     set {_uniqueStorage()._signed = newValue}
   }
-  var hasSigned: Bool {
-    return _storage._signed != nil
-  }
-  mutating func clearSigned() {
-    _storage._signed = nil
-  }
+  /// Returns true if `signed` has been explicitly set.
+  var hasSigned: Bool {return _storage._signed != nil}
+  /// Clears the value of `signed`. Subsequent reads from it will return its default value.
+  mutating func clearSigned() {_storage._signed = nil}
 
   var sizeof: Int32 {
     get {return _storage._sizeof ?? 0}
     set {_uniqueStorage()._sizeof = newValue}
   }
-  var hasSizeof: Bool {
-    return _storage._sizeof != nil
-  }
-  mutating func clearSizeof() {
-    _storage._sizeof = nil
-  }
+  /// Returns true if `sizeof` has been explicitly set.
+  var hasSizeof: Bool {return _storage._sizeof != nil}
+  /// Clears the value of `sizeof`. Subsequent reads from it will return its default value.
+  mutating func clearSizeof() {_storage._sizeof = nil}
 
   var staticAssert: Int32 {
     get {return _storage._staticAssert ?? 0}
     set {_uniqueStorage()._staticAssert = newValue}
   }
-  var hasStaticAssert: Bool {
-    return _storage._staticAssert != nil
-  }
-  mutating func clearStaticAssert() {
-    _storage._staticAssert = nil
-  }
+  /// Returns true if `staticAssert` has been explicitly set.
+  var hasStaticAssert: Bool {return _storage._staticAssert != nil}
+  /// Clears the value of `staticAssert`. Subsequent reads from it will return its default value.
+  mutating func clearStaticAssert() {_storage._staticAssert = nil}
 
   var staticCast: Int32 {
     get {return _storage._staticCast ?? 0}
     set {_uniqueStorage()._staticCast = newValue}
   }
-  var hasStaticCast: Bool {
-    return _storage._staticCast != nil
-  }
-  mutating func clearStaticCast() {
-    _storage._staticCast = nil
-  }
+  /// Returns true if `staticCast` has been explicitly set.
+  var hasStaticCast: Bool {return _storage._staticCast != nil}
+  /// Clears the value of `staticCast`. Subsequent reads from it will return its default value.
+  mutating func clearStaticCast() {_storage._staticCast = nil}
 
   var template: Int32 {
     get {return _storage._template ?? 0}
     set {_uniqueStorage()._template = newValue}
   }
-  var hasTemplate: Bool {
-    return _storage._template != nil
-  }
-  mutating func clearTemplate() {
-    _storage._template = nil
-  }
+  /// Returns true if `template` has been explicitly set.
+  var hasTemplate: Bool {return _storage._template != nil}
+  /// Clears the value of `template`. Subsequent reads from it will return its default value.
+  mutating func clearTemplate() {_storage._template = nil}
 
   var this: Int32 {
     get {return _storage._this ?? 0}
     set {_uniqueStorage()._this = newValue}
   }
-  var hasThis: Bool {
-    return _storage._this != nil
-  }
-  mutating func clearThis() {
-    _storage._this = nil
-  }
+  /// Returns true if `this` has been explicitly set.
+  var hasThis: Bool {return _storage._this != nil}
+  /// Clears the value of `this`. Subsequent reads from it will return its default value.
+  mutating func clearThis() {_storage._this = nil}
 
   var threadLocal: Int32 {
     get {return _storage._threadLocal ?? 0}
     set {_uniqueStorage()._threadLocal = newValue}
   }
-  var hasThreadLocal: Bool {
-    return _storage._threadLocal != nil
-  }
-  mutating func clearThreadLocal() {
-    _storage._threadLocal = nil
-  }
+  /// Returns true if `threadLocal` has been explicitly set.
+  var hasThreadLocal: Bool {return _storage._threadLocal != nil}
+  /// Clears the value of `threadLocal`. Subsequent reads from it will return its default value.
+  mutating func clearThreadLocal() {_storage._threadLocal = nil}
 
   var typedef: Int32 {
     get {return _storage._typedef ?? 0}
     set {_uniqueStorage()._typedef = newValue}
   }
-  var hasTypedef: Bool {
-    return _storage._typedef != nil
-  }
-  mutating func clearTypedef() {
-    _storage._typedef = nil
-  }
+  /// Returns true if `typedef` has been explicitly set.
+  var hasTypedef: Bool {return _storage._typedef != nil}
+  /// Clears the value of `typedef`. Subsequent reads from it will return its default value.
+  mutating func clearTypedef() {_storage._typedef = nil}
 
   var typeid: Int32 {
     get {return _storage._typeid ?? 0}
     set {_uniqueStorage()._typeid = newValue}
   }
-  var hasTypeid: Bool {
-    return _storage._typeid != nil
-  }
-  mutating func clearTypeid() {
-    _storage._typeid = nil
-  }
+  /// Returns true if `typeid` has been explicitly set.
+  var hasTypeid: Bool {return _storage._typeid != nil}
+  /// Clears the value of `typeid`. Subsequent reads from it will return its default value.
+  mutating func clearTypeid() {_storage._typeid = nil}
 
   var typename: Int32 {
     get {return _storage._typename ?? 0}
     set {_uniqueStorage()._typename = newValue}
   }
-  var hasTypename: Bool {
-    return _storage._typename != nil
-  }
-  mutating func clearTypename() {
-    _storage._typename = nil
-  }
+  /// Returns true if `typename` has been explicitly set.
+  var hasTypename: Bool {return _storage._typename != nil}
+  /// Clears the value of `typename`. Subsequent reads from it will return its default value.
+  mutating func clearTypename() {_storage._typename = nil}
 
   var union: Int32 {
     get {return _storage._union ?? 0}
     set {_uniqueStorage()._union = newValue}
   }
-  var hasUnion: Bool {
-    return _storage._union != nil
-  }
-  mutating func clearUnion() {
-    _storage._union = nil
-  }
+  /// Returns true if `union` has been explicitly set.
+  var hasUnion: Bool {return _storage._union != nil}
+  /// Clears the value of `union`. Subsequent reads from it will return its default value.
+  mutating func clearUnion() {_storage._union = nil}
 
   var unsigned: Int32 {
     get {return _storage._unsigned ?? 0}
     set {_uniqueStorage()._unsigned = newValue}
   }
-  var hasUnsigned: Bool {
-    return _storage._unsigned != nil
-  }
-  mutating func clearUnsigned() {
-    _storage._unsigned = nil
-  }
+  /// Returns true if `unsigned` has been explicitly set.
+  var hasUnsigned: Bool {return _storage._unsigned != nil}
+  /// Clears the value of `unsigned`. Subsequent reads from it will return its default value.
+  mutating func clearUnsigned() {_storage._unsigned = nil}
 
   var using: Int32 {
     get {return _storage._using ?? 0}
     set {_uniqueStorage()._using = newValue}
   }
-  var hasUsing: Bool {
-    return _storage._using != nil
-  }
-  mutating func clearUsing() {
-    _storage._using = nil
-  }
+  /// Returns true if `using` has been explicitly set.
+  var hasUsing: Bool {return _storage._using != nil}
+  /// Clears the value of `using`. Subsequent reads from it will return its default value.
+  mutating func clearUsing() {_storage._using = nil}
 
   var virtual: Int32 {
     get {return _storage._virtual ?? 0}
     set {_uniqueStorage()._virtual = newValue}
   }
-  var hasVirtual: Bool {
-    return _storage._virtual != nil
-  }
-  mutating func clearVirtual() {
-    _storage._virtual = nil
-  }
+  /// Returns true if `virtual` has been explicitly set.
+  var hasVirtual: Bool {return _storage._virtual != nil}
+  /// Clears the value of `virtual`. Subsequent reads from it will return its default value.
+  mutating func clearVirtual() {_storage._virtual = nil}
 
   var void: Int32 {
     get {return _storage._void ?? 0}
     set {_uniqueStorage()._void = newValue}
   }
-  var hasVoid: Bool {
-    return _storage._void != nil
-  }
-  mutating func clearVoid() {
-    _storage._void = nil
-  }
+  /// Returns true if `void` has been explicitly set.
+  var hasVoid: Bool {return _storage._void != nil}
+  /// Clears the value of `void`. Subsequent reads from it will return its default value.
+  mutating func clearVoid() {_storage._void = nil}
 
   var volatile: Int32 {
     get {return _storage._volatile ?? 0}
     set {_uniqueStorage()._volatile = newValue}
   }
-  var hasVolatile: Bool {
-    return _storage._volatile != nil
-  }
-  mutating func clearVolatile() {
-    _storage._volatile = nil
-  }
+  /// Returns true if `volatile` has been explicitly set.
+  var hasVolatile: Bool {return _storage._volatile != nil}
+  /// Clears the value of `volatile`. Subsequent reads from it will return its default value.
+  mutating func clearVolatile() {_storage._volatile = nil}
 
   var wcharT: Int32 {
     get {return _storage._wcharT ?? 0}
     set {_uniqueStorage()._wcharT = newValue}
   }
-  var hasWcharT: Bool {
-    return _storage._wcharT != nil
-  }
-  mutating func clearWcharT() {
-    _storage._wcharT = nil
-  }
+  /// Returns true if `wcharT` has been explicitly set.
+  var hasWcharT: Bool {return _storage._wcharT != nil}
+  /// Clears the value of `wcharT`. Subsequent reads from it will return its default value.
+  mutating func clearWcharT() {_storage._wcharT = nil}
 
   var xor: Int32 {
     get {return _storage._xor ?? 0}
     set {_uniqueStorage()._xor = newValue}
   }
-  var hasXor: Bool {
-    return _storage._xor != nil
-  }
-  mutating func clearXor() {
-    _storage._xor = nil
-  }
+  /// Returns true if `xor` has been explicitly set.
+  var hasXor: Bool {return _storage._xor != nil}
+  /// Clears the value of `xor`. Subsequent reads from it will return its default value.
+  mutating func clearXor() {_storage._xor = nil}
 
   var xorEq: Int32 {
     get {return _storage._xorEq ?? 0}
     set {_uniqueStorage()._xorEq = newValue}
   }
-  var hasXorEq: Bool {
-    return _storage._xorEq != nil
-  }
-  mutating func clearXorEq() {
-    _storage._xorEq = nil
-  }
+  /// Returns true if `xorEq` has been explicitly set.
+  var hasXorEq: Bool {return _storage._xorEq != nil}
+  /// Clears the value of `xorEq`. Subsequent reads from it will return its default value.
+  mutating func clearXorEq() {_storage._xorEq = nil}
 
   var restrict: Int32 {
     get {return _storage._restrict ?? 0}
     set {_uniqueStorage()._restrict = newValue}
   }
-  var hasRestrict: Bool {
-    return _storage._restrict != nil
-  }
-  mutating func clearRestrict() {
-    _storage._restrict = nil
-  }
+  /// Returns true if `restrict` has been explicitly set.
+  var hasRestrict: Bool {return _storage._restrict != nil}
+  /// Clears the value of `restrict`. Subsequent reads from it will return its default value.
+  mutating func clearRestrict() {_storage._restrict = nil}
 
   var category: Int32 {
     get {return _storage._category ?? 0}
     set {_uniqueStorage()._category = newValue}
   }
-  var hasCategory: Bool {
-    return _storage._category != nil
-  }
-  mutating func clearCategory() {
-    _storage._category = nil
-  }
+  /// Returns true if `category` has been explicitly set.
+  var hasCategory: Bool {return _storage._category != nil}
+  /// Clears the value of `category`. Subsequent reads from it will return its default value.
+  mutating func clearCategory() {_storage._category = nil}
 
   var ivar: Int32 {
     get {return _storage._ivar ?? 0}
     set {_uniqueStorage()._ivar = newValue}
   }
-  var hasIvar: Bool {
-    return _storage._ivar != nil
-  }
-  mutating func clearIvar() {
-    _storage._ivar = nil
-  }
+  /// Returns true if `ivar` has been explicitly set.
+  var hasIvar: Bool {return _storage._ivar != nil}
+  /// Clears the value of `ivar`. Subsequent reads from it will return its default value.
+  mutating func clearIvar() {_storage._ivar = nil}
 
   var method: Int32 {
     get {return _storage._method ?? 0}
     set {_uniqueStorage()._method = newValue}
   }
-  var hasMethod: Bool {
-    return _storage._method != nil
-  }
-  mutating func clearMethod() {
-    _storage._method = nil
-  }
+  /// Returns true if `method` has been explicitly set.
+  var hasMethod: Bool {return _storage._method != nil}
+  /// Clears the value of `method`. Subsequent reads from it will return its default value.
+  mutating func clearMethod() {_storage._method = nil}
 
   var finalize: Int32 {
     get {return _storage._finalize ?? 0}
     set {_uniqueStorage()._finalize = newValue}
   }
-  var hasFinalize: Bool {
-    return _storage._finalize != nil
-  }
-  mutating func clearFinalize() {
-    _storage._finalize = nil
-  }
+  /// Returns true if `finalize` has been explicitly set.
+  var hasFinalize: Bool {return _storage._finalize != nil}
+  /// Clears the value of `finalize`. Subsequent reads from it will return its default value.
+  mutating func clearFinalize() {_storage._finalize = nil}
 
   var hash_p: Int32 {
     get {return _storage._hash_p ?? 0}
     set {_uniqueStorage()._hash_p = newValue}
   }
-  var hasHash_p: Bool {
-    return _storage._hash_p != nil
-  }
-  mutating func clearHash_p() {
-    _storage._hash_p = nil
-  }
+  /// Returns true if `hash_p` has been explicitly set.
+  var hasHash_p: Bool {return _storage._hash_p != nil}
+  /// Clears the value of `hash_p`. Subsequent reads from it will return its default value.
+  mutating func clearHash_p() {_storage._hash_p = nil}
 
   var dealloc: Int32 {
     get {return _storage._dealloc ?? 0}
     set {_uniqueStorage()._dealloc = newValue}
   }
-  var hasDealloc: Bool {
-    return _storage._dealloc != nil
-  }
-  mutating func clearDealloc() {
-    _storage._dealloc = nil
-  }
+  /// Returns true if `dealloc` has been explicitly set.
+  var hasDealloc: Bool {return _storage._dealloc != nil}
+  /// Clears the value of `dealloc`. Subsequent reads from it will return its default value.
+  mutating func clearDealloc() {_storage._dealloc = nil}
 
   var superclass: Int32 {
     get {return _storage._superclass ?? 0}
     set {_uniqueStorage()._superclass = newValue}
   }
-  var hasSuperclass: Bool {
-    return _storage._superclass != nil
-  }
-  mutating func clearSuperclass() {
-    _storage._superclass = nil
-  }
+  /// Returns true if `superclass` has been explicitly set.
+  var hasSuperclass: Bool {return _storage._superclass != nil}
+  /// Clears the value of `superclass`. Subsequent reads from it will return its default value.
+  mutating func clearSuperclass() {_storage._superclass = nil}
 
   var retain: Int32 {
     get {return _storage._retain ?? 0}
     set {_uniqueStorage()._retain = newValue}
   }
-  var hasRetain: Bool {
-    return _storage._retain != nil
-  }
-  mutating func clearRetain() {
-    _storage._retain = nil
-  }
+  /// Returns true if `retain` has been explicitly set.
+  var hasRetain: Bool {return _storage._retain != nil}
+  /// Clears the value of `retain`. Subsequent reads from it will return its default value.
+  mutating func clearRetain() {_storage._retain = nil}
 
   var release: Int32 {
     get {return _storage._release ?? 0}
     set {_uniqueStorage()._release = newValue}
   }
-  var hasRelease: Bool {
-    return _storage._release != nil
-  }
-  mutating func clearRelease() {
-    _storage._release = nil
-  }
+  /// Returns true if `release` has been explicitly set.
+  var hasRelease: Bool {return _storage._release != nil}
+  /// Clears the value of `release`. Subsequent reads from it will return its default value.
+  mutating func clearRelease() {_storage._release = nil}
 
   var autorelease: Int32 {
     get {return _storage._autorelease ?? 0}
     set {_uniqueStorage()._autorelease = newValue}
   }
-  var hasAutorelease: Bool {
-    return _storage._autorelease != nil
-  }
-  mutating func clearAutorelease() {
-    _storage._autorelease = nil
-  }
+  /// Returns true if `autorelease` has been explicitly set.
+  var hasAutorelease: Bool {return _storage._autorelease != nil}
+  /// Clears the value of `autorelease`. Subsequent reads from it will return its default value.
+  mutating func clearAutorelease() {_storage._autorelease = nil}
 
   var retainCount: Int32 {
     get {return _storage._retainCount ?? 0}
     set {_uniqueStorage()._retainCount = newValue}
   }
-  var hasRetainCount: Bool {
-    return _storage._retainCount != nil
-  }
-  mutating func clearRetainCount() {
-    _storage._retainCount = nil
-  }
+  /// Returns true if `retainCount` has been explicitly set.
+  var hasRetainCount: Bool {return _storage._retainCount != nil}
+  /// Clears the value of `retainCount`. Subsequent reads from it will return its default value.
+  mutating func clearRetainCount() {_storage._retainCount = nil}
 
   var zone: Int32 {
     get {return _storage._zone ?? 0}
     set {_uniqueStorage()._zone = newValue}
   }
-  var hasZone: Bool {
-    return _storage._zone != nil
-  }
-  mutating func clearZone() {
-    _storage._zone = nil
-  }
+  /// Returns true if `zone` has been explicitly set.
+  var hasZone: Bool {return _storage._zone != nil}
+  /// Clears the value of `zone`. Subsequent reads from it will return its default value.
+  mutating func clearZone() {_storage._zone = nil}
 
   var isProxy: Int32 {
     get {return _storage._isProxy ?? 0}
     set {_uniqueStorage()._isProxy = newValue}
   }
-  var hasIsProxy: Bool {
-    return _storage._isProxy != nil
-  }
-  mutating func clearIsProxy() {
-    _storage._isProxy = nil
-  }
+  /// Returns true if `isProxy` has been explicitly set.
+  var hasIsProxy: Bool {return _storage._isProxy != nil}
+  /// Clears the value of `isProxy`. Subsequent reads from it will return its default value.
+  mutating func clearIsProxy() {_storage._isProxy = nil}
 
   var copy: Int32 {
     get {return _storage._copy ?? 0}
     set {_uniqueStorage()._copy = newValue}
   }
-  var hasCopy: Bool {
-    return _storage._copy != nil
-  }
-  mutating func clearCopy() {
-    _storage._copy = nil
-  }
+  /// Returns true if `copy` has been explicitly set.
+  var hasCopy: Bool {return _storage._copy != nil}
+  /// Clears the value of `copy`. Subsequent reads from it will return its default value.
+  mutating func clearCopy() {_storage._copy = nil}
 
   var mutableCopy: Int32 {
     get {return _storage._mutableCopy ?? 0}
     set {_uniqueStorage()._mutableCopy = newValue}
   }
-  var hasMutableCopy: Bool {
-    return _storage._mutableCopy != nil
-  }
-  mutating func clearMutableCopy() {
-    _storage._mutableCopy = nil
-  }
+  /// Returns true if `mutableCopy` has been explicitly set.
+  var hasMutableCopy: Bool {return _storage._mutableCopy != nil}
+  /// Clears the value of `mutableCopy`. Subsequent reads from it will return its default value.
+  mutating func clearMutableCopy() {_storage._mutableCopy = nil}
 
   var classForCoder: Int32 {
     get {return _storage._classForCoder ?? 0}
     set {_uniqueStorage()._classForCoder = newValue}
   }
-  var hasClassForCoder: Bool {
-    return _storage._classForCoder != nil
-  }
-  mutating func clearClassForCoder() {
-    _storage._classForCoder = nil
-  }
+  /// Returns true if `classForCoder` has been explicitly set.
+  var hasClassForCoder: Bool {return _storage._classForCoder != nil}
+  /// Clears the value of `classForCoder`. Subsequent reads from it will return its default value.
+  mutating func clearClassForCoder() {_storage._classForCoder = nil}
 
   var clear_p: Int32 {
     get {return _storage._clear_p ?? 0}
     set {_uniqueStorage()._clear_p = newValue}
   }
-  var hasClear_p: Bool {
-    return _storage._clear_p != nil
-  }
-  mutating func clearClear_p() {
-    _storage._clear_p = nil
-  }
+  /// Returns true if `clear_p` has been explicitly set.
+  var hasClear_p: Bool {return _storage._clear_p != nil}
+  /// Clears the value of `clear_p`. Subsequent reads from it will return its default value.
+  mutating func clearClear_p() {_storage._clear_p = nil}
 
   var data: Int32 {
     get {return _storage._data ?? 0}
     set {_uniqueStorage()._data = newValue}
   }
-  var hasData: Bool {
-    return _storage._data != nil
-  }
-  mutating func clearData() {
-    _storage._data = nil
-  }
+  /// Returns true if `data` has been explicitly set.
+  var hasData: Bool {return _storage._data != nil}
+  /// Clears the value of `data`. Subsequent reads from it will return its default value.
+  mutating func clearData() {_storage._data = nil}
 
   var delimitedData: Int32 {
     get {return _storage._delimitedData ?? 0}
     set {_uniqueStorage()._delimitedData = newValue}
   }
-  var hasDelimitedData: Bool {
-    return _storage._delimitedData != nil
-  }
-  mutating func clearDelimitedData() {
-    _storage._delimitedData = nil
-  }
+  /// Returns true if `delimitedData` has been explicitly set.
+  var hasDelimitedData: Bool {return _storage._delimitedData != nil}
+  /// Clears the value of `delimitedData`. Subsequent reads from it will return its default value.
+  mutating func clearDelimitedData() {_storage._delimitedData = nil}
 
   var descriptor: Int32 {
     get {return _storage._descriptor ?? 0}
     set {_uniqueStorage()._descriptor = newValue}
   }
-  var hasDescriptor: Bool {
-    return _storage._descriptor != nil
-  }
-  mutating func clearDescriptor() {
-    _storage._descriptor = nil
-  }
+  /// Returns true if `descriptor` has been explicitly set.
+  var hasDescriptor: Bool {return _storage._descriptor != nil}
+  /// Clears the value of `descriptor`. Subsequent reads from it will return its default value.
+  mutating func clearDescriptor() {_storage._descriptor = nil}
 
   var extensionRegistry: Int32 {
     get {return _storage._extensionRegistry ?? 0}
     set {_uniqueStorage()._extensionRegistry = newValue}
   }
-  var hasExtensionRegistry: Bool {
-    return _storage._extensionRegistry != nil
-  }
-  mutating func clearExtensionRegistry() {
-    _storage._extensionRegistry = nil
-  }
+  /// Returns true if `extensionRegistry` has been explicitly set.
+  var hasExtensionRegistry: Bool {return _storage._extensionRegistry != nil}
+  /// Clears the value of `extensionRegistry`. Subsequent reads from it will return its default value.
+  mutating func clearExtensionRegistry() {_storage._extensionRegistry = nil}
 
   var extensionsCurrentlySet: Int32 {
     get {return _storage._extensionsCurrentlySet ?? 0}
     set {_uniqueStorage()._extensionsCurrentlySet = newValue}
   }
-  var hasExtensionsCurrentlySet: Bool {
-    return _storage._extensionsCurrentlySet != nil
-  }
-  mutating func clearExtensionsCurrentlySet() {
-    _storage._extensionsCurrentlySet = nil
-  }
+  /// Returns true if `extensionsCurrentlySet` has been explicitly set.
+  var hasExtensionsCurrentlySet: Bool {return _storage._extensionsCurrentlySet != nil}
+  /// Clears the value of `extensionsCurrentlySet`. Subsequent reads from it will return its default value.
+  mutating func clearExtensionsCurrentlySet() {_storage._extensionsCurrentlySet = nil}
 
   var isInitialized_p: Int32 {
     get {return _storage._isInitialized_p ?? 0}
     set {_uniqueStorage()._isInitialized_p = newValue}
   }
-  var hasIsInitialized_p: Bool {
-    return _storage._isInitialized_p != nil
-  }
-  mutating func clearIsInitialized_p() {
-    _storage._isInitialized_p = nil
-  }
+  /// Returns true if `isInitialized_p` has been explicitly set.
+  var hasIsInitialized_p: Bool {return _storage._isInitialized_p != nil}
+  /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
+  mutating func clearIsInitialized_p() {_storage._isInitialized_p = nil}
 
   var serializedSize: Int32 {
     get {return _storage._serializedSize ?? 0}
     set {_uniqueStorage()._serializedSize = newValue}
   }
-  var hasSerializedSize: Bool {
-    return _storage._serializedSize != nil
-  }
-  mutating func clearSerializedSize() {
-    _storage._serializedSize = nil
-  }
+  /// Returns true if `serializedSize` has been explicitly set.
+  var hasSerializedSize: Bool {return _storage._serializedSize != nil}
+  /// Clears the value of `serializedSize`. Subsequent reads from it will return its default value.
+  mutating func clearSerializedSize() {_storage._serializedSize = nil}
 
   var sortedExtensionsInUse: Int32 {
     get {return _storage._sortedExtensionsInUse ?? 0}
     set {_uniqueStorage()._sortedExtensionsInUse = newValue}
   }
-  var hasSortedExtensionsInUse: Bool {
-    return _storage._sortedExtensionsInUse != nil
-  }
-  mutating func clearSortedExtensionsInUse() {
-    _storage._sortedExtensionsInUse = nil
-  }
+  /// Returns true if `sortedExtensionsInUse` has been explicitly set.
+  var hasSortedExtensionsInUse: Bool {return _storage._sortedExtensionsInUse != nil}
+  /// Clears the value of `sortedExtensionsInUse`. Subsequent reads from it will return its default value.
+  mutating func clearSortedExtensionsInUse() {_storage._sortedExtensionsInUse = nil}
 
   var unknownFields_p: Int32 {
     get {return _storage._unknownFields_p ?? 0}
     set {_uniqueStorage()._unknownFields_p = newValue}
   }
-  var hasUnknownFields_p: Bool {
-    return _storage._unknownFields_p != nil
-  }
-  mutating func clearUnknownFields_p() {
-    _storage._unknownFields_p = nil
-  }
+  /// Returns true if `unknownFields_p` has been explicitly set.
+  var hasUnknownFields_p: Bool {return _storage._unknownFields_p != nil}
+  /// Clears the value of `unknownFields_p`. Subsequent reads from it will return its default value.
+  mutating func clearUnknownFields_p() {_storage._unknownFields_p = nil}
 
   var fixed: Int32 {
     get {return _storage._fixed ?? 0}
     set {_uniqueStorage()._fixed = newValue}
   }
-  var hasFixed: Bool {
-    return _storage._fixed != nil
-  }
-  mutating func clearFixed() {
-    _storage._fixed = nil
-  }
+  /// Returns true if `fixed` has been explicitly set.
+  var hasFixed: Bool {return _storage._fixed != nil}
+  /// Clears the value of `fixed`. Subsequent reads from it will return its default value.
+  mutating func clearFixed() {_storage._fixed = nil}
 
   var fract: Int32 {
     get {return _storage._fract ?? 0}
     set {_uniqueStorage()._fract = newValue}
   }
-  var hasFract: Bool {
-    return _storage._fract != nil
-  }
-  mutating func clearFract() {
-    _storage._fract = nil
-  }
+  /// Returns true if `fract` has been explicitly set.
+  var hasFract: Bool {return _storage._fract != nil}
+  /// Clears the value of `fract`. Subsequent reads from it will return its default value.
+  mutating func clearFract() {_storage._fract = nil}
 
   var size: Int32 {
     get {return _storage._size ?? 0}
     set {_uniqueStorage()._size = newValue}
   }
-  var hasSize: Bool {
-    return _storage._size != nil
-  }
-  mutating func clearSize() {
-    _storage._size = nil
-  }
+  /// Returns true if `size` has been explicitly set.
+  var hasSize: Bool {return _storage._size != nil}
+  /// Clears the value of `size`. Subsequent reads from it will return its default value.
+  mutating func clearSize() {_storage._size = nil}
 
   var logicalAddress: Int32 {
     get {return _storage._logicalAddress ?? 0}
     set {_uniqueStorage()._logicalAddress = newValue}
   }
-  var hasLogicalAddress: Bool {
-    return _storage._logicalAddress != nil
-  }
-  mutating func clearLogicalAddress() {
-    _storage._logicalAddress = nil
-  }
+  /// Returns true if `logicalAddress` has been explicitly set.
+  var hasLogicalAddress: Bool {return _storage._logicalAddress != nil}
+  /// Clears the value of `logicalAddress`. Subsequent reads from it will return its default value.
+  mutating func clearLogicalAddress() {_storage._logicalAddress = nil}
 
   var physicalAddress: Int32 {
     get {return _storage._physicalAddress ?? 0}
     set {_uniqueStorage()._physicalAddress = newValue}
   }
-  var hasPhysicalAddress: Bool {
-    return _storage._physicalAddress != nil
-  }
-  mutating func clearPhysicalAddress() {
-    _storage._physicalAddress = nil
-  }
+  /// Returns true if `physicalAddress` has been explicitly set.
+  var hasPhysicalAddress: Bool {return _storage._physicalAddress != nil}
+  /// Clears the value of `physicalAddress`. Subsequent reads from it will return its default value.
+  mutating func clearPhysicalAddress() {_storage._physicalAddress = nil}
 
   var byteCount: Int32 {
     get {return _storage._byteCount ?? 0}
     set {_uniqueStorage()._byteCount = newValue}
   }
-  var hasByteCount: Bool {
-    return _storage._byteCount != nil
-  }
-  mutating func clearByteCount() {
-    _storage._byteCount = nil
-  }
+  /// Returns true if `byteCount` has been explicitly set.
+  var hasByteCount: Bool {return _storage._byteCount != nil}
+  /// Clears the value of `byteCount`. Subsequent reads from it will return its default value.
+  mutating func clearByteCount() {_storage._byteCount = nil}
 
   var byteOffset: Int32 {
     get {return _storage._byteOffset ?? 0}
     set {_uniqueStorage()._byteOffset = newValue}
   }
-  var hasByteOffset: Bool {
-    return _storage._byteOffset != nil
-  }
-  mutating func clearByteOffset() {
-    _storage._byteOffset = nil
-  }
+  /// Returns true if `byteOffset` has been explicitly set.
+  var hasByteOffset: Bool {return _storage._byteOffset != nil}
+  /// Clears the value of `byteOffset`. Subsequent reads from it will return its default value.
+  mutating func clearByteOffset() {_storage._byteOffset = nil}
 
   var duration: Int32 {
     get {return _storage._duration ?? 0}
     set {_uniqueStorage()._duration = newValue}
   }
-  var hasDuration: Bool {
-    return _storage._duration != nil
-  }
-  mutating func clearDuration() {
-    _storage._duration = nil
-  }
+  /// Returns true if `duration` has been explicitly set.
+  var hasDuration: Bool {return _storage._duration != nil}
+  /// Clears the value of `duration`. Subsequent reads from it will return its default value.
+  mutating func clearDuration() {_storage._duration = nil}
 
   var absoluteTime: Int32 {
     get {return _storage._absoluteTime ?? 0}
     set {_uniqueStorage()._absoluteTime = newValue}
   }
-  var hasAbsoluteTime: Bool {
-    return _storage._absoluteTime != nil
-  }
-  mutating func clearAbsoluteTime() {
-    _storage._absoluteTime = nil
-  }
+  /// Returns true if `absoluteTime` has been explicitly set.
+  var hasAbsoluteTime: Bool {return _storage._absoluteTime != nil}
+  /// Clears the value of `absoluteTime`. Subsequent reads from it will return its default value.
+  mutating func clearAbsoluteTime() {_storage._absoluteTime = nil}
 
   var optionBits: Int32 {
     get {return _storage._optionBits ?? 0}
     set {_uniqueStorage()._optionBits = newValue}
   }
-  var hasOptionBits: Bool {
-    return _storage._optionBits != nil
-  }
-  mutating func clearOptionBits() {
-    _storage._optionBits = nil
-  }
+  /// Returns true if `optionBits` has been explicitly set.
+  var hasOptionBits: Bool {return _storage._optionBits != nil}
+  /// Clears the value of `optionBits`. Subsequent reads from it will return its default value.
+  mutating func clearOptionBits() {_storage._optionBits = nil}
 
   var itemCount: Int32 {
     get {return _storage._itemCount ?? 0}
     set {_uniqueStorage()._itemCount = newValue}
   }
-  var hasItemCount: Bool {
-    return _storage._itemCount != nil
-  }
-  mutating func clearItemCount() {
-    _storage._itemCount = nil
-  }
+  /// Returns true if `itemCount` has been explicitly set.
+  var hasItemCount: Bool {return _storage._itemCount != nil}
+  /// Clears the value of `itemCount`. Subsequent reads from it will return its default value.
+  mutating func clearItemCount() {_storage._itemCount = nil}
 
   var pbversion: Int32 {
     get {return _storage._pbversion ?? 0}
     set {_uniqueStorage()._pbversion = newValue}
   }
-  var hasPbversion: Bool {
-    return _storage._pbversion != nil
-  }
-  mutating func clearPbversion() {
-    _storage._pbversion = nil
-  }
+  /// Returns true if `pbversion` has been explicitly set.
+  var hasPbversion: Bool {return _storage._pbversion != nil}
+  /// Clears the value of `pbversion`. Subsequent reads from it will return its default value.
+  mutating func clearPbversion() {_storage._pbversion = nil}
 
   var scriptCode: Int32 {
     get {return _storage._scriptCode ?? 0}
     set {_uniqueStorage()._scriptCode = newValue}
   }
-  var hasScriptCode: Bool {
-    return _storage._scriptCode != nil
-  }
-  mutating func clearScriptCode() {
-    _storage._scriptCode = nil
-  }
+  /// Returns true if `scriptCode` has been explicitly set.
+  var hasScriptCode: Bool {return _storage._scriptCode != nil}
+  /// Clears the value of `scriptCode`. Subsequent reads from it will return its default value.
+  mutating func clearScriptCode() {_storage._scriptCode = nil}
 
   var langCode: Int32 {
     get {return _storage._langCode ?? 0}
     set {_uniqueStorage()._langCode = newValue}
   }
-  var hasLangCode: Bool {
-    return _storage._langCode != nil
-  }
-  mutating func clearLangCode() {
-    _storage._langCode = nil
-  }
+  /// Returns true if `langCode` has been explicitly set.
+  var hasLangCode: Bool {return _storage._langCode != nil}
+  /// Clears the value of `langCode`. Subsequent reads from it will return its default value.
+  mutating func clearLangCode() {_storage._langCode = nil}
 
   var regionCode: Int32 {
     get {return _storage._regionCode ?? 0}
     set {_uniqueStorage()._regionCode = newValue}
   }
-  var hasRegionCode: Bool {
-    return _storage._regionCode != nil
-  }
-  mutating func clearRegionCode() {
-    _storage._regionCode = nil
-  }
+  /// Returns true if `regionCode` has been explicitly set.
+  var hasRegionCode: Bool {return _storage._regionCode != nil}
+  /// Clears the value of `regionCode`. Subsequent reads from it will return its default value.
+  mutating func clearRegionCode() {_storage._regionCode = nil}
 
   var ostype: Int32 {
     get {return _storage._ostype ?? 0}
     set {_uniqueStorage()._ostype = newValue}
   }
-  var hasOstype: Bool {
-    return _storage._ostype != nil
-  }
-  mutating func clearOstype() {
-    _storage._ostype = nil
-  }
+  /// Returns true if `ostype` has been explicitly set.
+  var hasOstype: Bool {return _storage._ostype != nil}
+  /// Clears the value of `ostype`. Subsequent reads from it will return its default value.
+  mutating func clearOstype() {_storage._ostype = nil}
 
   var processSerialNumber: Int32 {
     get {return _storage._processSerialNumber ?? 0}
     set {_uniqueStorage()._processSerialNumber = newValue}
   }
-  var hasProcessSerialNumber: Bool {
-    return _storage._processSerialNumber != nil
-  }
-  mutating func clearProcessSerialNumber() {
-    _storage._processSerialNumber = nil
-  }
+  /// Returns true if `processSerialNumber` has been explicitly set.
+  var hasProcessSerialNumber: Bool {return _storage._processSerialNumber != nil}
+  /// Clears the value of `processSerialNumber`. Subsequent reads from it will return its default value.
+  mutating func clearProcessSerialNumber() {_storage._processSerialNumber = nil}
 
   var point: Int32 {
     get {return _storage._point ?? 0}
     set {_uniqueStorage()._point = newValue}
   }
-  var hasPoint: Bool {
-    return _storage._point != nil
-  }
-  mutating func clearPoint() {
-    _storage._point = nil
-  }
+  /// Returns true if `point` has been explicitly set.
+  var hasPoint: Bool {return _storage._point != nil}
+  /// Clears the value of `point`. Subsequent reads from it will return its default value.
+  mutating func clearPoint() {_storage._point = nil}
 
   var rect: Int32 {
     get {return _storage._rect ?? 0}
     set {_uniqueStorage()._rect = newValue}
   }
-  var hasRect: Bool {
-    return _storage._rect != nil
-  }
-  mutating func clearRect() {
-    _storage._rect = nil
-  }
+  /// Returns true if `rect` has been explicitly set.
+  var hasRect: Bool {return _storage._rect != nil}
+  /// Clears the value of `rect`. Subsequent reads from it will return its default value.
+  mutating func clearRect() {_storage._rect = nil}
 
   var fixedPoint: Int32 {
     get {return _storage._fixedPoint ?? 0}
     set {_uniqueStorage()._fixedPoint = newValue}
   }
-  var hasFixedPoint: Bool {
-    return _storage._fixedPoint != nil
-  }
-  mutating func clearFixedPoint() {
-    _storage._fixedPoint = nil
-  }
+  /// Returns true if `fixedPoint` has been explicitly set.
+  var hasFixedPoint: Bool {return _storage._fixedPoint != nil}
+  /// Clears the value of `fixedPoint`. Subsequent reads from it will return its default value.
+  mutating func clearFixedPoint() {_storage._fixedPoint = nil}
 
   var fixedRect: Int32 {
     get {return _storage._fixedRect ?? 0}
     set {_uniqueStorage()._fixedRect = newValue}
   }
-  var hasFixedRect: Bool {
-    return _storage._fixedRect != nil
-  }
-  mutating func clearFixedRect() {
-    _storage._fixedRect = nil
-  }
+  /// Returns true if `fixedRect` has been explicitly set.
+  var hasFixedRect: Bool {return _storage._fixedRect != nil}
+  /// Clears the value of `fixedRect`. Subsequent reads from it will return its default value.
+  mutating func clearFixedRect() {_storage._fixedRect = nil}
 
   var style: Int32 {
     get {return _storage._style ?? 0}
     set {_uniqueStorage()._style = newValue}
   }
-  var hasStyle: Bool {
-    return _storage._style != nil
-  }
-  mutating func clearStyle() {
-    _storage._style = nil
-  }
+  /// Returns true if `style` has been explicitly set.
+  var hasStyle: Bool {return _storage._style != nil}
+  /// Clears the value of `style`. Subsequent reads from it will return its default value.
+  mutating func clearStyle() {_storage._style = nil}
 
   var styleParameter: Int32 {
     get {return _storage._styleParameter ?? 0}
     set {_uniqueStorage()._styleParameter = newValue}
   }
-  var hasStyleParameter: Bool {
-    return _storage._styleParameter != nil
-  }
-  mutating func clearStyleParameter() {
-    _storage._styleParameter = nil
-  }
+  /// Returns true if `styleParameter` has been explicitly set.
+  var hasStyleParameter: Bool {return _storage._styleParameter != nil}
+  /// Clears the value of `styleParameter`. Subsequent reads from it will return its default value.
+  mutating func clearStyleParameter() {_storage._styleParameter = nil}
 
   var styleField: Int32 {
     get {return _storage._styleField ?? 0}
     set {_uniqueStorage()._styleField = newValue}
   }
-  var hasStyleField: Bool {
-    return _storage._styleField != nil
-  }
-  mutating func clearStyleField() {
-    _storage._styleField = nil
-  }
+  /// Returns true if `styleField` has been explicitly set.
+  var hasStyleField: Bool {return _storage._styleField != nil}
+  /// Clears the value of `styleField`. Subsequent reads from it will return its default value.
+  mutating func clearStyleField() {_storage._styleField = nil}
 
   var timeScale: Int32 {
     get {return _storage._timeScale ?? 0}
     set {_uniqueStorage()._timeScale = newValue}
   }
-  var hasTimeScale: Bool {
-    return _storage._timeScale != nil
-  }
-  mutating func clearTimeScale() {
-    _storage._timeScale = nil
-  }
+  /// Returns true if `timeScale` has been explicitly set.
+  var hasTimeScale: Bool {return _storage._timeScale != nil}
+  /// Clears the value of `timeScale`. Subsequent reads from it will return its default value.
+  mutating func clearTimeScale() {_storage._timeScale = nil}
 
   var timeBase: Int32 {
     get {return _storage._timeBase ?? 0}
     set {_uniqueStorage()._timeBase = newValue}
   }
-  var hasTimeBase: Bool {
-    return _storage._timeBase != nil
-  }
-  mutating func clearTimeBase() {
-    _storage._timeBase = nil
-  }
+  /// Returns true if `timeBase` has been explicitly set.
+  var hasTimeBase: Bool {return _storage._timeBase != nil}
+  /// Clears the value of `timeBase`. Subsequent reads from it will return its default value.
+  mutating func clearTimeBase() {_storage._timeBase = nil}
 
   var timeRecord: Int32 {
     get {return _storage._timeRecord ?? 0}
     set {_uniqueStorage()._timeRecord = newValue}
   }
-  var hasTimeRecord: Bool {
-    return _storage._timeRecord != nil
-  }
-  mutating func clearTimeRecord() {
-    _storage._timeRecord = nil
-  }
+  /// Returns true if `timeRecord` has been explicitly set.
+  var hasTimeRecord: Bool {return _storage._timeRecord != nil}
+  /// Clears the value of `timeRecord`. Subsequent reads from it will return its default value.
+  mutating func clearTimeRecord() {_storage._timeRecord = nil}
 
   var jsonShouldBeOverriden: Int32 {
     get {return _storage._jsonShouldBeOverriden ?? 0}
     set {_uniqueStorage()._jsonShouldBeOverriden = newValue}
   }
-  var hasJsonShouldBeOverriden: Bool {
-    return _storage._jsonShouldBeOverriden != nil
-  }
-  mutating func clearJsonShouldBeOverriden() {
-    _storage._jsonShouldBeOverriden = nil
-  }
+  /// Returns true if `jsonShouldBeOverriden` has been explicitly set.
+  var hasJsonShouldBeOverriden: Bool {return _storage._jsonShouldBeOverriden != nil}
+  /// Clears the value of `jsonShouldBeOverriden`. Subsequent reads from it will return its default value.
+  mutating func clearJsonShouldBeOverriden() {_storage._jsonShouldBeOverriden = nil}
 
   var any: Int32 {
     get {return _storage._any ?? 0}
     set {_uniqueStorage()._any = newValue}
   }
-  var hasAny: Bool {
-    return _storage._any != nil
-  }
-  mutating func clearAny() {
-    _storage._any = nil
-  }
+  /// Returns true if `any` has been explicitly set.
+  var hasAny: Bool {return _storage._any != nil}
+  /// Clears the value of `any`. Subsequent reads from it will return its default value.
+  mutating func clearAny() {_storage._any = nil}
 
   var int32: Int32 {
     get {return _storage._int32 ?? 0}
     set {_uniqueStorage()._int32 = newValue}
   }
-  var hasInt32: Bool {
-    return _storage._int32 != nil
-  }
-  mutating func clearInt32() {
-    _storage._int32 = nil
-  }
+  /// Returns true if `int32` has been explicitly set.
+  var hasInt32: Bool {return _storage._int32 != nil}
+  /// Clears the value of `int32`. Subsequent reads from it will return its default value.
+  mutating func clearInt32() {_storage._int32 = nil}
 
   var int64: Int32 {
     get {return _storage._int64 ?? 0}
     set {_uniqueStorage()._int64 = newValue}
   }
-  var hasInt64: Bool {
-    return _storage._int64 != nil
-  }
-  mutating func clearInt64() {
-    _storage._int64 = nil
-  }
+  /// Returns true if `int64` has been explicitly set.
+  var hasInt64: Bool {return _storage._int64 != nil}
+  /// Clears the value of `int64`. Subsequent reads from it will return its default value.
+  mutating func clearInt64() {_storage._int64 = nil}
 
   var uint32: Int32 {
     get {return _storage._uint32 ?? 0}
     set {_uniqueStorage()._uint32 = newValue}
   }
-  var hasUint32: Bool {
-    return _storage._uint32 != nil
-  }
-  mutating func clearUint32() {
-    _storage._uint32 = nil
-  }
+  /// Returns true if `uint32` has been explicitly set.
+  var hasUint32: Bool {return _storage._uint32 != nil}
+  /// Clears the value of `uint32`. Subsequent reads from it will return its default value.
+  mutating func clearUint32() {_storage._uint32 = nil}
 
   var uint64: Int32 {
     get {return _storage._uint64 ?? 0}
     set {_uniqueStorage()._uint64 = newValue}
   }
-  var hasUint64: Bool {
-    return _storage._uint64 != nil
-  }
-  mutating func clearUint64() {
-    _storage._uint64 = nil
-  }
+  /// Returns true if `uint64` has been explicitly set.
+  var hasUint64: Bool {return _storage._uint64 != nil}
+  /// Clears the value of `uint64`. Subsequent reads from it will return its default value.
+  mutating func clearUint64() {_storage._uint64 = nil}
 
   var associatedtype_p: Int32 {
     get {return _storage._associatedtype_p ?? 0}
     set {_uniqueStorage()._associatedtype_p = newValue}
   }
-  var hasAssociatedtype_p: Bool {
-    return _storage._associatedtype_p != nil
-  }
-  mutating func clearAssociatedtype_p() {
-    _storage._associatedtype_p = nil
-  }
+  /// Returns true if `associatedtype_p` has been explicitly set.
+  var hasAssociatedtype_p: Bool {return _storage._associatedtype_p != nil}
+  /// Clears the value of `associatedtype_p`. Subsequent reads from it will return its default value.
+  mutating func clearAssociatedtype_p() {_storage._associatedtype_p = nil}
 
   var fileprivate_p: Int32 {
     get {return _storage._fileprivate_p ?? 0}
     set {_uniqueStorage()._fileprivate_p = newValue}
   }
-  var hasFileprivate_p: Bool {
-    return _storage._fileprivate_p != nil
-  }
-  mutating func clearFileprivate_p() {
-    _storage._fileprivate_p = nil
-  }
+  /// Returns true if `fileprivate_p` has been explicitly set.
+  var hasFileprivate_p: Bool {return _storage._fileprivate_p != nil}
+  /// Clears the value of `fileprivate_p`. Subsequent reads from it will return its default value.
+  mutating func clearFileprivate_p() {_storage._fileprivate_p = nil}
 
   var open_p: Int32 {
     get {return _storage._open_p ?? 0}
     set {_uniqueStorage()._open_p = newValue}
   }
-  var hasOpen_p: Bool {
-    return _storage._open_p != nil
-  }
-  mutating func clearOpen_p() {
-    _storage._open_p = nil
-  }
+  /// Returns true if `open_p` has been explicitly set.
+  var hasOpen_p: Bool {return _storage._open_p != nil}
+  /// Clears the value of `open_p`. Subsequent reads from it will return its default value.
+  mutating func clearOpen_p() {_storage._open_p = nil}
 
   var serializedData: Int32 {
     get {return _storage._serializedData ?? 0}
     set {_uniqueStorage()._serializedData = newValue}
   }
-  var hasSerializedData: Bool {
-    return _storage._serializedData != nil
-  }
-  mutating func clearSerializedData() {
-    _storage._serializedData = nil
-  }
+  /// Returns true if `serializedData` has been explicitly set.
+  var hasSerializedData: Bool {return _storage._serializedData != nil}
+  /// Clears the value of `serializedData`. Subsequent reads from it will return its default value.
+  mutating func clearSerializedData() {_storage._serializedData = nil}
 
   var hasSerializedData_p: Int32 {
     get {return _storage._hasSerializedData_p ?? 0}
     set {_uniqueStorage()._hasSerializedData_p = newValue}
   }
-  var hasHasSerializedData_p: Bool {
-    return _storage._hasSerializedData_p != nil
-  }
-  mutating func clearHasSerializedData_p() {
-    _storage._hasSerializedData_p = nil
-  }
+  /// Returns true if `hasSerializedData_p` has been explicitly set.
+  var hasHasSerializedData_p: Bool {return _storage._hasSerializedData_p != nil}
+  /// Clears the value of `hasSerializedData_p`. Subsequent reads from it will return its default value.
+  mutating func clearHasSerializedData_p() {_storage._hasSerializedData_p = nil}
 
   var clearSerializedData_p: Int32 {
     get {return _storage._clearSerializedData_p ?? 0}
     set {_uniqueStorage()._clearSerializedData_p = newValue}
   }
-  var hasClearSerializedData_p: Bool {
-    return _storage._clearSerializedData_p != nil
-  }
-  mutating func clearClearSerializedData_p() {
-    _storage._clearSerializedData_p = nil
-  }
+  /// Returns true if `clearSerializedData_p` has been explicitly set.
+  var hasClearSerializedData_p: Bool {return _storage._clearSerializedData_p != nil}
+  /// Clears the value of `clearSerializedData_p`. Subsequent reads from it will return its default value.
+  mutating func clearClearSerializedData_p() {_storage._clearSerializedData_p = nil}
 
   var jsonUtf8Data: Int32 {
     get {return _storage._jsonUtf8Data ?? 0}
     set {_uniqueStorage()._jsonUtf8Data = newValue}
   }
-  var hasJsonUtf8Data: Bool {
-    return _storage._jsonUtf8Data != nil
-  }
-  mutating func clearJsonUtf8Data() {
-    _storage._jsonUtf8Data = nil
-  }
+  /// Returns true if `jsonUtf8Data` has been explicitly set.
+  var hasJsonUtf8Data: Bool {return _storage._jsonUtf8Data != nil}
+  /// Clears the value of `jsonUtf8Data`. Subsequent reads from it will return its default value.
+  mutating func clearJsonUtf8Data() {_storage._jsonUtf8Data = nil}
 
   var jsonString: Int32 {
     get {return _storage._jsonString ?? 0}
     set {_uniqueStorage()._jsonString = newValue}
   }
-  var hasJsonString: Bool {
-    return _storage._jsonString != nil
-  }
-  mutating func clearJsonString() {
-    _storage._jsonString = nil
-  }
+  /// Returns true if `jsonString` has been explicitly set.
+  var hasJsonString: Bool {return _storage._jsonString != nil}
+  /// Clears the value of `jsonString`. Subsequent reads from it will return its default value.
+  mutating func clearJsonString() {_storage._jsonString = nil}
 
   var extension_p: Int32 {
     get {return _storage._extension_p ?? 0}
     set {_uniqueStorage()._extension_p = newValue}
   }
-  var hasExtension_p: Bool {
-    return _storage._extension_p != nil
-  }
-  mutating func clearExtension_p() {
-    _storage._extension_p = nil
-  }
+  /// Returns true if `extension_p` has been explicitly set.
+  var hasExtension_p: Bool {return _storage._extension_p != nil}
+  /// Clears the value of `extension_p`. Subsequent reads from it will return its default value.
+  mutating func clearExtension_p() {_storage._extension_p = nil}
 
   var extensions: Int32 {
     get {return _storage._extensions ?? 0}
     set {_uniqueStorage()._extensions = newValue}
   }
-  var hasExtensions: Bool {
-    return _storage._extensions != nil
-  }
-  mutating func clearExtensions() {
-    _storage._extensions = nil
-  }
+  /// Returns true if `extensions` has been explicitly set.
+  var hasExtensions: Bool {return _storage._extensions != nil}
+  /// Clears the value of `extensions`. Subsequent reads from it will return its default value.
+  mutating func clearExtensions() {_storage._extensions = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4111,17 +3667,14 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct StringMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".String"
 
-    fileprivate var _string: Int32? = nil
     var string: Int32 {
       get {return _string ?? 0}
       set {_string = newValue}
     }
-    var hasString: Bool {
-      return self._string != nil
-    }
-    mutating func clearString() {
-      self._string = nil
-    }
+    /// Returns true if `string` has been explicitly set.
+    var hasString: Bool {return self._string != nil}
+    /// Clears the value of `string`. Subsequent reads from it will return its default value.
+    mutating func clearString() {self._string = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4142,22 +3695,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _string: Int32? = nil
   }
 
   struct ProtocolMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Protocol"
 
-    fileprivate var _protocol_p: Int32? = nil
     var protocol_p: Int32 {
       get {return _protocol_p ?? 0}
       set {_protocol_p = newValue}
     }
-    var hasProtocol_p: Bool {
-      return self._protocol_p != nil
-    }
-    mutating func clearProtocol_p() {
-      self._protocol_p = nil
-    }
+    /// Returns true if `protocol_p` has been explicitly set.
+    var hasProtocol_p: Bool {return self._protocol_p != nil}
+    /// Clears the value of `protocol_p`. Subsequent reads from it will return its default value.
+    mutating func clearProtocol_p() {self._protocol_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4178,22 +3730,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _protocol_p: Int32? = nil
   }
 
   struct IntMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Int"
 
-    fileprivate var _int: Int32? = nil
     var int: Int32 {
       get {return _int ?? 0}
       set {_int = newValue}
     }
-    var hasInt: Bool {
-      return self._int != nil
-    }
-    mutating func clearInt() {
-      self._int = nil
-    }
+    /// Returns true if `int` has been explicitly set.
+    var hasInt: Bool {return self._int != nil}
+    /// Clears the value of `int`. Subsequent reads from it will return its default value.
+    mutating func clearInt() {self._int = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4214,22 +3765,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _int: Int32? = nil
   }
 
   struct DoubleMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Double"
 
-    fileprivate var _double: Int32? = nil
     var double: Int32 {
       get {return _double ?? 0}
       set {_double = newValue}
     }
-    var hasDouble: Bool {
-      return self._double != nil
-    }
-    mutating func clearDouble() {
-      self._double = nil
-    }
+    /// Returns true if `double` has been explicitly set.
+    var hasDouble: Bool {return self._double != nil}
+    /// Clears the value of `double`. Subsequent reads from it will return its default value.
+    mutating func clearDouble() {self._double = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4250,22 +3800,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _double: Int32? = nil
   }
 
   struct FloatMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Float"
 
-    fileprivate var _float: Int32? = nil
     var float: Int32 {
       get {return _float ?? 0}
       set {_float = newValue}
     }
-    var hasFloat: Bool {
-      return self._float != nil
-    }
-    mutating func clearFloat() {
-      self._float = nil
-    }
+    /// Returns true if `float` has been explicitly set.
+    var hasFloat: Bool {return self._float != nil}
+    /// Clears the value of `float`. Subsequent reads from it will return its default value.
+    mutating func clearFloat() {self._float = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4286,22 +3835,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _float: Int32? = nil
   }
 
   struct UIntMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UInt"
 
-    fileprivate var _uint: Int32? = nil
     var uint: Int32 {
       get {return _uint ?? 0}
       set {_uint = newValue}
     }
-    var hasUint: Bool {
-      return self._uint != nil
-    }
-    mutating func clearUint() {
-      self._uint = nil
-    }
+    /// Returns true if `uint` has been explicitly set.
+    var hasUint: Bool {return self._uint != nil}
+    /// Clears the value of `uint`. Subsequent reads from it will return its default value.
+    mutating func clearUint() {self._uint = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4322,22 +3870,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _uint: Int32? = nil
   }
 
   struct hashValueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hashValue"
 
-    fileprivate var _hashValue_p: Int32? = nil
     var hashValue_p: Int32 {
       get {return _hashValue_p ?? 0}
       set {_hashValue_p = newValue}
     }
-    var hasHashValue_p: Bool {
-      return self._hashValue_p != nil
-    }
-    mutating func clearHashValue_p() {
-      self._hashValue_p = nil
-    }
+    /// Returns true if `hashValue_p` has been explicitly set.
+    var hasHashValue_p: Bool {return self._hashValue_p != nil}
+    /// Clears the value of `hashValue_p`. Subsequent reads from it will return its default value.
+    mutating func clearHashValue_p() {self._hashValue_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4358,22 +3905,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _hashValue_p: Int32? = nil
   }
 
   struct descriptionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".description"
 
-    fileprivate var _description_p: Int32? = nil
     var description_p: Int32 {
       get {return _description_p ?? 0}
       set {_description_p = newValue}
     }
-    var hasDescription_p: Bool {
-      return self._description_p != nil
-    }
-    mutating func clearDescription_p() {
-      self._description_p = nil
-    }
+    /// Returns true if `description_p` has been explicitly set.
+    var hasDescription_p: Bool {return self._description_p != nil}
+    /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
+    mutating func clearDescription_p() {self._description_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4394,22 +3940,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _description_p: Int32? = nil
   }
 
   struct debugDescriptionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".debugDescription"
 
-    fileprivate var _debugDescription_p: Int32? = nil
     var debugDescription_p: Int32 {
       get {return _debugDescription_p ?? 0}
       set {_debugDescription_p = newValue}
     }
-    var hasDebugDescription_p: Bool {
-      return self._debugDescription_p != nil
-    }
-    mutating func clearDebugDescription_p() {
-      self._debugDescription_p = nil
-    }
+    /// Returns true if `debugDescription_p` has been explicitly set.
+    var hasDebugDescription_p: Bool {return self._debugDescription_p != nil}
+    /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
+    mutating func clearDebugDescription_p() {self._debugDescription_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4430,22 +3975,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _debugDescription_p: Int32? = nil
   }
 
   struct Swift: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Swift"
 
-    fileprivate var _swift: Int32? = nil
     var swift: Int32 {
       get {return _swift ?? 0}
       set {_swift = newValue}
     }
-    var hasSwift: Bool {
-      return self._swift != nil
-    }
-    mutating func clearSwift() {
-      self._swift = nil
-    }
+    /// Returns true if `swift` has been explicitly set.
+    var hasSwift: Bool {return self._swift != nil}
+    /// Clears the value of `swift`. Subsequent reads from it will return its default value.
+    mutating func clearSwift() {self._swift = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4466,22 +4010,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _swift: Int32? = nil
   }
 
   struct UNRECOGNIZED: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".UNRECOGNIZED"
 
-    fileprivate var _unrecognized: Int32? = nil
     var unrecognized: Int32 {
       get {return _unrecognized ?? 0}
       set {_unrecognized = newValue}
     }
-    var hasUnrecognized: Bool {
-      return self._unrecognized != nil
-    }
-    mutating func clearUnrecognized() {
-      self._unrecognized = nil
-    }
+    /// Returns true if `unrecognized` has been explicitly set.
+    var hasUnrecognized: Bool {return self._unrecognized != nil}
+    /// Clears the value of `unrecognized`. Subsequent reads from it will return its default value.
+    mutating func clearUnrecognized() {self._unrecognized = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4502,22 +4045,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unrecognized: Int32? = nil
   }
 
   struct classMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".class"
 
-    fileprivate var _class_p: Int32? = nil
     var class_p: Int32 {
       get {return _class_p ?? 0}
       set {_class_p = newValue}
     }
-    var hasClass_p: Bool {
-      return self._class_p != nil
-    }
-    mutating func clearClass_p() {
-      self._class_p = nil
-    }
+    /// Returns true if `class_p` has been explicitly set.
+    var hasClass_p: Bool {return self._class_p != nil}
+    /// Clears the value of `class_p`. Subsequent reads from it will return its default value.
+    mutating func clearClass_p() {self._class_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4538,22 +4080,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _class_p: Int32? = nil
   }
 
   struct deinitMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".deinit"
 
-    fileprivate var _deinit_p: Int32? = nil
     var deinit_p: Int32 {
       get {return _deinit_p ?? 0}
       set {_deinit_p = newValue}
     }
-    var hasDeinit_p: Bool {
-      return self._deinit_p != nil
-    }
-    mutating func clearDeinit_p() {
-      self._deinit_p = nil
-    }
+    /// Returns true if `deinit_p` has been explicitly set.
+    var hasDeinit_p: Bool {return self._deinit_p != nil}
+    /// Clears the value of `deinit_p`. Subsequent reads from it will return its default value.
+    mutating func clearDeinit_p() {self._deinit_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4574,22 +4115,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _deinit_p: Int32? = nil
   }
 
   struct enumMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".enum"
 
-    fileprivate var _enum_p: Int32? = nil
     var enum_p: Int32 {
       get {return _enum_p ?? 0}
       set {_enum_p = newValue}
     }
-    var hasEnum_p: Bool {
-      return self._enum_p != nil
-    }
-    mutating func clearEnum_p() {
-      self._enum_p = nil
-    }
+    /// Returns true if `enum_p` has been explicitly set.
+    var hasEnum_p: Bool {return self._enum_p != nil}
+    /// Clears the value of `enum_p`. Subsequent reads from it will return its default value.
+    mutating func clearEnum_p() {self._enum_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4610,22 +4150,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _enum_p: Int32? = nil
   }
 
   struct extensionMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extension"
 
-    fileprivate var _extension_p: Int32? = nil
     var extension_p: Int32 {
       get {return _extension_p ?? 0}
       set {_extension_p = newValue}
     }
-    var hasExtension_p: Bool {
-      return self._extension_p != nil
-    }
-    mutating func clearExtension_p() {
-      self._extension_p = nil
-    }
+    /// Returns true if `extension_p` has been explicitly set.
+    var hasExtension_p: Bool {return self._extension_p != nil}
+    /// Clears the value of `extension_p`. Subsequent reads from it will return its default value.
+    mutating func clearExtension_p() {self._extension_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4646,22 +4185,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extension_p: Int32? = nil
   }
 
   struct funcMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".func"
 
-    fileprivate var _func_p: Int32? = nil
     var func_p: Int32 {
       get {return _func_p ?? 0}
       set {_func_p = newValue}
     }
-    var hasFunc_p: Bool {
-      return self._func_p != nil
-    }
-    mutating func clearFunc_p() {
-      self._func_p = nil
-    }
+    /// Returns true if `func_p` has been explicitly set.
+    var hasFunc_p: Bool {return self._func_p != nil}
+    /// Clears the value of `func_p`. Subsequent reads from it will return its default value.
+    mutating func clearFunc_p() {self._func_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4682,22 +4220,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _func_p: Int32? = nil
   }
 
   struct importMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".import"
 
-    fileprivate var _import_p: Int32? = nil
     var import_p: Int32 {
       get {return _import_p ?? 0}
       set {_import_p = newValue}
     }
-    var hasImport_p: Bool {
-      return self._import_p != nil
-    }
-    mutating func clearImport_p() {
-      self._import_p = nil
-    }
+    /// Returns true if `import_p` has been explicitly set.
+    var hasImport_p: Bool {return self._import_p != nil}
+    /// Clears the value of `import_p`. Subsequent reads from it will return its default value.
+    mutating func clearImport_p() {self._import_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4718,22 +4255,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _import_p: Int32? = nil
   }
 
   struct initMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".init"
 
-    fileprivate var _init_p: Int32? = nil
     var init_p: Int32 {
       get {return _init_p ?? 0}
       set {_init_p = newValue}
     }
-    var hasInit_p: Bool {
-      return self._init_p != nil
-    }
-    mutating func clearInit_p() {
-      self._init_p = nil
-    }
+    /// Returns true if `init_p` has been explicitly set.
+    var hasInit_p: Bool {return self._init_p != nil}
+    /// Clears the value of `init_p`. Subsequent reads from it will return its default value.
+    mutating func clearInit_p() {self._init_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4754,22 +4290,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _init_p: Int32? = nil
   }
 
   struct inoutMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inout"
 
-    fileprivate var _inout_p: Int32? = nil
     var inout_p: Int32 {
       get {return _inout_p ?? 0}
       set {_inout_p = newValue}
     }
-    var hasInout_p: Bool {
-      return self._inout_p != nil
-    }
-    mutating func clearInout_p() {
-      self._inout_p = nil
-    }
+    /// Returns true if `inout_p` has been explicitly set.
+    var hasInout_p: Bool {return self._inout_p != nil}
+    /// Clears the value of `inout_p`. Subsequent reads from it will return its default value.
+    mutating func clearInout_p() {self._inout_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4790,22 +4325,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _inout_p: Int32? = nil
   }
 
   struct internalMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".internal"
 
-    fileprivate var _internal_p: Int32? = nil
     var internal_p: Int32 {
       get {return _internal_p ?? 0}
       set {_internal_p = newValue}
     }
-    var hasInternal_p: Bool {
-      return self._internal_p != nil
-    }
-    mutating func clearInternal_p() {
-      self._internal_p = nil
-    }
+    /// Returns true if `internal_p` has been explicitly set.
+    var hasInternal_p: Bool {return self._internal_p != nil}
+    /// Clears the value of `internal_p`. Subsequent reads from it will return its default value.
+    mutating func clearInternal_p() {self._internal_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4826,22 +4360,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _internal_p: Int32? = nil
   }
 
   struct letMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".let"
 
-    fileprivate var _let_p: Int32? = nil
     var let_p: Int32 {
       get {return _let_p ?? 0}
       set {_let_p = newValue}
     }
-    var hasLet_p: Bool {
-      return self._let_p != nil
-    }
-    mutating func clearLet_p() {
-      self._let_p = nil
-    }
+    /// Returns true if `let_p` has been explicitly set.
+    var hasLet_p: Bool {return self._let_p != nil}
+    /// Clears the value of `let_p`. Subsequent reads from it will return its default value.
+    mutating func clearLet_p() {self._let_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4862,22 +4395,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _let_p: Int32? = nil
   }
 
   struct operatorMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".operator"
 
-    fileprivate var _operator_p: Int32? = nil
     var operator_p: Int32 {
       get {return _operator_p ?? 0}
       set {_operator_p = newValue}
     }
-    var hasOperator_p: Bool {
-      return self._operator_p != nil
-    }
-    mutating func clearOperator_p() {
-      self._operator_p = nil
-    }
+    /// Returns true if `operator_p` has been explicitly set.
+    var hasOperator_p: Bool {return self._operator_p != nil}
+    /// Clears the value of `operator_p`. Subsequent reads from it will return its default value.
+    mutating func clearOperator_p() {self._operator_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4898,22 +4430,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _operator_p: Int32? = nil
   }
 
   struct privateMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".private"
 
-    fileprivate var _private_p: Int32? = nil
     var private_p: Int32 {
       get {return _private_p ?? 0}
       set {_private_p = newValue}
     }
-    var hasPrivate_p: Bool {
-      return self._private_p != nil
-    }
-    mutating func clearPrivate_p() {
-      self._private_p = nil
-    }
+    /// Returns true if `private_p` has been explicitly set.
+    var hasPrivate_p: Bool {return self._private_p != nil}
+    /// Clears the value of `private_p`. Subsequent reads from it will return its default value.
+    mutating func clearPrivate_p() {self._private_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4934,22 +4465,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _private_p: Int32? = nil
   }
 
   struct protocolMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protocol"
 
-    fileprivate var _protocol_p: Int32? = nil
     var protocol_p: Int32 {
       get {return _protocol_p ?? 0}
       set {_protocol_p = newValue}
     }
-    var hasProtocol_p: Bool {
-      return self._protocol_p != nil
-    }
-    mutating func clearProtocol_p() {
-      self._protocol_p = nil
-    }
+    /// Returns true if `protocol_p` has been explicitly set.
+    var hasProtocol_p: Bool {return self._protocol_p != nil}
+    /// Clears the value of `protocol_p`. Subsequent reads from it will return its default value.
+    mutating func clearProtocol_p() {self._protocol_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -4970,22 +4500,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _protocol_p: Int32? = nil
   }
 
   struct publicMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".public"
 
-    fileprivate var _public_p: Int32? = nil
     var public_p: Int32 {
       get {return _public_p ?? 0}
       set {_public_p = newValue}
     }
-    var hasPublic_p: Bool {
-      return self._public_p != nil
-    }
-    mutating func clearPublic_p() {
-      self._public_p = nil
-    }
+    /// Returns true if `public_p` has been explicitly set.
+    var hasPublic_p: Bool {return self._public_p != nil}
+    /// Clears the value of `public_p`. Subsequent reads from it will return its default value.
+    mutating func clearPublic_p() {self._public_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5006,22 +4535,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _public_p: Int32? = nil
   }
 
   struct staticMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static"
 
-    fileprivate var _static_p: Int32? = nil
     var static_p: Int32 {
       get {return _static_p ?? 0}
       set {_static_p = newValue}
     }
-    var hasStatic_p: Bool {
-      return self._static_p != nil
-    }
-    mutating func clearStatic_p() {
-      self._static_p = nil
-    }
+    /// Returns true if `static_p` has been explicitly set.
+    var hasStatic_p: Bool {return self._static_p != nil}
+    /// Clears the value of `static_p`. Subsequent reads from it will return its default value.
+    mutating func clearStatic_p() {self._static_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5042,22 +4570,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _static_p: Int32? = nil
   }
 
   struct structMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".struct"
 
-    fileprivate var _struct_p: Int32? = nil
     var struct_p: Int32 {
       get {return _struct_p ?? 0}
       set {_struct_p = newValue}
     }
-    var hasStruct_p: Bool {
-      return self._struct_p != nil
-    }
-    mutating func clearStruct_p() {
-      self._struct_p = nil
-    }
+    /// Returns true if `struct_p` has been explicitly set.
+    var hasStruct_p: Bool {return self._struct_p != nil}
+    /// Clears the value of `struct_p`. Subsequent reads from it will return its default value.
+    mutating func clearStruct_p() {self._struct_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5078,22 +4605,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _struct_p: Int32? = nil
   }
 
   struct subscriptMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".subscript"
 
-    fileprivate var _subscript_p: Int32? = nil
     var subscript_p: Int32 {
       get {return _subscript_p ?? 0}
       set {_subscript_p = newValue}
     }
-    var hasSubscript_p: Bool {
-      return self._subscript_p != nil
-    }
-    mutating func clearSubscript_p() {
-      self._subscript_p = nil
-    }
+    /// Returns true if `subscript_p` has been explicitly set.
+    var hasSubscript_p: Bool {return self._subscript_p != nil}
+    /// Clears the value of `subscript_p`. Subsequent reads from it will return its default value.
+    mutating func clearSubscript_p() {self._subscript_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5114,22 +4640,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _subscript_p: Int32? = nil
   }
 
   struct typealiasMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typealias"
 
-    fileprivate var _typealias_p: Int32? = nil
     var typealias_p: Int32 {
       get {return _typealias_p ?? 0}
       set {_typealias_p = newValue}
     }
-    var hasTypealias_p: Bool {
-      return self._typealias_p != nil
-    }
-    mutating func clearTypealias_p() {
-      self._typealias_p = nil
-    }
+    /// Returns true if `typealias_p` has been explicitly set.
+    var hasTypealias_p: Bool {return self._typealias_p != nil}
+    /// Clears the value of `typealias_p`. Subsequent reads from it will return its default value.
+    mutating func clearTypealias_p() {self._typealias_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5150,22 +4675,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typealias_p: Int32? = nil
   }
 
   struct varMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".var"
 
-    fileprivate var _var_p: Int32? = nil
     var var_p: Int32 {
       get {return _var_p ?? 0}
       set {_var_p = newValue}
     }
-    var hasVar_p: Bool {
-      return self._var_p != nil
-    }
-    mutating func clearVar_p() {
-      self._var_p = nil
-    }
+    /// Returns true if `var_p` has been explicitly set.
+    var hasVar_p: Bool {return self._var_p != nil}
+    /// Clears the value of `var_p`. Subsequent reads from it will return its default value.
+    mutating func clearVar_p() {self._var_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5186,22 +4710,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _var_p: Int32? = nil
   }
 
   struct breakMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".break"
 
-    fileprivate var _break_p: Int32? = nil
     var break_p: Int32 {
       get {return _break_p ?? 0}
       set {_break_p = newValue}
     }
-    var hasBreak_p: Bool {
-      return self._break_p != nil
-    }
-    mutating func clearBreak_p() {
-      self._break_p = nil
-    }
+    /// Returns true if `break_p` has been explicitly set.
+    var hasBreak_p: Bool {return self._break_p != nil}
+    /// Clears the value of `break_p`. Subsequent reads from it will return its default value.
+    mutating func clearBreak_p() {self._break_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5222,22 +4745,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _break_p: Int32? = nil
   }
 
   struct caseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".case"
 
-    fileprivate var _case_p: Int32? = nil
     var case_p: Int32 {
       get {return _case_p ?? 0}
       set {_case_p = newValue}
     }
-    var hasCase_p: Bool {
-      return self._case_p != nil
-    }
-    mutating func clearCase_p() {
-      self._case_p = nil
-    }
+    /// Returns true if `case_p` has been explicitly set.
+    var hasCase_p: Bool {return self._case_p != nil}
+    /// Clears the value of `case_p`. Subsequent reads from it will return its default value.
+    mutating func clearCase_p() {self._case_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5258,22 +4780,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _case_p: Int32? = nil
   }
 
   struct continueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".continue"
 
-    fileprivate var _continue_p: Int32? = nil
     var continue_p: Int32 {
       get {return _continue_p ?? 0}
       set {_continue_p = newValue}
     }
-    var hasContinue_p: Bool {
-      return self._continue_p != nil
-    }
-    mutating func clearContinue_p() {
-      self._continue_p = nil
-    }
+    /// Returns true if `continue_p` has been explicitly set.
+    var hasContinue_p: Bool {return self._continue_p != nil}
+    /// Clears the value of `continue_p`. Subsequent reads from it will return its default value.
+    mutating func clearContinue_p() {self._continue_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5294,22 +4815,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _continue_p: Int32? = nil
   }
 
   struct defaultMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".default"
 
-    fileprivate var _default_p: Int32? = nil
     var default_p: Int32 {
       get {return _default_p ?? 0}
       set {_default_p = newValue}
     }
-    var hasDefault_p: Bool {
-      return self._default_p != nil
-    }
-    mutating func clearDefault_p() {
-      self._default_p = nil
-    }
+    /// Returns true if `default_p` has been explicitly set.
+    var hasDefault_p: Bool {return self._default_p != nil}
+    /// Clears the value of `default_p`. Subsequent reads from it will return its default value.
+    mutating func clearDefault_p() {self._default_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5330,22 +4850,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _default_p: Int32? = nil
   }
 
   struct deferMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".defer"
 
-    fileprivate var _defer_p: Int32? = nil
     var defer_p: Int32 {
       get {return _defer_p ?? 0}
       set {_defer_p = newValue}
     }
-    var hasDefer_p: Bool {
-      return self._defer_p != nil
-    }
-    mutating func clearDefer_p() {
-      self._defer_p = nil
-    }
+    /// Returns true if `defer_p` has been explicitly set.
+    var hasDefer_p: Bool {return self._defer_p != nil}
+    /// Clears the value of `defer_p`. Subsequent reads from it will return its default value.
+    mutating func clearDefer_p() {self._defer_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5366,22 +4885,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _defer_p: Int32? = nil
   }
 
   struct doMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".do"
 
-    fileprivate var _do_p: Int32? = nil
     var do_p: Int32 {
       get {return _do_p ?? 0}
       set {_do_p = newValue}
     }
-    var hasDo_p: Bool {
-      return self._do_p != nil
-    }
-    mutating func clearDo_p() {
-      self._do_p = nil
-    }
+    /// Returns true if `do_p` has been explicitly set.
+    var hasDo_p: Bool {return self._do_p != nil}
+    /// Clears the value of `do_p`. Subsequent reads from it will return its default value.
+    mutating func clearDo_p() {self._do_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5402,22 +4920,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _do_p: Int32? = nil
   }
 
   struct elseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".else"
 
-    fileprivate var _else_p: Int32? = nil
     var else_p: Int32 {
       get {return _else_p ?? 0}
       set {_else_p = newValue}
     }
-    var hasElse_p: Bool {
-      return self._else_p != nil
-    }
-    mutating func clearElse_p() {
-      self._else_p = nil
-    }
+    /// Returns true if `else_p` has been explicitly set.
+    var hasElse_p: Bool {return self._else_p != nil}
+    /// Clears the value of `else_p`. Subsequent reads from it will return its default value.
+    mutating func clearElse_p() {self._else_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5438,22 +4955,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _else_p: Int32? = nil
   }
 
   struct fallthroughMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".fallthrough"
 
-    fileprivate var _fallthrough_p: Int32? = nil
     var fallthrough_p: Int32 {
       get {return _fallthrough_p ?? 0}
       set {_fallthrough_p = newValue}
     }
-    var hasFallthrough_p: Bool {
-      return self._fallthrough_p != nil
-    }
-    mutating func clearFallthrough_p() {
-      self._fallthrough_p = nil
-    }
+    /// Returns true if `fallthrough_p` has been explicitly set.
+    var hasFallthrough_p: Bool {return self._fallthrough_p != nil}
+    /// Clears the value of `fallthrough_p`. Subsequent reads from it will return its default value.
+    mutating func clearFallthrough_p() {self._fallthrough_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5474,22 +4990,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fallthrough_p: Int32? = nil
   }
 
   struct forMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".for"
 
-    fileprivate var _for_p: Int32? = nil
     var for_p: Int32 {
       get {return _for_p ?? 0}
       set {_for_p = newValue}
     }
-    var hasFor_p: Bool {
-      return self._for_p != nil
-    }
-    mutating func clearFor_p() {
-      self._for_p = nil
-    }
+    /// Returns true if `for_p` has been explicitly set.
+    var hasFor_p: Bool {return self._for_p != nil}
+    /// Clears the value of `for_p`. Subsequent reads from it will return its default value.
+    mutating func clearFor_p() {self._for_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5510,22 +5025,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _for_p: Int32? = nil
   }
 
   struct guardMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".guard"
 
-    fileprivate var _guard_p: Int32? = nil
     var guard_p: Int32 {
       get {return _guard_p ?? 0}
       set {_guard_p = newValue}
     }
-    var hasGuard_p: Bool {
-      return self._guard_p != nil
-    }
-    mutating func clearGuard_p() {
-      self._guard_p = nil
-    }
+    /// Returns true if `guard_p` has been explicitly set.
+    var hasGuard_p: Bool {return self._guard_p != nil}
+    /// Clears the value of `guard_p`. Subsequent reads from it will return its default value.
+    mutating func clearGuard_p() {self._guard_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5546,22 +5060,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _guard_p: Int32? = nil
   }
 
   struct ifMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".if"
 
-    fileprivate var _if_p: Int32? = nil
     var if_p: Int32 {
       get {return _if_p ?? 0}
       set {_if_p = newValue}
     }
-    var hasIf_p: Bool {
-      return self._if_p != nil
-    }
-    mutating func clearIf_p() {
-      self._if_p = nil
-    }
+    /// Returns true if `if_p` has been explicitly set.
+    var hasIf_p: Bool {return self._if_p != nil}
+    /// Clears the value of `if_p`. Subsequent reads from it will return its default value.
+    mutating func clearIf_p() {self._if_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5582,22 +5095,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _if_p: Int32? = nil
   }
 
   struct inMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".in"
 
-    fileprivate var _in_p: Int32? = nil
     var in_p: Int32 {
       get {return _in_p ?? 0}
       set {_in_p = newValue}
     }
-    var hasIn_p: Bool {
-      return self._in_p != nil
-    }
-    mutating func clearIn_p() {
-      self._in_p = nil
-    }
+    /// Returns true if `in_p` has been explicitly set.
+    var hasIn_p: Bool {return self._in_p != nil}
+    /// Clears the value of `in_p`. Subsequent reads from it will return its default value.
+    mutating func clearIn_p() {self._in_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5618,22 +5130,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _in_p: Int32? = nil
   }
 
   struct repeatMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".repeat"
 
-    fileprivate var _repeat_p: Int32? = nil
     var repeat_p: Int32 {
       get {return _repeat_p ?? 0}
       set {_repeat_p = newValue}
     }
-    var hasRepeat_p: Bool {
-      return self._repeat_p != nil
-    }
-    mutating func clearRepeat_p() {
-      self._repeat_p = nil
-    }
+    /// Returns true if `repeat_p` has been explicitly set.
+    var hasRepeat_p: Bool {return self._repeat_p != nil}
+    /// Clears the value of `repeat_p`. Subsequent reads from it will return its default value.
+    mutating func clearRepeat_p() {self._repeat_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5654,22 +5165,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _repeat_p: Int32? = nil
   }
 
   struct returnMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".return"
 
-    fileprivate var _return_p: Int32? = nil
     var return_p: Int32 {
       get {return _return_p ?? 0}
       set {_return_p = newValue}
     }
-    var hasReturn_p: Bool {
-      return self._return_p != nil
-    }
-    mutating func clearReturn_p() {
-      self._return_p = nil
-    }
+    /// Returns true if `return_p` has been explicitly set.
+    var hasReturn_p: Bool {return self._return_p != nil}
+    /// Clears the value of `return_p`. Subsequent reads from it will return its default value.
+    mutating func clearReturn_p() {self._return_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5690,22 +5200,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _return_p: Int32? = nil
   }
 
   struct switchMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".switch"
 
-    fileprivate var _switch_p: Int32? = nil
     var switch_p: Int32 {
       get {return _switch_p ?? 0}
       set {_switch_p = newValue}
     }
-    var hasSwitch_p: Bool {
-      return self._switch_p != nil
-    }
-    mutating func clearSwitch_p() {
-      self._switch_p = nil
-    }
+    /// Returns true if `switch_p` has been explicitly set.
+    var hasSwitch_p: Bool {return self._switch_p != nil}
+    /// Clears the value of `switch_p`. Subsequent reads from it will return its default value.
+    mutating func clearSwitch_p() {self._switch_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5726,22 +5235,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _switch_p: Int32? = nil
   }
 
   struct whereMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".where"
 
-    fileprivate var _where_p: Int32? = nil
     var where_p: Int32 {
       get {return _where_p ?? 0}
       set {_where_p = newValue}
     }
-    var hasWhere_p: Bool {
-      return self._where_p != nil
-    }
-    mutating func clearWhere_p() {
-      self._where_p = nil
-    }
+    /// Returns true if `where_p` has been explicitly set.
+    var hasWhere_p: Bool {return self._where_p != nil}
+    /// Clears the value of `where_p`. Subsequent reads from it will return its default value.
+    mutating func clearWhere_p() {self._where_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5762,22 +5270,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _where_p: Int32? = nil
   }
 
   struct whileMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".while"
 
-    fileprivate var _while_p: Int32? = nil
     var while_p: Int32 {
       get {return _while_p ?? 0}
       set {_while_p = newValue}
     }
-    var hasWhile_p: Bool {
-      return self._while_p != nil
-    }
-    mutating func clearWhile_p() {
-      self._while_p = nil
-    }
+    /// Returns true if `while_p` has been explicitly set.
+    var hasWhile_p: Bool {return self._while_p != nil}
+    /// Clears the value of `while_p`. Subsequent reads from it will return its default value.
+    mutating func clearWhile_p() {self._while_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5798,22 +5305,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _while_p: Int32? = nil
   }
 
   struct asMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".as"
 
-    fileprivate var _as_p: Int32? = nil
     var as_p: Int32 {
       get {return _as_p ?? 0}
       set {_as_p = newValue}
     }
-    var hasAs_p: Bool {
-      return self._as_p != nil
-    }
-    mutating func clearAs_p() {
-      self._as_p = nil
-    }
+    /// Returns true if `as_p` has been explicitly set.
+    var hasAs_p: Bool {return self._as_p != nil}
+    /// Clears the value of `as_p`. Subsequent reads from it will return its default value.
+    mutating func clearAs_p() {self._as_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5834,22 +5340,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _as_p: Int32? = nil
   }
 
   struct catchMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".catch"
 
-    fileprivate var _catch_p: Int32? = nil
     var catch_p: Int32 {
       get {return _catch_p ?? 0}
       set {_catch_p = newValue}
     }
-    var hasCatch_p: Bool {
-      return self._catch_p != nil
-    }
-    mutating func clearCatch_p() {
-      self._catch_p = nil
-    }
+    /// Returns true if `catch_p` has been explicitly set.
+    var hasCatch_p: Bool {return self._catch_p != nil}
+    /// Clears the value of `catch_p`. Subsequent reads from it will return its default value.
+    mutating func clearCatch_p() {self._catch_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5870,22 +5375,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _catch_p: Int32? = nil
   }
 
   struct dynamicTypeMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamicType"
 
-    fileprivate var _dynamicType_p: Int32? = nil
     var dynamicType_p: Int32 {
       get {return _dynamicType_p ?? 0}
       set {_dynamicType_p = newValue}
     }
-    var hasDynamicType_p: Bool {
-      return self._dynamicType_p != nil
-    }
-    mutating func clearDynamicType_p() {
-      self._dynamicType_p = nil
-    }
+    /// Returns true if `dynamicType_p` has been explicitly set.
+    var hasDynamicType_p: Bool {return self._dynamicType_p != nil}
+    /// Clears the value of `dynamicType_p`. Subsequent reads from it will return its default value.
+    mutating func clearDynamicType_p() {self._dynamicType_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5906,22 +5410,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dynamicType_p: Int32? = nil
   }
 
   struct falseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".false"
 
-    fileprivate var _false_p: Int32? = nil
     var false_p: Int32 {
       get {return _false_p ?? 0}
       set {_false_p = newValue}
     }
-    var hasFalse_p: Bool {
-      return self._false_p != nil
-    }
-    mutating func clearFalse_p() {
-      self._false_p = nil
-    }
+    /// Returns true if `false_p` has been explicitly set.
+    var hasFalse_p: Bool {return self._false_p != nil}
+    /// Clears the value of `false_p`. Subsequent reads from it will return its default value.
+    mutating func clearFalse_p() {self._false_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5942,22 +5445,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _false_p: Int32? = nil
   }
 
   struct isMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".is"
 
-    fileprivate var _is_p: Int32? = nil
     var is_p: Int32 {
       get {return _is_p ?? 0}
       set {_is_p = newValue}
     }
-    var hasIs_p: Bool {
-      return self._is_p != nil
-    }
-    mutating func clearIs_p() {
-      self._is_p = nil
-    }
+    /// Returns true if `is_p` has been explicitly set.
+    var hasIs_p: Bool {return self._is_p != nil}
+    /// Clears the value of `is_p`. Subsequent reads from it will return its default value.
+    mutating func clearIs_p() {self._is_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5978,22 +5480,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _is_p: Int32? = nil
   }
 
   struct nilMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nil"
 
-    fileprivate var _nil_p: Int32? = nil
     var nil_p: Int32 {
       get {return _nil_p ?? 0}
       set {_nil_p = newValue}
     }
-    var hasNil_p: Bool {
-      return self._nil_p != nil
-    }
-    mutating func clearNil_p() {
-      self._nil_p = nil
-    }
+    /// Returns true if `nil_p` has been explicitly set.
+    var hasNil_p: Bool {return self._nil_p != nil}
+    /// Clears the value of `nil_p`. Subsequent reads from it will return its default value.
+    mutating func clearNil_p() {self._nil_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6014,22 +5515,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nil_p: Int32? = nil
   }
 
   struct rethrowsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".rethrows"
 
-    fileprivate var _rethrows_p: Int32? = nil
     var rethrows_p: Int32 {
       get {return _rethrows_p ?? 0}
       set {_rethrows_p = newValue}
     }
-    var hasRethrows_p: Bool {
-      return self._rethrows_p != nil
-    }
-    mutating func clearRethrows_p() {
-      self._rethrows_p = nil
-    }
+    /// Returns true if `rethrows_p` has been explicitly set.
+    var hasRethrows_p: Bool {return self._rethrows_p != nil}
+    /// Clears the value of `rethrows_p`. Subsequent reads from it will return its default value.
+    mutating func clearRethrows_p() {self._rethrows_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6050,22 +5550,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _rethrows_p: Int32? = nil
   }
 
   struct superMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".super"
 
-    fileprivate var _super_p: Int32? = nil
     var super_p: Int32 {
       get {return _super_p ?? 0}
       set {_super_p = newValue}
     }
-    var hasSuper_p: Bool {
-      return self._super_p != nil
-    }
-    mutating func clearSuper_p() {
-      self._super_p = nil
-    }
+    /// Returns true if `super_p` has been explicitly set.
+    var hasSuper_p: Bool {return self._super_p != nil}
+    /// Clears the value of `super_p`. Subsequent reads from it will return its default value.
+    mutating func clearSuper_p() {self._super_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6086,22 +5585,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _super_p: Int32? = nil
   }
 
   struct selfMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".self"
 
-    fileprivate var _self_p: Int32? = nil
     var self_p: Int32 {
       get {return _self_p ?? 0}
       set {_self_p = newValue}
     }
-    var hasSelf_p: Bool {
-      return self._self_p != nil
-    }
-    mutating func clearSelf_p() {
-      self._self_p = nil
-    }
+    /// Returns true if `self_p` has been explicitly set.
+    var hasSelf_p: Bool {return self._self_p != nil}
+    /// Clears the value of `self_p`. Subsequent reads from it will return its default value.
+    mutating func clearSelf_p() {self._self_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6122,22 +5620,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _self_p: Int32? = nil
   }
 
   struct throwMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throw"
 
-    fileprivate var _throw_p: Int32? = nil
     var throw_p: Int32 {
       get {return _throw_p ?? 0}
       set {_throw_p = newValue}
     }
-    var hasThrow_p: Bool {
-      return self._throw_p != nil
-    }
-    mutating func clearThrow_p() {
-      self._throw_p = nil
-    }
+    /// Returns true if `throw_p` has been explicitly set.
+    var hasThrow_p: Bool {return self._throw_p != nil}
+    /// Clears the value of `throw_p`. Subsequent reads from it will return its default value.
+    mutating func clearThrow_p() {self._throw_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6158,22 +5655,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _throw_p: Int32? = nil
   }
 
   struct throwsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".throws"
 
-    fileprivate var _throws_p: Int32? = nil
     var throws_p: Int32 {
       get {return _throws_p ?? 0}
       set {_throws_p = newValue}
     }
-    var hasThrows_p: Bool {
-      return self._throws_p != nil
-    }
-    mutating func clearThrows_p() {
-      self._throws_p = nil
-    }
+    /// Returns true if `throws_p` has been explicitly set.
+    var hasThrows_p: Bool {return self._throws_p != nil}
+    /// Clears the value of `throws_p`. Subsequent reads from it will return its default value.
+    mutating func clearThrows_p() {self._throws_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6194,22 +5690,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _throws_p: Int32? = nil
   }
 
   struct trueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".true"
 
-    fileprivate var _true_p: Int32? = nil
     var true_p: Int32 {
       get {return _true_p ?? 0}
       set {_true_p = newValue}
     }
-    var hasTrue_p: Bool {
-      return self._true_p != nil
-    }
-    mutating func clearTrue_p() {
-      self._true_p = nil
-    }
+    /// Returns true if `true_p` has been explicitly set.
+    var hasTrue_p: Bool {return self._true_p != nil}
+    /// Clears the value of `true_p`. Subsequent reads from it will return its default value.
+    mutating func clearTrue_p() {self._true_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6230,22 +5725,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _true_p: Int32? = nil
   }
 
   struct tryMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".try"
 
-    fileprivate var _try_p: Int32? = nil
     var try_p: Int32 {
       get {return _try_p ?? 0}
       set {_try_p = newValue}
     }
-    var hasTry_p: Bool {
-      return self._try_p != nil
-    }
-    mutating func clearTry_p() {
-      self._try_p = nil
-    }
+    /// Returns true if `try_p` has been explicitly set.
+    var hasTry_p: Bool {return self._try_p != nil}
+    /// Clears the value of `try_p`. Subsequent reads from it will return its default value.
+    mutating func clearTry_p() {self._try_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6266,22 +5760,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _try_p: Int32? = nil
   }
 
   struct __COLUMN__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__COLUMN__"
 
-    fileprivate var __Column__: Int32? = nil
     var _Column__: Int32 {
       get {return __Column__ ?? 0}
       set {__Column__ = newValue}
     }
-    var has_Column__: Bool {
-      return self.__Column__ != nil
-    }
-    mutating func clear_Column__() {
-      self.__Column__ = nil
-    }
+    /// Returns true if `_Column__` has been explicitly set.
+    var has_Column__: Bool {return self.__Column__ != nil}
+    /// Clears the value of `_Column__`. Subsequent reads from it will return its default value.
+    mutating func clear_Column__() {self.__Column__ = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6302,22 +5795,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __Column__: Int32? = nil
   }
 
   struct __FILE__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FILE__"
 
-    fileprivate var __File__: Int32? = nil
     var _File__: Int32 {
       get {return __File__ ?? 0}
       set {__File__ = newValue}
     }
-    var has_File__: Bool {
-      return self.__File__ != nil
-    }
-    mutating func clear_File__() {
-      self.__File__ = nil
-    }
+    /// Returns true if `_File__` has been explicitly set.
+    var has_File__: Bool {return self.__File__ != nil}
+    /// Clears the value of `_File__`. Subsequent reads from it will return its default value.
+    mutating func clear_File__() {self.__File__ = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6338,22 +5830,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __File__: Int32? = nil
   }
 
   struct __FUNCTION__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__FUNCTION__"
 
-    fileprivate var __Function__: Int32? = nil
     var _Function__: Int32 {
       get {return __Function__ ?? 0}
       set {__Function__ = newValue}
     }
-    var has_Function__: Bool {
-      return self.__Function__ != nil
-    }
-    mutating func clear_Function__() {
-      self.__Function__ = nil
-    }
+    /// Returns true if `_Function__` has been explicitly set.
+    var has_Function__: Bool {return self.__Function__ != nil}
+    /// Clears the value of `_Function__`. Subsequent reads from it will return its default value.
+    mutating func clear_Function__() {self.__Function__ = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6374,22 +5865,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __Function__: Int32? = nil
   }
 
   struct __LINE__Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__LINE__"
 
-    fileprivate var __Line__: Int32? = nil
     var _Line__: Int32 {
       get {return __Line__ ?? 0}
       set {__Line__ = newValue}
     }
-    var has_Line__: Bool {
-      return self.__Line__ != nil
-    }
-    mutating func clear_Line__() {
-      self.__Line__ = nil
-    }
+    /// Returns true if `_Line__` has been explicitly set.
+    var has_Line__: Bool {return self.__Line__ != nil}
+    /// Clears the value of `_Line__`. Subsequent reads from it will return its default value.
+    mutating func clear_Line__() {self.__Line__ = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6410,22 +5900,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var __Line__: Int32? = nil
   }
 
   struct _Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._"
 
-    fileprivate var ____: Int32? = nil
     var ___: Int32 {
       get {return ____ ?? 0}
       set {____ = newValue}
     }
-    var has___: Bool {
-      return self.____ != nil
-    }
-    mutating func clear___() {
-      self.____ = nil
-    }
+    /// Returns true if `___` has been explicitly set.
+    var has___: Bool {return self.____ != nil}
+    /// Clears the value of `___`. Subsequent reads from it will return its default value.
+    mutating func clear___() {self.____ = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6446,22 +5935,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var ____: Int32? = nil
   }
 
   struct __Message: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".__"
 
-    fileprivate var _____: Int32? = nil
     var ____: Int32 {
       get {return _____ ?? 0}
       set {_____ = newValue}
     }
-    var has____: Bool {
-      return self._____ != nil
-    }
-    mutating func clear____() {
-      self._____ = nil
-    }
+    /// Returns true if `____` has been explicitly set.
+    var has____: Bool {return self._____ != nil}
+    /// Clears the value of `____`. Subsequent reads from it will return its default value.
+    mutating func clear____() {self._____ = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6482,22 +5970,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _____: Int32? = nil
   }
 
   struct associativity: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
 
-    fileprivate var _associativity: Int32? = nil
     var associativity: Int32 {
       get {return _associativity ?? 0}
       set {_associativity = newValue}
     }
-    var hasAssociativity: Bool {
-      return self._associativity != nil
-    }
-    mutating func clearAssociativity() {
-      self._associativity = nil
-    }
+    /// Returns true if `associativity` has been explicitly set.
+    var hasAssociativity: Bool {return self._associativity != nil}
+    /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
+    mutating func clearAssociativity() {self._associativity = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6518,22 +6005,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _associativity: Int32? = nil
   }
 
   struct convenience: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".convenience"
 
-    fileprivate var _convenience: Int32? = nil
     var convenience: Int32 {
       get {return _convenience ?? 0}
       set {_convenience = newValue}
     }
-    var hasConvenience: Bool {
-      return self._convenience != nil
-    }
-    mutating func clearConvenience() {
-      self._convenience = nil
-    }
+    /// Returns true if `convenience` has been explicitly set.
+    var hasConvenience: Bool {return self._convenience != nil}
+    /// Clears the value of `convenience`. Subsequent reads from it will return its default value.
+    mutating func clearConvenience() {self._convenience = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6554,22 +6040,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _convenience: Int32? = nil
   }
 
   struct dynamic: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic"
 
-    fileprivate var _dynamic: Int32? = nil
     var dynamic: Int32 {
       get {return _dynamic ?? 0}
       set {_dynamic = newValue}
     }
-    var hasDynamic: Bool {
-      return self._dynamic != nil
-    }
-    mutating func clearDynamic() {
-      self._dynamic = nil
-    }
+    /// Returns true if `dynamic` has been explicitly set.
+    var hasDynamic: Bool {return self._dynamic != nil}
+    /// Clears the value of `dynamic`. Subsequent reads from it will return its default value.
+    mutating func clearDynamic() {self._dynamic = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6590,22 +6075,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dynamic: Int32? = nil
   }
 
   struct didSet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".didSet"
 
-    fileprivate var _didSet: Int32? = nil
     var didSet: Int32 {
       get {return _didSet ?? 0}
       set {_didSet = newValue}
     }
-    var hasDidSet: Bool {
-      return self._didSet != nil
-    }
-    mutating func clearDidSet() {
-      self._didSet = nil
-    }
+    /// Returns true if `didSet` has been explicitly set.
+    var hasDidSet: Bool {return self._didSet != nil}
+    /// Clears the value of `didSet`. Subsequent reads from it will return its default value.
+    mutating func clearDidSet() {self._didSet = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6626,22 +6110,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _didSet: Int32? = nil
   }
 
   struct final: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".final"
 
-    fileprivate var _final: Int32? = nil
     var final: Int32 {
       get {return _final ?? 0}
       set {_final = newValue}
     }
-    var hasFinal: Bool {
-      return self._final != nil
-    }
-    mutating func clearFinal() {
-      self._final = nil
-    }
+    /// Returns true if `final` has been explicitly set.
+    var hasFinal: Bool {return self._final != nil}
+    /// Clears the value of `final`. Subsequent reads from it will return its default value.
+    mutating func clearFinal() {self._final = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6662,22 +6145,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _final: Int32? = nil
   }
 
   struct get: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".get"
 
-    fileprivate var _get: Int32? = nil
     var get: Int32 {
       get {return _get ?? 0}
       set {_get = newValue}
     }
-    var hasGet: Bool {
-      return self._get != nil
-    }
-    mutating func clearGet() {
-      self._get = nil
-    }
+    /// Returns true if `get` has been explicitly set.
+    var hasGet: Bool {return self._get != nil}
+    /// Clears the value of `get`. Subsequent reads from it will return its default value.
+    mutating func clearGet() {self._get = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6698,22 +6180,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _get: Int32? = nil
   }
 
   struct infix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".infix"
 
-    fileprivate var _infix: Int32? = nil
     var infix: Int32 {
       get {return _infix ?? 0}
       set {_infix = newValue}
     }
-    var hasInfix: Bool {
-      return self._infix != nil
-    }
-    mutating func clearInfix() {
-      self._infix = nil
-    }
+    /// Returns true if `infix` has been explicitly set.
+    var hasInfix: Bool {return self._infix != nil}
+    /// Clears the value of `infix`. Subsequent reads from it will return its default value.
+    mutating func clearInfix() {self._infix = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6734,22 +6215,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _infix: Int32? = nil
   }
 
   struct indirect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".indirect"
 
-    fileprivate var _indirect: Int32? = nil
     var indirect: Int32 {
       get {return _indirect ?? 0}
       set {_indirect = newValue}
     }
-    var hasIndirect: Bool {
-      return self._indirect != nil
-    }
-    mutating func clearIndirect() {
-      self._indirect = nil
-    }
+    /// Returns true if `indirect` has been explicitly set.
+    var hasIndirect: Bool {return self._indirect != nil}
+    /// Clears the value of `indirect`. Subsequent reads from it will return its default value.
+    mutating func clearIndirect() {self._indirect = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6770,22 +6250,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _indirect: Int32? = nil
   }
 
   struct lazy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".lazy"
 
-    fileprivate var _lazy: Int32? = nil
     var lazy: Int32 {
       get {return _lazy ?? 0}
       set {_lazy = newValue}
     }
-    var hasLazy: Bool {
-      return self._lazy != nil
-    }
-    mutating func clearLazy() {
-      self._lazy = nil
-    }
+    /// Returns true if `lazy` has been explicitly set.
+    var hasLazy: Bool {return self._lazy != nil}
+    /// Clears the value of `lazy`. Subsequent reads from it will return its default value.
+    mutating func clearLazy() {self._lazy = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6806,22 +6285,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _lazy: Int32? = nil
   }
 
   struct left: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".left"
 
-    fileprivate var _left: Int32? = nil
     var left: Int32 {
       get {return _left ?? 0}
       set {_left = newValue}
     }
-    var hasLeft: Bool {
-      return self._left != nil
-    }
-    mutating func clearLeft() {
-      self._left = nil
-    }
+    /// Returns true if `left` has been explicitly set.
+    var hasLeft: Bool {return self._left != nil}
+    /// Clears the value of `left`. Subsequent reads from it will return its default value.
+    mutating func clearLeft() {self._left = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6842,22 +6320,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _left: Int32? = nil
   }
 
   struct mutating: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutating"
 
-    fileprivate var _mutating: Int32? = nil
     var mutating: Int32 {
       get {return _mutating ?? 0}
       set {_mutating = newValue}
     }
-    var hasMutating: Bool {
-      return self._mutating != nil
-    }
-    mutating func clearMutating() {
-      self._mutating = nil
-    }
+    /// Returns true if `mutating` has been explicitly set.
+    var hasMutating: Bool {return self._mutating != nil}
+    /// Clears the value of `mutating`. Subsequent reads from it will return its default value.
+    mutating func clearMutating() {self._mutating = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6878,22 +6355,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _mutating: Int32? = nil
   }
 
   struct none: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".none"
 
-    fileprivate var _none: Int32? = nil
     var none: Int32 {
       get {return _none ?? 0}
       set {_none = newValue}
     }
-    var hasNone: Bool {
-      return self._none != nil
-    }
-    mutating func clearNone() {
-      self._none = nil
-    }
+    /// Returns true if `none` has been explicitly set.
+    var hasNone: Bool {return self._none != nil}
+    /// Clears the value of `none`. Subsequent reads from it will return its default value.
+    mutating func clearNone() {self._none = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6914,22 +6390,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _none: Int32? = nil
   }
 
   struct nonmutating: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nonmutating"
 
-    fileprivate var _nonmutating: Int32? = nil
     var nonmutating: Int32 {
       get {return _nonmutating ?? 0}
       set {_nonmutating = newValue}
     }
-    var hasNonmutating: Bool {
-      return self._nonmutating != nil
-    }
-    mutating func clearNonmutating() {
-      self._nonmutating = nil
-    }
+    /// Returns true if `nonmutating` has been explicitly set.
+    var hasNonmutating: Bool {return self._nonmutating != nil}
+    /// Clears the value of `nonmutating`. Subsequent reads from it will return its default value.
+    mutating func clearNonmutating() {self._nonmutating = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6950,22 +6425,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nonmutating: Int32? = nil
   }
 
   struct optional: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
 
-    fileprivate var _optional: Int32? = nil
     var optional: Int32 {
       get {return _optional ?? 0}
       set {_optional = newValue}
     }
-    var hasOptional: Bool {
-      return self._optional != nil
-    }
-    mutating func clearOptional() {
-      self._optional = nil
-    }
+    /// Returns true if `optional` has been explicitly set.
+    var hasOptional: Bool {return self._optional != nil}
+    /// Clears the value of `optional`. Subsequent reads from it will return its default value.
+    mutating func clearOptional() {self._optional = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6986,22 +6460,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _optional: Int32? = nil
   }
 
   struct override: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".override"
 
-    fileprivate var _override: Int32? = nil
     var override: Int32 {
       get {return _override ?? 0}
       set {_override = newValue}
     }
-    var hasOverride: Bool {
-      return self._override != nil
-    }
-    mutating func clearOverride() {
-      self._override = nil
-    }
+    /// Returns true if `override` has been explicitly set.
+    var hasOverride: Bool {return self._override != nil}
+    /// Clears the value of `override`. Subsequent reads from it will return its default value.
+    mutating func clearOverride() {self._override = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7022,22 +6495,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _override: Int32? = nil
   }
 
   struct postfix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".postfix"
 
-    fileprivate var _postfix: Int32? = nil
     var postfix: Int32 {
       get {return _postfix ?? 0}
       set {_postfix = newValue}
     }
-    var hasPostfix: Bool {
-      return self._postfix != nil
-    }
-    mutating func clearPostfix() {
-      self._postfix = nil
-    }
+    /// Returns true if `postfix` has been explicitly set.
+    var hasPostfix: Bool {return self._postfix != nil}
+    /// Clears the value of `postfix`. Subsequent reads from it will return its default value.
+    mutating func clearPostfix() {self._postfix = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7058,22 +6530,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _postfix: Int32? = nil
   }
 
   struct precedence: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".precedence"
 
-    fileprivate var _precedence: Int32? = nil
     var precedence: Int32 {
       get {return _precedence ?? 0}
       set {_precedence = newValue}
     }
-    var hasPrecedence: Bool {
-      return self._precedence != nil
-    }
-    mutating func clearPrecedence() {
-      self._precedence = nil
-    }
+    /// Returns true if `precedence` has been explicitly set.
+    var hasPrecedence: Bool {return self._precedence != nil}
+    /// Clears the value of `precedence`. Subsequent reads from it will return its default value.
+    mutating func clearPrecedence() {self._precedence = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7094,22 +6565,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _precedence: Int32? = nil
   }
 
   struct prefix: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".prefix"
 
-    fileprivate var _prefix: Int32? = nil
     var prefix: Int32 {
       get {return _prefix ?? 0}
       set {_prefix = newValue}
     }
-    var hasPrefix: Bool {
-      return self._prefix != nil
-    }
-    mutating func clearPrefix() {
-      self._prefix = nil
-    }
+    /// Returns true if `prefix` has been explicitly set.
+    var hasPrefix: Bool {return self._prefix != nil}
+    /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
+    mutating func clearPrefix() {self._prefix = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7130,22 +6600,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _prefix: Int32? = nil
   }
 
   struct required: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
 
-    fileprivate var _required: Int32? = nil
     var required: Int32 {
       get {return _required ?? 0}
       set {_required = newValue}
     }
-    var hasRequired: Bool {
-      return self._required != nil
-    }
-    mutating func clearRequired() {
-      self._required = nil
-    }
+    /// Returns true if `required` has been explicitly set.
+    var hasRequired: Bool {return self._required != nil}
+    /// Clears the value of `required`. Subsequent reads from it will return its default value.
+    mutating func clearRequired() {self._required = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7166,22 +6635,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _required: Int32? = nil
   }
 
   struct right: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".right"
 
-    fileprivate var _right: Int32? = nil
     var right: Int32 {
       get {return _right ?? 0}
       set {_right = newValue}
     }
-    var hasRight: Bool {
-      return self._right != nil
-    }
-    mutating func clearRight() {
-      self._right = nil
-    }
+    /// Returns true if `right` has been explicitly set.
+    var hasRight: Bool {return self._right != nil}
+    /// Clears the value of `right`. Subsequent reads from it will return its default value.
+    mutating func clearRight() {self._right = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7202,22 +6670,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _right: Int32? = nil
   }
 
   struct set: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".set"
 
-    fileprivate var _set: Int32? = nil
     var set: Int32 {
       get {return _set ?? 0}
       set {_set = newValue}
     }
-    var hasSet: Bool {
-      return self._set != nil
-    }
-    mutating func clearSet() {
-      self._set = nil
-    }
+    /// Returns true if `set` has been explicitly set.
+    var hasSet: Bool {return self._set != nil}
+    /// Clears the value of `set`. Subsequent reads from it will return its default value.
+    mutating func clearSet() {self._set = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7238,22 +6705,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _set: Int32? = nil
   }
 
   struct TypeMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Type"
 
-    fileprivate var _type: Int32? = nil
     var type: Int32 {
       get {return _type ?? 0}
       set {_type = newValue}
     }
-    var hasType: Bool {
-      return self._type != nil
-    }
-    mutating func clearType() {
-      self._type = nil
-    }
+    /// Returns true if `type` has been explicitly set.
+    var hasType: Bool {return self._type != nil}
+    /// Clears the value of `type`. Subsequent reads from it will return its default value.
+    mutating func clearType() {self._type = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7274,22 +6740,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _type: Int32? = nil
   }
 
   struct unowned: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unowned"
 
-    fileprivate var _unowned: Int32? = nil
     var unowned: Int32 {
       get {return _unowned ?? 0}
       set {_unowned = newValue}
     }
-    var hasUnowned: Bool {
-      return self._unowned != nil
-    }
-    mutating func clearUnowned() {
-      self._unowned = nil
-    }
+    /// Returns true if `unowned` has been explicitly set.
+    var hasUnowned: Bool {return self._unowned != nil}
+    /// Clears the value of `unowned`. Subsequent reads from it will return its default value.
+    mutating func clearUnowned() {self._unowned = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7310,22 +6775,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unowned: Int32? = nil
   }
 
   struct weak: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".weak"
 
-    fileprivate var _weak: Int32? = nil
     var weak: Int32 {
       get {return _weak ?? 0}
       set {_weak = newValue}
     }
-    var hasWeak: Bool {
-      return self._weak != nil
-    }
-    mutating func clearWeak() {
-      self._weak = nil
-    }
+    /// Returns true if `weak` has been explicitly set.
+    var hasWeak: Bool {return self._weak != nil}
+    /// Clears the value of `weak`. Subsequent reads from it will return its default value.
+    mutating func clearWeak() {self._weak = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7346,22 +6810,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _weak: Int32? = nil
   }
 
   struct willSet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".willSet"
 
-    fileprivate var _willSet: Int32? = nil
     var willSet: Int32 {
       get {return _willSet ?? 0}
       set {_willSet = newValue}
     }
-    var hasWillSet: Bool {
-      return self._willSet != nil
-    }
-    mutating func clearWillSet() {
-      self._willSet = nil
-    }
+    /// Returns true if `willSet` has been explicitly set.
+    var hasWillSet: Bool {return self._willSet != nil}
+    /// Clears the value of `willSet`. Subsequent reads from it will return its default value.
+    mutating func clearWillSet() {self._willSet = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7382,22 +6845,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _willSet: Int32? = nil
   }
 
   struct id: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".id"
 
-    fileprivate var _id: Int32? = nil
     var id: Int32 {
       get {return _id ?? 0}
       set {_id = newValue}
     }
-    var hasId: Bool {
-      return self._id != nil
-    }
-    mutating func clearId() {
-      self._id = nil
-    }
+    /// Returns true if `id` has been explicitly set.
+    var hasId: Bool {return self._id != nil}
+    /// Clears the value of `id`. Subsequent reads from it will return its default value.
+    mutating func clearId() {self._id = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7418,22 +6880,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _id: Int32? = nil
   }
 
   struct _cmd: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + "._cmd"
 
-    fileprivate var _cmd: Int32? = nil
     var cmd: Int32 {
       get {return _cmd ?? 0}
       set {_cmd = newValue}
     }
-    var hasCmd: Bool {
-      return self._cmd != nil
-    }
-    mutating func clearCmd() {
-      self._cmd = nil
-    }
+    /// Returns true if `cmd` has been explicitly set.
+    var hasCmd: Bool {return self._cmd != nil}
+    /// Clears the value of `cmd`. Subsequent reads from it will return its default value.
+    mutating func clearCmd() {self._cmd = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7454,22 +6915,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _cmd: Int32? = nil
   }
 
   struct out: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".out"
 
-    fileprivate var _out: Int32? = nil
     var out: Int32 {
       get {return _out ?? 0}
       set {_out = newValue}
     }
-    var hasOut: Bool {
-      return self._out != nil
-    }
-    mutating func clearOut() {
-      self._out = nil
-    }
+    /// Returns true if `out` has been explicitly set.
+    var hasOut: Bool {return self._out != nil}
+    /// Clears the value of `out`. Subsequent reads from it will return its default value.
+    mutating func clearOut() {self._out = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7490,22 +6950,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _out: Int32? = nil
   }
 
   struct bycopy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bycopy"
 
-    fileprivate var _bycopy: Int32? = nil
     var bycopy: Int32 {
       get {return _bycopy ?? 0}
       set {_bycopy = newValue}
     }
-    var hasBycopy: Bool {
-      return self._bycopy != nil
-    }
-    mutating func clearBycopy() {
-      self._bycopy = nil
-    }
+    /// Returns true if `bycopy` has been explicitly set.
+    var hasBycopy: Bool {return self._bycopy != nil}
+    /// Clears the value of `bycopy`. Subsequent reads from it will return its default value.
+    mutating func clearBycopy() {self._bycopy = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7526,22 +6985,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bycopy: Int32? = nil
   }
 
   struct byref: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".byref"
 
-    fileprivate var _byref: Int32? = nil
     var byref: Int32 {
       get {return _byref ?? 0}
       set {_byref = newValue}
     }
-    var hasByref: Bool {
-      return self._byref != nil
-    }
-    mutating func clearByref() {
-      self._byref = nil
-    }
+    /// Returns true if `byref` has been explicitly set.
+    var hasByref: Bool {return self._byref != nil}
+    /// Clears the value of `byref`. Subsequent reads from it will return its default value.
+    mutating func clearByref() {self._byref = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7562,22 +7020,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _byref: Int32? = nil
   }
 
   struct oneway: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".oneway"
 
-    fileprivate var _oneway: Int32? = nil
     var oneway: Int32 {
       get {return _oneway ?? 0}
       set {_oneway = newValue}
     }
-    var hasOneway: Bool {
-      return self._oneway != nil
-    }
-    mutating func clearOneway() {
-      self._oneway = nil
-    }
+    /// Returns true if `oneway` has been explicitly set.
+    var hasOneway: Bool {return self._oneway != nil}
+    /// Clears the value of `oneway`. Subsequent reads from it will return its default value.
+    mutating func clearOneway() {self._oneway = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7598,22 +7055,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _oneway: Int32? = nil
   }
 
   struct and: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and"
 
-    fileprivate var _and: Int32? = nil
     var and: Int32 {
       get {return _and ?? 0}
       set {_and = newValue}
     }
-    var hasAnd: Bool {
-      return self._and != nil
-    }
-    mutating func clearAnd() {
-      self._and = nil
-    }
+    /// Returns true if `and` has been explicitly set.
+    var hasAnd: Bool {return self._and != nil}
+    /// Clears the value of `and`. Subsequent reads from it will return its default value.
+    mutating func clearAnd() {self._and = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7634,22 +7090,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _and: Int32? = nil
   }
 
   struct and_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".and_eq"
 
-    fileprivate var _andEq: Int32? = nil
     var andEq: Int32 {
       get {return _andEq ?? 0}
       set {_andEq = newValue}
     }
-    var hasAndEq: Bool {
-      return self._andEq != nil
-    }
-    mutating func clearAndEq() {
-      self._andEq = nil
-    }
+    /// Returns true if `andEq` has been explicitly set.
+    var hasAndEq: Bool {return self._andEq != nil}
+    /// Clears the value of `andEq`. Subsequent reads from it will return its default value.
+    mutating func clearAndEq() {self._andEq = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7670,22 +7125,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _andEq: Int32? = nil
   }
 
   struct alignas: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignas"
 
-    fileprivate var _alignas: Int32? = nil
     var alignas: Int32 {
       get {return _alignas ?? 0}
       set {_alignas = newValue}
     }
-    var hasAlignas: Bool {
-      return self._alignas != nil
-    }
-    mutating func clearAlignas() {
-      self._alignas = nil
-    }
+    /// Returns true if `alignas` has been explicitly set.
+    var hasAlignas: Bool {return self._alignas != nil}
+    /// Clears the value of `alignas`. Subsequent reads from it will return its default value.
+    mutating func clearAlignas() {self._alignas = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7706,22 +7160,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _alignas: Int32? = nil
   }
 
   struct alignof: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".alignof"
 
-    fileprivate var _alignof: Int32? = nil
     var alignof: Int32 {
       get {return _alignof ?? 0}
       set {_alignof = newValue}
     }
-    var hasAlignof: Bool {
-      return self._alignof != nil
-    }
-    mutating func clearAlignof() {
-      self._alignof = nil
-    }
+    /// Returns true if `alignof` has been explicitly set.
+    var hasAlignof: Bool {return self._alignof != nil}
+    /// Clears the value of `alignof`. Subsequent reads from it will return its default value.
+    mutating func clearAlignof() {self._alignof = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7742,22 +7195,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _alignof: Int32? = nil
   }
 
   struct asm: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".asm"
 
-    fileprivate var _asm: Int32? = nil
     var asm: Int32 {
       get {return _asm ?? 0}
       set {_asm = newValue}
     }
-    var hasAsm: Bool {
-      return self._asm != nil
-    }
-    mutating func clearAsm() {
-      self._asm = nil
-    }
+    /// Returns true if `asm` has been explicitly set.
+    var hasAsm: Bool {return self._asm != nil}
+    /// Clears the value of `asm`. Subsequent reads from it will return its default value.
+    mutating func clearAsm() {self._asm = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7778,22 +7230,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _asm: Int32? = nil
   }
 
   struct auto: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".auto"
 
-    fileprivate var _auto: Int32? = nil
     var auto: Int32 {
       get {return _auto ?? 0}
       set {_auto = newValue}
     }
-    var hasAuto: Bool {
-      return self._auto != nil
-    }
-    mutating func clearAuto() {
-      self._auto = nil
-    }
+    /// Returns true if `auto` has been explicitly set.
+    var hasAuto: Bool {return self._auto != nil}
+    /// Clears the value of `auto`. Subsequent reads from it will return its default value.
+    mutating func clearAuto() {self._auto = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7814,22 +7265,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _auto: Int32? = nil
   }
 
   struct bitand: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitand"
 
-    fileprivate var _bitand: Int32? = nil
     var bitand: Int32 {
       get {return _bitand ?? 0}
       set {_bitand = newValue}
     }
-    var hasBitand: Bool {
-      return self._bitand != nil
-    }
-    mutating func clearBitand() {
-      self._bitand = nil
-    }
+    /// Returns true if `bitand` has been explicitly set.
+    var hasBitand: Bool {return self._bitand != nil}
+    /// Clears the value of `bitand`. Subsequent reads from it will return its default value.
+    mutating func clearBitand() {self._bitand = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7850,22 +7300,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bitand: Int32? = nil
   }
 
   struct bitor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bitor"
 
-    fileprivate var _bitor: Int32? = nil
     var bitor: Int32 {
       get {return _bitor ?? 0}
       set {_bitor = newValue}
     }
-    var hasBitor: Bool {
-      return self._bitor != nil
-    }
-    mutating func clearBitor() {
-      self._bitor = nil
-    }
+    /// Returns true if `bitor` has been explicitly set.
+    var hasBitor: Bool {return self._bitor != nil}
+    /// Clears the value of `bitor`. Subsequent reads from it will return its default value.
+    mutating func clearBitor() {self._bitor = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7886,22 +7335,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bitor: Int32? = nil
   }
 
   struct bool: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".bool"
 
-    fileprivate var _bool: Int32? = nil
     var bool: Int32 {
       get {return _bool ?? 0}
       set {_bool = newValue}
     }
-    var hasBool: Bool {
-      return self._bool != nil
-    }
-    mutating func clearBool() {
-      self._bool = nil
-    }
+    /// Returns true if `bool` has been explicitly set.
+    var hasBool: Bool {return self._bool != nil}
+    /// Clears the value of `bool`. Subsequent reads from it will return its default value.
+    mutating func clearBool() {self._bool = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7922,22 +7370,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _bool: Int32? = nil
   }
 
   struct char: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char"
 
-    fileprivate var _char: Int32? = nil
     var char: Int32 {
       get {return _char ?? 0}
       set {_char = newValue}
     }
-    var hasChar: Bool {
-      return self._char != nil
-    }
-    mutating func clearChar() {
-      self._char = nil
-    }
+    /// Returns true if `char` has been explicitly set.
+    var hasChar: Bool {return self._char != nil}
+    /// Clears the value of `char`. Subsequent reads from it will return its default value.
+    mutating func clearChar() {self._char = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7958,22 +7405,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _char: Int32? = nil
   }
 
   struct char16_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char16_t"
 
-    fileprivate var _char16T: Int32? = nil
     var char16T: Int32 {
       get {return _char16T ?? 0}
       set {_char16T = newValue}
     }
-    var hasChar16T: Bool {
-      return self._char16T != nil
-    }
-    mutating func clearChar16T() {
-      self._char16T = nil
-    }
+    /// Returns true if `char16T` has been explicitly set.
+    var hasChar16T: Bool {return self._char16T != nil}
+    /// Clears the value of `char16T`. Subsequent reads from it will return its default value.
+    mutating func clearChar16T() {self._char16T = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -7994,22 +7440,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _char16T: Int32? = nil
   }
 
   struct char32_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".char32_t"
 
-    fileprivate var _char32T: Int32? = nil
     var char32T: Int32 {
       get {return _char32T ?? 0}
       set {_char32T = newValue}
     }
-    var hasChar32T: Bool {
-      return self._char32T != nil
-    }
-    mutating func clearChar32T() {
-      self._char32T = nil
-    }
+    /// Returns true if `char32T` has been explicitly set.
+    var hasChar32T: Bool {return self._char32T != nil}
+    /// Clears the value of `char32T`. Subsequent reads from it will return its default value.
+    mutating func clearChar32T() {self._char32T = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8030,22 +7475,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _char32T: Int32? = nil
   }
 
   struct compl: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".compl"
 
-    fileprivate var _compl: Int32? = nil
     var compl: Int32 {
       get {return _compl ?? 0}
       set {_compl = newValue}
     }
-    var hasCompl: Bool {
-      return self._compl != nil
-    }
-    mutating func clearCompl() {
-      self._compl = nil
-    }
+    /// Returns true if `compl` has been explicitly set.
+    var hasCompl: Bool {return self._compl != nil}
+    /// Clears the value of `compl`. Subsequent reads from it will return its default value.
+    mutating func clearCompl() {self._compl = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8066,22 +7510,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _compl: Int32? = nil
   }
 
   struct const: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const"
 
-    fileprivate var _const: Int32? = nil
     var const: Int32 {
       get {return _const ?? 0}
       set {_const = newValue}
     }
-    var hasConst: Bool {
-      return self._const != nil
-    }
-    mutating func clearConst() {
-      self._const = nil
-    }
+    /// Returns true if `const` has been explicitly set.
+    var hasConst: Bool {return self._const != nil}
+    /// Clears the value of `const`. Subsequent reads from it will return its default value.
+    mutating func clearConst() {self._const = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8102,22 +7545,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _const: Int32? = nil
   }
 
   struct constexpr: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".constexpr"
 
-    fileprivate var _constexpr: Int32? = nil
     var constexpr: Int32 {
       get {return _constexpr ?? 0}
       set {_constexpr = newValue}
     }
-    var hasConstexpr: Bool {
-      return self._constexpr != nil
-    }
-    mutating func clearConstexpr() {
-      self._constexpr = nil
-    }
+    /// Returns true if `constexpr` has been explicitly set.
+    var hasConstexpr: Bool {return self._constexpr != nil}
+    /// Clears the value of `constexpr`. Subsequent reads from it will return its default value.
+    mutating func clearConstexpr() {self._constexpr = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8138,22 +7580,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _constexpr: Int32? = nil
   }
 
   struct const_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".const_cast"
 
-    fileprivate var _constCast: Int32? = nil
     var constCast: Int32 {
       get {return _constCast ?? 0}
       set {_constCast = newValue}
     }
-    var hasConstCast: Bool {
-      return self._constCast != nil
-    }
-    mutating func clearConstCast() {
-      self._constCast = nil
-    }
+    /// Returns true if `constCast` has been explicitly set.
+    var hasConstCast: Bool {return self._constCast != nil}
+    /// Clears the value of `constCast`. Subsequent reads from it will return its default value.
+    mutating func clearConstCast() {self._constCast = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8174,22 +7615,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _constCast: Int32? = nil
   }
 
   struct decltype: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".decltype"
 
-    fileprivate var _decltype: Int32? = nil
     var decltype: Int32 {
       get {return _decltype ?? 0}
       set {_decltype = newValue}
     }
-    var hasDecltype: Bool {
-      return self._decltype != nil
-    }
-    mutating func clearDecltype() {
-      self._decltype = nil
-    }
+    /// Returns true if `decltype` has been explicitly set.
+    var hasDecltype: Bool {return self._decltype != nil}
+    /// Clears the value of `decltype`. Subsequent reads from it will return its default value.
+    mutating func clearDecltype() {self._decltype = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8210,22 +7650,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _decltype: Int32? = nil
   }
 
   struct delete: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delete"
 
-    fileprivate var _delete: Int32? = nil
     var delete: Int32 {
       get {return _delete ?? 0}
       set {_delete = newValue}
     }
-    var hasDelete: Bool {
-      return self._delete != nil
-    }
-    mutating func clearDelete() {
-      self._delete = nil
-    }
+    /// Returns true if `delete` has been explicitly set.
+    var hasDelete: Bool {return self._delete != nil}
+    /// Clears the value of `delete`. Subsequent reads from it will return its default value.
+    mutating func clearDelete() {self._delete = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8246,22 +7685,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _delete: Int32? = nil
   }
 
   struct dynamic_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dynamic_cast"
 
-    fileprivate var _dynamicCast: Int32? = nil
     var dynamicCast: Int32 {
       get {return _dynamicCast ?? 0}
       set {_dynamicCast = newValue}
     }
-    var hasDynamicCast: Bool {
-      return self._dynamicCast != nil
-    }
-    mutating func clearDynamicCast() {
-      self._dynamicCast = nil
-    }
+    /// Returns true if `dynamicCast` has been explicitly set.
+    var hasDynamicCast: Bool {return self._dynamicCast != nil}
+    /// Clears the value of `dynamicCast`. Subsequent reads from it will return its default value.
+    mutating func clearDynamicCast() {self._dynamicCast = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8282,22 +7720,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dynamicCast: Int32? = nil
   }
 
   struct explicit: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".explicit"
 
-    fileprivate var _explicit: Int32? = nil
     var explicit: Int32 {
       get {return _explicit ?? 0}
       set {_explicit = newValue}
     }
-    var hasExplicit: Bool {
-      return self._explicit != nil
-    }
-    mutating func clearExplicit() {
-      self._explicit = nil
-    }
+    /// Returns true if `explicit` has been explicitly set.
+    var hasExplicit: Bool {return self._explicit != nil}
+    /// Clears the value of `explicit`. Subsequent reads from it will return its default value.
+    mutating func clearExplicit() {self._explicit = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8318,22 +7755,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _explicit: Int32? = nil
   }
 
   struct export: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".export"
 
-    fileprivate var _export: Int32? = nil
     var export: Int32 {
       get {return _export ?? 0}
       set {_export = newValue}
     }
-    var hasExport: Bool {
-      return self._export != nil
-    }
-    mutating func clearExport() {
-      self._export = nil
-    }
+    /// Returns true if `export` has been explicitly set.
+    var hasExport: Bool {return self._export != nil}
+    /// Clears the value of `export`. Subsequent reads from it will return its default value.
+    mutating func clearExport() {self._export = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8354,22 +7790,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _export: Int32? = nil
   }
 
   struct extern: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extern"
 
-    fileprivate var _extern: Int32? = nil
     var extern: Int32 {
       get {return _extern ?? 0}
       set {_extern = newValue}
     }
-    var hasExtern: Bool {
-      return self._extern != nil
-    }
-    mutating func clearExtern() {
-      self._extern = nil
-    }
+    /// Returns true if `extern` has been explicitly set.
+    var hasExtern: Bool {return self._extern != nil}
+    /// Clears the value of `extern`. Subsequent reads from it will return its default value.
+    mutating func clearExtern() {self._extern = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8390,22 +7825,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extern: Int32? = nil
   }
 
   struct friend: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".friend"
 
-    fileprivate var _friend: Int32? = nil
     var friend: Int32 {
       get {return _friend ?? 0}
       set {_friend = newValue}
     }
-    var hasFriend: Bool {
-      return self._friend != nil
-    }
-    mutating func clearFriend() {
-      self._friend = nil
-    }
+    /// Returns true if `friend` has been explicitly set.
+    var hasFriend: Bool {return self._friend != nil}
+    /// Clears the value of `friend`. Subsequent reads from it will return its default value.
+    mutating func clearFriend() {self._friend = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8426,22 +7860,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _friend: Int32? = nil
   }
 
   struct goto: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".goto"
 
-    fileprivate var _goto: Int32? = nil
     var goto: Int32 {
       get {return _goto ?? 0}
       set {_goto = newValue}
     }
-    var hasGoto: Bool {
-      return self._goto != nil
-    }
-    mutating func clearGoto() {
-      self._goto = nil
-    }
+    /// Returns true if `goto` has been explicitly set.
+    var hasGoto: Bool {return self._goto != nil}
+    /// Clears the value of `goto`. Subsequent reads from it will return its default value.
+    mutating func clearGoto() {self._goto = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8462,22 +7895,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _goto: Int32? = nil
   }
 
   struct inline: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".inline"
 
-    fileprivate var _inline: Int32? = nil
     var inline: Int32 {
       get {return _inline ?? 0}
       set {_inline = newValue}
     }
-    var hasInline: Bool {
-      return self._inline != nil
-    }
-    mutating func clearInline() {
-      self._inline = nil
-    }
+    /// Returns true if `inline` has been explicitly set.
+    var hasInline: Bool {return self._inline != nil}
+    /// Clears the value of `inline`. Subsequent reads from it will return its default value.
+    mutating func clearInline() {self._inline = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8498,22 +7930,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _inline: Int32? = nil
   }
 
   struct long: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".long"
 
-    fileprivate var _long: Int32? = nil
     var long: Int32 {
       get {return _long ?? 0}
       set {_long = newValue}
     }
-    var hasLong: Bool {
-      return self._long != nil
-    }
-    mutating func clearLong() {
-      self._long = nil
-    }
+    /// Returns true if `long` has been explicitly set.
+    var hasLong: Bool {return self._long != nil}
+    /// Clears the value of `long`. Subsequent reads from it will return its default value.
+    mutating func clearLong() {self._long = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8534,22 +7965,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _long: Int32? = nil
   }
 
   struct mutable: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutable"
 
-    fileprivate var _mutable: Int32? = nil
     var mutable: Int32 {
       get {return _mutable ?? 0}
       set {_mutable = newValue}
     }
-    var hasMutable: Bool {
-      return self._mutable != nil
-    }
-    mutating func clearMutable() {
-      self._mutable = nil
-    }
+    /// Returns true if `mutable` has been explicitly set.
+    var hasMutable: Bool {return self._mutable != nil}
+    /// Clears the value of `mutable`. Subsequent reads from it will return its default value.
+    mutating func clearMutable() {self._mutable = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8570,22 +8000,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _mutable: Int32? = nil
   }
 
   struct namespace: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".namespace"
 
-    fileprivate var _namespace: Int32? = nil
     var namespace: Int32 {
       get {return _namespace ?? 0}
       set {_namespace = newValue}
     }
-    var hasNamespace: Bool {
-      return self._namespace != nil
-    }
-    mutating func clearNamespace() {
-      self._namespace = nil
-    }
+    /// Returns true if `namespace` has been explicitly set.
+    var hasNamespace: Bool {return self._namespace != nil}
+    /// Clears the value of `namespace`. Subsequent reads from it will return its default value.
+    mutating func clearNamespace() {self._namespace = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8606,22 +8035,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _namespace: Int32? = nil
   }
 
   struct new: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".new"
 
-    fileprivate var _new: Int32? = nil
     var new: Int32 {
       get {return _new ?? 0}
       set {_new = newValue}
     }
-    var hasNew: Bool {
-      return self._new != nil
-    }
-    mutating func clearNew() {
-      self._new = nil
-    }
+    /// Returns true if `new` has been explicitly set.
+    var hasNew: Bool {return self._new != nil}
+    /// Clears the value of `new`. Subsequent reads from it will return its default value.
+    mutating func clearNew() {self._new = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8642,22 +8070,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _new: Int32? = nil
   }
 
   struct noexcept: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".noexcept"
 
-    fileprivate var _noexcept: Int32? = nil
     var noexcept: Int32 {
       get {return _noexcept ?? 0}
       set {_noexcept = newValue}
     }
-    var hasNoexcept: Bool {
-      return self._noexcept != nil
-    }
-    mutating func clearNoexcept() {
-      self._noexcept = nil
-    }
+    /// Returns true if `noexcept` has been explicitly set.
+    var hasNoexcept: Bool {return self._noexcept != nil}
+    /// Clears the value of `noexcept`. Subsequent reads from it will return its default value.
+    mutating func clearNoexcept() {self._noexcept = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8678,22 +8105,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _noexcept: Int32? = nil
   }
 
   struct not: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not"
 
-    fileprivate var _not: Int32? = nil
     var not: Int32 {
       get {return _not ?? 0}
       set {_not = newValue}
     }
-    var hasNot: Bool {
-      return self._not != nil
-    }
-    mutating func clearNot() {
-      self._not = nil
-    }
+    /// Returns true if `not` has been explicitly set.
+    var hasNot: Bool {return self._not != nil}
+    /// Clears the value of `not`. Subsequent reads from it will return its default value.
+    mutating func clearNot() {self._not = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8714,22 +8140,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _not: Int32? = nil
   }
 
   struct not_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".not_eq"
 
-    fileprivate var _notEq: Int32? = nil
     var notEq: Int32 {
       get {return _notEq ?? 0}
       set {_notEq = newValue}
     }
-    var hasNotEq: Bool {
-      return self._notEq != nil
-    }
-    mutating func clearNotEq() {
-      self._notEq = nil
-    }
+    /// Returns true if `notEq` has been explicitly set.
+    var hasNotEq: Bool {return self._notEq != nil}
+    /// Clears the value of `notEq`. Subsequent reads from it will return its default value.
+    mutating func clearNotEq() {self._notEq = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8750,22 +8175,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _notEq: Int32? = nil
   }
 
   struct nullptr: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".nullptr"
 
-    fileprivate var _nullptr: Int32? = nil
     var nullptr: Int32 {
       get {return _nullptr ?? 0}
       set {_nullptr = newValue}
     }
-    var hasNullptr: Bool {
-      return self._nullptr != nil
-    }
-    mutating func clearNullptr() {
-      self._nullptr = nil
-    }
+    /// Returns true if `nullptr` has been explicitly set.
+    var hasNullptr: Bool {return self._nullptr != nil}
+    /// Clears the value of `nullptr`. Subsequent reads from it will return its default value.
+    mutating func clearNullptr() {self._nullptr = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8786,22 +8210,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _nullptr: Int32? = nil
   }
 
   struct or: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or"
 
-    fileprivate var _or: Int32? = nil
     var or: Int32 {
       get {return _or ?? 0}
       set {_or = newValue}
     }
-    var hasOr: Bool {
-      return self._or != nil
-    }
-    mutating func clearOr() {
-      self._or = nil
-    }
+    /// Returns true if `or` has been explicitly set.
+    var hasOr: Bool {return self._or != nil}
+    /// Clears the value of `or`. Subsequent reads from it will return its default value.
+    mutating func clearOr() {self._or = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8822,22 +8245,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _or: Int32? = nil
   }
 
   struct or_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".or_eq"
 
-    fileprivate var _orEq: Int32? = nil
     var orEq: Int32 {
       get {return _orEq ?? 0}
       set {_orEq = newValue}
     }
-    var hasOrEq: Bool {
-      return self._orEq != nil
-    }
-    mutating func clearOrEq() {
-      self._orEq = nil
-    }
+    /// Returns true if `orEq` has been explicitly set.
+    var hasOrEq: Bool {return self._orEq != nil}
+    /// Clears the value of `orEq`. Subsequent reads from it will return its default value.
+    mutating func clearOrEq() {self._orEq = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8858,22 +8280,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _orEq: Int32? = nil
   }
 
   struct protected: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".protected"
 
-    fileprivate var _protected: Int32? = nil
     var protected: Int32 {
       get {return _protected ?? 0}
       set {_protected = newValue}
     }
-    var hasProtected: Bool {
-      return self._protected != nil
-    }
-    mutating func clearProtected() {
-      self._protected = nil
-    }
+    /// Returns true if `protected` has been explicitly set.
+    var hasProtected: Bool {return self._protected != nil}
+    /// Clears the value of `protected`. Subsequent reads from it will return its default value.
+    mutating func clearProtected() {self._protected = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8894,22 +8315,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _protected: Int32? = nil
   }
 
   struct register: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".register"
 
-    fileprivate var _register: Int32? = nil
     var register: Int32 {
       get {return _register ?? 0}
       set {_register = newValue}
     }
-    var hasRegister: Bool {
-      return self._register != nil
-    }
-    mutating func clearRegister() {
-      self._register = nil
-    }
+    /// Returns true if `register` has been explicitly set.
+    var hasRegister: Bool {return self._register != nil}
+    /// Clears the value of `register`. Subsequent reads from it will return its default value.
+    mutating func clearRegister() {self._register = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8930,22 +8350,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _register: Int32? = nil
   }
 
   struct reinterpret_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".reinterpret_cast"
 
-    fileprivate var _reinterpretCast: Int32? = nil
     var reinterpretCast: Int32 {
       get {return _reinterpretCast ?? 0}
       set {_reinterpretCast = newValue}
     }
-    var hasReinterpretCast: Bool {
-      return self._reinterpretCast != nil
-    }
-    mutating func clearReinterpretCast() {
-      self._reinterpretCast = nil
-    }
+    /// Returns true if `reinterpretCast` has been explicitly set.
+    var hasReinterpretCast: Bool {return self._reinterpretCast != nil}
+    /// Clears the value of `reinterpretCast`. Subsequent reads from it will return its default value.
+    mutating func clearReinterpretCast() {self._reinterpretCast = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8966,22 +8385,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _reinterpretCast: Int32? = nil
   }
 
   struct short: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".short"
 
-    fileprivate var _short: Int32? = nil
     var short: Int32 {
       get {return _short ?? 0}
       set {_short = newValue}
     }
-    var hasShort: Bool {
-      return self._short != nil
-    }
-    mutating func clearShort() {
-      self._short = nil
-    }
+    /// Returns true if `short` has been explicitly set.
+    var hasShort: Bool {return self._short != nil}
+    /// Clears the value of `short`. Subsequent reads from it will return its default value.
+    mutating func clearShort() {self._short = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9002,22 +8420,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _short: Int32? = nil
   }
 
   struct signed: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".signed"
 
-    fileprivate var _signed: Int32? = nil
     var signed: Int32 {
       get {return _signed ?? 0}
       set {_signed = newValue}
     }
-    var hasSigned: Bool {
-      return self._signed != nil
-    }
-    mutating func clearSigned() {
-      self._signed = nil
-    }
+    /// Returns true if `signed` has been explicitly set.
+    var hasSigned: Bool {return self._signed != nil}
+    /// Clears the value of `signed`. Subsequent reads from it will return its default value.
+    mutating func clearSigned() {self._signed = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9038,22 +8455,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _signed: Int32? = nil
   }
 
   struct sizeof: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sizeof"
 
-    fileprivate var _sizeof: Int32? = nil
     var sizeof: Int32 {
       get {return _sizeof ?? 0}
       set {_sizeof = newValue}
     }
-    var hasSizeof: Bool {
-      return self._sizeof != nil
-    }
-    mutating func clearSizeof() {
-      self._sizeof = nil
-    }
+    /// Returns true if `sizeof` has been explicitly set.
+    var hasSizeof: Bool {return self._sizeof != nil}
+    /// Clears the value of `sizeof`. Subsequent reads from it will return its default value.
+    mutating func clearSizeof() {self._sizeof = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9074,22 +8490,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sizeof: Int32? = nil
   }
 
   struct static_assert: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_assert"
 
-    fileprivate var _staticAssert: Int32? = nil
     var staticAssert: Int32 {
       get {return _staticAssert ?? 0}
       set {_staticAssert = newValue}
     }
-    var hasStaticAssert: Bool {
-      return self._staticAssert != nil
-    }
-    mutating func clearStaticAssert() {
-      self._staticAssert = nil
-    }
+    /// Returns true if `staticAssert` has been explicitly set.
+    var hasStaticAssert: Bool {return self._staticAssert != nil}
+    /// Clears the value of `staticAssert`. Subsequent reads from it will return its default value.
+    mutating func clearStaticAssert() {self._staticAssert = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9110,22 +8525,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _staticAssert: Int32? = nil
   }
 
   struct static_cast: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".static_cast"
 
-    fileprivate var _staticCast: Int32? = nil
     var staticCast: Int32 {
       get {return _staticCast ?? 0}
       set {_staticCast = newValue}
     }
-    var hasStaticCast: Bool {
-      return self._staticCast != nil
-    }
-    mutating func clearStaticCast() {
-      self._staticCast = nil
-    }
+    /// Returns true if `staticCast` has been explicitly set.
+    var hasStaticCast: Bool {return self._staticCast != nil}
+    /// Clears the value of `staticCast`. Subsequent reads from it will return its default value.
+    mutating func clearStaticCast() {self._staticCast = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9146,22 +8560,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _staticCast: Int32? = nil
   }
 
   struct template: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".template"
 
-    fileprivate var _template: Int32? = nil
     var template: Int32 {
       get {return _template ?? 0}
       set {_template = newValue}
     }
-    var hasTemplate: Bool {
-      return self._template != nil
-    }
-    mutating func clearTemplate() {
-      self._template = nil
-    }
+    /// Returns true if `template` has been explicitly set.
+    var hasTemplate: Bool {return self._template != nil}
+    /// Clears the value of `template`. Subsequent reads from it will return its default value.
+    mutating func clearTemplate() {self._template = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9182,22 +8595,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _template: Int32? = nil
   }
 
   struct this: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".this"
 
-    fileprivate var _this: Int32? = nil
     var this: Int32 {
       get {return _this ?? 0}
       set {_this = newValue}
     }
-    var hasThis: Bool {
-      return self._this != nil
-    }
-    mutating func clearThis() {
-      self._this = nil
-    }
+    /// Returns true if `this` has been explicitly set.
+    var hasThis: Bool {return self._this != nil}
+    /// Clears the value of `this`. Subsequent reads from it will return its default value.
+    mutating func clearThis() {self._this = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9218,22 +8630,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _this: Int32? = nil
   }
 
   struct thread_local: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".thread_local"
 
-    fileprivate var _threadLocal: Int32? = nil
     var threadLocal: Int32 {
       get {return _threadLocal ?? 0}
       set {_threadLocal = newValue}
     }
-    var hasThreadLocal: Bool {
-      return self._threadLocal != nil
-    }
-    mutating func clearThreadLocal() {
-      self._threadLocal = nil
-    }
+    /// Returns true if `threadLocal` has been explicitly set.
+    var hasThreadLocal: Bool {return self._threadLocal != nil}
+    /// Clears the value of `threadLocal`. Subsequent reads from it will return its default value.
+    mutating func clearThreadLocal() {self._threadLocal = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9254,22 +8665,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _threadLocal: Int32? = nil
   }
 
   struct typedef: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typedef"
 
-    fileprivate var _typedef: Int32? = nil
     var typedef: Int32 {
       get {return _typedef ?? 0}
       set {_typedef = newValue}
     }
-    var hasTypedef: Bool {
-      return self._typedef != nil
-    }
-    mutating func clearTypedef() {
-      self._typedef = nil
-    }
+    /// Returns true if `typedef` has been explicitly set.
+    var hasTypedef: Bool {return self._typedef != nil}
+    /// Clears the value of `typedef`. Subsequent reads from it will return its default value.
+    mutating func clearTypedef() {self._typedef = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9290,22 +8700,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typedef: Int32? = nil
   }
 
   struct typeid: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typeid"
 
-    fileprivate var _typeid: Int32? = nil
     var typeid: Int32 {
       get {return _typeid ?? 0}
       set {_typeid = newValue}
     }
-    var hasTypeid: Bool {
-      return self._typeid != nil
-    }
-    mutating func clearTypeid() {
-      self._typeid = nil
-    }
+    /// Returns true if `typeid` has been explicitly set.
+    var hasTypeid: Bool {return self._typeid != nil}
+    /// Clears the value of `typeid`. Subsequent reads from it will return its default value.
+    mutating func clearTypeid() {self._typeid = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9326,22 +8735,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typeid: Int32? = nil
   }
 
   struct typename: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".typename"
 
-    fileprivate var _typename: Int32? = nil
     var typename: Int32 {
       get {return _typename ?? 0}
       set {_typename = newValue}
     }
-    var hasTypename: Bool {
-      return self._typename != nil
-    }
-    mutating func clearTypename() {
-      self._typename = nil
-    }
+    /// Returns true if `typename` has been explicitly set.
+    var hasTypename: Bool {return self._typename != nil}
+    /// Clears the value of `typename`. Subsequent reads from it will return its default value.
+    mutating func clearTypename() {self._typename = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9362,22 +8770,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _typename: Int32? = nil
   }
 
   struct union: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".union"
 
-    fileprivate var _union: Int32? = nil
     var union: Int32 {
       get {return _union ?? 0}
       set {_union = newValue}
     }
-    var hasUnion: Bool {
-      return self._union != nil
-    }
-    mutating func clearUnion() {
-      self._union = nil
-    }
+    /// Returns true if `union` has been explicitly set.
+    var hasUnion: Bool {return self._union != nil}
+    /// Clears the value of `union`. Subsequent reads from it will return its default value.
+    mutating func clearUnion() {self._union = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9398,22 +8805,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _union: Int32? = nil
   }
 
   struct unsigned: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unsigned"
 
-    fileprivate var _unsigned: Int32? = nil
     var unsigned: Int32 {
       get {return _unsigned ?? 0}
       set {_unsigned = newValue}
     }
-    var hasUnsigned: Bool {
-      return self._unsigned != nil
-    }
-    mutating func clearUnsigned() {
-      self._unsigned = nil
-    }
+    /// Returns true if `unsigned` has been explicitly set.
+    var hasUnsigned: Bool {return self._unsigned != nil}
+    /// Clears the value of `unsigned`. Subsequent reads from it will return its default value.
+    mutating func clearUnsigned() {self._unsigned = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9434,22 +8840,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unsigned: Int32? = nil
   }
 
   struct using: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".using"
 
-    fileprivate var _using: Int32? = nil
     var using: Int32 {
       get {return _using ?? 0}
       set {_using = newValue}
     }
-    var hasUsing: Bool {
-      return self._using != nil
-    }
-    mutating func clearUsing() {
-      self._using = nil
-    }
+    /// Returns true if `using` has been explicitly set.
+    var hasUsing: Bool {return self._using != nil}
+    /// Clears the value of `using`. Subsequent reads from it will return its default value.
+    mutating func clearUsing() {self._using = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9470,22 +8875,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _using: Int32? = nil
   }
 
   struct virtual: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".virtual"
 
-    fileprivate var _virtual: Int32? = nil
     var virtual: Int32 {
       get {return _virtual ?? 0}
       set {_virtual = newValue}
     }
-    var hasVirtual: Bool {
-      return self._virtual != nil
-    }
-    mutating func clearVirtual() {
-      self._virtual = nil
-    }
+    /// Returns true if `virtual` has been explicitly set.
+    var hasVirtual: Bool {return self._virtual != nil}
+    /// Clears the value of `virtual`. Subsequent reads from it will return its default value.
+    mutating func clearVirtual() {self._virtual = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9506,22 +8910,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _virtual: Int32? = nil
   }
 
   struct void: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".void"
 
-    fileprivate var _void: Int32? = nil
     var void: Int32 {
       get {return _void ?? 0}
       set {_void = newValue}
     }
-    var hasVoid: Bool {
-      return self._void != nil
-    }
-    mutating func clearVoid() {
-      self._void = nil
-    }
+    /// Returns true if `void` has been explicitly set.
+    var hasVoid: Bool {return self._void != nil}
+    /// Clears the value of `void`. Subsequent reads from it will return its default value.
+    mutating func clearVoid() {self._void = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9542,22 +8945,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _void: Int32? = nil
   }
 
   struct volatile: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".volatile"
 
-    fileprivate var _volatile: Int32? = nil
     var volatile: Int32 {
       get {return _volatile ?? 0}
       set {_volatile = newValue}
     }
-    var hasVolatile: Bool {
-      return self._volatile != nil
-    }
-    mutating func clearVolatile() {
-      self._volatile = nil
-    }
+    /// Returns true if `volatile` has been explicitly set.
+    var hasVolatile: Bool {return self._volatile != nil}
+    /// Clears the value of `volatile`. Subsequent reads from it will return its default value.
+    mutating func clearVolatile() {self._volatile = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9578,22 +8980,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _volatile: Int32? = nil
   }
 
   struct wchar_t: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".wchar_t"
 
-    fileprivate var _wcharT: Int32? = nil
     var wcharT: Int32 {
       get {return _wcharT ?? 0}
       set {_wcharT = newValue}
     }
-    var hasWcharT: Bool {
-      return self._wcharT != nil
-    }
-    mutating func clearWcharT() {
-      self._wcharT = nil
-    }
+    /// Returns true if `wcharT` has been explicitly set.
+    var hasWcharT: Bool {return self._wcharT != nil}
+    /// Clears the value of `wcharT`. Subsequent reads from it will return its default value.
+    mutating func clearWcharT() {self._wcharT = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9614,22 +9015,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _wcharT: Int32? = nil
   }
 
   struct xor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor"
 
-    fileprivate var _xor: Int32? = nil
     var xor: Int32 {
       get {return _xor ?? 0}
       set {_xor = newValue}
     }
-    var hasXor: Bool {
-      return self._xor != nil
-    }
-    mutating func clearXor() {
-      self._xor = nil
-    }
+    /// Returns true if `xor` has been explicitly set.
+    var hasXor: Bool {return self._xor != nil}
+    /// Clears the value of `xor`. Subsequent reads from it will return its default value.
+    mutating func clearXor() {self._xor = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9650,22 +9050,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _xor: Int32? = nil
   }
 
   struct xor_eq: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".xor_eq"
 
-    fileprivate var _xorEq: Int32? = nil
     var xorEq: Int32 {
       get {return _xorEq ?? 0}
       set {_xorEq = newValue}
     }
-    var hasXorEq: Bool {
-      return self._xorEq != nil
-    }
-    mutating func clearXorEq() {
-      self._xorEq = nil
-    }
+    /// Returns true if `xorEq` has been explicitly set.
+    var hasXorEq: Bool {return self._xorEq != nil}
+    /// Clears the value of `xorEq`. Subsequent reads from it will return its default value.
+    mutating func clearXorEq() {self._xorEq = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9686,22 +9085,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _xorEq: Int32? = nil
   }
 
   struct restrict: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".restrict"
 
-    fileprivate var _restrict: Int32? = nil
     var restrict: Int32 {
       get {return _restrict ?? 0}
       set {_restrict = newValue}
     }
-    var hasRestrict: Bool {
-      return self._restrict != nil
-    }
-    mutating func clearRestrict() {
-      self._restrict = nil
-    }
+    /// Returns true if `restrict` has been explicitly set.
+    var hasRestrict: Bool {return self._restrict != nil}
+    /// Clears the value of `restrict`. Subsequent reads from it will return its default value.
+    mutating func clearRestrict() {self._restrict = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9722,22 +9120,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _restrict: Int32? = nil
   }
 
   struct Category: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Category"
 
-    fileprivate var _category: Int32? = nil
     var category: Int32 {
       get {return _category ?? 0}
       set {_category = newValue}
     }
-    var hasCategory: Bool {
-      return self._category != nil
-    }
-    mutating func clearCategory() {
-      self._category = nil
-    }
+    /// Returns true if `category` has been explicitly set.
+    var hasCategory: Bool {return self._category != nil}
+    /// Clears the value of `category`. Subsequent reads from it will return its default value.
+    mutating func clearCategory() {self._category = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9758,22 +9155,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _category: Int32? = nil
   }
 
   struct Ivar: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Ivar"
 
-    fileprivate var _ivar: Int32? = nil
     var ivar: Int32 {
       get {return _ivar ?? 0}
       set {_ivar = newValue}
     }
-    var hasIvar: Bool {
-      return self._ivar != nil
-    }
-    mutating func clearIvar() {
-      self._ivar = nil
-    }
+    /// Returns true if `ivar` has been explicitly set.
+    var hasIvar: Bool {return self._ivar != nil}
+    /// Clears the value of `ivar`. Subsequent reads from it will return its default value.
+    mutating func clearIvar() {self._ivar = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9794,22 +9190,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _ivar: Int32? = nil
   }
 
   struct Method: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Method"
 
-    fileprivate var _method: Int32? = nil
     var method: Int32 {
       get {return _method ?? 0}
       set {_method = newValue}
     }
-    var hasMethod: Bool {
-      return self._method != nil
-    }
-    mutating func clearMethod() {
-      self._method = nil
-    }
+    /// Returns true if `method` has been explicitly set.
+    var hasMethod: Bool {return self._method != nil}
+    /// Clears the value of `method`. Subsequent reads from it will return its default value.
+    mutating func clearMethod() {self._method = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9830,22 +9225,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _method: Int32? = nil
   }
 
   struct finalize: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".finalize"
 
-    fileprivate var _finalize: Int32? = nil
     var finalize: Int32 {
       get {return _finalize ?? 0}
       set {_finalize = newValue}
     }
-    var hasFinalize: Bool {
-      return self._finalize != nil
-    }
-    mutating func clearFinalize() {
-      self._finalize = nil
-    }
+    /// Returns true if `finalize` has been explicitly set.
+    var hasFinalize: Bool {return self._finalize != nil}
+    /// Clears the value of `finalize`. Subsequent reads from it will return its default value.
+    mutating func clearFinalize() {self._finalize = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9866,22 +9260,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _finalize: Int32? = nil
   }
 
   struct hash: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
 
-    fileprivate var _hash_p: Int32? = nil
     var hash_p: Int32 {
       get {return _hash_p ?? 0}
       set {_hash_p = newValue}
     }
-    var hasHash_p: Bool {
-      return self._hash_p != nil
-    }
-    mutating func clearHash_p() {
-      self._hash_p = nil
-    }
+    /// Returns true if `hash_p` has been explicitly set.
+    var hasHash_p: Bool {return self._hash_p != nil}
+    /// Clears the value of `hash_p`. Subsequent reads from it will return its default value.
+    mutating func clearHash_p() {self._hash_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9902,22 +9295,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _hash_p: Int32? = nil
   }
 
   struct dealloc: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".dealloc"
 
-    fileprivate var _dealloc: Int32? = nil
     var dealloc: Int32 {
       get {return _dealloc ?? 0}
       set {_dealloc = newValue}
     }
-    var hasDealloc: Bool {
-      return self._dealloc != nil
-    }
-    mutating func clearDealloc() {
-      self._dealloc = nil
-    }
+    /// Returns true if `dealloc` has been explicitly set.
+    var hasDealloc: Bool {return self._dealloc != nil}
+    /// Clears the value of `dealloc`. Subsequent reads from it will return its default value.
+    mutating func clearDealloc() {self._dealloc = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9938,22 +9330,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _dealloc: Int32? = nil
   }
 
   struct superclass: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".superclass"
 
-    fileprivate var _superclass: Int32? = nil
     var superclass: Int32 {
       get {return _superclass ?? 0}
       set {_superclass = newValue}
     }
-    var hasSuperclass: Bool {
-      return self._superclass != nil
-    }
-    mutating func clearSuperclass() {
-      self._superclass = nil
-    }
+    /// Returns true if `superclass` has been explicitly set.
+    var hasSuperclass: Bool {return self._superclass != nil}
+    /// Clears the value of `superclass`. Subsequent reads from it will return its default value.
+    mutating func clearSuperclass() {self._superclass = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9974,22 +9365,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _superclass: Int32? = nil
   }
 
   struct retain: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retain"
 
-    fileprivate var _retain: Int32? = nil
     var retain: Int32 {
       get {return _retain ?? 0}
       set {_retain = newValue}
     }
-    var hasRetain: Bool {
-      return self._retain != nil
-    }
-    mutating func clearRetain() {
-      self._retain = nil
-    }
+    /// Returns true if `retain` has been explicitly set.
+    var hasRetain: Bool {return self._retain != nil}
+    /// Clears the value of `retain`. Subsequent reads from it will return its default value.
+    mutating func clearRetain() {self._retain = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10010,22 +9400,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _retain: Int32? = nil
   }
 
   struct release: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".release"
 
-    fileprivate var _release: Int32? = nil
     var release: Int32 {
       get {return _release ?? 0}
       set {_release = newValue}
     }
-    var hasRelease: Bool {
-      return self._release != nil
-    }
-    mutating func clearRelease() {
-      self._release = nil
-    }
+    /// Returns true if `release` has been explicitly set.
+    var hasRelease: Bool {return self._release != nil}
+    /// Clears the value of `release`. Subsequent reads from it will return its default value.
+    mutating func clearRelease() {self._release = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10046,22 +9435,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _release: Int32? = nil
   }
 
   struct autorelease: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".autorelease"
 
-    fileprivate var _autorelease: Int32? = nil
     var autorelease: Int32 {
       get {return _autorelease ?? 0}
       set {_autorelease = newValue}
     }
-    var hasAutorelease: Bool {
-      return self._autorelease != nil
-    }
-    mutating func clearAutorelease() {
-      self._autorelease = nil
-    }
+    /// Returns true if `autorelease` has been explicitly set.
+    var hasAutorelease: Bool {return self._autorelease != nil}
+    /// Clears the value of `autorelease`. Subsequent reads from it will return its default value.
+    mutating func clearAutorelease() {self._autorelease = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10082,22 +9470,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _autorelease: Int32? = nil
   }
 
   struct retainCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".retainCount"
 
-    fileprivate var _retainCount: Int32? = nil
     var retainCount: Int32 {
       get {return _retainCount ?? 0}
       set {_retainCount = newValue}
     }
-    var hasRetainCount: Bool {
-      return self._retainCount != nil
-    }
-    mutating func clearRetainCount() {
-      self._retainCount = nil
-    }
+    /// Returns true if `retainCount` has been explicitly set.
+    var hasRetainCount: Bool {return self._retainCount != nil}
+    /// Clears the value of `retainCount`. Subsequent reads from it will return its default value.
+    mutating func clearRetainCount() {self._retainCount = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10118,22 +9505,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _retainCount: Int32? = nil
   }
 
   struct zone: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".zone"
 
-    fileprivate var _zone: Int32? = nil
     var zone: Int32 {
       get {return _zone ?? 0}
       set {_zone = newValue}
     }
-    var hasZone: Bool {
-      return self._zone != nil
-    }
-    mutating func clearZone() {
-      self._zone = nil
-    }
+    /// Returns true if `zone` has been explicitly set.
+    var hasZone: Bool {return self._zone != nil}
+    /// Clears the value of `zone`. Subsequent reads from it will return its default value.
+    mutating func clearZone() {self._zone = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10154,22 +9540,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _zone: Int32? = nil
   }
 
   struct isProxy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isProxy"
 
-    fileprivate var _isProxy: Int32? = nil
     var isProxy: Int32 {
       get {return _isProxy ?? 0}
       set {_isProxy = newValue}
     }
-    var hasIsProxy: Bool {
-      return self._isProxy != nil
-    }
-    mutating func clearIsProxy() {
-      self._isProxy = nil
-    }
+    /// Returns true if `isProxy` has been explicitly set.
+    var hasIsProxy: Bool {return self._isProxy != nil}
+    /// Clears the value of `isProxy`. Subsequent reads from it will return its default value.
+    mutating func clearIsProxy() {self._isProxy = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10190,22 +9575,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _isProxy: Int32? = nil
   }
 
   struct copy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".copy"
 
-    fileprivate var _copy: Int32? = nil
     var copy: Int32 {
       get {return _copy ?? 0}
       set {_copy = newValue}
     }
-    var hasCopy: Bool {
-      return self._copy != nil
-    }
-    mutating func clearCopy() {
-      self._copy = nil
-    }
+    /// Returns true if `copy` has been explicitly set.
+    var hasCopy: Bool {return self._copy != nil}
+    /// Clears the value of `copy`. Subsequent reads from it will return its default value.
+    mutating func clearCopy() {self._copy = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10226,22 +9610,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _copy: Int32? = nil
   }
 
   struct mutableCopy: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".mutableCopy"
 
-    fileprivate var _mutableCopy: Int32? = nil
     var mutableCopy: Int32 {
       get {return _mutableCopy ?? 0}
       set {_mutableCopy = newValue}
     }
-    var hasMutableCopy: Bool {
-      return self._mutableCopy != nil
-    }
-    mutating func clearMutableCopy() {
-      self._mutableCopy = nil
-    }
+    /// Returns true if `mutableCopy` has been explicitly set.
+    var hasMutableCopy: Bool {return self._mutableCopy != nil}
+    /// Clears the value of `mutableCopy`. Subsequent reads from it will return its default value.
+    mutating func clearMutableCopy() {self._mutableCopy = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10262,22 +9645,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _mutableCopy: Int32? = nil
   }
 
   struct classForCoder: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".classForCoder"
 
-    fileprivate var _classForCoder: Int32? = nil
     var classForCoder: Int32 {
       get {return _classForCoder ?? 0}
       set {_classForCoder = newValue}
     }
-    var hasClassForCoder: Bool {
-      return self._classForCoder != nil
-    }
-    mutating func clearClassForCoder() {
-      self._classForCoder = nil
-    }
+    /// Returns true if `classForCoder` has been explicitly set.
+    var hasClassForCoder: Bool {return self._classForCoder != nil}
+    /// Clears the value of `classForCoder`. Subsequent reads from it will return its default value.
+    mutating func clearClassForCoder() {self._classForCoder = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10298,22 +9680,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _classForCoder: Int32? = nil
   }
 
   struct clear: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
 
-    fileprivate var _clear_p: Int32? = nil
     var clear_p: Int32 {
       get {return _clear_p ?? 0}
       set {_clear_p = newValue}
     }
-    var hasClear_p: Bool {
-      return self._clear_p != nil
-    }
-    mutating func clearClear_p() {
-      self._clear_p = nil
-    }
+    /// Returns true if `clear_p` has been explicitly set.
+    var hasClear_p: Bool {return self._clear_p != nil}
+    /// Clears the value of `clear_p`. Subsequent reads from it will return its default value.
+    mutating func clearClear_p() {self._clear_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10334,22 +9715,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _clear_p: Int32? = nil
   }
 
   struct data: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".data"
 
-    fileprivate var _data: Int32? = nil
     var data: Int32 {
       get {return _data ?? 0}
       set {_data = newValue}
     }
-    var hasData: Bool {
-      return self._data != nil
-    }
-    mutating func clearData() {
-      self._data = nil
-    }
+    /// Returns true if `data` has been explicitly set.
+    var hasData: Bool {return self._data != nil}
+    /// Clears the value of `data`. Subsequent reads from it will return its default value.
+    mutating func clearData() {self._data = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10370,22 +9750,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _data: Int32? = nil
   }
 
   struct delimitedData: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".delimitedData"
 
-    fileprivate var _delimitedData: Int32? = nil
     var delimitedData: Int32 {
       get {return _delimitedData ?? 0}
       set {_delimitedData = newValue}
     }
-    var hasDelimitedData: Bool {
-      return self._delimitedData != nil
-    }
-    mutating func clearDelimitedData() {
-      self._delimitedData = nil
-    }
+    /// Returns true if `delimitedData` has been explicitly set.
+    var hasDelimitedData: Bool {return self._delimitedData != nil}
+    /// Clears the value of `delimitedData`. Subsequent reads from it will return its default value.
+    mutating func clearDelimitedData() {self._delimitedData = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10406,22 +9785,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _delimitedData: Int32? = nil
   }
 
   struct descriptor: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".descriptor"
 
-    fileprivate var _descriptor: Int32? = nil
     var descriptor: Int32 {
       get {return _descriptor ?? 0}
       set {_descriptor = newValue}
     }
-    var hasDescriptor: Bool {
-      return self._descriptor != nil
-    }
-    mutating func clearDescriptor() {
-      self._descriptor = nil
-    }
+    /// Returns true if `descriptor` has been explicitly set.
+    var hasDescriptor: Bool {return self._descriptor != nil}
+    /// Clears the value of `descriptor`. Subsequent reads from it will return its default value.
+    mutating func clearDescriptor() {self._descriptor = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10442,22 +9820,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _descriptor: Int32? = nil
   }
 
   struct extensionRegistry: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionRegistry"
 
-    fileprivate var _extensionRegistry: Int32? = nil
     var extensionRegistry: Int32 {
       get {return _extensionRegistry ?? 0}
       set {_extensionRegistry = newValue}
     }
-    var hasExtensionRegistry: Bool {
-      return self._extensionRegistry != nil
-    }
-    mutating func clearExtensionRegistry() {
-      self._extensionRegistry = nil
-    }
+    /// Returns true if `extensionRegistry` has been explicitly set.
+    var hasExtensionRegistry: Bool {return self._extensionRegistry != nil}
+    /// Clears the value of `extensionRegistry`. Subsequent reads from it will return its default value.
+    mutating func clearExtensionRegistry() {self._extensionRegistry = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10478,22 +9855,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extensionRegistry: Int32? = nil
   }
 
   struct extensionsCurrentlySet: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".extensionsCurrentlySet"
 
-    fileprivate var _extensionsCurrentlySet: Int32? = nil
     var extensionsCurrentlySet: Int32 {
       get {return _extensionsCurrentlySet ?? 0}
       set {_extensionsCurrentlySet = newValue}
     }
-    var hasExtensionsCurrentlySet: Bool {
-      return self._extensionsCurrentlySet != nil
-    }
-    mutating func clearExtensionsCurrentlySet() {
-      self._extensionsCurrentlySet = nil
-    }
+    /// Returns true if `extensionsCurrentlySet` has been explicitly set.
+    var hasExtensionsCurrentlySet: Bool {return self._extensionsCurrentlySet != nil}
+    /// Clears the value of `extensionsCurrentlySet`. Subsequent reads from it will return its default value.
+    mutating func clearExtensionsCurrentlySet() {self._extensionsCurrentlySet = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10514,22 +9890,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extensionsCurrentlySet: Int32? = nil
   }
 
   struct isInitializedMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".isInitialized"
 
-    fileprivate var _isInitialized_p: Int32? = nil
     var isInitialized_p: Int32 {
       get {return _isInitialized_p ?? 0}
       set {_isInitialized_p = newValue}
     }
-    var hasIsInitialized_p: Bool {
-      return self._isInitialized_p != nil
-    }
-    mutating func clearIsInitialized_p() {
-      self._isInitialized_p = nil
-    }
+    /// Returns true if `isInitialized_p` has been explicitly set.
+    var hasIsInitialized_p: Bool {return self._isInitialized_p != nil}
+    /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
+    mutating func clearIsInitialized_p() {self._isInitialized_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10550,22 +9925,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _isInitialized_p: Int32? = nil
   }
 
   struct serializedSize: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedSize"
 
-    fileprivate var _serializedSize: Int32? = nil
     var serializedSize: Int32 {
       get {return _serializedSize ?? 0}
       set {_serializedSize = newValue}
     }
-    var hasSerializedSize: Bool {
-      return self._serializedSize != nil
-    }
-    mutating func clearSerializedSize() {
-      self._serializedSize = nil
-    }
+    /// Returns true if `serializedSize` has been explicitly set.
+    var hasSerializedSize: Bool {return self._serializedSize != nil}
+    /// Clears the value of `serializedSize`. Subsequent reads from it will return its default value.
+    mutating func clearSerializedSize() {self._serializedSize = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10586,22 +9960,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _serializedSize: Int32? = nil
   }
 
   struct sortedExtensionsInUse: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".sortedExtensionsInUse"
 
-    fileprivate var _sortedExtensionsInUse: Int32? = nil
     var sortedExtensionsInUse: Int32 {
       get {return _sortedExtensionsInUse ?? 0}
       set {_sortedExtensionsInUse = newValue}
     }
-    var hasSortedExtensionsInUse: Bool {
-      return self._sortedExtensionsInUse != nil
-    }
-    mutating func clearSortedExtensionsInUse() {
-      self._sortedExtensionsInUse = nil
-    }
+    /// Returns true if `sortedExtensionsInUse` has been explicitly set.
+    var hasSortedExtensionsInUse: Bool {return self._sortedExtensionsInUse != nil}
+    /// Clears the value of `sortedExtensionsInUse`. Subsequent reads from it will return its default value.
+    mutating func clearSortedExtensionsInUse() {self._sortedExtensionsInUse = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10622,22 +9995,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sortedExtensionsInUse: Int32? = nil
   }
 
   struct unknownFieldsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".unknownFields"
 
-    fileprivate var _unknownFields_p: Int32? = nil
     var unknownFields_p: Int32 {
       get {return _unknownFields_p ?? 0}
       set {_unknownFields_p = newValue}
     }
-    var hasUnknownFields_p: Bool {
-      return self._unknownFields_p != nil
-    }
-    mutating func clearUnknownFields_p() {
-      self._unknownFields_p = nil
-    }
+    /// Returns true if `unknownFields_p` has been explicitly set.
+    var hasUnknownFields_p: Bool {return self._unknownFields_p != nil}
+    /// Clears the value of `unknownFields_p`. Subsequent reads from it will return its default value.
+    mutating func clearUnknownFields_p() {self._unknownFields_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10658,22 +10030,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _unknownFields_p: Int32? = nil
   }
 
   struct Fixed: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fixed"
 
-    fileprivate var _fixed: Int32? = nil
     var fixed: Int32 {
       get {return _fixed ?? 0}
       set {_fixed = newValue}
     }
-    var hasFixed: Bool {
-      return self._fixed != nil
-    }
-    mutating func clearFixed() {
-      self._fixed = nil
-    }
+    /// Returns true if `fixed` has been explicitly set.
+    var hasFixed: Bool {return self._fixed != nil}
+    /// Clears the value of `fixed`. Subsequent reads from it will return its default value.
+    mutating func clearFixed() {self._fixed = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10694,22 +10065,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fixed: Int32? = nil
   }
 
   struct Fract: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Fract"
 
-    fileprivate var _fract: Int32? = nil
     var fract: Int32 {
       get {return _fract ?? 0}
       set {_fract = newValue}
     }
-    var hasFract: Bool {
-      return self._fract != nil
-    }
-    mutating func clearFract() {
-      self._fract = nil
-    }
+    /// Returns true if `fract` has been explicitly set.
+    var hasFract: Bool {return self._fract != nil}
+    /// Clears the value of `fract`. Subsequent reads from it will return its default value.
+    mutating func clearFract() {self._fract = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10730,22 +10100,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fract: Int32? = nil
   }
 
   struct Size: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Size"
 
-    fileprivate var _size: Int32? = nil
     var size: Int32 {
       get {return _size ?? 0}
       set {_size = newValue}
     }
-    var hasSize: Bool {
-      return self._size != nil
-    }
-    mutating func clearSize() {
-      self._size = nil
-    }
+    /// Returns true if `size` has been explicitly set.
+    var hasSize: Bool {return self._size != nil}
+    /// Clears the value of `size`. Subsequent reads from it will return its default value.
+    mutating func clearSize() {self._size = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10766,22 +10135,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _size: Int32? = nil
   }
 
   struct LogicalAddress: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LogicalAddress"
 
-    fileprivate var _logicalAddress: Int32? = nil
     var logicalAddress: Int32 {
       get {return _logicalAddress ?? 0}
       set {_logicalAddress = newValue}
     }
-    var hasLogicalAddress: Bool {
-      return self._logicalAddress != nil
-    }
-    mutating func clearLogicalAddress() {
-      self._logicalAddress = nil
-    }
+    /// Returns true if `logicalAddress` has been explicitly set.
+    var hasLogicalAddress: Bool {return self._logicalAddress != nil}
+    /// Clears the value of `logicalAddress`. Subsequent reads from it will return its default value.
+    mutating func clearLogicalAddress() {self._logicalAddress = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10802,22 +10170,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _logicalAddress: Int32? = nil
   }
 
   struct PhysicalAddress: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PhysicalAddress"
 
-    fileprivate var _physicalAddress: Int32? = nil
     var physicalAddress: Int32 {
       get {return _physicalAddress ?? 0}
       set {_physicalAddress = newValue}
     }
-    var hasPhysicalAddress: Bool {
-      return self._physicalAddress != nil
-    }
-    mutating func clearPhysicalAddress() {
-      self._physicalAddress = nil
-    }
+    /// Returns true if `physicalAddress` has been explicitly set.
+    var hasPhysicalAddress: Bool {return self._physicalAddress != nil}
+    /// Clears the value of `physicalAddress`. Subsequent reads from it will return its default value.
+    mutating func clearPhysicalAddress() {self._physicalAddress = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10838,22 +10205,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _physicalAddress: Int32? = nil
   }
 
   struct ByteCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteCount"
 
-    fileprivate var _byteCount: Int32? = nil
     var byteCount: Int32 {
       get {return _byteCount ?? 0}
       set {_byteCount = newValue}
     }
-    var hasByteCount: Bool {
-      return self._byteCount != nil
-    }
-    mutating func clearByteCount() {
-      self._byteCount = nil
-    }
+    /// Returns true if `byteCount` has been explicitly set.
+    var hasByteCount: Bool {return self._byteCount != nil}
+    /// Clears the value of `byteCount`. Subsequent reads from it will return its default value.
+    mutating func clearByteCount() {self._byteCount = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10874,22 +10240,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _byteCount: Int32? = nil
   }
 
   struct ByteOffset: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ByteOffset"
 
-    fileprivate var _byteOffset: Int32? = nil
     var byteOffset: Int32 {
       get {return _byteOffset ?? 0}
       set {_byteOffset = newValue}
     }
-    var hasByteOffset: Bool {
-      return self._byteOffset != nil
-    }
-    mutating func clearByteOffset() {
-      self._byteOffset = nil
-    }
+    /// Returns true if `byteOffset` has been explicitly set.
+    var hasByteOffset: Bool {return self._byteOffset != nil}
+    /// Clears the value of `byteOffset`. Subsequent reads from it will return its default value.
+    mutating func clearByteOffset() {self._byteOffset = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10910,22 +10275,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _byteOffset: Int32? = nil
   }
 
   struct Duration: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Duration"
 
-    fileprivate var _duration: Int32? = nil
     var duration: Int32 {
       get {return _duration ?? 0}
       set {_duration = newValue}
     }
-    var hasDuration: Bool {
-      return self._duration != nil
-    }
-    mutating func clearDuration() {
-      self._duration = nil
-    }
+    /// Returns true if `duration` has been explicitly set.
+    var hasDuration: Bool {return self._duration != nil}
+    /// Clears the value of `duration`. Subsequent reads from it will return its default value.
+    mutating func clearDuration() {self._duration = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10946,22 +10310,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _duration: Int32? = nil
   }
 
   struct AbsoluteTime: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".AbsoluteTime"
 
-    fileprivate var _absoluteTime: Int32? = nil
     var absoluteTime: Int32 {
       get {return _absoluteTime ?? 0}
       set {_absoluteTime = newValue}
     }
-    var hasAbsoluteTime: Bool {
-      return self._absoluteTime != nil
-    }
-    mutating func clearAbsoluteTime() {
-      self._absoluteTime = nil
-    }
+    /// Returns true if `absoluteTime` has been explicitly set.
+    var hasAbsoluteTime: Bool {return self._absoluteTime != nil}
+    /// Clears the value of `absoluteTime`. Subsequent reads from it will return its default value.
+    mutating func clearAbsoluteTime() {self._absoluteTime = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10982,22 +10345,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _absoluteTime: Int32? = nil
   }
 
   struct OptionBits: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OptionBits"
 
-    fileprivate var _optionBits: Int32? = nil
     var optionBits: Int32 {
       get {return _optionBits ?? 0}
       set {_optionBits = newValue}
     }
-    var hasOptionBits: Bool {
-      return self._optionBits != nil
-    }
-    mutating func clearOptionBits() {
-      self._optionBits = nil
-    }
+    /// Returns true if `optionBits` has been explicitly set.
+    var hasOptionBits: Bool {return self._optionBits != nil}
+    /// Clears the value of `optionBits`. Subsequent reads from it will return its default value.
+    mutating func clearOptionBits() {self._optionBits = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11018,22 +10380,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _optionBits: Int32? = nil
   }
 
   struct ItemCount: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ItemCount"
 
-    fileprivate var _itemCount: Int32? = nil
     var itemCount: Int32 {
       get {return _itemCount ?? 0}
       set {_itemCount = newValue}
     }
-    var hasItemCount: Bool {
-      return self._itemCount != nil
-    }
-    mutating func clearItemCount() {
-      self._itemCount = nil
-    }
+    /// Returns true if `itemCount` has been explicitly set.
+    var hasItemCount: Bool {return self._itemCount != nil}
+    /// Clears the value of `itemCount`. Subsequent reads from it will return its default value.
+    mutating func clearItemCount() {self._itemCount = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11054,22 +10415,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _itemCount: Int32? = nil
   }
 
   struct PBVersion: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".PBVersion"
 
-    fileprivate var _pbversion: Int32? = nil
     var pbversion: Int32 {
       get {return _pbversion ?? 0}
       set {_pbversion = newValue}
     }
-    var hasPbversion: Bool {
-      return self._pbversion != nil
-    }
-    mutating func clearPbversion() {
-      self._pbversion = nil
-    }
+    /// Returns true if `pbversion` has been explicitly set.
+    var hasPbversion: Bool {return self._pbversion != nil}
+    /// Clears the value of `pbversion`. Subsequent reads from it will return its default value.
+    mutating func clearPbversion() {self._pbversion = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11090,22 +10450,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _pbversion: Int32? = nil
   }
 
   struct ScriptCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ScriptCode"
 
-    fileprivate var _scriptCode: Int32? = nil
     var scriptCode: Int32 {
       get {return _scriptCode ?? 0}
       set {_scriptCode = newValue}
     }
-    var hasScriptCode: Bool {
-      return self._scriptCode != nil
-    }
-    mutating func clearScriptCode() {
-      self._scriptCode = nil
-    }
+    /// Returns true if `scriptCode` has been explicitly set.
+    var hasScriptCode: Bool {return self._scriptCode != nil}
+    /// Clears the value of `scriptCode`. Subsequent reads from it will return its default value.
+    mutating func clearScriptCode() {self._scriptCode = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11126,22 +10485,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _scriptCode: Int32? = nil
   }
 
   struct LangCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".LangCode"
 
-    fileprivate var _langCode: Int32? = nil
     var langCode: Int32 {
       get {return _langCode ?? 0}
       set {_langCode = newValue}
     }
-    var hasLangCode: Bool {
-      return self._langCode != nil
-    }
-    mutating func clearLangCode() {
-      self._langCode = nil
-    }
+    /// Returns true if `langCode` has been explicitly set.
+    var hasLangCode: Bool {return self._langCode != nil}
+    /// Clears the value of `langCode`. Subsequent reads from it will return its default value.
+    mutating func clearLangCode() {self._langCode = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11162,22 +10520,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _langCode: Int32? = nil
   }
 
   struct RegionCode: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".RegionCode"
 
-    fileprivate var _regionCode: Int32? = nil
     var regionCode: Int32 {
       get {return _regionCode ?? 0}
       set {_regionCode = newValue}
     }
-    var hasRegionCode: Bool {
-      return self._regionCode != nil
-    }
-    mutating func clearRegionCode() {
-      self._regionCode = nil
-    }
+    /// Returns true if `regionCode` has been explicitly set.
+    var hasRegionCode: Bool {return self._regionCode != nil}
+    /// Clears the value of `regionCode`. Subsequent reads from it will return its default value.
+    mutating func clearRegionCode() {self._regionCode = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11198,22 +10555,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _regionCode: Int32? = nil
   }
 
   struct OSType: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".OSType"
 
-    fileprivate var _ostype: Int32? = nil
     var ostype: Int32 {
       get {return _ostype ?? 0}
       set {_ostype = newValue}
     }
-    var hasOstype: Bool {
-      return self._ostype != nil
-    }
-    mutating func clearOstype() {
-      self._ostype = nil
-    }
+    /// Returns true if `ostype` has been explicitly set.
+    var hasOstype: Bool {return self._ostype != nil}
+    /// Clears the value of `ostype`. Subsequent reads from it will return its default value.
+    mutating func clearOstype() {self._ostype = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11234,22 +10590,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _ostype: Int32? = nil
   }
 
   struct ProcessSerialNumber: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".ProcessSerialNumber"
 
-    fileprivate var _processSerialNumber: Int32? = nil
     var processSerialNumber: Int32 {
       get {return _processSerialNumber ?? 0}
       set {_processSerialNumber = newValue}
     }
-    var hasProcessSerialNumber: Bool {
-      return self._processSerialNumber != nil
-    }
-    mutating func clearProcessSerialNumber() {
-      self._processSerialNumber = nil
-    }
+    /// Returns true if `processSerialNumber` has been explicitly set.
+    var hasProcessSerialNumber: Bool {return self._processSerialNumber != nil}
+    /// Clears the value of `processSerialNumber`. Subsequent reads from it will return its default value.
+    mutating func clearProcessSerialNumber() {self._processSerialNumber = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11270,22 +10625,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _processSerialNumber: Int32? = nil
   }
 
   struct Point: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Point"
 
-    fileprivate var _point: Int32? = nil
     var point: Int32 {
       get {return _point ?? 0}
       set {_point = newValue}
     }
-    var hasPoint: Bool {
-      return self._point != nil
-    }
-    mutating func clearPoint() {
-      self._point = nil
-    }
+    /// Returns true if `point` has been explicitly set.
+    var hasPoint: Bool {return self._point != nil}
+    /// Clears the value of `point`. Subsequent reads from it will return its default value.
+    mutating func clearPoint() {self._point = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11306,22 +10660,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _point: Int32? = nil
   }
 
   struct Rect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Rect"
 
-    fileprivate var _rect: Int32? = nil
     var rect: Int32 {
       get {return _rect ?? 0}
       set {_rect = newValue}
     }
-    var hasRect: Bool {
-      return self._rect != nil
-    }
-    mutating func clearRect() {
-      self._rect = nil
-    }
+    /// Returns true if `rect` has been explicitly set.
+    var hasRect: Bool {return self._rect != nil}
+    /// Clears the value of `rect`. Subsequent reads from it will return its default value.
+    mutating func clearRect() {self._rect = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11342,22 +10695,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _rect: Int32? = nil
   }
 
   struct FixedPoint: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedPoint"
 
-    fileprivate var _fixedPoint: Int32? = nil
     var fixedPoint: Int32 {
       get {return _fixedPoint ?? 0}
       set {_fixedPoint = newValue}
     }
-    var hasFixedPoint: Bool {
-      return self._fixedPoint != nil
-    }
-    mutating func clearFixedPoint() {
-      self._fixedPoint = nil
-    }
+    /// Returns true if `fixedPoint` has been explicitly set.
+    var hasFixedPoint: Bool {return self._fixedPoint != nil}
+    /// Clears the value of `fixedPoint`. Subsequent reads from it will return its default value.
+    mutating func clearFixedPoint() {self._fixedPoint = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11378,22 +10730,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fixedPoint: Int32? = nil
   }
 
   struct FixedRect: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".FixedRect"
 
-    fileprivate var _fixedRect: Int32? = nil
     var fixedRect: Int32 {
       get {return _fixedRect ?? 0}
       set {_fixedRect = newValue}
     }
-    var hasFixedRect: Bool {
-      return self._fixedRect != nil
-    }
-    mutating func clearFixedRect() {
-      self._fixedRect = nil
-    }
+    /// Returns true if `fixedRect` has been explicitly set.
+    var hasFixedRect: Bool {return self._fixedRect != nil}
+    /// Clears the value of `fixedRect`. Subsequent reads from it will return its default value.
+    mutating func clearFixedRect() {self._fixedRect = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11414,22 +10765,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _fixedRect: Int32? = nil
   }
 
   struct Style: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Style"
 
-    fileprivate var _style: Int32? = nil
     var style: Int32 {
       get {return _style ?? 0}
       set {_style = newValue}
     }
-    var hasStyle: Bool {
-      return self._style != nil
-    }
-    mutating func clearStyle() {
-      self._style = nil
-    }
+    /// Returns true if `style` has been explicitly set.
+    var hasStyle: Bool {return self._style != nil}
+    /// Clears the value of `style`. Subsequent reads from it will return its default value.
+    mutating func clearStyle() {self._style = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11450,22 +10800,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _style: Int32? = nil
   }
 
   struct StyleParameter: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleParameter"
 
-    fileprivate var _styleParameter: Int32? = nil
     var styleParameter: Int32 {
       get {return _styleParameter ?? 0}
       set {_styleParameter = newValue}
     }
-    var hasStyleParameter: Bool {
-      return self._styleParameter != nil
-    }
-    mutating func clearStyleParameter() {
-      self._styleParameter = nil
-    }
+    /// Returns true if `styleParameter` has been explicitly set.
+    var hasStyleParameter: Bool {return self._styleParameter != nil}
+    /// Clears the value of `styleParameter`. Subsequent reads from it will return its default value.
+    mutating func clearStyleParameter() {self._styleParameter = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11486,22 +10835,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _styleParameter: Int32? = nil
   }
 
   struct StyleField: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".StyleField"
 
-    fileprivate var _styleField: Int32? = nil
     var styleField: Int32 {
       get {return _styleField ?? 0}
       set {_styleField = newValue}
     }
-    var hasStyleField: Bool {
-      return self._styleField != nil
-    }
-    mutating func clearStyleField() {
-      self._styleField = nil
-    }
+    /// Returns true if `styleField` has been explicitly set.
+    var hasStyleField: Bool {return self._styleField != nil}
+    /// Clears the value of `styleField`. Subsequent reads from it will return its default value.
+    mutating func clearStyleField() {self._styleField = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11522,22 +10870,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _styleField: Int32? = nil
   }
 
   struct TimeScale: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeScale"
 
-    fileprivate var _timeScale: Int32? = nil
     var timeScale: Int32 {
       get {return _timeScale ?? 0}
       set {_timeScale = newValue}
     }
-    var hasTimeScale: Bool {
-      return self._timeScale != nil
-    }
-    mutating func clearTimeScale() {
-      self._timeScale = nil
-    }
+    /// Returns true if `timeScale` has been explicitly set.
+    var hasTimeScale: Bool {return self._timeScale != nil}
+    /// Clears the value of `timeScale`. Subsequent reads from it will return its default value.
+    mutating func clearTimeScale() {self._timeScale = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11558,22 +10905,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _timeScale: Int32? = nil
   }
 
   struct TimeBase: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeBase"
 
-    fileprivate var _timeBase: Int32? = nil
     var timeBase: Int32 {
       get {return _timeBase ?? 0}
       set {_timeBase = newValue}
     }
-    var hasTimeBase: Bool {
-      return self._timeBase != nil
-    }
-    mutating func clearTimeBase() {
-      self._timeBase = nil
-    }
+    /// Returns true if `timeBase` has been explicitly set.
+    var hasTimeBase: Bool {return self._timeBase != nil}
+    /// Clears the value of `timeBase`. Subsequent reads from it will return its default value.
+    mutating func clearTimeBase() {self._timeBase = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11594,22 +10940,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _timeBase: Int32? = nil
   }
 
   struct TimeRecord: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".TimeRecord"
 
-    fileprivate var _timeRecord: Int32? = nil
     var timeRecord: Int32 {
       get {return _timeRecord ?? 0}
       set {_timeRecord = newValue}
     }
-    var hasTimeRecord: Bool {
-      return self._timeRecord != nil
-    }
-    mutating func clearTimeRecord() {
-      self._timeRecord = nil
-    }
+    /// Returns true if `timeRecord` has been explicitly set.
+    var hasTimeRecord: Bool {return self._timeRecord != nil}
+    /// Clears the value of `timeRecord`. Subsequent reads from it will return its default value.
+    mutating func clearTimeRecord() {self._timeRecord = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11630,22 +10975,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _timeRecord: Int32? = nil
   }
 
   struct serializedData: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".serializedData"
 
-    fileprivate var _serializedData: Int32? = nil
     var serializedData: Int32 {
       get {return _serializedData ?? 0}
       set {_serializedData = newValue}
     }
-    var hasSerializedData: Bool {
-      return self._serializedData != nil
-    }
-    mutating func clearSerializedData() {
-      self._serializedData = nil
-    }
+    /// Returns true if `serializedData` has been explicitly set.
+    var hasSerializedData: Bool {return self._serializedData != nil}
+    /// Clears the value of `serializedData`. Subsequent reads from it will return its default value.
+    mutating func clearSerializedData() {self._serializedData = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11666,22 +11010,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _serializedData: Int32? = nil
   }
 
   struct jsonUTF8Data: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonUTF8Data"
 
-    fileprivate var _jsonUtf8Data: Int32? = nil
     var jsonUtf8Data: Int32 {
       get {return _jsonUtf8Data ?? 0}
       set {_jsonUtf8Data = newValue}
     }
-    var hasJsonUtf8Data: Bool {
-      return self._jsonUtf8Data != nil
-    }
-    mutating func clearJsonUtf8Data() {
-      self._jsonUtf8Data = nil
-    }
+    /// Returns true if `jsonUtf8Data` has been explicitly set.
+    var hasJsonUtf8Data: Bool {return self._jsonUtf8Data != nil}
+    /// Clears the value of `jsonUtf8Data`. Subsequent reads from it will return its default value.
+    mutating func clearJsonUtf8Data() {self._jsonUtf8Data = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11702,22 +11045,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _jsonUtf8Data: Int32? = nil
   }
 
   struct jsonString: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".jsonString"
 
-    fileprivate var _jsonString: Int32? = nil
     var jsonString: Int32 {
       get {return _jsonString ?? 0}
       set {_jsonString = newValue}
     }
-    var hasJsonString: Bool {
-      return self._jsonString != nil
-    }
-    mutating func clearJsonString() {
-      self._jsonString = nil
-    }
+    /// Returns true if `jsonString` has been explicitly set.
+    var hasJsonString: Bool {return self._jsonString != nil}
+    /// Clears the value of `jsonString`. Subsequent reads from it will return its default value.
+    mutating func clearJsonString() {self._jsonString = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11738,22 +11080,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _jsonString: Int32? = nil
   }
 
   struct Extension: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extension"
 
-    fileprivate var _extension_p: Int32? = nil
     var extension_p: Int32 {
       get {return _extension_p ?? 0}
       set {_extension_p = newValue}
     }
-    var hasExtension_p: Bool {
-      return self._extension_p != nil
-    }
-    mutating func clearExtension_p() {
-      self._extension_p = nil
-    }
+    /// Returns true if `extension_p` has been explicitly set.
+    var hasExtension_p: Bool {return self._extension_p != nil}
+    /// Clears the value of `extension_p`. Subsequent reads from it will return its default value.
+    mutating func clearExtension_p() {self._extension_p = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11774,22 +11115,21 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extension_p: Int32? = nil
   }
 
   struct ExtensionsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".Extensions"
 
-    fileprivate var _extensions: Int32? = nil
     var extensions: Int32 {
       get {return _extensions ?? 0}
       set {_extensions = newValue}
     }
-    var hasExtensions: Bool {
-      return self._extensions != nil
-    }
-    mutating func clearExtensions() {
-      self._extensions = nil
-    }
+    /// Returns true if `extensions` has been explicitly set.
+    var hasExtensions: Bool {return self._extensions != nil}
+    /// Clears the value of `extensions`. Subsequent reads from it will return its default value.
+    mutating func clearExtensions() {self._extensions = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11810,6 +11150,8 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _extensions: Int32? = nil
   }
 
   init() {}
@@ -16702,161 +16044,122 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
   struct Lowers: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
 
-    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
     }
-    var hasHTTP: Bool {
-      return self._http != nil
-    }
-    mutating func clearHTTP() {
-      self._http = nil
-    }
+    /// Returns true if `http` has been explicitly set.
+    var hasHTTP: Bool {return self._http != nil}
+    /// Clears the value of `http`. Subsequent reads from it will return its default value.
+    mutating func clearHTTP() {self._http = nil}
 
-    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
-    var hasHTTPRequest: Bool {
-      return self._httpRequest != nil
-    }
-    mutating func clearHTTPRequest() {
-      self._httpRequest = nil
-    }
+    /// Returns true if `httpRequest` has been explicitly set.
+    var hasHTTPRequest: Bool {return self._httpRequest != nil}
+    /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPRequest() {self._httpRequest = nil}
 
-    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
-    var hasTheHTTPRequest: Bool {
-      return self._theHTTPRequest != nil
-    }
-    mutating func clearTheHTTPRequest() {
-      self._theHTTPRequest = nil
-    }
+    /// Returns true if `theHTTPRequest` has been explicitly set.
+    var hasTheHTTPRequest: Bool {return self._theHTTPRequest != nil}
+    /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPRequest() {self._theHTTPRequest = nil}
 
-    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
-    var hasTheHTTP: Bool {
-      return self._theHTTP != nil
-    }
-    mutating func clearTheHTTP() {
-      self._theHTTP = nil
-    }
+    /// Returns true if `theHTTP` has been explicitly set.
+    var hasTheHTTP: Bool {return self._theHTTP != nil}
+    /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTP() {self._theHTTP = nil}
 
-    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
     }
-    var hasHTTPS: Bool {
-      return self._https != nil
-    }
-    mutating func clearHTTPS() {
-      self._https = nil
-    }
+    /// Returns true if `https` has been explicitly set.
+    var hasHTTPS: Bool {return self._https != nil}
+    /// Clears the value of `https`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPS() {self._https = nil}
 
-    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
-    var hasHTTPSRequest: Bool {
-      return self._httpsRequest != nil
-    }
-    mutating func clearHTTPSRequest() {
-      self._httpsRequest = nil
-    }
+    /// Returns true if `httpsRequest` has been explicitly set.
+    var hasHTTPSRequest: Bool {return self._httpsRequest != nil}
+    /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPSRequest() {self._httpsRequest = nil}
 
-    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
-    var hasTheHTTPSRequest: Bool {
-      return self._theHTTPSRequest != nil
-    }
-    mutating func clearTheHTTPSRequest() {
-      self._theHTTPSRequest = nil
-    }
+    /// Returns true if `theHTTPSRequest` has been explicitly set.
+    var hasTheHTTPSRequest: Bool {return self._theHTTPSRequest != nil}
+    /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPSRequest() {self._theHTTPSRequest = nil}
 
-    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
-    var hasTheHTTPS: Bool {
-      return self._theHTTPS != nil
-    }
-    mutating func clearTheHTTPS() {
-      self._theHTTPS = nil
-    }
+    /// Returns true if `theHTTPS` has been explicitly set.
+    var hasTheHTTPS: Bool {return self._theHTTPS != nil}
+    /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPS() {self._theHTTPS = nil}
 
-    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
     }
-    var hasURL: Bool {
-      return self._url != nil
-    }
-    mutating func clearURL() {
-      self._url = nil
-    }
+    /// Returns true if `url` has been explicitly set.
+    var hasURL: Bool {return self._url != nil}
+    /// Clears the value of `url`. Subsequent reads from it will return its default value.
+    mutating func clearURL() {self._url = nil}
 
-    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
     }
-    var hasURLValue: Bool {
-      return self._urlValue != nil
-    }
-    mutating func clearURLValue() {
-      self._urlValue = nil
-    }
+    /// Returns true if `urlValue` has been explicitly set.
+    var hasURLValue: Bool {return self._urlValue != nil}
+    /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
+    mutating func clearURLValue() {self._urlValue = nil}
 
-    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
-    var hasTheURLValue: Bool {
-      return self._theURLValue != nil
-    }
-    mutating func clearTheURLValue() {
-      self._theURLValue = nil
-    }
+    /// Returns true if `theURLValue` has been explicitly set.
+    var hasTheURLValue: Bool {return self._theURLValue != nil}
+    /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
+    mutating func clearTheURLValue() {self._theURLValue = nil}
 
-    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
     }
-    var hasTheURL: Bool {
-      return self._theURL != nil
-    }
-    mutating func clearTheURL() {
-      self._theURL = nil
-    }
+    /// Returns true if `theURL` has been explicitly set.
+    var hasTheURL: Bool {return self._theURL != nil}
+    /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
+    mutating func clearTheURL() {self._theURL = nil}
 
-    fileprivate var _aBC: Int32? = nil
     var aBC: Int32 {
       get {return _aBC ?? 0}
       set {_aBC = newValue}
     }
-    var hasABC: Bool {
-      return self._aBC != nil
-    }
-    mutating func clearABC() {
-      self._aBC = nil
-    }
+    /// Returns true if `aBC` has been explicitly set.
+    var hasABC: Bool {return self._aBC != nil}
+    /// Clears the value of `aBC`. Subsequent reads from it will return its default value.
+    mutating func clearABC() {self._aBC = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16925,154 +16228,132 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _http: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
+    fileprivate var _https: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
+    fileprivate var _url: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
+    fileprivate var _aBC: Int32? = nil
   }
 
   struct Uppers: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Uppers"
 
-    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
     }
-    var hasHTTP: Bool {
-      return self._http != nil
-    }
-    mutating func clearHTTP() {
-      self._http = nil
-    }
+    /// Returns true if `http` has been explicitly set.
+    var hasHTTP: Bool {return self._http != nil}
+    /// Clears the value of `http`. Subsequent reads from it will return its default value.
+    mutating func clearHTTP() {self._http = nil}
 
-    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
-    var hasHTTPRequest: Bool {
-      return self._httpRequest != nil
-    }
-    mutating func clearHTTPRequest() {
-      self._httpRequest = nil
-    }
+    /// Returns true if `httpRequest` has been explicitly set.
+    var hasHTTPRequest: Bool {return self._httpRequest != nil}
+    /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPRequest() {self._httpRequest = nil}
 
-    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
-    var hasTheHTTPRequest: Bool {
-      return self._theHTTPRequest != nil
-    }
-    mutating func clearTheHTTPRequest() {
-      self._theHTTPRequest = nil
-    }
+    /// Returns true if `theHTTPRequest` has been explicitly set.
+    var hasTheHTTPRequest: Bool {return self._theHTTPRequest != nil}
+    /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPRequest() {self._theHTTPRequest = nil}
 
-    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
-    var hasTheHTTP: Bool {
-      return self._theHTTP != nil
-    }
-    mutating func clearTheHTTP() {
-      self._theHTTP = nil
-    }
+    /// Returns true if `theHTTP` has been explicitly set.
+    var hasTheHTTP: Bool {return self._theHTTP != nil}
+    /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTP() {self._theHTTP = nil}
 
-    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
     }
-    var hasHTTPS: Bool {
-      return self._https != nil
-    }
-    mutating func clearHTTPS() {
-      self._https = nil
-    }
+    /// Returns true if `https` has been explicitly set.
+    var hasHTTPS: Bool {return self._https != nil}
+    /// Clears the value of `https`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPS() {self._https = nil}
 
-    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
-    var hasHTTPSRequest: Bool {
-      return self._httpsRequest != nil
-    }
-    mutating func clearHTTPSRequest() {
-      self._httpsRequest = nil
-    }
+    /// Returns true if `httpsRequest` has been explicitly set.
+    var hasHTTPSRequest: Bool {return self._httpsRequest != nil}
+    /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPSRequest() {self._httpsRequest = nil}
 
-    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
-    var hasTheHTTPSRequest: Bool {
-      return self._theHTTPSRequest != nil
-    }
-    mutating func clearTheHTTPSRequest() {
-      self._theHTTPSRequest = nil
-    }
+    /// Returns true if `theHTTPSRequest` has been explicitly set.
+    var hasTheHTTPSRequest: Bool {return self._theHTTPSRequest != nil}
+    /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPSRequest() {self._theHTTPSRequest = nil}
 
-    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
-    var hasTheHTTPS: Bool {
-      return self._theHTTPS != nil
-    }
-    mutating func clearTheHTTPS() {
-      self._theHTTPS = nil
-    }
+    /// Returns true if `theHTTPS` has been explicitly set.
+    var hasTheHTTPS: Bool {return self._theHTTPS != nil}
+    /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPS() {self._theHTTPS = nil}
 
-    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
     }
-    var hasURL: Bool {
-      return self._url != nil
-    }
-    mutating func clearURL() {
-      self._url = nil
-    }
+    /// Returns true if `url` has been explicitly set.
+    var hasURL: Bool {return self._url != nil}
+    /// Clears the value of `url`. Subsequent reads from it will return its default value.
+    mutating func clearURL() {self._url = nil}
 
-    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
     }
-    var hasURLValue: Bool {
-      return self._urlValue != nil
-    }
-    mutating func clearURLValue() {
-      self._urlValue = nil
-    }
+    /// Returns true if `urlValue` has been explicitly set.
+    var hasURLValue: Bool {return self._urlValue != nil}
+    /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
+    mutating func clearURLValue() {self._urlValue = nil}
 
-    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
-    var hasTheURLValue: Bool {
-      return self._theURLValue != nil
-    }
-    mutating func clearTheURLValue() {
-      self._theURLValue = nil
-    }
+    /// Returns true if `theURLValue` has been explicitly set.
+    var hasTheURLValue: Bool {return self._theURLValue != nil}
+    /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
+    mutating func clearTheURLValue() {self._theURLValue = nil}
 
-    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
     }
-    var hasTheURL: Bool {
-      return self._theURL != nil
-    }
-    mutating func clearTheURL() {
-      self._theURL = nil
-    }
+    /// Returns true if `theURL` has been explicitly set.
+    var hasTheURL: Bool {return self._theURL != nil}
+    /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
+    mutating func clearTheURL() {self._theURL = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17137,154 +16418,131 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _http: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
+    fileprivate var _https: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
+    fileprivate var _url: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
   }
 
   struct WordCase: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".WordCase"
 
-    fileprivate var _http: Int32? = nil
     var http: Int32 {
       get {return _http ?? 0}
       set {_http = newValue}
     }
-    var hasHTTP: Bool {
-      return self._http != nil
-    }
-    mutating func clearHTTP() {
-      self._http = nil
-    }
+    /// Returns true if `http` has been explicitly set.
+    var hasHTTP: Bool {return self._http != nil}
+    /// Clears the value of `http`. Subsequent reads from it will return its default value.
+    mutating func clearHTTP() {self._http = nil}
 
-    fileprivate var _httpRequest: Int32? = nil
     var httpRequest: Int32 {
       get {return _httpRequest ?? 0}
       set {_httpRequest = newValue}
     }
-    var hasHTTPRequest: Bool {
-      return self._httpRequest != nil
-    }
-    mutating func clearHTTPRequest() {
-      self._httpRequest = nil
-    }
+    /// Returns true if `httpRequest` has been explicitly set.
+    var hasHTTPRequest: Bool {return self._httpRequest != nil}
+    /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPRequest() {self._httpRequest = nil}
 
-    fileprivate var _theHTTPRequest: Int32? = nil
     var theHTTPRequest: Int32 {
       get {return _theHTTPRequest ?? 0}
       set {_theHTTPRequest = newValue}
     }
-    var hasTheHTTPRequest: Bool {
-      return self._theHTTPRequest != nil
-    }
-    mutating func clearTheHTTPRequest() {
-      self._theHTTPRequest = nil
-    }
+    /// Returns true if `theHTTPRequest` has been explicitly set.
+    var hasTheHTTPRequest: Bool {return self._theHTTPRequest != nil}
+    /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPRequest() {self._theHTTPRequest = nil}
 
-    fileprivate var _theHTTP: Int32? = nil
     var theHTTP: Int32 {
       get {return _theHTTP ?? 0}
       set {_theHTTP = newValue}
     }
-    var hasTheHTTP: Bool {
-      return self._theHTTP != nil
-    }
-    mutating func clearTheHTTP() {
-      self._theHTTP = nil
-    }
+    /// Returns true if `theHTTP` has been explicitly set.
+    var hasTheHTTP: Bool {return self._theHTTP != nil}
+    /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTP() {self._theHTTP = nil}
 
-    fileprivate var _https: Int32? = nil
     var https: Int32 {
       get {return _https ?? 0}
       set {_https = newValue}
     }
-    var hasHTTPS: Bool {
-      return self._https != nil
-    }
-    mutating func clearHTTPS() {
-      self._https = nil
-    }
+    /// Returns true if `https` has been explicitly set.
+    var hasHTTPS: Bool {return self._https != nil}
+    /// Clears the value of `https`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPS() {self._https = nil}
 
-    fileprivate var _httpsRequest: Int32? = nil
     var httpsRequest: Int32 {
       get {return _httpsRequest ?? 0}
       set {_httpsRequest = newValue}
     }
-    var hasHTTPSRequest: Bool {
-      return self._httpsRequest != nil
-    }
-    mutating func clearHTTPSRequest() {
-      self._httpsRequest = nil
-    }
+    /// Returns true if `httpsRequest` has been explicitly set.
+    var hasHTTPSRequest: Bool {return self._httpsRequest != nil}
+    /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
+    mutating func clearHTTPSRequest() {self._httpsRequest = nil}
 
-    fileprivate var _theHTTPSRequest: Int32? = nil
     var theHTTPSRequest: Int32 {
       get {return _theHTTPSRequest ?? 0}
       set {_theHTTPSRequest = newValue}
     }
-    var hasTheHTTPSRequest: Bool {
-      return self._theHTTPSRequest != nil
-    }
-    mutating func clearTheHTTPSRequest() {
-      self._theHTTPSRequest = nil
-    }
+    /// Returns true if `theHTTPSRequest` has been explicitly set.
+    var hasTheHTTPSRequest: Bool {return self._theHTTPSRequest != nil}
+    /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPSRequest() {self._theHTTPSRequest = nil}
 
-    fileprivate var _theHTTPS: Int32? = nil
     var theHTTPS: Int32 {
       get {return _theHTTPS ?? 0}
       set {_theHTTPS = newValue}
     }
-    var hasTheHTTPS: Bool {
-      return self._theHTTPS != nil
-    }
-    mutating func clearTheHTTPS() {
-      self._theHTTPS = nil
-    }
+    /// Returns true if `theHTTPS` has been explicitly set.
+    var hasTheHTTPS: Bool {return self._theHTTPS != nil}
+    /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
+    mutating func clearTheHTTPS() {self._theHTTPS = nil}
 
-    fileprivate var _url: Int32? = nil
     var url: Int32 {
       get {return _url ?? 0}
       set {_url = newValue}
     }
-    var hasURL: Bool {
-      return self._url != nil
-    }
-    mutating func clearURL() {
-      self._url = nil
-    }
+    /// Returns true if `url` has been explicitly set.
+    var hasURL: Bool {return self._url != nil}
+    /// Clears the value of `url`. Subsequent reads from it will return its default value.
+    mutating func clearURL() {self._url = nil}
 
-    fileprivate var _urlValue: Int32? = nil
     var urlValue: Int32 {
       get {return _urlValue ?? 0}
       set {_urlValue = newValue}
     }
-    var hasURLValue: Bool {
-      return self._urlValue != nil
-    }
-    mutating func clearURLValue() {
-      self._urlValue = nil
-    }
+    /// Returns true if `urlValue` has been explicitly set.
+    var hasURLValue: Bool {return self._urlValue != nil}
+    /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
+    mutating func clearURLValue() {self._urlValue = nil}
 
-    fileprivate var _theURLValue: Int32? = nil
     var theURLValue: Int32 {
       get {return _theURLValue ?? 0}
       set {_theURLValue = newValue}
     }
-    var hasTheURLValue: Bool {
-      return self._theURLValue != nil
-    }
-    mutating func clearTheURLValue() {
-      self._theURLValue = nil
-    }
+    /// Returns true if `theURLValue` has been explicitly set.
+    var hasTheURLValue: Bool {return self._theURLValue != nil}
+    /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
+    mutating func clearTheURLValue() {self._theURLValue = nil}
 
-    fileprivate var _theURL: Int32? = nil
     var theURL: Int32 {
       get {return _theURL ?? 0}
       set {_theURL = newValue}
     }
-    var hasTheURL: Bool {
-      return self._theURL != nil
-    }
-    mutating func clearTheURL() {
-      self._theURL = nil
-    }
+    /// Returns true if `theURL` has been explicitly set.
+    var hasTheURL: Bool {return self._theURL != nil}
+    /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
+    mutating func clearTheURL() {self._theURL = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17349,6 +16607,19 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _http: Int32? = nil
+    fileprivate var _httpRequest: Int32? = nil
+    fileprivate var _theHTTPRequest: Int32? = nil
+    fileprivate var _theHTTP: Int32? = nil
+    fileprivate var _https: Int32? = nil
+    fileprivate var _httpsRequest: Int32? = nil
+    fileprivate var _theHTTPSRequest: Int32? = nil
+    fileprivate var _theHTTPS: Int32? = nil
+    fileprivate var _url: Int32? = nil
+    fileprivate var _urlValue: Int32? = nil
+    fileprivate var _theURLValue: Int32? = nil
+    fileprivate var _theURL: Int32? = nil
   }
 
   init() {}

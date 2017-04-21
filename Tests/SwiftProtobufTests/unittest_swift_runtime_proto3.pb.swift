@@ -131,12 +131,10 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
     get {return _storage._optionalMessage ?? ProtobufUnittest_Message3()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
-  var hasOptionalMessage: Bool {
-    return _storage._optionalMessage != nil
-  }
-  mutating func clearOptionalMessage() {
-    _storage._optionalMessage = nil
-  }
+  /// Returns true if `optionalMessage` has been explicitly set.
+  var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
+  /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
 
   var optionalEnum: ProtobufUnittest_Message3.Enum {
     get {return _storage._optionalEnum}
@@ -812,12 +810,10 @@ struct ProtobufUnittest_Msg3UsesStorage: SwiftProtobuf.Message {
     get {return _storage._y ?? ProtobufUnittest_Msg3UsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
-  var hasY: Bool {
-    return _storage._y != nil
-  }
-  mutating func clearY() {
-    _storage._y = nil
-  }
+  /// Returns true if `y` has been explicitly set.
+  var hasY: Bool {return _storage._y != nil}
+  /// Clears the value of `y`. Subsequent reads from it will return its default value.
+  mutating func clearY() {_storage._y = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

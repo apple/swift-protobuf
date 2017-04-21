@@ -69,55 +69,43 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".Version"
 
-  fileprivate var _major: Int32? = nil
   var major: Int32 {
     get {return _major ?? 0}
     set {_major = newValue}
   }
-  var hasMajor: Bool {
-    return self._major != nil
-  }
-  mutating func clearMajor() {
-    self._major = nil
-  }
+  /// Returns true if `major` has been explicitly set.
+  var hasMajor: Bool {return self._major != nil}
+  /// Clears the value of `major`. Subsequent reads from it will return its default value.
+  mutating func clearMajor() {self._major = nil}
 
-  fileprivate var _minor: Int32? = nil
   var minor: Int32 {
     get {return _minor ?? 0}
     set {_minor = newValue}
   }
-  var hasMinor: Bool {
-    return self._minor != nil
-  }
-  mutating func clearMinor() {
-    self._minor = nil
-  }
+  /// Returns true if `minor` has been explicitly set.
+  var hasMinor: Bool {return self._minor != nil}
+  /// Clears the value of `minor`. Subsequent reads from it will return its default value.
+  mutating func clearMinor() {self._minor = nil}
 
-  fileprivate var _patch: Int32? = nil
   var patch: Int32 {
     get {return _patch ?? 0}
     set {_patch = newValue}
   }
-  var hasPatch: Bool {
-    return self._patch != nil
-  }
-  mutating func clearPatch() {
-    self._patch = nil
-  }
+  /// Returns true if `patch` has been explicitly set.
+  var hasPatch: Bool {return self._patch != nil}
+  /// Clears the value of `patch`. Subsequent reads from it will return its default value.
+  mutating func clearPatch() {self._patch = nil}
 
   /// A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
   /// be empty for mainline stable releases.
-  fileprivate var _suffix: String? = nil
   var suffix: String {
     get {return _suffix ?? String()}
     set {_suffix = newValue}
   }
-  var hasSuffix: Bool {
-    return self._suffix != nil
-  }
-  mutating func clearSuffix() {
-    self._suffix = nil
-  }
+  /// Returns true if `suffix` has been explicitly set.
+  var hasSuffix: Bool {return self._suffix != nil}
+  /// Clears the value of `suffix`. Subsequent reads from it will return its default value.
+  mutating func clearSuffix() {self._suffix = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -150,6 +138,11 @@ struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _major: Int32? = nil
+  fileprivate var _minor: Int32? = nil
+  fileprivate var _patch: Int32? = nil
+  fileprivate var _suffix: String? = nil
 }
 
 /// An encoded CodeGeneratorRequest is written to the plugin's stdin.
@@ -169,12 +162,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     get {return _storage._parameter ?? String()}
     set {_uniqueStorage()._parameter = newValue}
   }
-  var hasParameter: Bool {
-    return _storage._parameter != nil
-  }
-  mutating func clearParameter() {
-    _storage._parameter = nil
-  }
+  /// Returns true if `parameter` has been explicitly set.
+  var hasParameter: Bool {return _storage._parameter != nil}
+  /// Clears the value of `parameter`. Subsequent reads from it will return its default value.
+  mutating func clearParameter() {_storage._parameter = nil}
 
   /// FileDescriptorProtos for all files in files_to_generate and everything
   /// they import.  The files will appear in topological order, so each file
@@ -197,12 +188,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     get {return _storage._compilerVersion ?? Google_Protobuf_Compiler_Version()}
     set {_uniqueStorage()._compilerVersion = newValue}
   }
-  var hasCompilerVersion: Bool {
-    return _storage._compilerVersion != nil
-  }
-  mutating func clearCompilerVersion() {
-    _storage._compilerVersion = nil
-  }
+  /// Returns true if `compilerVersion` has been explicitly set.
+  var hasCompilerVersion: Bool {return _storage._compilerVersion != nil}
+  /// Clears the value of `compilerVersion`. Subsequent reads from it will return its default value.
+  mutating func clearCompilerVersion() {_storage._compilerVersion = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -263,17 +252,14 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
   /// problem in protoc itself -- such as the input CodeGeneratorRequest being
   /// unparseable -- should be reported by writing a message to stderr and
   /// exiting with a non-zero status code.
-  fileprivate var _error: String? = nil
   var error: String {
     get {return _error ?? String()}
     set {_error = newValue}
   }
-  var hasError: Bool {
-    return self._error != nil
-  }
-  mutating func clearError() {
-    self._error = nil
-  }
+  /// Returns true if `error` has been explicitly set.
+  var hasError: Bool {return self._error != nil}
+  /// Clears the value of `error`. Subsequent reads from it will return its default value.
+  mutating func clearError() {self._error = nil}
 
   var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
@@ -294,17 +280,14 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// files need not reside completely in memory at one time.  Note that as of
     /// this writing protoc does not optimize for this -- it will read the entire
     /// CodeGeneratorResponse before writing files to disk.
-    fileprivate var _name: String? = nil
     var name: String {
       get {return _name ?? String()}
       set {_name = newValue}
     }
-    var hasName: Bool {
-      return self._name != nil
-    }
-    mutating func clearName() {
-      self._name = nil
-    }
+    /// Returns true if `name` has been explicitly set.
+    var hasName: Bool {return self._name != nil}
+    /// Clears the value of `name`. Subsequent reads from it will return its default value.
+    mutating func clearName() {self._name = nil}
 
     /// If non-empty, indicates that the named file should already exist, and the
     /// content here is to be inserted into that file at a defined insertion
@@ -343,30 +326,24 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     /// command line.
     ///
     /// If |insertion_point| is present, |name| must also be present.
-    fileprivate var _insertionPoint: String? = nil
     var insertionPoint: String {
       get {return _insertionPoint ?? String()}
       set {_insertionPoint = newValue}
     }
-    var hasInsertionPoint: Bool {
-      return self._insertionPoint != nil
-    }
-    mutating func clearInsertionPoint() {
-      self._insertionPoint = nil
-    }
+    /// Returns true if `insertionPoint` has been explicitly set.
+    var hasInsertionPoint: Bool {return self._insertionPoint != nil}
+    /// Clears the value of `insertionPoint`. Subsequent reads from it will return its default value.
+    mutating func clearInsertionPoint() {self._insertionPoint = nil}
 
     /// The file contents.
-    fileprivate var _content: String? = nil
     var content: String {
       get {return _content ?? String()}
       set {_content = newValue}
     }
-    var hasContent: Bool {
-      return self._content != nil
-    }
-    mutating func clearContent() {
-      self._content = nil
-    }
+    /// Returns true if `content` has been explicitly set.
+    var hasContent: Bool {return self._content != nil}
+    /// Clears the value of `content`. Subsequent reads from it will return its default value.
+    mutating func clearContent() {self._content = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -395,6 +372,10 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _name: String? = nil
+    fileprivate var _insertionPoint: String? = nil
+    fileprivate var _content: String? = nil
   }
 
   init() {}
@@ -418,6 +399,8 @@ struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _error: String? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

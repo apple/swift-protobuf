@@ -258,34 +258,28 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     get {return _storage._singleNestedMessage ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
-  var hasSingleNestedMessage: Bool {
-    return _storage._singleNestedMessage != nil
-  }
-  mutating func clearSingleNestedMessage() {
-    _storage._singleNestedMessage = nil
-  }
+  /// Returns true if `singleNestedMessage` has been explicitly set.
+  var hasSingleNestedMessage: Bool {return _storage._singleNestedMessage != nil}
+  /// Clears the value of `singleNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSingleNestedMessage() {_storage._singleNestedMessage = nil}
 
   var singleForeignMessage: Proto3ForeignMessage {
     get {return _storage._singleForeignMessage ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._singleForeignMessage = newValue}
   }
-  var hasSingleForeignMessage: Bool {
-    return _storage._singleForeignMessage != nil
-  }
-  mutating func clearSingleForeignMessage() {
-    _storage._singleForeignMessage = nil
-  }
+  /// Returns true if `singleForeignMessage` has been explicitly set.
+  var hasSingleForeignMessage: Bool {return _storage._singleForeignMessage != nil}
+  /// Clears the value of `singleForeignMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSingleForeignMessage() {_storage._singleForeignMessage = nil}
 
   var singleImportMessage: Proto3ImportMessage {
     get {return _storage._singleImportMessage ?? Proto3ImportMessage()}
     set {_uniqueStorage()._singleImportMessage = newValue}
   }
-  var hasSingleImportMessage: Bool {
-    return _storage._singleImportMessage != nil
-  }
-  mutating func clearSingleImportMessage() {
-    _storage._singleImportMessage = nil
-  }
+  /// Returns true if `singleImportMessage` has been explicitly set.
+  var hasSingleImportMessage: Bool {return _storage._singleImportMessage != nil}
+  /// Clears the value of `singleImportMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSingleImportMessage() {_storage._singleImportMessage = nil}
 
   var singleNestedEnum: Proto3TestAllTypes.NestedEnum {
     get {return _storage._singleNestedEnum}
@@ -307,12 +301,10 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     get {return _storage._singlePublicImportMessage ?? Proto3PublicImportMessage()}
     set {_uniqueStorage()._singlePublicImportMessage = newValue}
   }
-  var hasSinglePublicImportMessage: Bool {
-    return _storage._singlePublicImportMessage != nil
-  }
-  mutating func clearSinglePublicImportMessage() {
-    _storage._singlePublicImportMessage = nil
-  }
+  /// Returns true if `singlePublicImportMessage` has been explicitly set.
+  var hasSinglePublicImportMessage: Bool {return _storage._singlePublicImportMessage != nil}
+  /// Clears the value of `singlePublicImportMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSinglePublicImportMessage() {_storage._singlePublicImportMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
@@ -764,23 +756,19 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
     get {return _storage._child ?? Proto3NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
-  var hasChild: Bool {
-    return _storage._child != nil
-  }
-  mutating func clearChild() {
-    _storage._child = nil
-  }
+  /// Returns true if `child` has been explicitly set.
+  var hasChild: Bool {return _storage._child != nil}
+  /// Clears the value of `child`. Subsequent reads from it will return its default value.
+  mutating func clearChild() {_storage._child = nil}
 
   var payload: Proto3TestAllTypes {
     get {return _storage._payload ?? Proto3TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
-  var hasPayload: Bool {
-    return _storage._payload != nil
-  }
-  mutating func clearPayload() {
-    _storage._payload = nil
-  }
+  /// Returns true if `payload` has been explicitly set.
+  var hasPayload: Bool {return _storage._payload != nil}
+  /// Clears the value of `payload`. Subsequent reads from it will return its default value.
+  mutating func clearPayload() {_storage._payload = nil}
 
   var repeatedChild: [Proto3NestedTestAllTypes] {
     get {return _storage._repeatedChild}
@@ -902,12 +890,10 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message {
     get {return _storage._foreignNested ?? Proto3TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._foreignNested = newValue}
   }
-  var hasForeignNested: Bool {
-    return _storage._foreignNested != nil
-  }
-  mutating func clearForeignNested() {
-    _storage._foreignNested = nil
-  }
+  /// Returns true if `foreignNested` has been explicitly set.
+  var hasForeignNested: Bool {return _storage._foreignNested != nil}
+  /// Clears the value of `foreignNested`. Subsequent reads from it will return its default value.
+  mutating func clearForeignNested() {_storage._foreignNested = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -979,12 +965,10 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
     get {return _storage._a ?? Proto3TestRecursiveMessage()}
     set {_uniqueStorage()._a = newValue}
   }
-  var hasA: Bool {
-    return _storage._a != nil
-  }
-  mutating func clearA() {
-    _storage._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return _storage._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {_storage._a = nil}
 
   var i: Int32 {
     get {return _storage._i}
@@ -1031,12 +1015,10 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
     get {return _storage._bb ?? Proto3TestMutualRecursionB()}
     set {_uniqueStorage()._bb = newValue}
   }
-  var hasBb: Bool {
-    return _storage._bb != nil
-  }
-  mutating func clearBb() {
-    _storage._bb = nil
-  }
+  /// Returns true if `bb` has been explicitly set.
+  var hasBb: Bool {return _storage._bb != nil}
+  /// Clears the value of `bb`. Subsequent reads from it will return its default value.
+  mutating func clearBb() {_storage._bb = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1073,12 +1055,10 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
     get {return _storage._a ?? Proto3TestMutualRecursionA()}
     set {_uniqueStorage()._a = newValue}
   }
-  var hasA: Bool {
-    return _storage._a != nil
-  }
-  mutating func clearA() {
-    _storage._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return _storage._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {_storage._a = nil}
 
   var optionalInt32: Int32 {
     get {return _storage._optionalInt32}
@@ -1167,12 +1147,10 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
     get {return _storage._messageField ?? Proto3ForeignMessage()}
     set {_uniqueStorage()._messageField = newValue}
   }
-  var hasMessageField: Bool {
-    return _storage._messageField != nil
-  }
-  mutating func clearMessageField() {
-    _storage._messageField = nil
-  }
+  /// Returns true if `messageField` has been explicitly set.
+  var hasMessageField: Bool {return _storage._messageField != nil}
+  /// Clears the value of `messageField`. Subsequent reads from it will return its default value.
+  mutating func clearMessageField() {_storage._messageField = nil}
 
   var repeatedPrimitiveField: [Int32] {
     get {return _storage._repeatedPrimitiveField}
@@ -1274,12 +1252,10 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     get {return _storage._singleNestedMessage ?? Proto3TestFieldOrderings.NestedMessage()}
     set {_uniqueStorage()._singleNestedMessage = newValue}
   }
-  var hasSingleNestedMessage: Bool {
-    return _storage._singleNestedMessage != nil
-  }
-  mutating func clearSingleNestedMessage() {
-    _storage._singleNestedMessage = nil
-  }
+  /// Returns true if `singleNestedMessage` has been explicitly set.
+  var hasSingleNestedMessage: Bool {return _storage._singleNestedMessage != nil}
+  /// Clears the value of `singleNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSingleNestedMessage() {_storage._singleNestedMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

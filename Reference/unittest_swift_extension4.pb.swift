@@ -45,17 +45,14 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
   struct C: SwiftProtobuf.Message {
     static let protoMessageName: String = Ext4MyMessage.protoMessageName + ".C"
 
-    fileprivate var _c: Int64? = nil
     var c: Int64 {
       get {return _c ?? 0}
       set {_c = newValue}
     }
-    var hasC: Bool {
-      return self._c != nil
-    }
-    mutating func clearC() {
-      self._c = nil
-    }
+    /// Returns true if `c` has been explicitly set.
+    var hasC: Bool {return self._c != nil}
+    /// Clears the value of `c`. Subsequent reads from it will return its default value.
+    mutating func clearC() {self._c = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -76,6 +73,8 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _c: Int64? = nil
   }
 
   init() {}
@@ -93,17 +92,14 @@ struct Ext4MyMessage: SwiftProtobuf.Message {
 struct Ext4C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
 
-  fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  var hasC: Bool {
-    return self._c != nil
-  }
-  mutating func clearC() {
-    self._c = nil
-  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -124,6 +120,8 @@ struct Ext4C: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _c: Int64? = nil
 }
 
 // MARK: - Extension support defined in unittest_swift_extension4.proto.

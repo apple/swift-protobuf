@@ -52,17 +52,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage1"
 
-  fileprivate var _requiredField: Int32? = nil
   var requiredField: Int32 {
     get {return _requiredField ?? 0}
     set {_requiredField = newValue}
   }
-  var hasRequiredField: Bool {
-    return self._requiredField != nil
-  }
-  mutating func clearRequiredField() {
-    self._requiredField = nil
-  }
+  /// Returns true if `requiredField` has been explicitly set.
+  var hasRequiredField: Bool {return self._requiredField != nil}
+  /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredField() {self._requiredField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -88,22 +85,21 @@ struct ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _requiredField: Int32? = nil
 }
 
 struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OneOfOptionMessage2"
 
-  fileprivate var _requiredField: Int32? = nil
   var requiredField: Int32 {
     get {return _requiredField ?? 0}
     set {_requiredField = newValue}
   }
-  var hasRequiredField: Bool {
-    return self._requiredField != nil
-  }
-  mutating func clearRequiredField() {
-    self._requiredField = nil
-  }
+  /// Returns true if `requiredField` has been explicitly set.
+  var hasRequiredField: Bool {return self._requiredField != nil}
+  /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredField() {self._requiredField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -129,6 +125,8 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _requiredField: Int32? = nil
 }
 
 struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {

@@ -49,23 +49,19 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       get {return _storage._message ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage()}
       set {_uniqueStorage()._message = newValue}
     }
-    var hasMessage: Bool {
-      return _storage._message != nil
-    }
-    mutating func clearMessage() {
-      _storage._message = nil
-    }
+    /// Returns true if `message` has been explicitly set.
+    var hasMessage: Bool {return _storage._message != nil}
+    /// Clears the value of `message`. Subsequent reads from it will return its default value.
+    mutating func clearMessage() {_storage._message = nil}
 
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum {
       get {return _storage._optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo}
       set {_uniqueStorage()._optionalEnum = newValue}
     }
-    var hasOptionalEnum: Bool {
-      return _storage._optionalEnum != nil
-    }
-    mutating func clearOptionalEnum() {
-      _storage._optionalEnum = nil
-    }
+    /// Returns true if `optionalEnum` has been explicitly set.
+    var hasOptionalEnum: Bool {return _storage._optionalEnum != nil}
+    /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalEnum() {_storage._optionalEnum = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -125,17 +121,14 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
   struct NestedMessage2: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
 
-    fileprivate var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum {
       get {return _optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo}
       set {_optionalEnum = newValue}
     }
-    var hasOptionalEnum: Bool {
-      return self._optionalEnum != nil
-    }
-    mutating func clearOptionalEnum() {
-      self._optionalEnum = nil
-    }
+    /// Returns true if `optionalEnum` has been explicitly set.
+    var hasOptionalEnum: Bool {return self._optionalEnum != nil}
+    /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
+    mutating func clearOptionalEnum() {self._optionalEnum = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -179,6 +172,8 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum? = nil
   }
 
   init() {}
