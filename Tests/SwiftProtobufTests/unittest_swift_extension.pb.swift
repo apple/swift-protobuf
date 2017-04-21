@@ -52,12 +52,10 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
         get {return _a ?? 0}
         set {_a = newValue}
       }
-      var hasA: Bool {
-        return self._a != nil
-      }
-      mutating func clearA() {
-        self._a = nil
-      }
+      /// Returns true if `a` has been explicitly set.
+      var hasA: Bool {return self._a != nil}
+      /// Clears the value of `a`. Subsequent reads from it will return its default value.
+      mutating func clearA() {self._a = nil}
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -123,12 +121,10 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  var hasC: Bool {
-    return self._c != nil
-  }
-  mutating func clearC() {
-    self._c = nil
-  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -216,12 +212,10 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
     get {return _x ?? 0}
     set {_x = newValue}
   }
-  var hasX: Bool {
-    return self._x != nil
-  }
-  mutating func clearX() {
-    self._x = nil
-  }
+  /// Returns true if `x` has been explicitly set.
+  var hasX: Bool {return self._x != nil}
+  /// Clears the value of `x`. Subsequent reads from it will return its default value.
+  mutating func clearX() {self._x = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -262,24 +256,20 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     get {return _storage._x ?? 0}
     set {_uniqueStorage()._x = newValue}
   }
-  var hasX: Bool {
-    return _storage._x != nil
-  }
-  mutating func clearX() {
-    _storage._x = nil
-  }
+  /// Returns true if `x` has been explicitly set.
+  var hasX: Bool {return _storage._x != nil}
+  /// Clears the value of `x`. Subsequent reads from it will return its default value.
+  mutating func clearX() {_storage._x = nil}
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: ProtobufUnittest_Extend_MsgUsesStorage {
     get {return _storage._y ?? ProtobufUnittest_Extend_MsgUsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
-  var hasY: Bool {
-    return _storage._y != nil
-  }
-  mutating func clearY() {
-    _storage._y = nil
-  }
+  /// Returns true if `y` has been explicitly set.
+  var hasY: Bool {return _storage._y != nil}
+  /// Clears the value of `y`. Subsequent reads from it will return its default value.
+  mutating func clearY() {_storage._y = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

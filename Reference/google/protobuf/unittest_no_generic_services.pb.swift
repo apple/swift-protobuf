@@ -81,12 +81,10 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

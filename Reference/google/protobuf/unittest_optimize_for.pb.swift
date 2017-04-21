@@ -62,23 +62,19 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
-  var hasI: Bool {
-    return _storage._i != nil
-  }
-  mutating func clearI() {
-    _storage._i = nil
-  }
+  /// Returns true if `i` has been explicitly set.
+  var hasI: Bool {return _storage._i != nil}
+  /// Clears the value of `i`. Subsequent reads from it will return its default value.
+  mutating func clearI() {_storage._i = nil}
 
   var msg: ProtobufUnittest_ForeignMessage {
     get {return _storage._msg ?? ProtobufUnittest_ForeignMessage()}
     set {_uniqueStorage()._msg = newValue}
   }
-  var hasMsg: Bool {
-    return _storage._msg != nil
-  }
-  mutating func clearMsg() {
-    _storage._msg = nil
-  }
+  /// Returns true if `msg` has been explicitly set.
+  var hasMsg: Bool {return _storage._msg != nil}
+  /// Clears the value of `msg`. Subsequent reads from it will return its default value.
+  mutating func clearMsg() {_storage._msg = nil}
 
   var foo: OneOf_Foo? {
     get {return _storage._foo}
@@ -168,12 +164,10 @@ struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
     get {return _x ?? 0}
     set {_x = newValue}
   }
-  var hasX: Bool {
-    return self._x != nil
-  }
-  mutating func clearX() {
-    self._x = nil
-  }
+  /// Returns true if `x` has been explicitly set.
+  var hasX: Bool {return self._x != nil}
+  /// Clears the value of `x`. Subsequent reads from it will return its default value.
+  mutating func clearX() {self._x = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -210,12 +204,10 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
     get {return _storage._o ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {_uniqueStorage()._o = newValue}
   }
-  var hasO: Bool {
-    return _storage._o != nil
-  }
-  mutating func clearO() {
-    _storage._o = nil
-  }
+  /// Returns true if `o` has been explicitly set.
+  var hasO: Bool {return _storage._o != nil}
+  /// Clears the value of `o`. Subsequent reads from it will return its default value.
+  mutating func clearO() {_storage._o = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

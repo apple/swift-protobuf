@@ -646,34 +646,28 @@ struct ProtobufUnittest_TestRequiredLite: SwiftProtobuf.Message {
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var b: Int32 {
     get {return _b ?? 0}
     set {_b = newValue}
   }
-  var hasB: Bool {
-    return self._b != nil
-  }
-  mutating func clearB() {
-    self._b = nil
-  }
+  /// Returns true if `b` has been explicitly set.
+  var hasB: Bool {return self._b != nil}
+  /// Clears the value of `b`. Subsequent reads from it will return its default value.
+  mutating func clearB() {self._b = nil}
 
   var c: Int32 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  var hasC: Bool {
-    return self._c != nil
-  }
-  mutating func clearC() {
-    self._c = nil
-  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -722,12 +716,10 @@ struct ProtobufUnittest_ForeignMessageArenaLite: SwiftProtobuf.Message {
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  var hasC: Bool {
-    return self._c != nil
-  }
-  mutating func clearC() {
-    self._c = nil
-  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

@@ -59,509 +59,417 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     get {return _storage._requiredInt32 ?? 0}
     set {_uniqueStorage()._requiredInt32 = newValue}
   }
-  var hasRequiredInt32: Bool {
-    return _storage._requiredInt32 != nil
-  }
-  mutating func clearRequiredInt32() {
-    _storage._requiredInt32 = nil
-  }
+  /// Returns true if `requiredInt32` has been explicitly set.
+  var hasRequiredInt32: Bool {return _storage._requiredInt32 != nil}
+  /// Clears the value of `requiredInt32`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredInt32() {_storage._requiredInt32 = nil}
 
   var requiredInt64: Int64 {
     get {return _storage._requiredInt64 ?? 0}
     set {_uniqueStorage()._requiredInt64 = newValue}
   }
-  var hasRequiredInt64: Bool {
-    return _storage._requiredInt64 != nil
-  }
-  mutating func clearRequiredInt64() {
-    _storage._requiredInt64 = nil
-  }
+  /// Returns true if `requiredInt64` has been explicitly set.
+  var hasRequiredInt64: Bool {return _storage._requiredInt64 != nil}
+  /// Clears the value of `requiredInt64`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredInt64() {_storage._requiredInt64 = nil}
 
   var requiredUint32: UInt32 {
     get {return _storage._requiredUint32 ?? 0}
     set {_uniqueStorage()._requiredUint32 = newValue}
   }
-  var hasRequiredUint32: Bool {
-    return _storage._requiredUint32 != nil
-  }
-  mutating func clearRequiredUint32() {
-    _storage._requiredUint32 = nil
-  }
+  /// Returns true if `requiredUint32` has been explicitly set.
+  var hasRequiredUint32: Bool {return _storage._requiredUint32 != nil}
+  /// Clears the value of `requiredUint32`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredUint32() {_storage._requiredUint32 = nil}
 
   var requiredUint64: UInt64 {
     get {return _storage._requiredUint64 ?? 0}
     set {_uniqueStorage()._requiredUint64 = newValue}
   }
-  var hasRequiredUint64: Bool {
-    return _storage._requiredUint64 != nil
-  }
-  mutating func clearRequiredUint64() {
-    _storage._requiredUint64 = nil
-  }
+  /// Returns true if `requiredUint64` has been explicitly set.
+  var hasRequiredUint64: Bool {return _storage._requiredUint64 != nil}
+  /// Clears the value of `requiredUint64`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredUint64() {_storage._requiredUint64 = nil}
 
   var requiredSint32: Int32 {
     get {return _storage._requiredSint32 ?? 0}
     set {_uniqueStorage()._requiredSint32 = newValue}
   }
-  var hasRequiredSint32: Bool {
-    return _storage._requiredSint32 != nil
-  }
-  mutating func clearRequiredSint32() {
-    _storage._requiredSint32 = nil
-  }
+  /// Returns true if `requiredSint32` has been explicitly set.
+  var hasRequiredSint32: Bool {return _storage._requiredSint32 != nil}
+  /// Clears the value of `requiredSint32`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredSint32() {_storage._requiredSint32 = nil}
 
   var requiredSint64: Int64 {
     get {return _storage._requiredSint64 ?? 0}
     set {_uniqueStorage()._requiredSint64 = newValue}
   }
-  var hasRequiredSint64: Bool {
-    return _storage._requiredSint64 != nil
-  }
-  mutating func clearRequiredSint64() {
-    _storage._requiredSint64 = nil
-  }
+  /// Returns true if `requiredSint64` has been explicitly set.
+  var hasRequiredSint64: Bool {return _storage._requiredSint64 != nil}
+  /// Clears the value of `requiredSint64`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredSint64() {_storage._requiredSint64 = nil}
 
   var requiredFixed32: UInt32 {
     get {return _storage._requiredFixed32 ?? 0}
     set {_uniqueStorage()._requiredFixed32 = newValue}
   }
-  var hasRequiredFixed32: Bool {
-    return _storage._requiredFixed32 != nil
-  }
-  mutating func clearRequiredFixed32() {
-    _storage._requiredFixed32 = nil
-  }
+  /// Returns true if `requiredFixed32` has been explicitly set.
+  var hasRequiredFixed32: Bool {return _storage._requiredFixed32 != nil}
+  /// Clears the value of `requiredFixed32`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredFixed32() {_storage._requiredFixed32 = nil}
 
   var requiredFixed64: UInt64 {
     get {return _storage._requiredFixed64 ?? 0}
     set {_uniqueStorage()._requiredFixed64 = newValue}
   }
-  var hasRequiredFixed64: Bool {
-    return _storage._requiredFixed64 != nil
-  }
-  mutating func clearRequiredFixed64() {
-    _storage._requiredFixed64 = nil
-  }
+  /// Returns true if `requiredFixed64` has been explicitly set.
+  var hasRequiredFixed64: Bool {return _storage._requiredFixed64 != nil}
+  /// Clears the value of `requiredFixed64`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredFixed64() {_storage._requiredFixed64 = nil}
 
   var requiredSfixed32: Int32 {
     get {return _storage._requiredSfixed32 ?? 0}
     set {_uniqueStorage()._requiredSfixed32 = newValue}
   }
-  var hasRequiredSfixed32: Bool {
-    return _storage._requiredSfixed32 != nil
-  }
-  mutating func clearRequiredSfixed32() {
-    _storage._requiredSfixed32 = nil
-  }
+  /// Returns true if `requiredSfixed32` has been explicitly set.
+  var hasRequiredSfixed32: Bool {return _storage._requiredSfixed32 != nil}
+  /// Clears the value of `requiredSfixed32`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredSfixed32() {_storage._requiredSfixed32 = nil}
 
   var requiredSfixed64: Int64 {
     get {return _storage._requiredSfixed64 ?? 0}
     set {_uniqueStorage()._requiredSfixed64 = newValue}
   }
-  var hasRequiredSfixed64: Bool {
-    return _storage._requiredSfixed64 != nil
-  }
-  mutating func clearRequiredSfixed64() {
-    _storage._requiredSfixed64 = nil
-  }
+  /// Returns true if `requiredSfixed64` has been explicitly set.
+  var hasRequiredSfixed64: Bool {return _storage._requiredSfixed64 != nil}
+  /// Clears the value of `requiredSfixed64`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredSfixed64() {_storage._requiredSfixed64 = nil}
 
   var requiredFloat: Float {
     get {return _storage._requiredFloat ?? 0}
     set {_uniqueStorage()._requiredFloat = newValue}
   }
-  var hasRequiredFloat: Bool {
-    return _storage._requiredFloat != nil
-  }
-  mutating func clearRequiredFloat() {
-    _storage._requiredFloat = nil
-  }
+  /// Returns true if `requiredFloat` has been explicitly set.
+  var hasRequiredFloat: Bool {return _storage._requiredFloat != nil}
+  /// Clears the value of `requiredFloat`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredFloat() {_storage._requiredFloat = nil}
 
   var requiredDouble: Double {
     get {return _storage._requiredDouble ?? 0}
     set {_uniqueStorage()._requiredDouble = newValue}
   }
-  var hasRequiredDouble: Bool {
-    return _storage._requiredDouble != nil
-  }
-  mutating func clearRequiredDouble() {
-    _storage._requiredDouble = nil
-  }
+  /// Returns true if `requiredDouble` has been explicitly set.
+  var hasRequiredDouble: Bool {return _storage._requiredDouble != nil}
+  /// Clears the value of `requiredDouble`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredDouble() {_storage._requiredDouble = nil}
 
   var requiredBool: Bool {
     get {return _storage._requiredBool ?? false}
     set {_uniqueStorage()._requiredBool = newValue}
   }
-  var hasRequiredBool: Bool {
-    return _storage._requiredBool != nil
-  }
-  mutating func clearRequiredBool() {
-    _storage._requiredBool = nil
-  }
+  /// Returns true if `requiredBool` has been explicitly set.
+  var hasRequiredBool: Bool {return _storage._requiredBool != nil}
+  /// Clears the value of `requiredBool`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredBool() {_storage._requiredBool = nil}
 
   var requiredString: String {
     get {return _storage._requiredString ?? String()}
     set {_uniqueStorage()._requiredString = newValue}
   }
-  var hasRequiredString: Bool {
-    return _storage._requiredString != nil
-  }
-  mutating func clearRequiredString() {
-    _storage._requiredString = nil
-  }
+  /// Returns true if `requiredString` has been explicitly set.
+  var hasRequiredString: Bool {return _storage._requiredString != nil}
+  /// Clears the value of `requiredString`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredString() {_storage._requiredString = nil}
 
   var requiredBytes: Data {
     get {return _storage._requiredBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._requiredBytes = newValue}
   }
-  var hasRequiredBytes: Bool {
-    return _storage._requiredBytes != nil
-  }
-  mutating func clearRequiredBytes() {
-    _storage._requiredBytes = nil
-  }
+  /// Returns true if `requiredBytes` has been explicitly set.
+  var hasRequiredBytes: Bool {return _storage._requiredBytes != nil}
+  /// Clears the value of `requiredBytes`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredBytes() {_storage._requiredBytes = nil}
 
   var requiredGroup: ProtobufUnittest_TestAllRequiredTypes.RequiredGroup {
     get {return _storage._requiredGroup ?? ProtobufUnittest_TestAllRequiredTypes.RequiredGroup()}
     set {_uniqueStorage()._requiredGroup = newValue}
   }
-  var hasRequiredGroup: Bool {
-    return _storage._requiredGroup != nil
-  }
-  mutating func clearRequiredGroup() {
-    _storage._requiredGroup = nil
-  }
+  /// Returns true if `requiredGroup` has been explicitly set.
+  var hasRequiredGroup: Bool {return _storage._requiredGroup != nil}
+  /// Clears the value of `requiredGroup`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredGroup() {_storage._requiredGroup = nil}
 
   var requiredNestedMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
     get {return _storage._requiredNestedMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredNestedMessage = newValue}
   }
-  var hasRequiredNestedMessage: Bool {
-    return _storage._requiredNestedMessage != nil
-  }
-  mutating func clearRequiredNestedMessage() {
-    _storage._requiredNestedMessage = nil
-  }
+  /// Returns true if `requiredNestedMessage` has been explicitly set.
+  var hasRequiredNestedMessage: Bool {return _storage._requiredNestedMessage != nil}
+  /// Clears the value of `requiredNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredNestedMessage() {_storage._requiredNestedMessage = nil}
 
   var requiredForeignMessage: ProtobufUnittest_ForeignMessage {
     get {return _storage._requiredForeignMessage ?? ProtobufUnittest_ForeignMessage()}
     set {_uniqueStorage()._requiredForeignMessage = newValue}
   }
-  var hasRequiredForeignMessage: Bool {
-    return _storage._requiredForeignMessage != nil
-  }
-  mutating func clearRequiredForeignMessage() {
-    _storage._requiredForeignMessage = nil
-  }
+  /// Returns true if `requiredForeignMessage` has been explicitly set.
+  var hasRequiredForeignMessage: Bool {return _storage._requiredForeignMessage != nil}
+  /// Clears the value of `requiredForeignMessage`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredForeignMessage() {_storage._requiredForeignMessage = nil}
 
   var requiredImportMessage: ProtobufUnittestImport_ImportMessage {
     get {return _storage._requiredImportMessage ?? ProtobufUnittestImport_ImportMessage()}
     set {_uniqueStorage()._requiredImportMessage = newValue}
   }
-  var hasRequiredImportMessage: Bool {
-    return _storage._requiredImportMessage != nil
-  }
-  mutating func clearRequiredImportMessage() {
-    _storage._requiredImportMessage = nil
-  }
+  /// Returns true if `requiredImportMessage` has been explicitly set.
+  var hasRequiredImportMessage: Bool {return _storage._requiredImportMessage != nil}
+  /// Clears the value of `requiredImportMessage`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredImportMessage() {_storage._requiredImportMessage = nil}
 
   var requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
     get {return _storage._requiredNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo}
     set {_uniqueStorage()._requiredNestedEnum = newValue}
   }
-  var hasRequiredNestedEnum: Bool {
-    return _storage._requiredNestedEnum != nil
-  }
-  mutating func clearRequiredNestedEnum() {
-    _storage._requiredNestedEnum = nil
-  }
+  /// Returns true if `requiredNestedEnum` has been explicitly set.
+  var hasRequiredNestedEnum: Bool {return _storage._requiredNestedEnum != nil}
+  /// Clears the value of `requiredNestedEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredNestedEnum() {_storage._requiredNestedEnum = nil}
 
   var requiredForeignEnum: ProtobufUnittest_ForeignEnum {
     get {return _storage._requiredForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo}
     set {_uniqueStorage()._requiredForeignEnum = newValue}
   }
-  var hasRequiredForeignEnum: Bool {
-    return _storage._requiredForeignEnum != nil
-  }
-  mutating func clearRequiredForeignEnum() {
-    _storage._requiredForeignEnum = nil
-  }
+  /// Returns true if `requiredForeignEnum` has been explicitly set.
+  var hasRequiredForeignEnum: Bool {return _storage._requiredForeignEnum != nil}
+  /// Clears the value of `requiredForeignEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredForeignEnum() {_storage._requiredForeignEnum = nil}
 
   var requiredImportEnum: ProtobufUnittestImport_ImportEnum {
     get {return _storage._requiredImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
     set {_uniqueStorage()._requiredImportEnum = newValue}
   }
-  var hasRequiredImportEnum: Bool {
-    return _storage._requiredImportEnum != nil
-  }
-  mutating func clearRequiredImportEnum() {
-    _storage._requiredImportEnum = nil
-  }
+  /// Returns true if `requiredImportEnum` has been explicitly set.
+  var hasRequiredImportEnum: Bool {return _storage._requiredImportEnum != nil}
+  /// Clears the value of `requiredImportEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredImportEnum() {_storage._requiredImportEnum = nil}
 
   var requiredStringPiece: String {
     get {return _storage._requiredStringPiece ?? String()}
     set {_uniqueStorage()._requiredStringPiece = newValue}
   }
-  var hasRequiredStringPiece: Bool {
-    return _storage._requiredStringPiece != nil
-  }
-  mutating func clearRequiredStringPiece() {
-    _storage._requiredStringPiece = nil
-  }
+  /// Returns true if `requiredStringPiece` has been explicitly set.
+  var hasRequiredStringPiece: Bool {return _storage._requiredStringPiece != nil}
+  /// Clears the value of `requiredStringPiece`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredStringPiece() {_storage._requiredStringPiece = nil}
 
   var requiredCord: String {
     get {return _storage._requiredCord ?? String()}
     set {_uniqueStorage()._requiredCord = newValue}
   }
-  var hasRequiredCord: Bool {
-    return _storage._requiredCord != nil
-  }
-  mutating func clearRequiredCord() {
-    _storage._requiredCord = nil
-  }
+  /// Returns true if `requiredCord` has been explicitly set.
+  var hasRequiredCord: Bool {return _storage._requiredCord != nil}
+  /// Clears the value of `requiredCord`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredCord() {_storage._requiredCord = nil}
 
   /// Defined in unittest_import_public.proto
   var requiredPublicImportMessage: ProtobufUnittestImport_PublicImportMessage {
     get {return _storage._requiredPublicImportMessage ?? ProtobufUnittestImport_PublicImportMessage()}
     set {_uniqueStorage()._requiredPublicImportMessage = newValue}
   }
-  var hasRequiredPublicImportMessage: Bool {
-    return _storage._requiredPublicImportMessage != nil
-  }
-  mutating func clearRequiredPublicImportMessage() {
-    _storage._requiredPublicImportMessage = nil
-  }
+  /// Returns true if `requiredPublicImportMessage` has been explicitly set.
+  var hasRequiredPublicImportMessage: Bool {return _storage._requiredPublicImportMessage != nil}
+  /// Clears the value of `requiredPublicImportMessage`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredPublicImportMessage() {_storage._requiredPublicImportMessage = nil}
 
   var requiredLazyMessage: ProtobufUnittest_TestAllRequiredTypes.NestedMessage {
     get {return _storage._requiredLazyMessage ?? ProtobufUnittest_TestAllRequiredTypes.NestedMessage()}
     set {_uniqueStorage()._requiredLazyMessage = newValue}
   }
-  var hasRequiredLazyMessage: Bool {
-    return _storage._requiredLazyMessage != nil
-  }
-  mutating func clearRequiredLazyMessage() {
-    _storage._requiredLazyMessage = nil
-  }
+  /// Returns true if `requiredLazyMessage` has been explicitly set.
+  var hasRequiredLazyMessage: Bool {return _storage._requiredLazyMessage != nil}
+  /// Clears the value of `requiredLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredLazyMessage() {_storage._requiredLazyMessage = nil}
 
   /// Singular with defaults
   var defaultInt32: Int32 {
     get {return _storage._defaultInt32 ?? 41}
     set {_uniqueStorage()._defaultInt32 = newValue}
   }
-  var hasDefaultInt32: Bool {
-    return _storage._defaultInt32 != nil
-  }
-  mutating func clearDefaultInt32() {
-    _storage._defaultInt32 = nil
-  }
+  /// Returns true if `defaultInt32` has been explicitly set.
+  var hasDefaultInt32: Bool {return _storage._defaultInt32 != nil}
+  /// Clears the value of `defaultInt32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultInt32() {_storage._defaultInt32 = nil}
 
   var defaultInt64: Int64 {
     get {return _storage._defaultInt64 ?? 42}
     set {_uniqueStorage()._defaultInt64 = newValue}
   }
-  var hasDefaultInt64: Bool {
-    return _storage._defaultInt64 != nil
-  }
-  mutating func clearDefaultInt64() {
-    _storage._defaultInt64 = nil
-  }
+  /// Returns true if `defaultInt64` has been explicitly set.
+  var hasDefaultInt64: Bool {return _storage._defaultInt64 != nil}
+  /// Clears the value of `defaultInt64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultInt64() {_storage._defaultInt64 = nil}
 
   var defaultUint32: UInt32 {
     get {return _storage._defaultUint32 ?? 43}
     set {_uniqueStorage()._defaultUint32 = newValue}
   }
-  var hasDefaultUint32: Bool {
-    return _storage._defaultUint32 != nil
-  }
-  mutating func clearDefaultUint32() {
-    _storage._defaultUint32 = nil
-  }
+  /// Returns true if `defaultUint32` has been explicitly set.
+  var hasDefaultUint32: Bool {return _storage._defaultUint32 != nil}
+  /// Clears the value of `defaultUint32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultUint32() {_storage._defaultUint32 = nil}
 
   var defaultUint64: UInt64 {
     get {return _storage._defaultUint64 ?? 44}
     set {_uniqueStorage()._defaultUint64 = newValue}
   }
-  var hasDefaultUint64: Bool {
-    return _storage._defaultUint64 != nil
-  }
-  mutating func clearDefaultUint64() {
-    _storage._defaultUint64 = nil
-  }
+  /// Returns true if `defaultUint64` has been explicitly set.
+  var hasDefaultUint64: Bool {return _storage._defaultUint64 != nil}
+  /// Clears the value of `defaultUint64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultUint64() {_storage._defaultUint64 = nil}
 
   var defaultSint32: Int32 {
     get {return _storage._defaultSint32 ?? -45}
     set {_uniqueStorage()._defaultSint32 = newValue}
   }
-  var hasDefaultSint32: Bool {
-    return _storage._defaultSint32 != nil
-  }
-  mutating func clearDefaultSint32() {
-    _storage._defaultSint32 = nil
-  }
+  /// Returns true if `defaultSint32` has been explicitly set.
+  var hasDefaultSint32: Bool {return _storage._defaultSint32 != nil}
+  /// Clears the value of `defaultSint32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSint32() {_storage._defaultSint32 = nil}
 
   var defaultSint64: Int64 {
     get {return _storage._defaultSint64 ?? 46}
     set {_uniqueStorage()._defaultSint64 = newValue}
   }
-  var hasDefaultSint64: Bool {
-    return _storage._defaultSint64 != nil
-  }
-  mutating func clearDefaultSint64() {
-    _storage._defaultSint64 = nil
-  }
+  /// Returns true if `defaultSint64` has been explicitly set.
+  var hasDefaultSint64: Bool {return _storage._defaultSint64 != nil}
+  /// Clears the value of `defaultSint64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSint64() {_storage._defaultSint64 = nil}
 
   var defaultFixed32: UInt32 {
     get {return _storage._defaultFixed32 ?? 47}
     set {_uniqueStorage()._defaultFixed32 = newValue}
   }
-  var hasDefaultFixed32: Bool {
-    return _storage._defaultFixed32 != nil
-  }
-  mutating func clearDefaultFixed32() {
-    _storage._defaultFixed32 = nil
-  }
+  /// Returns true if `defaultFixed32` has been explicitly set.
+  var hasDefaultFixed32: Bool {return _storage._defaultFixed32 != nil}
+  /// Clears the value of `defaultFixed32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultFixed32() {_storage._defaultFixed32 = nil}
 
   var defaultFixed64: UInt64 {
     get {return _storage._defaultFixed64 ?? 48}
     set {_uniqueStorage()._defaultFixed64 = newValue}
   }
-  var hasDefaultFixed64: Bool {
-    return _storage._defaultFixed64 != nil
-  }
-  mutating func clearDefaultFixed64() {
-    _storage._defaultFixed64 = nil
-  }
+  /// Returns true if `defaultFixed64` has been explicitly set.
+  var hasDefaultFixed64: Bool {return _storage._defaultFixed64 != nil}
+  /// Clears the value of `defaultFixed64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultFixed64() {_storage._defaultFixed64 = nil}
 
   var defaultSfixed32: Int32 {
     get {return _storage._defaultSfixed32 ?? 49}
     set {_uniqueStorage()._defaultSfixed32 = newValue}
   }
-  var hasDefaultSfixed32: Bool {
-    return _storage._defaultSfixed32 != nil
-  }
-  mutating func clearDefaultSfixed32() {
-    _storage._defaultSfixed32 = nil
-  }
+  /// Returns true if `defaultSfixed32` has been explicitly set.
+  var hasDefaultSfixed32: Bool {return _storage._defaultSfixed32 != nil}
+  /// Clears the value of `defaultSfixed32`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSfixed32() {_storage._defaultSfixed32 = nil}
 
   var defaultSfixed64: Int64 {
     get {return _storage._defaultSfixed64 ?? -50}
     set {_uniqueStorage()._defaultSfixed64 = newValue}
   }
-  var hasDefaultSfixed64: Bool {
-    return _storage._defaultSfixed64 != nil
-  }
-  mutating func clearDefaultSfixed64() {
-    _storage._defaultSfixed64 = nil
-  }
+  /// Returns true if `defaultSfixed64` has been explicitly set.
+  var hasDefaultSfixed64: Bool {return _storage._defaultSfixed64 != nil}
+  /// Clears the value of `defaultSfixed64`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultSfixed64() {_storage._defaultSfixed64 = nil}
 
   var defaultFloat: Float {
     get {return _storage._defaultFloat ?? 51.5}
     set {_uniqueStorage()._defaultFloat = newValue}
   }
-  var hasDefaultFloat: Bool {
-    return _storage._defaultFloat != nil
-  }
-  mutating func clearDefaultFloat() {
-    _storage._defaultFloat = nil
-  }
+  /// Returns true if `defaultFloat` has been explicitly set.
+  var hasDefaultFloat: Bool {return _storage._defaultFloat != nil}
+  /// Clears the value of `defaultFloat`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultFloat() {_storage._defaultFloat = nil}
 
   var defaultDouble: Double {
     get {return _storage._defaultDouble ?? 52000}
     set {_uniqueStorage()._defaultDouble = newValue}
   }
-  var hasDefaultDouble: Bool {
-    return _storage._defaultDouble != nil
-  }
-  mutating func clearDefaultDouble() {
-    _storage._defaultDouble = nil
-  }
+  /// Returns true if `defaultDouble` has been explicitly set.
+  var hasDefaultDouble: Bool {return _storage._defaultDouble != nil}
+  /// Clears the value of `defaultDouble`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultDouble() {_storage._defaultDouble = nil}
 
   var defaultBool: Bool {
     get {return _storage._defaultBool ?? true}
     set {_uniqueStorage()._defaultBool = newValue}
   }
-  var hasDefaultBool: Bool {
-    return _storage._defaultBool != nil
-  }
-  mutating func clearDefaultBool() {
-    _storage._defaultBool = nil
-  }
+  /// Returns true if `defaultBool` has been explicitly set.
+  var hasDefaultBool: Bool {return _storage._defaultBool != nil}
+  /// Clears the value of `defaultBool`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultBool() {_storage._defaultBool = nil}
 
   var defaultString: String {
     get {return _storage._defaultString ?? "hello"}
     set {_uniqueStorage()._defaultString = newValue}
   }
-  var hasDefaultString: Bool {
-    return _storage._defaultString != nil
-  }
-  mutating func clearDefaultString() {
-    _storage._defaultString = nil
-  }
+  /// Returns true if `defaultString` has been explicitly set.
+  var hasDefaultString: Bool {return _storage._defaultString != nil}
+  /// Clears the value of `defaultString`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultString() {_storage._defaultString = nil}
 
   var defaultBytes: Data {
     get {return _storage._defaultBytes ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {_uniqueStorage()._defaultBytes = newValue}
   }
-  var hasDefaultBytes: Bool {
-    return _storage._defaultBytes != nil
-  }
-  mutating func clearDefaultBytes() {
-    _storage._defaultBytes = nil
-  }
+  /// Returns true if `defaultBytes` has been explicitly set.
+  var hasDefaultBytes: Bool {return _storage._defaultBytes != nil}
+  /// Clears the value of `defaultBytes`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultBytes() {_storage._defaultBytes = nil}
 
   var defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
     get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
-  var hasDefaultNestedEnum: Bool {
-    return _storage._defaultNestedEnum != nil
-  }
-  mutating func clearDefaultNestedEnum() {
-    _storage._defaultNestedEnum = nil
-  }
+  /// Returns true if `defaultNestedEnum` has been explicitly set.
+  var hasDefaultNestedEnum: Bool {return _storage._defaultNestedEnum != nil}
+  /// Clears the value of `defaultNestedEnum`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultNestedEnum() {_storage._defaultNestedEnum = nil}
 
   var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
     get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
-  var hasDefaultForeignEnum: Bool {
-    return _storage._defaultForeignEnum != nil
-  }
-  mutating func clearDefaultForeignEnum() {
-    _storage._defaultForeignEnum = nil
-  }
+  /// Returns true if `defaultForeignEnum` has been explicitly set.
+  var hasDefaultForeignEnum: Bool {return _storage._defaultForeignEnum != nil}
+  /// Clears the value of `defaultForeignEnum`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultForeignEnum() {_storage._defaultForeignEnum = nil}
 
   var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
     get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
-  var hasDefaultImportEnum: Bool {
-    return _storage._defaultImportEnum != nil
-  }
-  mutating func clearDefaultImportEnum() {
-    _storage._defaultImportEnum = nil
-  }
+  /// Returns true if `defaultImportEnum` has been explicitly set.
+  var hasDefaultImportEnum: Bool {return _storage._defaultImportEnum != nil}
+  /// Clears the value of `defaultImportEnum`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultImportEnum() {_storage._defaultImportEnum = nil}
 
   var defaultStringPiece: String {
     get {return _storage._defaultStringPiece ?? "abc"}
     set {_uniqueStorage()._defaultStringPiece = newValue}
   }
-  var hasDefaultStringPiece: Bool {
-    return _storage._defaultStringPiece != nil
-  }
-  mutating func clearDefaultStringPiece() {
-    _storage._defaultStringPiece = nil
-  }
+  /// Returns true if `defaultStringPiece` has been explicitly set.
+  var hasDefaultStringPiece: Bool {return _storage._defaultStringPiece != nil}
+  /// Clears the value of `defaultStringPiece`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultStringPiece() {_storage._defaultStringPiece = nil}
 
   var defaultCord: String {
     get {return _storage._defaultCord ?? "123"}
     set {_uniqueStorage()._defaultCord = newValue}
   }
-  var hasDefaultCord: Bool {
-    return _storage._defaultCord != nil
-  }
-  mutating func clearDefaultCord() {
-    _storage._defaultCord = nil
-  }
+  /// Returns true if `defaultCord` has been explicitly set.
+  var hasDefaultCord: Bool {return _storage._defaultCord != nil}
+  /// Clears the value of `defaultCord`. Subsequent reads from it will return its default value.
+  mutating func clearDefaultCord() {_storage._defaultCord = nil}
 
   /// For oneof test
   var oneofField: OneOf_OneofField? {
@@ -665,12 +573,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       get {return _bb ?? 0}
       set {_bb = newValue}
     }
-    var hasBb: Bool {
-      return self._bb != nil
-    }
-    mutating func clearBb() {
-      self._bb = nil
-    }
+    /// Returns true if `bb` has been explicitly set.
+    var hasBb: Bool {return self._bb != nil}
+    /// Clears the value of `bb`. Subsequent reads from it will return its default value.
+    mutating func clearBb() {self._bb = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -707,12 +613,10 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    var hasA: Bool {
-      return self._a != nil
-    }
-    mutating func clearA() {
-      self._a = nil
-    }
+    /// Returns true if `a` has been explicitly set.
+    var hasA: Bool {return self._a != nil}
+    /// Clears the value of `a`. Subsequent reads from it will return its default value.
+    mutating func clearA() {self._a = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1018,67 +922,55 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
     get {return _requiredInt32 ?? 0}
     set {_requiredInt32 = newValue}
   }
-  var hasRequiredInt32: Bool {
-    return self._requiredInt32 != nil
-  }
-  mutating func clearRequiredInt32() {
-    self._requiredInt32 = nil
-  }
+  /// Returns true if `requiredInt32` has been explicitly set.
+  var hasRequiredInt32: Bool {return self._requiredInt32 != nil}
+  /// Clears the value of `requiredInt32`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredInt32() {self._requiredInt32 = nil}
 
   var requiredFloat: Float {
     get {return _requiredFloat ?? 0}
     set {_requiredFloat = newValue}
   }
-  var hasRequiredFloat: Bool {
-    return self._requiredFloat != nil
-  }
-  mutating func clearRequiredFloat() {
-    self._requiredFloat = nil
-  }
+  /// Returns true if `requiredFloat` has been explicitly set.
+  var hasRequiredFloat: Bool {return self._requiredFloat != nil}
+  /// Clears the value of `requiredFloat`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredFloat() {self._requiredFloat = nil}
 
   var requiredBool: Bool {
     get {return _requiredBool ?? false}
     set {_requiredBool = newValue}
   }
-  var hasRequiredBool: Bool {
-    return self._requiredBool != nil
-  }
-  mutating func clearRequiredBool() {
-    self._requiredBool = nil
-  }
+  /// Returns true if `requiredBool` has been explicitly set.
+  var hasRequiredBool: Bool {return self._requiredBool != nil}
+  /// Clears the value of `requiredBool`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredBool() {self._requiredBool = nil}
 
   var requiredString: String {
     get {return _requiredString ?? String()}
     set {_requiredString = newValue}
   }
-  var hasRequiredString: Bool {
-    return self._requiredString != nil
-  }
-  mutating func clearRequiredString() {
-    self._requiredString = nil
-  }
+  /// Returns true if `requiredString` has been explicitly set.
+  var hasRequiredString: Bool {return self._requiredString != nil}
+  /// Clears the value of `requiredString`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredString() {self._requiredString = nil}
 
   var requiredBytes: Data {
     get {return _requiredBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_requiredBytes = newValue}
   }
-  var hasRequiredBytes: Bool {
-    return self._requiredBytes != nil
-  }
-  mutating func clearRequiredBytes() {
-    self._requiredBytes = nil
-  }
+  /// Returns true if `requiredBytes` has been explicitly set.
+  var hasRequiredBytes: Bool {return self._requiredBytes != nil}
+  /// Clears the value of `requiredBytes`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredBytes() {self._requiredBytes = nil}
 
   var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum {
     get {return _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo}
     set {_requiredNestedEnum = newValue}
   }
-  var hasRequiredNestedEnum: Bool {
-    return self._requiredNestedEnum != nil
-  }
-  mutating func clearRequiredNestedEnum() {
-    self._requiredNestedEnum = nil
-  }
+  /// Returns true if `requiredNestedEnum` has been explicitly set.
+  var hasRequiredNestedEnum: Bool {return self._requiredNestedEnum != nil}
+  /// Clears the value of `requiredNestedEnum`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredNestedEnum() {self._requiredNestedEnum = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

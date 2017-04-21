@@ -58,12 +58,10 @@ struct ProtobufUnittestImport_PublicImportMessageLite: SwiftProtobuf.Message {
     get {return _e ?? 0}
     set {_e = newValue}
   }
-  var hasE: Bool {
-    return self._e != nil
-  }
-  mutating func clearE() {
-    self._e = nil
-  }
+  /// Returns true if `e` has been explicitly set.
+  var hasE: Bool {return self._e != nil}
+  /// Clears the value of `e`. Subsequent reads from it will return its default value.
+  mutating func clearE() {self._e = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

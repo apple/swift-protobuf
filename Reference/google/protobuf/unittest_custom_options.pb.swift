@@ -113,12 +113,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     get {return _field1 ?? String()}
     set {_field1 = newValue}
   }
-  var hasField1: Bool {
-    return self._field1 != nil
-  }
-  mutating func clearField1() {
-    self._field1 = nil
-  }
+  /// Returns true if `field1` has been explicitly set.
+  var hasField1: Bool {return self._field1 != nil}
+  /// Clears the value of `field1`. Subsequent reads from it will return its default value.
+  mutating func clearField1() {self._field1 = nil}
 
   var anOneof: ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof? = nil
 
@@ -417,34 +415,28 @@ struct ProtobufUnittest_ComplexOptionType1: SwiftProtobuf.Message, SwiftProtobuf
     get {return _foo ?? 0}
     set {_foo = newValue}
   }
-  var hasFoo: Bool {
-    return self._foo != nil
-  }
-  mutating func clearFoo() {
-    self._foo = nil
-  }
+  /// Returns true if `foo` has been explicitly set.
+  var hasFoo: Bool {return self._foo != nil}
+  /// Clears the value of `foo`. Subsequent reads from it will return its default value.
+  mutating func clearFoo() {self._foo = nil}
 
   var foo2: Int32 {
     get {return _foo2 ?? 0}
     set {_foo2 = newValue}
   }
-  var hasFoo2: Bool {
-    return self._foo2 != nil
-  }
-  mutating func clearFoo2() {
-    self._foo2 = nil
-  }
+  /// Returns true if `foo2` has been explicitly set.
+  var hasFoo2: Bool {return self._foo2 != nil}
+  /// Clears the value of `foo2`. Subsequent reads from it will return its default value.
+  mutating func clearFoo2() {self._foo2 = nil}
 
   var foo3: Int32 {
     get {return _foo3 ?? 0}
     set {_foo3 = newValue}
   }
-  var hasFoo3: Bool {
-    return self._foo3 != nil
-  }
-  mutating func clearFoo3() {
-    self._foo3 = nil
-  }
+  /// Returns true if `foo3` has been explicitly set.
+  var hasFoo3: Bool {return self._foo3 != nil}
+  /// Clears the value of `foo3`. Subsequent reads from it will return its default value.
+  mutating func clearFoo3() {self._foo3 = nil}
 
   var foo4: [Int32] = []
 
@@ -501,34 +493,28 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
     get {return _storage._bar ?? ProtobufUnittest_ComplexOptionType1()}
     set {_uniqueStorage()._bar = newValue}
   }
-  var hasBar: Bool {
-    return _storage._bar != nil
-  }
-  mutating func clearBar() {
-    _storage._bar = nil
-  }
+  /// Returns true if `bar` has been explicitly set.
+  var hasBar: Bool {return _storage._bar != nil}
+  /// Clears the value of `bar`. Subsequent reads from it will return its default value.
+  mutating func clearBar() {_storage._bar = nil}
 
   var baz: Int32 {
     get {return _storage._baz ?? 0}
     set {_uniqueStorage()._baz = newValue}
   }
-  var hasBaz: Bool {
-    return _storage._baz != nil
-  }
-  mutating func clearBaz() {
-    _storage._baz = nil
-  }
+  /// Returns true if `baz` has been explicitly set.
+  var hasBaz: Bool {return _storage._baz != nil}
+  /// Clears the value of `baz`. Subsequent reads from it will return its default value.
+  mutating func clearBaz() {_storage._baz = nil}
 
   var fred: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
     get {return _storage._fred ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
     set {_uniqueStorage()._fred = newValue}
   }
-  var hasFred: Bool {
-    return _storage._fred != nil
-  }
-  mutating func clearFred() {
-    _storage._fred = nil
-  }
+  /// Returns true if `fred` has been explicitly set.
+  var hasFred: Bool {return _storage._fred != nil}
+  /// Clears the value of `fred`. Subsequent reads from it will return its default value.
+  mutating func clearFred() {_storage._fred = nil}
 
   var barney: [ProtobufUnittest_ComplexOptionType2.ComplexOptionType4] {
     get {return _storage._barney}
@@ -544,12 +530,10 @@ struct ProtobufUnittest_ComplexOptionType2: SwiftProtobuf.Message, SwiftProtobuf
       get {return _waldo ?? 0}
       set {_waldo = newValue}
     }
-    var hasWaldo: Bool {
-      return self._waldo != nil
-    }
-    mutating func clearWaldo() {
-      self._waldo = nil
-    }
+    /// Returns true if `waldo` has been explicitly set.
+    var hasWaldo: Bool {return self._waldo != nil}
+    /// Clears the value of `waldo`. Subsequent reads from it will return its default value.
+    mutating func clearWaldo() {self._waldo = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -631,23 +615,19 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
     get {return _storage._qux ?? 0}
     set {_uniqueStorage()._qux = newValue}
   }
-  var hasQux: Bool {
-    return _storage._qux != nil
-  }
-  mutating func clearQux() {
-    _storage._qux = nil
-  }
+  /// Returns true if `qux` has been explicitly set.
+  var hasQux: Bool {return _storage._qux != nil}
+  /// Clears the value of `qux`. Subsequent reads from it will return its default value.
+  mutating func clearQux() {_storage._qux = nil}
 
   var complexOptionType5: ProtobufUnittest_ComplexOptionType3.ComplexOptionType5 {
     get {return _storage._complexOptionType5 ?? ProtobufUnittest_ComplexOptionType3.ComplexOptionType5()}
     set {_uniqueStorage()._complexOptionType5 = newValue}
   }
-  var hasComplexOptionType5: Bool {
-    return _storage._complexOptionType5 != nil
-  }
-  mutating func clearComplexOptionType5() {
-    _storage._complexOptionType5 = nil
-  }
+  /// Returns true if `complexOptionType5` has been explicitly set.
+  var hasComplexOptionType5: Bool {return _storage._complexOptionType5 != nil}
+  /// Clears the value of `complexOptionType5`. Subsequent reads from it will return its default value.
+  mutating func clearComplexOptionType5() {_storage._complexOptionType5 = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -658,12 +638,10 @@ struct ProtobufUnittest_ComplexOptionType3: SwiftProtobuf.Message {
       get {return _plugh ?? 0}
       set {_plugh = newValue}
     }
-    var hasPlugh: Bool {
-      return self._plugh != nil
-    }
-    mutating func clearPlugh() {
-      self._plugh = nil
-    }
+    /// Returns true if `plugh` has been explicitly set.
+    var hasPlugh: Bool {return self._plugh != nil}
+    /// Clears the value of `plugh`. Subsequent reads from it will return its default value.
+    mutating func clearPlugh() {self._plugh = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -725,12 +703,10 @@ struct ProtobufUnittest_ComplexOpt6: SwiftProtobuf.Message {
     get {return _xyzzy ?? 0}
     set {_xyzzy = newValue}
   }
-  var hasXyzzy: Bool {
-    return self._xyzzy != nil
-  }
-  mutating func clearXyzzy() {
-    self._xyzzy = nil
-  }
+  /// Returns true if `xyzzy` has been explicitly set.
+  var hasXyzzy: Bool {return self._xyzzy != nil}
+  /// Clears the value of `xyzzy`. Subsequent reads from it will return its default value.
+  mutating func clearXyzzy() {self._xyzzy = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -808,12 +784,10 @@ struct ProtobufUnittest_AggregateMessageSetElement: SwiftProtobuf.Message {
     get {return _s ?? String()}
     set {_s = newValue}
   }
-  var hasS: Bool {
-    return self._s != nil
-  }
-  mutating func clearS() {
-    self._s = nil
-  }
+  /// Returns true if `s` has been explicitly set.
+  var hasS: Bool {return self._s != nil}
+  /// Clears the value of `s`. Subsequent reads from it will return its default value.
+  mutating func clearS() {self._s = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -846,59 +820,49 @@ struct ProtobufUnittest_Aggregate: SwiftProtobuf.Message {
     get {return _storage._i ?? 0}
     set {_uniqueStorage()._i = newValue}
   }
-  var hasI: Bool {
-    return _storage._i != nil
-  }
-  mutating func clearI() {
-    _storage._i = nil
-  }
+  /// Returns true if `i` has been explicitly set.
+  var hasI: Bool {return _storage._i != nil}
+  /// Clears the value of `i`. Subsequent reads from it will return its default value.
+  mutating func clearI() {_storage._i = nil}
 
   var s: String {
     get {return _storage._s ?? String()}
     set {_uniqueStorage()._s = newValue}
   }
-  var hasS: Bool {
-    return _storage._s != nil
-  }
-  mutating func clearS() {
-    _storage._s = nil
-  }
+  /// Returns true if `s` has been explicitly set.
+  var hasS: Bool {return _storage._s != nil}
+  /// Clears the value of `s`. Subsequent reads from it will return its default value.
+  mutating func clearS() {_storage._s = nil}
 
   /// A nested object
   var sub: ProtobufUnittest_Aggregate {
     get {return _storage._sub ?? ProtobufUnittest_Aggregate()}
     set {_uniqueStorage()._sub = newValue}
   }
-  var hasSub: Bool {
-    return _storage._sub != nil
-  }
-  mutating func clearSub() {
-    _storage._sub = nil
-  }
+  /// Returns true if `sub` has been explicitly set.
+  var hasSub: Bool {return _storage._sub != nil}
+  /// Clears the value of `sub`. Subsequent reads from it will return its default value.
+  mutating func clearSub() {_storage._sub = nil}
 
   /// To test the parsing of extensions inside aggregate values
   var file: Google_Protobuf_FileOptions {
     get {return _storage._file ?? Google_Protobuf_FileOptions()}
     set {_uniqueStorage()._file = newValue}
   }
-  var hasFile: Bool {
-    return _storage._file != nil
-  }
-  mutating func clearFile() {
-    _storage._file = nil
-  }
+  /// Returns true if `file` has been explicitly set.
+  var hasFile: Bool {return _storage._file != nil}
+  /// Clears the value of `file`. Subsequent reads from it will return its default value.
+  mutating func clearFile() {_storage._file = nil}
 
   /// An embedded message set
   var mset: ProtobufUnittest_AggregateMessageSet {
     get {return _storage._mset ?? ProtobufUnittest_AggregateMessageSet()}
     set {_uniqueStorage()._mset = newValue}
   }
-  var hasMset: Bool {
-    return _storage._mset != nil
-  }
-  mutating func clearMset() {
-    _storage._mset = nil
-  }
+  /// Returns true if `mset` has been explicitly set.
+  var hasMset: Bool {return _storage._mset != nil}
+  /// Clears the value of `mset`. Subsequent reads from it will return its default value.
+  mutating func clearMset() {_storage._mset = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -960,12 +924,10 @@ struct ProtobufUnittest_AggregateMessage: SwiftProtobuf.Message {
     get {return _fieldname ?? 0}
     set {_fieldname = newValue}
   }
-  var hasFieldname: Bool {
-    return self._fieldname != nil
-  }
-  mutating func clearFieldname() {
-    self._fieldname = nil
-  }
+  /// Returns true if `fieldname` has been explicitly set.
+  var hasFieldname: Bool {return self._fieldname != nil}
+  /// Clears the value of `fieldname`. Subsequent reads from it will return its default value.
+  mutating func clearFieldname() {self._fieldname = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1026,12 +988,10 @@ struct ProtobufUnittest_NestedOptionType: SwiftProtobuf.Message {
       get {return _nestedField ?? 0}
       set {_nestedField = newValue}
     }
-    var hasNestedField: Bool {
-      return self._nestedField != nil
-    }
-    mutating func clearNestedField() {
-      self._nestedField = nil
-    }
+    /// Returns true if `nestedField` has been explicitly set.
+    var hasNestedField: Bool {return self._nestedField != nil}
+    /// Clears the value of `nestedField`. Subsequent reads from it will return its default value.
+    mutating func clearNestedField() {self._nestedField = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1077,12 +1037,10 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
     get {return _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue}
     set {_value = newValue}
   }
-  var hasValue: Bool {
-    return self._value != nil
-  }
-  mutating func clearValue() {
-    self._value = nil
-  }
+  /// Returns true if `value` has been explicitly set.
+  var hasValue: Bool {return self._value != nil}
+  /// Clears the value of `value`. Subsequent reads from it will return its default value.
+  mutating func clearValue() {self._value = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1143,12 +1101,10 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
     get {return _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue}
     set {_value = newValue}
   }
-  var hasValue: Bool {
-    return self._value != nil
-  }
-  mutating func clearValue() {
-    self._value = nil
-  }
+  /// Returns true if `value` has been explicitly set.
+  var hasValue: Bool {return self._value != nil}
+  /// Clears the value of `value`. Subsequent reads from it will return its default value.
+  mutating func clearValue() {self._value = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

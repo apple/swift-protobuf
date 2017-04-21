@@ -73,34 +73,28 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     get {return _major ?? 0}
     set {_major = newValue}
   }
-  public var hasMajor: Bool {
-    return self._major != nil
-  }
-  public mutating func clearMajor() {
-    self._major = nil
-  }
+  /// Returns true if `major` has been explicitly set.
+  public var hasMajor: Bool {return self._major != nil}
+  /// Clears the value of `major`. Subsequent reads from it will return its default value.
+  public mutating func clearMajor() {self._major = nil}
 
   public var minor: Int32 {
     get {return _minor ?? 0}
     set {_minor = newValue}
   }
-  public var hasMinor: Bool {
-    return self._minor != nil
-  }
-  public mutating func clearMinor() {
-    self._minor = nil
-  }
+  /// Returns true if `minor` has been explicitly set.
+  public var hasMinor: Bool {return self._minor != nil}
+  /// Clears the value of `minor`. Subsequent reads from it will return its default value.
+  public mutating func clearMinor() {self._minor = nil}
 
   public var patch: Int32 {
     get {return _patch ?? 0}
     set {_patch = newValue}
   }
-  public var hasPatch: Bool {
-    return self._patch != nil
-  }
-  public mutating func clearPatch() {
-    self._patch = nil
-  }
+  /// Returns true if `patch` has been explicitly set.
+  public var hasPatch: Bool {return self._patch != nil}
+  /// Clears the value of `patch`. Subsequent reads from it will return its default value.
+  public mutating func clearPatch() {self._patch = nil}
 
   /// A suffix for alpha, beta or rc release, e.g., "alpha-1", "rc2". It should
   /// be empty for mainline stable releases.
@@ -108,12 +102,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
     get {return _suffix ?? String()}
     set {_suffix = newValue}
   }
-  public var hasSuffix: Bool {
-    return self._suffix != nil
-  }
-  public mutating func clearSuffix() {
-    self._suffix = nil
-  }
+  /// Returns true if `suffix` has been explicitly set.
+  public var hasSuffix: Bool {return self._suffix != nil}
+  /// Clears the value of `suffix`. Subsequent reads from it will return its default value.
+  public mutating func clearSuffix() {self._suffix = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -170,12 +162,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
     get {return _storage._parameter ?? String()}
     set {_uniqueStorage()._parameter = newValue}
   }
-  public var hasParameter: Bool {
-    return _storage._parameter != nil
-  }
-  public mutating func clearParameter() {
-    _storage._parameter = nil
-  }
+  /// Returns true if `parameter` has been explicitly set.
+  public var hasParameter: Bool {return _storage._parameter != nil}
+  /// Clears the value of `parameter`. Subsequent reads from it will return its default value.
+  public mutating func clearParameter() {_storage._parameter = nil}
 
   /// FileDescriptorProtos for all files in files_to_generate and everything
   /// they import.  The files will appear in topological order, so each file
@@ -198,12 +188,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
     get {return _storage._compilerVersion ?? Google_Protobuf_Compiler_Version()}
     set {_uniqueStorage()._compilerVersion = newValue}
   }
-  public var hasCompilerVersion: Bool {
-    return _storage._compilerVersion != nil
-  }
-  public mutating func clearCompilerVersion() {
-    _storage._compilerVersion = nil
-  }
+  /// Returns true if `compilerVersion` has been explicitly set.
+  public var hasCompilerVersion: Bool {return _storage._compilerVersion != nil}
+  /// Clears the value of `compilerVersion`. Subsequent reads from it will return its default value.
+  public mutating func clearCompilerVersion() {_storage._compilerVersion = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -268,12 +256,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
     get {return _error ?? String()}
     set {_error = newValue}
   }
-  public var hasError: Bool {
-    return self._error != nil
-  }
-  public mutating func clearError() {
-    self._error = nil
-  }
+  /// Returns true if `error` has been explicitly set.
+  public var hasError: Bool {return self._error != nil}
+  /// Clears the value of `error`. Subsequent reads from it will return its default value.
+  public mutating func clearError() {self._error = nil}
 
   public var file: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
 
@@ -298,12 +284,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
       get {return _name ?? String()}
       set {_name = newValue}
     }
-    public var hasName: Bool {
-      return self._name != nil
-    }
-    public mutating func clearName() {
-      self._name = nil
-    }
+    /// Returns true if `name` has been explicitly set.
+    public var hasName: Bool {return self._name != nil}
+    /// Clears the value of `name`. Subsequent reads from it will return its default value.
+    public mutating func clearName() {self._name = nil}
 
     /// If non-empty, indicates that the named file should already exist, and the
     /// content here is to be inserted into that file at a defined insertion
@@ -346,24 +330,20 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
       get {return _insertionPoint ?? String()}
       set {_insertionPoint = newValue}
     }
-    public var hasInsertionPoint: Bool {
-      return self._insertionPoint != nil
-    }
-    public mutating func clearInsertionPoint() {
-      self._insertionPoint = nil
-    }
+    /// Returns true if `insertionPoint` has been explicitly set.
+    public var hasInsertionPoint: Bool {return self._insertionPoint != nil}
+    /// Clears the value of `insertionPoint`. Subsequent reads from it will return its default value.
+    public mutating func clearInsertionPoint() {self._insertionPoint = nil}
 
     /// The file contents.
     public var content: String {
       get {return _content ?? String()}
       set {_content = newValue}
     }
-    public var hasContent: Bool {
-      return self._content != nil
-    }
-    public mutating func clearContent() {
-      self._content = nil
-    }
+    /// Returns true if `content` has been explicitly set.
+    public var hasContent: Bool {return self._content != nil}
+    /// Clears the value of `content`. Subsequent reads from it will return its default value.
+    public mutating func clearContent() {self._content = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 

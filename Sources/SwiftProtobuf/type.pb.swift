@@ -114,12 +114,10 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
-  public var hasSourceContext: Bool {
-    return _storage._sourceContext != nil
-  }
-  public mutating func clearSourceContext() {
-    _storage._sourceContext = nil
-  }
+  /// Returns true if `sourceContext` has been explicitly set.
+  public var hasSourceContext: Bool {return _storage._sourceContext != nil}
+  /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
+  public mutating func clearSourceContext() {_storage._sourceContext = nil}
 
   /// The source syntax.
   public var syntax: Google_Protobuf_Syntax {
@@ -456,12 +454,10 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
-  public var hasSourceContext: Bool {
-    return _storage._sourceContext != nil
-  }
-  public mutating func clearSourceContext() {
-    _storage._sourceContext = nil
-  }
+  /// Returns true if `sourceContext` has been explicitly set.
+  public var hasSourceContext: Bool {return _storage._sourceContext != nil}
+  /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
+  public mutating func clearSourceContext() {_storage._sourceContext = nil}
 
   /// The source syntax.
   public var syntax: Google_Protobuf_Syntax {
@@ -577,12 +573,10 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
   }
-  public var hasValue: Bool {
-    return _storage._value != nil
-  }
-  public mutating func clearValue() {
-    _storage._value = nil
-  }
+  /// Returns true if `value` has been explicitly set.
+  public var hasValue: Bool {return _storage._value != nil}
+  /// Clears the value of `value`. Subsequent reads from it will return its default value.
+  public mutating func clearValue() {_storage._value = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 

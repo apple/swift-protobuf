@@ -56,12 +56,10 @@ struct ProtobufUnittest_OneOfOptionMessage1: SwiftProtobuf.Message {
     get {return _requiredField ?? 0}
     set {_requiredField = newValue}
   }
-  var hasRequiredField: Bool {
-    return self._requiredField != nil
-  }
-  mutating func clearRequiredField() {
-    self._requiredField = nil
-  }
+  /// Returns true if `requiredField` has been explicitly set.
+  var hasRequiredField: Bool {return self._requiredField != nil}
+  /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredField() {self._requiredField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -98,12 +96,10 @@ struct ProtobufUnittest_OneOfOptionMessage2: SwiftProtobuf.Message {
     get {return _requiredField ?? 0}
     set {_requiredField = newValue}
   }
-  var hasRequiredField: Bool {
-    return self._requiredField != nil
-  }
-  mutating func clearRequiredField() {
-    self._requiredField = nil
-  }
+  /// Returns true if `requiredField` has been explicitly set.
+  var hasRequiredField: Bool {return self._requiredField != nil}
+  /// Clears the value of `requiredField`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredField() {self._requiredField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

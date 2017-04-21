@@ -42,34 +42,28 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     get {return _storage._myString ?? String()}
     set {_uniqueStorage()._myString = newValue}
   }
-  var hasMyString: Bool {
-    return _storage._myString != nil
-  }
-  mutating func clearMyString() {
-    _storage._myString = nil
-  }
+  /// Returns true if `myString` has been explicitly set.
+  var hasMyString: Bool {return _storage._myString != nil}
+  /// Clears the value of `myString`. Subsequent reads from it will return its default value.
+  mutating func clearMyString() {_storage._myString = nil}
 
   var myInt: Int64 {
     get {return _storage._myInt ?? 0}
     set {_uniqueStorage()._myInt = newValue}
   }
-  var hasMyInt: Bool {
-    return _storage._myInt != nil
-  }
-  mutating func clearMyInt() {
-    _storage._myInt = nil
-  }
+  /// Returns true if `myInt` has been explicitly set.
+  var hasMyInt: Bool {return _storage._myInt != nil}
+  /// Clears the value of `myInt`. Subsequent reads from it will return its default value.
+  mutating func clearMyInt() {_storage._myInt = nil}
 
   var myFloat: Float {
     get {return _storage._myFloat ?? 0}
     set {_uniqueStorage()._myFloat = newValue}
   }
-  var hasMyFloat: Bool {
-    return _storage._myFloat != nil
-  }
-  mutating func clearMyFloat() {
-    _storage._myFloat = nil
-  }
+  /// Returns true if `myFloat` has been explicitly set.
+  var hasMyFloat: Bool {return _storage._myFloat != nil}
+  /// Clears the value of `myFloat`. Subsequent reads from it will return its default value.
+  mutating func clearMyFloat() {_storage._myFloat = nil}
 
   var options: OneOf_Options? {
     get {return _storage._options}
@@ -112,12 +106,10 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
     get {return _storage._optionalNestedMessage ?? Swift_Protobuf_TestFieldOrderings.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  var hasOptionalNestedMessage: Bool {
-    return _storage._optionalNestedMessage != nil
-  }
-  mutating func clearOptionalNestedMessage() {
-    _storage._optionalNestedMessage = nil
-  }
+  /// Returns true if `optionalNestedMessage` has been explicitly set.
+  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -145,23 +137,19 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       get {return _oo ?? 0}
       set {_oo = newValue}
     }
-    var hasOo: Bool {
-      return self._oo != nil
-    }
-    mutating func clearOo() {
-      self._oo = nil
-    }
+    /// Returns true if `oo` has been explicitly set.
+    var hasOo: Bool {return self._oo != nil}
+    /// Clears the value of `oo`. Subsequent reads from it will return its default value.
+    mutating func clearOo() {self._oo = nil}
 
     var bb: Int32 {
       get {return _bb ?? 0}
       set {_bb = newValue}
     }
-    var hasBb: Bool {
-      return self._bb != nil
-    }
-    mutating func clearBb() {
-      self._bb = nil
-    }
+    /// Returns true if `bb` has been explicitly set.
+    var hasBb: Bool {return self._bb != nil}
+    /// Clears the value of `bb`. Subsequent reads from it will return its default value.
+    mutating func clearBb() {self._bb = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -295,12 +283,10 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
     get {return _m ?? 0}
     set {_m = newValue}
   }
-  var hasM: Bool {
-    return self._m != nil
-  }
-  mutating func clearM() {
-    self._m = nil
-  }
+  /// Returns true if `m` has been explicitly set.
+  var hasM: Bool {return self._m != nil}
+  /// Clears the value of `m`. Subsequent reads from it will return its default value.
+  mutating func clearM() {self._m = nil}
 
   /// Gaps with an extension range in the middle of the range.
   var oConflictExtensionsStart: Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart? = nil

@@ -61,12 +61,10 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
     get {return _storage._anyValue ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyValue = newValue}
   }
-  var hasAnyValue: Bool {
-    return _storage._anyValue != nil
-  }
-  mutating func clearAnyValue() {
-    _storage._anyValue = nil
-  }
+  /// Returns true if `anyValue` has been explicitly set.
+  var hasAnyValue: Bool {return _storage._anyValue != nil}
+  /// Clears the value of `anyValue`. Subsequent reads from it will return its default value.
+  mutating func clearAnyValue() {_storage._anyValue = nil}
 
   var repeatedAnyValue: [Google_Protobuf_Any] {
     get {return _storage._repeatedAnyValue}

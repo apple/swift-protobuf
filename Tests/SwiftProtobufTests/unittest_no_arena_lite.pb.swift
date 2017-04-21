@@ -56,12 +56,10 @@ struct ProtobufUnittestNoArena_ForeignMessageLite: SwiftProtobuf.Message {
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  var hasC: Bool {
-    return self._c != nil
-  }
-  mutating func clearC() {
-    self._c = nil
-  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

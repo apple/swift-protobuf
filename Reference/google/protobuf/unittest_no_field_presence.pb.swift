@@ -169,34 +169,28 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     get {return _storage._optionalNestedMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
-  var hasOptionalNestedMessage: Bool {
-    return _storage._optionalNestedMessage != nil
-  }
-  mutating func clearOptionalNestedMessage() {
-    _storage._optionalNestedMessage = nil
-  }
+  /// Returns true if `optionalNestedMessage` has been explicitly set.
+  var hasOptionalNestedMessage: Bool {return _storage._optionalNestedMessage != nil}
+  /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
 
   var optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage {
     get {return _storage._optionalForeignMessage ?? Proto2NofieldpresenceUnittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
-  var hasOptionalForeignMessage: Bool {
-    return _storage._optionalForeignMessage != nil
-  }
-  mutating func clearOptionalForeignMessage() {
-    _storage._optionalForeignMessage = nil
-  }
+  /// Returns true if `optionalForeignMessage` has been explicitly set.
+  var hasOptionalForeignMessage: Bool {return _storage._optionalForeignMessage != nil}
+  /// Clears the value of `optionalForeignMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalForeignMessage() {_storage._optionalForeignMessage = nil}
 
   var optionalProto2Message: ProtobufUnittest_TestAllTypes {
     get {return _storage._optionalProto2Message ?? ProtobufUnittest_TestAllTypes()}
     set {_uniqueStorage()._optionalProto2Message = newValue}
   }
-  var hasOptionalProto2Message: Bool {
-    return _storage._optionalProto2Message != nil
-  }
-  mutating func clearOptionalProto2Message() {
-    _storage._optionalProto2Message = nil
-  }
+  /// Returns true if `optionalProto2Message` has been explicitly set.
+  var hasOptionalProto2Message: Bool {return _storage._optionalProto2Message != nil}
+  /// Clears the value of `optionalProto2Message`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalProto2Message() {_storage._optionalProto2Message = nil}
 
   var optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
     get {return _storage._optionalNestedEnum}
@@ -225,12 +219,10 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
     get {return _storage._optionalLazyMessage ?? Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
-  var hasOptionalLazyMessage: Bool {
-    return _storage._optionalLazyMessage != nil
-  }
-  mutating func clearOptionalLazyMessage() {
-    _storage._optionalLazyMessage = nil
-  }
+  /// Returns true if `optionalLazyMessage` has been explicitly set.
+  var hasOptionalLazyMessage: Bool {return _storage._optionalLazyMessage != nil}
+  /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalLazyMessage() {_storage._optionalLazyMessage = nil}
 
   /// Repeated
   var repeatedInt32: [Int32] {
@@ -680,12 +672,10 @@ struct Proto2NofieldpresenceUnittest_TestProto2Required: SwiftProtobuf.Message {
     get {return _storage._proto2 ?? ProtobufUnittest_TestRequired()}
     set {_uniqueStorage()._proto2 = newValue}
   }
-  var hasProto2: Bool {
-    return _storage._proto2 != nil
-  }
-  mutating func clearProto2() {
-    _storage._proto2 = nil
-  }
+  /// Returns true if `proto2` has been explicitly set.
+  var hasProto2: Bool {return _storage._proto2 != nil}
+  /// Clears the value of `proto2`. Subsequent reads from it will return its default value.
+  mutating func clearProto2() {_storage._proto2 = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

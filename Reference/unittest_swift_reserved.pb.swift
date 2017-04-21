@@ -43,91 +43,75 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
     get {return _protoMessageName ?? 0}
     set {_protoMessageName = newValue}
   }
-  var hasProtoMessageName: Bool {
-    return self._protoMessageName != nil
-  }
-  mutating func clearProtoMessageName() {
-    self._protoMessageName = nil
-  }
+  /// Returns true if `protoMessageName` has been explicitly set.
+  var hasProtoMessageName: Bool {return self._protoMessageName != nil}
+  /// Clears the value of `protoMessageName`. Subsequent reads from it will return its default value.
+  mutating func clearProtoMessageName() {self._protoMessageName = nil}
 
   var protoPackageName: Int32 {
     get {return _protoPackageName ?? 0}
     set {_protoPackageName = newValue}
   }
-  var hasProtoPackageName: Bool {
-    return self._protoPackageName != nil
-  }
-  mutating func clearProtoPackageName() {
-    self._protoPackageName = nil
-  }
+  /// Returns true if `protoPackageName` has been explicitly set.
+  var hasProtoPackageName: Bool {return self._protoPackageName != nil}
+  /// Clears the value of `protoPackageName`. Subsequent reads from it will return its default value.
+  mutating func clearProtoPackageName() {self._protoPackageName = nil}
 
   var anyTypePrefix: Int32 {
     get {return _anyTypePrefix ?? 0}
     set {_anyTypePrefix = newValue}
   }
-  var hasAnyTypePrefix: Bool {
-    return self._anyTypePrefix != nil
-  }
-  mutating func clearAnyTypePrefix() {
-    self._anyTypePrefix = nil
-  }
+  /// Returns true if `anyTypePrefix` has been explicitly set.
+  var hasAnyTypePrefix: Bool {return self._anyTypePrefix != nil}
+  /// Clears the value of `anyTypePrefix`. Subsequent reads from it will return its default value.
+  mutating func clearAnyTypePrefix() {self._anyTypePrefix = nil}
 
   var anyTypeURL: Int32 {
     get {return _anyTypeURL ?? 0}
     set {_anyTypeURL = newValue}
   }
-  var hasAnyTypeURL: Bool {
-    return self._anyTypeURL != nil
-  }
-  mutating func clearAnyTypeURL() {
-    self._anyTypeURL = nil
-  }
+  /// Returns true if `anyTypeURL` has been explicitly set.
+  var hasAnyTypeURL: Bool {return self._anyTypeURL != nil}
+  /// Clears the value of `anyTypeURL`. Subsequent reads from it will return its default value.
+  mutating func clearAnyTypeURL() {self._anyTypeURL = nil}
 
   /// r/o properties on Message, ensure it gets remapped.
   var isInitialized_p: String {
     get {return _isInitialized_p ?? String()}
     set {_isInitialized_p = newValue}
   }
-  var hasIsInitialized_p: Bool {
-    return self._isInitialized_p != nil
-  }
-  mutating func clearIsInitialized_p() {
-    self._isInitialized_p = nil
-  }
+  /// Returns true if `isInitialized_p` has been explicitly set.
+  var hasIsInitialized_p: Bool {return self._isInitialized_p != nil}
+  /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
+  mutating func clearIsInitialized_p() {self._isInitialized_p = nil}
 
   var hashValue_p: String {
     get {return _hashValue_p ?? String()}
     set {_hashValue_p = newValue}
   }
-  var hasHashValue_p: Bool {
-    return self._hashValue_p != nil
-  }
-  mutating func clearHashValue_p() {
-    self._hashValue_p = nil
-  }
+  /// Returns true if `hashValue_p` has been explicitly set.
+  var hasHashValue_p: Bool {return self._hashValue_p != nil}
+  /// Clears the value of `hashValue_p`. Subsequent reads from it will return its default value.
+  mutating func clearHashValue_p() {self._hashValue_p = nil}
 
   var debugDescription_p: Int32 {
     get {return _debugDescription_p ?? 0}
     set {_debugDescription_p = newValue}
   }
-  var hasDebugDescription_p: Bool {
-    return self._debugDescription_p != nil
-  }
-  mutating func clearDebugDescription_p() {
-    self._debugDescription_p = nil
-  }
+  /// Returns true if `debugDescription_p` has been explicitly set.
+  var hasDebugDescription_p: Bool {return self._debugDescription_p != nil}
+  /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
+  mutating func clearDebugDescription_p() {self._debugDescription_p = nil}
 
   /// Prompt code generator to build an 'isInitialized' test
   var requiredInt: Int32 {
     get {return _requiredInt ?? 0}
     set {_requiredInt = newValue}
   }
-  var hasRequiredInt: Bool {
-    return self._requiredInt != nil
-  }
-  mutating func clearRequiredInt() {
-    self._requiredInt = nil
-  }
+  /// Returns true if `requiredInt` has been explicitly set.
+  var hasRequiredInt: Bool {return self._requiredInt != nil}
+  /// Clears the value of `requiredInt`. Subsequent reads from it will return its default value.
+  mutating func clearRequiredInt() {self._requiredInt = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

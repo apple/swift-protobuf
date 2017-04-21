@@ -102,12 +102,10 @@ struct Google_Protobuf_Api: SwiftProtobuf.Message {
     get {return _storage._sourceContext ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContext = newValue}
   }
-  var hasSourceContext: Bool {
-    return _storage._sourceContext != nil
-  }
-  mutating func clearSourceContext() {
-    _storage._sourceContext = nil
-  }
+  /// Returns true if `sourceContext` has been explicitly set.
+  var hasSourceContext: Bool {return _storage._sourceContext != nil}
+  /// Clears the value of `sourceContext`. Subsequent reads from it will return its default value.
+  mutating func clearSourceContext() {_storage._sourceContext = nil}
 
   /// Included APIs. See [Mixin][].
   var mixins: [Google_Protobuf_Mixin] {

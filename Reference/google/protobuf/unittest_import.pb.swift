@@ -121,12 +121,10 @@ struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message {
     get {return _d ?? 0}
     set {_d = newValue}
   }
-  var hasD: Bool {
-    return self._d != nil
-  }
-  mutating func clearD() {
-    self._d = nil
-  }
+  /// Returns true if `d` has been explicitly set.
+  var hasD: Bool {return self._d != nil}
+  /// Clears the value of `d`. Subsequent reads from it will return its default value.
+  mutating func clearD() {self._d = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
