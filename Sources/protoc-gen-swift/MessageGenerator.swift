@@ -38,7 +38,6 @@ class MessageGenerator {
   private let messages: [MessageGenerator]
   private let isProto3: Bool
   private let isExtensible: Bool
-  private let isGroup: Bool
   private let isAnyMessage: Bool
 
   private let path: [Int32]
@@ -59,7 +58,6 @@ class MessageGenerator {
     self.protoFullName = (parentProtoPath == nil ? "" : (parentProtoPath! + ".")) + self.protoMessageName
     self.descriptor = descriptor
     self.isProto3 = file.isProto3
-    self.isGroup = context.protoNameIsGroup.contains(protoFullName)
     self.isExtensible = descriptor.extensionRange.count > 0
     self.protoPackageName = file.protoPackageName
     if let parentSwiftName = parentSwiftName {
@@ -771,7 +769,7 @@ fileprivate func hasMessageField(
   let hasMessageField = descriptor.field.contains {
     ($0.type == .message || $0.type == .group)
     && $0.label != .repeated
-    && (context.getMessageForPath(path: $0.typeName)?.options.mapEntry != true)
+    && (context.messageDescriptor(forTypeName: $0.typeName).options.mapEntry != true)
   }
   return hasMessageField
 }
@@ -806,8 +804,8 @@ fileprivate func messageHasRequiredFields(
       if f.label == .required {
         return true
       }
-      if (f.isMessage || f.isGroup) &&
-        hasRequiredFieldsInner(context.getMessageForPath(path: f.typeName)!) {
+      if (f.isMessage) &&
+        hasRequiredFieldsInner(context.messageDescriptor(forTypeName: f.typeName)) {
         return true
       }
     }
@@ -822,6 +820,6 @@ fileprivate func messageHasRequiredFields(
   msgTypeName: String,
   context: Context
 ) -> Bool {
-  let msgDesc = context.getMessageForPath(path: msgTypeName)!
+  let msgDesc = context.messageDescriptor(forTypeName: msgTypeName)
   return messageHasRequiredFields(descriptor: msgDesc, context: context)
 }

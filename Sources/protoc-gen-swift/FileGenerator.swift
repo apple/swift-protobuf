@@ -24,25 +24,6 @@ import SwiftProtobuf
 /// properties.
 ///
 extension Google_Protobuf_FileDescriptorProto {
-    func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-        let base: String
-        if !package.isEmpty {
-            base = "." + package
-        } else {
-            base = ""
-        }
-        for m in messageType {
-            let messagePath = base + "." + m.name
-            if messagePath == path {
-                return m
-            }
-            if let n = m.getMessageForPath(path: path, parentPath: messagePath) {
-                return n
-            }
-        }
-        return nil
-    }
-
     func getMessageNameForPath(path: String) -> String? {
         let base: String
         if !package.isEmpty {

@@ -35,7 +35,6 @@ struct ExtensionGenerator {
     let swiftExtendedMessageName: String
     let swiftRelativeExtensionName: String
     let swiftFullExtensionName: String
-    var isProto3: Bool {return false} // Extensions are always proto2
 
     var extensionFieldType: String {
         let label: String
@@ -89,7 +88,7 @@ struct ExtensionGenerator {
 
         let baseName: String
         if descriptor.type == .group {
-            let g = context.getMessageForPath(path: descriptor.typeName)!
+            let g = context.messageDescriptor(forTypeName: descriptor.typeName)
             baseName = g.name
         } else {
             baseName = descriptor.name

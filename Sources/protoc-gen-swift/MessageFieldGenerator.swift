@@ -72,7 +72,7 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     func getIsMap(context: Context) -> Bool {
         if type != .message {return false}
-        let m = context.getMessageForPath(path: typeName)!
+        let m = context.messageDescriptor(forTypeName: typeName)
         return m.options.mapEntry
     }
 
@@ -125,7 +125,7 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     func getSwiftApiType(context: Context, isProto3: Bool) -> String {
         if getIsMap(context: context) {
-            let m = context.getMessageForPath(path: typeName)!
+            let m = context.messageDescriptor(forTypeName: typeName)
             let keyField = m.field[0]
             let keyType = keyField.getSwiftBaseType(context: context)
             let valueField = m.field[1]
@@ -141,7 +141,7 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     func getSwiftStorageType(context: Context, isProto3: Bool) -> String {
         if getIsMap(context: context) {
-            let m = context.getMessageForPath(path: typeName)!
+            let m = context.messageDescriptor(forTypeName: typeName)
             let keyField = m.field[0]
             let keyType = keyField.getSwiftBaseType(context: context)
             let valueField = m.field[1]
@@ -183,8 +183,8 @@ extension Google_Protobuf_FieldDescriptorProto {
         case .group, .message:
             return context.getMessageNameForPath(path: typeName)! + "()"
         case .enum:
-            let e = context.enumByProtoName[typeName]!
-            if e.value.count == 0 {
+            let e = context.enumDescriptor(forTypeName: typeName)
+            if e.value.isEmpty {
                 return "nil"
             } else {
                 let defaultCase = e.value[0].name
@@ -196,7 +196,7 @@ extension Google_Protobuf_FieldDescriptorProto {
 
     func getTraitsType(context: Context) -> String {
         if getIsMap(context: context) {
-            let m = context.getMessageForPath(path: typeName)!
+            let m = context.messageDescriptor(forTypeName: typeName)
             let keyField = m.field[0]
             let keyTraits = keyField.getTraitsType(context: context)
             let valueField = m.field[1]
@@ -297,7 +297,7 @@ struct MessageFieldGenerator {
         self.descriptor = descriptor
         self.jsonName = descriptor.jsonName
         if descriptor.type == .group {
-            let g = context.getMessageForPath(path: descriptor.typeName)!
+            let g = context.messageDescriptor(forTypeName: descriptor.typeName)
             let lowerName = toLowerCamelCase(g.name)
             self.swiftName = sanitizeFieldName(lowerName)
             let sanitizedUpper = sanitizeFieldName(toUpperCamelCase(g.name), basedOn: lowerName)
@@ -374,7 +374,7 @@ struct MessageFieldGenerator {
             let type = descriptor.type
             if type == .group { return true }
             if type == .message {
-                let m = context.getMessageForPath(path: descriptor.typeName)!
+                let m = context.messageDescriptor(forTypeName: descriptor.typeName)
                 if m.options.mapEntry {
                     let valueField = m.field[1]
                     return valueField.type == .message
