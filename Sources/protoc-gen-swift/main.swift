@@ -92,9 +92,9 @@ if justVersion {
   Stdout.write(bytes: serializedResponse)
 } else {
   for f in filesToRead {
-    let rawRequest = try readFileData(filename: f)
-    Stderr.print("Read request: \(rawRequest.count) bytes from \(f)")
-    let request = try CodeGeneratorRequest(serializedData: Data(bytes: rawRequest))
+    let requestData = try readFileData(filename: f)
+    Stderr.print("Read request: \(requestData.count) bytes from \(f)")
+    let request = try CodeGeneratorRequest(serializedData: requestData)
     let context = try Context(request: request)
     let response = context.generateResponse()
     let content = response.file[0].content
