@@ -38,7 +38,6 @@ class MessageGenerator {
   private let messages: [MessageGenerator]
   private let isProto3: Bool
   private let isExtensible: Bool
-  private let isGroup: Bool
   private let isAnyMessage: Bool
 
   private let path: [Int32]
@@ -59,7 +58,6 @@ class MessageGenerator {
     self.protoFullName = (parentProtoPath == nil ? "" : (parentProtoPath! + ".")) + self.protoMessageName
     self.descriptor = descriptor
     self.isProto3 = file.isProto3
-    self.isGroup = context.protoNameIsGroup.contains(protoFullName)
     self.isExtensible = descriptor.extensionRange.count > 0
     self.protoPackageName = file.protoPackageName
     if let parentSwiftName = parentSwiftName {
@@ -806,7 +804,7 @@ fileprivate func messageHasRequiredFields(
       if f.label == .required {
         return true
       }
-      if (f.isMessage || f.isGroup) &&
+      if (f.isMessage) &&
         hasRequiredFieldsInner(context.getMessageForPath(path: f.typeName)!) {
         return true
       }

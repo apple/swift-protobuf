@@ -85,7 +85,6 @@ class Context {
 
   private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
   private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
-  private(set) var protoNameIsGroup = Set<String>()
 
   func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
     return request.getMessageForPath(path: path)
@@ -136,11 +135,6 @@ class Context {
     for m in fileProto.messageType {
       populateFrom(messageProto: m, prefix: prefix)
     }
-    for f in fileProto.extension_p {
-      if f.type == .group {
-        protoNameIsGroup.insert(f.typeName)
-      }
-    }
   }
 
   func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
@@ -151,16 +145,6 @@ class Context {
   func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
     let name = prefix + "." + messageProto.name
     messageByProtoName[name] = messageProto
-    for f in messageProto.field {
-      if f.type == .group {
-        protoNameIsGroup.insert(f.typeName)
-      }
-    }
-    for f in messageProto.extension_p {
-      if f.type == .group {
-        protoNameIsGroup.insert(f.typeName)
-      }
-    }
     for e in messageProto.enumType {
       populateFrom(enumProto: e, prefix: name)
     }
