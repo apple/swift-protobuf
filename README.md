@@ -32,11 +32,15 @@ files, you will need to add this library to your project.
 
 More information is available in the associated documentation:
 
+ * [API.md](Documentation/API.md) documents the API you should use.
+   This is recommended for anyone using SwiftProtobuf in their
+   project.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
    plugin that adds Swift support to the `protoc` program
- * [API.md](Documentation/API.md) documents the API you should use
- * [GENERATED_CODE.md](Documentation/GENERATED_CODE.md) documents the structure
-   of the generated code
+ * [INTERNALS.md](Documentation/INTERNALS.md) documents the structure
+   of the generated code and how it's used by the library.  This
+   should only be needed by folks interested in working on SwiftProtobuf
+   itself.
  * [STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md) documents the style
    guidelines we have adopted in our codebase if you are interested in
    contributing
