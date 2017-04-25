@@ -83,7 +83,6 @@ class Context {
   let request: CodeGeneratorRequest
   let options: GeneratorOptions
 
-  private(set) var parent = [String:String]()
   private(set) var fileByProtoName = [String:Google_Protobuf_FileDescriptorProto]()
   private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
   private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
@@ -149,12 +148,10 @@ class Context {
   func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
     let name = prefix + "." + enumProto.name
     enumByProtoName[name] = enumProto
-    parent[name] = prefix
   }
 
   func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
     let name = prefix + "." + messageProto.name
-    parent[name] = prefix
     messageByProtoName[name] = messageProto
     for f in messageProto.field {
       if f.type == .group {
