@@ -183,8 +183,8 @@ extension Google_Protobuf_FieldDescriptorProto {
         case .group, .message:
             return context.getMessageNameForPath(path: typeName)! + "()"
         case .enum:
-            let e = context.enumByProtoName[typeName]!
-            if e.value.count == 0 {
+            let e = context.enumDescriptor(forProtoName: typeName).proto
+            if e.value.isEmpty {
                 return "nil"
             } else {
                 let defaultCase = e.value[0].name

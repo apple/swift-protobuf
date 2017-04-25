@@ -33,15 +33,6 @@ typealias CodeGeneratorRequest = Google_Protobuf_Compiler_CodeGeneratorRequest
 typealias CodeGeneratorResponse = Google_Protobuf_Compiler_CodeGeneratorResponse
 
 extension CodeGeneratorRequest {
-  func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-    for f in protoFile {
-      if let m = f.getMessageForPath(path: path) {
-        return m
-      }
-    }
-    return nil
-  }
-
   func getMessageNameForPath(path: String) -> String? {
     for f in protoFile {
       if let m = f.getMessageNameForPath(path: path) {
@@ -80,14 +71,13 @@ extension Google_Protobuf_Compiler_Version {
 }
 
 class Context {
-  let request: CodeGeneratorRequest
+  private let request: CodeGeneratorRequest
   let options: GeneratorOptions
+  private let descriptorSet: DescriptorSet
 
-  private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
-  private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
-
+  // TODO(thomasvl): Revisit to use the Desciptor instead.
   func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-    return request.getMessageForPath(path: path)
+    return descriptor(forProtoName: path).proto
   }
 
   func getMessageNameForPath(path: String) -> String? {
@@ -99,9 +89,6 @@ class Context {
   }
 
   init(request: CodeGeneratorRequest) throws {
-    self.request = request
-    self.options = try GeneratorOptions(parameter: request.parameter)
-
     if request.hasCompilerVersion {
       let compilerVersion = request.compilerVersion;
       // Expect 3.1.x or 3.2.x - Yes we have to rev this with new release, but
@@ -116,41 +103,17 @@ class Context {
       Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
     }
 
-    for fileProto in request.protoFile {
-      populateFrom(fileProto: fileProto)
-    }
+    self.request = request
+    self.options = try GeneratorOptions(parameter: request.parameter)
+    self.descriptorSet = DescriptorSet(protos: request.protoFile)
   }
 
-  func populateFrom(fileProto: Google_Protobuf_FileDescriptorProto) {
-    let prefix: String
-    let pkg = fileProto.package
-    if !pkg.isEmpty {
-      prefix = "." + pkg
-    } else {
-      prefix = ""
-    }
-    for e in fileProto.enumType {
-      populateFrom(enumProto: e, prefix: prefix)
-    }
-    for m in fileProto.messageType {
-      populateFrom(messageProto: m, prefix: prefix)
-    }
+  func descriptor(forProtoName name: String) -> Descriptor {
+    return descriptorSet.lookupDescriptor(protoName: name)
   }
 
-  func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
-    let name = prefix + "." + enumProto.name
-    enumByProtoName[name] = enumProto
-  }
-
-  func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
-    let name = prefix + "." + messageProto.name
-    messageByProtoName[name] = messageProto
-    for e in messageProto.enumType {
-      populateFrom(enumProto: e, prefix: name)
-    }
-    for m in messageProto.nestedType {
-      populateFrom(messageProto: m, prefix: name)
-    }
+  func enumDescriptor(forProtoName name: String) -> EnumDescriptor {
+    return descriptorSet.lookupEnumDescriptor(protoName: name)
   }
 
   func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
