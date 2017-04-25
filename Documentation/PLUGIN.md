@@ -2,12 +2,6 @@
 
 ---
 
-> :warning: **WARNING** :warning: This project is in a _prerelease_ state. There
-> is active work going on that will result in API changes that can/will break
-> code while things are finished. Use with caution.
-
----
-
 The protoc _plugin_ works with protoc to translate proto files into Swift code.
 
 ## Getting Started
