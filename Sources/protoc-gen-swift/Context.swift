@@ -79,21 +79,6 @@ extension Google_Protobuf_Compiler_Version {
   }
 }
 
-extension CodeGeneratorResponse {
-  init(error: String) {
-    self.init()
-    self.error = error
-  }
-}
-
-extension CodeGeneratorResponse.File {
-  init(name: String, content: String) {
-    self.init()
-    self.name = name
-    self.content = content
-  }
-}
-
 class Context {
   let request: CodeGeneratorRequest
   let options: GeneratorOptions
