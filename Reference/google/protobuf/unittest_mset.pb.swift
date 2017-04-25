@@ -184,14 +184,14 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
   struct Item: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_RawMessageSet.protoMessageName + ".Item"
 
-    var typeId: Int32 {
-      get {return _typeId ?? 0}
-      set {_typeId = newValue}
+    var typeID: Int32 {
+      get {return _typeID ?? 0}
+      set {_typeID = newValue}
     }
-    /// Returns true if `typeId` has been explicitly set.
-    var hasTypeId: Bool {return self._typeId != nil}
-    /// Clears the value of `typeId`. Subsequent reads from it will return its default value.
-    mutating func clearTypeId() {self._typeId = nil}
+    /// Returns true if `typeID` has been explicitly set.
+    var hasTypeID: Bool {return self._typeID != nil}
+    /// Clears the value of `typeID`. Subsequent reads from it will return its default value.
+    mutating func clearTypeID() {self._typeID = nil}
 
     var message: Data {
       get {return _message ?? SwiftProtobuf.Internal.emptyData}
@@ -207,7 +207,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
     init() {}
 
     public var isInitialized: Bool {
-      if self._typeId == nil {return false}
+      if self._typeID == nil {return false}
       if self._message == nil {return false}
       return true
     }
@@ -215,7 +215,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 2: try decoder.decodeSingularInt32Field(value: &self._typeId)
+        case 2: try decoder.decodeSingularInt32Field(value: &self._typeID)
         case 3: try decoder.decodeSingularBytesField(value: &self._message)
         default: break
         }
@@ -223,7 +223,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._typeId {
+      if let v = self._typeID {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
       if let v = self._message {
@@ -232,7 +232,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _typeId: Int32? = nil
+    fileprivate var _typeID: Int32? = nil
     fileprivate var _message: Data? = nil
   }
 
@@ -399,7 +399,7 @@ extension ProtobufUnittest_RawMessageSet.Item: SwiftProtobuf._MessageImplementat
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RawMessageSet.Item) -> Bool {
-    if self._typeId != other._typeId {return false}
+    if self._typeID != other._typeID {return false}
     if self._message != other._message {return false}
     if unknownFields != other.unknownFields {return false}
     return true

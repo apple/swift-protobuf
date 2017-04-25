@@ -784,7 +784,7 @@ enum EnumFieldNames {
     unowned = 89;
     weak = 90;
     willSet = 91;
-    id = 92;
+//    id = 92;
     _cmd = 93;
     out = 96;
     bycopy = 98;
@@ -937,6 +937,11 @@ message FieldNamingInitials {
     optional int32 the_url = 24;
 
     optional int32 a_b_c = 31;
+
+    optional int32 id = 41;
+    optional int32 id_number = 42;
+    optional int32 the_id_number = 43;
+    optional int32 request_id = 44;
   }
 
   message Uppers {
@@ -954,6 +959,11 @@ message FieldNamingInitials {
     optional int32 URL_value = 22;
     optional int32 the_URL_value = 23;
     optional int32 the_URL = 24;
+
+    optional int32 ID = 41;
+    optional int32 ID_number = 42;
+    optional int32 the_ID_number = 43;
+    optional int32 request_ID = 44;
   }
 
   message WordCase {
@@ -971,6 +981,11 @@ message FieldNamingInitials {
     optional int32 UrlValue = 22;
     optional int32 TheUrlValue = 23;
     optional int32 TheUrl = 24;
+
+    optional int32 Id = 41;
+    optional int32 IdNumber = 42;
+    optional int32 TheIdNumber = 43;
+    optional int32 RequestId = 44;
   }
 
 }
@@ -999,6 +1014,11 @@ message Lowers {
     optional int32 the_url = 24;
 
     optional int32 a_b_c = 31;
+
+    optional int32 id = 41;
+    optional int32 id_number = 42;
+    optional int32 the_id_number = 43;
+    optional int32 request_id = 44;
   }
 }
 
@@ -1018,6 +1038,11 @@ message Uppers {
     optional int32 URL_value = 122;
     optional int32 the_URL_value = 123;
     optional int32 the_URL = 124;
+
+    optional int32 ID = 141;
+    optional int32 ID_number = 142;
+    optional int32 the_ID_number = 143;
+    optional int32 request_ID = 144;
   }
 }
 
@@ -1037,6 +1062,11 @@ message WordCase {
     optional int32 UrlValue = 222;
     optional int32 TheUrlValue = 223;
     optional int32 TheUrl = 224;
+
+    optional int32 Id = 241;
+    optional int32 IdNumber = 242;
+    optional int32 TheIdNumber = 243;
+    optional int32 RequestId = 244;
   }
 }
 
@@ -1069,6 +1099,11 @@ extend ExtensionNamingInitialsLowers {
   optional int32 the_url = 24;
 
   optional int32 a_b_c = 31;
+
+  optional int32 id = 41;
+  optional int32 id_number = 42;
+  optional int32 the_id_number = 43;
+  optional int32 request_id = 44;
 }
 
 extend ExtensionNamingInitialsUppers {
@@ -1086,6 +1121,11 @@ extend ExtensionNamingInitialsUppers {
   optional int32 URL_value = 22;
   optional int32 the_URL_value = 23;
   optional int32 the_URL = 24;
+
+  optional int32 ID = 41;
+  optional int32 ID_number = 42;
+  optional int32 the_ID_number = 43;
+  optional int32 request_ID = 44;
 }
 
 extend ExtensionNamingInitialsWordCase {
@@ -1103,4 +1143,9 @@ extend ExtensionNamingInitialsWordCase {
   optional int32 UrlValue = 22;
   optional int32 TheUrlValue = 23;
   optional int32 TheUrl = 24;
+
+  optional int32 Id = 41;
+  optional int32 IdNumber = 42;
+  optional int32 TheIdNumber = 43;
+  optional int32 RequestId = 44;
 }

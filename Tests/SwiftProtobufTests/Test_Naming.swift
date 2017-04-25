@@ -96,6 +96,22 @@ class Test_FieldNamingInitials: XCTestCase {
     msg.aBC = 1
     XCTAssertTrue(msg.hasABC)
     msg.clearABC()
+
+    msg.id = 1
+    XCTAssertTrue(msg.hasID)
+    msg.clearID()
+
+    msg.idNumber = 1
+    XCTAssertTrue(msg.hasIDNumber)
+    msg.clearIDNumber()
+
+    msg.theIDNumber = 1
+    XCTAssertTrue(msg.hasTheIDNumber)
+    msg.clearTheIDNumber()
+
+    msg.requestID = 1
+    XCTAssertTrue(msg.hasRequestID)
+    msg.clearRequestID()
   }
 
   func testUppers() {
@@ -148,6 +164,22 @@ class Test_FieldNamingInitials: XCTestCase {
     msg.theURL = 1
     XCTAssertTrue(msg.hasTheURL)
     msg.clearTheURL()
+
+    msg.id = 1
+    XCTAssertTrue(msg.hasID)
+    msg.clearID()
+
+    msg.idNumber = 1
+    XCTAssertTrue(msg.hasIDNumber)
+    msg.clearIDNumber()
+
+    msg.theIDNumber = 1
+    XCTAssertTrue(msg.hasTheIDNumber)
+    msg.clearTheIDNumber()
+
+    msg.requestID = 1
+    XCTAssertTrue(msg.hasRequestID)
+    msg.clearRequestID()
   }
 
   func testWordCase() {
@@ -200,6 +232,22 @@ class Test_FieldNamingInitials: XCTestCase {
     msg.theURL = 1
     XCTAssertTrue(msg.hasTheURL)
     msg.clearTheURL()
+
+    msg.id = 1
+    XCTAssertTrue(msg.hasID)
+    msg.clearID()
+
+    msg.idNumber = 1
+    XCTAssertTrue(msg.hasIDNumber)
+    msg.clearIDNumber()
+
+    msg.theIDNumber = 1
+    XCTAssertTrue(msg.hasTheIDNumber)
+    msg.clearTheIDNumber()
+
+    msg.requestID = 1
+    XCTAssertTrue(msg.hasRequestID)
+    msg.clearRequestID()
   }
 }
 
@@ -258,6 +306,22 @@ class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
     msg.SwiftUnittest_Names_Lowers_aBC = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_aBC)
     msg.clearSwiftUnittest_Names_Lowers_aBC()
+
+    msg.SwiftUnittest_Names_Lowers_id = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_id)
+    msg.clearSwiftUnittest_Names_Lowers_id()
+
+    msg.SwiftUnittest_Names_Lowers_idNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_idNumber)
+    msg.clearSwiftUnittest_Names_Lowers_idNumber()
+
+    msg.SwiftUnittest_Names_Lowers_theIDNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_theIDNumber)
+    msg.clearSwiftUnittest_Names_Lowers_theIDNumber()
+
+    msg.SwiftUnittest_Names_Lowers_requestID = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Lowers_requestID)
+    msg.clearSwiftUnittest_Names_Lowers_requestID()
   }
 
   func testUppers() {
@@ -310,6 +374,22 @@ class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
     msg.SwiftUnittest_Names_Uppers_theURL = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theURL)
     msg.clearSwiftUnittest_Names_Uppers_theURL()
+
+    msg.SwiftUnittest_Names_Uppers_id = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_id)
+    msg.clearSwiftUnittest_Names_Uppers_id()
+
+    msg.SwiftUnittest_Names_Uppers_idNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_idNumber)
+    msg.clearSwiftUnittest_Names_Uppers_idNumber()
+
+    msg.SwiftUnittest_Names_Uppers_theIDNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_theIDNumber)
+    msg.clearSwiftUnittest_Names_Uppers_theIDNumber()
+
+    msg.SwiftUnittest_Names_Uppers_requestID = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_Uppers_requestID)
+    msg.clearSwiftUnittest_Names_Uppers_requestID()
   }
 
   func testWordCase() {
@@ -362,6 +442,22 @@ class Test_ExtensionNamingInitials_MessageScoped: XCTestCase {
     msg.SwiftUnittest_Names_WordCase_theURL = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theURL)
     msg.clearSwiftUnittest_Names_WordCase_theURL()
+
+    msg.SwiftUnittest_Names_WordCase_id = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_id)
+    msg.clearSwiftUnittest_Names_WordCase_id()
+
+    msg.SwiftUnittest_Names_WordCase_idNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_idNumber)
+    msg.clearSwiftUnittest_Names_WordCase_idNumber()
+
+    msg.SwiftUnittest_Names_WordCase_theIDNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_theIDNumber)
+    msg.clearSwiftUnittest_Names_WordCase_theIDNumber()
+
+    msg.SwiftUnittest_Names_WordCase_requestID = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_WordCase_requestID)
+    msg.clearSwiftUnittest_Names_WordCase_requestID()
   }
 }
 
@@ -420,6 +516,22 @@ class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
     msg.SwiftUnittest_Names_aBC = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_aBC)
     msg.clearSwiftUnittest_Names_aBC()
+
+    msg.SwiftUnittest_Names_id = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_id)
+    msg.clearSwiftUnittest_Names_id()
+
+    msg.SwiftUnittest_Names_idNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_idNumber)
+    msg.clearSwiftUnittest_Names_idNumber()
+
+    msg.SwiftUnittest_Names_theIDNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theIDNumber)
+    msg.clearSwiftUnittest_Names_theIDNumber()
+
+    msg.SwiftUnittest_Names_requestID = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_requestID)
+    msg.clearSwiftUnittest_Names_requestID()
   }
 
   func testUppers() {
@@ -472,6 +584,18 @@ class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
     msg.SwiftUnittest_Names_theURL = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_theURL)
     msg.clearSwiftUnittest_Names_theURL()
+
+    msg.SwiftUnittest_Names_idNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_idNumber)
+    msg.clearSwiftUnittest_Names_idNumber()
+
+    msg.SwiftUnittest_Names_theIDNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theIDNumber)
+    msg.clearSwiftUnittest_Names_theIDNumber()
+
+    msg.SwiftUnittest_Names_requestID = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_requestID)
+    msg.clearSwiftUnittest_Names_requestID()
   }
 
   func testWordCase() {
@@ -524,6 +648,18 @@ class Test_ExtensionNamingInitials_GlobalScoped: XCTestCase {
     msg.SwiftUnittest_Names_theURL = 1
     XCTAssertTrue(msg.hasSwiftUnittest_Names_theURL)
     msg.clearSwiftUnittest_Names_theURL()
+
+    msg.SwiftUnittest_Names_idNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_idNumber)
+    msg.clearSwiftUnittest_Names_idNumber()
+
+    msg.SwiftUnittest_Names_theIDNumber = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_theIDNumber)
+    msg.clearSwiftUnittest_Names_theIDNumber()
+
+    msg.SwiftUnittest_Names_requestID = 1
+    XCTAssertTrue(msg.hasSwiftUnittest_Names_requestID)
+    msg.clearSwiftUnittest_Names_requestID()
   }
 }
 
@@ -582,6 +718,22 @@ class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
     msg.aBC = 1
     XCTAssertTrue(msg.hasABC)
     msg.clearABC()
+
+    msg.id = 1
+    XCTAssertTrue(msg.hasID)
+    msg.clearID()
+
+    msg.idNumber = 1
+    XCTAssertTrue(msg.hasIDNumber)
+    msg.clearIDNumber()
+
+    msg.theIDNumber = 1
+    XCTAssertTrue(msg.hasTheIDNumber)
+    msg.clearTheIDNumber()
+
+    msg.requestID = 1
+    XCTAssertTrue(msg.hasRequestID)
+    msg.clearRequestID()
   }
 
   func testUppers() {
@@ -634,6 +786,22 @@ class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
     msg.theURL = 1
     XCTAssertTrue(msg.hasTheURL)
     msg.clearTheURL()
+
+    msg.id = 1
+    XCTAssertTrue(msg.hasID)
+    msg.clearID()
+
+    msg.idNumber = 1
+    XCTAssertTrue(msg.hasIDNumber)
+    msg.clearIDNumber()
+
+    msg.theIDNumber = 1
+    XCTAssertTrue(msg.hasTheIDNumber)
+    msg.clearTheIDNumber()
+
+    msg.requestID = 1
+    XCTAssertTrue(msg.hasRequestID)
+    msg.clearRequestID()
   }
 
   func testWordCase() {
@@ -686,5 +854,21 @@ class Test_ExtensionNamingInitials_GlobalScoped_NoPrefix: XCTestCase {
     msg.theURL = 1
     XCTAssertTrue(msg.hasTheURL)
     msg.clearTheURL()
+
+    msg.id = 1
+    XCTAssertTrue(msg.hasID)
+    msg.clearID()
+
+    msg.idNumber = 1
+    XCTAssertTrue(msg.hasIDNumber)
+    msg.clearIDNumber()
+
+    msg.theIDNumber = 1
+    XCTAssertTrue(msg.hasTheIDNumber)
+    msg.clearTheIDNumber()
+
+    msg.requestID = 1
+    XCTAssertTrue(msg.hasRequestID)
+    msg.clearRequestID()
   }
 }

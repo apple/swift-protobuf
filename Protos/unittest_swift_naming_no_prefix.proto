@@ -40,6 +40,11 @@ extend swift_unittest.names.ExtensionNamingInitialsLowers {
   optional int32 the_url = 124;
 
   optional int32 a_b_c = 131;
+
+  optional int32 id = 141;
+  optional int32 id_number = 142;
+  optional int32 the_id_number = 143;
+  optional int32 request_id = 144;
 }
 
 extend swift_unittest.names.ExtensionNamingInitialsUppers {
@@ -57,6 +62,11 @@ extend swift_unittest.names.ExtensionNamingInitialsUppers {
   optional int32 URL_value = 122;
   optional int32 the_URL_value = 123;
   optional int32 the_URL = 124;
+
+  optional int32 ID = 141;
+  optional int32 ID_number = 142;
+  optional int32 the_ID_number = 143;
+  optional int32 request_ID = 144;
 }
 
 extend swift_unittest.names.ExtensionNamingInitialsWordCase {
@@ -74,4 +84,9 @@ extend swift_unittest.names.ExtensionNamingInitialsWordCase {
   optional int32 UrlValue = 122;
   optional int32 TheUrlValue = 123;
   optional int32 TheUrl = 124;
+
+  optional int32 Id = 141;
+  optional int32 IdNumber = 142;
+  optional int32 TheIdNumber = 143;
+  optional int32 RequestId = 144;
 }

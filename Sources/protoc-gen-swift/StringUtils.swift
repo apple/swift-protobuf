@@ -153,7 +153,7 @@ func periodsToUnderscores(_ s: String) -> String {
   return out
 }
 
-private let upperInitials: Set<String> = ["url", "http", "https"]
+private let upperInitials: Set<String> = ["url", "http", "https", "id"]
 
 func toUpperCamelCase(_ s: String) -> String {
   var out = ""
