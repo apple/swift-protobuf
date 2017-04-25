@@ -275,12 +275,10 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
     get {return _storage._testMap ?? Proto3TestMap()}
     set {_uniqueStorage()._testMap = newValue}
   }
-  var hasTestMap: Bool {
-    return _storage._testMap != nil
-  }
-  mutating func clearTestMap() {
-    _storage._testMap = nil
-  }
+  /// Returns true if `testMap` has been explicitly set.
+  var hasTestMap: Bool {return _storage._testMap != nil}
+  /// Clears the value of `testMap`. Subsequent reads from it will return its default value.
+  mutating func clearTestMap() {_storage._testMap = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

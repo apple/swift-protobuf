@@ -55,199 +55,163 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     get {return _storage._optionalInt32 ?? 0}
     set {_uniqueStorage()._optionalInt32 = newValue}
   }
-  var hasOptionalInt32: Bool {
-    return _storage._optionalInt32 != nil
-  }
-  mutating func clearOptionalInt32() {
-    _storage._optionalInt32 = nil
-  }
+  /// Returns true if `optionalInt32` has been explicitly set.
+  var hasOptionalInt32: Bool {return _storage._optionalInt32 != nil}
+  /// Clears the value of `optionalInt32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt32() {_storage._optionalInt32 = nil}
 
   var optionalInt64: Int64 {
     get {return _storage._optionalInt64 ?? 0}
     set {_uniqueStorage()._optionalInt64 = newValue}
   }
-  var hasOptionalInt64: Bool {
-    return _storage._optionalInt64 != nil
-  }
-  mutating func clearOptionalInt64() {
-    _storage._optionalInt64 = nil
-  }
+  /// Returns true if `optionalInt64` has been explicitly set.
+  var hasOptionalInt64: Bool {return _storage._optionalInt64 != nil}
+  /// Clears the value of `optionalInt64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalInt64() {_storage._optionalInt64 = nil}
 
   var optionalUint32: UInt32 {
     get {return _storage._optionalUint32 ?? 0}
     set {_uniqueStorage()._optionalUint32 = newValue}
   }
-  var hasOptionalUint32: Bool {
-    return _storage._optionalUint32 != nil
-  }
-  mutating func clearOptionalUint32() {
-    _storage._optionalUint32 = nil
-  }
+  /// Returns true if `optionalUint32` has been explicitly set.
+  var hasOptionalUint32: Bool {return _storage._optionalUint32 != nil}
+  /// Clears the value of `optionalUint32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint32() {_storage._optionalUint32 = nil}
 
   var optionalUint64: UInt64 {
     get {return _storage._optionalUint64 ?? 0}
     set {_uniqueStorage()._optionalUint64 = newValue}
   }
-  var hasOptionalUint64: Bool {
-    return _storage._optionalUint64 != nil
-  }
-  mutating func clearOptionalUint64() {
-    _storage._optionalUint64 = nil
-  }
+  /// Returns true if `optionalUint64` has been explicitly set.
+  var hasOptionalUint64: Bool {return _storage._optionalUint64 != nil}
+  /// Clears the value of `optionalUint64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalUint64() {_storage._optionalUint64 = nil}
 
   var optionalSint32: Int32 {
     get {return _storage._optionalSint32 ?? 0}
     set {_uniqueStorage()._optionalSint32 = newValue}
   }
-  var hasOptionalSint32: Bool {
-    return _storage._optionalSint32 != nil
-  }
-  mutating func clearOptionalSint32() {
-    _storage._optionalSint32 = nil
-  }
+  /// Returns true if `optionalSint32` has been explicitly set.
+  var hasOptionalSint32: Bool {return _storage._optionalSint32 != nil}
+  /// Clears the value of `optionalSint32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSint32() {_storage._optionalSint32 = nil}
 
   var optionalSint64: Int64 {
     get {return _storage._optionalSint64 ?? 0}
     set {_uniqueStorage()._optionalSint64 = newValue}
   }
-  var hasOptionalSint64: Bool {
-    return _storage._optionalSint64 != nil
-  }
-  mutating func clearOptionalSint64() {
-    _storage._optionalSint64 = nil
-  }
+  /// Returns true if `optionalSint64` has been explicitly set.
+  var hasOptionalSint64: Bool {return _storage._optionalSint64 != nil}
+  /// Clears the value of `optionalSint64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSint64() {_storage._optionalSint64 = nil}
 
   var optionalFixed32: UInt32 {
     get {return _storage._optionalFixed32 ?? 0}
     set {_uniqueStorage()._optionalFixed32 = newValue}
   }
-  var hasOptionalFixed32: Bool {
-    return _storage._optionalFixed32 != nil
-  }
-  mutating func clearOptionalFixed32() {
-    _storage._optionalFixed32 = nil
-  }
+  /// Returns true if `optionalFixed32` has been explicitly set.
+  var hasOptionalFixed32: Bool {return _storage._optionalFixed32 != nil}
+  /// Clears the value of `optionalFixed32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalFixed32() {_storage._optionalFixed32 = nil}
 
   var optionalFixed64: UInt64 {
     get {return _storage._optionalFixed64 ?? 0}
     set {_uniqueStorage()._optionalFixed64 = newValue}
   }
-  var hasOptionalFixed64: Bool {
-    return _storage._optionalFixed64 != nil
-  }
-  mutating func clearOptionalFixed64() {
-    _storage._optionalFixed64 = nil
-  }
+  /// Returns true if `optionalFixed64` has been explicitly set.
+  var hasOptionalFixed64: Bool {return _storage._optionalFixed64 != nil}
+  /// Clears the value of `optionalFixed64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalFixed64() {_storage._optionalFixed64 = nil}
 
   var optionalSfixed32: Int32 {
     get {return _storage._optionalSfixed32 ?? 0}
     set {_uniqueStorage()._optionalSfixed32 = newValue}
   }
-  var hasOptionalSfixed32: Bool {
-    return _storage._optionalSfixed32 != nil
-  }
-  mutating func clearOptionalSfixed32() {
-    _storage._optionalSfixed32 = nil
-  }
+  /// Returns true if `optionalSfixed32` has been explicitly set.
+  var hasOptionalSfixed32: Bool {return _storage._optionalSfixed32 != nil}
+  /// Clears the value of `optionalSfixed32`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSfixed32() {_storage._optionalSfixed32 = nil}
 
   var optionalSfixed64: Int64 {
     get {return _storage._optionalSfixed64 ?? 0}
     set {_uniqueStorage()._optionalSfixed64 = newValue}
   }
-  var hasOptionalSfixed64: Bool {
-    return _storage._optionalSfixed64 != nil
-  }
-  mutating func clearOptionalSfixed64() {
-    _storage._optionalSfixed64 = nil
-  }
+  /// Returns true if `optionalSfixed64` has been explicitly set.
+  var hasOptionalSfixed64: Bool {return _storage._optionalSfixed64 != nil}
+  /// Clears the value of `optionalSfixed64`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalSfixed64() {_storage._optionalSfixed64 = nil}
 
   var optionalFloat: Float {
     get {return _storage._optionalFloat ?? 0}
     set {_uniqueStorage()._optionalFloat = newValue}
   }
-  var hasOptionalFloat: Bool {
-    return _storage._optionalFloat != nil
-  }
-  mutating func clearOptionalFloat() {
-    _storage._optionalFloat = nil
-  }
+  /// Returns true if `optionalFloat` has been explicitly set.
+  var hasOptionalFloat: Bool {return _storage._optionalFloat != nil}
+  /// Clears the value of `optionalFloat`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalFloat() {_storage._optionalFloat = nil}
 
   var optionalDouble: Double {
     get {return _storage._optionalDouble ?? 0}
     set {_uniqueStorage()._optionalDouble = newValue}
   }
-  var hasOptionalDouble: Bool {
-    return _storage._optionalDouble != nil
-  }
-  mutating func clearOptionalDouble() {
-    _storage._optionalDouble = nil
-  }
+  /// Returns true if `optionalDouble` has been explicitly set.
+  var hasOptionalDouble: Bool {return _storage._optionalDouble != nil}
+  /// Clears the value of `optionalDouble`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalDouble() {_storage._optionalDouble = nil}
 
   var optionalBool: Bool {
     get {return _storage._optionalBool ?? false}
     set {_uniqueStorage()._optionalBool = newValue}
   }
-  var hasOptionalBool: Bool {
-    return _storage._optionalBool != nil
-  }
-  mutating func clearOptionalBool() {
-    _storage._optionalBool = nil
-  }
+  /// Returns true if `optionalBool` has been explicitly set.
+  var hasOptionalBool: Bool {return _storage._optionalBool != nil}
+  /// Clears the value of `optionalBool`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBool() {_storage._optionalBool = nil}
 
   var optionalString: String {
     get {return _storage._optionalString ?? String()}
     set {_uniqueStorage()._optionalString = newValue}
   }
-  var hasOptionalString: Bool {
-    return _storage._optionalString != nil
-  }
-  mutating func clearOptionalString() {
-    _storage._optionalString = nil
-  }
+  /// Returns true if `optionalString` has been explicitly set.
+  var hasOptionalString: Bool {return _storage._optionalString != nil}
+  /// Clears the value of `optionalString`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalString() {_storage._optionalString = nil}
 
   var optionalBytes: Data {
     get {return _storage._optionalBytes ?? SwiftProtobuf.Internal.emptyData}
     set {_uniqueStorage()._optionalBytes = newValue}
   }
-  var hasOptionalBytes: Bool {
-    return _storage._optionalBytes != nil
-  }
-  mutating func clearOptionalBytes() {
-    _storage._optionalBytes = nil
-  }
+  /// Returns true if `optionalBytes` has been explicitly set.
+  var hasOptionalBytes: Bool {return _storage._optionalBytes != nil}
+  /// Clears the value of `optionalBytes`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalBytes() {_storage._optionalBytes = nil}
 
   var optionalGroup: ProtobufUnittest_Message2.OptionalGroup {
     get {return _storage._optionalGroup ?? ProtobufUnittest_Message2.OptionalGroup()}
     set {_uniqueStorage()._optionalGroup = newValue}
   }
-  var hasOptionalGroup: Bool {
-    return _storage._optionalGroup != nil
-  }
-  mutating func clearOptionalGroup() {
-    _storage._optionalGroup = nil
-  }
+  /// Returns true if `optionalGroup` has been explicitly set.
+  var hasOptionalGroup: Bool {return _storage._optionalGroup != nil}
+  /// Clears the value of `optionalGroup`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalGroup() {_storage._optionalGroup = nil}
 
   var optionalMessage: ProtobufUnittest_Message2 {
     get {return _storage._optionalMessage ?? ProtobufUnittest_Message2()}
     set {_uniqueStorage()._optionalMessage = newValue}
   }
-  var hasOptionalMessage: Bool {
-    return _storage._optionalMessage != nil
-  }
-  mutating func clearOptionalMessage() {
-    _storage._optionalMessage = nil
-  }
+  /// Returns true if `optionalMessage` has been explicitly set.
+  var hasOptionalMessage: Bool {return _storage._optionalMessage != nil}
+  /// Clears the value of `optionalMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
 
   var optionalEnum: ProtobufUnittest_Message2.Enum {
     get {return _storage._optionalEnum ?? ProtobufUnittest_Message2.Enum.foo}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
-  var hasOptionalEnum: Bool {
-    return _storage._optionalEnum != nil
-  }
-  mutating func clearOptionalEnum() {
-    _storage._optionalEnum = nil
-  }
+  /// Returns true if `optionalEnum` has been explicitly set.
+  var hasOptionalEnum: Bool {return _storage._optionalEnum != nil}
+  /// Clears the value of `optionalEnum`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalEnum() {_storage._optionalEnum = nil}
 
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
@@ -666,17 +630,14 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   struct OptionalGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Message2.protoMessageName + ".OptionalGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    var hasA: Bool {
-      return self._a != nil
-    }
-    mutating func clearA() {
-      self._a = nil
-    }
+    /// Returns true if `a` has been explicitly set.
+    var hasA: Bool {return self._a != nil}
+    /// Clears the value of `a`. Subsequent reads from it will return its default value.
+    mutating func clearA() {self._a = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -697,22 +658,21 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Message2.protoMessageName + ".RepeatedGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 0}
       set {_a = newValue}
     }
-    var hasA: Bool {
-      return self._a != nil
-    }
-    mutating func clearA() {
-      self._a = nil
-    }
+    /// Returns true if `a` has been explicitly set.
+    var hasA: Bool {return self._a != nil}
+    /// Clears the value of `a`. Subsequent reads from it will return its default value.
+    mutating func clearA() {self._a = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -733,34 +693,30 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
   }
 
   struct OneofGroup: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Message2.protoMessageName + ".OneofGroup"
 
-    fileprivate var _a: Int32? = nil
     var a: Int32 {
       get {return _a ?? 116}
       set {_a = newValue}
     }
-    var hasA: Bool {
-      return self._a != nil
-    }
-    mutating func clearA() {
-      self._a = nil
-    }
+    /// Returns true if `a` has been explicitly set.
+    var hasA: Bool {return self._a != nil}
+    /// Clears the value of `a`. Subsequent reads from it will return its default value.
+    mutating func clearA() {self._a = nil}
 
-    fileprivate var _b: Int32? = nil
     var b: Int32 {
       get {return _b ?? 0}
       set {_b = newValue}
     }
-    var hasB: Bool {
-      return self._b != nil
-    }
-    mutating func clearB() {
-      self._b = nil
-    }
+    /// Returns true if `b` has been explicitly set.
+    var hasB: Bool {return self._b != nil}
+    /// Clears the value of `b`. Subsequent reads from it will return its default value.
+    mutating func clearB() {self._b = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -785,6 +741,9 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _a: Int32? = nil
+    fileprivate var _b: Int32? = nil
   }
 
   init() {}
@@ -1060,12 +1019,10 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
     get {return _storage._y ?? ProtobufUnittest_Msg2UsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
-  var hasY: Bool {
-    return _storage._y != nil
-  }
-  mutating func clearY() {
-    _storage._y = nil
-  }
+  /// Returns true if `y` has been explicitly set.
+  var hasY: Bool {return _storage._y != nil}
+  /// Clears the value of `y`. Subsequent reads from it will return its default value.
+  mutating func clearY() {_storage._y = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

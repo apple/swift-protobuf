@@ -254,6 +254,17 @@ class MessageGenerator {
         p.print("\n")
       }
       p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
+    } else {
+      var subMessagePrinter = CodePrinter()
+      for f in fields {
+        f.generateTopIvarStorage(printer: &subMessagePrinter)
+      }
+      if !subMessagePrinter.isEmpty {
+        if !isExtensible {
+          p.print("\n")
+        }
+        p.print(subMessagePrinter.content)
+      }
     }
 
     p.outdent()

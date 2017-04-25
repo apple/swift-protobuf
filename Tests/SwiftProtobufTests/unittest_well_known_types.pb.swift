@@ -29,211 +29,173 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
     get {return _storage._anyField ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._anyField = newValue}
   }
-  var hasAnyField: Bool {
-    return _storage._anyField != nil
-  }
-  mutating func clearAnyField() {
-    _storage._anyField = nil
-  }
+  /// Returns true if `anyField` has been explicitly set.
+  var hasAnyField: Bool {return _storage._anyField != nil}
+  /// Clears the value of `anyField`. Subsequent reads from it will return its default value.
+  mutating func clearAnyField() {_storage._anyField = nil}
 
   var apiField: Google_Protobuf_Api {
     get {return _storage._apiField ?? Google_Protobuf_Api()}
     set {_uniqueStorage()._apiField = newValue}
   }
-  var hasApiField: Bool {
-    return _storage._apiField != nil
-  }
-  mutating func clearApiField() {
-    _storage._apiField = nil
-  }
+  /// Returns true if `apiField` has been explicitly set.
+  var hasApiField: Bool {return _storage._apiField != nil}
+  /// Clears the value of `apiField`. Subsequent reads from it will return its default value.
+  mutating func clearApiField() {_storage._apiField = nil}
 
   var durationField: Google_Protobuf_Duration {
     get {return _storage._durationField ?? Google_Protobuf_Duration()}
     set {_uniqueStorage()._durationField = newValue}
   }
-  var hasDurationField: Bool {
-    return _storage._durationField != nil
-  }
-  mutating func clearDurationField() {
-    _storage._durationField = nil
-  }
+  /// Returns true if `durationField` has been explicitly set.
+  var hasDurationField: Bool {return _storage._durationField != nil}
+  /// Clears the value of `durationField`. Subsequent reads from it will return its default value.
+  mutating func clearDurationField() {_storage._durationField = nil}
 
   var emptyField: Google_Protobuf_Empty {
     get {return _storage._emptyField ?? Google_Protobuf_Empty()}
     set {_uniqueStorage()._emptyField = newValue}
   }
-  var hasEmptyField: Bool {
-    return _storage._emptyField != nil
-  }
-  mutating func clearEmptyField() {
-    _storage._emptyField = nil
-  }
+  /// Returns true if `emptyField` has been explicitly set.
+  var hasEmptyField: Bool {return _storage._emptyField != nil}
+  /// Clears the value of `emptyField`. Subsequent reads from it will return its default value.
+  mutating func clearEmptyField() {_storage._emptyField = nil}
 
   var fieldMaskField: Google_Protobuf_FieldMask {
     get {return _storage._fieldMaskField ?? Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._fieldMaskField = newValue}
   }
-  var hasFieldMaskField: Bool {
-    return _storage._fieldMaskField != nil
-  }
-  mutating func clearFieldMaskField() {
-    _storage._fieldMaskField = nil
-  }
+  /// Returns true if `fieldMaskField` has been explicitly set.
+  var hasFieldMaskField: Bool {return _storage._fieldMaskField != nil}
+  /// Clears the value of `fieldMaskField`. Subsequent reads from it will return its default value.
+  mutating func clearFieldMaskField() {_storage._fieldMaskField = nil}
 
   var sourceContextField: Google_Protobuf_SourceContext {
     get {return _storage._sourceContextField ?? Google_Protobuf_SourceContext()}
     set {_uniqueStorage()._sourceContextField = newValue}
   }
-  var hasSourceContextField: Bool {
-    return _storage._sourceContextField != nil
-  }
-  mutating func clearSourceContextField() {
-    _storage._sourceContextField = nil
-  }
+  /// Returns true if `sourceContextField` has been explicitly set.
+  var hasSourceContextField: Bool {return _storage._sourceContextField != nil}
+  /// Clears the value of `sourceContextField`. Subsequent reads from it will return its default value.
+  mutating func clearSourceContextField() {_storage._sourceContextField = nil}
 
   var structField: Google_Protobuf_Struct {
     get {return _storage._structField ?? Google_Protobuf_Struct()}
     set {_uniqueStorage()._structField = newValue}
   }
-  var hasStructField: Bool {
-    return _storage._structField != nil
-  }
-  mutating func clearStructField() {
-    _storage._structField = nil
-  }
+  /// Returns true if `structField` has been explicitly set.
+  var hasStructField: Bool {return _storage._structField != nil}
+  /// Clears the value of `structField`. Subsequent reads from it will return its default value.
+  mutating func clearStructField() {_storage._structField = nil}
 
   var timestampField: Google_Protobuf_Timestamp {
     get {return _storage._timestampField ?? Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._timestampField = newValue}
   }
-  var hasTimestampField: Bool {
-    return _storage._timestampField != nil
-  }
-  mutating func clearTimestampField() {
-    _storage._timestampField = nil
-  }
+  /// Returns true if `timestampField` has been explicitly set.
+  var hasTimestampField: Bool {return _storage._timestampField != nil}
+  /// Clears the value of `timestampField`. Subsequent reads from it will return its default value.
+  mutating func clearTimestampField() {_storage._timestampField = nil}
 
   var typeField: Google_Protobuf_Type {
     get {return _storage._typeField ?? Google_Protobuf_Type()}
     set {_uniqueStorage()._typeField = newValue}
   }
-  var hasTypeField: Bool {
-    return _storage._typeField != nil
-  }
-  mutating func clearTypeField() {
-    _storage._typeField = nil
-  }
+  /// Returns true if `typeField` has been explicitly set.
+  var hasTypeField: Bool {return _storage._typeField != nil}
+  /// Clears the value of `typeField`. Subsequent reads from it will return its default value.
+  mutating func clearTypeField() {_storage._typeField = nil}
 
   var doubleField: Google_Protobuf_DoubleValue {
     get {return _storage._doubleField ?? Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._doubleField = newValue}
   }
-  var hasDoubleField: Bool {
-    return _storage._doubleField != nil
-  }
-  mutating func clearDoubleField() {
-    _storage._doubleField = nil
-  }
+  /// Returns true if `doubleField` has been explicitly set.
+  var hasDoubleField: Bool {return _storage._doubleField != nil}
+  /// Clears the value of `doubleField`. Subsequent reads from it will return its default value.
+  mutating func clearDoubleField() {_storage._doubleField = nil}
 
   var floatField: Google_Protobuf_FloatValue {
     get {return _storage._floatField ?? Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._floatField = newValue}
   }
-  var hasFloatField: Bool {
-    return _storage._floatField != nil
-  }
-  mutating func clearFloatField() {
-    _storage._floatField = nil
-  }
+  /// Returns true if `floatField` has been explicitly set.
+  var hasFloatField: Bool {return _storage._floatField != nil}
+  /// Clears the value of `floatField`. Subsequent reads from it will return its default value.
+  mutating func clearFloatField() {_storage._floatField = nil}
 
   var int64Field: Google_Protobuf_Int64Value {
     get {return _storage._int64Field ?? Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._int64Field = newValue}
   }
-  var hasInt64Field: Bool {
-    return _storage._int64Field != nil
-  }
-  mutating func clearInt64Field() {
-    _storage._int64Field = nil
-  }
+  /// Returns true if `int64Field` has been explicitly set.
+  var hasInt64Field: Bool {return _storage._int64Field != nil}
+  /// Clears the value of `int64Field`. Subsequent reads from it will return its default value.
+  mutating func clearInt64Field() {_storage._int64Field = nil}
 
   var uint64Field: Google_Protobuf_UInt64Value {
     get {return _storage._uint64Field ?? Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._uint64Field = newValue}
   }
-  var hasUint64Field: Bool {
-    return _storage._uint64Field != nil
-  }
-  mutating func clearUint64Field() {
-    _storage._uint64Field = nil
-  }
+  /// Returns true if `uint64Field` has been explicitly set.
+  var hasUint64Field: Bool {return _storage._uint64Field != nil}
+  /// Clears the value of `uint64Field`. Subsequent reads from it will return its default value.
+  mutating func clearUint64Field() {_storage._uint64Field = nil}
 
   var int32Field: Google_Protobuf_Int32Value {
     get {return _storage._int32Field ?? Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._int32Field = newValue}
   }
-  var hasInt32Field: Bool {
-    return _storage._int32Field != nil
-  }
-  mutating func clearInt32Field() {
-    _storage._int32Field = nil
-  }
+  /// Returns true if `int32Field` has been explicitly set.
+  var hasInt32Field: Bool {return _storage._int32Field != nil}
+  /// Clears the value of `int32Field`. Subsequent reads from it will return its default value.
+  mutating func clearInt32Field() {_storage._int32Field = nil}
 
   var uint32Field: Google_Protobuf_UInt32Value {
     get {return _storage._uint32Field ?? Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._uint32Field = newValue}
   }
-  var hasUint32Field: Bool {
-    return _storage._uint32Field != nil
-  }
-  mutating func clearUint32Field() {
-    _storage._uint32Field = nil
-  }
+  /// Returns true if `uint32Field` has been explicitly set.
+  var hasUint32Field: Bool {return _storage._uint32Field != nil}
+  /// Clears the value of `uint32Field`. Subsequent reads from it will return its default value.
+  mutating func clearUint32Field() {_storage._uint32Field = nil}
 
   var boolField: Google_Protobuf_BoolValue {
     get {return _storage._boolField ?? Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._boolField = newValue}
   }
-  var hasBoolField: Bool {
-    return _storage._boolField != nil
-  }
-  mutating func clearBoolField() {
-    _storage._boolField = nil
-  }
+  /// Returns true if `boolField` has been explicitly set.
+  var hasBoolField: Bool {return _storage._boolField != nil}
+  /// Clears the value of `boolField`. Subsequent reads from it will return its default value.
+  mutating func clearBoolField() {_storage._boolField = nil}
 
   var stringField: Google_Protobuf_StringValue {
     get {return _storage._stringField ?? Google_Protobuf_StringValue()}
     set {_uniqueStorage()._stringField = newValue}
   }
-  var hasStringField: Bool {
-    return _storage._stringField != nil
-  }
-  mutating func clearStringField() {
-    _storage._stringField = nil
-  }
+  /// Returns true if `stringField` has been explicitly set.
+  var hasStringField: Bool {return _storage._stringField != nil}
+  /// Clears the value of `stringField`. Subsequent reads from it will return its default value.
+  mutating func clearStringField() {_storage._stringField = nil}
 
   var bytesField: Google_Protobuf_BytesValue {
     get {return _storage._bytesField ?? Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._bytesField = newValue}
   }
-  var hasBytesField: Bool {
-    return _storage._bytesField != nil
-  }
-  mutating func clearBytesField() {
-    _storage._bytesField = nil
-  }
+  /// Returns true if `bytesField` has been explicitly set.
+  var hasBytesField: Bool {return _storage._bytesField != nil}
+  /// Clears the value of `bytesField`. Subsequent reads from it will return its default value.
+  mutating func clearBytesField() {_storage._bytesField = nil}
 
   /// Part of struct, but useful to be able to test separately
   var valueField: Google_Protobuf_Value {
     get {return _storage._valueField ?? Google_Protobuf_Value()}
     set {_uniqueStorage()._valueField = newValue}
   }
-  var hasValueField: Bool {
-    return _storage._valueField != nil
-  }
-  mutating func clearValueField() {
-    _storage._valueField = nil
-  }
+  /// Returns true if `valueField` has been explicitly set.
+  var hasValueField: Bool {return _storage._valueField != nil}
+  /// Clears the value of `valueField`. Subsequent reads from it will return its default value.
+  mutating func clearValueField() {_storage._valueField = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

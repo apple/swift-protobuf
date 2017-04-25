@@ -48,17 +48,14 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
     struct Baz: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
       static let protoMessageName: String = ProtobufUnittest_Extend_Foo.Bar.protoMessageName + ".Baz"
 
-      fileprivate var _a: Int32? = nil
       var a: Int32 {
         get {return _a ?? 0}
         set {_a = newValue}
       }
-      var hasA: Bool {
-        return self._a != nil
-      }
-      mutating func clearA() {
-        self._a = nil
-      }
+      /// Returns true if `a` has been explicitly set.
+      var hasA: Bool {return self._a != nil}
+      /// Clears the value of `a`. Subsequent reads from it will return its default value.
+      mutating func clearA() {self._a = nil}
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -89,6 +86,7 @@ struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
       }
 
       var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+      fileprivate var _a: Int32? = nil
     }
 
     init() {}
@@ -119,17 +117,14 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".C"
 
   ///      extensions 10 to 20;
-  fileprivate var _c: Int64? = nil
   var c: Int64 {
     get {return _c ?? 0}
     set {_c = newValue}
   }
-  var hasC: Bool {
-    return self._c != nil
-  }
-  mutating func clearC() {
-    self._c = nil
-  }
+  /// Returns true if `c` has been explicitly set.
+  var hasC: Bool {return self._c != nil}
+  /// Clears the value of `c`. Subsequent reads from it will return its default value.
+  mutating func clearC() {self._c = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -150,6 +145,8 @@ struct ProtobufUnittest_Extend_C: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _c: Int64? = nil
 }
 
 struct ProtobufUnittest_Extend_Msg1: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -211,17 +208,14 @@ struct ProtobufUnittest_Extend_Msg2: SwiftProtobuf.Message, SwiftProtobuf.Extens
 struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".MsgNoStorage"
 
-  fileprivate var _x: Int32? = nil
   var x: Int32 {
     get {return _x ?? 0}
     set {_x = newValue}
   }
-  var hasX: Bool {
-    return self._x != nil
-  }
-  mutating func clearX() {
-    self._x = nil
-  }
+  /// Returns true if `x` has been explicitly set.
+  var hasX: Bool {return self._x != nil}
+  /// Clears the value of `x`. Subsequent reads from it will return its default value.
+  mutating func clearX() {self._x = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -252,6 +246,7 @@ struct ProtobufUnittest_Extend_MsgNoStorage: SwiftProtobuf.Message, SwiftProtobu
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _x: Int32? = nil
 }
 
 struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -261,24 +256,20 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
     get {return _storage._x ?? 0}
     set {_uniqueStorage()._x = newValue}
   }
-  var hasX: Bool {
-    return _storage._x != nil
-  }
-  mutating func clearX() {
-    _storage._x = nil
-  }
+  /// Returns true if `x` has been explicitly set.
+  var hasX: Bool {return _storage._x != nil}
+  /// Clears the value of `x`. Subsequent reads from it will return its default value.
+  mutating func clearX() {_storage._x = nil}
 
   /// Recursive class (i.e. - can build a graph), forces _StorageClass.
   var y: ProtobufUnittest_Extend_MsgUsesStorage {
     get {return _storage._y ?? ProtobufUnittest_Extend_MsgUsesStorage()}
     set {_uniqueStorage()._y = newValue}
   }
-  var hasY: Bool {
-    return _storage._y != nil
-  }
-  mutating func clearY() {
-    _storage._y = nil
-  }
+  /// Returns true if `y` has been explicitly set.
+  var hasY: Bool {return _storage._y != nil}
+  /// Clears the value of `y`. Subsequent reads from it will return its default value.
+  mutating func clearY() {_storage._y = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

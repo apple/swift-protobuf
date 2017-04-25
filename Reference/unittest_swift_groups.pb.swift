@@ -53,17 +53,14 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = "SwiftTestGroupExtensions"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -94,22 +91,20 @@ struct SwiftTestGroupExtensions: SwiftProtobuf.Message, SwiftProtobuf.Extensible
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _a: Int32? = nil
 }
 
 struct ExtensionGroup: SwiftProtobuf.Message {
   static let protoMessageName: String = "ExtensionGroup"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -130,22 +125,21 @@ struct ExtensionGroup: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct RepeatedExtensionGroup: SwiftProtobuf.Message {
   static let protoMessageName: String = "RepeatedExtensionGroup"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -166,22 +160,21 @@ struct RepeatedExtensionGroup: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
   static let protoMessageName: String = "SwiftTestGroupUnextended"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -202,6 +195,8 @@ struct SwiftTestGroupUnextended: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  fileprivate var _a: Int32? = nil
 }
 
 struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
@@ -211,23 +206,19 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     get {return _storage._outerA ?? 0}
     set {_uniqueStorage()._outerA = newValue}
   }
-  var hasOuterA: Bool {
-    return _storage._outerA != nil
-  }
-  mutating func clearOuterA() {
-    _storage._outerA = nil
-  }
+  /// Returns true if `outerA` has been explicitly set.
+  var hasOuterA: Bool {return _storage._outerA != nil}
+  /// Clears the value of `outerA`. Subsequent reads from it will return its default value.
+  mutating func clearOuterA() {_storage._outerA = nil}
 
   var subGroup1: SwiftTestNestingGroupsMessage.SubGroup1 {
     get {return _storage._subGroup1 ?? SwiftTestNestingGroupsMessage.SubGroup1()}
     set {_uniqueStorage()._subGroup1 = newValue}
   }
-  var hasSubGroup1: Bool {
-    return _storage._subGroup1 != nil
-  }
-  mutating func clearSubGroup1() {
-    _storage._subGroup1 = nil
-  }
+  /// Returns true if `subGroup1` has been explicitly set.
+  var hasSubGroup1: Bool {return _storage._subGroup1 != nil}
+  /// Clears the value of `subGroup1`. Subsequent reads from it will return its default value.
+  mutating func clearSubGroup1() {_storage._subGroup1 = nil}
 
   var subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] {
     get {return _storage._subGroup3}
@@ -243,40 +234,33 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       get {return _storage._sub1A ?? 0}
       set {_uniqueStorage()._sub1A = newValue}
     }
-    var hasSub1A: Bool {
-      return _storage._sub1A != nil
-    }
-    mutating func clearSub1A() {
-      _storage._sub1A = nil
-    }
+    /// Returns true if `sub1A` has been explicitly set.
+    var hasSub1A: Bool {return _storage._sub1A != nil}
+    /// Clears the value of `sub1A`. Subsequent reads from it will return its default value.
+    mutating func clearSub1A() {_storage._sub1A = nil}
 
     var subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2 {
       get {return _storage._subGroup2 ?? SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2()}
       set {_uniqueStorage()._subGroup2 = newValue}
     }
-    var hasSubGroup2: Bool {
-      return _storage._subGroup2 != nil
-    }
-    mutating func clearSubGroup2() {
-      _storage._subGroup2 = nil
-    }
+    /// Returns true if `subGroup2` has been explicitly set.
+    var hasSubGroup2: Bool {return _storage._subGroup2 != nil}
+    /// Clears the value of `subGroup2`. Subsequent reads from it will return its default value.
+    mutating func clearSubGroup2() {_storage._subGroup2 = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     struct SubGroup2: SwiftProtobuf.Message {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup1.protoMessageName + ".SubGroup2"
 
-      fileprivate var _sub2A: Int32? = nil
       var sub2A: Int32 {
         get {return _sub2A ?? 0}
         set {_sub2A = newValue}
       }
-      var hasSub2A: Bool {
-        return self._sub2A != nil
-      }
-      mutating func clearSub2A() {
-        self._sub2A = nil
-      }
+      /// Returns true if `sub2A` has been explicitly set.
+      var hasSub2A: Bool {return self._sub2A != nil}
+      /// Clears the value of `sub2A`. Subsequent reads from it will return its default value.
+      mutating func clearSub2A() {self._sub2A = nil}
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -297,6 +281,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _sub2A: Int32? = nil
     }
 
     init() {}
@@ -332,17 +318,14 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
   struct SubGroup3: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftTestNestingGroupsMessage.protoMessageName + ".SubGroup3"
 
-    fileprivate var _sub3A: Int32? = nil
     var sub3A: Int32 {
       get {return _sub3A ?? 0}
       set {_sub3A = newValue}
     }
-    var hasSub3A: Bool {
-      return self._sub3A != nil
-    }
-    mutating func clearSub3A() {
-      self._sub3A = nil
-    }
+    /// Returns true if `sub3A` has been explicitly set.
+    var hasSub3A: Bool {return self._sub3A != nil}
+    /// Clears the value of `sub3A`. Subsequent reads from it will return its default value.
+    mutating func clearSub3A() {self._sub3A = nil}
 
     var subGroup4: [SwiftTestNestingGroupsMessage.SubGroup3.SubGroup4] = []
 
@@ -351,17 +334,14 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     struct SubGroup4: SwiftProtobuf.Message {
       static let protoMessageName: String = SwiftTestNestingGroupsMessage.SubGroup3.protoMessageName + ".SubGroup4"
 
-      fileprivate var _sub4A: Int32? = nil
       var sub4A: Int32 {
         get {return _sub4A ?? 0}
         set {_sub4A = newValue}
       }
-      var hasSub4A: Bool {
-        return self._sub4A != nil
-      }
-      mutating func clearSub4A() {
-        self._sub4A = nil
-      }
+      /// Returns true if `sub4A` has been explicitly set.
+      var hasSub4A: Bool {return self._sub4A != nil}
+      /// Clears the value of `sub4A`. Subsequent reads from it will return its default value.
+      mutating func clearSub4A() {self._sub4A = nil}
 
       var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -382,6 +362,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
         }
         try unknownFields.traverse(visitor: &visitor)
       }
+
+      fileprivate var _sub4A: Int32? = nil
     }
 
     init() {}
@@ -405,6 +387,8 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       }
       try unknownFields.traverse(visitor: &visitor)
     }
+
+    fileprivate var _sub3A: Int32? = nil
   }
 
   init() {}

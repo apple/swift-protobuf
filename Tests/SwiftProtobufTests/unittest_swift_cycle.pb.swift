@@ -55,34 +55,28 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-  var hasAFoo: Bool {
-    return _storage._aFoo != nil
-  }
-  mutating func clearAFoo() {
-    _storage._aFoo = nil
-  }
+  /// Returns true if `aFoo` has been explicitly set.
+  var hasAFoo: Bool {return _storage._aFoo != nil}
+  /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
+  mutating func clearAFoo() {_storage._aFoo = nil}
 
   var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-  var hasABar: Bool {
-    return _storage._aBar != nil
-  }
-  mutating func clearABar() {
-    _storage._aBar = nil
-  }
+  /// Returns true if `aBar` has been explicitly set.
+  var hasABar: Bool {return _storage._aBar != nil}
+  /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
+  mutating func clearABar() {_storage._aBar = nil}
 
   var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-  var hasABaz: Bool {
-    return _storage._aBaz != nil
-  }
-  mutating func clearABaz() {
-    _storage._aBaz = nil
-  }
+  /// Returns true if `aBaz` has been explicitly set.
+  var hasABaz: Bool {return _storage._aBaz != nil}
+  /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
+  mutating func clearABaz() {_storage._aBaz = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -127,34 +121,28 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-  var hasABar: Bool {
-    return _storage._aBar != nil
-  }
-  mutating func clearABar() {
-    _storage._aBar = nil
-  }
+  /// Returns true if `aBar` has been explicitly set.
+  var hasABar: Bool {return _storage._aBar != nil}
+  /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
+  mutating func clearABar() {_storage._aBar = nil}
 
   var aBaz: ProtobufUnittest_CycleBaz {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-  var hasABaz: Bool {
-    return _storage._aBaz != nil
-  }
-  mutating func clearABaz() {
-    _storage._aBaz = nil
-  }
+  /// Returns true if `aBaz` has been explicitly set.
+  var hasABaz: Bool {return _storage._aBaz != nil}
+  /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
+  mutating func clearABaz() {_storage._aBaz = nil}
 
   var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-  var hasAFoo: Bool {
-    return _storage._aFoo != nil
-  }
-  mutating func clearAFoo() {
-    _storage._aFoo = nil
-  }
+  /// Returns true if `aFoo` has been explicitly set.
+  var hasAFoo: Bool {return _storage._aFoo != nil}
+  /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
+  mutating func clearAFoo() {_storage._aFoo = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -199,34 +187,28 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     get {return _storage._aBaz ?? ProtobufUnittest_CycleBaz()}
     set {_uniqueStorage()._aBaz = newValue}
   }
-  var hasABaz: Bool {
-    return _storage._aBaz != nil
-  }
-  mutating func clearABaz() {
-    _storage._aBaz = nil
-  }
+  /// Returns true if `aBaz` has been explicitly set.
+  var hasABaz: Bool {return _storage._aBaz != nil}
+  /// Clears the value of `aBaz`. Subsequent reads from it will return its default value.
+  mutating func clearABaz() {_storage._aBaz = nil}
 
   var aFoo: ProtobufUnittest_CycleFoo {
     get {return _storage._aFoo ?? ProtobufUnittest_CycleFoo()}
     set {_uniqueStorage()._aFoo = newValue}
   }
-  var hasAFoo: Bool {
-    return _storage._aFoo != nil
-  }
-  mutating func clearAFoo() {
-    _storage._aFoo = nil
-  }
+  /// Returns true if `aFoo` has been explicitly set.
+  var hasAFoo: Bool {return _storage._aFoo != nil}
+  /// Clears the value of `aFoo`. Subsequent reads from it will return its default value.
+  mutating func clearAFoo() {_storage._aFoo = nil}
 
   var aBar: ProtobufUnittest_CycleBar {
     get {return _storage._aBar ?? ProtobufUnittest_CycleBar()}
     set {_uniqueStorage()._aBar = newValue}
   }
-  var hasABar: Bool {
-    return _storage._aBar != nil
-  }
-  mutating func clearABar() {
-    _storage._aBar = nil
-  }
+  /// Returns true if `aBar` has been explicitly set.
+  var hasABar: Bool {return _storage._aBar != nil}
+  /// Clears the value of `aBar`. Subsequent reads from it will return its default value.
+  mutating func clearABar() {_storage._aBar = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 

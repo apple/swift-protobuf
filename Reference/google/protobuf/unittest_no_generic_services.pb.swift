@@ -77,17 +77,14 @@ enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
 struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
   static let protoMessageName: String = _protobuf_package + ".TestMessage"
 
-  fileprivate var _a: Int32? = nil
   var a: Int32 {
     get {return _a ?? 0}
     set {_a = newValue}
   }
-  var hasA: Bool {
-    return self._a != nil
-  }
-  mutating func clearA() {
-    self._a = nil
-  }
+  /// Returns true if `a` has been explicitly set.
+  var hasA: Bool {return self._a != nil}
+  /// Clears the value of `a`. Subsequent reads from it will return its default value.
+  mutating func clearA() {self._a = nil}
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -118,6 +115,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
+  fileprivate var _a: Int32? = nil
 }
 
 // MARK: - Extension support defined in unittest_no_generic_services.proto.
