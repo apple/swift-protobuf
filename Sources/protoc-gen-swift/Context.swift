@@ -83,7 +83,6 @@ class Context {
   let request: CodeGeneratorRequest
   let options: GeneratorOptions
 
-  private(set) var fileByProtoName = [String:Google_Protobuf_FileDescriptorProto]()
   private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
   private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
   private(set) var protoNameIsGroup = Set<String>()
@@ -131,7 +130,6 @@ class Context {
     } else {
       prefix = ""
     }
-    fileByProtoName[prefix] = fileProto
     for e in fileProto.enumType {
       populateFrom(enumProto: e, prefix: prefix)
     }
