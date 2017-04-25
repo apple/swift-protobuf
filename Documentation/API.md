@@ -198,11 +198,16 @@ invisible to the user.  The property will be serialized if it has a non-default
 value.
 
 **Proto2 `optional` fields** generate properties of the corresponding
-type above. TODO  You can set the value to nil to erase it.
+type above.  It also generates `has` and `clear` methods that can be used to
+test whether the field has a value or to reset it to it's default.
 
-**Proto2 `optional` fields with default values** TODO.
+**Proto2 `optional` fields with default values** If the proto file
+specified a default value, that value will appear when the field has
+not been set or after it has been cleared.
 
-**Proto2 `required` fields** TODO
+**Proto2 `required` fields** Required fields behave the same as
+optional fields, except that serialization or deserialization may
+fail if the field is not provided.
 
 ### Compound types
 
