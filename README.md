@@ -193,11 +193,11 @@ and a host of other capabilities:
   method that can dump a full representation of the data
 * Hashable, Equatable:  The generated struct can be put into a `Set<>` or
   `Dictionary<>`
-* Binary serializable:  The `.serializeProtobuf()` method returns a `Data` with
+* Binary serializable:  The `.serializedData()` method returns a `Data` with
   a compact binary form of your data.  You can deserialize the data using the
-  `init(protobuf:)` initializer.
-* JSON serializable:  The `.serializeJSON()` method returns a flexible JSON
-  representation of your data that can be parsed with the `init(json:)`
+  `init(serializedData:)` initializer.
+* JSON serializable:  The `.jsonUTF8Data()` method returns a flexible JSON
+  representation of your data that can be parsed with the `init(jsonUTF8Data:)`
   initializer.
 * Portable:  The binary and JSON formats used by the serializers here are
   identical to those supported by protobuf for many other platforms and
