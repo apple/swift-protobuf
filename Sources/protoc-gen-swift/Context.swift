@@ -89,33 +89,6 @@ class Context {
   private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
   private(set) var protoNameIsGroup = Set<String>()
 
-  func swiftNameForProtoName(protoName: String, appending: String? = nil, separator: String = ".") -> String {
-    let p = parent[protoName]
-    if let e = enumByProtoName[protoName] {
-      return swiftNameForProtoName(protoName: p!, appending: e.name, separator: separator)
-    } else if let m = messageByProtoName[protoName] {
-      let baseName: String
-      if protoNameIsGroup.contains(protoName) {
-        // TODO: Find a way to actually get to this line of code.
-        // Then fix it to be whatever it should be.
-        // If it can't be reached, assert an error in this case.
-        baseName = "XXGROUPXX_" + m.name + "_XXGROUPXX"
-      } else {
-        baseName = m.name
-      }
-      let name: String
-      if let a = appending {
-        name = baseName + separator + a
-      } else {
-        name = baseName
-      }
-      return swiftNameForProtoName(protoName: p!, appending: name, separator: separator)
-    } else if let f = fileByProtoName[protoName] {
-      return f.swiftPrefix + (appending ?? "")
-    }
-    return ""
-  }
-
   func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
     return request.getMessageForPath(path: path)
   }
