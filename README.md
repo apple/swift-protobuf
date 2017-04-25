@@ -4,9 +4,13 @@
 
 ---
 
-> :warning: **WARNING** :warning: This project is in a _prerelease_ state. There
-> is active work going on that will result in API changes that can/will break
-> code while things are finished. Use with caution.
+> Status: We are converging on a 1.0 release.  The current 0.9.901 tag should
+> meet all of our goals for 1.0.  Please try it and let us know!
+
+> (Note: There is a small chance of further API breakage, which is why
+> we're not yet calling this `1.0RC`.  As far as we know, the biggest
+> remaining item is to complete the documentation and ensure it
+> matches the current behavior.  Any help is much appreciated.)
 
 ---
 
@@ -28,11 +32,15 @@ files, you will need to add this library to your project.
 
 More information is available in the associated documentation:
 
+ * [API.md](Documentation/API.md) documents the API you should use.
+   This is recommended for anyone using SwiftProtobuf in their
+   project.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
    plugin that adds Swift support to the `protoc` program
- * [API.md](Documentation/API.md) documents the API you should use
- * [GENERATED_CODE.md](Documentation/GENERATED_CODE.md) documents the structure
-   of the generated code
+ * [INTERNALS.md](Documentation/INTERNALS.md) documents the structure
+   of the generated code and how it's used by the library.  This
+   should only be needed by folks interested in working on SwiftProtobuf
+   itself.
  * [STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md) documents the style
    guidelines we have adopted in our codebase if you are interested in
    contributing
@@ -134,7 +142,7 @@ If you're using CocoaPods, add this to your `Podfile` but adjust the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.24'
+pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.901'
 ```
 
 And run `pod install`.
@@ -146,7 +154,7 @@ And run `pod install`.
 If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-github "apple/swift-protobuf" "0.9.24"
+github "apple/swift-protobuf" "0.9.901"
 ```
 
 Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
@@ -189,11 +197,11 @@ and a host of other capabilities:
   method that can dump a full representation of the data
 * Hashable, Equatable:  The generated struct can be put into a `Set<>` or
   `Dictionary<>`
-* Binary serializable:  The `.serializeProtobuf()` method returns a `Data` with
+* Binary serializable:  The `.serializedData()` method returns a `Data` with
   a compact binary form of your data.  You can deserialize the data using the
-  `init(protobuf:)` initializer.
-* JSON serializable:  The `.serializeJSON()` method returns a flexible JSON
-  representation of your data that can be parsed with the `init(json:)`
+  `init(serializedData:)` initializer.
+* JSON serializable:  The `.jsonUTF8Data()` method returns a flexible JSON
+  representation of your data that can be parsed with the `init(jsonUTF8Data:)`
   initializer.
 * Portable:  The binary and JSON formats used by the serializers here are
   identical to those supported by protobuf for many other platforms and
