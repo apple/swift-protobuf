@@ -17181,9 +17181,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_id`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_id: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_id)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_id`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_id() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_id)
   }
@@ -17194,9 +17198,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_id_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_idNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_id_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_idNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)
   }
@@ -17207,9 +17215,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_id_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_theIDNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_id_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_theIDNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)
   }
@@ -17220,9 +17232,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_request_id`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_requestID: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_request_id`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_requestID() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)
   }
@@ -17437,9 +17453,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_ID`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_id: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_ID`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_id() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)
   }
@@ -17450,9 +17470,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_ID_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_idNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_ID_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_idNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)
   }
@@ -17463,9 +17487,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_the_ID_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_theIDNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_the_ID_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_theIDNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)
   }
@@ -17476,9 +17504,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_request_ID`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_requestID: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_request_ID`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_requestID() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)
   }
@@ -17693,9 +17725,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Id) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Id, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_Id`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_id: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_Id`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_id() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)
   }
@@ -17706,9 +17742,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_IdNumber`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_idNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_IdNumber`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_idNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)
   }
@@ -17719,9 +17759,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_TheIdNumber`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_theIDNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_TheIdNumber`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_theIDNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)
   }
@@ -17732,9 +17776,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Extensions_RequestId`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_requestID: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Extensions_RequestId`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_requestID() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)
   }
@@ -18034,9 +18082,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.id`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Lowers_id: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.id`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Lowers_id() {
     clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)
   }
@@ -18047,9 +18099,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.id_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Lowers_idNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.id_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Lowers_idNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)
   }
@@ -18060,9 +18116,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_id_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Lowers_theIDNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.the_id_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Lowers_theIDNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)
   }
@@ -18073,9 +18133,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.request_id`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Lowers_requestID: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Lowers.Extensions.request_id`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Lowers_requestID() {
     clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)
   }
@@ -18290,9 +18354,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.ID`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Uppers_id: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.ID`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Uppers_id() {
     clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)
   }
@@ -18303,9 +18371,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.ID_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Uppers_idNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.ID_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Uppers_idNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)
   }
@@ -18316,9 +18388,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_ID_number`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Uppers_theIDNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.the_ID_number`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Uppers_theIDNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)
   }
@@ -18329,9 +18405,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.request_ID`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_Uppers_requestID: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_Uppers.Extensions.request_ID`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_Uppers_requestID() {
     clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)
   }
@@ -18546,9 +18626,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Id`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_WordCase_id: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.Id`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_WordCase_id() {
     clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)
   }
@@ -18559,9 +18643,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.IdNumber`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_WordCase_idNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.IdNumber`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_WordCase_idNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)
   }
@@ -18572,9 +18660,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheIdNumber`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_WordCase_theIDNumber: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.TheIdNumber`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_WordCase_theIDNumber() {
     clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)
   }
@@ -18585,9 +18677,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
     get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId, value: newValue)}
   }
+  /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.RequestId`
+  /// has been explicitly set.
   var hasSwiftUnittest_Names_WordCase_requestID: Bool {
     return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)
   }
+  /// Clears the value of extension `SwiftUnittest_Names_WordCase.Extensions.RequestId`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftUnittest_Names_WordCase_requestID() {
     clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)
   }
