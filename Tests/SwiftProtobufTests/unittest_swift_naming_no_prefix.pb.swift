@@ -206,6 +206,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   }
 }
 
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var id: Int32 {
+    get {return getExtensionValue(ext: Extensions_id) ?? 0}
+    set {setExtensionValue(ext: Extensions_id, value: newValue)}
+  }
+  var hasID: Bool {
+    return hasExtensionValue(ext: Extensions_id)
+  }
+  mutating func clearID() {
+    clearExtensionValue(ext: Extensions_id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var idNumber: Int32 {
+    get {return getExtensionValue(ext: Extensions_id_number) ?? 0}
+    set {setExtensionValue(ext: Extensions_id_number, value: newValue)}
+  }
+  var hasIDNumber: Bool {
+    return hasExtensionValue(ext: Extensions_id_number)
+  }
+  mutating func clearIDNumber() {
+    clearExtensionValue(ext: Extensions_id_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var theIDNumber: Int32 {
+    get {return getExtensionValue(ext: Extensions_the_id_number) ?? 0}
+    set {setExtensionValue(ext: Extensions_the_id_number, value: newValue)}
+  }
+  var hasTheIDNumber: Bool {
+    return hasExtensionValue(ext: Extensions_the_id_number)
+  }
+  mutating func clearTheIDNumber() {
+    clearExtensionValue(ext: Extensions_the_id_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var requestID: Int32 {
+    get {return getExtensionValue(ext: Extensions_request_id) ?? 0}
+    set {setExtensionValue(ext: Extensions_request_id, value: newValue)}
+  }
+  var hasRequestID: Bool {
+    return hasExtensionValue(ext: Extensions_request_id)
+  }
+  mutating func clearRequestID() {
+    clearExtensionValue(ext: Extensions_request_id)
+  }
+}
+
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var http: Int32 {
     get {return getExtensionValue(ext: Extensions_HTTP) ?? 0}
@@ -359,6 +411,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   }
   mutating func clearTheURL() {
     clearExtensionValue(ext: Extensions_the_URL)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var id: Int32 {
+    get {return getExtensionValue(ext: Extensions_ID) ?? 0}
+    set {setExtensionValue(ext: Extensions_ID, value: newValue)}
+  }
+  var hasID: Bool {
+    return hasExtensionValue(ext: Extensions_ID)
+  }
+  mutating func clearID() {
+    clearExtensionValue(ext: Extensions_ID)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var idNumber: Int32 {
+    get {return getExtensionValue(ext: Extensions_ID_number) ?? 0}
+    set {setExtensionValue(ext: Extensions_ID_number, value: newValue)}
+  }
+  var hasIDNumber: Bool {
+    return hasExtensionValue(ext: Extensions_ID_number)
+  }
+  mutating func clearIDNumber() {
+    clearExtensionValue(ext: Extensions_ID_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var theIDNumber: Int32 {
+    get {return getExtensionValue(ext: Extensions_the_ID_number) ?? 0}
+    set {setExtensionValue(ext: Extensions_the_ID_number, value: newValue)}
+  }
+  var hasTheIDNumber: Bool {
+    return hasExtensionValue(ext: Extensions_the_ID_number)
+  }
+  mutating func clearTheIDNumber() {
+    clearExtensionValue(ext: Extensions_the_ID_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var requestID: Int32 {
+    get {return getExtensionValue(ext: Extensions_request_ID) ?? 0}
+    set {setExtensionValue(ext: Extensions_request_ID, value: newValue)}
+  }
+  var hasRequestID: Bool {
+    return hasExtensionValue(ext: Extensions_request_ID)
+  }
+  mutating func clearRequestID() {
+    clearExtensionValue(ext: Extensions_request_ID)
   }
 }
 
@@ -518,6 +622,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   }
 }
 
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var id: Int32 {
+    get {return getExtensionValue(ext: Extensions_Id) ?? 0}
+    set {setExtensionValue(ext: Extensions_Id, value: newValue)}
+  }
+  var hasID: Bool {
+    return hasExtensionValue(ext: Extensions_Id)
+  }
+  mutating func clearID() {
+    clearExtensionValue(ext: Extensions_Id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var idNumber: Int32 {
+    get {return getExtensionValue(ext: Extensions_IdNumber) ?? 0}
+    set {setExtensionValue(ext: Extensions_IdNumber, value: newValue)}
+  }
+  var hasIDNumber: Bool {
+    return hasExtensionValue(ext: Extensions_IdNumber)
+  }
+  mutating func clearIDNumber() {
+    clearExtensionValue(ext: Extensions_IdNumber)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var theIDNumber: Int32 {
+    get {return getExtensionValue(ext: Extensions_TheIdNumber) ?? 0}
+    set {setExtensionValue(ext: Extensions_TheIdNumber, value: newValue)}
+  }
+  var hasTheIDNumber: Bool {
+    return hasExtensionValue(ext: Extensions_TheIdNumber)
+  }
+  mutating func clearTheIDNumber() {
+    clearExtensionValue(ext: Extensions_TheIdNumber)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var requestID: Int32 {
+    get {return getExtensionValue(ext: Extensions_RequestId) ?? 0}
+    set {setExtensionValue(ext: Extensions_RequestId, value: newValue)}
+  }
+  var hasRequestID: Bool {
+    return hasExtensionValue(ext: Extensions_RequestId)
+  }
+  mutating func clearRequestID() {
+    clearExtensionValue(ext: Extensions_RequestId)
+  }
+}
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -536,6 +692,10 @@ let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_the_url_value,
   Extensions_the_url,
   Extensions_a_b_c,
+  Extensions_id,
+  Extensions_id_number,
+  Extensions_the_id_number,
+  Extensions_request_id,
   Extensions_HTTP,
   Extensions_HTTP_request,
   Extensions_the_HTTP_request,
@@ -548,6 +708,10 @@ let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_URL_value,
   Extensions_the_URL_value,
   Extensions_the_URL,
+  Extensions_ID,
+  Extensions_ID_number,
+  Extensions_the_ID_number,
+  Extensions_request_ID,
   Extensions_Http,
   Extensions_HttpRequest,
   Extensions_TheHttpRequest,
@@ -559,7 +723,11 @@ let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_Url,
   Extensions_UrlValue,
   Extensions_TheUrlValue,
-  Extensions_TheUrl
+  Extensions_TheUrl,
+  Extensions_Id,
+  Extensions_IdNumber,
+  Extensions_TheIdNumber,
+  Extensions_RequestId
 ]
 
 let Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
@@ -640,6 +808,30 @@ let Extensions_a_b_c = SwiftProtobuf.MessageExtension<OptionalExtensionField<Swi
   defaultValue: 0
 )
 
+let Extensions_id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 141,
+  fieldName: "id",
+  defaultValue: 0
+)
+
+let Extensions_id_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 142,
+  fieldName: "id_number",
+  defaultValue: 0
+)
+
+let Extensions_the_id_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 143,
+  fieldName: "the_id_number",
+  defaultValue: 0
+)
+
+let Extensions_request_id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 144,
+  fieldName: "request_id",
+  defaultValue: 0
+)
+
 let Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 101,
   fieldName: "HTTP",
@@ -712,6 +904,30 @@ let Extensions_the_URL = SwiftProtobuf.MessageExtension<OptionalExtensionField<S
   defaultValue: 0
 )
 
+let Extensions_ID = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 141,
+  fieldName: "ID",
+  defaultValue: 0
+)
+
+let Extensions_ID_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 142,
+  fieldName: "ID_number",
+  defaultValue: 0
+)
+
+let Extensions_the_ID_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 143,
+  fieldName: "the_ID_number",
+  defaultValue: 0
+)
+
+let Extensions_request_ID = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 144,
+  fieldName: "request_ID",
+  defaultValue: 0
+)
+
 let Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 101,
   fieldName: "Http",
@@ -781,5 +997,29 @@ let Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<OptionalExtensionFie
 let Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 124,
   fieldName: "TheUrl",
+  defaultValue: 0
+)
+
+let Extensions_Id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 141,
+  fieldName: "Id",
+  defaultValue: 0
+)
+
+let Extensions_IdNumber = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 142,
+  fieldName: "IdNumber",
+  defaultValue: 0
+)
+
+let Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 143,
+  fieldName: "TheIdNumber",
+  defaultValue: 0
+)
+
+let Extensions_RequestId = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 144,
+  fieldName: "RequestId",
   defaultValue: 0
 )

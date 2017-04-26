@@ -129,7 +129,8 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
   case unowned // = 89
   case weak // = 90
   case willSet // = 91
-  case id // = 92
+
+  ///    id = 92;
   case cmd // = 93
   case out // = 96
   case bycopy // = 98
@@ -345,7 +346,6 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case 89: self = .unowned
     case 90: self = .weak
     case 91: self = .willSet
-    case 92: self = .id
     case 93: self = .cmd
     case 96: self = .out
     case 98: self = .bycopy
@@ -560,7 +560,6 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case .unowned: return 89
     case .weak: return 90
     case .willSet: return 91
-    case .id: return 92
     case .cmd: return 93
     case .out: return 96
     case .bycopy: return 98
@@ -1546,9 +1545,9 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     set {_uniqueStorage()._id = newValue}
   }
   /// Returns true if `id` has been explicitly set.
-  var hasId: Bool {return _storage._id != nil}
+  var hasID: Bool {return _storage._id != nil}
   /// Clears the value of `id`. Subsequent reads from it will return its default value.
-  mutating func clearId() {_storage._id = nil}
+  mutating func clearID() {_storage._id = nil}
 
   var cmd: Int32 {
     get {return _storage._cmd ?? 0}
@@ -6857,9 +6856,9 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
       set {_id = newValue}
     }
     /// Returns true if `id` has been explicitly set.
-    var hasId: Bool {return self._id != nil}
+    var hasID: Bool {return self._id != nil}
     /// Clears the value of `id`. Subsequent reads from it will return its default value.
-    mutating func clearId() {self._id = nil}
+    mutating func clearID() {self._id = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16045,203 +16044,248 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_FieldNamingInitials.protoMessageName + ".Lowers"
 
     var http: Int32 {
-      get {return _http ?? 0}
-      set {_http = newValue}
+      get {return _storage._http ?? 0}
+      set {_uniqueStorage()._http = newValue}
     }
     /// Returns true if `http` has been explicitly set.
-    var hasHTTP: Bool {return self._http != nil}
+    var hasHTTP: Bool {return _storage._http != nil}
     /// Clears the value of `http`. Subsequent reads from it will return its default value.
-    mutating func clearHTTP() {self._http = nil}
+    mutating func clearHTTP() {_storage._http = nil}
 
     var httpRequest: Int32 {
-      get {return _httpRequest ?? 0}
-      set {_httpRequest = newValue}
+      get {return _storage._httpRequest ?? 0}
+      set {_uniqueStorage()._httpRequest = newValue}
     }
     /// Returns true if `httpRequest` has been explicitly set.
-    var hasHTTPRequest: Bool {return self._httpRequest != nil}
+    var hasHTTPRequest: Bool {return _storage._httpRequest != nil}
     /// Clears the value of `httpRequest`. Subsequent reads from it will return its default value.
-    mutating func clearHTTPRequest() {self._httpRequest = nil}
+    mutating func clearHTTPRequest() {_storage._httpRequest = nil}
 
     var theHTTPRequest: Int32 {
-      get {return _theHTTPRequest ?? 0}
-      set {_theHTTPRequest = newValue}
+      get {return _storage._theHTTPRequest ?? 0}
+      set {_uniqueStorage()._theHTTPRequest = newValue}
     }
     /// Returns true if `theHTTPRequest` has been explicitly set.
-    var hasTheHTTPRequest: Bool {return self._theHTTPRequest != nil}
+    var hasTheHTTPRequest: Bool {return _storage._theHTTPRequest != nil}
     /// Clears the value of `theHTTPRequest`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTPRequest() {self._theHTTPRequest = nil}
+    mutating func clearTheHTTPRequest() {_storage._theHTTPRequest = nil}
 
     var theHTTP: Int32 {
-      get {return _theHTTP ?? 0}
-      set {_theHTTP = newValue}
+      get {return _storage._theHTTP ?? 0}
+      set {_uniqueStorage()._theHTTP = newValue}
     }
     /// Returns true if `theHTTP` has been explicitly set.
-    var hasTheHTTP: Bool {return self._theHTTP != nil}
+    var hasTheHTTP: Bool {return _storage._theHTTP != nil}
     /// Clears the value of `theHTTP`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTP() {self._theHTTP = nil}
+    mutating func clearTheHTTP() {_storage._theHTTP = nil}
 
     var https: Int32 {
-      get {return _https ?? 0}
-      set {_https = newValue}
+      get {return _storage._https ?? 0}
+      set {_uniqueStorage()._https = newValue}
     }
     /// Returns true if `https` has been explicitly set.
-    var hasHTTPS: Bool {return self._https != nil}
+    var hasHTTPS: Bool {return _storage._https != nil}
     /// Clears the value of `https`. Subsequent reads from it will return its default value.
-    mutating func clearHTTPS() {self._https = nil}
+    mutating func clearHTTPS() {_storage._https = nil}
 
     var httpsRequest: Int32 {
-      get {return _httpsRequest ?? 0}
-      set {_httpsRequest = newValue}
+      get {return _storage._httpsRequest ?? 0}
+      set {_uniqueStorage()._httpsRequest = newValue}
     }
     /// Returns true if `httpsRequest` has been explicitly set.
-    var hasHTTPSRequest: Bool {return self._httpsRequest != nil}
+    var hasHTTPSRequest: Bool {return _storage._httpsRequest != nil}
     /// Clears the value of `httpsRequest`. Subsequent reads from it will return its default value.
-    mutating func clearHTTPSRequest() {self._httpsRequest = nil}
+    mutating func clearHTTPSRequest() {_storage._httpsRequest = nil}
 
     var theHTTPSRequest: Int32 {
-      get {return _theHTTPSRequest ?? 0}
-      set {_theHTTPSRequest = newValue}
+      get {return _storage._theHTTPSRequest ?? 0}
+      set {_uniqueStorage()._theHTTPSRequest = newValue}
     }
     /// Returns true if `theHTTPSRequest` has been explicitly set.
-    var hasTheHTTPSRequest: Bool {return self._theHTTPSRequest != nil}
+    var hasTheHTTPSRequest: Bool {return _storage._theHTTPSRequest != nil}
     /// Clears the value of `theHTTPSRequest`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTPSRequest() {self._theHTTPSRequest = nil}
+    mutating func clearTheHTTPSRequest() {_storage._theHTTPSRequest = nil}
 
     var theHTTPS: Int32 {
-      get {return _theHTTPS ?? 0}
-      set {_theHTTPS = newValue}
+      get {return _storage._theHTTPS ?? 0}
+      set {_uniqueStorage()._theHTTPS = newValue}
     }
     /// Returns true if `theHTTPS` has been explicitly set.
-    var hasTheHTTPS: Bool {return self._theHTTPS != nil}
+    var hasTheHTTPS: Bool {return _storage._theHTTPS != nil}
     /// Clears the value of `theHTTPS`. Subsequent reads from it will return its default value.
-    mutating func clearTheHTTPS() {self._theHTTPS = nil}
+    mutating func clearTheHTTPS() {_storage._theHTTPS = nil}
 
     var url: Int32 {
-      get {return _url ?? 0}
-      set {_url = newValue}
+      get {return _storage._url ?? 0}
+      set {_uniqueStorage()._url = newValue}
     }
     /// Returns true if `url` has been explicitly set.
-    var hasURL: Bool {return self._url != nil}
+    var hasURL: Bool {return _storage._url != nil}
     /// Clears the value of `url`. Subsequent reads from it will return its default value.
-    mutating func clearURL() {self._url = nil}
+    mutating func clearURL() {_storage._url = nil}
 
     var urlValue: Int32 {
-      get {return _urlValue ?? 0}
-      set {_urlValue = newValue}
+      get {return _storage._urlValue ?? 0}
+      set {_uniqueStorage()._urlValue = newValue}
     }
     /// Returns true if `urlValue` has been explicitly set.
-    var hasURLValue: Bool {return self._urlValue != nil}
+    var hasURLValue: Bool {return _storage._urlValue != nil}
     /// Clears the value of `urlValue`. Subsequent reads from it will return its default value.
-    mutating func clearURLValue() {self._urlValue = nil}
+    mutating func clearURLValue() {_storage._urlValue = nil}
 
     var theURLValue: Int32 {
-      get {return _theURLValue ?? 0}
-      set {_theURLValue = newValue}
+      get {return _storage._theURLValue ?? 0}
+      set {_uniqueStorage()._theURLValue = newValue}
     }
     /// Returns true if `theURLValue` has been explicitly set.
-    var hasTheURLValue: Bool {return self._theURLValue != nil}
+    var hasTheURLValue: Bool {return _storage._theURLValue != nil}
     /// Clears the value of `theURLValue`. Subsequent reads from it will return its default value.
-    mutating func clearTheURLValue() {self._theURLValue = nil}
+    mutating func clearTheURLValue() {_storage._theURLValue = nil}
 
     var theURL: Int32 {
-      get {return _theURL ?? 0}
-      set {_theURL = newValue}
+      get {return _storage._theURL ?? 0}
+      set {_uniqueStorage()._theURL = newValue}
     }
     /// Returns true if `theURL` has been explicitly set.
-    var hasTheURL: Bool {return self._theURL != nil}
+    var hasTheURL: Bool {return _storage._theURL != nil}
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
-    mutating func clearTheURL() {self._theURL = nil}
+    mutating func clearTheURL() {_storage._theURL = nil}
 
     var aBC: Int32 {
-      get {return _aBC ?? 0}
-      set {_aBC = newValue}
+      get {return _storage._aBC ?? 0}
+      set {_uniqueStorage()._aBC = newValue}
     }
     /// Returns true if `aBC` has been explicitly set.
-    var hasABC: Bool {return self._aBC != nil}
+    var hasABC: Bool {return _storage._aBC != nil}
     /// Clears the value of `aBC`. Subsequent reads from it will return its default value.
-    mutating func clearABC() {self._aBC = nil}
+    mutating func clearABC() {_storage._aBC = nil}
+
+    var id: Int32 {
+      get {return _storage._id ?? 0}
+      set {_uniqueStorage()._id = newValue}
+    }
+    /// Returns true if `id` has been explicitly set.
+    var hasID: Bool {return _storage._id != nil}
+    /// Clears the value of `id`. Subsequent reads from it will return its default value.
+    mutating func clearID() {_storage._id = nil}
+
+    var idNumber: Int32 {
+      get {return _storage._idNumber ?? 0}
+      set {_uniqueStorage()._idNumber = newValue}
+    }
+    /// Returns true if `idNumber` has been explicitly set.
+    var hasIDNumber: Bool {return _storage._idNumber != nil}
+    /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
+    mutating func clearIDNumber() {_storage._idNumber = nil}
+
+    var theIDNumber: Int32 {
+      get {return _storage._theIDNumber ?? 0}
+      set {_uniqueStorage()._theIDNumber = newValue}
+    }
+    /// Returns true if `theIDNumber` has been explicitly set.
+    var hasTheIDNumber: Bool {return _storage._theIDNumber != nil}
+    /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
+    mutating func clearTheIDNumber() {_storage._theIDNumber = nil}
+
+    var requestID: Int32 {
+      get {return _storage._requestID ?? 0}
+      set {_uniqueStorage()._requestID = newValue}
+    }
+    /// Returns true if `requestID` has been explicitly set.
+    var hasRequestID: Bool {return _storage._requestID != nil}
+    /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
+    mutating func clearRequestID() {_storage._requestID = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._http)
-        case 2: try decoder.decodeSingularInt32Field(value: &self._httpRequest)
-        case 3: try decoder.decodeSingularInt32Field(value: &self._theHTTPRequest)
-        case 4: try decoder.decodeSingularInt32Field(value: &self._theHTTP)
-        case 11: try decoder.decodeSingularInt32Field(value: &self._https)
-        case 12: try decoder.decodeSingularInt32Field(value: &self._httpsRequest)
-        case 13: try decoder.decodeSingularInt32Field(value: &self._theHTTPSRequest)
-        case 14: try decoder.decodeSingularInt32Field(value: &self._theHTTPS)
-        case 21: try decoder.decodeSingularInt32Field(value: &self._url)
-        case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
-        case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
-        case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
-        case 31: try decoder.decodeSingularInt32Field(value: &self._aBC)
-        default: break
+      _ = _uniqueStorage()
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularInt32Field(value: &_storage._http)
+          case 2: try decoder.decodeSingularInt32Field(value: &_storage._httpRequest)
+          case 3: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPRequest)
+          case 4: try decoder.decodeSingularInt32Field(value: &_storage._theHTTP)
+          case 11: try decoder.decodeSingularInt32Field(value: &_storage._https)
+          case 12: try decoder.decodeSingularInt32Field(value: &_storage._httpsRequest)
+          case 13: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPSRequest)
+          case 14: try decoder.decodeSingularInt32Field(value: &_storage._theHTTPS)
+          case 21: try decoder.decodeSingularInt32Field(value: &_storage._url)
+          case 22: try decoder.decodeSingularInt32Field(value: &_storage._urlValue)
+          case 23: try decoder.decodeSingularInt32Field(value: &_storage._theURLValue)
+          case 24: try decoder.decodeSingularInt32Field(value: &_storage._theURL)
+          case 31: try decoder.decodeSingularInt32Field(value: &_storage._aBC)
+          case 41: try decoder.decodeSingularInt32Field(value: &_storage._id)
+          case 42: try decoder.decodeSingularInt32Field(value: &_storage._idNumber)
+          case 43: try decoder.decodeSingularInt32Field(value: &_storage._theIDNumber)
+          case 44: try decoder.decodeSingularInt32Field(value: &_storage._requestID)
+          default: break
+          }
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._http {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = self._httpRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-      }
-      if let v = self._theHTTPRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-      }
-      if let v = self._theHTTP {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
-      }
-      if let v = self._https {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
-      }
-      if let v = self._httpsRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
-      }
-      if let v = self._theHTTPSRequest {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
-      }
-      if let v = self._theHTTPS {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
-      }
-      if let v = self._url {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
-      }
-      if let v = self._urlValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
-      }
-      if let v = self._theURLValue {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
-      }
-      if let v = self._theURL {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
-      }
-      if let v = self._aBC {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._http {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+        }
+        if let v = _storage._httpRequest {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+        }
+        if let v = _storage._theHTTPRequest {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+        }
+        if let v = _storage._theHTTP {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+        }
+        if let v = _storage._https {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 11)
+        }
+        if let v = _storage._httpsRequest {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 12)
+        }
+        if let v = _storage._theHTTPSRequest {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 13)
+        }
+        if let v = _storage._theHTTPS {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 14)
+        }
+        if let v = _storage._url {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 21)
+        }
+        if let v = _storage._urlValue {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 22)
+        }
+        if let v = _storage._theURLValue {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 23)
+        }
+        if let v = _storage._theURL {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
+        }
+        if let v = _storage._aBC {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 31)
+        }
+        if let v = _storage._id {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+        }
+        if let v = _storage._idNumber {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+        }
+        if let v = _storage._theIDNumber {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+        }
+        if let v = _storage._requestID {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+        }
       }
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _http: Int32? = nil
-    fileprivate var _httpRequest: Int32? = nil
-    fileprivate var _theHTTPRequest: Int32? = nil
-    fileprivate var _theHTTP: Int32? = nil
-    fileprivate var _https: Int32? = nil
-    fileprivate var _httpsRequest: Int32? = nil
-    fileprivate var _theHTTPSRequest: Int32? = nil
-    fileprivate var _theHTTPS: Int32? = nil
-    fileprivate var _url: Int32? = nil
-    fileprivate var _urlValue: Int32? = nil
-    fileprivate var _theURLValue: Int32? = nil
-    fileprivate var _theURL: Int32? = nil
-    fileprivate var _aBC: Int32? = nil
+    fileprivate var _storage = _StorageClass()
   }
 
   struct Uppers: SwiftProtobuf.Message {
@@ -16355,6 +16399,42 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
     mutating func clearTheURL() {self._theURL = nil}
 
+    var id: Int32 {
+      get {return _id ?? 0}
+      set {_id = newValue}
+    }
+    /// Returns true if `id` has been explicitly set.
+    var hasID: Bool {return self._id != nil}
+    /// Clears the value of `id`. Subsequent reads from it will return its default value.
+    mutating func clearID() {self._id = nil}
+
+    var idNumber: Int32 {
+      get {return _idNumber ?? 0}
+      set {_idNumber = newValue}
+    }
+    /// Returns true if `idNumber` has been explicitly set.
+    var hasIDNumber: Bool {return self._idNumber != nil}
+    /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
+    mutating func clearIDNumber() {self._idNumber = nil}
+
+    var theIDNumber: Int32 {
+      get {return _theIDNumber ?? 0}
+      set {_theIDNumber = newValue}
+    }
+    /// Returns true if `theIDNumber` has been explicitly set.
+    var hasTheIDNumber: Bool {return self._theIDNumber != nil}
+    /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
+    mutating func clearTheIDNumber() {self._theIDNumber = nil}
+
+    var requestID: Int32 {
+      get {return _requestID ?? 0}
+      set {_requestID = newValue}
+    }
+    /// Returns true if `requestID` has been explicitly set.
+    var hasRequestID: Bool {return self._requestID != nil}
+    /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
+    mutating func clearRequestID() {self._requestID = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
@@ -16374,6 +16454,10 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
         case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
         case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
         case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
+        case 41: try decoder.decodeSingularInt32Field(value: &self._id)
+        case 42: try decoder.decodeSingularInt32Field(value: &self._idNumber)
+        case 43: try decoder.decodeSingularInt32Field(value: &self._theIDNumber)
+        case 44: try decoder.decodeSingularInt32Field(value: &self._requestID)
         default: break
         }
       }
@@ -16416,6 +16500,18 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       if let v = self._theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
+      if let v = self._id {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+      }
+      if let v = self._idNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+      }
+      if let v = self._theIDNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+      }
+      if let v = self._requestID {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+      }
       try unknownFields.traverse(visitor: &visitor)
     }
 
@@ -16431,6 +16527,10 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
     fileprivate var _urlValue: Int32? = nil
     fileprivate var _theURLValue: Int32? = nil
     fileprivate var _theURL: Int32? = nil
+    fileprivate var _id: Int32? = nil
+    fileprivate var _idNumber: Int32? = nil
+    fileprivate var _theIDNumber: Int32? = nil
+    fileprivate var _requestID: Int32? = nil
   }
 
   struct WordCase: SwiftProtobuf.Message {
@@ -16544,6 +16644,42 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
     /// Clears the value of `theURL`. Subsequent reads from it will return its default value.
     mutating func clearTheURL() {self._theURL = nil}
 
+    var id: Int32 {
+      get {return _id ?? 0}
+      set {_id = newValue}
+    }
+    /// Returns true if `id` has been explicitly set.
+    var hasID: Bool {return self._id != nil}
+    /// Clears the value of `id`. Subsequent reads from it will return its default value.
+    mutating func clearID() {self._id = nil}
+
+    var idNumber: Int32 {
+      get {return _idNumber ?? 0}
+      set {_idNumber = newValue}
+    }
+    /// Returns true if `idNumber` has been explicitly set.
+    var hasIDNumber: Bool {return self._idNumber != nil}
+    /// Clears the value of `idNumber`. Subsequent reads from it will return its default value.
+    mutating func clearIDNumber() {self._idNumber = nil}
+
+    var theIDNumber: Int32 {
+      get {return _theIDNumber ?? 0}
+      set {_theIDNumber = newValue}
+    }
+    /// Returns true if `theIDNumber` has been explicitly set.
+    var hasTheIDNumber: Bool {return self._theIDNumber != nil}
+    /// Clears the value of `theIDNumber`. Subsequent reads from it will return its default value.
+    mutating func clearTheIDNumber() {self._theIDNumber = nil}
+
+    var requestID: Int32 {
+      get {return _requestID ?? 0}
+      set {_requestID = newValue}
+    }
+    /// Returns true if `requestID` has been explicitly set.
+    var hasRequestID: Bool {return self._requestID != nil}
+    /// Clears the value of `requestID`. Subsequent reads from it will return its default value.
+    mutating func clearRequestID() {self._requestID = nil}
+
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
@@ -16563,6 +16699,10 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
         case 22: try decoder.decodeSingularInt32Field(value: &self._urlValue)
         case 23: try decoder.decodeSingularInt32Field(value: &self._theURLValue)
         case 24: try decoder.decodeSingularInt32Field(value: &self._theURL)
+        case 41: try decoder.decodeSingularInt32Field(value: &self._id)
+        case 42: try decoder.decodeSingularInt32Field(value: &self._idNumber)
+        case 43: try decoder.decodeSingularInt32Field(value: &self._theIDNumber)
+        case 44: try decoder.decodeSingularInt32Field(value: &self._requestID)
         default: break
         }
       }
@@ -16605,6 +16745,18 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       if let v = self._theURL {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 24)
       }
+      if let v = self._id {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 41)
+      }
+      if let v = self._idNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 42)
+      }
+      if let v = self._theIDNumber {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 43)
+      }
+      if let v = self._requestID {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 44)
+      }
       try unknownFields.traverse(visitor: &visitor)
     }
 
@@ -16620,6 +16772,10 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
     fileprivate var _urlValue: Int32? = nil
     fileprivate var _theURLValue: Int32? = nil
     fileprivate var _theURL: Int32? = nil
+    fileprivate var _id: Int32? = nil
+    fileprivate var _idNumber: Int32? = nil
+    fileprivate var _theIDNumber: Int32? = nil
+    fileprivate var _requestID: Int32? = nil
   }
 
   init() {}
@@ -16968,6 +17124,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   }
 }
 
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var SwiftUnittest_Names_id: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_id: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_id)
+  }
+  mutating func clearSwiftUnittest_Names_id() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var SwiftUnittest_Names_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)
+  }
+  mutating func clearSwiftUnittest_Names_idNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var SwiftUnittest_Names_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)
+  }
+  mutating func clearSwiftUnittest_Names_theIDNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
+  var SwiftUnittest_Names_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_requestID: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)
+  }
+  mutating func clearSwiftUnittest_Names_requestID() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)
+  }
+}
+
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_http: Int32 {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP) ?? 0}
@@ -17124,6 +17332,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   }
 }
 
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var SwiftUnittest_Names_id: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_id: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)
+  }
+  mutating func clearSwiftUnittest_Names_id() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var SwiftUnittest_Names_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)
+  }
+  mutating func clearSwiftUnittest_Names_idNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var SwiftUnittest_Names_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)
+  }
+  mutating func clearSwiftUnittest_Names_theIDNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
+  var SwiftUnittest_Names_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_requestID: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)
+  }
+  mutating func clearSwiftUnittest_Names_requestID() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)
+  }
+}
+
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_http: Int32 {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Http) ?? 0}
@@ -17277,6 +17537,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   }
   mutating func clearSwiftUnittest_Names_theURL() {
     clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var SwiftUnittest_Names_id: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Id) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Id, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_id: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)
+  }
+  mutating func clearSwiftUnittest_Names_id() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var SwiftUnittest_Names_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)
+  }
+  mutating func clearSwiftUnittest_Names_idNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var SwiftUnittest_Names_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)
+  }
+  mutating func clearSwiftUnittest_Names_theIDNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
+  var SwiftUnittest_Names_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_requestID: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)
+  }
+  mutating func clearSwiftUnittest_Names_requestID() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)
   }
 }
 
@@ -17502,6 +17814,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 }
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_id: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_id: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_id() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_idNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_theIDNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Lowers_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Lowers_requestID: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)
+  }
+  mutating func clearSwiftUnittest_Names_Lowers_requestID() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_http: Int32 {
     get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
@@ -17654,6 +18018,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
   }
   mutating func clearSwiftUnittest_Names_Uppers_theURL() {
     clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_id: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_id: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_id() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_idNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_theIDNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_Uppers_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_Uppers_requestID: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)
+  }
+  mutating func clearSwiftUnittest_Names_Uppers_requestID() {
+    clearExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)
   }
 }
 
@@ -17813,6 +18229,58 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
   }
 }
 
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_id: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_id: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_id() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_idNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_idNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_idNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_theIDNumber: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_theIDNumber: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_theIDNumber() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)
+  }
+}
+
+extension SwiftUnittest_Names_ExtensionNamingInitials {
+  var SwiftUnittest_Names_WordCase_requestID: Int32 {
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId) ?? 0}
+    set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId, value: newValue)}
+  }
+  var hasSwiftUnittest_Names_WordCase_requestID: Bool {
+    return hasExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)
+  }
+  mutating func clearSwiftUnittest_Names_WordCase_requestID() {
+    clearExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)
+  }
+}
+
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
@@ -17831,6 +18299,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Extensions_the_url_value,
   SwiftUnittest_Names_Extensions_the_url,
   SwiftUnittest_Names_Extensions_a_b_c,
+  SwiftUnittest_Names_Extensions_id,
+  SwiftUnittest_Names_Extensions_id_number,
+  SwiftUnittest_Names_Extensions_the_id_number,
+  SwiftUnittest_Names_Extensions_request_id,
   SwiftUnittest_Names_Extensions_HTTP,
   SwiftUnittest_Names_Extensions_HTTP_request,
   SwiftUnittest_Names_Extensions_the_HTTP_request,
@@ -17843,6 +18315,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Extensions_URL_value,
   SwiftUnittest_Names_Extensions_the_URL_value,
   SwiftUnittest_Names_Extensions_the_URL,
+  SwiftUnittest_Names_Extensions_ID,
+  SwiftUnittest_Names_Extensions_ID_number,
+  SwiftUnittest_Names_Extensions_the_ID_number,
+  SwiftUnittest_Names_Extensions_request_ID,
   SwiftUnittest_Names_Extensions_Http,
   SwiftUnittest_Names_Extensions_HttpRequest,
   SwiftUnittest_Names_Extensions_TheHttpRequest,
@@ -17855,6 +18331,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Extensions_UrlValue,
   SwiftUnittest_Names_Extensions_TheUrlValue,
   SwiftUnittest_Names_Extensions_TheUrl,
+  SwiftUnittest_Names_Extensions_Id,
+  SwiftUnittest_Names_Extensions_IdNumber,
+  SwiftUnittest_Names_Extensions_TheIdNumber,
+  SwiftUnittest_Names_Extensions_RequestId,
   SwiftUnittest_Names_FieldNames.Extensions.foo1,
   SwiftUnittest_Names_MessageNames.Extensions.foo2,
   SwiftUnittest_Names_MessageNames.Extensions.foo4,
@@ -17872,6 +18352,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Lowers.Extensions.the_url_value,
   SwiftUnittest_Names_Lowers.Extensions.the_url,
   SwiftUnittest_Names_Lowers.Extensions.a_b_c,
+  SwiftUnittest_Names_Lowers.Extensions.id,
+  SwiftUnittest_Names_Lowers.Extensions.id_number,
+  SwiftUnittest_Names_Lowers.Extensions.the_id_number,
+  SwiftUnittest_Names_Lowers.Extensions.request_id,
   SwiftUnittest_Names_Uppers.Extensions.HTTP,
   SwiftUnittest_Names_Uppers.Extensions.HTTP_request,
   SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request,
@@ -17884,6 +18368,10 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_Uppers.Extensions.URL_value,
   SwiftUnittest_Names_Uppers.Extensions.the_URL_value,
   SwiftUnittest_Names_Uppers.Extensions.the_URL,
+  SwiftUnittest_Names_Uppers.Extensions.ID,
+  SwiftUnittest_Names_Uppers.Extensions.ID_number,
+  SwiftUnittest_Names_Uppers.Extensions.the_ID_number,
+  SwiftUnittest_Names_Uppers.Extensions.request_ID,
   SwiftUnittest_Names_WordCase.Extensions.Http,
   SwiftUnittest_Names_WordCase.Extensions.HttpRequest,
   SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest,
@@ -17895,7 +18383,11 @@ let SwiftUnittest_Names_UnittestSwiftNaming_Extensions: SwiftProtobuf.SimpleExte
   SwiftUnittest_Names_WordCase.Extensions.Url,
   SwiftUnittest_Names_WordCase.Extensions.UrlValue,
   SwiftUnittest_Names_WordCase.Extensions.TheUrlValue,
-  SwiftUnittest_Names_WordCase.Extensions.TheUrl
+  SwiftUnittest_Names_WordCase.Extensions.TheUrl,
+  SwiftUnittest_Names_WordCase.Extensions.Id,
+  SwiftUnittest_Names_WordCase.Extensions.IdNumber,
+  SwiftUnittest_Names_WordCase.Extensions.TheIdNumber,
+  SwiftUnittest_Names_WordCase.Extensions.RequestId
 ]
 
 let SwiftUnittest_Names_Extensions_http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
@@ -17976,6 +18468,30 @@ let SwiftUnittest_Names_Extensions_a_b_c = SwiftProtobuf.MessageExtension<Option
   defaultValue: 0
 )
 
+let SwiftUnittest_Names_Extensions_id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 41,
+  fieldName: "swift_unittest.names.id",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_id_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 42,
+  fieldName: "swift_unittest.names.id_number",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_id_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 43,
+  fieldName: "swift_unittest.names.the_id_number",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_request_id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
+  _protobuf_fieldNumber: 44,
+  fieldName: "swift_unittest.names.request_id",
+  defaultValue: 0
+)
+
 let SwiftUnittest_Names_Extensions_HTTP = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 1,
   fieldName: "swift_unittest.names.HTTP",
@@ -18048,6 +18564,30 @@ let SwiftUnittest_Names_Extensions_the_URL = SwiftProtobuf.MessageExtension<Opti
   defaultValue: 0
 )
 
+let SwiftUnittest_Names_Extensions_ID = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 41,
+  fieldName: "swift_unittest.names.ID",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_ID_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 42,
+  fieldName: "swift_unittest.names.ID_number",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_the_ID_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 43,
+  fieldName: "swift_unittest.names.the_ID_number",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_request_ID = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
+  _protobuf_fieldNumber: 44,
+  fieldName: "swift_unittest.names.request_ID",
+  defaultValue: 0
+)
+
 let SwiftUnittest_Names_Extensions_Http = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 1,
   fieldName: "swift_unittest.names.Http",
@@ -18117,6 +18657,30 @@ let SwiftUnittest_Names_Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<
 let SwiftUnittest_Names_Extensions_TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 24,
   fieldName: "swift_unittest.names.TheUrl",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_Id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 41,
+  fieldName: "swift_unittest.names.Id",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_IdNumber = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 42,
+  fieldName: "swift_unittest.names.IdNumber",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 43,
+  fieldName: "swift_unittest.names.TheIdNumber",
+  defaultValue: 0
+)
+
+let SwiftUnittest_Names_Extensions_RequestId = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
+  _protobuf_fieldNumber: 44,
+  fieldName: "swift_unittest.names.RequestId",
   defaultValue: 0
 )
 
@@ -18235,6 +18799,30 @@ extension SwiftUnittest_Names_Lowers {
       fieldName: "swift_unittest.names.Lowers.a_b_c",
       defaultValue: 0
     )
+
+    static let id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 41,
+      fieldName: "swift_unittest.names.Lowers.id",
+      defaultValue: 0
+    )
+
+    static let id_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 42,
+      fieldName: "swift_unittest.names.Lowers.id_number",
+      defaultValue: 0
+    )
+
+    static let the_id_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 43,
+      fieldName: "swift_unittest.names.Lowers.the_id_number",
+      defaultValue: 0
+    )
+
+    static let request_id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 44,
+      fieldName: "swift_unittest.names.Lowers.request_id",
+      defaultValue: 0
+    )
   }
 }
 
@@ -18311,6 +18899,30 @@ extension SwiftUnittest_Names_Uppers {
       fieldName: "swift_unittest.names.Uppers.the_URL",
       defaultValue: 0
     )
+
+    static let ID = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 141,
+      fieldName: "swift_unittest.names.Uppers.ID",
+      defaultValue: 0
+    )
+
+    static let ID_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 142,
+      fieldName: "swift_unittest.names.Uppers.ID_number",
+      defaultValue: 0
+    )
+
+    static let the_ID_number = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 143,
+      fieldName: "swift_unittest.names.Uppers.the_ID_number",
+      defaultValue: 0
+    )
+
+    static let request_ID = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 144,
+      fieldName: "swift_unittest.names.Uppers.request_ID",
+      defaultValue: 0
+    )
   }
 }
 
@@ -18385,6 +18997,30 @@ extension SwiftUnittest_Names_WordCase {
     static let TheUrl = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
       _protobuf_fieldNumber: 224,
       fieldName: "swift_unittest.names.WordCase.TheUrl",
+      defaultValue: 0
+    )
+
+    static let Id = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 241,
+      fieldName: "swift_unittest.names.WordCase.Id",
+      defaultValue: 0
+    )
+
+    static let IdNumber = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 242,
+      fieldName: "swift_unittest.names.WordCase.IdNumber",
+      defaultValue: 0
+    )
+
+    static let TheIdNumber = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 243,
+      fieldName: "swift_unittest.names.WordCase.TheIdNumber",
+      defaultValue: 0
+    )
+
+    static let RequestId = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitials>(
+      _protobuf_fieldNumber: 244,
+      fieldName: "swift_unittest.names.WordCase.RequestId",
       defaultValue: 0
     )
   }
@@ -18486,7 +19122,6 @@ extension SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf._ProtoNameProviding 
     89: .same(proto: "unowned"),
     90: .same(proto: "weak"),
     91: .same(proto: "willSet"),
-    92: .same(proto: "id"),
     93: .same(proto: "_cmd"),
     96: .same(proto: "out"),
     98: .same(proto: "bycopy"),
@@ -23420,22 +24055,85 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._Message
     23: .standard(proto: "the_url_value"),
     24: .standard(proto: "the_url"),
     31: .standard(proto: "a_b_c"),
+    41: .same(proto: "id"),
+    42: .standard(proto: "id_number"),
+    43: .standard(proto: "the_id_number"),
+    44: .standard(proto: "request_id"),
   ]
 
+  fileprivate class _StorageClass {
+    var _http: Int32? = nil
+    var _httpRequest: Int32? = nil
+    var _theHTTPRequest: Int32? = nil
+    var _theHTTP: Int32? = nil
+    var _https: Int32? = nil
+    var _httpsRequest: Int32? = nil
+    var _theHTTPSRequest: Int32? = nil
+    var _theHTTPS: Int32? = nil
+    var _url: Int32? = nil
+    var _urlValue: Int32? = nil
+    var _theURLValue: Int32? = nil
+    var _theURL: Int32? = nil
+    var _aBC: Int32? = nil
+    var _id: Int32? = nil
+    var _idNumber: Int32? = nil
+    var _theIDNumber: Int32? = nil
+    var _requestID: Int32? = nil
+
+    init() {}
+
+    init(copying source: _StorageClass) {
+      _http = source._http
+      _httpRequest = source._httpRequest
+      _theHTTPRequest = source._theHTTPRequest
+      _theHTTP = source._theHTTP
+      _https = source._https
+      _httpsRequest = source._httpsRequest
+      _theHTTPSRequest = source._theHTTPSRequest
+      _theHTTPS = source._theHTTPS
+      _url = source._url
+      _urlValue = source._urlValue
+      _theURLValue = source._theURLValue
+      _theURL = source._theURL
+      _aBC = source._aBC
+      _id = source._id
+      _idNumber = source._idNumber
+      _theIDNumber = source._theIDNumber
+      _requestID = source._requestID
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
-    if self._http != other._http {return false}
-    if self._httpRequest != other._httpRequest {return false}
-    if self._theHTTPRequest != other._theHTTPRequest {return false}
-    if self._theHTTP != other._theHTTP {return false}
-    if self._https != other._https {return false}
-    if self._httpsRequest != other._httpsRequest {return false}
-    if self._theHTTPSRequest != other._theHTTPSRequest {return false}
-    if self._theHTTPS != other._theHTTPS {return false}
-    if self._url != other._url {return false}
-    if self._urlValue != other._urlValue {return false}
-    if self._theURLValue != other._theURLValue {return false}
-    if self._theURL != other._theURL {return false}
-    if self._aBC != other._aBC {return false}
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._http != other_storage._http {return false}
+        if _storage._httpRequest != other_storage._httpRequest {return false}
+        if _storage._theHTTPRequest != other_storage._theHTTPRequest {return false}
+        if _storage._theHTTP != other_storage._theHTTP {return false}
+        if _storage._https != other_storage._https {return false}
+        if _storage._httpsRequest != other_storage._httpsRequest {return false}
+        if _storage._theHTTPSRequest != other_storage._theHTTPSRequest {return false}
+        if _storage._theHTTPS != other_storage._theHTTPS {return false}
+        if _storage._url != other_storage._url {return false}
+        if _storage._urlValue != other_storage._urlValue {return false}
+        if _storage._theURLValue != other_storage._theURLValue {return false}
+        if _storage._theURL != other_storage._theURL {return false}
+        if _storage._aBC != other_storage._aBC {return false}
+        if _storage._id != other_storage._id {return false}
+        if _storage._idNumber != other_storage._idNumber {return false}
+        if _storage._theIDNumber != other_storage._theIDNumber {return false}
+        if _storage._requestID != other_storage._requestID {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -23455,6 +24153,10 @@ extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf._Message
     22: .standard(proto: "URL_value"),
     23: .standard(proto: "the_URL_value"),
     24: .standard(proto: "the_URL"),
+    41: .same(proto: "ID"),
+    42: .standard(proto: "ID_number"),
+    43: .standard(proto: "the_ID_number"),
+    44: .standard(proto: "request_ID"),
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Uppers) -> Bool {
@@ -23470,6 +24172,10 @@ extension SwiftUnittest_Names_FieldNamingInitials.Uppers: SwiftProtobuf._Message
     if self._urlValue != other._urlValue {return false}
     if self._theURLValue != other._theURLValue {return false}
     if self._theURL != other._theURL {return false}
+    if self._id != other._id {return false}
+    if self._idNumber != other._idNumber {return false}
+    if self._theIDNumber != other._theIDNumber {return false}
+    if self._requestID != other._requestID {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -23489,6 +24195,10 @@ extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf._Messa
     22: .same(proto: "UrlValue"),
     23: .same(proto: "TheUrlValue"),
     24: .same(proto: "TheUrl"),
+    41: .same(proto: "Id"),
+    42: .same(proto: "IdNumber"),
+    43: .same(proto: "TheIdNumber"),
+    44: .same(proto: "RequestId"),
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.WordCase) -> Bool {
@@ -23504,6 +24214,10 @@ extension SwiftUnittest_Names_FieldNamingInitials.WordCase: SwiftProtobuf._Messa
     if self._urlValue != other._urlValue {return false}
     if self._theURLValue != other._theURLValue {return false}
     if self._theURL != other._theURL {return false}
+    if self._id != other._id {return false}
+    if self._idNumber != other._idNumber {return false}
+    if self._theIDNumber != other._theIDNumber {return false}
+    if self._requestID != other._requestID {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
