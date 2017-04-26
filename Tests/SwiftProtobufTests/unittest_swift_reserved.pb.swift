@@ -335,9 +335,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_debug_description) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_debug_description, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_debug_description`
+  /// has been explicitly set.
   var hasProtobufUnittest_debugDescription: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_debug_description)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_debug_description`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_debugDescription() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_debug_description)
   }
@@ -350,9 +354,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_as) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_as, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_as`
+  /// has been explicitly set.
   var hasProtobufUnittest_as: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_as)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_as`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_as() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_as)
   }
@@ -363,9 +371,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_var) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_var, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_var`
+  /// has been explicitly set.
   var hasProtobufUnittest_var: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_var)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_var`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_var() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_var)
   }
@@ -376,9 +388,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_try) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_try, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_try`
+  /// has been explicitly set.
   var hasProtobufUnittest_try: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_try)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_try`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_try() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_try)
   }
@@ -389,9 +405,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_do) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_do, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_do`
+  /// has been explicitly set.
   var hasProtobufUnittest_do: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_do)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_do`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_do() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_do)
   }
@@ -402,9 +422,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_nil) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_nil, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_nil`
+  /// has been explicitly set.
   var hasProtobufUnittest_nil: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_nil)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_nil`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_nil() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_nil)
   }
@@ -418,9 +442,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value`
+  /// has been explicitly set.
   var hasProtobufUnittest_SwiftReservedTestExt_hashValue: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value)
   }
+  /// Clears the value of extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_SwiftReservedTestExt_hashValue() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.hash_value)
   }
@@ -433,9 +461,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.as`
+  /// has been explicitly set.
   var hasProtobufUnittest_SwiftReservedTestExt_as: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as)
   }
+  /// Clears the value of extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.as`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_SwiftReservedTestExt_as() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.as)
   }
@@ -446,9 +478,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.var`
+  /// has been explicitly set.
   var hasProtobufUnittest_SwiftReservedTestExt_var: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var)
   }
+  /// Clears the value of extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.var`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_SwiftReservedTestExt_var() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.var)
   }
@@ -459,9 +495,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.try`
+  /// has been explicitly set.
   var hasProtobufUnittest_SwiftReservedTestExt_try: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try)
   }
+  /// Clears the value of extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.try`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_SwiftReservedTestExt_try() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.try)
   }
@@ -472,9 +512,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.do`
+  /// has been explicitly set.
   var hasProtobufUnittest_SwiftReservedTestExt_do: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do)
   }
+  /// Clears the value of extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.do`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_SwiftReservedTestExt_do() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.do)
   }
@@ -485,9 +529,13 @@ extension ProtobufUnittest_SwiftReservedTest.classMessage {
     get {return getExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.nil`
+  /// has been explicitly set.
   var hasProtobufUnittest_SwiftReservedTestExt_nil: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil)
   }
+  /// Clears the value of extension `ProtobufUnittest_SwiftReservedTestExt.Extensions.nil`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_SwiftReservedTestExt_nil() {
     clearExtensionValue(ext: ProtobufUnittest_SwiftReservedTestExt.Extensions.nil)
   }

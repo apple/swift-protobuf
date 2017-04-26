@@ -322,9 +322,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_b`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_b: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_b() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)
   }
@@ -335,9 +339,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C) ?? ProtobufUnittest_Extend_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_C`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_c: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_C`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_c() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C)
   }
@@ -348,9 +356,13 @@ extension ProtobufUnittest_Extend_Msg1 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_a_b`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_aB: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_a_b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_aB() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b)
   }
@@ -361,9 +373,13 @@ extension ProtobufUnittest_Extend_Msg2 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_aB`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_aB: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_aB`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_aB() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB)
   }
@@ -374,9 +390,13 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_a`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_extA: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_ext_a`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_extA() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a)
   }
@@ -387,9 +407,13 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_b`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_extB: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_ext_b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_extB() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b)
   }
@@ -400,9 +424,13 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_c`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_extC: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_ext_c`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_extC() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c)
   }
@@ -413,9 +441,13 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_d`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend_extD: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend_Extensions_ext_d`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend_extD() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d)
   }

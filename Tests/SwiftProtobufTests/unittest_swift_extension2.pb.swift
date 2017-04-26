@@ -131,9 +131,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend2_Extensions_b`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend2_b: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend2_Extensions_b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend2_b() {
     clearExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b)
   }
@@ -144,9 +148,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C) ?? ProtobufUnittest_Extend2_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend2_Extensions_C`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend2_c: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend2_Extensions_C`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend2_c() {
     clearExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C)
   }
@@ -157,9 +165,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend2_MyMessage.Extensions.b`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend2_MyMessage_b: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend2_MyMessage.Extensions.b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend2_MyMessage_b() {
     clearExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)
   }
@@ -170,9 +182,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend2_MyMessage.C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extend2_MyMessage.Extensions.C`
+  /// has been explicitly set.
   var hasProtobufUnittest_Extend2_MyMessage_c: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extend2_MyMessage.Extensions.C`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_Extend2_MyMessage_c() {
     clearExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)
   }

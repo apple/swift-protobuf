@@ -42,9 +42,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_http) ?? 0}
     set {setExtensionValue(ext: Extensions_http, value: newValue)}
   }
+  /// Returns true if extension `Extensions_http`
+  /// has been explicitly set.
   var hasHTTP: Bool {
     return hasExtensionValue(ext: Extensions_http)
   }
+  /// Clears the value of extension `Extensions_http`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTP() {
     clearExtensionValue(ext: Extensions_http)
   }
@@ -55,9 +59,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_http_request) ?? 0}
     set {setExtensionValue(ext: Extensions_http_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_http_request`
+  /// has been explicitly set.
   var hasHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_http_request)
   }
+  /// Clears the value of extension `Extensions_http_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPRequest() {
     clearExtensionValue(ext: Extensions_http_request)
   }
@@ -68,9 +76,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_the_http_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_http_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_http_request`
+  /// has been explicitly set.
   var hasTheHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_the_http_request)
   }
+  /// Clears the value of extension `Extensions_the_http_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPRequest() {
     clearExtensionValue(ext: Extensions_the_http_request)
   }
@@ -81,9 +93,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_the_http) ?? 0}
     set {setExtensionValue(ext: Extensions_the_http, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_http`
+  /// has been explicitly set.
   var hasTheHTTP: Bool {
     return hasExtensionValue(ext: Extensions_the_http)
   }
+  /// Clears the value of extension `Extensions_the_http`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTP() {
     clearExtensionValue(ext: Extensions_the_http)
   }
@@ -94,9 +110,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_https) ?? 0}
     set {setExtensionValue(ext: Extensions_https, value: newValue)}
   }
+  /// Returns true if extension `Extensions_https`
+  /// has been explicitly set.
   var hasHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_https)
   }
+  /// Clears the value of extension `Extensions_https`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPS() {
     clearExtensionValue(ext: Extensions_https)
   }
@@ -107,9 +127,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_https_request) ?? 0}
     set {setExtensionValue(ext: Extensions_https_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_https_request`
+  /// has been explicitly set.
   var hasHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_https_request)
   }
+  /// Clears the value of extension `Extensions_https_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPSRequest() {
     clearExtensionValue(ext: Extensions_https_request)
   }
@@ -120,9 +144,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_the_https_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_https_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_https_request`
+  /// has been explicitly set.
   var hasTheHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_the_https_request)
   }
+  /// Clears the value of extension `Extensions_the_https_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPSRequest() {
     clearExtensionValue(ext: Extensions_the_https_request)
   }
@@ -133,9 +161,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_the_https) ?? 0}
     set {setExtensionValue(ext: Extensions_the_https, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_https`
+  /// has been explicitly set.
   var hasTheHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_the_https)
   }
+  /// Clears the value of extension `Extensions_the_https`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPS() {
     clearExtensionValue(ext: Extensions_the_https)
   }
@@ -146,9 +178,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_url) ?? 0}
     set {setExtensionValue(ext: Extensions_url, value: newValue)}
   }
+  /// Returns true if extension `Extensions_url`
+  /// has been explicitly set.
   var hasURL: Bool {
     return hasExtensionValue(ext: Extensions_url)
   }
+  /// Clears the value of extension `Extensions_url`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearURL() {
     clearExtensionValue(ext: Extensions_url)
   }
@@ -159,9 +195,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_url_value) ?? 0}
     set {setExtensionValue(ext: Extensions_url_value, value: newValue)}
   }
+  /// Returns true if extension `Extensions_url_value`
+  /// has been explicitly set.
   var hasURLValue: Bool {
     return hasExtensionValue(ext: Extensions_url_value)
   }
+  /// Clears the value of extension `Extensions_url_value`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearURLValue() {
     clearExtensionValue(ext: Extensions_url_value)
   }
@@ -172,9 +212,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_the_url_value) ?? 0}
     set {setExtensionValue(ext: Extensions_the_url_value, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_url_value`
+  /// has been explicitly set.
   var hasTheURLValue: Bool {
     return hasExtensionValue(ext: Extensions_the_url_value)
   }
+  /// Clears the value of extension `Extensions_the_url_value`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheURLValue() {
     clearExtensionValue(ext: Extensions_the_url_value)
   }
@@ -185,9 +229,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_the_url) ?? 0}
     set {setExtensionValue(ext: Extensions_the_url, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_url`
+  /// has been explicitly set.
   var hasTheURL: Bool {
     return hasExtensionValue(ext: Extensions_the_url)
   }
+  /// Clears the value of extension `Extensions_the_url`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheURL() {
     clearExtensionValue(ext: Extensions_the_url)
   }
@@ -198,9 +246,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
     get {return getExtensionValue(ext: Extensions_a_b_c) ?? 0}
     set {setExtensionValue(ext: Extensions_a_b_c, value: newValue)}
   }
+  /// Returns true if extension `Extensions_a_b_c`
+  /// has been explicitly set.
   var hasABC: Bool {
     return hasExtensionValue(ext: Extensions_a_b_c)
   }
+  /// Clears the value of extension `Extensions_a_b_c`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearABC() {
     clearExtensionValue(ext: Extensions_a_b_c)
   }
@@ -263,9 +315,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTP) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTP, value: newValue)}
   }
+  /// Returns true if extension `Extensions_HTTP`
+  /// has been explicitly set.
   var hasHTTP: Bool {
     return hasExtensionValue(ext: Extensions_HTTP)
   }
+  /// Clears the value of extension `Extensions_HTTP`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTP() {
     clearExtensionValue(ext: Extensions_HTTP)
   }
@@ -276,9 +332,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTP_request) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTP_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_HTTP_request`
+  /// has been explicitly set.
   var hasHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_HTTP_request)
   }
+  /// Clears the value of extension `Extensions_HTTP_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPRequest() {
     clearExtensionValue(ext: Extensions_HTTP_request)
   }
@@ -289,9 +349,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_the_HTTP_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTP_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_HTTP_request`
+  /// has been explicitly set.
   var hasTheHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_the_HTTP_request)
   }
+  /// Clears the value of extension `Extensions_the_HTTP_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPRequest() {
     clearExtensionValue(ext: Extensions_the_HTTP_request)
   }
@@ -302,9 +366,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_the_HTTP) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTP, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_HTTP`
+  /// has been explicitly set.
   var hasTheHTTP: Bool {
     return hasExtensionValue(ext: Extensions_the_HTTP)
   }
+  /// Clears the value of extension `Extensions_the_HTTP`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTP() {
     clearExtensionValue(ext: Extensions_the_HTTP)
   }
@@ -315,9 +383,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTPS) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTPS, value: newValue)}
   }
+  /// Returns true if extension `Extensions_HTTPS`
+  /// has been explicitly set.
   var hasHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_HTTPS)
   }
+  /// Clears the value of extension `Extensions_HTTPS`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPS() {
     clearExtensionValue(ext: Extensions_HTTPS)
   }
@@ -328,9 +400,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_HTTPS_request) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTPS_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_HTTPS_request`
+  /// has been explicitly set.
   var hasHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_HTTPS_request)
   }
+  /// Clears the value of extension `Extensions_HTTPS_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPSRequest() {
     clearExtensionValue(ext: Extensions_HTTPS_request)
   }
@@ -341,9 +417,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_the_HTTPS_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTPS_request, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_HTTPS_request`
+  /// has been explicitly set.
   var hasTheHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_the_HTTPS_request)
   }
+  /// Clears the value of extension `Extensions_the_HTTPS_request`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPSRequest() {
     clearExtensionValue(ext: Extensions_the_HTTPS_request)
   }
@@ -354,9 +434,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_the_HTTPS) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTPS, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_HTTPS`
+  /// has been explicitly set.
   var hasTheHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_the_HTTPS)
   }
+  /// Clears the value of extension `Extensions_the_HTTPS`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPS() {
     clearExtensionValue(ext: Extensions_the_HTTPS)
   }
@@ -367,9 +451,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_URL) ?? 0}
     set {setExtensionValue(ext: Extensions_URL, value: newValue)}
   }
+  /// Returns true if extension `Extensions_URL`
+  /// has been explicitly set.
   var hasURL: Bool {
     return hasExtensionValue(ext: Extensions_URL)
   }
+  /// Clears the value of extension `Extensions_URL`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearURL() {
     clearExtensionValue(ext: Extensions_URL)
   }
@@ -380,9 +468,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_URL_value) ?? 0}
     set {setExtensionValue(ext: Extensions_URL_value, value: newValue)}
   }
+  /// Returns true if extension `Extensions_URL_value`
+  /// has been explicitly set.
   var hasURLValue: Bool {
     return hasExtensionValue(ext: Extensions_URL_value)
   }
+  /// Clears the value of extension `Extensions_URL_value`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearURLValue() {
     clearExtensionValue(ext: Extensions_URL_value)
   }
@@ -393,9 +485,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_the_URL_value) ?? 0}
     set {setExtensionValue(ext: Extensions_the_URL_value, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_URL_value`
+  /// has been explicitly set.
   var hasTheURLValue: Bool {
     return hasExtensionValue(ext: Extensions_the_URL_value)
   }
+  /// Clears the value of extension `Extensions_the_URL_value`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheURLValue() {
     clearExtensionValue(ext: Extensions_the_URL_value)
   }
@@ -406,9 +502,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
     get {return getExtensionValue(ext: Extensions_the_URL) ?? 0}
     set {setExtensionValue(ext: Extensions_the_URL, value: newValue)}
   }
+  /// Returns true if extension `Extensions_the_URL`
+  /// has been explicitly set.
   var hasTheURL: Bool {
     return hasExtensionValue(ext: Extensions_the_URL)
   }
+  /// Clears the value of extension `Extensions_the_URL`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheURL() {
     clearExtensionValue(ext: Extensions_the_URL)
   }
@@ -471,9 +571,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_Http) ?? 0}
     set {setExtensionValue(ext: Extensions_Http, value: newValue)}
   }
+  /// Returns true if extension `Extensions_Http`
+  /// has been explicitly set.
   var hasHTTP: Bool {
     return hasExtensionValue(ext: Extensions_Http)
   }
+  /// Clears the value of extension `Extensions_Http`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTP() {
     clearExtensionValue(ext: Extensions_Http)
   }
@@ -484,9 +588,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_HttpRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_HttpRequest, value: newValue)}
   }
+  /// Returns true if extension `Extensions_HttpRequest`
+  /// has been explicitly set.
   var hasHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_HttpRequest)
   }
+  /// Clears the value of extension `Extensions_HttpRequest`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPRequest() {
     clearExtensionValue(ext: Extensions_HttpRequest)
   }
@@ -497,9 +605,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_TheHttpRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttpRequest, value: newValue)}
   }
+  /// Returns true if extension `Extensions_TheHttpRequest`
+  /// has been explicitly set.
   var hasTheHTTPRequest: Bool {
     return hasExtensionValue(ext: Extensions_TheHttpRequest)
   }
+  /// Clears the value of extension `Extensions_TheHttpRequest`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPRequest() {
     clearExtensionValue(ext: Extensions_TheHttpRequest)
   }
@@ -510,9 +622,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_TheHttp) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttp, value: newValue)}
   }
+  /// Returns true if extension `Extensions_TheHttp`
+  /// has been explicitly set.
   var hasTheHTTP: Bool {
     return hasExtensionValue(ext: Extensions_TheHttp)
   }
+  /// Clears the value of extension `Extensions_TheHttp`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTP() {
     clearExtensionValue(ext: Extensions_TheHttp)
   }
@@ -523,9 +639,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_Https) ?? 0}
     set {setExtensionValue(ext: Extensions_Https, value: newValue)}
   }
+  /// Returns true if extension `Extensions_Https`
+  /// has been explicitly set.
   var hasHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_Https)
   }
+  /// Clears the value of extension `Extensions_Https`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPS() {
     clearExtensionValue(ext: Extensions_Https)
   }
@@ -536,9 +656,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_HttpsRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_HttpsRequest, value: newValue)}
   }
+  /// Returns true if extension `Extensions_HttpsRequest`
+  /// has been explicitly set.
   var hasHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_HttpsRequest)
   }
+  /// Clears the value of extension `Extensions_HttpsRequest`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearHTTPSRequest() {
     clearExtensionValue(ext: Extensions_HttpsRequest)
   }
@@ -549,9 +673,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_TheHttpsRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttpsRequest, value: newValue)}
   }
+  /// Returns true if extension `Extensions_TheHttpsRequest`
+  /// has been explicitly set.
   var hasTheHTTPSRequest: Bool {
     return hasExtensionValue(ext: Extensions_TheHttpsRequest)
   }
+  /// Clears the value of extension `Extensions_TheHttpsRequest`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPSRequest() {
     clearExtensionValue(ext: Extensions_TheHttpsRequest)
   }
@@ -562,9 +690,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_TheHttps) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttps, value: newValue)}
   }
+  /// Returns true if extension `Extensions_TheHttps`
+  /// has been explicitly set.
   var hasTheHTTPS: Bool {
     return hasExtensionValue(ext: Extensions_TheHttps)
   }
+  /// Clears the value of extension `Extensions_TheHttps`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheHTTPS() {
     clearExtensionValue(ext: Extensions_TheHttps)
   }
@@ -575,9 +707,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_Url) ?? 0}
     set {setExtensionValue(ext: Extensions_Url, value: newValue)}
   }
+  /// Returns true if extension `Extensions_Url`
+  /// has been explicitly set.
   var hasURL: Bool {
     return hasExtensionValue(ext: Extensions_Url)
   }
+  /// Clears the value of extension `Extensions_Url`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearURL() {
     clearExtensionValue(ext: Extensions_Url)
   }
@@ -588,9 +724,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_UrlValue) ?? 0}
     set {setExtensionValue(ext: Extensions_UrlValue, value: newValue)}
   }
+  /// Returns true if extension `Extensions_UrlValue`
+  /// has been explicitly set.
   var hasURLValue: Bool {
     return hasExtensionValue(ext: Extensions_UrlValue)
   }
+  /// Clears the value of extension `Extensions_UrlValue`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearURLValue() {
     clearExtensionValue(ext: Extensions_UrlValue)
   }
@@ -601,9 +741,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_TheUrlValue) ?? 0}
     set {setExtensionValue(ext: Extensions_TheUrlValue, value: newValue)}
   }
+  /// Returns true if extension `Extensions_TheUrlValue`
+  /// has been explicitly set.
   var hasTheURLValue: Bool {
     return hasExtensionValue(ext: Extensions_TheUrlValue)
   }
+  /// Clears the value of extension `Extensions_TheUrlValue`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheURLValue() {
     clearExtensionValue(ext: Extensions_TheUrlValue)
   }
@@ -614,9 +758,13 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
     get {return getExtensionValue(ext: Extensions_TheUrl) ?? 0}
     set {setExtensionValue(ext: Extensions_TheUrl, value: newValue)}
   }
+  /// Returns true if extension `Extensions_TheUrl`
+  /// has been explicitly set.
   var hasTheURL: Bool {
     return hasExtensionValue(ext: Extensions_TheUrl)
   }
+  /// Clears the value of extension `Extensions_TheUrl`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTheURL() {
     clearExtensionValue(ext: Extensions_TheUrl)
   }

@@ -409,9 +409,13 @@ extension Google_Protobuf_FieldOptions {
     get {return getExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str) ?? String()}
     set {setExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str, value: newValue)}
   }
+  /// Returns true if extension `SwiftDescriptorTest_Extensions_ext_str`
+  /// has been explicitly set.
   var hasSwiftDescriptorTest_extStr: Bool {
     return hasExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str)
   }
+  /// Clears the value of extension `SwiftDescriptorTest_Extensions_ext_str`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftDescriptorTest_extStr() {
     clearExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str)
   }
@@ -422,9 +426,13 @@ extension Google_Protobuf_MessageOptions {
     get {return getExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum) ?? SwiftDescriptorTest_TopLevelEnum.valueZero}
     set {setExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum, value: newValue)}
   }
+  /// Returns true if extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum`
+  /// has been explicitly set.
   var hasSwiftDescriptorTest_ScoperForExt_extEnum: Bool {
     return hasExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum)
   }
+  /// Clears the value of extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftDescriptorTest_ScoperForExt_extEnum() {
     clearExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum)
   }
@@ -435,9 +443,13 @@ extension Google_Protobuf_MessageOptions {
     get {return getExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg) ?? SwiftDescriptorTest_TopLevelMessage2()}
     set {setExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg, value: newValue)}
   }
+  /// Returns true if extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg`
+  /// has been explicitly set.
   var hasSwiftDescriptorTest_ScoperForExt_extMsg: Bool {
     return hasExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg)
   }
+  /// Clears the value of extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftDescriptorTest_ScoperForExt_extMsg() {
     clearExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg)
   }

@@ -5781,9 +5781,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_int32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_int32_extension)
   }
@@ -5794,9 +5798,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_int64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_int64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_int64_extension)
   }
@@ -5807,9 +5815,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_uint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_uint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint32_extension)
   }
@@ -5820,9 +5832,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_uint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_uint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_uint64_extension)
   }
@@ -5833,9 +5849,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint32_extension)
   }
@@ -5846,9 +5866,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sint64_extension)
   }
@@ -5859,9 +5883,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_fixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_fixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed32_extension)
   }
@@ -5872,9 +5900,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_fixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_fixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_fixed64_extension)
   }
@@ -5885,9 +5917,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sfixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sfixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed32_extension)
   }
@@ -5898,9 +5934,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_sfixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_sfixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_sfixed64_extension)
   }
@@ -5911,9 +5951,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_float_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_float_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_float_extension)
   }
@@ -5924,9 +5968,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_double_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_double_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_double_extension)
   }
@@ -5937,9 +5985,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bool_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bool_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bool_extension)
   }
@@ -5950,9 +6002,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_string_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_string_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_extension)
   }
@@ -5963,9 +6019,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_bytes_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_bytes_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_bytes_extension)
   }
@@ -5976,9 +6036,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension) ?? ProtobufUnittest_OptionalGroup_extension()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_OptionalGroup_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalGroupExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_OptionalGroup_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalGroupExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_OptionalGroup_extension)
   }
@@ -5989,9 +6053,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_nested_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalNestedMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_nested_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalNestedMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_message_extension)
   }
@@ -6002,9 +6070,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension) ?? ProtobufUnittest_ForeignMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_foreign_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalForeignMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_foreign_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalForeignMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_message_extension)
   }
@@ -6015,9 +6087,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension) ?? ProtobufUnittestImport_ImportMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_import_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalImportMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_import_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalImportMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_message_extension)
   }
@@ -6028,9 +6104,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension) ?? ProtobufUnittest_TestAllTypes.NestedEnum.foo}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_nested_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalNestedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_nested_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalNestedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension)
   }
@@ -6041,9 +6121,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension) ?? ProtobufUnittest_ForeignEnum.foreignFoo}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_foreign_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalForeignEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_foreign_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalForeignEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension)
   }
@@ -6054,9 +6138,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension) ?? ProtobufUnittestImport_ImportEnum.importFoo}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_import_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalImportEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_import_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalImportEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension)
   }
@@ -6067,9 +6155,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_string_piece_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalStringPieceExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_string_piece_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalStringPieceExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_string_piece_extension)
   }
@@ -6080,9 +6172,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_cord_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalCordExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_cord_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalCordExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_cord_extension)
   }
@@ -6093,9 +6189,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension) ?? ProtobufUnittestImport_PublicImportMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_public_import_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalPublicImportMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_public_import_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalPublicImportMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_public_import_message_extension)
   }
@@ -6106,9 +6206,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_optional_lazy_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_optionalLazyMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_optional_lazy_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_optionalLazyMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_optional_lazy_message_extension)
   }
@@ -6120,9 +6224,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_int32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int32_extension)
   }
@@ -6133,9 +6241,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_int64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_int64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_int64_extension)
   }
@@ -6146,9 +6258,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_uint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_uint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint32_extension)
   }
@@ -6159,9 +6275,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_uint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_uint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_uint64_extension)
   }
@@ -6172,9 +6292,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_sint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_sint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint32_extension)
   }
@@ -6185,9 +6309,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_sint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_sint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sint64_extension)
   }
@@ -6198,9 +6326,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_fixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_fixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed32_extension)
   }
@@ -6211,9 +6343,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_fixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_fixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_fixed64_extension)
   }
@@ -6224,9 +6360,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_sfixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_sfixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed32_extension)
   }
@@ -6237,9 +6377,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_sfixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_sfixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_sfixed64_extension)
   }
@@ -6250,9 +6394,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_float_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_float_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_float_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_float_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_float_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_float_extension)
   }
@@ -6263,9 +6411,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_double_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_double_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_double_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_double_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_double_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_double_extension)
   }
@@ -6276,9 +6428,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bool_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bool_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_bool_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bool_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_bool_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bool_extension)
   }
@@ -6289,9 +6445,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_string_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_string_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_extension)
   }
@@ -6302,9 +6462,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_bytes_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_bytes_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_bytes_extension)
   }
@@ -6315,9 +6479,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_RepeatedGroup_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_RepeatedGroup_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_RepeatedGroup_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedGroupExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_RepeatedGroup_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_RepeatedGroup_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedGroupExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_RepeatedGroup_extension)
   }
@@ -6328,9 +6496,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_message_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_nested_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedNestedMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_nested_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedNestedMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_message_extension)
   }
@@ -6341,9 +6513,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_message_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_foreign_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedForeignMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_foreign_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedForeignMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_message_extension)
   }
@@ -6354,9 +6530,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_message_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_import_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedImportMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_import_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedImportMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_message_extension)
   }
@@ -6367,9 +6547,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_enum_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_nested_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedNestedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_nested_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedNestedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_nested_enum_extension)
   }
@@ -6380,9 +6564,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_enum_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_foreign_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedForeignEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_foreign_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedForeignEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_foreign_enum_extension)
   }
@@ -6393,9 +6581,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_enum_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_import_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedImportEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_import_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedImportEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_import_enum_extension)
   }
@@ -6406,9 +6598,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_string_piece_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedStringPieceExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_string_piece_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedStringPieceExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_string_piece_extension)
   }
@@ -6419,9 +6615,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_cord_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedCordExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_cord_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedCordExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_cord_extension)
   }
@@ -6432,9 +6632,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_repeated_lazy_message_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_repeated_lazy_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_repeated_lazy_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_repeatedLazyMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_repeated_lazy_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_repeated_lazy_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_repeatedLazyMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_repeated_lazy_message_extension)
   }
@@ -6446,9 +6650,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension) ?? 41}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_int32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_int32_extension)
   }
@@ -6459,9 +6667,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension) ?? 42}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_int64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_int64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_int64_extension)
   }
@@ -6472,9 +6684,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension) ?? 43}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_uint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_uint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_uint32_extension)
   }
@@ -6485,9 +6701,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension) ?? 44}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_uint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_uint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_uint64_extension)
   }
@@ -6498,9 +6718,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension) ?? -45}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_sint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sint32_extension)
   }
@@ -6511,9 +6735,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension) ?? 46}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_sint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sint64_extension)
   }
@@ -6524,9 +6752,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension) ?? 47}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_fixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_fixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed32_extension)
   }
@@ -6537,9 +6769,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension) ?? 48}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_fixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_fixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_fixed64_extension)
   }
@@ -6550,9 +6786,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension) ?? 49}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_sfixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sfixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed32_extension)
   }
@@ -6563,9 +6803,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension) ?? -50}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_sfixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_sfixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_sfixed64_extension)
   }
@@ -6576,9 +6820,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension) ?? 51.5}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_float_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_float_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_float_extension)
   }
@@ -6589,9 +6837,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension) ?? 52000}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_double_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_double_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_double_extension)
   }
@@ -6602,9 +6854,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension) ?? true}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_bool_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_bool_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_bool_extension)
   }
@@ -6615,9 +6871,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension) ?? "hello"}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_string_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_string_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_extension)
   }
@@ -6628,9 +6888,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension) ?? Data(bytes: [119, 111, 114, 108, 100])}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_bytes_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_bytes_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_bytes_extension)
   }
@@ -6641,9 +6905,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension) ?? ProtobufUnittest_TestAllTypes.NestedEnum.bar}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_nested_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultNestedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_nested_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultNestedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension)
   }
@@ -6654,9 +6922,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension) ?? ProtobufUnittest_ForeignEnum.foreignBar}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_foreign_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultForeignEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_foreign_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultForeignEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension)
   }
@@ -6667,9 +6939,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension) ?? ProtobufUnittestImport_ImportEnum.importBar}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_import_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultImportEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_import_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultImportEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension)
   }
@@ -6680,9 +6956,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension) ?? "abc"}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_string_piece_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultStringPieceExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_string_piece_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultStringPieceExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_string_piece_extension)
   }
@@ -6693,9 +6973,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension) ?? "123"}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_default_cord_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_defaultCordExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_default_cord_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_defaultCordExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_default_cord_extension)
   }
@@ -6707,9 +6991,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_uint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_oneofUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_uint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_oneofUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_uint32_extension)
   }
@@ -6720,9 +7008,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension) ?? ProtobufUnittest_TestAllTypes.NestedMessage()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_nested_message_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_oneofNestedMessageExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_nested_message_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_oneofNestedMessageExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_nested_message_extension)
   }
@@ -6733,9 +7025,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_string_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_oneofStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_string_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_oneofStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_string_extension)
   }
@@ -6746,9 +7042,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_oneof_bytes_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_oneofBytesExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_oneof_bytes_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_oneofBytesExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_oneof_bytes_extension)
   }
@@ -6759,9 +7059,13 @@ extension ProtobufUnittest_TestFieldOrderings {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_my_extension_string`
+  /// has been explicitly set.
   var hasProtobufUnittest_myExtensionString: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_my_extension_string`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_myExtensionString() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_string)
   }
@@ -6772,9 +7076,13 @@ extension ProtobufUnittest_TestFieldOrderings {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_int) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_int, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_my_extension_int`
+  /// has been explicitly set.
   var hasProtobufUnittest_myExtensionInt: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_int)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_my_extension_int`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_myExtensionInt() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_my_extension_int)
   }
@@ -6785,9 +7093,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_int32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_int32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_int32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_int32_extension)
   }
@@ -6798,9 +7110,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_int64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_int64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_int64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_int64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_int64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_int64_extension)
   }
@@ -6811,9 +7127,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_uint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_uint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint32_extension)
   }
@@ -6824,9 +7144,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_uint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_uint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_uint64_extension)
   }
@@ -6837,9 +7161,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_sint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_sint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint32_extension)
   }
@@ -6850,9 +7178,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_sint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_sint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_sint64_extension)
   }
@@ -6863,9 +7195,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_fixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_fixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed32_extension)
   }
@@ -6876,9 +7212,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_fixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_fixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_fixed64_extension)
   }
@@ -6889,9 +7229,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_sfixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_sfixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed32_extension)
   }
@@ -6902,9 +7246,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_sfixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_sfixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_sfixed64_extension)
   }
@@ -6915,9 +7263,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_float_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_float_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_float_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_float_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_float_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_float_extension)
   }
@@ -6928,9 +7280,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_double_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_double_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_double_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_double_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_double_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_double_extension)
   }
@@ -6941,9 +7297,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_bool_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_bool_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_bool_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_bool_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_bool_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_bool_extension)
   }
@@ -6954,9 +7314,13 @@ extension ProtobufUnittest_TestPackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_packed_enum_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_packed_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_packed_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_packedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_packed_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_packed_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_packedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_packed_enum_extension)
   }
@@ -6967,9 +7331,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_int32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedInt32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int32_extension)
   }
@@ -6980,9 +7348,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_int64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedInt64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_int64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedInt64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_int64_extension)
   }
@@ -6993,9 +7365,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_uint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedUint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_uint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedUint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint32_extension)
   }
@@ -7006,9 +7382,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_uint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedUint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_uint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedUint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_uint64_extension)
   }
@@ -7019,9 +7399,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_sint32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedSint32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_sint32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedSint32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint32_extension)
   }
@@ -7032,9 +7416,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_sint64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedSint64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_sint64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedSint64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sint64_extension)
   }
@@ -7045,9 +7433,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_fixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedFixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_fixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedFixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed32_extension)
   }
@@ -7058,9 +7450,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_fixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedFixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_fixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedFixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_fixed64_extension)
   }
@@ -7071,9 +7467,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed32_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_sfixed32_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedSfixed32Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed32_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_sfixed32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedSfixed32Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed32_extension)
   }
@@ -7084,9 +7484,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed64_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed64_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_sfixed64_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedSfixed64Extension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed64_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_sfixed64_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedSfixed64Extension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_sfixed64_extension)
   }
@@ -7097,9 +7501,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_float_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_float_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_float_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedFloatExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_float_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_float_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedFloatExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_float_extension)
   }
@@ -7110,9 +7518,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_double_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_double_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_double_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedDoubleExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_double_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_double_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedDoubleExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_double_extension)
   }
@@ -7123,9 +7535,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_bool_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_bool_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_bool_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedBoolExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_bool_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_bool_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedBoolExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_bool_extension)
   }
@@ -7136,9 +7552,13 @@ extension ProtobufUnittest_TestUnpackedExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_enum_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_enum_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_unpacked_enum_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_unpackedEnumExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_enum_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_unpacked_enum_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_unpackedEnumExtension() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_unpacked_enum_extension)
   }
@@ -7149,9 +7569,13 @@ extension ProtobufUnittest_TestHugeFieldNumbers {
     get {return getExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types) ?? ProtobufUnittest_TestAllTypes()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_Extensions_test_all_types`
+  /// has been explicitly set.
   var hasProtobufUnittest_testAllTypes: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types)
   }
+  /// Clears the value of extension `ProtobufUnittest_Extensions_test_all_types`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_testAllTypes() {
     clearExtensionValue(ext: ProtobufUnittest_Extensions_test_all_types)
   }
@@ -7164,9 +7588,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.test) ?? "test"}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.test, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestNestedExtension.Extensions.test`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestNestedExtension_test: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.test)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestNestedExtension.Extensions.test`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestNestedExtension_test() {
     clearExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.test)
   }
@@ -7179,9 +7607,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestNestedExtension_nestedStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestNestedExtension_nestedStringExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestNestedExtension.Extensions.nested_string_extension)
   }
@@ -7192,9 +7624,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.single) ?? ProtobufUnittest_TestRequired()}
     set {setExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.single, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestRequired.Extensions.single`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestRequired_single: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.single)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestRequired.Extensions.single`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestRequired_single() {
     clearExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.single)
   }
@@ -7205,9 +7641,13 @@ extension ProtobufUnittest_TestAllExtensions {
     get {return getExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.multi)}
     set {setExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.multi, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestRequired.Extensions.multi`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestRequired_multi: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.multi)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestRequired.Extensions.multi`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestRequired_multi() {
     clearExtensionValue(ext: ProtobufUnittest_TestRequired.Extensions.multi)
   }
@@ -7218,9 +7658,13 @@ extension ProtobufUnittest_TestParsingMerge {
     get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.optional_ext) ?? ProtobufUnittest_TestAllTypes()}
     set {setExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.optional_ext, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestParsingMerge.Extensions.optional_ext`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestParsingMerge_optionalExt: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.optional_ext)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestParsingMerge.Extensions.optional_ext`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestParsingMerge_optionalExt() {
     clearExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.optional_ext)
   }
@@ -7231,9 +7675,13 @@ extension ProtobufUnittest_TestParsingMerge {
     get {return getExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext)}
     set {setExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestParsingMerge_repeatedExt: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestParsingMerge_repeatedExt() {
     clearExtensionValue(ext: ProtobufUnittest_TestParsingMerge.Extensions.repeated_ext)
   }

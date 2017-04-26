@@ -267,9 +267,13 @@ extension Proto2WireformatUnittest_TestMessageSet {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension1()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestMessageSetExtension1_messageSetExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestMessageSetExtension1_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension)
   }
@@ -280,9 +284,13 @@ extension Proto2WireformatUnittest_TestMessageSet {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension2()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestMessageSetExtension2_messageSetExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestMessageSetExtension2_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension)
   }

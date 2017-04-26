@@ -131,9 +131,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: Ext4Extensions_b) ?? String()}
     set {setExtensionValue(ext: Ext4Extensions_b, value: newValue)}
   }
+  /// Returns true if extension `Ext4Extensions_b`
+  /// has been explicitly set.
   var hasExt4b: Bool {
     return hasExtensionValue(ext: Ext4Extensions_b)
   }
+  /// Clears the value of extension `Ext4Extensions_b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearExt4b() {
     clearExtensionValue(ext: Ext4Extensions_b)
   }
@@ -144,9 +148,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: Ext4Extensions_C) ?? Ext4C()}
     set {setExtensionValue(ext: Ext4Extensions_C, value: newValue)}
   }
+  /// Returns true if extension `Ext4Extensions_C`
+  /// has been explicitly set.
   var hasExt4c: Bool {
     return hasExtensionValue(ext: Ext4Extensions_C)
   }
+  /// Clears the value of extension `Ext4Extensions_C`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearExt4c() {
     clearExtensionValue(ext: Ext4Extensions_C)
   }
@@ -157,9 +165,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
   }
+  /// Returns true if extension `Ext4MyMessage.Extensions.b`
+  /// has been explicitly set.
   var hasExt4MyMessage_b: Bool {
     return hasExtensionValue(ext: Ext4MyMessage.Extensions.b)
   }
+  /// Clears the value of extension `Ext4MyMessage.Extensions.b`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearExt4MyMessage_b() {
     clearExtensionValue(ext: Ext4MyMessage.Extensions.b)
   }
@@ -170,9 +182,13 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
     get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C) ?? Ext4MyMessage.C()}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.C, value: newValue)}
   }
+  /// Returns true if extension `Ext4MyMessage.Extensions.C`
+  /// has been explicitly set.
   var hasExt4MyMessage_c: Bool {
     return hasExtensionValue(ext: Ext4MyMessage.Extensions.C)
   }
+  /// Clears the value of extension `Ext4MyMessage.Extensions.C`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearExt4MyMessage_c() {
     clearExtensionValue(ext: Ext4MyMessage.Extensions.C)
   }

@@ -432,9 +432,13 @@ extension SwiftTestGroupExtensions {
     get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
     set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
   }
+  /// Returns true if extension `Extensions_ExtensionGroup`
+  /// has been explicitly set.
   var hasExtensionGroup: Bool {
     return hasExtensionValue(ext: Extensions_ExtensionGroup)
   }
+  /// Clears the value of extension `Extensions_ExtensionGroup`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearExtensionGroup() {
     clearExtensionValue(ext: Extensions_ExtensionGroup)
   }
@@ -445,9 +449,13 @@ extension SwiftTestGroupExtensions {
     get {return getExtensionValue(ext: Extensions_RepeatedExtensionGroup)}
     set {setExtensionValue(ext: Extensions_RepeatedExtensionGroup, value: newValue)}
   }
+  /// Returns true if extension `Extensions_RepeatedExtensionGroup`
+  /// has been explicitly set.
   var hasRepeatedExtensionGroup: Bool {
     return hasExtensionValue(ext: Extensions_RepeatedExtensionGroup)
   }
+  /// Clears the value of extension `Extensions_RepeatedExtensionGroup`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearRepeatedExtensionGroup() {
     clearExtensionValue(ext: Extensions_RepeatedExtensionGroup)
   }

@@ -251,9 +251,13 @@ extension ProtobufUnittest_TestOptimizedForSize {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestOptimizedForSize_testExtension: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
   }
@@ -264,9 +268,13 @@ extension ProtobufUnittest_TestOptimizedForSize {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
   }
+  /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2`
+  /// has been explicitly set.
   var hasProtobufUnittest_TestOptimizedForSize_testExtension2: Bool {
     return hasExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
   }
+  /// Clears the value of extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension2() {
     clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
   }

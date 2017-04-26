@@ -61,9 +61,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: Extensions_debugDescription) ?? false}
     set {setExtensionValue(ext: Extensions_debugDescription, value: newValue)}
   }
+  /// Returns true if extension `Extensions_debugDescription`
+  /// has been explicitly set.
   var hasDebugDescription_p: Bool {
     return hasExtensionValue(ext: Extensions_debugDescription)
   }
+  /// Clears the value of extension `Extensions_debugDescription`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearDebugDescription_p() {
     clearExtensionValue(ext: Extensions_debugDescription)
   }
@@ -75,9 +79,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: Extensions_as) ?? false}
     set {setExtensionValue(ext: Extensions_as, value: newValue)}
   }
+  /// Returns true if extension `Extensions_as`
+  /// has been explicitly set.
   var hasAs_p: Bool {
     return hasExtensionValue(ext: Extensions_as)
   }
+  /// Clears the value of extension `Extensions_as`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearAs_p() {
     clearExtensionValue(ext: Extensions_as)
   }
@@ -88,9 +96,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: Extensions_var) ?? false}
     set {setExtensionValue(ext: Extensions_var, value: newValue)}
   }
+  /// Returns true if extension `Extensions_var`
+  /// has been explicitly set.
   var hasVar_p: Bool {
     return hasExtensionValue(ext: Extensions_var)
   }
+  /// Clears the value of extension `Extensions_var`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearVar_p() {
     clearExtensionValue(ext: Extensions_var)
   }
@@ -101,9 +113,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: Extensions_try) ?? false}
     set {setExtensionValue(ext: Extensions_try, value: newValue)}
   }
+  /// Returns true if extension `Extensions_try`
+  /// has been explicitly set.
   var hasTry_p: Bool {
     return hasExtensionValue(ext: Extensions_try)
   }
+  /// Clears the value of extension `Extensions_try`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearTry_p() {
     clearExtensionValue(ext: Extensions_try)
   }
@@ -114,9 +130,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: Extensions_do) ?? false}
     set {setExtensionValue(ext: Extensions_do, value: newValue)}
   }
+  /// Returns true if extension `Extensions_do`
+  /// has been explicitly set.
   var hasDo_p: Bool {
     return hasExtensionValue(ext: Extensions_do)
   }
+  /// Clears the value of extension `Extensions_do`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearDo_p() {
     clearExtensionValue(ext: Extensions_do)
   }
@@ -127,9 +147,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: Extensions_nil) ?? false}
     set {setExtensionValue(ext: Extensions_nil, value: newValue)}
   }
+  /// Returns true if extension `Extensions_nil`
+  /// has been explicitly set.
   var hasNil_p: Bool {
     return hasExtensionValue(ext: Extensions_nil)
   }
+  /// Clears the value of extension `Extensions_nil`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearNil_p() {
     clearExtensionValue(ext: Extensions_nil)
   }
@@ -140,9 +164,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue, value: newValue)}
   }
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.hashValue`
+  /// has been explicitly set.
   var hasSwiftReservedTestExt2_hashValue: Bool {
     return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue)
   }
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.hashValue`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_hashValue() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue)
   }
@@ -155,9 +183,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.as) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.as, value: newValue)}
   }
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.as`
+  /// has been explicitly set.
   var hasSwiftReservedTestExt2_as: Bool {
     return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.as)
   }
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.as`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_as() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.as)
   }
@@ -168,9 +200,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.var) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.var, value: newValue)}
   }
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.var`
+  /// has been explicitly set.
   var hasSwiftReservedTestExt2_var: Bool {
     return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.var)
   }
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.var`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_var() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.var)
   }
@@ -181,9 +217,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.try) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.try, value: newValue)}
   }
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.try`
+  /// has been explicitly set.
   var hasSwiftReservedTestExt2_try: Bool {
     return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.try)
   }
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.try`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_try() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.try)
   }
@@ -194,9 +234,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.do) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.do, value: newValue)}
   }
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.do`
+  /// has been explicitly set.
   var hasSwiftReservedTestExt2_do: Bool {
     return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.do)
   }
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.do`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_do() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.do)
   }
@@ -207,9 +251,13 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil, value: newValue)}
   }
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.nil`
+  /// has been explicitly set.
   var hasSwiftReservedTestExt2_nil: Bool {
     return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil)
   }
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.nil`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_nil() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil)
   }

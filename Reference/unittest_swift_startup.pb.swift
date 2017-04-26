@@ -102,9 +102,13 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufObjcUnittest_Extensions_optional_int32_extension`
+  /// has been explicitly set.
   var hasProtobufObjcUnittest_optionalInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension)
   }
+  /// Clears the value of extension `ProtobufObjcUnittest_Extensions_optional_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufObjcUnittest_optionalInt32Extension() {
     clearExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension)
   }
@@ -115,9 +119,13 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension)}
     set {setExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufObjcUnittest_Extensions_repeated_int32_extension`
+  /// has been explicitly set.
   var hasProtobufObjcUnittest_repeatedInt32Extension: Bool {
     return hasExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension)
   }
+  /// Clears the value of extension `ProtobufObjcUnittest_Extensions_repeated_int32_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufObjcUnittest_repeatedInt32Extension() {
     clearExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension)
   }
@@ -128,9 +136,13 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension, value: newValue)}
   }
+  /// Returns true if extension `ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension`
+  /// has been explicitly set.
   var hasProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: Bool {
     return hasExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension)
   }
+  /// Clears the value of extension `ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension() {
     clearExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension)
   }

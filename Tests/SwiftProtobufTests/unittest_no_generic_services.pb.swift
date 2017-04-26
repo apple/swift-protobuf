@@ -125,9 +125,13 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
     get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
+  /// Returns true if extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`
+  /// has been explicitly set.
   var hasGoogle_Protobuf_NoGenericServicesTest_testExtension: Bool {
     return hasExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
   }
+  /// Clears the value of extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearGoogle_Protobuf_NoGenericServicesTest_testExtension() {
     clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
   }
