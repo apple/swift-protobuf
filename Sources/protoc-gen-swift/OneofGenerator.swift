@@ -95,26 +95,25 @@ class OneofGenerator {
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
-        p.print("\n")
         // Repeat the comment from the oneof to provide some context
         // to this enum we generated.
-        if !comments.isEmpty {
-            p.print(comments)
-        }
-        p.print("\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): Equatable {\n")
+        p.print(
+            "\n",
+            comments,
+            "\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): Equatable {\n")
         p.indent()
 
         // Oneof case for each ivar
         for f in fields {
-            if !f.comments.isEmpty {
-              p.print(f.comments)
-            }
-            p.print("case \(f.swiftName)(\(f.swiftBaseType))\n")
+            p.print(
+                f.comments,
+                "case \(f.swiftName)(\(f.swiftBaseType))\n")
         }
 
         // Equatable conformance
-        p.print("\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
+        p.print(
+            "\n",
+            "\(generatorOptions.visibilitySourceSnippet)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
         p.indent()
         p.print("switch (lhs, rhs) {\n")
         for f in fields {
@@ -138,8 +137,9 @@ class OneofGenerator {
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter) {
-        p.print("\n")
-        p.print("extension \(swiftFullName) {\n")
+        p.print(
+            "\n",
+            "extension \(swiftFullName) {\n")
         p.indent()
 
         // Decode one of our members
@@ -158,16 +158,21 @@ class OneofGenerator {
             p.indent()
             if isProto3 && !f.isMessage && !f.isGroup {
                 // Proto3 has non-optional fields, so this is simpler
-                p.print("var value = \(f.swiftStorageType)()\n")
-                p.print("try decoder.\(decoderMethod)(value: &value)\n")
-                p.print("self = .\(f.swiftName)(value)\n")
-                p.print("return\n")
+                p.print(
+                    "var value = \(f.swiftStorageType)()\n",
+                    "try decoder.\(decoderMethod)(value: &value)\n",
+                    "self = .\(f.swiftName)(value)\n",
+                    "return\n")
             } else {
-                p.print("var value: \(f.swiftStorageType)\n")
-                p.print("try decoder.\(decoderMethod)(value: &value)\n")
-                p.print("if let value = value {\n")
-                p.print("  self = .\(f.swiftName)(value)\n")
-                p.print("  return\n")
+                p.print(
+                    "var value: \(f.swiftStorageType)\n",
+                    "try decoder.\(decoderMethod)(value: &value)\n",
+                    "if let value = value {\n")
+                p.indent()
+                p.print(
+                    "self = .\(f.swiftName)(value)\n",
+                    "return\n")
+                p.outdent()
                 p.print("}\n")
             }
             p.outdent()
@@ -176,8 +181,9 @@ class OneofGenerator {
         p.indent()
         p.print("break\n")
         p.outdent()
-        p.print("}\n")
-        p.print("return nil\n")
+        p.print(
+            "}\n",
+            "return nil\n")
         p.outdent()
         p.print("}\n")
 
@@ -215,23 +221,22 @@ class OneofGenerator {
     }
 
     func generateProxyIvar(printer p: inout CodePrinter) {
-        p.print("\n")
-        if !comments.isEmpty {
-            p.print(comments)
-        }
-        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName)? {\n")
+        p.print(
+            "\n",
+            comments,
+            "\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName)? {\n")
         p.indent()
-        p.print("get {return _storage.\(descriptor.swiftStorageFieldName)}\n")
-        p.print("set {_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue}\n")
+        p.print(
+            "get {return _storage.\(descriptor.swiftStorageFieldName)}\n",
+            "set {_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue}\n")
         p.outdent()
         p.print("}\n")
     }
 
     func generateTopIvar(printer p: inout CodePrinter) {
-        p.print("\n")
-        if !comments.isEmpty {
-            p.print(comments)
-        }
-        p.print("\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
+        p.print(
+            "\n",
+            comments,
+            "\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
     }
 }

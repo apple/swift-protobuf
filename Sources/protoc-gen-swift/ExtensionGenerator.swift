@@ -138,17 +138,16 @@ struct ExtensionGenerator {
     }
 
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
-        if !comments.isEmpty {
-            p.print(comments)
-        }
+        p.print(comments)
         let scope = swiftDeclaringMessageName == nil ? "" : "static "
         let traitsType = descriptor.getTraitsType(context: context)
 
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
         p.indent()
-        p.print("_protobuf_fieldNumber: \(descriptor.number),\n")
-        p.print("fieldName: \"\(fieldNamePath)\",\n")
-        p.print("defaultValue: \(defaultValue)\n")
+        p.print(
+          "_protobuf_fieldNumber: \(descriptor.number),\n",
+          "fieldName: \"\(fieldNamePath)\",\n",
+          "defaultValue: \(defaultValue)\n")
         p.outdent()
         p.print(")\n")
     }
@@ -157,9 +156,8 @@ struct ExtensionGenerator {
         p.print("\n")
         p.print("extension \(swiftExtendedMessageName) {\n")
         p.indent()
-        if !comments.isEmpty {
-            p.print(comments)
-        }
+
+      p.print(comments)
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(apiType) {\n")
         p.indent()
         if descriptor.label == .repeated {
@@ -170,14 +168,18 @@ struct ExtensionGenerator {
         p.print("set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
         p.outdent()
         p.print("}\n")
-        p.print("/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftHasPropertyName): Bool {\n")
+
+        p.print(
+            "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
+            "\(generatorOptions.visibilitySourceSnippet)var \(swiftHasPropertyName): Bool {\n")
         p.indent()
         p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
         p.outdent()
         p.print("}\n")
-        p.print("/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n")
-        p.print("\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearMethodName)() {\n")
+
+        p.print(
+            "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
+            "\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearMethodName)() {\n")
         p.indent()
         p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
         p.outdent()

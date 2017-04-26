@@ -61,10 +61,10 @@ class MessageStorageClassGenerator {
     // Generate the default initializer. If we don't, Swift may generate one
     // for some of the stored properties, which we will never use (so it just
     // wastes space in the final binary).
-    p.print("\n")
-    p.print("init() {}\n")
-
-    p.print("\n")
+    p.print(
+        "\n",
+        "init() {}\n",
+        "\n")
     generateClone(printer: &p)
 
     p.outdent()

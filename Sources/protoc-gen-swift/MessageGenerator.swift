@@ -169,12 +169,10 @@ class MessageGenerator {
   }
 
   func generateMainStruct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
-    p.print("\n")
-    if !comments.isEmpty {
-      p.print(comments)
-    }
-
-    p.print("\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
+    p.print(
+        "\n",
+        comments,
+        "\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
     if let parent = parent {
         p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(protoMessageName)\"\n")
@@ -210,8 +208,9 @@ class MessageGenerator {
       f.generateClearMethod(printer: &p, usesHeapStorage: usesHeadStorage)
     }
 
-    p.print("\n")
-    p.print("\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
+    p.print(
+        "\n",
+        "\(visibility)var unknownFields = SwiftProtobuf.UnknownStorage()\n")
 
     for o in oneofs {
       o.generateMainEnum(printer: &p)
@@ -230,8 +229,9 @@ class MessageGenerator {
     // Generate the default initializer. If we don't, Swift seems to sometimes
     // generate it along with others that can take public proprerties. When it
     // generates the others doesn't seem to be documented.
-    p.print("\n")
-    p.print("\(visibility)init() {}\n")
+    p.print(
+        "\n",
+        "\(visibility)init() {}\n")
 
     // isInitialized
     generateIsInitialized(printer:&p)
@@ -244,8 +244,9 @@ class MessageGenerator {
 
     // Optional extension support
     if isExtensible {
-      p.print("\n")
-      p.print("\(visibility)var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
+      p.print(
+          "\n",
+          "\(visibility)var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()\n")
     }
     if let storage = storage {
       if !isExtensible {
@@ -271,8 +272,9 @@ class MessageGenerator {
 
   func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
     if !extensions.isEmpty {
-      p.print("\n")
-      p.print("extension \(swiftFullName) {\n")
+      p.print(
+          "\n",
+          "extension \(swiftFullName) {\n")
       p.indent()
       p.print("enum Extensions {\n")
       p.indent()
@@ -314,19 +316,25 @@ class MessageGenerator {
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
-    p.print("\n")
-    p.print("extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
+    p.print(
+        "\n",
+        "extension \(swiftFullName): SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
     generateProtoNameProviding(printer: &p)
     if let storage = storage {
       p.print("\n")
       storage.generateTypeDeclaration(printer: &p)
-      p.print("\n")
-      p.print("\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
-      p.print("  if !isKnownUniquelyReferenced(&_storage) {\n")
-      p.print("    _storage = _StorageClass(copying: _storage)\n")
-      p.print("  }\n")
-      p.print("  return _storage\n")
+      p.print(
+          "\n",
+          "\(storage.storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
+      p.indent()
+      p.print("if !isKnownUniquelyReferenced(&_storage) {\n")
+      p.indent()
+      p.print("_storage = _StorageClass(copying: _storage)\n")
+      p.outdent()
+      p.print("}\n")
+      p.print("return _storage\n")
+      p.outdent()
       p.print("}\n")
     }
     p.print("\n")
@@ -391,7 +399,9 @@ class MessageGenerator {
               let oneof = f.oneof!
               p.indent()
               p.print("if \(storedProperty(forOneof: oneof)) != nil {\n")
-              p.print("  try decoder.handleConflictingOneOf()\n")
+              p.indent()
+              p.print("try decoder.handleConflictingOneOf()\n")
+              p.outdent()
               p.print("}\n")
               p.print("\(storedProperty(forOneof: oneof)) = try \(swiftFullName).\(oneof.swiftRelativeType)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
               p.outdent()
@@ -403,15 +413,15 @@ class MessageGenerator {
         }
         if isExtensible {
           p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
-          p.print("  try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+          p.indent()
+          p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+          p.outdent()
         }
         p.print("default: break\n")
       } else if isExtensible {
         // Just output a simple if-statement if the message had no fields of its
         // own but we still need to generate a decode statement for extensions.
-        p.print("if ")
-        p.print(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber"))
-        p.print(" {\n")
+        p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
         p.indent()
         p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
         p.outdent()
@@ -620,8 +630,9 @@ class MessageGenerator {
           subMessagePrinter.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
         }
         // Covers other cases or if the oneof wasn't set (was nil).
-        subMessagePrinter.print("default: break\n")
-        subMessagePrinter.print("}\n")
+        subMessagePrinter.print(
+            "default: break\n",
+            "}\n")
       }
     }
 
@@ -633,7 +644,9 @@ class MessageGenerator {
       return
     }
 
-    p.print("\npublic var isInitialized: Bool {\n")
+    p.print(
+        "\n",
+        "public var isInitialized: Bool {\n")
     p.indent()
     if isExtensible {
       p.print("if !_protobuf_extensionFieldValues.isInitialized {return false}\n")
