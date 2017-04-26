@@ -23,7 +23,7 @@ public struct CodePrinter {
   public var isEmpty: Bool { return content.isEmpty }
 
   /// The `UnicodeScalarView` representing a single indentation step.
-  private let singleIndent = "  ".unicodeScalars
+  private let singleIndent: String.UnicodeScalarView
 
   /// The current indentation level (a collection of spaces).
   private var indentation = String.UnicodeScalarView()
@@ -32,7 +32,9 @@ public struct CodePrinter {
   /// of a line.
   private var atLineStart = true
 
-  public init() {}
+  public init(indent: String.UnicodeScalarView = "  ".unicodeScalars) {
+    singleIndent = indent
+  }
 
   /// Writes the given strings to the printer.
   ///
@@ -73,17 +75,17 @@ public struct CodePrinter {
     }
   }
 
-  /// Increases the printer's indentation level by 2 spaces.
+  /// Increases the printer's indentation level.
   public mutating func indent() {
     indentation.append(contentsOf: singleIndent)
   }
 
-  /// Decreases the printer's indentation level by 2 spaces.
+  /// Decreases the printer's indentation level.
   ///
-  /// - Precondition: The printer must not have an indentation level less than
-  ///   2.
+  /// - Precondition: The printer must not have an indentation level.
   public mutating func outdent() {
-    precondition(indentation.count >= 2, "Cannot outdent past the left margin")
-    indentation.removeLast(2)
+    let indentCount = singleIndent.count
+    precondition(indentation.count >= indentCount, "Cannot outdent past the left margin")
+    indentation.removeLast(indentCount)
   }
 }
