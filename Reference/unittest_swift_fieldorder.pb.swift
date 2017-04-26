@@ -447,9 +447,13 @@ extension Swift_Protobuf_TestFieldOrderings {
     get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
+  /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_string`
+  /// has been explicitly set.
   var hasSwift_Protobuf_myExtensionString: Bool {
     return hasExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
   }
+  /// Clears the value of extension `Swift_Protobuf_Extensions_my_extension_string`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwift_Protobuf_myExtensionString() {
     clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
   }
@@ -460,9 +464,13 @@ extension Swift_Protobuf_TestFieldOrderings {
     get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
   }
+  /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_int`
+  /// has been explicitly set.
   var hasSwift_Protobuf_myExtensionInt: Bool {
     return hasExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
   }
+  /// Clears the value of extension `Swift_Protobuf_Extensions_my_extension_int`.
+  /// Subsequent reads from it will return its default value.
   mutating func clearSwift_Protobuf_myExtensionInt() {
     clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
   }
