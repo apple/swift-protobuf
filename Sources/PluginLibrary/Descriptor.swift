@@ -56,24 +56,59 @@ public final class DescriptorSet {
 }
 
 public final class FileDescriptor {
+  public enum Syntax: String {
+    case proto2
+    case proto3
+
+    public init?(rawValue: String) {
+      switch rawValue {
+      case "proto2", "":
+        self = .proto2
+      case "proto3":
+        self = .proto3
+      default:
+        return nil
+      }
+    }
+  }
+
   public let proto: Google_Protobuf_FileDescriptorProto
-  public var name: String { return self.proto.name }
+  public var name: String { return proto.name }
+  public var package: String { return proto.package }
+
+  public let syntax: Syntax
+
+  public var dependencies: [String] { return proto.dependency }
+  public var publicDependencies: [String] { return proto.publicDependency.map { dependencies[Int($0)] } }
+  public var weakDependencies: [String] { return proto.weakDependency.map { dependencies[Int($0)] } }
 
   public let enums: [EnumDescriptor]
   public let messages: [Descriptor]
   public let extensions: [FieldDescriptor]
   public let services: [ServiceDescriptor]
 
+  public var fileOptions: Google_Protobuf_FileOptions { return proto.options }
+  public var isDeprecated: Bool { return proto.options.deprecated }
+
+  /// This will be the Swift prefix file option or the prefix to use built
+  /// out of the proto package.
+  public var swiftTypePrefix: String
+
   fileprivate init(proto: Google_Protobuf_FileDescriptorProto, registry: Registry) {
     self.proto = proto
+    self.syntax = Syntax(rawValue: proto.syntax)!
 
     let prefix: String
-    let pkg = proto.package
-    if pkg.isEmpty {
+    let protoPackage = proto.package
+    if protoPackage.isEmpty {
       prefix = ""
     } else {
-      prefix = "." + pkg
+      prefix = "." + protoPackage
     }
+
+    swiftTypePrefix = NamingUtils.typePrefix(protoPackage: protoPackage,
+                                             fileOptions: proto.options)
+
     self.enums = proto.enumType.map {
       return EnumDescriptor(proto: $0, registry: registry, protoNamePrefix: prefix)
     }
