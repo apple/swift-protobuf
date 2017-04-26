@@ -163,6 +163,10 @@ CONFORMANCE_PROTOS= \
 	Protos/conformance/conformance.proto \
 	Protos/google/protobuf/test_messages_proto3.proto
 
+SWIFT_DESCRIPTOR_TEST_PROTOS= \
+	Protos/pluginlib_descriptor_test.proto \
+	${PLUGIN_PROTOS}
+
 XCODEBUILD_EXTRAS =
 # Invoke make with XCODE_SKIP_OPTIMIZER=1 to suppress the optimizer when
 # building the Xcode projects. For Release builds, this is a non trivial speed
@@ -357,7 +361,12 @@ reference: build ${PROTOC_GEN_SWIFT}
 #  * protoc is built and installed
 #  * PROTOC at the top of this file is set correctly
 #
-regenerate: regenerate-library-protos regenerate-plugin-protos regenerate-test-protos regenerate-conformance-protos
+regenerate: \
+	regenerate-library-protos \
+	regenerate-plugin-protos \
+	regenerate-test-protos \
+	regenerate-conformance-protos \
+	Tests/PluginLibraryTests/DescriptorTestData.swift
 
 # Rebuild just the protos included in the runtime library
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
@@ -386,6 +395,20 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_e
 			--tfiws_out=Tests/SwiftProtobufTests \
 			$$t; \
 	done
+
+Tests/PluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
+	@${PROTOC} \
+		--include_imports \
+		--descriptor_set_out=DescriptorTestData.bin \
+		-I Protos \
+		${SWIFT_DESCRIPTOR_TEST_PROTOS}
+	@rm -f $@
+	@echo '// See Makefile how this is generated.' >> $@
+	@echo 'import Foundation' >> $@
+	@echo 'let fileDesciptorSetBytes: [UInt8] = [' >> $@
+	@xxd -i < DescriptorTestData.bin >> $@
+	@echo ']' >> $@
+	@echo 'let fileDesciptorSetData = Data(bytes: fileDesciptorSetBytes)' >> $@
 
 #
 # Collect a list of words that appear in the SwiftProtobuf library

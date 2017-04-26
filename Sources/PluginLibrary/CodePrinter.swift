@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/CodePrinter.swift - Code output
+// Sources/PluginLibrary/CodePrinter.swift - Code output
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -15,12 +15,12 @@
 
 /// Prints code with automatic indentation based on calls to `indent` and
 /// `outdent`.
-struct CodePrinter {
+public struct CodePrinter {
   /// The string content that was printed.
-  private(set) var content = String()
+  public private(set) var content = String()
 
   /// See if anything was printed.
-  var isEmpty: Bool { return content.isEmpty }
+  public var isEmpty: Bool { return content.isEmpty }
 
   /// The `UnicodeScalarView` representing a single indentation step.
   private let singleIndent = "  ".unicodeScalars
@@ -32,10 +32,12 @@ struct CodePrinter {
   /// of a line.
   private var atLineStart = true
 
+  public init() {}
+
   /// Writes the given strings to the printer.
   ///
   /// - Parameter text: A variable-length list of strings to be printed.
-  mutating func print(_ text: String...) {
+  public mutating func print(_ text: String...) {
     for t in text {
       let scalars = t.unicodeScalars
       var index = scalars.startIndex
@@ -72,7 +74,7 @@ struct CodePrinter {
   }
 
   /// Increases the printer's indentation level by 2 spaces.
-  mutating func indent() {
+  public mutating func indent() {
     indentation.append(contentsOf: singleIndent)
   }
 
@@ -80,7 +82,7 @@ struct CodePrinter {
   ///
   /// - Precondition: The printer must not have an indentation level less than
   ///   2.
-  mutating func outdent() {
+  public mutating func outdent() {
     precondition(indentation.count >= 2, "Cannot outdent past the left margin")
     indentation.removeLast(2)
   }

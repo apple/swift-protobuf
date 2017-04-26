@@ -33,15 +33,6 @@ typealias CodeGeneratorRequest = Google_Protobuf_Compiler_CodeGeneratorRequest
 typealias CodeGeneratorResponse = Google_Protobuf_Compiler_CodeGeneratorResponse
 
 extension CodeGeneratorRequest {
-  func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-    for f in protoFile {
-      if let m = f.getMessageForPath(path: path) {
-        return m
-      }
-    }
-    return nil
-  }
-
   func getMessageNameForPath(path: String) -> String? {
     for f in protoFile {
       if let m = f.getMessageNameForPath(path: path) {
@@ -79,60 +70,14 @@ extension Google_Protobuf_Compiler_Version {
   }
 }
 
-extension CodeGeneratorResponse {
-  init(error: String) {
-    self.init()
-    self.error = error
-  }
-}
-
-extension CodeGeneratorResponse.File {
-  init(name: String, content: String) {
-    self.init()
-    self.name = name
-    self.content = content
-  }
-}
-
 class Context {
-  let request: CodeGeneratorRequest
+  private let request: CodeGeneratorRequest
   let options: GeneratorOptions
+  private let descriptorSet: DescriptorSet
 
-  private(set) var parent = [String:String]()
-  private(set) var fileByProtoName = [String:Google_Protobuf_FileDescriptorProto]()
-  private(set) var enumByProtoName = [String:Google_Protobuf_EnumDescriptorProto]()
-  private(set) var messageByProtoName = [String:Google_Protobuf_DescriptorProto]()
-  private(set) var protoNameIsGroup = Set<String>()
-
-  func swiftNameForProtoName(protoName: String, appending: String? = nil, separator: String = ".") -> String {
-    let p = parent[protoName]
-    if let e = enumByProtoName[protoName] {
-      return swiftNameForProtoName(protoName: p!, appending: e.name, separator: separator)
-    } else if let m = messageByProtoName[protoName] {
-      let baseName: String
-      if protoNameIsGroup.contains(protoName) {
-        // TODO: Find a way to actually get to this line of code.
-        // Then fix it to be whatever it should be.
-        // If it can't be reached, assert an error in this case.
-        baseName = "XXGROUPXX_" + m.name + "_XXGROUPXX"
-      } else {
-        baseName = m.name
-      }
-      let name: String
-      if let a = appending {
-        name = baseName + separator + a
-      } else {
-        name = baseName
-      }
-      return swiftNameForProtoName(protoName: p!, appending: name, separator: separator)
-    } else if let f = fileByProtoName[protoName] {
-      return f.swiftPrefix + (appending ?? "")
-    }
-    return ""
-  }
-
+  // TODO(thomasvl): Revisit to use the Desciptor instead.
   func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-    return request.getMessageForPath(path: path)
+    return descriptor(forProtoName: path).proto
   }
 
   func getMessageNameForPath(path: String) -> String? {
@@ -144,9 +89,6 @@ class Context {
   }
 
   init(request: CodeGeneratorRequest) throws {
-    self.request = request
-    self.options = try GeneratorOptions(parameter: request.parameter)
-
     if request.hasCompilerVersion {
       let compilerVersion = request.compilerVersion;
       // Expect 3.1.x or 3.2.x - Yes we have to rev this with new release, but
@@ -161,59 +103,17 @@ class Context {
       Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
     }
 
-    for fileProto in request.protoFile {
-      populateFrom(fileProto: fileProto)
-    }
+    self.request = request
+    self.options = try GeneratorOptions(parameter: request.parameter)
+    self.descriptorSet = DescriptorSet(protos: request.protoFile)
   }
 
-  func populateFrom(fileProto: Google_Protobuf_FileDescriptorProto) {
-    let prefix: String
-    let pkg = fileProto.package
-    if !pkg.isEmpty {
-      prefix = "." + pkg
-    } else {
-      prefix = ""
-    }
-    fileByProtoName[prefix] = fileProto
-    for e in fileProto.enumType {
-      populateFrom(enumProto: e, prefix: prefix)
-    }
-    for m in fileProto.messageType {
-      populateFrom(messageProto: m, prefix: prefix)
-    }
-    for f in fileProto.extension_p {
-      if f.type == .group {
-        protoNameIsGroup.insert(f.typeName)
-      }
-    }
+  func descriptor(forProtoName name: String) -> Descriptor {
+    return descriptorSet.lookupDescriptor(protoName: name)
   }
 
-  func populateFrom(enumProto: Google_Protobuf_EnumDescriptorProto, prefix: String) {
-    let name = prefix + "." + enumProto.name
-    enumByProtoName[name] = enumProto
-    parent[name] = prefix
-  }
-
-  func populateFrom(messageProto: Google_Protobuf_DescriptorProto, prefix: String) {
-    let name = prefix + "." + messageProto.name
-    parent[name] = prefix
-    messageByProtoName[name] = messageProto
-    for f in messageProto.field {
-      if f.type == .group {
-        protoNameIsGroup.insert(f.typeName)
-      }
-    }
-    for f in messageProto.extension_p {
-      if f.type == .group {
-        protoNameIsGroup.insert(f.typeName)
-      }
-    }
-    for e in messageProto.enumType {
-      populateFrom(enumProto: e, prefix: name)
-    }
-    for m in messageProto.nestedType {
-      populateFrom(messageProto: m, prefix: name)
-    }
+  func enumDescriptor(forProtoName name: String) -> EnumDescriptor {
+    return descriptorSet.lookupEnumDescriptor(protoName: name)
   }
 
   func getSwiftNameForEnumCase(path: String, caseName: String) -> String {

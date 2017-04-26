@@ -82,15 +82,14 @@ func writeFileData(filename: String, data: [UInt8]) throws {
   #endif
 }
 
-func readFileData(filename: String) throws -> [UInt8] {
+func readFileData(filename: String) throws -> Data {
   #if os(Linux)
     guard let data = NSData(contentsOfFile: filename) else {
       throw GenerationError.readFailure
     }
 
-    // from NSData to [UInt8]
-    return data.bytes.advanced(by: data.length).load(as: [UInt8].self)
+    return data
   #else
-    return try [UInt8](Data(contentsOf:URL(fileURLWithPath: filename)))
+    return try Data(contentsOf:URL(fileURLWithPath: filename))
   #endif
 }
