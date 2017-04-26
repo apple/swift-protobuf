@@ -133,6 +133,24 @@ public final class FileDescriptor {
     self.services.forEach { $0.bind(file: self, registry: registry) }
   }
 
+  // TODO(thomasvl): Eventually hide this and just expose it info off the descriptors so
+  // paths aren't needed externally.
+  public func sourceCodeInfoLocation(path: [Int32]) -> Google_Protobuf_SourceCodeInfo.Location? {
+    guard let location = locationMap[HashableArray(path)] else {
+      return nil
+    }
+    return location
+  }
+
+  // Lazy so this can be computed on demand, as the imported files won't need
+  // comments during generation.
+  private lazy var locationMap: [HashableInt32Array:Google_Protobuf_SourceCodeInfo.Location] = {
+    var result: [HashableInt32Array:Google_Protobuf_SourceCodeInfo.Location] = [:]
+    for loc in self.proto.sourceCodeInfo.location {
+      result[HashableArray(loc.path)] = loc
+    }
+    return result
+  }()
 }
 
 public final class Descriptor {
