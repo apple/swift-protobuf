@@ -94,57 +94,6 @@ extension CodeGeneratorResponse.File {
   }
 }
 
-class GeneratorOptions {
-  enum OutputNaming : String {
-    case FullPath
-    case PathToUnderscores
-    case DropPath
-  }
-
-  enum Visibility : String {
-    case Internal
-    case Public
-  }
-
-  private(set) var outputNaming: OutputNaming = .FullPath
-  private(set) var visibility: Visibility = .Internal
-
-  init(parameter: String?) throws {
-    for pair in parseParameter(string:parameter) {
-      switch pair.key {
-      case "FileNaming":
-        if let naming = OutputNaming(rawValue: pair.value) {
-          outputNaming = naming
-        } else {
-          throw GenerationError.invalidParameterValue(name: pair.key,
-                                                      value: pair.value)
-        }
-      case "Visibility":
-        if let value = Visibility(rawValue: pair.value) {
-          visibility = value
-        } else {
-          throw GenerationError.invalidParameterValue(name: pair.key,
-                                                      value: pair.value)
-        }
-      default:
-        throw GenerationError.unknownParameter(name: pair.key)
-      }
-    }
-  }
-}
-
-extension GeneratorOptions {
-  /// Returns a string snippet to insert for the visibility
-  var visibilitySourceSnippet: String {
-    switch visibility {
-    case .Internal:
-      return ""
-    case .Public:
-      return "public "
-    }
-  }
-}
-
 class Context {
   let request: CodeGeneratorRequest
   let options: GeneratorOptions
