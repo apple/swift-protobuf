@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse {
-  /// Helper to make a repsone with an error.
+  /// Helper to make a response with an error.
   public init(error: String) {
     self.init()
     self.error = error
