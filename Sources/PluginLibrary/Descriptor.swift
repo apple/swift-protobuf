@@ -12,7 +12,8 @@
 /// wrappers around the protos to make a more usable object graph for generation
 /// and also provides some SwiftProtobuf specific additions that would be useful
 /// to anyone generating something that uses SwiftProtobufs (like support the
-/// `service` messages).
+/// `service` messages). It is *not* the intent for these to eventually be used
+/// as part of some reflection or generate message api.
 ///
 // -----------------------------------------------------------------------------
 
@@ -217,6 +218,28 @@ public final class EnumDescriptor {
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
+  // This is lazy so it is they are created only when needed, that way an
+  // import doesn't have to do all this work unless the enum is used by
+  // the importer.
+  public private(set) lazy var values: [EnumValueDescriptor] = {
+    var firstValues = [Int32:EnumValueDescriptor]()
+    var result = [EnumValueDescriptor]()
+    var i = 0
+    for p in self.proto.value {
+      let aliasing = firstValues[p.number]
+      let d = EnumValueDescriptor(proto: p, index: i, enumType: self, aliasing: aliasing)
+      result.append(d)
+      i += 1
+
+      if let aliasing = aliasing {
+        aliasing.aliases.append(d)
+      } else {
+        firstValues[d.number] = d
+      }
+    }
+    return result
+  }()
+
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -232,6 +255,27 @@ public final class EnumDescriptor {
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
     self.file = file
     self.containingType = containingType
+  }
+}
+
+public final class EnumValueDescriptor {
+  public let proto: Google_Protobuf_EnumValueDescriptorProto
+  let index: Int
+  public private(set) weak var enumType: EnumDescriptor!
+
+  public var number: Int32 { return proto.number }
+
+  public let aliasOf: EnumValueDescriptor?
+  public fileprivate(set) var aliases: [EnumValueDescriptor] = []
+
+  fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
+                   index: Int,
+                   enumType: EnumDescriptor,
+                   aliasing: EnumValueDescriptor?) {
+    self.proto = proto
+    self.index = index
+    self.enumType = enumType
+    aliasOf = aliasing
   }
 }
 

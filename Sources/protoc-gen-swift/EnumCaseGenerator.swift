@@ -19,7 +19,10 @@ import SwiftProtobuf
 
 /// Generates the Swift code for a single enum case.
 class EnumCaseGenerator {
-  internal let descriptor: Google_Protobuf_EnumValueDescriptorProto
+  private let enumValueDescriptor: EnumValueDescriptor
+  private let generatorOptions: GeneratorOptions
+
+  internal var descriptor: Google_Protobuf_EnumValueDescriptorProto { return enumValueDescriptor.proto }
   internal let swiftName: String
   internal let path: [Int32]
   internal let comments: String
@@ -42,14 +45,17 @@ class EnumCaseGenerator {
     return aliasOfGenerator != nil
   }
 
-  init(descriptor: Google_Protobuf_EnumValueDescriptorProto,
+  init(descriptor: EnumValueDescriptor,
+       generatorOptions: GeneratorOptions,
        path: [Int32],
        file: FileGenerator,
        stripLength: Int,
        aliasing aliasOfGenerator: EnumCaseGenerator?
   ) {
-    self.descriptor = descriptor
-    self.swiftName = descriptor.getSwiftName(stripLength: stripLength)
+    self.enumValueDescriptor = descriptor
+    self.generatorOptions = generatorOptions
+
+    self.swiftName = descriptor.proto.getSwiftName(stripLength: stripLength)
     self.path = path
     self.comments = file.commentsFor(path: path)
     self.aliasOfGenerator = aliasOfGenerator

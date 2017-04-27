@@ -33,6 +33,12 @@ extension Google_Protobuf_DescriptorProto {
   }
 }
 
+extension Google_Protobuf_EnumDescriptorProto {
+  struct FieldNumbers {
+    static let value: Int32 = 2
+  }
+}
+
 extension Google_Protobuf_ServiceDescriptorProto {
   struct FieldNumbers {
     static let method: Int32 = 2

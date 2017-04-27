@@ -59,7 +59,7 @@ class EnumGenerator {
     var i: Int32 = 0
     var firstCases = [Int32: EnumCaseGenerator]()
     var enumCases = [EnumCaseGenerator]()
-    for v in proto.value {
+    for v in enumDescriptor.values {
       var casePath = path
       casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
       casePath.append(i)
@@ -68,6 +68,7 @@ class EnumGenerator {
       // Keep track of aliases by recording them as we build the generators.
       let firstCase = firstCases[v.number]
       let generator = EnumCaseGenerator(descriptor: v,
+                                        generatorOptions: generatorOptions,
                                         path: casePath,
                                         file: file,
                                         stripLength: stripLength,

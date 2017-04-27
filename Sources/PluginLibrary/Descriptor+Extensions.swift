@@ -42,6 +42,16 @@ extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   }
 }
 
+extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+  public weak var file: FileDescriptor! { return enumType.file }
+
+  public func getLocationPath(path: inout [Int32]) {
+    enumType.getLocationPath(path: &path)
+    path.append(Google_Protobuf_EnumDescriptorProto.FieldNumbers.value)
+    path.append(Int32(index))
+  }
+}
+
 extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   public weak var file: FileDescriptor! { return containingType.file }
 
