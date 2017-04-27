@@ -189,52 +189,15 @@ class FileGenerator {
     private var baseFilename: String {return fileDescriptor.proto.baseFilename}
 
     func commentsFor(path: [Int32], includeLeadingDetached: Bool = false) -> String {
-        func escapeMarkup(_ text: String) -> String {
-            // Proto file comments don't really have any markup associated with
-            // them.  Swift uses something like MarkDown:
-            //   "Markup Formatting Reference"
-            //   https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html
-            // Sadly that format doesn't really lend itself to any form of
-            // escaping to ensure comments are interpreted markup when they
-            // really aren't. About the only thing that could be done is to
-            // try and escape some set of things that could start directives,
-            // and that gets pretty chatty/ugly pretty quickly.
-            return text
-        }
-
-        func prefixLines(text: String, prefix: String) -> String {
-            var result = ""
-            var lines = text.components(separatedBy: .newlines)
-            // Trim any blank lines off the end.
-            while !lines.isEmpty && trimWhitespace(lines.last!).isEmpty {
-                lines.removeLast()
-            }
-            for line in lines {
-                result.append(prefix + line + "\n")
-            }
-            return result
-        }
-
         if let location = fileDescriptor.sourceCodeInfoLocation(path: path) {
-            var result = ""
-
+            var detachedPrefix: String? = nil
             if includeLeadingDetached {
-                for detached in location.leadingDetachedComments {
-                    let comment = prefixLines(text: detached, prefix: "//")
-                    if !comment.isEmpty {
-                        result += comment
-                        // Detached comments have blank lines between then (and
-                        // anything that follows them).
-                        result += "\n"
-                    }
-                }
+                detachedPrefix = "//"
             }
-
-            let comments = location.hasLeadingComments ? location.leadingComments : location.trailingComments
-            result += prefixLines(text: escapeMarkup(comments), prefix: "///")
-            return result
+            return location.asSourceComment(commentPrefix: "///",
+                                            leadingDetachedPrefix: detachedPrefix)
         }
-        return ""
+        return String()
     }
 
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
