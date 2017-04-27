@@ -22,8 +22,9 @@ private let unrecognizedCaseName = "UNRECOGNIZED"
 
 /// Generates a Swift enum from a protobuf enum descriptor.
 class EnumGenerator {
-  private let descriptor: Google_Protobuf_EnumDescriptorProto
+  private let enumDescriptor: EnumDescriptor
   private let generatorOptions: GeneratorOptions
+
   private let visibility: String
   private let swiftRelativeName: String
   private let swiftFullName: String
@@ -34,28 +35,31 @@ class EnumGenerator {
   private let comments: String
   private let isProto3: Bool
 
-  init(descriptor: Google_Protobuf_EnumDescriptorProto,
+  init(descriptor: EnumDescriptor,
+       generatorOptions: GeneratorOptions,
        path: [Int32],
        parentSwiftName: String?,
        file: FileGenerator
   ) {
-    self.descriptor = descriptor
+    self.enumDescriptor = descriptor
     self.generatorOptions = file.generatorOptions
+
+    let proto = descriptor.proto
     self.visibility = generatorOptions.visibilitySourceSnippet
     self.isProto3 = file.isProto3
     if parentSwiftName == nil {
-      swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + descriptor.name)
+      swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + proto.name)
       swiftFullName = swiftRelativeName
     } else {
-      swiftRelativeName = sanitizeEnumTypeName(descriptor.name)
+      swiftRelativeName = sanitizeEnumTypeName(proto.name)
       swiftFullName = parentSwiftName! + "." + swiftRelativeName
     }
 
-    let stripLength: Int = descriptor.stripPrefixLength
+    let stripLength: Int = proto.stripPrefixLength
     var i: Int32 = 0
     var firstCases = [Int32: EnumCaseGenerator]()
     var enumCases = [EnumCaseGenerator]()
-    for v in descriptor.value {
+    for v in proto.value {
       var casePath = path
       casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
       casePath.append(i)

@@ -160,6 +160,8 @@ public final class Descriptor {
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
+  public let isMapEntry: Bool
+
   public let enums: [EnumDescriptor]
   public let messages: [Descriptor]
   public let fields: [FieldDescriptor]
@@ -174,6 +176,8 @@ public final class Descriptor {
     self.index = index
     let protoName = "\(prefix).\(proto.name)"
     self.protoName = protoName
+
+    isMapEntry = proto.options.mapEntry
 
     self.enums = proto.enumType.enumeratedMap {
       return EnumDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: protoName)

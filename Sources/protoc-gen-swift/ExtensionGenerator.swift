@@ -19,8 +19,9 @@ import PluginLibrary
 import SwiftProtobuf
 
 struct ExtensionGenerator {
-    let descriptor: Google_Protobuf_FieldDescriptorProto
-    let generatorOptions: GeneratorOptions
+    private let fieldDescriptor: FieldDescriptor
+    private let generatorOptions: GeneratorOptions
+
     let path: [Int32]
     let protoPackageName: String
     let swiftDeclaringMessageName: String?
@@ -39,18 +40,18 @@ struct ExtensionGenerator {
 
     var extensionFieldType: String {
         let label: String
-        switch descriptor.label {
+        switch fieldDescriptor.proto.label {
         case .optional: label = "Optional"
         case .required: label = "Required"
         case .repeated:
-            if descriptor.options.packed == true {
+            if fieldDescriptor.proto.options.packed == true {
                 label = "Packed"
             } else {
                 label = "Repeated"
             }
         }
         let modifier: String
-        switch descriptor.type {
+        switch fieldDescriptor.proto.type {
         case .group: modifier = "Group"
         case .message: modifier = "Message"
         case .enum: modifier = "Enum"
@@ -60,24 +61,26 @@ struct ExtensionGenerator {
     }
 
     var defaultValue: String {
-        switch descriptor.label {
+        switch fieldDescriptor.proto.label {
         case .repeated: return "[]"
         default:
-          return descriptor.getSwiftDefaultValue(context: context, isProto3: false)
+          return fieldDescriptor.proto.getSwiftDefaultValue(context: context, isProto3: false)
         }
     }
 
-    init(descriptor: Google_Protobuf_FieldDescriptorProto, path: [Int32], parentProtoPath: String?, swiftDeclaringMessageName: String?, file: FileGenerator, context: Context) {
-        self.descriptor = descriptor
+    init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, path: [Int32], parentProtoPath: String?, swiftDeclaringMessageName: String?, file: FileGenerator, context: Context) {
+        self.fieldDescriptor = descriptor
         self.generatorOptions = file.generatorOptions
+
+        let proto = descriptor.proto
         self.path = path
         self.protoPackageName = file.protoPackageName
         self.swiftDeclaringMessageName = swiftDeclaringMessageName
-        self.swiftExtendedMessageName = context.getMessageNameForPath(path: descriptor.extendee)!
+        self.swiftExtendedMessageName = context.getMessageNameForPath(path: proto.extendee)!
         self.context = context
-        self.apiType = descriptor.getSwiftApiType(context: context, isProto3: false)
+        self.apiType = proto.getSwiftApiType(context: context, isProto3: false)
         self.comments = file.commentsFor(path: path)
-        self.fieldName = descriptor.isGroup ? descriptor.bareTypeName : descriptor.name
+        self.fieldName = proto.isGroup ? proto.bareTypeName : proto.name
         if let parentProtoPath = parentProtoPath, !parentProtoPath.isEmpty {
             var p = parentProtoPath
             assert(p.hasPrefix("."))
@@ -89,7 +92,7 @@ struct ExtensionGenerator {
 
         let baseName: String
         if descriptor.type == .group {
-            let g = context.getMessageForPath(path: descriptor.typeName)!
+            let g = context.getMessageForPath(path: proto.typeName)!
             baseName = g.name
         } else {
             baseName = descriptor.name
@@ -140,12 +143,12 @@ struct ExtensionGenerator {
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
         p.print(comments)
         let scope = swiftDeclaringMessageName == nil ? "" : "static "
-        let traitsType = descriptor.getTraitsType(context: context)
+        let traitsType = fieldDescriptor.proto.getTraitsType(context: context)
 
         p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(swiftExtendedMessageName)>(\n")
         p.indent()
         p.print(
-          "_protobuf_fieldNumber: \(descriptor.number),\n",
+          "_protobuf_fieldNumber: \(fieldDescriptor.proto.number),\n",
           "fieldName: \"\(fieldNamePath)\",\n",
           "defaultValue: \(defaultValue)\n")
         p.outdent()
@@ -160,7 +163,7 @@ struct ExtensionGenerator {
       p.print(comments)
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(apiType) {\n")
         p.indent()
-        if descriptor.label == .repeated {
+        if fieldDescriptor.proto.label == .repeated {
             p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName))}\n")
         } else {
             p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}\n")
