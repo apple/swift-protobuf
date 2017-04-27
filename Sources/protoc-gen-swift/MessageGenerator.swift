@@ -41,7 +41,6 @@ class MessageGenerator {
   private let isAnyMessage: Bool
 
   private let path: [Int32]
-  private let comments: String
 
   init(
     descriptor: Descriptor,
@@ -92,14 +91,9 @@ class MessageGenerator {
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
     let sortedFieldNumbers = fieldsSortedByNumber.map { $0.number }
 
-    i = 0
     var extensions = [ExtensionGenerator]()
     for e in descriptor.extensions {
-      var extPath = path
-      extPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.extension)
-      extPath.append(i)
-      i += 1
-      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, path: extPath, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
+      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
     }
     self.extensions = extensions
 
@@ -125,7 +119,7 @@ class MessageGenerator {
       enumPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
       enumPath.append(i)
       i += 1
-      enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, path: enumPath, parentSwiftName: swiftFullName, file: file))
+      enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, file: file))
     }
     self.enums = enums
 
@@ -141,7 +135,6 @@ class MessageGenerator {
     self.messages = messages
 
     self.path = path
-    self.comments = file.commentsFor(path: path)
 
     // NOTE: This check for fields.count likely isn't completely correct
     // when the message has one or more oneof{}s. As that will efficively
@@ -173,7 +166,7 @@ class MessageGenerator {
   func generateMainStruct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print(
         "\n",
-        comments,
+        descriptor.protoSourceComments(),
         "\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
     if let parent = parent {

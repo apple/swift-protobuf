@@ -22,7 +22,6 @@ struct ExtensionGenerator {
     private let fieldDescriptor: FieldDescriptor
     private let generatorOptions: GeneratorOptions
 
-    let path: [Int32]
     let protoPackageName: String
     let swiftDeclaringMessageName: String?
     let context: Context
@@ -68,18 +67,17 @@ struct ExtensionGenerator {
         }
     }
 
-    init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, path: [Int32], parentProtoPath: String?, swiftDeclaringMessageName: String?, file: FileGenerator, context: Context) {
+    init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, parentProtoPath: String?, swiftDeclaringMessageName: String?, file: FileGenerator, context: Context) {
         self.fieldDescriptor = descriptor
         self.generatorOptions = file.generatorOptions
 
         let proto = descriptor.proto
-        self.path = path
         self.protoPackageName = file.protoPackageName
         self.swiftDeclaringMessageName = swiftDeclaringMessageName
         self.swiftExtendedMessageName = context.getMessageNameForPath(path: proto.extendee)!
         self.context = context
         self.apiType = proto.getSwiftApiType(context: context, isProto3: false)
-        self.comments = file.commentsFor(path: path)
+        self.comments = descriptor.protoSourceComments()
         self.fieldName = proto.isGroup ? proto.bareTypeName : proto.name
         if let parentProtoPath = parentProtoPath, !parentProtoPath.isEmpty {
             var p = parentProtoPath
@@ -160,7 +158,7 @@ struct ExtensionGenerator {
         p.print("extension \(swiftExtendedMessageName) {\n")
         p.indent()
 
-      p.print(comments)
+        p.print(comments)
         p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(apiType) {\n")
         p.indent()
         if fieldDescriptor.proto.label == .repeated {

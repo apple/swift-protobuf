@@ -31,22 +31,17 @@ class EnumGenerator {
   private let enumCases: [EnumCaseGenerator]
   private let enumCasesSortedByNumber: [EnumCaseGenerator]
   private let defaultCase: EnumCaseGenerator
-  private let path: [Int32]
-  private let comments: String
-  private let isProto3: Bool
 
   init(descriptor: EnumDescriptor,
        generatorOptions: GeneratorOptions,
-       path: [Int32],
        parentSwiftName: String?,
        file: FileGenerator
   ) {
     self.enumDescriptor = descriptor
-    self.generatorOptions = file.generatorOptions
+    self.generatorOptions = generatorOptions
 
     let proto = descriptor.proto
     self.visibility = generatorOptions.visibilitySourceSnippet
-    self.isProto3 = file.isProto3
     if parentSwiftName == nil {
       swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + proto.name)
       swiftFullName = swiftRelativeName
@@ -56,21 +51,13 @@ class EnumGenerator {
     }
 
     let stripLength: Int = proto.stripPrefixLength
-    var i: Int32 = 0
     var firstCases = [Int32: EnumCaseGenerator]()
     var enumCases = [EnumCaseGenerator]()
     for v in enumDescriptor.values {
-      var casePath = path
-      casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
-      casePath.append(i)
-      i += 1
-
       // Keep track of aliases by recording them as we build the generators.
       let firstCase = firstCases[v.number]
       let generator = EnumCaseGenerator(descriptor: v,
                                         generatorOptions: generatorOptions,
-                                        path: casePath,
-                                        file: file,
                                         stripLength: stripLength,
                                         aliasing: firstCase)
       enumCases.append(generator)
@@ -84,13 +71,11 @@ class EnumGenerator {
     self.enumCases = enumCases
     enumCasesSortedByNumber = enumCases.sorted {$0.number < $1.number}
     self.defaultCase = self.enumCases[0]
-    self.path = path
-    self.comments = file.commentsFor(path: path)
   }
 
   func generateMainEnum(printer p: inout CodePrinter) {
     p.print("\n")
-    p.print(comments)
+    p.print(enumDescriptor.protoSourceComments())
     p.print("\(visibility)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
     p.indent()
     p.print("\(visibility)typealias RawValue = Int\n")
@@ -99,7 +84,7 @@ class EnumGenerator {
     for c in enumCases {
       c.generateCaseOrAlias(printer: &p)
     }
-    if isProto3 {
+    if enumDescriptor.hasPreservingUnknownEnumSemantics {
       p.print("case \(unrecognizedCaseName)(Int)\n")
     }
 
@@ -158,7 +143,7 @@ class EnumGenerator {
     for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case \(c.number): self = .\(c.swiftName)\n")
     }
-    if isProto3 {
+    if enumDescriptor.hasPreservingUnknownEnumSemantics {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
     } else {
       p.print("default: return nil\n")
@@ -178,7 +163,7 @@ class EnumGenerator {
     for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case .\(c.swiftName): return \(c.number)\n")
     }
-    if isProto3 {
+    if enumDescriptor.hasPreservingUnknownEnumSemantics {
       p.print("case .\(unrecognizedCaseName)(let i): return i\n")
     }
     p.print("}\n")

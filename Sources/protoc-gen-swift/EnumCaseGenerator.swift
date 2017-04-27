@@ -24,11 +24,8 @@ class EnumCaseGenerator {
 
   internal var descriptor: Google_Protobuf_EnumValueDescriptorProto { return enumValueDescriptor.proto }
   internal let swiftName: String
-  internal let path: [Int32]
-  internal let comments: String
   internal let aliasOfGenerator: EnumCaseGenerator?
 
-  private let visibility: String
   private var aliases = [Weak<EnumCaseGenerator>]()
 
   internal var protoName: String {
@@ -47,8 +44,6 @@ class EnumCaseGenerator {
 
   init(descriptor: EnumValueDescriptor,
        generatorOptions: GeneratorOptions,
-       path: [Int32],
-       file: FileGenerator,
        stripLength: Int,
        aliasing aliasOfGenerator: EnumCaseGenerator?
   ) {
@@ -56,11 +51,7 @@ class EnumCaseGenerator {
     self.generatorOptions = generatorOptions
 
     self.swiftName = descriptor.proto.getSwiftName(stripLength: stripLength)
-    self.path = path
-    self.comments = file.commentsFor(path: path)
     self.aliasOfGenerator = aliasOfGenerator
-
-    self.visibility = file.generatorOptions.visibilitySourceSnippet
   }
 
   /// Registers the given enum case generator as an alias of the receiver.
@@ -81,12 +72,13 @@ class EnumCaseGenerator {
   ///
   /// - Parameter p: The code printer.
   func generateCaseOrAlias(printer p: inout CodePrinter) {
+    let comments = enumValueDescriptor.protoSourceComments()
     if !comments.isEmpty {
       p.print("\n")
       p.print(comments)
     }
     if let aliasOf = aliasOfGenerator {
-      p.print("\(visibility)static let \(swiftName) = \(aliasOf.swiftName)\n")
+      p.print("\(generatorOptions.visibilitySourceSnippet)static let \(swiftName) = \(aliasOf.swiftName)\n")
     } else {
       p.print("case \(swiftName) // = \(number)\n")
     }

@@ -218,15 +218,18 @@ class FileGenerator {
         // the file is an empty path. That never seems to have comments on it.
         // https://github.com/google/protobuf/issues/2249 opened to figure out
         // the right way to do this since the syntax entry is optional.
-        let comments = commentsFor(path: [Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax],
-                                   includeLeadingDetached: true)
-        if !comments.isEmpty {
-            p.print(comments)
-            // If the was a leading or tailing comment it won't have a blank
-            // line, after it, so ensure there is one.
-            if !comments.hasSuffix("\n\n") {
-                p.print("\n")
-            }
+        let syntaxPath = [Google_Protobuf_FileDescriptorProto.FieldNumbers.syntax]
+        if let syntaxLocation = fileDescriptor.sourceCodeInfoLocation(path: syntaxPath) {
+          let comments = syntaxLocation.asSourceComment(commentPrefix: "///",
+                                                        leadingDetachedPrefix: "//")
+          if !comments.isEmpty {
+              p.print(comments)
+              // If the was a leading or tailing comment it won't have a blank
+              // line, after it, so ensure there is one.
+              if !comments.hasSuffix("\n\n") {
+                  p.print("\n")
+              }
+          }
         }
 
         p.print("import Foundation\n")
@@ -240,16 +243,13 @@ class FileGenerator {
         generateVersionCheck(printer: &p)
 
         var enums = [EnumGenerator]()
-        let path = [Int32]()
-        var i: Int32 = 0
         for e in fileDescriptor.enums {
-            let enumPath = path + [5, i]
-            i += 1
-            enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, path: enumPath, parentSwiftName: nil, file: self))
+            enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, parentSwiftName: nil, file: self))
         }
 
         var messages = [MessageGenerator]()
-        i = 0
+        var i: Int32 = 0
+        let path = [Int32]()
         for m in fileDescriptor.messages {
             let messagePath = path + [4, i]
             i += 1
@@ -257,11 +257,8 @@ class FileGenerator {
         }
 
         var extensions = [ExtensionGenerator]()
-        i = 0
         for e in fileDescriptor.extensions {
-            let extPath = path + [7, i]
-            i += 1
-            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, path: extPath, parentProtoPath: fileDescriptor.proto.protoPath, swiftDeclaringMessageName: nil, file: self, context: context))
+            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, parentProtoPath: fileDescriptor.proto.protoPath, swiftDeclaringMessageName: nil, file: self, context: context))
         }
 
         for e in enums {
