@@ -571,6 +571,15 @@ extension Test_JSONUnpacked {
     }
 }
 
+extension Test_JSON_Array {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testTwoObjectsWithMultipleFields", {try run_test(test:($0 as! Test_JSON_Array).testTwoObjectsWithMultipleFields)}),
+            ("testRepeatedNestedMessage", {try run_test(test:($0 as! Test_JSON_Array).testRepeatedNestedMessage)})
+        ]
+    }
+}
+
 extension Test_JSON_Conformance {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1133,6 +1142,7 @@ XCTMain(
         (testCaseClass: Test_JSON.self, allTests: Test_JSON.allTests),
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
+        (testCaseClass: Test_JSON_Array.self, allTests: Test_JSON_Array.allTests),
         (testCaseClass: Test_JSON_Conformance.self, allTests: Test_JSON_Conformance.allTests),
         (testCaseClass: Test_JSON_Group.self, allTests: Test_JSON_Group.allTests),
         (testCaseClass: Test_Map.self, allTests: Test_Map.allTests),
