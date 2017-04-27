@@ -22,10 +22,10 @@ public extension Message {
   /// serializing to JSON.
   ///
   /// - Returns: A string containing the JSON serialization of the messages.
-  /// - Parameter array: The array of messages to encode.
+  /// - Parameter collection: The list of messages to encode.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public static func jsonString(from array: [Self]) throws -> String {
-    let data = try jsonUTF8Data(from: array)
+  public static func jsonString<C: Collection>(from collection: C) throws -> String where C.Iterator.Element == Self {
+    let data = try jsonUTF8Data(from: collection)
     return String(data: data, encoding: String.Encoding.utf8)!
   }
 
@@ -35,14 +35,14 @@ public extension Message {
   /// serializing to JSON.
   ///
   /// - Returns: A Data containing the JSON serialization of the messages.
-  /// - Parameter array: The array of messages to encode.
+  /// - Parameter collection: The list of messages to encode.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  public static func jsonUTF8Data(from array: [Self]) throws -> Data {
+  public static func jsonUTF8Data<C: Collection>(from collection: C) throws -> Data where C.Iterator.Element == Self {
     var visitor = try JSONEncodingVisitor(type: Self.self)
     visitor.startArray()
-    for v in array {
+    for message in collection {
         visitor.startObject()
-        try v.traverse(visitor: &visitor)
+        try message.traverse(visitor: &visitor)
         visitor.endObject()
     }
     visitor.endArray()
