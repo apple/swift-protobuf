@@ -15,16 +15,17 @@
 import Foundation
 
 /// JSON encoding and decoding methods for arrays of messages.
-public extension Array where Iterator.Element: Message {
+public extension Message {
   /// Returns a string containing the JSON serialization of the messages.
   ///
   /// Unlike binary encoding, presence of required fields is not enforced when
   /// serializing to JSON.
   ///
   /// - Returns: A string containing the JSON serialization of the messages.
+  /// - Parameter array: The array of messages to encode.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  func jsonString() throws -> String {
-    let data = try jsonUTF8Data()
+  public static func jsonString(from array: [Self]) throws -> String {
+    let data = try jsonUTF8Data(from: array)
     return String(data: data, encoding: String.Encoding.utf8)!
   }
 
@@ -34,11 +35,12 @@ public extension Array where Iterator.Element: Message {
   /// serializing to JSON.
   ///
   /// - Returns: A Data containing the JSON serialization of the messages.
+  /// - Parameter array: The array of messages to encode.
   /// - Throws: `JSONEncodingError` if encoding fails.
-  func jsonUTF8Data() throws -> Data {
-    var visitor = try JSONEncodingVisitor(type: Iterator.Element.self)
+  public static func jsonUTF8Data(from array: [Self]) throws -> Data {
+    var visitor = try JSONEncodingVisitor(type: Self.self)
     visitor.startArray()
-    for v in self {
+    for v in array {
         visitor.startObject()
         try v.traverse(visitor: &visitor)
         visitor.endObject()
@@ -52,12 +54,12 @@ public extension Array where Iterator.Element: Message {
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(jsonString: String) throws {
+  public static func array(fromJSONString jsonString: String) throws -> [Self] {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      try self.init(jsonUTF8Data: data)
+      return try array(fromJSONUTF8Data: data)
     } else {
       throw JSONDecodingError.truncated
     }
@@ -70,15 +72,16 @@ public extension Array where Iterator.Element: Message {
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(jsonUTF8Data: Data) throws {
-    self.init()
-    try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+  public static func array(fromJSONUTF8Data jsonUTF8Data: Data) throws -> [Self] {
+    return try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
+      var array = [Self]()
       let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
       var decoder = JSONDecoder(source: buffer)
-      try decoder.decodeRepeatedMessageField(value: &self)
+      try decoder.decodeRepeatedMessageField(value: &array)
       if !decoder.scanner.complete {
         throw JSONDecodingError.trailingGarbage
       }
+      return array
     }
   }
 
