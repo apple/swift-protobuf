@@ -30,6 +30,16 @@ internal struct JSONEncodingVisitor: Visitor {
       return encoder.stringResult
   }
 
+  /// Creates a new visitor for serializing a message of the given type to JSON
+  /// format.
+  init(type: Message.Type) throws {
+    if let nameProviding = type as? _ProtoNameProviding.Type {
+      self.nameMap = nameProviding._protobuf_nameMap
+    } else {
+      throw JSONEncodingError.missingFieldNames
+    }
+  }
+
   /// Creates a new visitor that serializes the given message to JSON format.
   init(message: Message) throws {
     if let nameProviding = message as? _ProtoNameProviding {
@@ -37,6 +47,14 @@ internal struct JSONEncodingVisitor: Visitor {
     } else {
       throw JSONEncodingError.missingFieldNames
     }
+  }
+
+  mutating func startArray() {
+    encoder.startArray()
+  }
+
+  mutating func endArray() {
+    encoder.endArray()
   }
 
   mutating func startObject() {

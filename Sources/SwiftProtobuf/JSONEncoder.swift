@@ -32,6 +32,8 @@ private let asciiComma = UInt8(ascii: ",")
 private let asciiDoubleQuote = UInt8(ascii: "\"")
 private let asciiBackslash = UInt8(ascii: "\\")
 private let asciiForwardSlash = UInt8(ascii: "/")
+private let asciiOpenSquareBracket = UInt8(ascii: "[")
+private let asciiCloseSquareBracket = UInt8(ascii: "]")
 private let asciiOpenCurlyBracket = UInt8(ascii: "{")
 private let asciiCloseCurlyBracket = UInt8(ascii: "}")
 private let asciiUpperA = UInt8(ascii: "A")
@@ -127,8 +129,23 @@ internal struct JSONEncoder {
         separator = asciiComma
     }
 
+    /// Append an open square bracket `[` to the JSON.
+    internal mutating func startArray() {
+        data.append(asciiOpenSquareBracket)
+        separator = nil
+    }
+
+    /// Append a close square bracket `]` to the JSON.
+    internal mutating func endArray() {
+        data.append(asciiCloseSquareBracket)
+        separator = asciiComma
+    }
+
     /// Append an open curly brace `{` to the JSON.
     internal mutating func startObject() {
+        if let s = separator {
+            data.append(s)
+        }
         data.append(asciiOpenCurlyBracket)
         separator = nil
     }
