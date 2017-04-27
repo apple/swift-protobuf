@@ -12,6 +12,11 @@ import Foundation
 import SwiftProtobuf
 
 extension FileDescriptor: ProvidesSourceCodeLocation {
+  // True if this file should perserve unknown enums within the enum.
+  public var hasPreservingUnknownEnumSemantics: Bool {
+    return syntax == .proto3
+  }
+
   public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
     // google/protobuf's descriptor.cc says it should be an empty path.
     return sourceCodeInfoLocation(path: [])
@@ -31,6 +36,11 @@ extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 }
 
 extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
+  // True if this enum should perserve unknown enums within the enum.
+  public var hasPreservingUnknownEnumSemantics: Bool {
+    return file.hasPreservingUnknownEnumSemantics
+  }
+
   public func getLocationPath(path: inout [Int32]) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
