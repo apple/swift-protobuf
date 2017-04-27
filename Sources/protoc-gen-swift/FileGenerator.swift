@@ -159,7 +159,7 @@ extension Google_Protobuf_FileDescriptorProto {
 
 class FileGenerator {
     private let fileDescriptor: FileDescriptor
-    let generatorOptions: GeneratorOptions  // TODO(private)###
+    private let generatorOptions: GeneratorOptions
 
     var outputFilename: String {
         let ext = ".pb.swift"
@@ -187,18 +187,6 @@ class FileGenerator {
     var isProto3: Bool {return fileDescriptor.syntax == .proto3}
     private var isWellKnownType: Bool {return fileDescriptor.proto.isWellKnownType}
     private var baseFilename: String {return fileDescriptor.proto.baseFilename}
-
-    func commentsFor(path: [Int32], includeLeadingDetached: Bool = false) -> String {
-        if let location = fileDescriptor.sourceCodeInfoLocation(path: path) {
-            var detachedPrefix: String? = nil
-            if includeLeadingDetached {
-                detachedPrefix = "//"
-            }
-            return location.asSourceComment(commentPrefix: "///",
-                                            leadingDetachedPrefix: detachedPrefix)
-        }
-        return String()
-    }
 
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
         p.print(

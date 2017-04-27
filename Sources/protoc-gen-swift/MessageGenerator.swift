@@ -78,14 +78,9 @@ class MessageGenerator {
     }
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
-    var i: Int32 = 0
     var fields = [MessageFieldGenerator]()
-    for f in proto.field {
-      var fieldPath = path
-      fieldPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
-      fieldPath.append(i)
-      i += 1
-      fields.append(MessageFieldGenerator(descriptor: f, path: fieldPath, messageDescriptor: proto, file: file, context: context))
+    for f in descriptor.fields {
+      fields.append(MessageFieldGenerator(descriptor: f, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context))
     }
     self.fields = fields
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
@@ -97,9 +92,9 @@ class MessageGenerator {
     }
     self.extensions = extensions
 
-    i = 0
+    var i: Int32 = 0
     var oneofs = [OneofGenerator]()
-    for o in proto.oneofDecl {
+    for o in descriptor.oneofs {
       let oneofFields = fields.filter {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(i)
       }
@@ -107,7 +102,7 @@ class MessageGenerator {
       oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
       oneofPath.append(i)
       i += 1
-      let oneof = OneofGenerator(descriptor: o, path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: proto.extensionRange)
+      let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, file: file, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: proto.extensionRange)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs

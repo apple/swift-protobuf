@@ -69,7 +69,7 @@ struct ExtensionGenerator {
 
     init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, parentProtoPath: String?, swiftDeclaringMessageName: String?, file: FileGenerator, context: Context) {
         self.fieldDescriptor = descriptor
-        self.generatorOptions = file.generatorOptions
+        self.generatorOptions = generatorOptions
 
         let proto = descriptor.proto
         self.protoPackageName = file.protoPackageName

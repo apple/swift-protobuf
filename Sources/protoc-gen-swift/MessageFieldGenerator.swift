@@ -273,7 +273,10 @@ extension Google_Protobuf_FieldDescriptorProto {
 }
 
 struct MessageFieldGenerator {
-    let descriptor: Google_Protobuf_FieldDescriptorProto
+    private let fieldDescriptor: FieldDescriptor
+    private let generatorOptions: GeneratorOptions
+
+    var descriptor: Google_Protobuf_FieldDescriptorProto { return fieldDescriptor.proto }
     let oneof: Google_Protobuf_OneofDescriptorProto?
     let jsonName: String?
     let swiftName: String
@@ -282,22 +285,22 @@ struct MessageFieldGenerator {
     let swiftStorageName: String
     var protoName: String {return descriptor.name}
     var number: Int {return Int(descriptor.number)}
-    let path: [Int32]
     let comments: String
     let isProto3: Bool
     let context: Context
-    let generatorOptions: GeneratorOptions
 
-    init(descriptor: Google_Protobuf_FieldDescriptorProto,
-        path: [Int32],
-        messageDescriptor: Google_Protobuf_DescriptorProto,
-        file: FileGenerator,
-        context: Context)
+    init(descriptor: FieldDescriptor,
+         generatorOptions: GeneratorOptions,
+         messageDescriptor: Google_Protobuf_DescriptorProto,
+         file: FileGenerator,
+         context: Context)
     {
-        self.descriptor = descriptor
-        self.jsonName = descriptor.jsonName
+        self.fieldDescriptor = descriptor
+        self.generatorOptions = generatorOptions
+
+        self.jsonName = descriptor.proto.jsonName
         if descriptor.type == .group {
-            let g = context.getMessageForPath(path: descriptor.typeName)!
+            let g = context.getMessageForPath(path: descriptor.proto.typeName)!
             let lowerName = toLowerCamelCase(g.name)
             self.swiftName = sanitizeFieldName(lowerName)
             let sanitizedUpper = sanitizeFieldName(toUpperCamelCase(g.name), basedOn: lowerName)
@@ -310,17 +313,15 @@ struct MessageFieldGenerator {
             self.swiftHasName = "has" + sanitizedUpper
             self.swiftClearName = "clear" + sanitizedUpper
         }
-        if descriptor.hasOneofIndex {
-            self.oneof = messageDescriptor.oneofDecl[Int(descriptor.oneofIndex)]
+        if descriptor.proto.hasOneofIndex {
+            self.oneof = messageDescriptor.oneofDecl[Int(descriptor.proto.oneofIndex)]
         } else {
             self.oneof = nil
         }
         self.swiftStorageName = "_" + self.swiftName
-        self.path = path
-        self.comments = file.commentsFor(path: path)
+        self.comments = descriptor.protoSourceComments()
         self.isProto3 = file.isProto3
         self.context = context
-        self.generatorOptions = file.generatorOptions
     }
 
     var fieldMapNames: String {
