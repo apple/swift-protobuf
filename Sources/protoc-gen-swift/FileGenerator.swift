@@ -236,12 +236,8 @@ class FileGenerator {
         }
 
         var messages = [MessageGenerator]()
-        var i: Int32 = 0
-        let path = [Int32]()
         for m in fileDescriptor.messages {
-            let messagePath = path + [4, i]
-            i += 1
-            messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, path: messagePath, parentSwiftName: nil, parentProtoPath: fileDescriptor.proto.protoPath, file: self, context: context))
+            messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, parentSwiftName: nil, parentProtoPath: fileDescriptor.proto.protoPath, file: self, context: context))
         }
 
         var extensions = [ExtensionGenerator]()

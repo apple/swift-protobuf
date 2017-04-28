@@ -40,12 +40,9 @@ class MessageGenerator {
   private let isExtensible: Bool
   private let isAnyMessage: Bool
 
-  private let path: [Int32]
-
   init(
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
-    path: [Int32],
     parentSwiftName: String?,
     parentProtoPath: String?,
     file: FileGenerator,
@@ -98,38 +95,23 @@ class MessageGenerator {
       let oneofFields = fields.filter {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(i)
       }
-      var oneofPath = path
-      oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
-      oneofPath.append(i)
       i += 1
       let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, file: file, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: proto.extensionRange)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
 
-    i = 0
     var enums = [EnumGenerator]()
     for e in descriptor.enums {
-      var enumPath = path
-      enumPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
-      enumPath.append(i)
-      i += 1
       enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, file: file))
     }
     self.enums = enums
 
-    i = 0
     var messages = [MessageGenerator]()
     for m in descriptor.messages where !m.isMapEntry {
-      var msgPath = path
-      msgPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.nestedType)
-      msgPath.append(i)
-      i += 1
-      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, path: msgPath, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
+      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
     }
     self.messages = messages
-
-    self.path = path
 
     // NOTE: This check for fields.count likely isn't completely correct
     // when the message has one or more oneof{}s. As that will efficively
