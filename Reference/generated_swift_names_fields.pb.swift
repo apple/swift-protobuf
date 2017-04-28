@@ -1186,9 +1186,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._handleConflictingOneOf = newValue}
   }
 
-  var has_p: Int32 {
-    get {return _storage._has_p}
-    set {_uniqueStorage()._has_p = newValue}
+  var has: Int32 {
+    get {return _storage._has}
+    set {_uniqueStorage()._has = newValue}
   }
 
   var hasExtensionValue_p: Int32 {
@@ -1196,14 +1196,14 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._hasExtensionValue_p = newValue}
   }
 
-  var hash_p: Int32 {
-    get {return _storage._hash_p}
-    set {_uniqueStorage()._hash_p = newValue}
+  var hash: Int32 {
+    get {return _storage._hash}
+    set {_uniqueStorage()._hash = newValue}
   }
 
-  var hashable_p: Int32 {
-    get {return _storage._hashable_p}
-    set {_uniqueStorage()._hashable_p = newValue}
+  var hashable: Int32 {
+    get {return _storage._hashable}
+    set {_uniqueStorage()._hashable = newValue}
   }
 
   var hashValue_p: Int32 {
@@ -1211,9 +1211,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._hashValue_p = newValue}
   }
 
-  var hashVisitor_p: Int32 {
-    get {return _storage._hashVisitor_p}
-    set {_uniqueStorage()._hashVisitor_p = newValue}
+  var hashVisitor: Int32 {
+    get {return _storage._hashVisitor}
+    set {_uniqueStorage()._hashVisitor = newValue}
   }
 
   var hasSourceContext_p: Int32 {
@@ -3317,12 +3317,12 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 230: try decoder.decodeSingularInt32Field(value: &_storage._group)
         case 231: try decoder.decodeSingularInt32Field(value: &_storage._h)
         case 232: try decoder.decodeSingularInt32Field(value: &_storage._handleConflictingOneOf)
-        case 233: try decoder.decodeSingularInt32Field(value: &_storage._has_p)
+        case 233: try decoder.decodeSingularInt32Field(value: &_storage._has)
         case 234: try decoder.decodeSingularInt32Field(value: &_storage._hasExtensionValue_p)
-        case 235: try decoder.decodeSingularInt32Field(value: &_storage._hash_p)
-        case 236: try decoder.decodeSingularInt32Field(value: &_storage._hashable_p)
+        case 235: try decoder.decodeSingularInt32Field(value: &_storage._hash)
+        case 236: try decoder.decodeSingularInt32Field(value: &_storage._hashable)
         case 237: try decoder.decodeSingularInt32Field(value: &_storage._hashValue_p)
-        case 238: try decoder.decodeSingularInt32Field(value: &_storage._hashVisitor_p)
+        case 238: try decoder.decodeSingularInt32Field(value: &_storage._hashVisitor)
         case 239: try decoder.decodeSingularInt32Field(value: &_storage._hasSourceContext_p)
         case 240: try decoder.decodeSingularInt32Field(value: &_storage._hasValue_p)
         case 241: try decoder.decodeSingularInt32Field(value: &_storage._hh)
@@ -4399,23 +4399,23 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._handleConflictingOneOf != 0 {
         try visitor.visitSingularInt32Field(value: _storage._handleConflictingOneOf, fieldNumber: 232)
       }
-      if _storage._has_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._has_p, fieldNumber: 233)
+      if _storage._has != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._has, fieldNumber: 233)
       }
       if _storage._hasExtensionValue_p != 0 {
         try visitor.visitSingularInt32Field(value: _storage._hasExtensionValue_p, fieldNumber: 234)
       }
-      if _storage._hash_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._hash_p, fieldNumber: 235)
+      if _storage._hash != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._hash, fieldNumber: 235)
       }
-      if _storage._hashable_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._hashable_p, fieldNumber: 236)
+      if _storage._hashable != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._hashable, fieldNumber: 236)
       }
       if _storage._hashValue_p != 0 {
         try visitor.visitSingularInt32Field(value: _storage._hashValue_p, fieldNumber: 237)
       }
-      if _storage._hashVisitor_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._hashVisitor_p, fieldNumber: 238)
+      if _storage._hashVisitor != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._hashVisitor, fieldNumber: 238)
       }
       if _storage._hasSourceContext_p != 0 {
         try visitor.visitSingularInt32Field(value: _storage._hasSourceContext_p, fieldNumber: 239)
@@ -6391,12 +6391,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _group: Int32 = 0
     var _h: Int32 = 0
     var _handleConflictingOneOf: Int32 = 0
-    var _has_p: Int32 = 0
+    var _has: Int32 = 0
     var _hasExtensionValue_p: Int32 = 0
-    var _hash_p: Int32 = 0
-    var _hashable_p: Int32 = 0
+    var _hash: Int32 = 0
+    var _hashable: Int32 = 0
     var _hashValue_p: Int32 = 0
-    var _hashVisitor_p: Int32 = 0
+    var _hashVisitor: Int32 = 0
     var _hasSourceContext_p: Int32 = 0
     var _hasValue_p: Int32 = 0
     var _hh: Int32 = 0
@@ -7005,12 +7005,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _group = source._group
       _h = source._h
       _handleConflictingOneOf = source._handleConflictingOneOf
-      _has_p = source._has_p
+      _has = source._has
       _hasExtensionValue_p = source._hasExtensionValue_p
-      _hash_p = source._hash_p
-      _hashable_p = source._hashable_p
+      _hash = source._hash
+      _hashable = source._hashable
       _hashValue_p = source._hashValue_p
-      _hashVisitor_p = source._hashVisitor_p
+      _hashVisitor = source._hashVisitor
       _hasSourceContext_p = source._hasSourceContext_p
       _hasValue_p = source._hasValue_p
       _hh = source._hh
@@ -7628,12 +7628,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._group != other_storage._group {return false}
         if _storage._h != other_storage._h {return false}
         if _storage._handleConflictingOneOf != other_storage._handleConflictingOneOf {return false}
-        if _storage._has_p != other_storage._has_p {return false}
+        if _storage._has != other_storage._has {return false}
         if _storage._hasExtensionValue_p != other_storage._hasExtensionValue_p {return false}
-        if _storage._hash_p != other_storage._hash_p {return false}
-        if _storage._hashable_p != other_storage._hashable_p {return false}
+        if _storage._hash != other_storage._hash {return false}
+        if _storage._hashable != other_storage._hashable {return false}
         if _storage._hashValue_p != other_storage._hashValue_p {return false}
-        if _storage._hashVisitor_p != other_storage._hashVisitor_p {return false}
+        if _storage._hashVisitor != other_storage._hashVisitor {return false}
         if _storage._hasSourceContext_p != other_storage._hasSourceContext_p {return false}
         if _storage._hasValue_p != other_storage._hasValue_p {return false}
         if _storage._hh != other_storage._hh {return false}

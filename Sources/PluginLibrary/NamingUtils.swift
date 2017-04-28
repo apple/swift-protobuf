@@ -174,6 +174,16 @@ private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
   }
 }
 
+private func isCharacterUppercase(_ s: String, index: Int) -> Bool {
+  let start = s.index(s.startIndex, offsetBy: index)
+  if start == s.endIndex {
+    // it ended, so just say the next character wasn't uppercase.
+    return false
+  }
+  let end = s.index(after: start)
+  let sub = s[start..<end]
+  return sub != sub.lowercased()
+}
 
 /*
  * Message scoped extensions are scoped within the Message struct with
@@ -234,9 +244,9 @@ enum NamingUtils {
   }
 
   static func sanitize(fieldName s: String, basedOn: String) -> String {
-    if basedOn.hasPrefix("clear") {
+    if basedOn.hasPrefix("clear") && isCharacterUppercase(basedOn, index: 5) {
       return s + "_p"
-    } else if basedOn.hasPrefix("has") {
+    } else if basedOn.hasPrefix("has") && isCharacterUppercase(basedOn, index: 3) {
       return s + "_p"
     } else if reservedFieldNames.contains(basedOn) {
       return s + "_p"

@@ -164,9 +164,16 @@ class Test_NamingUtils: XCTestCase {
       ( "break", "break_p" ),
       ( "do", "do_p" ),
 
-      // "has"/"clear" get added by us, so they get the disambiguator.
+      // "has"/"clear" get added by us, so they get the disambiguator...
       ( "hasFoo", "hasFoo_p" ),
       ( "clearFoo", "clearFoo_p" ),
+      // ...but don't catch words...
+      ( "hashtag", "hashtag" ),
+      ( "clearable", "clearable" ),
+      ( "has911", "has911" ),
+      // ...or by themselves.
+      ( "has", "has" ),
+      ( "clear", "clear" ),
 
       // Underscores get more underscores.
       ( "_", "___" ),

@@ -6063,7 +6063,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct has: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".has"
 
-    var has_p: Int32 = 0
+    var has: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6072,15 +6072,15 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.has_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.has)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.has_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.has_p, fieldNumber: 1)
+      if self.has != 0 {
+        try visitor.visitSingularInt32Field(value: self.has, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -6115,7 +6115,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct hash: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".hash"
 
-    var hash_p: Int32 = 0
+    var hash: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6124,15 +6124,15 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.hash_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.hash)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.hash_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.hash_p, fieldNumber: 1)
+      if self.hash != 0 {
+        try visitor.visitSingularInt32Field(value: self.hash, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -6141,7 +6141,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct Hashable: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Hashable"
 
-    var hashable_p: Int32 = 0
+    var hashable: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6150,15 +6150,15 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.hashable_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.hashable)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.hashable_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.hashable_p, fieldNumber: 1)
+      if self.hashable != 0 {
+        try visitor.visitSingularInt32Field(value: self.hashable, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -6193,7 +6193,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct HashVisitor: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".HashVisitor"
 
-    var hashVisitor_p: Int32 = 0
+    var hashVisitor: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6202,15 +6202,15 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.hashVisitor_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.hashVisitor)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.hashVisitor_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.hashVisitor_p, fieldNumber: 1)
+      if self.hashVisitor != 0 {
+        try visitor.visitSingularInt32Field(value: self.hashVisitor, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -18703,7 +18703,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.has: SwiftProtobuf._Me
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.has) -> Bool {
-    if self.has_p != other.has_p {return false}
+    if self.has != other.has {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -18727,7 +18727,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.hash: SwiftProtobuf._M
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.hash) -> Bool {
-    if self.hash_p != other.hash_p {return false}
+    if self.hash != other.hash {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -18739,7 +18739,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.Hashable: SwiftProtobu
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Hashable) -> Bool {
-    if self.hashable_p != other.hashable_p {return false}
+    if self.hashable != other.hashable {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -18763,7 +18763,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.HashVisitor: SwiftProt
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.HashVisitor) -> Bool {
-    if self.hashVisitor_p != other.hashVisitor_p {return false}
+    if self.hashVisitor != other.hashVisitor {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

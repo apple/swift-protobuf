@@ -2161,14 +2161,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   /// Clears the value of `finalize`. Subsequent reads from it will return its default value.
   mutating func clearFinalize() {_storage._finalize = nil}
 
-  var hash_p: Int32 {
-    get {return _storage._hash_p ?? 0}
-    set {_uniqueStorage()._hash_p = newValue}
+  var hash: Int32 {
+    get {return _storage._hash ?? 0}
+    set {_uniqueStorage()._hash = newValue}
   }
-  /// Returns true if `hash_p` has been explicitly set.
-  var hasHash_p: Bool {return _storage._hash_p != nil}
-  /// Clears the value of `hash_p`. Subsequent reads from it will return its default value.
-  mutating func clearHash_p() {_storage._hash_p = nil}
+  /// Returns true if `hash` has been explicitly set.
+  var hasHash: Bool {return _storage._hash != nil}
+  /// Clears the value of `hash`. Subsequent reads from it will return its default value.
+  mutating func clearHash() {_storage._hash = nil}
 
   var dealloc: Int32 {
     get {return _storage._dealloc ?? 0}
@@ -2269,14 +2269,14 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   /// Clears the value of `classForCoder`. Subsequent reads from it will return its default value.
   mutating func clearClassForCoder() {_storage._classForCoder = nil}
 
-  var clear_p: Int32 {
-    get {return _storage._clear_p ?? 0}
-    set {_uniqueStorage()._clear_p = newValue}
+  var clear: Int32 {
+    get {return _storage._clear ?? 0}
+    set {_uniqueStorage()._clear = newValue}
   }
-  /// Returns true if `clear_p` has been explicitly set.
-  var hasClear_p: Bool {return _storage._clear_p != nil}
-  /// Clears the value of `clear_p`. Subsequent reads from it will return its default value.
-  mutating func clearClear_p() {_storage._clear_p = nil}
+  /// Returns true if `clear` has been explicitly set.
+  var hasClear: Bool {return _storage._clear != nil}
+  /// Clears the value of `clear`. Subsequent reads from it will return its default value.
+  mutating func clearClear() {_storage._clear = nil}
 
   var data: Int32 {
     get {return _storage._data ?? 0}
@@ -2912,7 +2912,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
         case 187: try decoder.decodeSingularInt32Field(value: &_storage._ivar)
         case 188: try decoder.decodeSingularInt32Field(value: &_storage._method)
         case 192: try decoder.decodeSingularInt32Field(value: &_storage._finalize)
-        case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash_p)
+        case 193: try decoder.decodeSingularInt32Field(value: &_storage._hash)
         case 194: try decoder.decodeSingularInt32Field(value: &_storage._dealloc)
         case 197: try decoder.decodeSingularInt32Field(value: &_storage._superclass)
         case 198: try decoder.decodeSingularInt32Field(value: &_storage._retain)
@@ -2924,7 +2924,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
         case 204: try decoder.decodeSingularInt32Field(value: &_storage._copy)
         case 205: try decoder.decodeSingularInt32Field(value: &_storage._mutableCopy)
         case 206: try decoder.decodeSingularInt32Field(value: &_storage._classForCoder)
-        case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear_p)
+        case 207: try decoder.decodeSingularInt32Field(value: &_storage._clear)
         case 208: try decoder.decodeSingularInt32Field(value: &_storage._data)
         case 209: try decoder.decodeSingularInt32Field(value: &_storage._delimitedData)
         case 210: try decoder.decodeSingularInt32Field(value: &_storage._descriptor)
@@ -3456,7 +3456,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
       if let v = _storage._finalize {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 192)
       }
-      if let v = _storage._hash_p {
+      if let v = _storage._hash {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 193)
       }
       if let v = _storage._dealloc {
@@ -3492,7 +3492,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
       if let v = _storage._classForCoder {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 206)
       }
-      if let v = _storage._clear_p {
+      if let v = _storage._clear {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 207)
       }
       if let v = _storage._data {
@@ -9266,14 +9266,14 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct hash: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".hash"
 
-    var hash_p: Int32 {
-      get {return _hash_p ?? 0}
-      set {_hash_p = newValue}
+    var hash: Int32 {
+      get {return _hash ?? 0}
+      set {_hash = newValue}
     }
-    /// Returns true if `hash_p` has been explicitly set.
-    var hasHash_p: Bool {return self._hash_p != nil}
-    /// Clears the value of `hash_p`. Subsequent reads from it will return its default value.
-    mutating func clearHash_p() {self._hash_p = nil}
+    /// Returns true if `hash` has been explicitly set.
+    var hasHash: Bool {return self._hash != nil}
+    /// Clears the value of `hash`. Subsequent reads from it will return its default value.
+    mutating func clearHash() {self._hash = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9282,20 +9282,20 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._hash_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._hash)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._hash_p {
+      if let v = self._hash {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _hash_p: Int32? = nil
+    fileprivate var _hash: Int32? = nil
   }
 
   struct dealloc: SwiftProtobuf.Message {
@@ -9686,14 +9686,14 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct clear: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".clear"
 
-    var clear_p: Int32 {
-      get {return _clear_p ?? 0}
-      set {_clear_p = newValue}
+    var clear: Int32 {
+      get {return _clear ?? 0}
+      set {_clear = newValue}
     }
-    /// Returns true if `clear_p` has been explicitly set.
-    var hasClear_p: Bool {return self._clear_p != nil}
-    /// Clears the value of `clear_p`. Subsequent reads from it will return its default value.
-    mutating func clearClear_p() {self._clear_p = nil}
+    /// Returns true if `clear` has been explicitly set.
+    var hasClear: Bool {return self._clear != nil}
+    /// Clears the value of `clear`. Subsequent reads from it will return its default value.
+    mutating func clearClear() {self._clear = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -9702,20 +9702,20 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._clear_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self._clear)
         default: break
         }
       }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._clear_p {
+      if let v = self._clear {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _clear_p: Int32? = nil
+    fileprivate var _clear: Int32? = nil
   }
 
   struct data: SwiftProtobuf.Message {
@@ -20052,7 +20052,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
     var _ivar: Int32? = nil
     var _method: Int32? = nil
     var _finalize: Int32? = nil
-    var _hash_p: Int32? = nil
+    var _hash: Int32? = nil
     var _dealloc: Int32? = nil
     var _superclass: Int32? = nil
     var _retain: Int32? = nil
@@ -20064,7 +20064,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
     var _copy: Int32? = nil
     var _mutableCopy: Int32? = nil
     var _classForCoder: Int32? = nil
-    var _clear_p: Int32? = nil
+    var _clear: Int32? = nil
     var _data: Int32? = nil
     var _delimitedData: Int32? = nil
     var _descriptor: Int32? = nil
@@ -20278,7 +20278,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
       _ivar = source._ivar
       _method = source._method
       _finalize = source._finalize
-      _hash_p = source._hash_p
+      _hash = source._hash
       _dealloc = source._dealloc
       _superclass = source._superclass
       _retain = source._retain
@@ -20290,7 +20290,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
       _copy = source._copy
       _mutableCopy = source._mutableCopy
       _classForCoder = source._classForCoder
-      _clear_p = source._clear_p
+      _clear = source._clear
       _data = source._data
       _delimitedData = source._delimitedData
       _descriptor = source._descriptor
@@ -20513,7 +20513,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
         if _storage._ivar != other_storage._ivar {return false}
         if _storage._method != other_storage._method {return false}
         if _storage._finalize != other_storage._finalize {return false}
-        if _storage._hash_p != other_storage._hash_p {return false}
+        if _storage._hash != other_storage._hash {return false}
         if _storage._dealloc != other_storage._dealloc {return false}
         if _storage._superclass != other_storage._superclass {return false}
         if _storage._retain != other_storage._retain {return false}
@@ -20525,7 +20525,7 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
         if _storage._copy != other_storage._copy {return false}
         if _storage._mutableCopy != other_storage._mutableCopy {return false}
         if _storage._classForCoder != other_storage._classForCoder {return false}
-        if _storage._clear_p != other_storage._clear_p {return false}
+        if _storage._clear != other_storage._clear {return false}
         if _storage._data != other_storage._data {return false}
         if _storage._delimitedData != other_storage._delimitedData {return false}
         if _storage._descriptor != other_storage._descriptor {return false}
@@ -22522,7 +22522,7 @@ extension SwiftUnittest_Names_MessageNames.hash: SwiftProtobuf._MessageImplement
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.hash) -> Bool {
-    if self._hash_p != other._hash_p {return false}
+    if self._hash != other._hash {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -22666,7 +22666,7 @@ extension SwiftUnittest_Names_MessageNames.clear: SwiftProtobuf._MessageImplemen
   ]
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_MessageNames.clear) -> Bool {
-    if self._clear_p != other._clear_p {return false}
+    if self._clear != other._clear {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

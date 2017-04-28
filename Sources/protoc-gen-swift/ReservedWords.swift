@@ -132,14 +132,25 @@ private let reservedFieldNames: Set<String> =  {
     return names
 }()
 
+private func isCharacterUppercase(_ s: String, index: Int) -> Bool {
+  let start = s.index(s.startIndex, offsetBy: index)
+  if start == s.endIndex {
+    // it ended, so just say the next character wasn't uppercase.
+    return false
+  }
+  let end = s.index(after: start)
+  let sub = s[start..<end]
+  return sub != sub.lowercased()
+}
+
 /// Struct and class field names go through
 /// this before going into the source code.
 /// It appends "_p" to any name that can't be
 /// used as a field name in Swift source code.
 func sanitizeFieldName(_ s: String, basedOn: String) -> String {
-    if basedOn.hasPrefix("clear") {
+    if basedOn.hasPrefix("clear") && isCharacterUppercase(basedOn, index: 5) {
         return s + "_p"
-    } else if basedOn.hasPrefix("has") {
+    } else if basedOn.hasPrefix("has") && isCharacterUppercase(basedOn, index: 3) {
         return s + "_p"
     } else if reservedFieldNames.contains(basedOn) {
         return s + "_p"
