@@ -176,14 +176,12 @@ private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
 
 
 /*
- * Many Swift reserved words can be used as Extension names if we put
- * backticks around them.
- *
- * Note: To avoid the duplicate list to maintain, currently just reusing the
- *       EnumCases one.
+ * Message scoped extensions are scoped within the Message struct with
+ * `enum Extensions { ... }`, so we resuse the same sets for backticks
+ * and reserved words.
  */
 private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
-
+private let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
 
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
@@ -235,10 +233,6 @@ enum NamingUtils {
     return sanitizeTypeName(s, disambiguator: "Oneof")
   }
 
-  /// Struct and class field names go through
-  /// this before going into the source code.
-  /// It appends "_p" to any name that can't be
-  /// used as a field name in Swift source code.
   static func sanitize(fieldName s: String, basedOn: String) -> String {
     if basedOn.hasPrefix("clear") {
       return s + "_p"
@@ -257,8 +251,6 @@ enum NamingUtils {
     return sanitize(fieldName: s, basedOn: s)
   }
 
-  /// enum case names are sanitized by adding
-  /// backticks `` around them.
   static func sanitize(enumCaseName s: String) -> String {
     if reservedEnumCases.contains(s) {
       return "\(s)_"
@@ -272,9 +264,9 @@ enum NamingUtils {
   }
 
   static func sanitize(messageScopedExtensionName s: String, skipBackticks: Bool = false) -> String {
-    // Since thing else is added to the "enum Extensions" for scoped
-    // extensions, there is no need to have a reserved list.
-    if quotableMessageScopedExtensionNames.contains(s) {
+    if reservedMessageScopedExtensionNames.contains(s) {
+      return "\(s)_"
+    } else if quotableMessageScopedExtensionNames.contains(s) {
       if skipBackticks {
         return s
       }

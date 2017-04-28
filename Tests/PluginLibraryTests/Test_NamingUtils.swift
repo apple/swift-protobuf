@@ -229,6 +229,10 @@ class Test_NamingUtils: XCTestCase {
       ( "FooBar", "FooBar" ),
       ( "foo_bar", "foo_bar" ),
 
+      // Some of our names get the disambiguator added.
+      ( "debugDescription", "debugDescription_" ),
+      ( "dynamicType", "dynamicType_" ),
+
       // Some Swift keywords work with backticks
       ( "associatedtype", "`associatedtype`" ),
       ( "class", "`class`" ),
