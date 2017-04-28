@@ -265,7 +265,7 @@ public final class EnumValueDescriptor {
 
   public var number: Int32 { return proto.number }
 
-  public let aliasOf: EnumValueDescriptor?
+  public private(set) weak var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
 
   fileprivate init(proto: Google_Protobuf_EnumValueDescriptorProto,
