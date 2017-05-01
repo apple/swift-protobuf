@@ -84,7 +84,7 @@ class EnumGenerator {
     for c in enumCases {
       c.generateCaseOrAlias(printer: &p)
     }
-    if enumDescriptor.hasPreservingUnknownEnumSemantics {
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("case \(unrecognizedCaseName)(Int)\n")
     }
 
@@ -143,7 +143,7 @@ class EnumGenerator {
     for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case \(c.number): self = .\(c.swiftName)\n")
     }
-    if enumDescriptor.hasPreservingUnknownEnumSemantics {
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
     } else {
       p.print("default: return nil\n")
@@ -163,7 +163,7 @@ class EnumGenerator {
     for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case .\(c.swiftName): return \(c.number)\n")
     }
-    if enumDescriptor.hasPreservingUnknownEnumSemantics {
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("case .\(unrecognizedCaseName)(let i): return i\n")
     }
     p.print("}\n")
