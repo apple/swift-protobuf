@@ -16,31 +16,31 @@ import Foundation
 
 extension Google_Protobuf_FileDescriptorProto {
   struct FieldNumbers {
-    static let messageType: Int32 = 4
-    static let enumType: Int32 = 5
-    static let service: Int32 = 6
-    static let `extension`: Int32 = 7
+    static let messageType: Int = 4
+    static let enumType: Int = 5
+    static let service: Int = 6
+    static let `extension`: Int = 7
   }
 }
 
 extension Google_Protobuf_DescriptorProto {
   struct FieldNumbers {
-    static let field: Int32 = 2
-    static let nestedType: Int32 = 3
-    static let enumType: Int32 = 4
-    static let `extension`: Int32 = 6
-    static let oneofDecl: Int32 = 8
+    static let field: Int = 2
+    static let nestedType: Int = 3
+    static let enumType: Int = 4
+    static let `extension`: Int = 6
+    static let oneofDecl: Int = 8
   }
 }
 
 extension Google_Protobuf_EnumDescriptorProto {
   struct FieldNumbers {
-    static let value: Int32 = 2
+    static let value: Int = 2
   }
 }
 
 extension Google_Protobuf_ServiceDescriptorProto {
   struct FieldNumbers {
-    static let method: Int32 = 2
+    static let method: Int = 2
   }
 }

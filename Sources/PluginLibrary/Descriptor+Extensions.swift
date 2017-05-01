@@ -19,19 +19,19 @@ extension FileDescriptor: ProvidesSourceCodeLocation {
 
   public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
     // google/protobuf's descriptor.cc says it should be an empty path.
-    return sourceCodeInfoLocation(path: [])
+    return sourceCodeInfoLocation(path: IndexPath())
   }
 }
 
 extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.nestedType)
     } else {
       path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.messageType)
     }
-    path.append(Int32(index))
+    path.append(index)
   }
 }
 
@@ -41,39 +41,39 @@ extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     return file.hasUnknownEnumPreservingSemantics
   }
 
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
     } else {
       path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.enumType)
     }
-    path.append(Int32(index))
+    path.append(index)
   }
 }
 
 extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   public weak var file: FileDescriptor! { return enumType.file }
 
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     enumType.getLocationPath(path: &path)
     path.append(Google_Protobuf_EnumDescriptorProto.FieldNumbers.value)
-    path.append(Int32(index))
+    path.append(index)
   }
 }
 
 extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   public weak var file: FileDescriptor! { return containingType.file }
 
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     containingType.getLocationPath(path: &path)
     path.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
-    path.append(Int32(index))
+    path.append(index)
   }
 }
 
 extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     if isExtension {
       if let extensionScope = extensionScope {
         extensionScope.getLocationPath(path: &path)
@@ -85,23 +85,23 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
       containingType.getLocationPath(path: &path)
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
     }
-    path.append(Int32(index))
+    path.append(index)
   }
 }
 
 extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.service)
-    path.append(Int32(index))
+    path.append(index)
   }
 }
 
 extension MethodDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
   public weak var file: FileDescriptor! { return service.file }
 
-  public func getLocationPath(path: inout [Int32]) {
+  public func getLocationPath(path: inout IndexPath) {
     service.getLocationPath(path: &path)
     path.append(Google_Protobuf_ServiceDescriptorProto.FieldNumbers.method)
-    path.append(Int32(index))
+    path.append(index)
   }
 }
