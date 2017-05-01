@@ -16,6 +16,7 @@ message GeneratedSwiftReservedMessages {
   message apple { int32 apple = 1; }
   message are { int32 are = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
+  message array { int32 array = 1; }
   message arrayLiteral { int32 arrayLiteral = 1; }
   message arraySeparator { int32 arraySeparator = 1; }
   message as { int32 as = 1; }
@@ -53,6 +54,7 @@ message GeneratedSwiftReservedMessages {
   message clearExtensionValue { int32 clearExtensionValue = 1; }
   message clearSourceContext { int32 clearSourceContext = 1; }
   message clearValue { int32 clearValue = 1; }
+  message Collection { int32 Collection = 1; }
   message com { int32 com = 1; }
   message consume { int32 consume = 1; }
   message contentJSON { int32 contentJSON = 1; }
@@ -196,6 +198,8 @@ message GeneratedSwiftReservedMessages {
   message fromAscii2 { int32 fromAscii2 = 1; }
   message fromAscii4 { int32 fromAscii4 = 1; }
   message fromHexDigit { int32 fromHexDigit = 1; }
+  message fromJSONString { int32 fromJSONString = 1; }
+  message fromJSONUTF8Data { int32 fromJSONUTF8Data = 1; }
   message fromMessage { int32 fromMessage = 1; }
   message fromURL { int32 fromURL = 1; }
   message func { int32 func = 1; }
@@ -268,6 +272,7 @@ message GeneratedSwiftReservedMessages {
   message isEqualTo { int32 isEqualTo = 1; }
   message isInitialized { int32 isInitialized = 1; }
   message it { int32 it = 1; }
+  message Iterator { int32 Iterator = 1; }
   message i_2166136261 { int32 i_2166136261 = 1; }
   message json { int32 json = 1; }
   message JSONDecoder { int32 JSONDecoder = 1; }
