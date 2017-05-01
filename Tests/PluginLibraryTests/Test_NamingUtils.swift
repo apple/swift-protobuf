@@ -49,6 +49,42 @@ class Test_NamingUtils: XCTestCase {
     }
   }
 
+  func testStrip_protoPrefix() {
+    // prefix, string, expected
+    let tests: [(String, String, String?)] = [
+      ( "", "", nil ),
+
+      ( "FOO", "FOO", nil ),
+      ( "fOo", "FOO", nil ),
+
+      ( "foo_", "FOO", nil ),
+      ( "_foo", "FOO", nil ),
+      ( "_foo_", "FOO", nil ),
+
+      ( "foo", "FOO_", nil ),
+      ( "foo", "_FOO", nil ),
+      ( "foo", "_FOO_", nil ),
+
+      ( "foo_", "FOObar", "bar" ),
+      ( "_foo", "FOObar", "bar" ),
+      ( "_foo_", "FOObar", "bar" ),
+
+      ( "foo", "FOO_bar", "bar" ),
+      ( "foo", "_FOObar", "bar" ),
+      ( "foo", "_FOO_bar", "bar" ),
+
+      ( "FOO_bar", "foo_BAR_baz", "baz" ),
+      ( "FooBar", "foo_bar_Baz", "Baz" ),
+      ( "foo_bar", "foobar_bAZ", "bAZ" ),
+      ( "_foo_bar", "foobar_bAZ", "bAZ" ),
+      ( "foo__bar_", "_foo_bar__baz", "baz" ),
+    ]
+    for (prefix, str, expected) in tests {
+      let result = NamingUtils.strip(protoPrefix: prefix, from: str)
+      XCTAssertEqual(result, expected, "Prefix: \(prefix), Input: \(str)")
+    }
+  }
+
   func testSanitize_messageName() {
     // input, expected
     let tests: [(String, String)] = [
