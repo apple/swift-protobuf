@@ -25,5 +25,3 @@ struct HashableArray<T: Hashable>: Hashable {
     return lhs.hashValue == rhs.hashValue && lhs.array == rhs.array
   }
 }
-
-typealias HashableInt32Array = HashableArray<Int32>

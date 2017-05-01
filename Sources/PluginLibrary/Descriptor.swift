@@ -145,8 +145,8 @@ public final class FileDescriptor {
 
   // Lazy so this can be computed on demand, as the imported files won't need
   // comments during generation.
-  private lazy var locationMap: [HashableInt32Array:Google_Protobuf_SourceCodeInfo.Location] = {
-    var result: [HashableInt32Array:Google_Protobuf_SourceCodeInfo.Location] = [:]
+  private lazy var locationMap: [HashableArray<Int32>:Google_Protobuf_SourceCodeInfo.Location] = {
+    var result: [HashableArray<Int32>:Google_Protobuf_SourceCodeInfo.Location] = [:]
     for loc in self.proto.sourceCodeInfo.location {
       result[HashableArray(loc.path)] = loc
     }
