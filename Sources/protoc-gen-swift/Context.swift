@@ -122,14 +122,16 @@ class Context {
 
   func generateResponse() -> CodeGeneratorResponse {
     var response = CodeGeneratorResponse()
-    let explicit = Set<String>(request.fileToGenerate)
 
-    for fileProto in request.protoFile where explicit.contains(fileProto.name) {
+    for name in request.fileToGenerate {
+      let fileDescriptor = descriptorSet.lookupFileDescriptor(protoName: name)
+      let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
       var printer = CodePrinter()
-      let file = FileGenerator(descriptor: fileProto, generatorOptions: options)
-      file.generateOutputFile(printer: &printer, context: self)
-      let fileResponse = CodeGeneratorResponse.File(name: file.outputFilename, content: printer.content)
-      response.file.append(fileResponse)
+      // TODO(thomasvl): Go to a model where this can throw or return an error which can be
+      // sent back in the response's error (including the input file name that caused it).
+      fileGenerator.generateOutputFile(printer: &printer, context: self)
+      response.file.append(CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
+                                                      content: printer.content))
     }
     return response
   }

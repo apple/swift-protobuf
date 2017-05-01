@@ -19,6 +19,6 @@ import SwiftProtobuf
 extension Google_Protobuf_FileDescriptorProto {
   // Field numbers used to collect .proto file comments.
   struct FieldNumbers {
-    static let syntax: Int32 = 12
+    static let syntax: Int = 12
   }
 }

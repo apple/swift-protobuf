@@ -19,9 +19,9 @@ import PluginLibrary
 import SwiftProtobuf
 
 class MessageGenerator {
-  private let descriptor: Google_Protobuf_DescriptorProto
-  private let context: Context
+  private let descriptor: Descriptor
   private let generatorOptions: GeneratorOptions
+  private let context: Context
   private let visibility: String
   private let protoFullName: String
   private let swiftFullName: String
@@ -40,116 +40,88 @@ class MessageGenerator {
   private let isExtensible: Bool
   private let isAnyMessage: Bool
 
-  private let path: [Int32]
-  private let comments: String
-
   init(
-    descriptor: Google_Protobuf_DescriptorProto,
-    path: [Int32],
+    descriptor: Descriptor,
+    generatorOptions: GeneratorOptions,
     parentSwiftName: String?,
     parentProtoPath: String?,
     file: FileGenerator,
     context: Context
   ) {
-    self.protoMessageName = descriptor.name
+    self.descriptor = descriptor
+    self.generatorOptions = generatorOptions
+
+    let proto = descriptor.proto
+    self.protoMessageName = proto.name
     self.context = context
-    self.generatorOptions = context.options
     self.visibility = generatorOptions.visibilitySourceSnippet
     self.protoFullName = (parentProtoPath == nil ? "" : (parentProtoPath! + ".")) + self.protoMessageName
-    self.descriptor = descriptor
     self.isProto3 = file.isProto3
-    self.isExtensible = descriptor.extensionRange.count > 0
+    self.isExtensible = proto.extensionRange.count > 0
     self.protoPackageName = file.protoPackageName
     if let parentSwiftName = parentSwiftName {
-      swiftRelativeName = sanitizeMessageTypeName(descriptor.name)
+      swiftRelativeName = sanitizeMessageTypeName(proto.name)
       swiftFullName = parentSwiftName + "." + swiftRelativeName
     } else {
-      swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + descriptor.name)
+      swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + proto.name)
       swiftFullName = swiftRelativeName
     }
     self.isAnyMessage = (isProto3 &&
-                         descriptor.name == "Any" &&
-                         file.descriptor.package == "google.protobuf" &&
-                         file.descriptor.name == "google/protobuf/any.proto")
+                         descriptor.protoName == ".google.protobuf.Any" &&
+                         descriptor.file.name == "google/protobuf/any.proto")
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
     }
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
-    var i: Int32 = 0
     var fields = [MessageFieldGenerator]()
-    for f in descriptor.field {
-      var fieldPath = path
-      fieldPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
-      fieldPath.append(i)
-      i += 1
-      fields.append(MessageFieldGenerator(descriptor: f, path: fieldPath, messageDescriptor: descriptor, file: file, context: context))
+    for f in descriptor.fields {
+      fields.append(MessageFieldGenerator(descriptor: f, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context))
     }
     self.fields = fields
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
     let sortedFieldNumbers = fieldsSortedByNumber.map { $0.number }
 
-    i = 0
     var extensions = [ExtensionGenerator]()
-    for e in descriptor.extension_p {
-      var extPath = path
-      extPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.extension)
-      extPath.append(i)
-      i += 1
-      extensions.append(ExtensionGenerator(descriptor: e, path: extPath, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
+    for e in descriptor.extensions {
+      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
     }
     self.extensions = extensions
 
-    i = 0
+    var i: Int32 = 0
     var oneofs = [OneofGenerator]()
-    for o in descriptor.oneofDecl {
+    for o in descriptor.oneofs {
       let oneofFields = fields.filter {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(i)
       }
-      var oneofPath = path
-      oneofPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
-      oneofPath.append(i)
       i += 1
-      let oneof = OneofGenerator(descriptor: o, path: oneofPath, file: file, generatorOptions: generatorOptions, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: descriptor.extensionRange)
+      let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, file: file, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: proto.extensionRange)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
 
-    i = 0
     var enums = [EnumGenerator]()
-    for e in descriptor.enumType {
-      var enumPath = path
-      enumPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
-      enumPath.append(i)
-      i += 1
-      enums.append(EnumGenerator(descriptor: e, path: enumPath, parentSwiftName: swiftFullName, file: file))
+    for e in descriptor.enums {
+      enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, file: file))
     }
     self.enums = enums
 
-    i = 0
     var messages = [MessageGenerator]()
-    for m in descriptor.nestedType where m.options.mapEntry != true {
-      var msgPath = path
-      msgPath.append(Google_Protobuf_DescriptorProto.FieldNumbers.nestedType)
-      msgPath.append(i)
-      i += 1
-      messages.append(MessageGenerator(descriptor: m, path: msgPath, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
+    for m in descriptor.messages where !m.isMapEntry {
+      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
     }
     self.messages = messages
-
-    self.path = path
-    self.comments = file.commentsFor(path: path)
 
     // NOTE: This check for fields.count likely isn't completely correct
     // when the message has one or more oneof{}s. As that will efficively
     // reduce the real number of fields and the message might not need heap
     // storage yet.
     let useHeapStorage = fields.count > 16 ||
-      hasMessageField(descriptor: descriptor, context: context)
+      hasMessageField(descriptor: descriptor.proto, context: context)
     if isAnyMessage {
       self.storage = AnyMessageStorageClassGenerator(
-        descriptor: descriptor,
+        descriptor: proto,
         fields: fields,
         oneofs: oneofs,
         file: file,
@@ -157,7 +129,7 @@ class MessageGenerator {
         context: context)
     } else if useHeapStorage {
       self.storage = MessageStorageClassGenerator(
-        descriptor: descriptor,
+        descriptor: proto,
         fields: fields,
         oneofs: oneofs,
         file: file,
@@ -171,7 +143,7 @@ class MessageGenerator {
   func generateMainStruct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
     p.print(
         "\n",
-        comments,
+        descriptor.protoSourceComments(),
         "\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
     if let parent = parent {
@@ -412,7 +384,7 @@ class MessageGenerator {
           }
         }
         if isExtensible {
-          p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+          p.print("case \(descriptor.proto.swiftExtensionRangeExpressions):\n")
           p.indent()
           p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
           p.outdent()
@@ -421,7 +393,7 @@ class MessageGenerator {
       } else if isExtensible {
         // Just output a simple if-statement if the message had no fields of its
         // own but we still need to generate a decode statement for extensions.
-        p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
+        p.print("if \(descriptor.proto.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
         p.indent()
         p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
         p.outdent()
@@ -479,7 +451,7 @@ class MessageGenerator {
       if let storage = storage {
         storage.generatePreTraverse(printer: &p)
       }
-      var ranges = descriptor.extensionRange.makeIterator()
+      var ranges = descriptor.proto.extensionRange.makeIterator()
       var nextRange = ranges.next()
       var currentOneofGenerator: OneofGenerator?
       var oneofStart = 0

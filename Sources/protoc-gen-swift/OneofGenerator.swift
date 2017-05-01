@@ -29,9 +29,10 @@ extension Google_Protobuf_OneofDescriptorProto {
 }
 
 class OneofGenerator {
-    let descriptor: Google_Protobuf_OneofDescriptorProto
-    let path: [Int32]
-    let generatorOptions: GeneratorOptions
+    private let oneofDescriptor: OneofDescriptor
+    private let generatorOptions: GeneratorOptions
+
+    var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
     let fields: [MessageFieldGenerator]
     let fieldsSortedByNumber: [MessageFieldGenerator]
     let swiftRelativeName: String
@@ -40,16 +41,16 @@ class OneofGenerator {
     let comments: String
     let oneofIsContinuousInParent: Bool
 
-    init(descriptor: Google_Protobuf_OneofDescriptorProto, path: [Int32], file: FileGenerator, generatorOptions: GeneratorOptions, fields: [MessageFieldGenerator], swiftMessageFullName: String, parentFieldNumbersSorted: [Int], parentExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]) {
-        self.descriptor = descriptor
-        self.path = path
+    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, file: FileGenerator, fields: [MessageFieldGenerator], swiftMessageFullName: String, parentFieldNumbersSorted: [Int], parentExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]) {
+        self.oneofDescriptor = descriptor
         self.generatorOptions = generatorOptions
+
         self.fields = fields
         self.fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
         self.isProto3 = file.isProto3
-        self.swiftRelativeName = sanitizeOneofTypeName(descriptor.swiftRelativeType)
+        self.swiftRelativeName = sanitizeOneofTypeName(descriptor.proto.swiftRelativeType)
         self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
-        self.comments = file.commentsFor(path: path)
+        self.comments = descriptor.protoSourceComments()
 
         let first = fieldsSortedByNumber.first!.number
         let last = fieldsSortedByNumber.last!.number

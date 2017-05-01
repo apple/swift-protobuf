@@ -22,50 +22,42 @@ private let unrecognizedCaseName = "UNRECOGNIZED"
 
 /// Generates a Swift enum from a protobuf enum descriptor.
 class EnumGenerator {
-  private let descriptor: Google_Protobuf_EnumDescriptorProto
+  private let enumDescriptor: EnumDescriptor
   private let generatorOptions: GeneratorOptions
+
   private let visibility: String
   private let swiftRelativeName: String
   private let swiftFullName: String
   private let enumCases: [EnumCaseGenerator]
   private let enumCasesSortedByNumber: [EnumCaseGenerator]
   private let defaultCase: EnumCaseGenerator
-  private let path: [Int32]
-  private let comments: String
-  private let isProto3: Bool
 
-  init(descriptor: Google_Protobuf_EnumDescriptorProto,
-       path: [Int32],
+  init(descriptor: EnumDescriptor,
+       generatorOptions: GeneratorOptions,
        parentSwiftName: String?,
        file: FileGenerator
   ) {
-    self.descriptor = descriptor
-    self.generatorOptions = file.generatorOptions
+    self.enumDescriptor = descriptor
+    self.generatorOptions = generatorOptions
+
+    let proto = descriptor.proto
     self.visibility = generatorOptions.visibilitySourceSnippet
-    self.isProto3 = file.isProto3
     if parentSwiftName == nil {
-      swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + descriptor.name)
+      swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + proto.name)
       swiftFullName = swiftRelativeName
     } else {
-      swiftRelativeName = sanitizeEnumTypeName(descriptor.name)
+      swiftRelativeName = sanitizeEnumTypeName(proto.name)
       swiftFullName = parentSwiftName! + "." + swiftRelativeName
     }
 
-    let stripLength: Int = descriptor.stripPrefixLength
-    var i: Int32 = 0
+    let stripLength: Int = proto.stripPrefixLength
     var firstCases = [Int32: EnumCaseGenerator]()
     var enumCases = [EnumCaseGenerator]()
-    for v in descriptor.value {
-      var casePath = path
-      casePath.append(Google_Protobuf_EnumValueDescriptorProto.FieldNumbers.number)
-      casePath.append(i)
-      i += 1
-
+    for v in enumDescriptor.values {
       // Keep track of aliases by recording them as we build the generators.
       let firstCase = firstCases[v.number]
       let generator = EnumCaseGenerator(descriptor: v,
-                                        path: casePath,
-                                        file: file,
+                                        generatorOptions: generatorOptions,
                                         stripLength: stripLength,
                                         aliasing: firstCase)
       enumCases.append(generator)
@@ -79,13 +71,11 @@ class EnumGenerator {
     self.enumCases = enumCases
     enumCasesSortedByNumber = enumCases.sorted {$0.number < $1.number}
     self.defaultCase = self.enumCases[0]
-    self.path = path
-    self.comments = file.commentsFor(path: path)
   }
 
   func generateMainEnum(printer p: inout CodePrinter) {
     p.print("\n")
-    p.print(comments)
+    p.print(enumDescriptor.protoSourceComments())
     p.print("\(visibility)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
     p.indent()
     p.print("\(visibility)typealias RawValue = Int\n")
@@ -94,7 +84,7 @@ class EnumGenerator {
     for c in enumCases {
       c.generateCaseOrAlias(printer: &p)
     }
-    if isProto3 {
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("case \(unrecognizedCaseName)(Int)\n")
     }
 
@@ -153,7 +143,7 @@ class EnumGenerator {
     for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case \(c.number): self = .\(c.swiftName)\n")
     }
-    if isProto3 {
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
     } else {
       p.print("default: return nil\n")
@@ -173,7 +163,7 @@ class EnumGenerator {
     for c in enumCasesSortedByNumber where !c.isAlias {
       p.print("case .\(c.swiftName): return \(c.number)\n")
     }
-    if isProto3 {
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("case .\(unrecognizedCaseName)(let i): return i\n")
     }
     p.print("}\n")
