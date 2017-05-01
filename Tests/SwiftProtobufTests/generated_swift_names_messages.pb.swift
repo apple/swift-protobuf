@@ -340,6 +340,32 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
+  struct array: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".array"
+
+    var array: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.array)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.array != 0 {
+        try visitor.visitSingularInt32Field(value: self.array, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
   struct arrayLiteral: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".arrayLiteral"
 
@@ -1297,6 +1323,32 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if self.clearValue_p != 0 {
         try visitor.visitSingularInt32Field(value: self.clearValue_p, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct Collection: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Collection"
+
+    var collection: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.collection)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.collection != 0 {
+        try visitor.visitSingularInt32Field(value: self.collection, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -5020,6 +5072,58 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
+  struct fromJSONString: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".fromJSONString"
+
+    var fromJsonstring: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.fromJsonstring)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.fromJsonstring != 0 {
+        try visitor.visitSingularInt32Field(value: self.fromJsonstring, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct fromJSONUTF8Data: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".fromJSONUTF8Data"
+
+    var fromJsonutf8Data: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.fromJsonutf8Data)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.fromJsonutf8Data != 0 {
+        try visitor.visitSingularInt32Field(value: self.fromJsonutf8Data, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
   struct fromMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".fromMessage"
 
@@ -6887,6 +6991,32 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if self.it != 0 {
         try visitor.visitSingularInt32Field(value: self.it, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
+  struct Iterator: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Iterator"
+
+    var iterator: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.iterator)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.iterator != 0 {
+        try visitor.visitSingularInt32Field(value: self.iterator, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -16057,6 +16187,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.areAllInitialized: Swi
   }
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.array: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "array"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.array) -> Bool {
+    if self.array != other.array {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedMessages.arrayLiteral: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "arrayLiteral"),
@@ -16496,6 +16638,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.clearValue: SwiftProto
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.clearValue) -> Bool {
     if self.clearValue_p != other.clearValue_p {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.Collection: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Collection"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Collection) -> Bool {
+    if self.collection != other.collection {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -18217,6 +18371,30 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.fromHexDigit: SwiftPro
   }
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.fromJSONString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "fromJSONString"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.fromJSONString) -> Bool {
+    if self.fromJsonstring != other.fromJsonstring {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.fromJSONUTF8Data: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "fromJSONUTF8Data"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.fromJSONUTF8Data) -> Bool {
+    if self.fromJsonutf8Data != other.fromJsonutf8Data {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedMessages.fromMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "fromMessage"),
@@ -19076,6 +19254,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.it: SwiftProtobuf._Mes
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.it) -> Bool {
     if self.it != other.it {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.Iterator: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "Iterator"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Iterator) -> Bool {
+    if self.iterator != other.iterator {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

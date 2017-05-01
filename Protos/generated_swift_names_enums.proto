@@ -16,6 +16,7 @@ message GeneratedSwiftReservedEnums {
   enum apple { NONE_apple = 0; }
   enum are { NONE_are = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
+  enum array { NONE_array = 0; }
   enum arrayLiteral { NONE_arrayLiteral = 0; }
   enum arraySeparator { NONE_arraySeparator = 0; }
   enum as { NONE_as = 0; }
@@ -53,6 +54,7 @@ message GeneratedSwiftReservedEnums {
   enum clearExtensionValue { NONE_clearExtensionValue = 0; }
   enum clearSourceContext { NONE_clearSourceContext = 0; }
   enum clearValue { NONE_clearValue = 0; }
+  enum Collection { NONE_Collection = 0; }
   enum com { NONE_com = 0; }
   enum consume { NONE_consume = 0; }
   enum contentJSON { NONE_contentJSON = 0; }
@@ -196,6 +198,8 @@ message GeneratedSwiftReservedEnums {
   enum fromAscii2 { NONE_fromAscii2 = 0; }
   enum fromAscii4 { NONE_fromAscii4 = 0; }
   enum fromHexDigit { NONE_fromHexDigit = 0; }
+  enum fromJSONString { NONE_fromJSONString = 0; }
+  enum fromJSONUTF8Data { NONE_fromJSONUTF8Data = 0; }
   enum fromMessage { NONE_fromMessage = 0; }
   enum fromURL { NONE_fromURL = 0; }
   enum func { NONE_func = 0; }
@@ -268,6 +272,7 @@ message GeneratedSwiftReservedEnums {
   enum isEqualTo { NONE_isEqualTo = 0; }
   enum isInitialized { NONE_isInitialized = 0; }
   enum it { NONE_it = 0; }
+  enum Iterator { NONE_Iterator = 0; }
   enum i_2166136261 { NONE_i_2166136261 = 0; }
   enum json { NONE_json = 0; }
   enum JSONDecoder { NONE_JSONDecoder = 0; }
