@@ -142,6 +142,14 @@ private let reservedEnumCases: Set<String> = [
   "self",
 ]
 
+/*
+ * Message scoped extensions are scoped within the Message struct with
+ * `enum Extensions { ... }`, so we resuse the same sets for backticks
+ * and reserved words.
+ */
+private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
+private let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
+
 
 private func isAllUnderscore(_ s: String) -> Bool {
   if s.isEmpty {
@@ -152,7 +160,6 @@ private func isAllUnderscore(_ s: String) -> Bool {
   }
   return true
 }
-
 
 private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
   if reservedTypeNames.contains(s) {
@@ -185,13 +192,83 @@ private func isCharacterUppercase(_ s: String, index: Int) -> Bool {
   return sub != sub.lowercased()
 }
 
-/*
- * Message scoped extensions are scoped within the Message struct with
- * `enum Extensions { ... }`, so we resuse the same sets for backticks
- * and reserved words.
- */
-private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
-private let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
+private let digits: Set<String> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+private func splitIdentifier(_ s: String) -> [String] {
+  var out = [String]()
+  var current = ""
+  var last = ""
+  var lastIsUpper = false
+  var lastIsLower = false
+
+  for _c in s.characters {
+    let c = String(_c)
+    let cIsUpper = (c != c.lowercased())
+    let cIsLower = (c != c.uppercased())
+    if digits.contains(c) {
+      if digits.contains(last) {
+        current += c
+      } else {
+        out.append(current)
+        current = c
+      }
+    } else if cIsUpper {
+      if lastIsUpper {
+        current += c.lowercased()
+      } else {
+        out.append(current)
+        current = c.lowercased()
+      }
+    } else if cIsLower {
+      if lastIsLower || lastIsUpper {
+        current += c
+      } else {
+        out.append(current)
+        current = c
+      }
+    } else {
+      if last == "_" {
+        out.append(current)
+        current = last
+      }
+      if c != "_" {
+        out.append(current)
+        current = c
+      }
+    }
+    last = c
+    lastIsUpper = cIsUpper
+    lastIsLower = cIsLower
+  }
+  out.append(current)
+  if last == "_" {
+    out.append(last)
+  }
+  // An empty string will always get inserted first, so drop it.
+  return [String](out.dropFirst(1))
+}
+
+/// Only allow ASCII alphanumerics and underscore.
+private func basicSanitize(_ s: String) -> String {
+  var out = ""
+  for c in s.characters {
+    switch c {
+    case "A"..."Z": // A-Z
+      out.append(c)
+    case "a"..."z": // a-z
+      out.append(c)
+    case "0"..."9": // 0-9
+      out.append(c)
+    case "_":
+      out.append(c)
+    default:
+      break
+    }
+  }
+  return out
+}
+
+private let upperInitials: Set<String> = ["url", "http", "https", "id"]
 
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
@@ -286,6 +363,47 @@ enum NamingUtils {
     } else {
       return s
     }
+  }
+
+  /// Use toUpperCamelCase() to get leading "HTTP", "URL", etc. correct.
+  static func uppercaseFirstCharacter(_ s: String) -> String {
+    var out = s.characters
+    if let first = out.popFirst() {
+      return String(first).uppercased() + String(out)
+    } else {
+      return s
+    }
+  }
+
+  static func toUpperCamelCase(_ s: String) -> String {
+    var out = ""
+    let t = splitIdentifier(s)
+    for word in t {
+      if upperInitials.contains(word) {
+        out.append(word.uppercased())
+      } else {
+        out.append(uppercaseFirstCharacter(basicSanitize(word)))
+      }
+    }
+    return out
+  }
+
+  static func toLowerCamelCase(_ s: String) -> String {
+    var out = ""
+    let t = splitIdentifier(s)
+    // Lowercase the first letter/word.
+    var forceLower = true
+    for word in t {
+      if forceLower {
+        out.append(basicSanitize(word).lowercased())
+      } else if upperInitials.contains(word) {
+        out.append(word.uppercased())
+      } else {
+        out.append(uppercaseFirstCharacter(basicSanitize(word)))
+      }
+      forceLower = false
+    }
+    return out
   }
 
 }

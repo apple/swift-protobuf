@@ -180,20 +180,11 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "_____" ),
     ]
 
-    func uppercaseFirst(_ s: String) -> String {
-      var result = s.characters
-      if let first = result.popFirst() {
-        return String(first).uppercased() + String(result)
-      } else {
-        return s
-      }
-    }
-
     for (input, expected) in tests {
       XCTAssertEqual(NamingUtils.sanitize(fieldName: input), expected)
 
-      let inputPrefixed = "XX" + uppercaseFirst(input)
-      let expected2 = "XX" + uppercaseFirst(expected)
+      let inputPrefixed = "XX" + NamingUtils.uppercaseFirstCharacter(input)
+      let expected2 = "XX" + NamingUtils.uppercaseFirstCharacter(expected)
       XCTAssertEqual(NamingUtils.sanitize(fieldName: inputPrefixed, basedOn: input), expected2)
     }
   }
@@ -253,6 +244,52 @@ class Test_NamingUtils: XCTestCase {
 
     for (input, expected) in tests {
       XCTAssertEqual(NamingUtils.sanitize(messageScopedExtensionName: input), expected)
+    }
+  }
+
+  func testToCamelCase() {
+    // input, expectedLower, expectedUpper
+    let tests: [(String, String, String)] = [
+      ( "", "", "" ),
+
+      ( "foo", "foo", "Foo" ),
+      ( "FOO", "foo", "Foo" ),
+      ( "foO", "foO", "FoO" ),
+
+      ( "foo.bar", "fooBar", "FooBar" ),
+      ( "foo_bar", "fooBar", "FooBar" ),
+      ( "foo.bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
+      ( "foo_bAr.BaZ", "fooBArBaZ", "FooBArBaZ" ),
+
+      ( "foo1bar", "foo1Bar", "Foo1Bar" ),
+      ( "foo2bAr3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
+
+      ( "url", "url", "URL" ),
+      ( "http", "http", "HTTP" ),
+      ( "https", "https", "HTTPS" ),
+      ( "id", "id", "ID" ),
+
+      ( "the_url", "theURL", "TheURL" ),
+      ( "use_http", "useHTTP", "UseHTTP" ),
+      ( "use_https", "useHTTPS", "UseHTTPS" ),
+      ( "request_id", "requestID", "RequestID" ),
+
+      ( "url_number", "urlNumber", "URLNumber" ),
+      ( "http_needed", "httpNeeded", "HTTPNeeded" ),
+      ( "https_needed", "httpsNeeded", "HTTPSNeeded" ),
+      ( "id_number", "idNumber", "IDNumber" ),
+
+      ( "is_url_number", "isURLNumber", "IsURLNumber" ),
+      ( "is_http_needed", "isHTTPNeeded", "IsHTTPNeeded" ),
+      ( "is_https_needed", "isHTTPSNeeded", "IsHTTPSNeeded" ),
+      ( "the_id_number", "theIDNumber", "TheIDNumber" ),
+
+      ( "url_foo_http_id", "urlFooHTTPID", "URLFooHTTPID"),
+    ]
+
+    for (input, expectedLower, expectedUppper) in tests {
+      XCTAssertEqual(NamingUtils.toLowerCamelCase(input), expectedLower)
+      XCTAssertEqual(NamingUtils.toUpperCamelCase(input), expectedUppper)
     }
   }
 }
