@@ -29,9 +29,7 @@ class EnumGenerator {
   private let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
 
   init(descriptor: EnumDescriptor,
-       generatorOptions: GeneratorOptions,
-       parentSwiftName: String?,
-       file: FileGenerator
+       generatorOptions: GeneratorOptions
   ) {
     self.enumDescriptor = descriptor
     self.generatorOptions = generatorOptions
