@@ -169,6 +169,21 @@ public final class Descriptor {
   public let oneofs: [OneofDescriptor]
   public let extensions: [FieldDescriptor]
 
+  public private(set) lazy var swiftRelativeName: String = {
+    if self.containingType != nil {
+      return NamingUtils.sanitize(messageName: self.proto.name)
+    } else {
+      return NamingUtils.sanitize(messageName: self.file.swiftTypePrefix + self.proto.name)
+    }
+  }()
+  public private(set) lazy var swiftFullName: String = {
+    if let containingType = self.containingType {
+      return containingType.swiftFullName + "." + self.swiftRelativeName
+    } else {
+      return self.swiftRelativeName
+    }
+  }()
+
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -219,6 +234,21 @@ public final class EnumDescriptor {
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
+  public private(set) lazy var swiftRelativeName: String = {
+    if self.containingType != nil {
+      return NamingUtils.sanitize(enumName: self.proto.name)
+    } else {
+      return NamingUtils.sanitize(enumName: self.file.swiftTypePrefix + self.proto.name)
+    }
+  }()
+  public private(set) lazy var swiftFullName: String = {
+    if let containingType = self.containingType {
+      return containingType.swiftFullName + "." + self.swiftRelativeName
+    } else {
+      return self.swiftRelativeName
+    }
+  }()
+
   // This is lazy so it is they are created only when needed, that way an
   // import doesn't have to do all this work unless the enum is used by
   // the importer.
@@ -239,6 +269,15 @@ public final class EnumDescriptor {
       }
     }
     return result
+  }()
+
+  public var defaultValue: EnumValueDescriptor {
+    // The compiler requires the be atleast one value, so force unwrap is safe.
+    return values.first!
+  }
+
+  fileprivate private(set) lazy var canStripPrefix: Bool = {
+    return NamingUtils.canStripPrefix(enumProto: self.proto)
   }()
 
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
@@ -266,6 +305,25 @@ public final class EnumValueDescriptor {
 
   public var name: String { return proto.name }
   public var number: Int32 { return proto.number }
+
+  public private(set) lazy var swiftRelativeName: String = {
+    let baseName: String
+    if self.enumType.canStripPrefix {
+      baseName = NamingUtils.strip(protoPrefix: self.enumType.proto.name, from: self.proto.name)!
+    } else {
+      baseName = self.proto.name
+    }
+    let camelCased = NamingUtils.toLowerCamelCase(baseName)
+    return NamingUtils.sanitize(enumCaseName: camelCased)
+  }()
+  public private(set) lazy var swiftFullName: String = {
+    return "\(self.enumType.swiftFullName).\(self.swiftRelativeName)"
+  }()
+  /// The relative name with a leading dot so it can be used where
+  /// the type is known.
+  public private(set) lazy var swiftDottedRelativeName: String = {
+    return ".\(NamingUtils.trimBackticks(self.swiftRelativeName))"
+  }()
 
   public private(set) weak var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
