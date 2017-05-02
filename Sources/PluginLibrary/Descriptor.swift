@@ -162,6 +162,10 @@ public final class Descriptor {
   public let oneofs: [OneofDescriptor]
   public let extensions: [FieldDescriptor]
 
+  public var extensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange] {
+    return proto.extensionRange
+  }
+
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,

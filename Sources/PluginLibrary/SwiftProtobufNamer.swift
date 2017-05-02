@@ -85,6 +85,17 @@ public final class SwiftProtobufNamer {
     return "." + NamingUtils.trimBackticks(relativeName)
   }
 
+  /// Calculate the relative name for the given oneof.
+  public func relativeName(oneof: OneofDescriptor) -> String {
+    let camelCase = NamingUtils.toUpperCamelCase(oneof.name)
+    return NamingUtils.sanitize(oneofName: "OneOf_\(camelCase)")
+  }
+
+  /// Calculate the full name for the given oneof.
+  public func fullName(oneof: OneofDescriptor) -> String {
+    return fullName(message: oneof.containingType) + "." + relativeName(oneof: oneof)
+  }
+
   /// Calculate the prefix to use for this file, it is derived from the
   /// proto package or swift_prefix file option.
   public func typePrefix(forFile file: FileDescriptor) -> String {

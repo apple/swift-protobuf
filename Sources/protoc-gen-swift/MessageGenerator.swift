@@ -84,7 +84,6 @@ class MessageGenerator {
     }
     self.fields = fields
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
-    let sortedFieldNumbers = fieldsSortedByNumber.map { $0.number }
 
     var extensions = [ExtensionGenerator]()
     for e in descriptor.extensions {
@@ -99,7 +98,7 @@ class MessageGenerator {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(i)
       }
       i += 1
-      let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, file: file, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: proto.extensionRange)
+      let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, namer: namer, fields: oneofFields)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
