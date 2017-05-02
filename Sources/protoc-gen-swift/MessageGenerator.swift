@@ -88,7 +88,7 @@ class MessageGenerator {
 
     var extensions = [ExtensionGenerator]()
     for e in descriptor.extensions {
-      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
+      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, namer: namer, parentProtoPath: protoFullName, file: file, context: context))
     }
     self.extensions = extensions
 
