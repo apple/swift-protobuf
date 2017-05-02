@@ -267,61 +267,61 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case 8: self = .debugDescription_
     case 9: self = .swift
     case 10: self = .unrecognized
-    case 11: self = .`class`
-    case 12: self = .`deinit`
-    case 13: self = .`enum`
-    case 14: self = .`extension`
-    case 15: self = .`func`
-    case 16: self = .`import`
+    case 11: self = .class
+    case 12: self = .deinit
+    case 13: self = .enum
+    case 14: self = .extension
+    case 15: self = .func
+    case 16: self = .import
     case 17: self = .init_
-    case 18: self = .`inout`
-    case 19: self = .`internal`
-    case 20: self = .`let`
-    case 21: self = .`operator`
-    case 22: self = .`private`
-    case 23: self = .`protocol`
-    case 24: self = .`public`
-    case 25: self = .`static`
-    case 26: self = .`struct`
-    case 27: self = .`subscript`
-    case 28: self = .`typealias`
-    case 29: self = .`var`
-    case 30: self = .`break`
-    case 31: self = .`case`
-    case 32: self = .`continue`
-    case 33: self = .`default`
-    case 34: self = .`defer`
-    case 35: self = .`do`
-    case 36: self = .`else`
-    case 37: self = .`fallthrough`
-    case 38: self = .`for`
-    case 39: self = .`guard`
-    case 40: self = .`if`
-    case 41: self = .`in`
-    case 42: self = .`repeat`
-    case 43: self = .`return`
-    case 44: self = .`switch`
-    case 45: self = .`where`
-    case 46: self = .`while`
-    case 47: self = .`as`
-    case 48: self = .`catch`
+    case 18: self = .inout
+    case 19: self = .internal
+    case 20: self = .let
+    case 21: self = .operator
+    case 22: self = .private
+    case 23: self = .protocol
+    case 24: self = .public
+    case 25: self = .static
+    case 26: self = .struct
+    case 27: self = .subscript
+    case 28: self = .typealias
+    case 29: self = .var
+    case 30: self = .break
+    case 31: self = .case
+    case 32: self = .continue
+    case 33: self = .default
+    case 34: self = .defer
+    case 35: self = .do
+    case 36: self = .else
+    case 37: self = .fallthrough
+    case 38: self = .for
+    case 39: self = .guard
+    case 40: self = .if
+    case 41: self = .in
+    case 42: self = .repeat
+    case 43: self = .return
+    case 44: self = .switch
+    case 45: self = .where
+    case 46: self = .while
+    case 47: self = .as
+    case 48: self = .catch
     case 49: self = .dynamicType_
-    case 50: self = .`false`
-    case 51: self = .`is`
-    case 52: self = .`nil`
-    case 53: self = .`rethrows`
-    case 54: self = .`super`
+    case 50: self = .false
+    case 51: self = .is
+    case 52: self = .nil
+    case 53: self = .rethrows
+    case 54: self = .super
     case 55: self = .self_
-    case 57: self = .`throw`
-    case 58: self = .`throws`
-    case 59: self = .`true`
-    case 60: self = .`try`
+    case 57: self = .throw
+    case 58: self = .throws
+    case 59: self = .true
+    case 60: self = .try
     case 61: self = ._Column__
     case 62: self = ._File__
     case 63: self = ._Function__
     case 64: self = ._Line__
     case 65: self = .___
-    case 66: self = .`associativity`
+    case 66: self = .associativity
     case 67: self = .convenience
     case 68: self = .dynamic
     case 69: self = .didSet
@@ -334,12 +334,12 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case 76: self = .mutating
     case 77: self = .none
     case 78: self = .nonmutating
-    case 79: self = .`optional`
+    case 79: self = .optional
     case 80: self = .override
     case 81: self = .postfix
     case 82: self = .precedence
     case 83: self = .prefix
-    case 85: self = .`required`
+    case 85: self = .required
     case 86: self = .right
     case 87: self = .set
     case 88: self = .type
@@ -481,61 +481,61 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case .debugDescription_: return 8
     case .swift: return 9
     case .unrecognized: return 10
-    case .`class`: return 11
-    case .`deinit`: return 12
-    case .`enum`: return 13
-    case .`extension`: return 14
-    case .`func`: return 15
-    case .`import`: return 16
+    case .class: return 11
+    case .deinit: return 12
+    case .enum: return 13
+    case .extension: return 14
+    case .func: return 15
+    case .import: return 16
     case .init_: return 17
-    case .`inout`: return 18
-    case .`internal`: return 19
-    case .`let`: return 20
-    case .`operator`: return 21
-    case .`private`: return 22
-    case .`protocol`: return 23
-    case .`public`: return 24
-    case .`static`: return 25
-    case .`struct`: return 26
-    case .`subscript`: return 27
-    case .`typealias`: return 28
-    case .`var`: return 29
-    case .`break`: return 30
-    case .`case`: return 31
-    case .`continue`: return 32
-    case .`default`: return 33
-    case .`defer`: return 34
-    case .`do`: return 35
-    case .`else`: return 36
-    case .`fallthrough`: return 37
-    case .`for`: return 38
-    case .`guard`: return 39
-    case .`if`: return 40
-    case .`in`: return 41
-    case .`repeat`: return 42
-    case .`return`: return 43
-    case .`switch`: return 44
-    case .`where`: return 45
-    case .`while`: return 46
-    case .`as`: return 47
-    case .`catch`: return 48
+    case .inout: return 18
+    case .internal: return 19
+    case .let: return 20
+    case .operator: return 21
+    case .private: return 22
+    case .protocol: return 23
+    case .public: return 24
+    case .static: return 25
+    case .struct: return 26
+    case .subscript: return 27
+    case .typealias: return 28
+    case .var: return 29
+    case .break: return 30
+    case .case: return 31
+    case .continue: return 32
+    case .default: return 33
+    case .defer: return 34
+    case .do: return 35
+    case .else: return 36
+    case .fallthrough: return 37
+    case .for: return 38
+    case .guard: return 39
+    case .if: return 40
+    case .in: return 41
+    case .repeat: return 42
+    case .return: return 43
+    case .switch: return 44
+    case .where: return 45
+    case .while: return 46
+    case .as: return 47
+    case .catch: return 48
     case .dynamicType_: return 49
-    case .`false`: return 50
-    case .`is`: return 51
-    case .`nil`: return 52
-    case .`rethrows`: return 53
-    case .`super`: return 54
+    case .false: return 50
+    case .is: return 51
+    case .nil: return 52
+    case .rethrows: return 53
+    case .super: return 54
     case .self_: return 55
-    case .`throw`: return 57
-    case .`throws`: return 58
-    case .`true`: return 59
-    case .`try`: return 60
+    case .throw: return 57
+    case .throws: return 58
+    case .true: return 59
+    case .try: return 60
     case ._Column__: return 61
     case ._File__: return 62
     case ._Function__: return 63
     case ._Line__: return 64
     case .___: return 65
-    case .`associativity`: return 66
+    case .associativity: return 66
     case .convenience: return 67
     case .dynamic: return 68
     case .didSet: return 69
@@ -548,12 +548,12 @@ enum SwiftUnittest_Names_EnumFieldNames: SwiftProtobuf.Enum {
     case .mutating: return 76
     case .none: return 77
     case .nonmutating: return 78
-    case .`optional`: return 79
+    case .optional: return 79
     case .override: return 80
     case .postfix: return 81
     case .precedence: return 82
     case .prefix: return 83
-    case .`required`: return 85
+    case .required: return 85
     case .right: return 86
     case .set: return 87
     case .type: return 88

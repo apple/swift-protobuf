@@ -132,7 +132,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
       switch rawValue {
       case 1: self = .double
       case 2: self = .json
-      case 3: self = .`class`
+      case 3: self = .class
       case 4: self = .___
       case 5: self = .self_
       case 6: self = .type
@@ -144,7 +144,7 @@ struct ProtobufUnittest_SwiftReservedTest: SwiftProtobuf.Message {
       switch self {
       case .double: return 1
       case .json: return 2
-      case .`class`: return 3
+      case .class: return 3
       case .___: return 4
       case .self_: return 5
       case .type: return 6

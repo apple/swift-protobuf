@@ -665,7 +665,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 13: self = .array
     case 14: self = .arrayLiteral
     case 15: self = .arraySeparator
-    case 16: self = .`as`
+    case 16: self = .as
     case 17: self = .asciiOpenCurlyBracket
     case 18: self = .asciiZero
     case 19: self = .asJsonobject
@@ -800,7 +800,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 148: self = .endMessageField
     case 149: self = .endObject
     case 150: self = .endRegularField
-    case 151: self = .`enum`
+    case 151: self = .enum
     case 152: self = .enumvalue
     case 153: self = .equatable
     case 154: self = .ext
@@ -811,7 +811,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 159: self = .extensions
     case 160: self = .extras
     case 161: self = .f
-    case 162: self = .`false`
+    case 162: self = .false
     case 163: self = .field
     case 164: self = .fieldMask
     case 165: self = .fieldName
@@ -824,7 +824,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 172: self = .fieldType
     case 173: self = .fieldValue
     case 174: self = .fileName
-    case 175: self = .`fileprivate`
+    case 175: self = .fileprivate
     case 176: self = .firstItem
     case 177: self = .flatMap
     case 178: self = .float
@@ -832,7 +832,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 180: self = .floatLiteralType
     case 181: self = .floatToUtf8
     case 182: self = .floatValue
-    case 183: self = .`for`
+    case 183: self = .for
     case 184: self = .formatDuration
     case 185: self = .formatTimestamp
     case 186: self = .forMessage
@@ -848,7 +848,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 196: self = .fromJsonutf8Data
     case 197: self = .fromMessage
     case 198: self = .fromURL
-    case 199: self = .`func`
+    case 199: self = .func
     case 200: self = .functions
     case 201: self = .g
     case 202: self = .generated
@@ -899,7 +899,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 247: self = .i
     case 248: self = .index
     case 249: self = .init_
-    case 250: self = .`inout`
+    case 250: self = .inout
     case 251: self = .insert
     case 252: self = .insertIntoSet
     case 253: self = .int
@@ -911,7 +911,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 259: self = .integerLiteral
     case 260: self = .integerLiteralType
     case 261: self = .intern
-    case 262: self = .`internal`
+    case 262: self = .internal
     case 263: self = .internalState
     case 264: self = .isA
     case 265: self = .isEqual
@@ -943,7 +943,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 291: self = .l
     case 292: self = .label
     case 293: self = .length
-    case 294: self = .`let`
+    case 294: self = .let
     case 295: self = .lhs
     case 296: self = .listOfMessages
     case 297: self = .listValue
@@ -986,7 +986,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 334: self = .newL
     case 335: self = .newValue
     case 336: self = .nextFieldNumber
-    case 337: self = .`nil`
+    case 337: self = .nil
     case 338: self = .nilLiteral
     case 339: self = .no
     case 340: self = .normalizeForDuration
@@ -1026,7 +1026,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 374: self = .pos
     case 375: self = .prefix
     case 376: self = .preTraverse
-    case 377: self = .`private`
+    case 377: self = .private
     case 378: self = .proto
     case 379: self = .proto2
     case 380: self = .proto3DefaultValue
@@ -1054,7 +1054,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 402: self = .protoMessageName
     case 403: self = .protoPaths
     case 404: self = .protoToJson
-    case 405: self = .`public`
+    case 405: self = .public
     case 406: self = .putBoolValue
     case 407: self = .putBytesValue
     case 408: self = .putDoubleValue
@@ -1080,7 +1080,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 428: self = .responseStreaming
     case 429: self = .responseTypeURL
     case 430: self = .result
-    case 431: self = .`return`
+    case 431: self = .return
     case 432: self = .revision
     case 433: self = .rhs
     case 434: self = .root
@@ -1114,7 +1114,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 462: self = .startObject
     case 463: self = .startRegularField
     case 464: self = .state
-    case 465: self = .`static`
+    case 465: self = .static
     case 466: self = .staticString
     case 467: self = .storage
     case 468: self = .storageClass
@@ -1123,10 +1123,10 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 471: self = .stringLiteralType
     case 472: self = .stringResult
     case 473: self = .stringValue
-    case 474: self = .`struct`
+    case 474: self = .struct
     case 475: self = .structValue
     case 476: self = .subDecoder
-    case 477: self = .`subscript`
+    case 477: self = .subscript
     case 478: self = .swift
     case 479: self = .swiftProtobuf
     case 480: self = .syntax
@@ -1144,7 +1144,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 492: self = .textFormatString
     case 493: self = .that
     case 494: self = .they
-    case 495: self = .`throws`
+    case 495: self = .throws
     case 496: self = .timeInterval
     case 497: self = .timeIntervalSince1970
     case 498: self = .timeIntervalSinceReferenceDate
@@ -1153,10 +1153,10 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 501: self = .toJsonFieldName
     case 502: self = .total
     case 503: self = .traverse
-    case 504: self = .`true`
-    case 505: self = .`try`
+    case 504: self = .true
+    case 505: self = .try
     case 506: self = .type
-    case 507: self = .`typealias`
+    case 507: self = .typealias
     case 508: self = .typeName
     case 509: self = .typePrefix
     case 510: self = .typeRegistry
@@ -1198,7 +1198,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 546: self = .valueField
     case 547: self = .values
     case 548: self = .valueType
-    case 549: self = .`var`
+    case 549: self = .var
     case 550: self = .version
     case 551: self = .versionString
     case 552: self = .visitExtensionFields
@@ -1258,7 +1258,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case 606: self = .visitSingularUint32Field
     case 607: self = .visitSingularUint64Field
     case 608: self = .visitUnknown
-    case 609: self = .`where`
+    case 609: self = .where
     case 610: self = .wireFormat
     case 611: self = .with
     case 612: self = .wrappedType
@@ -1287,7 +1287,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .array: return 13
     case .arrayLiteral: return 14
     case .arraySeparator: return 15
-    case .`as`: return 16
+    case .as: return 16
     case .asciiOpenCurlyBracket: return 17
     case .asciiZero: return 18
     case .asJsonobject: return 19
@@ -1422,7 +1422,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .endMessageField: return 148
     case .endObject: return 149
     case .endRegularField: return 150
-    case .`enum`: return 151
+    case .enum: return 151
     case .enumvalue: return 152
     case .equatable: return 153
     case .ext: return 154
@@ -1433,7 +1433,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .extensions: return 159
     case .extras: return 160
     case .f: return 161
-    case .`false`: return 162
+    case .false: return 162
     case .field: return 163
     case .fieldMask: return 164
     case .fieldName: return 165
@@ -1446,7 +1446,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .fieldType: return 172
     case .fieldValue: return 173
     case .fileName: return 174
-    case .`fileprivate`: return 175
+    case .fileprivate: return 175
     case .firstItem: return 176
     case .flatMap: return 177
     case .float: return 178
@@ -1454,7 +1454,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .floatLiteralType: return 180
     case .floatToUtf8: return 181
     case .floatValue: return 182
-    case .`for`: return 183
+    case .for: return 183
     case .formatDuration: return 184
     case .formatTimestamp: return 185
     case .forMessage: return 186
@@ -1470,7 +1470,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .fromJsonutf8Data: return 196
     case .fromMessage: return 197
     case .fromURL: return 198
-    case .`func`: return 199
+    case .func: return 199
     case .functions: return 200
     case .g: return 201
     case .generated: return 202
@@ -1521,7 +1521,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .i: return 247
     case .index: return 248
     case .init_: return 249
-    case .`inout`: return 250
+    case .inout: return 250
     case .insert: return 251
     case .insertIntoSet: return 252
     case .int: return 253
@@ -1533,7 +1533,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .integerLiteral: return 259
     case .integerLiteralType: return 260
     case .intern: return 261
-    case .`internal`: return 262
+    case .internal: return 262
     case .internalState: return 263
     case .isA: return 264
     case .isEqual: return 265
@@ -1565,7 +1565,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .l: return 291
     case .label: return 292
     case .length: return 293
-    case .`let`: return 294
+    case .let: return 294
     case .lhs: return 295
     case .listOfMessages: return 296
     case .listValue: return 297
@@ -1608,7 +1608,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .newL: return 334
     case .newValue: return 335
     case .nextFieldNumber: return 336
-    case .`nil`: return 337
+    case .nil: return 337
     case .nilLiteral: return 338
     case .no: return 339
     case .normalizeForDuration: return 340
@@ -1648,7 +1648,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .pos: return 374
     case .prefix: return 375
     case .preTraverse: return 376
-    case .`private`: return 377
+    case .private: return 377
     case .proto: return 378
     case .proto2: return 379
     case .proto3DefaultValue: return 380
@@ -1676,7 +1676,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .protoMessageName: return 402
     case .protoPaths: return 403
     case .protoToJson: return 404
-    case .`public`: return 405
+    case .public: return 405
     case .putBoolValue: return 406
     case .putBytesValue: return 407
     case .putDoubleValue: return 408
@@ -1702,7 +1702,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .responseStreaming: return 428
     case .responseTypeURL: return 429
     case .result: return 430
-    case .`return`: return 431
+    case .return: return 431
     case .revision: return 432
     case .rhs: return 433
     case .root: return 434
@@ -1736,7 +1736,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .startObject: return 462
     case .startRegularField: return 463
     case .state: return 464
-    case .`static`: return 465
+    case .static: return 465
     case .staticString: return 466
     case .storage: return 467
     case .storageClass: return 468
@@ -1745,10 +1745,10 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .stringLiteralType: return 471
     case .stringResult: return 472
     case .stringValue: return 473
-    case .`struct`: return 474
+    case .struct: return 474
     case .structValue: return 475
     case .subDecoder: return 476
-    case .`subscript`: return 477
+    case .subscript: return 477
     case .swift: return 478
     case .swiftProtobuf: return 479
     case .syntax: return 480
@@ -1766,7 +1766,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .textFormatString: return 492
     case .that: return 493
     case .they: return 494
-    case .`throws`: return 495
+    case .throws: return 495
     case .timeInterval: return 496
     case .timeIntervalSince1970: return 497
     case .timeIntervalSinceReferenceDate: return 498
@@ -1775,10 +1775,10 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .toJsonFieldName: return 501
     case .total: return 502
     case .traverse: return 503
-    case .`true`: return 504
-    case .`try`: return 505
+    case .true: return 504
+    case .try: return 505
     case .type: return 506
-    case .`typealias`: return 507
+    case .typealias: return 507
     case .typeName: return 508
     case .typePrefix: return 509
     case .typeRegistry: return 510
@@ -1820,7 +1820,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .valueField: return 546
     case .values: return 547
     case .valueType: return 548
-    case .`var`: return 549
+    case .var: return 549
     case .version: return 550
     case .versionString: return 551
     case .visitExtensionFields: return 552
@@ -1880,7 +1880,7 @@ enum ProtobufUnittest_GeneratedSwiftReservedEnum: SwiftProtobuf.Enum {
     case .visitSingularUint32Field: return 606
     case .visitSingularUint64Field: return 607
     case .visitUnknown: return 608
-    case .`where`: return 609
+    case .where: return 609
     case .wireFormat: return 610
     case .with: return 611
     case .wrappedType: return 612

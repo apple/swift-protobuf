@@ -59,7 +59,7 @@ class EnumGenerator {
     p.print("\n")
     p.print("\(visibility)init() {\n")
     p.indent()
-    p.print("self = .\(enumDescriptor.defaultValue.swiftRelativeName)\n")
+    p.print("self = \(enumDescriptor.defaultValue.swiftDottedRelativeName)\n")
     p.outdent()
     p.print("}\n")
 
@@ -134,7 +134,7 @@ class EnumGenerator {
     p.indent()
     p.print("switch rawValue {\n")
     for v in mainEnumValueDescriptorsSorted {
-      p.print("case \(v.number): self = .\(v.swiftRelativeName)\n")
+      p.print("case \(v.number): self = \(v.swiftDottedRelativeName)\n")
     }
     if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
@@ -156,7 +156,7 @@ class EnumGenerator {
     p.indent()
     p.print("switch self {\n")
     for v in mainEnumValueDescriptorsSorted {
-      p.print("case .\(v.swiftRelativeName): return \(v.number)\n")
+      p.print("case \(v.swiftDottedRelativeName): return \(v.number)\n")
     }
     if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("case .\(unrecognizedCaseName)(let i): return i\n")

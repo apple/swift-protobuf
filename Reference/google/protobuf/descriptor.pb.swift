@@ -691,7 +691,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
       case 11: self = .message
       case 12: self = .bytes
       case 13: self = .uint32
-      case 14: self = .`enum`
+      case 14: self = .enum
       case 15: self = .sfixed32
       case 16: self = .sfixed64
       case 17: self = .sint32
@@ -715,7 +715,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
       case .message: return 11
       case .bytes: return 12
       case .uint32: return 13
-      case .`enum`: return 14
+      case .enum: return 14
       case .sfixed32: return 15
       case .sfixed64: return 16
       case .sint32: return 17
@@ -734,13 +734,13 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     case repeated // = 3
 
     init() {
-      self = .`optional`
+      self = .optional
     }
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 1: self = .`optional`
-      case 2: self = .`required`
+      case 1: self = .optional
+      case 2: self = .required
       case 3: self = .repeated
       default: return nil
       }
@@ -748,8 +748,8 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
 
     var rawValue: Int {
       switch self {
-      case .`optional`: return 1
-      case .`required`: return 2
+      case .optional: return 1
+      case .required: return 2
       case .repeated: return 3
       }
     }

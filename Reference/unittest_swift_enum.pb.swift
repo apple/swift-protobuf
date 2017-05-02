@@ -138,12 +138,12 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
     case notReserved // = 2
 
     init() {
-      self = .`var`
+      self = .var
     }
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 1: self = .`var`
+      case 1: self = .var
       case 2: self = .notReserved
       default: return nil
       }
@@ -151,7 +151,7 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
     var rawValue: Int {
       switch self {
-      case .`var`: return 1
+      case .var: return 1
       case .notReserved: return 2
       }
     }
