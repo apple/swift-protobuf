@@ -15,6 +15,8 @@
 ///
 // -----------------------------------------------------------------------------
 
+import Foundation
+
 ///
 /// We won't generate types (structs, enums) with these names:
 ///
@@ -270,6 +272,8 @@ private func basicSanitize(_ s: String) -> String {
 
 private let upperInitials: Set<String> = ["url", "http", "https", "id"]
 
+private let backtickCharacterSet = CharacterSet(charactersIn: "`")
+
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
 enum NamingUtils {
@@ -367,6 +371,20 @@ enum NamingUtils {
     return from[idx..<from.endIndex]
   }
 
+  static func canStripPrefix(enumProto: Google_Protobuf_EnumDescriptorProto) -> Bool {
+    let enumName = enumProto.name
+    for value in enumProto.value {
+      guard let strippedName = strip(protoPrefix: enumName, from: value.name) else {
+        return false
+      }
+      let camelCased = toLowerCamelCase(strippedName)
+      if !isValidSwiftIdentifier(camelCased) {
+        return false
+      }
+    }
+    return true
+  }
+
   static func sanitize(messageName s: String) -> String {
     return sanitizeTypeName(s, disambiguator: "Message")
   }
@@ -409,13 +427,10 @@ enum NamingUtils {
     }
   }
 
-  static func sanitize(messageScopedExtensionName s: String, skipBackticks: Bool = false) -> String {
+  static func sanitize(messageScopedExtensionName s: String) -> String {
     if reservedMessageScopedExtensionNames.contains(s) {
       return "\(s)_"
     } else if quotableMessageScopedExtensionNames.contains(s) {
-      if skipBackticks {
-        return s
-      }
       return "`\(s)`"
     } else if isAllUnderscore(s) {
       return s + "__"
@@ -463,6 +478,10 @@ enum NamingUtils {
       forceLower = false
     }
     return out
+  }
+
+  static func trimBackticks(_ s: String) -> String {
+    return s.trimmingCharacters(in: backtickCharacterSet)
   }
 
 }
