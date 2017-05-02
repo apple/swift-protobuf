@@ -134,8 +134,6 @@ public final class FileDescriptor {
     self.services.forEach { $0.bind(file: self, registry: registry) }
   }
 
-  // TODO(thomasvl): Eventually hide this and just expose it info off the descriptors so
-  // paths aren't needed externally.
   public func sourceCodeInfoLocation(path: IndexPath) -> Google_Protobuf_SourceCodeInfo.Location? {
     guard let location = locationMap[path] else {
       return nil
