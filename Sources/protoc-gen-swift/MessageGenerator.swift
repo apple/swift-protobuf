@@ -67,7 +67,7 @@ class MessageGenerator {
       swiftFullName = swiftRelativeName
     }
     self.isAnyMessage = (isProto3 &&
-                         descriptor.protoName == ".google.protobuf.Any" &&
+                         descriptor.fullName == ".google.protobuf.Any" &&
                          descriptor.file.name == "google/protobuf/any.proto")
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {

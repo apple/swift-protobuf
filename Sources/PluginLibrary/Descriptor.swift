@@ -111,16 +111,16 @@ public final class FileDescriptor {
                                              fileOptions: proto.options)
 
     self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: prefix)
+      return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
     self.messages = proto.messageType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: prefix)
+      return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
     self.extensions = proto.extension_p.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
     }
     self.services = proto.service.enumeratedMap {
-      return ServiceDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: prefix)
+      return ServiceDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
 
     // Done initializing, register ourselves.
@@ -158,7 +158,8 @@ public final class FileDescriptor {
 public final class Descriptor {
   public let proto: Google_Protobuf_DescriptorProto
   let index: Int
-  public let protoName: String
+  public let fullName: String
+  public var name: String { return proto.name }
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
@@ -173,19 +174,19 @@ public final class Descriptor {
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
-                   protoNamePrefix prefix: String) {
+                   fullNamePrefix prefix: String) {
     self.proto = proto
     self.index = index
-    let protoName = "\(prefix).\(proto.name)"
-    self.protoName = protoName
+    let fullName = "\(prefix).\(proto.name)"
+    self.fullName = fullName
 
     isMapEntry = proto.options.mapEntry
 
     self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: protoName)
+      return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
     }
     self.messages = proto.nestedType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: protoName)
+      return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
     }
     self.fields = proto.field.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry)
@@ -215,7 +216,8 @@ public final class Descriptor {
 public final class EnumDescriptor {
   public let proto: Google_Protobuf_EnumDescriptorProto
   let index: Int
-  public let protoName: String
+  public let fullName: String
+  public var name: String { return proto.name }
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
@@ -244,10 +246,10 @@ public final class EnumDescriptor {
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
-                   protoNamePrefix prefix: String) {
+                   fullNamePrefix prefix: String) {
     self.proto = proto
     self.index = index
-    self.protoName = "\(prefix).\(proto.name)"
+    self.fullName = "\(prefix).\(proto.name)"
 
     // Done initializing, register ourselves.
     registry.register(enum: self)
@@ -264,6 +266,7 @@ public final class EnumValueDescriptor {
   let index: Int
   public private(set) weak var enumType: EnumDescriptor!
 
+  public var name: String { return proto.name }
   public var number: Int32 { return proto.number }
 
   public private(set) weak var aliasOf: EnumValueDescriptor?
@@ -377,7 +380,8 @@ public final class FieldDescriptor {
 public final class ServiceDescriptor {
   public let proto: Google_Protobuf_ServiceDescriptorProto
   let index: Int
-  public let protoName: String
+  public let fullName: String
+  public var name: String { return proto.name }
   public private(set) weak var file: FileDescriptor!
 
   public let methods: [MethodDescriptor]
@@ -385,11 +389,11 @@ public final class ServiceDescriptor {
   fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
                    index: Int,
                    registry: Registry,
-                   protoNamePrefix prefix: String) {
+                   fullNamePrefix prefix: String) {
     self.proto = proto
     self.index = index
-    let protoName = "\(prefix).\(proto.name)"
-    self.protoName = protoName
+    let fullName = "\(prefix).\(proto.name)"
+    self.fullName = fullName
 
     self.methods = proto.method.enumeratedMap {
       return MethodDescriptor(proto: $1, index: $0, registry: registry)
@@ -443,13 +447,13 @@ fileprivate final class Registry {
     fileMap[file.name] = file
   }
   func register(message: Descriptor) {
-    messageMap[message.protoName] = message
+    messageMap[message.fullName] = message
   }
   func register(enum e: EnumDescriptor) {
-    enumMap[e.protoName] = e
+    enumMap[e.fullName] = e
   }
   func register(service: ServiceDescriptor) {
-    serviceMap[service.protoName] = service
+    serviceMap[service.fullName] = service
   }
 
   // These are forced unwraps as the FileDescriptorSet should always be valid from protoc.
