@@ -67,7 +67,7 @@ class MessageGenerator {
       swiftFullName = swiftRelativeName
     }
     self.isAnyMessage = (isProto3 &&
-                         descriptor.protoName == ".google.protobuf.Any" &&
+                         descriptor.fullName == ".google.protobuf.Any" &&
                          descriptor.file.name == "google/protobuf/any.proto")
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
@@ -101,11 +101,9 @@ class MessageGenerator {
     }
     self.oneofs = oneofs
 
-    var enums = [EnumGenerator]()
-    for e in descriptor.enums {
-      enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, file: file))
+    self.enums = descriptor.enums.map {
+      return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions)
     }
-    self.enums = enums
 
     var messages = [MessageGenerator]()
     for m in descriptor.messages where !m.isMapEntry {

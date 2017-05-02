@@ -35,7 +35,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _1
 }
 
-enum SwiftDescriptorTest_TopLevelEnum: SwiftProtobuf.Enum {
+enum SDTTopLevelEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case valueZero // = 0
   case valueOne // = 1
@@ -64,7 +64,7 @@ enum SwiftDescriptorTest_TopLevelEnum: SwiftProtobuf.Enum {
 
 }
 
-struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
+struct SDTTopLevelMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage"
 
   var field1: String {
@@ -90,34 +90,34 @@ struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
     set {_uniqueStorage()._o = newValue}
   }
 
-  var field3: SwiftDescriptorTest_TopLevelEnum {
+  var field3: SDTTopLevelEnum {
     get {
       if case .field3(let v)? = _storage._o {return v}
-      return SwiftDescriptorTest_TopLevelEnum.valueZero
+      return SDTTopLevelEnum.valueZero
     }
     set {_uniqueStorage()._o = .field3(newValue)}
   }
 
-  var field4: SwiftDescriptorTest_TopLevelMessage.SubEnum {
+  var field4: SDTTopLevelMessage.SubEnum {
     get {
       if case .field4(let v)? = _storage._o {return v}
-      return SwiftDescriptorTest_TopLevelMessage.SubEnum.subValue0
+      return SDTTopLevelMessage.SubEnum.subValue0
     }
     set {_uniqueStorage()._o = .field4(newValue)}
   }
 
-  var field5: SwiftDescriptorTest_TopLevelMessage.SubMessage {
+  var field5: SDTTopLevelMessage.SubMessage {
     get {
       if case .field5(let v)? = _storage._o {return v}
-      return SwiftDescriptorTest_TopLevelMessage.SubMessage()
+      return SDTTopLevelMessage.SubMessage()
     }
     set {_uniqueStorage()._o = .field5(newValue)}
   }
 
-  var field6: SwiftDescriptorTest_TopLevelMessage2 {
+  var field6: SDTTopLevelMessage2 {
     get {
       if case .field6(let v)? = _storage._o {return v}
-      return SwiftDescriptorTest_TopLevelMessage2()
+      return SDTTopLevelMessage2()
     }
     set {_uniqueStorage()._o = .field6(newValue)}
   }
@@ -125,12 +125,12 @@ struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_O: Equatable {
-    case field3(SwiftDescriptorTest_TopLevelEnum)
-    case field4(SwiftDescriptorTest_TopLevelMessage.SubEnum)
-    case field5(SwiftDescriptorTest_TopLevelMessage.SubMessage)
-    case field6(SwiftDescriptorTest_TopLevelMessage2)
+    case field3(SDTTopLevelEnum)
+    case field4(SDTTopLevelMessage.SubEnum)
+    case field5(SDTTopLevelMessage.SubMessage)
+    case field6(SDTTopLevelMessage2)
 
-    static func ==(lhs: SwiftDescriptorTest_TopLevelMessage.OneOf_O, rhs: SwiftDescriptorTest_TopLevelMessage.OneOf_O) -> Bool {
+    static func ==(lhs: SDTTopLevelMessage.OneOf_O, rhs: SDTTopLevelMessage.OneOf_O) -> Bool {
       switch (lhs, rhs) {
       case (.field3(let l), .field3(let r)): return l == r
       case (.field4(let l), .field4(let r)): return l == r
@@ -171,7 +171,7 @@ struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
   }
 
   struct SubMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = SwiftDescriptorTest_TopLevelMessage.protoMessageName + ".SubMessage"
+    static let protoMessageName: String = SDTTopLevelMessage.protoMessageName + ".SubMessage"
 
     var field1: Int32 {
       get {return _storage._field1 ?? 0}
@@ -191,8 +191,8 @@ struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
     /// Clears the value of `field2`. Subsequent reads from it will return its default value.
     mutating func clearField2() {_storage._field2 = nil}
 
-    var field3: SwiftDescriptorTest_TopLevelMessage.SubMessage {
-      get {return _storage._field3 ?? SwiftDescriptorTest_TopLevelMessage.SubMessage()}
+    var field3: SDTTopLevelMessage.SubMessage {
+      get {return _storage._field3 ?? SDTTopLevelMessage.SubMessage()}
       set {_uniqueStorage()._field3 = newValue}
     }
     /// Returns true if `field3` has been explicitly set.
@@ -249,7 +249,7 @@ struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
           if _storage._o != nil {
             try decoder.handleConflictingOneOf()
           }
-          _storage._o = try SwiftDescriptorTest_TopLevelMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+          _storage._o = try SDTTopLevelMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
         default: break
         }
       }
@@ -272,11 +272,11 @@ struct SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass()
 }
 
-struct SwiftDescriptorTest_TopLevelMessage2: SwiftProtobuf.Message {
+struct SDTTopLevelMessage2: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TopLevelMessage2"
 
-  var left: SwiftDescriptorTest_TopLevelMessage {
-    get {return _storage._left ?? SwiftDescriptorTest_TopLevelMessage()}
+  var left: SDTTopLevelMessage {
+    get {return _storage._left ?? SDTTopLevelMessage()}
     set {_uniqueStorage()._left = newValue}
   }
   /// Returns true if `left` has been explicitly set.
@@ -284,8 +284,8 @@ struct SwiftDescriptorTest_TopLevelMessage2: SwiftProtobuf.Message {
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
   mutating func clearLeft() {_storage._left = nil}
 
-  var right: SwiftDescriptorTest_TopLevelMessage2 {
-    get {return _storage._right ?? SwiftDescriptorTest_TopLevelMessage2()}
+  var right: SDTTopLevelMessage2 {
+    get {return _storage._right ?? SDTTopLevelMessage2()}
     set {_uniqueStorage()._right = newValue}
   }
   /// Returns true if `right` has been explicitly set.
@@ -325,7 +325,7 @@ struct SwiftDescriptorTest_TopLevelMessage2: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass()
 }
 
-struct SwiftDescriptorTest_ExternalRefs: SwiftProtobuf.Message {
+struct SDTExternalRefs: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ExternalRefs"
 
   var desc: Google_Protobuf_DescriptorProto {
@@ -385,7 +385,7 @@ struct SwiftDescriptorTest_ExternalRefs: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass()
 }
 
-struct SwiftDescriptorTest_ScoperForExt: SwiftProtobuf.Message {
+struct SDTScoperForExt: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ScoperForExt"
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -405,53 +405,53 @@ struct SwiftDescriptorTest_ScoperForExt: SwiftProtobuf.Message {
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
 extension Google_Protobuf_FieldOptions {
-  var SwiftDescriptorTest_extStr: String {
-    get {return getExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str) ?? String()}
-    set {setExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str, value: newValue)}
+  var SDTextStr: String {
+    get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
+    set {setExtensionValue(ext: SDTExtensions_ext_str, value: newValue)}
   }
-  /// Returns true if extension `SwiftDescriptorTest_Extensions_ext_str`
+  /// Returns true if extension `SDTExtensions_ext_str`
   /// has been explicitly set.
-  var hasSwiftDescriptorTest_extStr: Bool {
-    return hasExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str)
+  var hasSDTextStr: Bool {
+    return hasExtensionValue(ext: SDTExtensions_ext_str)
   }
-  /// Clears the value of extension `SwiftDescriptorTest_Extensions_ext_str`.
+  /// Clears the value of extension `SDTExtensions_ext_str`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftDescriptorTest_extStr() {
-    clearExtensionValue(ext: SwiftDescriptorTest_Extensions_ext_str)
+  mutating func clearSDTextStr() {
+    clearExtensionValue(ext: SDTExtensions_ext_str)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var SwiftDescriptorTest_ScoperForExt_extEnum: SwiftDescriptorTest_TopLevelEnum {
-    get {return getExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum) ?? SwiftDescriptorTest_TopLevelEnum.valueZero}
-    set {setExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum, value: newValue)}
+  var SDTScoperForExt_extEnum: SDTTopLevelEnum {
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? SDTTopLevelEnum.valueZero}
+    set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum, value: newValue)}
   }
-  /// Returns true if extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum`
+  /// Returns true if extension `SDTScoperForExt.Extensions.ext_enum`
   /// has been explicitly set.
-  var hasSwiftDescriptorTest_ScoperForExt_extEnum: Bool {
-    return hasExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum)
+  var hasSDTScoperForExt_extEnum: Bool {
+    return hasExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum)
   }
-  /// Clears the value of extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum`.
+  /// Clears the value of extension `SDTScoperForExt.Extensions.ext_enum`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftDescriptorTest_ScoperForExt_extEnum() {
-    clearExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum)
+  mutating func clearSDTScoperForExt_extEnum() {
+    clearExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum)
   }
 }
 
 extension Google_Protobuf_MessageOptions {
-  var SwiftDescriptorTest_ScoperForExt_extMsg: SwiftDescriptorTest_TopLevelMessage2 {
-    get {return getExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg) ?? SwiftDescriptorTest_TopLevelMessage2()}
-    set {setExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg, value: newValue)}
+  var SDTScoperForExt_extMsg: SDTTopLevelMessage2 {
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg) ?? SDTTopLevelMessage2()}
+    set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg, value: newValue)}
   }
-  /// Returns true if extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg`
+  /// Returns true if extension `SDTScoperForExt.Extensions.ext_msg`
   /// has been explicitly set.
-  var hasSwiftDescriptorTest_ScoperForExt_extMsg: Bool {
-    return hasExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg)
+  var hasSDTScoperForExt_extMsg: Bool {
+    return hasExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg)
   }
-  /// Clears the value of extension `SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg`.
+  /// Clears the value of extension `SDTScoperForExt.Extensions.ext_msg`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearSwiftDescriptorTest_ScoperForExt_extMsg() {
-    clearExtensionValue(ext: SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg)
+  mutating func clearSDTScoperForExt_extMsg() {
+    clearExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg)
   }
 }
 
@@ -459,30 +459,30 @@ extension Google_Protobuf_MessageOptions {
 /// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
-let SwiftDescriptorTest_PluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  SwiftDescriptorTest_Extensions_ext_str,
-  SwiftDescriptorTest_ScoperForExt.Extensions.ext_enum,
-  SwiftDescriptorTest_ScoperForExt.Extensions.ext_msg
+let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
+  SDTExtensions_ext_str,
+  SDTScoperForExt.Extensions.ext_enum,
+  SDTScoperForExt.Extensions.ext_msg
 ]
 
-let SwiftDescriptorTest_Extensions_ext_str = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_FieldOptions>(
+let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 90000,
   fieldName: "swift_descriptor_test.ext_str",
   defaultValue: String()
 )
 
-extension SwiftDescriptorTest_ScoperForExt {
+extension SDTScoperForExt {
   enum Extensions {
-    static let ext_enum = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<SwiftDescriptorTest_TopLevelEnum>, Google_Protobuf_MessageOptions>(
+    static let ext_enum = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<SDTTopLevelEnum>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99001,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_enum",
-      defaultValue: SwiftDescriptorTest_TopLevelEnum.valueZero
+      defaultValue: SDTTopLevelEnum.valueZero
     )
 
-    static let ext_msg = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<SwiftDescriptorTest_TopLevelMessage2>, Google_Protobuf_MessageOptions>(
+    static let ext_msg = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<SDTTopLevelMessage2>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99002,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_msg",
-      defaultValue: SwiftDescriptorTest_TopLevelMessage2()
+      defaultValue: SDTTopLevelMessage2()
     )
   }
 }
@@ -491,7 +491,7 @@ extension SwiftDescriptorTest_ScoperForExt {
 
 fileprivate let _protobuf_package = "swift_descriptor_test"
 
-extension SwiftDescriptorTest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "VALUE_ZERO"),
     1: .same(proto: "VALUE_ONE"),
@@ -499,7 +499,7 @@ extension SwiftDescriptorTest_TopLevelEnum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
     2: .same(proto: "field2"),
@@ -512,7 +512,7 @@ extension SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf._MessageImplementat
   fileprivate class _StorageClass {
     var _field1: String? = nil
     var _field2: Int32? = nil
-    var _o: SwiftDescriptorTest_TopLevelMessage.OneOf_O?
+    var _o: SDTTopLevelMessage.OneOf_O?
 
     init() {}
 
@@ -530,7 +530,7 @@ extension SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf._MessageImplementat
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftDescriptorTest_TopLevelMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: SDTTopLevelMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._field1 != other_storage._field1 {return false}
@@ -545,32 +545,32 @@ extension SwiftDescriptorTest_TopLevelMessage: SwiftProtobuf._MessageImplementat
   }
 }
 
-extension SwiftDescriptorTest_TopLevelMessage.OneOf_O {
+extension SDTTopLevelMessage.OneOf_O {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 3:
-      var value: SwiftDescriptorTest_TopLevelEnum?
+      var value: SDTTopLevelEnum?
       try decoder.decodeSingularEnumField(value: &value)
       if let value = value {
         self = .field3(value)
         return
       }
     case 4:
-      var value: SwiftDescriptorTest_TopLevelMessage.SubEnum?
+      var value: SDTTopLevelMessage.SubEnum?
       try decoder.decodeSingularEnumField(value: &value)
       if let value = value {
         self = .field4(value)
         return
       }
     case 5:
-      var value: SwiftDescriptorTest_TopLevelMessage.SubMessage?
+      var value: SDTTopLevelMessage.SubMessage?
       try decoder.decodeSingularMessageField(value: &value)
       if let value = value {
         self = .field5(value)
         return
       }
     case 6:
-      var value: SwiftDescriptorTest_TopLevelMessage2?
+      var value: SDTTopLevelMessage2?
       try decoder.decodeSingularMessageField(value: &value)
       if let value = value {
         self = .field6(value)
@@ -596,7 +596,7 @@ extension SwiftDescriptorTest_TopLevelMessage.OneOf_O {
   }
 }
 
-extension SwiftDescriptorTest_TopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SUB_VALUE_0"),
     1: .same(proto: "SUB_VALUE_1"),
@@ -604,7 +604,7 @@ extension SwiftDescriptorTest_TopLevelMessage.SubEnum: SwiftProtobuf._ProtoNameP
   ]
 }
 
-extension SwiftDescriptorTest_TopLevelMessage.SubMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage.SubMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field1"),
     2: .same(proto: "field2"),
@@ -614,7 +614,7 @@ extension SwiftDescriptorTest_TopLevelMessage.SubMessage: SwiftProtobuf._Message
   fileprivate class _StorageClass {
     var _field1: Int32? = nil
     var _field2: String? = nil
-    var _field3: SwiftDescriptorTest_TopLevelMessage.SubMessage? = nil
+    var _field3: SDTTopLevelMessage.SubMessage? = nil
 
     init() {}
 
@@ -632,7 +632,7 @@ extension SwiftDescriptorTest_TopLevelMessage.SubMessage: SwiftProtobuf._Message
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftDescriptorTest_TopLevelMessage.SubMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: SDTTopLevelMessage.SubMessage) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._field1 != other_storage._field1 {return false}
@@ -647,15 +647,15 @@ extension SwiftDescriptorTest_TopLevelMessage.SubMessage: SwiftProtobuf._Message
   }
 }
 
-extension SwiftDescriptorTest_TopLevelMessage2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTTopLevelMessage2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "left"),
     2: .same(proto: "right"),
   ]
 
   fileprivate class _StorageClass {
-    var _left: SwiftDescriptorTest_TopLevelMessage? = nil
-    var _right: SwiftDescriptorTest_TopLevelMessage2? = nil
+    var _left: SDTTopLevelMessage? = nil
+    var _right: SDTTopLevelMessage2? = nil
 
     init() {}
 
@@ -672,7 +672,7 @@ extension SwiftDescriptorTest_TopLevelMessage2: SwiftProtobuf._MessageImplementa
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftDescriptorTest_TopLevelMessage2) -> Bool {
+  func _protobuf_generated_isEqualTo(other: SDTTopLevelMessage2) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._left != other_storage._left {return false}
@@ -686,7 +686,7 @@ extension SwiftDescriptorTest_TopLevelMessage2: SwiftProtobuf._MessageImplementa
   }
 }
 
-extension SwiftDescriptorTest_ExternalRefs: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTExternalRefs: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "desc"),
     2: .same(proto: "ver"),
@@ -711,7 +711,7 @@ extension SwiftDescriptorTest_ExternalRefs: SwiftProtobuf._MessageImplementation
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: SwiftDescriptorTest_ExternalRefs) -> Bool {
+  func _protobuf_generated_isEqualTo(other: SDTExternalRefs) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._desc != other_storage._desc {return false}
@@ -725,10 +725,10 @@ extension SwiftDescriptorTest_ExternalRefs: SwiftProtobuf._MessageImplementation
   }
 }
 
-extension SwiftDescriptorTest_ScoperForExt: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SDTScoperForExt: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  func _protobuf_generated_isEqualTo(other: SwiftDescriptorTest_ScoperForExt) -> Bool {
+  func _protobuf_generated_isEqualTo(other: SDTScoperForExt) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }

@@ -25,74 +25,39 @@ class EnumGenerator {
   private let enumDescriptor: EnumDescriptor
   private let generatorOptions: GeneratorOptions
 
-  private let visibility: String
-  private let swiftRelativeName: String
-  private let swiftFullName: String
-  private let enumCases: [EnumCaseGenerator]
-  private let enumCasesSortedByNumber: [EnumCaseGenerator]
-  private let defaultCase: EnumCaseGenerator
+  /// The values that aren't aliases, sorted by number.
+  private let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
 
   init(descriptor: EnumDescriptor,
-       generatorOptions: GeneratorOptions,
-       parentSwiftName: String?,
-       file: FileGenerator
+       generatorOptions: GeneratorOptions
   ) {
     self.enumDescriptor = descriptor
     self.generatorOptions = generatorOptions
 
-    let proto = descriptor.proto
-    self.visibility = generatorOptions.visibilitySourceSnippet
-    if parentSwiftName == nil {
-      swiftRelativeName = sanitizeEnumTypeName(file.swiftPrefix + proto.name)
-      swiftFullName = swiftRelativeName
-    } else {
-      swiftRelativeName = sanitizeEnumTypeName(proto.name)
-      swiftFullName = parentSwiftName! + "." + swiftRelativeName
-    }
-
-    let stripLength: Int = proto.stripPrefixLength
-    var firstCases = [Int32: EnumCaseGenerator]()
-    var enumCases = [EnumCaseGenerator]()
-    for v in enumDescriptor.values {
-      // Keep track of aliases by recording them as we build the generators.
-      let firstCase = firstCases[v.number]
-      let generator = EnumCaseGenerator(descriptor: v,
-                                        generatorOptions: generatorOptions,
-                                        stripLength: stripLength,
-                                        aliasing: firstCase)
-      enumCases.append(generator)
-
-      if let firstCase = firstCase {
-        firstCase.registerAlias(generator)
-      } else {
-        firstCases[v.number] = generator
-      }
-    }
-    self.enumCases = enumCases
-    enumCasesSortedByNumber = enumCases.sorted {$0.number < $1.number}
-    self.defaultCase = self.enumCases[0]
+    mainEnumValueDescriptorsSorted = descriptor.values.filter({
+      return $0.aliasOf == nil
+    }).sorted(by: {
+      return $0.number < $1.number
+    })
   }
 
   func generateMainEnum(printer p: inout CodePrinter) {
+    let visibility = generatorOptions.visibilitySourceSnippet
+
     p.print("\n")
     p.print(enumDescriptor.protoSourceComments())
-    p.print("\(visibility)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
+    p.print("\(visibility)enum \(enumDescriptor.swiftRelativeName): SwiftProtobuf.Enum {\n")
     p.indent()
     p.print("\(visibility)typealias RawValue = Int\n")
 
-    // Cases
-    for c in enumCases {
-      c.generateCaseOrAlias(printer: &p)
-    }
-    if enumDescriptor.hasUnknownEnumPreservingSemantics {
-      p.print("case \(unrecognizedCaseName)(Int)\n")
-    }
+    // Cases/aliases
+    generateCasesOrAliases(printer: &p)
 
     // Generate the default initializer.
     p.print("\n")
     p.print("\(visibility)init() {\n")
     p.indent()
-    p.print("self = .\(defaultCase.swiftName)\n")
+    p.print("self = \(enumDescriptor.defaultValue.swiftDottedRelativeName)\n")
     p.outdent()
     p.print("}\n")
 
@@ -109,39 +74,65 @@ class EnumGenerator {
 
   func generateRuntimeSupport(printer p: inout CodePrinter) {
     p.print("\n")
-    p.print("extension \(swiftFullName): SwiftProtobuf._ProtoNameProviding {\n")
+    p.print("extension \(enumDescriptor.swiftFullName): SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
     generateProtoNameProviding(printer: &p)
     p.outdent()
     p.print("}\n")
   }
 
+  /// Generates the cases or statics (for alias) for the values.
+  ///
+  /// - Parameter p: The code printer.
+  private func generateCasesOrAliases(printer p: inout CodePrinter) {
+    let visibility = generatorOptions.visibilitySourceSnippet
+    for enumValueDescriptor in enumDescriptor.values {
+      let comments = enumValueDescriptor.protoSourceComments()
+      if !comments.isEmpty {
+        p.print("\n", comments)
+      }
+      if let aliasOf = enumValueDescriptor.aliasOf {
+        p.print("\(visibility)static let \(enumValueDescriptor.swiftRelativeName) = \(aliasOf.swiftRelativeName)\n")
+      } else {
+        p.print("case \(enumValueDescriptor.swiftRelativeName) // = \(enumValueDescriptor.number)\n")
+      }
+    }
+    if enumDescriptor.hasUnknownEnumPreservingSemantics {
+      p.print("case \(unrecognizedCaseName)(Int)\n")
+    }
+  }
+
   /// Generates the mapping from case numbers to their text/JSON names.
   ///
   /// - Parameter p: The code printer.
   private func generateProtoNameProviding(printer p: inout CodePrinter) {
-    if enumCases.isEmpty {
-      p.print("\(visibility)static let _protobuf_nameMap = SwiftProtobuf._NameMap()\n")
-    } else {
-      p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
-      p.indent()
-      for c in enumCasesSortedByNumber where !c.isAlias {
-        c.generateNameMapEntry(printer: &p)
+    let visibility = generatorOptions.visibilitySourceSnippet
+
+    p.print("\(visibility)static let _protobuf_nameMap: SwiftProtobuf._NameMap = [\n")
+    p.indent()
+    for v in mainEnumValueDescriptorsSorted {
+      if v.aliases.isEmpty {
+        p.print("\(v.number): .same(proto: \"\(v.name)\"),\n")
+      } else {
+        let aliasNames = v.aliases.map({ "\"\($0.name)\"" }).joined(separator: ", ")
+        p.print("\(v.number): .aliased(proto: \"\(v.name)\", aliases: [\(aliasNames)]),\n")
       }
-      p.outdent()
-      p.print("]\n")
     }
+    p.outdent()
+    p.print("]\n")
   }
 
   /// Generates `init?(rawValue:)` for the enum.
   ///
   /// - Parameter p: The code printer.
   private func generateInitRawValue(printer p: inout CodePrinter) {
+    let visibility = generatorOptions.visibilitySourceSnippet
+
     p.print("\(visibility)init?(rawValue: Int) {\n")
     p.indent()
     p.print("switch rawValue {\n")
-    for c in enumCasesSortedByNumber where !c.isAlias {
-      p.print("case \(c.number): self = .\(c.swiftName)\n")
+    for v in mainEnumValueDescriptorsSorted {
+      p.print("case \(v.number): self = \(v.swiftDottedRelativeName)\n")
     }
     if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
@@ -157,11 +148,13 @@ class EnumGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateRawValueProperty(printer p: inout CodePrinter) {
+    let visibility = generatorOptions.visibilitySourceSnippet
+
     p.print("\(visibility)var rawValue: Int {\n")
     p.indent()
     p.print("switch self {\n")
-    for c in enumCasesSortedByNumber where !c.isAlias {
-      p.print("case .\(c.swiftName): return \(c.number)\n")
+    for v in mainEnumValueDescriptorsSorted {
+      p.print("case \(v.swiftDottedRelativeName): return \(v.number)\n")
     }
     if enumDescriptor.hasUnknownEnumPreservingSemantics {
       p.print("case .\(unrecognizedCaseName)(let i): return i\n")

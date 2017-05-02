@@ -111,16 +111,16 @@ public final class FileDescriptor {
                                              fileOptions: proto.options)
 
     self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: prefix)
+      return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
     self.messages = proto.messageType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: prefix)
+      return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
     self.extensions = proto.extension_p.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
     }
     self.services = proto.service.enumeratedMap {
-      return ServiceDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: prefix)
+      return ServiceDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
 
     // Done initializing, register ourselves.
@@ -134,8 +134,6 @@ public final class FileDescriptor {
     self.services.forEach { $0.bind(file: self, registry: registry) }
   }
 
-  // TODO(thomasvl): Eventually hide this and just expose it info off the descriptors so
-  // paths aren't needed externally.
   public func sourceCodeInfoLocation(path: IndexPath) -> Google_Protobuf_SourceCodeInfo.Location? {
     guard let location = locationMap[path] else {
       return nil
@@ -158,7 +156,8 @@ public final class FileDescriptor {
 public final class Descriptor {
   public let proto: Google_Protobuf_DescriptorProto
   let index: Int
-  public let protoName: String
+  public let fullName: String
+  public var name: String { return proto.name }
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
@@ -170,22 +169,37 @@ public final class Descriptor {
   public let oneofs: [OneofDescriptor]
   public let extensions: [FieldDescriptor]
 
+  public private(set) lazy var swiftRelativeName: String = {
+    if self.containingType != nil {
+      return NamingUtils.sanitize(messageName: self.proto.name)
+    } else {
+      return NamingUtils.sanitize(messageName: self.file.swiftTypePrefix + self.proto.name)
+    }
+  }()
+  public private(set) lazy var swiftFullName: String = {
+    if let containingType = self.containingType {
+      return containingType.swiftFullName + "." + self.swiftRelativeName
+    } else {
+      return self.swiftRelativeName
+    }
+  }()
+
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
-                   protoNamePrefix prefix: String) {
+                   fullNamePrefix prefix: String) {
     self.proto = proto
     self.index = index
-    let protoName = "\(prefix).\(proto.name)"
-    self.protoName = protoName
+    let fullName = "\(prefix).\(proto.name)"
+    self.fullName = fullName
 
     isMapEntry = proto.options.mapEntry
 
     self.enums = proto.enumType.enumeratedMap {
-      return EnumDescriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: protoName)
+      return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
     }
     self.messages = proto.nestedType.enumeratedMap {
-      return Descriptor(proto: $1, index: $0, registry: registry, protoNamePrefix: protoName)
+      return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: fullName)
     }
     self.fields = proto.field.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry)
@@ -215,9 +229,25 @@ public final class Descriptor {
 public final class EnumDescriptor {
   public let proto: Google_Protobuf_EnumDescriptorProto
   let index: Int
-  public let protoName: String
+  public let fullName: String
+  public var name: String { return proto.name }
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
+
+  public private(set) lazy var swiftRelativeName: String = {
+    if self.containingType != nil {
+      return NamingUtils.sanitize(enumName: self.proto.name)
+    } else {
+      return NamingUtils.sanitize(enumName: self.file.swiftTypePrefix + self.proto.name)
+    }
+  }()
+  public private(set) lazy var swiftFullName: String = {
+    if let containingType = self.containingType {
+      return containingType.swiftFullName + "." + self.swiftRelativeName
+    } else {
+      return self.swiftRelativeName
+    }
+  }()
 
   // This is lazy so it is they are created only when needed, that way an
   // import doesn't have to do all this work unless the enum is used by
@@ -241,13 +271,22 @@ public final class EnumDescriptor {
     return result
   }()
 
+  public var defaultValue: EnumValueDescriptor {
+    // The compiler requires the be atleast one value, so force unwrap is safe.
+    return values.first!
+  }
+
+  fileprivate private(set) lazy var canStripPrefix: Bool = {
+    return NamingUtils.canStripPrefix(enumProto: self.proto)
+  }()
+
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
-                   protoNamePrefix prefix: String) {
+                   fullNamePrefix prefix: String) {
     self.proto = proto
     self.index = index
-    self.protoName = "\(prefix).\(proto.name)"
+    self.fullName = "\(prefix).\(proto.name)"
 
     // Done initializing, register ourselves.
     registry.register(enum: self)
@@ -264,7 +303,27 @@ public final class EnumValueDescriptor {
   let index: Int
   public private(set) weak var enumType: EnumDescriptor!
 
+  public var name: String { return proto.name }
   public var number: Int32 { return proto.number }
+
+  public private(set) lazy var swiftRelativeName: String = {
+    let baseName: String
+    if self.enumType.canStripPrefix {
+      baseName = NamingUtils.strip(protoPrefix: self.enumType.proto.name, from: self.proto.name)!
+    } else {
+      baseName = self.proto.name
+    }
+    let camelCased = NamingUtils.toLowerCamelCase(baseName)
+    return NamingUtils.sanitize(enumCaseName: camelCased)
+  }()
+  public private(set) lazy var swiftFullName: String = {
+    return "\(self.enumType.swiftFullName).\(self.swiftRelativeName)"
+  }()
+  /// The relative name with a leading dot so it can be used where
+  /// the type is known.
+  public private(set) lazy var swiftDottedRelativeName: String = {
+    return ".\(NamingUtils.trimBackticks(self.swiftRelativeName))"
+  }()
 
   public private(set) weak var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
@@ -377,7 +436,8 @@ public final class FieldDescriptor {
 public final class ServiceDescriptor {
   public let proto: Google_Protobuf_ServiceDescriptorProto
   let index: Int
-  public let protoName: String
+  public let fullName: String
+  public var name: String { return proto.name }
   public private(set) weak var file: FileDescriptor!
 
   public let methods: [MethodDescriptor]
@@ -385,11 +445,11 @@ public final class ServiceDescriptor {
   fileprivate init(proto: Google_Protobuf_ServiceDescriptorProto,
                    index: Int,
                    registry: Registry,
-                   protoNamePrefix prefix: String) {
+                   fullNamePrefix prefix: String) {
     self.proto = proto
     self.index = index
-    let protoName = "\(prefix).\(proto.name)"
-    self.protoName = protoName
+    let fullName = "\(prefix).\(proto.name)"
+    self.fullName = fullName
 
     self.methods = proto.method.enumeratedMap {
       return MethodDescriptor(proto: $1, index: $0, registry: registry)
@@ -443,13 +503,13 @@ fileprivate final class Registry {
     fileMap[file.name] = file
   }
   func register(message: Descriptor) {
-    messageMap[message.protoName] = message
+    messageMap[message.fullName] = message
   }
   func register(enum e: EnumDescriptor) {
-    enumMap[e.protoName] = e
+    enumMap[e.fullName] = e
   }
   func register(service: ServiceDescriptor) {
-    serviceMap[service.protoName] = service
+    serviceMap[service.fullName] = service
   }
 
   // These are forced unwraps as the FileDescriptorSet should always be valid from protoc.

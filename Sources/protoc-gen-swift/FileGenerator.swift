@@ -230,9 +230,8 @@ class FileGenerator {
         p.print("\n")
         generateVersionCheck(printer: &p)
 
-        var enums = [EnumGenerator]()
-        for e in fileDescriptor.enums {
-            enums.append(EnumGenerator(descriptor: e, generatorOptions: generatorOptions, parentSwiftName: nil, file: self))
+        let enums = fileDescriptor.enums.map {
+            return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions)
         }
 
         var messages = [MessageGenerator]()

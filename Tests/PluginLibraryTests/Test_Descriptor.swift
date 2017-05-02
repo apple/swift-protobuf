@@ -27,31 +27,31 @@ class Test_Descriptor: XCTestCase {
     let pluginFileDescriptor = descriptorSet.files[1]
 
     XCTAssertEqual(pluginFileDescriptor.messages.count, 3)
-    XCTAssertEqual(pluginFileDescriptor.messages[0].protoName, ".google.protobuf.compiler.Version")
+    XCTAssertEqual(pluginFileDescriptor.messages[0].fullName, ".google.protobuf.compiler.Version")
     XCTAssertNil(pluginFileDescriptor.messages[0].containingType)
     XCTAssertEqual(pluginFileDescriptor.messages[0].messages.count, 0)
-    XCTAssertEqual(pluginFileDescriptor.messages[1].protoName, ".google.protobuf.compiler.CodeGeneratorRequest")
+    XCTAssertEqual(pluginFileDescriptor.messages[1].fullName, ".google.protobuf.compiler.CodeGeneratorRequest")
     XCTAssertNil(pluginFileDescriptor.messages[1].containingType)
     XCTAssertEqual(pluginFileDescriptor.messages[1].messages.count, 0)
-    XCTAssertEqual(pluginFileDescriptor.messages[2].protoName, ".google.protobuf.compiler.CodeGeneratorResponse")
+    XCTAssertEqual(pluginFileDescriptor.messages[2].fullName, ".google.protobuf.compiler.CodeGeneratorResponse")
     XCTAssertNil(pluginFileDescriptor.messages[2].containingType)
     XCTAssertEqual(pluginFileDescriptor.messages[2].messages.count, 1)
-    XCTAssertEqual(pluginFileDescriptor.messages[2].messages[0].protoName, ".google.protobuf.compiler.CodeGeneratorResponse.File")
+    XCTAssertEqual(pluginFileDescriptor.messages[2].messages[0].fullName, ".google.protobuf.compiler.CodeGeneratorResponse.File")
     XCTAssertTrue(pluginFileDescriptor.messages[2].messages[0].containingType === pluginFileDescriptor.messages[2])
 
     let descriptorFileDescriptor = descriptorSet.files[0]
 
     XCTAssertEqual(descriptorFileDescriptor.enums.count, 0)
     XCTAssertEqual(descriptorFileDescriptor.messages[3].enums.count, 2)
-    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums[0].protoName, ".google.protobuf.FieldDescriptorProto.Type")
+    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums[0].fullName, ".google.protobuf.FieldDescriptorProto.Type")
     XCTAssertTrue(descriptorFileDescriptor.messages[3].enums[0].containingType === descriptorFileDescriptor.messages[3])
-    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums[1].protoName, ".google.protobuf.FieldDescriptorProto.Label")
+    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums[1].fullName, ".google.protobuf.FieldDescriptorProto.Label")
     XCTAssertTrue(descriptorFileDescriptor.messages[3].enums[1].containingType === descriptorFileDescriptor.messages[3])
 
     let testFileDesciptor = descriptorSet.files[2]
 
     XCTAssertEqual(testFileDesciptor.enums.count, 1)
-    XCTAssertEqual(testFileDesciptor.enums[0].protoName, ".swift_descriptor_test.TopLevelEnum")
+    XCTAssertEqual(testFileDesciptor.enums[0].fullName, ".swift_descriptor_test.TopLevelEnum")
     XCTAssertNil(testFileDesciptor.enums[0].containingType)
 
     XCTAssertEqual(testFileDesciptor.messages[0].oneofs.count, 1)
@@ -65,7 +65,7 @@ class Test_Descriptor: XCTestCase {
     XCTAssertEqual(testFileDesciptor.messages[3].extensions[1].name, "ext_msg")
 
     XCTAssertEqual(testFileDesciptor.services.count, 1)
-    XCTAssertEqual(testFileDesciptor.services[0].protoName, ".swift_descriptor_test.SomeService")
+    XCTAssertEqual(testFileDesciptor.services[0].fullName, ".swift_descriptor_test.SomeService")
     XCTAssertEqual(testFileDesciptor.services[0].methods.count, 2)
     XCTAssertEqual(testFileDesciptor.services[0].methods[0].name, "Foo")
     XCTAssertEqual(testFileDesciptor.services[0].methods[1].name, "Bar")

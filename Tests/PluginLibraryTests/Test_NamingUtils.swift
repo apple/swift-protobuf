@@ -11,6 +11,14 @@
 import XCTest
 @testable import PluginLibrary
 
+extension Google_Protobuf_EnumValueDescriptorProto {
+  fileprivate init(name: String, number: Int32) {
+    self.init()
+    self.name = name
+    self.number = number
+  }
+}
+
 class Test_NamingUtils: XCTestCase {
 
   func testTypePrefix() throws {
@@ -46,6 +54,70 @@ class Test_NamingUtils: XCTestCase {
       }
       let result = NamingUtils.typePrefix(protoPackage: package, fileOptions: proto)
       XCTAssertEqual(result, expected, "Package: \(package), Prefix: \(prefix ?? "nil")")
+    }
+  }
+
+  func testStrip_protoPrefix() {
+    // prefix, string, expected
+    let tests: [(String, String, String?)] = [
+      ( "", "", nil ),
+
+      ( "FOO", "FOO", nil ),
+      ( "fOo", "FOO", nil ),
+
+      ( "foo_", "FOO", nil ),
+      ( "_foo", "FOO", nil ),
+      ( "_foo_", "FOO", nil ),
+
+      ( "foo", "FOO_", nil ),
+      ( "foo", "_FOO", nil ),
+      ( "foo", "_FOO_", nil ),
+
+      ( "foo_", "FOObar", "bar" ),
+      ( "_foo", "FOObar", "bar" ),
+      ( "_foo_", "FOObar", "bar" ),
+
+      ( "foo", "FOO_bar", "bar" ),
+      ( "foo", "_FOObar", "bar" ),
+      ( "foo", "_FOO_bar", "bar" ),
+
+      ( "FOO_bar", "foo_BAR_baz", "baz" ),
+      ( "FooBar", "foo_bar_Baz", "Baz" ),
+      ( "foo_bar", "foobar_bAZ", "bAZ" ),
+      ( "_foo_bar", "foobar_bAZ", "bAZ" ),
+      ( "foo__bar_", "_foo_bar__baz", "baz" ),
+    ]
+    for (prefix, str, expected) in tests {
+      let result = NamingUtils.strip(protoPrefix: prefix, from: str)
+      XCTAssertEqual(result, expected, "Prefix: \(prefix), Input: \(str)")
+    }
+  }
+
+  func testCanStripPrefix() {
+    // enumName, value1, value2, expected
+    let tests: [(String, String, String, Bool)] = [
+      ( "FOO", "foo_bar", "foo_baz", true),
+      ( "FOO", "foo_bar", "foo_baz2", true),
+
+      ( "FOO", "foo_bar", "baz", false),
+      ( "FOO", "bar", "foo_baz", false),
+      ( "FOO", "bar", "baz", false),
+
+      ( "FOO", "foo", "bar", false),
+
+      // Identifier can't start with a number after stripping.
+      ( "FOO", "foo_1bar", "foo_baz", false),
+    ]
+    for (name, value1, value2, expected) in tests {
+      let proto = Google_Protobuf_EnumDescriptorProto.with {
+        $0.name = name
+        $0.value = [
+          Google_Protobuf_EnumValueDescriptorProto(name: value1, number: 0),
+          Google_Protobuf_EnumValueDescriptorProto(name: value2, number: 1),
+        ]
+      }
+      XCTAssertEqual(NamingUtils.canStripPrefix(enumProto: proto), expected,
+                     "Name: \(name), Value1: \(value1), Value2: \(value2)")
     }
   }
 
@@ -180,20 +252,11 @@ class Test_NamingUtils: XCTestCase {
       ( "___", "_____" ),
     ]
 
-    func uppercaseFirst(_ s: String) -> String {
-      var result = s.characters
-      if let first = result.popFirst() {
-        return String(first).uppercased() + String(result)
-      } else {
-        return s
-      }
-    }
-
     for (input, expected) in tests {
       XCTAssertEqual(NamingUtils.sanitize(fieldName: input), expected)
 
-      let inputPrefixed = "XX" + uppercaseFirst(input)
-      let expected2 = "XX" + uppercaseFirst(expected)
+      let inputPrefixed = "XX" + NamingUtils.uppercaseFirstCharacter(input)
+      let expected2 = "XX" + NamingUtils.uppercaseFirstCharacter(expected)
       XCTAssertEqual(NamingUtils.sanitize(fieldName: inputPrefixed, basedOn: input), expected2)
     }
   }
@@ -253,6 +316,52 @@ class Test_NamingUtils: XCTestCase {
 
     for (input, expected) in tests {
       XCTAssertEqual(NamingUtils.sanitize(messageScopedExtensionName: input), expected)
+    }
+  }
+
+  func testToCamelCase() {
+    // input, expectedLower, expectedUpper
+    let tests: [(String, String, String)] = [
+      ( "", "", "" ),
+
+      ( "foo", "foo", "Foo" ),
+      ( "FOO", "foo", "Foo" ),
+      ( "foO", "foO", "FoO" ),
+
+      ( "foo.bar", "fooBar", "FooBar" ),
+      ( "foo_bar", "fooBar", "FooBar" ),
+      ( "foo.bAr_BaZ", "fooBArBaZ", "FooBArBaZ" ),
+      ( "foo_bAr.BaZ", "fooBArBaZ", "FooBArBaZ" ),
+
+      ( "foo1bar", "foo1Bar", "Foo1Bar" ),
+      ( "foo2bAr3BaZ", "foo2BAr3BaZ", "Foo2BAr3BaZ" ),
+
+      ( "url", "url", "URL" ),
+      ( "http", "http", "HTTP" ),
+      ( "https", "https", "HTTPS" ),
+      ( "id", "id", "ID" ),
+
+      ( "the_url", "theURL", "TheURL" ),
+      ( "use_http", "useHTTP", "UseHTTP" ),
+      ( "use_https", "useHTTPS", "UseHTTPS" ),
+      ( "request_id", "requestID", "RequestID" ),
+
+      ( "url_number", "urlNumber", "URLNumber" ),
+      ( "http_needed", "httpNeeded", "HTTPNeeded" ),
+      ( "https_needed", "httpsNeeded", "HTTPSNeeded" ),
+      ( "id_number", "idNumber", "IDNumber" ),
+
+      ( "is_url_number", "isURLNumber", "IsURLNumber" ),
+      ( "is_http_needed", "isHTTPNeeded", "IsHTTPNeeded" ),
+      ( "is_https_needed", "isHTTPSNeeded", "IsHTTPSNeeded" ),
+      ( "the_id_number", "theIDNumber", "TheIDNumber" ),
+
+      ( "url_foo_http_id", "urlFooHTTPID", "URLFooHTTPID"),
+    ]
+
+    for (input, expectedLower, expectedUppper) in tests {
+      XCTAssertEqual(NamingUtils.toLowerCamelCase(input), expectedLower)
+      XCTAssertEqual(NamingUtils.toUpperCamelCase(input), expectedUppper)
     }
   }
 }

@@ -353,8 +353,8 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message {
     init?(rawValue: Int) {
       switch rawValue {
       case 0: self = .unknown
-      case 1: self = .`optional`
-      case 2: self = .`required`
+      case 1: self = .optional
+      case 2: self = .required
       case 3: self = .repeated
       default: self = .UNRECOGNIZED(rawValue)
       }
@@ -363,8 +363,8 @@ struct Google_Protobuf_Field: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .unknown: return 0
-      case .`optional`: return 1
-      case .`required`: return 2
+      case .optional: return 1
+      case .required: return 2
       case .repeated: return 3
       case .UNRECOGNIZED(let i): return i
       }
