@@ -121,20 +121,14 @@ class MessageGenerator {
       hasMessageField(descriptor: descriptor.proto, context: context)
     if isAnyMessage {
       self.storage = AnyMessageStorageClassGenerator(
-        descriptor: proto,
+        descriptor: descriptor,
         fields: fields,
-        oneofs: oneofs,
-        file: file,
-        messageSwiftName: swiftFullName,
-        context: context)
+        oneofs: oneofs)
     } else if useHeapStorage {
       self.storage = MessageStorageClassGenerator(
-        descriptor: proto,
+        descriptor: descriptor,
         fields: fields,
-        oneofs: oneofs,
-        file: file,
-        messageSwiftName: swiftFullName,
-        context: context)
+        oneofs: oneofs)
     } else {
         self.storage = nil
     }
