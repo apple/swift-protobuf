@@ -322,6 +322,43 @@ public final class FieldDescriptor {
   public var label: Google_Protobuf_FieldDescriptorProto.Label { return proto.label }
   public var type: Google_Protobuf_FieldDescriptorProto.TypeEnum { return proto.type }
 
+  public var fullName: String {
+    // Since the fullName isn't needed on Fields that often, compute it on demand.
+    let prefix: String
+    if isExtension {
+      if let extensionScope = extensionScope {
+        prefix = extensionScope.fullName
+      } else {
+        let package = file.package
+        if package.isEmpty {
+          prefix = ""
+        } else {
+          prefix = ".\(package)"
+        }
+      }
+    } else {
+      prefix = containingType.fullName
+    }
+    return "\(prefix).\(proto.name)"
+  }
+
+  /// The default value (string) set in the proto file.
+  public var explicitDefaultValue: String? {
+    if !proto.hasDefaultValue {
+      return nil
+    }
+    return proto.defaultValue
+  }
+
+  /// True if this field is a map.
+  public var isMap: Bool {
+    // Maps are releated messages.
+    if label != .repeated || type != .message {
+      return false
+    }
+    return messageType.isMapEntry
+  }
+
   /// If this is an extension field.
   public let isExtension: Bool
   /// Extensions can be declared within the scope of another message. If this
@@ -344,6 +381,9 @@ public final class FieldDescriptor {
   /// When this is a enum field, the enum's desciptor.
   public private(set) weak var enumType: EnumDescriptor!
 
+  public var isPacked: Bool { return proto.options.packed }
+  public var options: Google_Protobuf_FieldOptions { return proto.options }
+
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -365,7 +405,7 @@ public final class FieldDescriptor {
     }
 
     switch type {
-    case .message:
+    case .message, .group:
       messageType = registry.descriptor(name: proto.typeName)
     case .enum:
       enumType = registry.enumDescriptor(name: proto.typeName)
