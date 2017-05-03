@@ -91,10 +91,6 @@ public final class FileDescriptor {
   public var fileOptions: Google_Protobuf_FileOptions { return proto.options }
   public var isDeprecated: Bool { return proto.options.deprecated }
 
-  /// This will be the Swift prefix file option or the prefix to use built
-  /// out of the proto package.
-  public var swiftTypePrefix: String
-
   fileprivate init(proto: Google_Protobuf_FileDescriptorProto, registry: Registry) {
     self.proto = proto
     self.syntax = Syntax(rawValue: proto.syntax)!
@@ -106,9 +102,6 @@ public final class FileDescriptor {
     } else {
       prefix = "." + protoPackage
     }
-
-    swiftTypePrefix = NamingUtils.typePrefix(protoPackage: protoPackage,
-                                             fileOptions: proto.options)
 
     self.enums = proto.enumType.enumeratedMap {
       return EnumDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
@@ -169,21 +162,6 @@ public final class Descriptor {
   public let oneofs: [OneofDescriptor]
   public let extensions: [FieldDescriptor]
 
-  public private(set) lazy var swiftRelativeName: String = {
-    if self.containingType != nil {
-      return NamingUtils.sanitize(messageName: self.proto.name)
-    } else {
-      return NamingUtils.sanitize(messageName: self.file.swiftTypePrefix + self.proto.name)
-    }
-  }()
-  public private(set) lazy var swiftFullName: String = {
-    if let containingType = self.containingType {
-      return containingType.swiftFullName + "." + self.swiftRelativeName
-    } else {
-      return self.swiftRelativeName
-    }
-  }()
-
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -234,21 +212,6 @@ public final class EnumDescriptor {
   public private(set) weak var file: FileDescriptor!
   public private(set) weak var containingType: Descriptor?
 
-  public private(set) lazy var swiftRelativeName: String = {
-    if self.containingType != nil {
-      return NamingUtils.sanitize(enumName: self.proto.name)
-    } else {
-      return NamingUtils.sanitize(enumName: self.file.swiftTypePrefix + self.proto.name)
-    }
-  }()
-  public private(set) lazy var swiftFullName: String = {
-    if let containingType = self.containingType {
-      return containingType.swiftFullName + "." + self.swiftRelativeName
-    } else {
-      return self.swiftRelativeName
-    }
-  }()
-
   // This is lazy so it is they are created only when needed, that way an
   // import doesn't have to do all this work unless the enum is used by
   // the importer.
@@ -276,10 +239,6 @@ public final class EnumDescriptor {
     return values.first!
   }
 
-  fileprivate private(set) lazy var canStripPrefix: Bool = {
-    return NamingUtils.canStripPrefix(enumProto: self.proto)
-  }()
-
   fileprivate init(proto: Google_Protobuf_EnumDescriptorProto,
                    index: Int,
                    registry: Registry,
@@ -302,28 +261,10 @@ public final class EnumValueDescriptor {
   public let proto: Google_Protobuf_EnumValueDescriptorProto
   let index: Int
   public private(set) weak var enumType: EnumDescriptor!
+  public weak var file: FileDescriptor! { return enumType.file }
 
   public var name: String { return proto.name }
   public var number: Int32 { return proto.number }
-
-  public private(set) lazy var swiftRelativeName: String = {
-    let baseName: String
-    if self.enumType.canStripPrefix {
-      baseName = NamingUtils.strip(protoPrefix: self.enumType.proto.name, from: self.proto.name)!
-    } else {
-      baseName = self.proto.name
-    }
-    let camelCased = NamingUtils.toLowerCamelCase(baseName)
-    return NamingUtils.sanitize(enumCaseName: camelCased)
-  }()
-  public private(set) lazy var swiftFullName: String = {
-    return "\(self.enumType.swiftFullName).\(self.swiftRelativeName)"
-  }()
-  /// The relative name with a leading dot so it can be used where
-  /// the type is known.
-  public private(set) lazy var swiftDottedRelativeName: String = {
-    return ".\(NamingUtils.trimBackticks(self.swiftRelativeName))"
-  }()
 
   public private(set) weak var aliasOf: EnumValueDescriptor?
   public fileprivate(set) var aliases: [EnumValueDescriptor] = []
@@ -343,6 +284,7 @@ public final class OneofDescriptor {
   public let proto: Google_Protobuf_OneofDescriptorProto
   let index: Int
   public private(set) weak var containingType: Descriptor!
+  public weak var file: FileDescriptor! { return containingType.file }
 
   public var name: String { return proto.name }
 
@@ -468,10 +410,11 @@ public final class ServiceDescriptor {
 public final class MethodDescriptor {
   public let proto: Google_Protobuf_MethodDescriptorProto
   let index: Int
+  public private(set) weak var service: ServiceDescriptor!
+  public weak var file: FileDescriptor! { return service.file }
 
   public var name: String { return proto.name }
 
-  public private(set) weak var service: ServiceDescriptor!
   public private(set) var inputType: Descriptor!
   public private(set) var outputType: Descriptor!
 

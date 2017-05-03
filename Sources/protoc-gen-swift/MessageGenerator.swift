@@ -21,6 +21,7 @@ import SwiftProtobuf
 class MessageGenerator {
   private let descriptor: Descriptor
   private let generatorOptions: GeneratorOptions
+  private let namer: SwiftProtobufNamer
   private let context: Context
   private let visibility: String
   private let protoFullName: String
@@ -43,6 +44,7 @@ class MessageGenerator {
   init(
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
+    namer: SwiftProtobufNamer,
     parentSwiftName: String?,
     parentProtoPath: String?,
     file: FileGenerator,
@@ -50,6 +52,7 @@ class MessageGenerator {
   ) {
     self.descriptor = descriptor
     self.generatorOptions = generatorOptions
+    self.namer = namer
 
     let proto = descriptor.proto
     self.protoMessageName = proto.name
@@ -102,12 +105,12 @@ class MessageGenerator {
     self.oneofs = oneofs
 
     self.enums = descriptor.enums.map {
-      return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions)
+      return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
     }
 
     var messages = [MessageGenerator]()
     for m in descriptor.messages where !m.isMapEntry {
-      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
+      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
     }
     self.messages = messages
 
