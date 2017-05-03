@@ -242,7 +242,7 @@ class FileGenerator {
 
         var extensions = [ExtensionGenerator]()
         for e in fileDescriptor.extensions {
-            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, namer: namer, parentProtoPath: fileDescriptor.proto.protoPath, file: self, context: context))
+            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, namer: namer))
         }
 
         for e in enums {

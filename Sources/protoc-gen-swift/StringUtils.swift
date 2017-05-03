@@ -196,6 +196,9 @@ func trimWhitespace(_ s: String) -> String {
 /// Fortunately, it uses only a limited subset of the C escapse:
 ///  \n\r\t\\\'\" and three-digit octal escapes but nothing else.
 func escapedToDataLiteral(_ s: String) -> String {
+  if s.isEmpty {
+    return "SwiftProtobuf.Internal.emptyData"
+  }
   var out = "Data(bytes: ["
   var separator = ""
   var escape = false

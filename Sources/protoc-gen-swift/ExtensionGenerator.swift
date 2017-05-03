@@ -23,16 +23,11 @@ struct ExtensionGenerator {
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
 
-    private let comments: String
-
-    private let context: Context
-    private let fieldNamePath: String
-    private let apiType: String
-    private let swiftFieldName: String
-    private let swiftHasPropertyName: String
-    private let swiftClearMethodName: String
-    private let swiftRelativeExtensionName: String
+    /// The fully qualitied name of in Swift for this extension.
     let swiftFullExtensionName: String
+
+    private let comments: String
+    private let defaultValue: String
     private let containingTypeSwiftFullName: String
 
     private var extensionFieldType: String {
@@ -41,7 +36,7 @@ struct ExtensionGenerator {
         case .optional: label = "Optional"
         case .required: label = "Required"
         case .repeated:
-            if fieldDescriptor.proto.options.packed {
+            if fieldDescriptor.isPacked {
                 label = "Packed"
             } else {
                 label = "Repeated"
@@ -59,91 +54,32 @@ struct ExtensionGenerator {
         return "\(label)\(modifier)ExtensionField"
     }
 
-    private var defaultValue: String {
-        // TODO(thomasvl): Revisit this once fields are done as it will be common plumbing
-        return fieldDescriptor.proto.getSwiftDefaultValue(context: context, isProto3: false)
-    }
-
-    init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, parentProtoPath: String?, file: FileGenerator, context: Context) {
+    init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
         self.fieldDescriptor = descriptor
         self.generatorOptions = generatorOptions
         self.namer = namer
 
-        self.comments = descriptor.protoSourceComments()
+        swiftFullExtensionName = namer.fullName(extensionField: descriptor)
+
+        comments = descriptor.protoSourceComments()
+        defaultValue = descriptor.swiftDefaultValue(namer: namer)
         containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
-
-        let proto = descriptor.proto
-        self.context = context
-        self.apiType = proto.getSwiftApiType(context: context, isProto3: false)
-        if let parentProtoPath = parentProtoPath, !parentProtoPath.isEmpty {
-            var p = parentProtoPath
-            assert(p.hasPrefix("."))
-            p.remove(at: p.startIndex)
-            self.fieldNamePath = p + "." + proto.name
-        } else {
-            self.fieldNamePath = proto.name
-        }
-
-        let baseName: String
-        if descriptor.type == .group {
-            let g = context.getMessageForPath(path: proto.typeName)!
-            baseName = g.name
-        } else {
-            baseName = descriptor.name
-        }
-        let fieldBaseName = toLowerCamelCase(baseName)
-
-        if let extensionScope = descriptor.extensionScope {
-            let extensionScopeSwiftFullName = namer.fullName(message: extensionScope)
-            // Since the name is used within the "Extensions" struct, reserved words
-            // could be a problem.  When declared, we might need backticks, but when
-            // using the qualified name, backticks aren't needed.
-            let cleanedBaseName = sanitizeMessageScopedExtensionName(baseName)
-            let cleanedBaseNameNoBackticks = sanitizeMessageScopedExtensionName(baseName, skipBackticks: true)
-            self.swiftRelativeExtensionName = cleanedBaseName
-            self.swiftFullExtensionName = extensionScopeSwiftFullName + ".Extensions." + cleanedBaseNameNoBackticks
-            // The rest of these have enough things put together, we assume they
-            // can never run into reserved words.
-            //
-            // fieldBaseName is the lowerCase name even though we put more on the
-            // front, this seems to help make the field name stick out a little
-            // compared to the message name scoping it on the front.
-            self.swiftFieldName = periodsToUnderscores(extensionScopeSwiftFullName + "_" + fieldBaseName)
-            self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
-            self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
-        } else {
-            let swiftPrefix = file.swiftPrefix
-            self.swiftRelativeExtensionName = swiftPrefix + "Extensions_" + baseName
-            self.swiftFullExtensionName = self.swiftRelativeExtensionName
-            // If there was no package and no prefix, fieldBaseName could be a reserved
-            // word, so sanitize. These's also the slim chance the prefix plus the
-            // extension name resulted in a reserved word, so the sanitize is always
-            // needed.
-            self.swiftFieldName = sanitizeFieldName(swiftPrefix + fieldBaseName)
-            if swiftPrefix.isEmpty {
-                // No prefix, so got back to UpperCamelCasing the extension name, and then
-                // sanitize it like we did for the lower form.
-                let upperCleaned = sanitizeFieldName(toUpperCamelCase(baseName), basedOn: fieldBaseName)
-                self.swiftHasPropertyName = "has" + upperCleaned
-                self.swiftClearMethodName = "clear" + upperCleaned
-            } else {
-                // Since there was a prefix, just add has/clear and ensure the first letter
-                // was capitalized.
-                self.swiftHasPropertyName = "has" + uppercaseFirst(swiftFieldName)
-                self.swiftClearMethodName = "clear" + uppercaseFirst(swiftFieldName)
-            }
-        }
     }
 
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
-        p.print(comments)
         let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
-        let traitsType = fieldDescriptor.proto.getTraitsType(context: context)
+        let traitsType = fieldDescriptor.traitsType(namer: namer)
+        let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
-        p.print("\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
+        var fieldNamePath = fieldDescriptor.fullName
+        fieldNamePath.remove(at: fieldNamePath.startIndex)  // Remove the leading '.'
+
+        p.print(
+          comments,
+          "\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
         p.indent()
         p.print(
-          "_protobuf_fieldNumber: \(fieldDescriptor.proto.number),\n",
+          "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
           "fieldName: \"\(fieldNamePath)\",\n",
           "defaultValue: \(defaultValue)\n")
         p.outdent()
@@ -152,17 +88,21 @@ struct ExtensionGenerator {
 
     func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
+        let apiType = fieldDescriptor.swiftType(namer: namer)
+        let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
 
         p.print("\n")
         p.print("extension \(containingTypeSwiftFullName) {\n")
         p.indent()
-
-        p.print(comments)
-        p.print("\(visibility)var \(swiftFieldName): \(apiType) {\n")
+        p.print(
+          comments,
+          "\(visibility)var \(extensionNames.value): \(apiType) {\n")
         p.indent()
-        if fieldDescriptor.proto.label == .repeated {
+        if fieldDescriptor.label == .repeated {
             p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName))}\n")
         } else {
+            // TODO(thomasvl): The default was passed to the extension creation, so can't
+            // getExtensionValue directly fetch the value?
             p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}\n")
         }
         p.print("set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
@@ -171,7 +111,7 @@ struct ExtensionGenerator {
 
         p.print(
             "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
-            "\(visibility)var \(swiftHasPropertyName): Bool {\n")
+            "\(visibility)var \(extensionNames.has): Bool {\n")
         p.indent()
         p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
         p.outdent()
@@ -179,7 +119,7 @@ struct ExtensionGenerator {
 
         p.print(
             "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
-            "\(visibility)mutating func \(swiftClearMethodName)() {\n")
+            "\(visibility)mutating func \(extensionNames.clear)() {\n")
         p.indent()
         p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
         p.outdent()

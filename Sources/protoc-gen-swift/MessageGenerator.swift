@@ -78,18 +78,14 @@ class MessageGenerator {
     }
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
-    var fields = [MessageFieldGenerator]()
-    for f in descriptor.fields {
-      fields.append(MessageFieldGenerator(descriptor: f, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context))
+    fields = descriptor.fields.map {
+      return MessageFieldGenerator(descriptor: $0, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context)
     }
-    self.fields = fields
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
-    var extensions = [ExtensionGenerator]()
-    for e in descriptor.extensions {
-      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, namer: namer, parentProtoPath: protoFullName, file: file, context: context))
+    extensions = descriptor.extensions.map {
+      return ExtensionGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
     }
-    self.extensions = extensions
 
     var i: Int32 = 0
     var oneofs = [OneofGenerator]()
