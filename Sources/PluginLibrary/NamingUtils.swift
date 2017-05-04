@@ -484,4 +484,8 @@ enum NamingUtils {
     return s.trimmingCharacters(in: backtickCharacterSet)
   }
 
+  static func periodsToUnderscores(_ s: String) -> String {
+    return s.replacingOccurrences(of: ".", with: "_")
+  }
+
 }

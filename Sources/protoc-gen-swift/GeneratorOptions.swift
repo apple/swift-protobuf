@@ -24,14 +24,7 @@ class GeneratorOptions {
   let visibility: Visibility
 
   /// A string snippet to insert for the visibility
-  private(set) lazy var visibilitySourceSnippet: String = {
-    switch self.visibility {
-    case .Internal:
-      return ""
-    case .Public:
-      return "public "
-    }
-  }()
+  let visibilitySourceSnippet: String
 
   init(parameter: String?) throws {
     var outputNaming: OutputNaming = .FullPath
@@ -60,5 +53,13 @@ class GeneratorOptions {
 
     self.outputNaming = outputNaming
     self.visibility = visibility
+
+    switch visibility {
+    case .Internal:
+      visibilitySourceSnippet = ""
+    case .Public:
+      visibilitySourceSnippet = "public "
+    }
+
   }
 }

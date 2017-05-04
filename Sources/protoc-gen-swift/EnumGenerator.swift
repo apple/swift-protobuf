@@ -24,21 +24,30 @@ private let unrecognizedCaseName = "UNRECOGNIZED"
 class EnumGenerator {
   private let enumDescriptor: EnumDescriptor
   private let generatorOptions: GeneratorOptions
+  private let namer: SwiftProtobufNamer
 
   /// The values that aren't aliases, sorted by number.
   private let mainEnumValueDescriptorsSorted: [EnumValueDescriptor]
 
+  private let swiftRelativeName: String
+  private let swiftFullName: String
+
   init(descriptor: EnumDescriptor,
-       generatorOptions: GeneratorOptions
+       generatorOptions: GeneratorOptions,
+       namer: SwiftProtobufNamer
   ) {
     self.enumDescriptor = descriptor
     self.generatorOptions = generatorOptions
+    self.namer = namer
 
     mainEnumValueDescriptorsSorted = descriptor.values.filter({
       return $0.aliasOf == nil
     }).sorted(by: {
       return $0.number < $1.number
     })
+
+    swiftRelativeName = namer.relativeName(enum: descriptor)
+    swiftFullName = namer.fullName(enum: descriptor)
   }
 
   func generateMainEnum(printer p: inout CodePrinter) {
@@ -46,7 +55,7 @@ class EnumGenerator {
 
     p.print("\n")
     p.print(enumDescriptor.protoSourceComments())
-    p.print("\(visibility)enum \(enumDescriptor.swiftRelativeName): SwiftProtobuf.Enum {\n")
+    p.print("\(visibility)enum \(swiftRelativeName): SwiftProtobuf.Enum {\n")
     p.indent()
     p.print("\(visibility)typealias RawValue = Int\n")
 
@@ -57,7 +66,8 @@ class EnumGenerator {
     p.print("\n")
     p.print("\(visibility)init() {\n")
     p.indent()
-    p.print("self = \(enumDescriptor.defaultValue.swiftDottedRelativeName)\n")
+    let dottedDefault = namer.dottedRelativeName(enumValue: enumDescriptor.defaultValue)
+    p.print("self = \(dottedDefault)\n")
     p.outdent()
     p.print("}\n")
 
@@ -74,7 +84,7 @@ class EnumGenerator {
 
   func generateRuntimeSupport(printer p: inout CodePrinter) {
     p.print("\n")
-    p.print("extension \(enumDescriptor.swiftFullName): SwiftProtobuf._ProtoNameProviding {\n")
+    p.print("extension \(swiftFullName): SwiftProtobuf._ProtoNameProviding {\n")
     p.indent()
     generateProtoNameProviding(printer: &p)
     p.outdent()
@@ -91,13 +101,15 @@ class EnumGenerator {
       if !comments.isEmpty {
         p.print("\n", comments)
       }
+      let relativeName = namer.relativeName(enumValue: enumValueDescriptor)
       if let aliasOf = enumValueDescriptor.aliasOf {
-        p.print("\(visibility)static let \(enumValueDescriptor.swiftRelativeName) = \(aliasOf.swiftRelativeName)\n")
+        let aliasOfName = namer.relativeName(enumValue: aliasOf)
+        p.print("\(visibility)static let \(relativeName) = \(aliasOfName)\n")
       } else {
-        p.print("case \(enumValueDescriptor.swiftRelativeName) // = \(enumValueDescriptor.number)\n")
+        p.print("case \(relativeName) // = \(enumValueDescriptor.number)\n")
       }
     }
-    if enumDescriptor.hasUnknownEnumPreservingSemantics {
+    if enumDescriptor.hasUnknownPreservingSemantics {
       p.print("case \(unrecognizedCaseName)(Int)\n")
     }
   }
@@ -132,9 +144,10 @@ class EnumGenerator {
     p.indent()
     p.print("switch rawValue {\n")
     for v in mainEnumValueDescriptorsSorted {
-      p.print("case \(v.number): self = \(v.swiftDottedRelativeName)\n")
+      let dottedName = namer.dottedRelativeName(enumValue: v)
+      p.print("case \(v.number): self = \(dottedName)\n")
     }
-    if enumDescriptor.hasUnknownEnumPreservingSemantics {
+    if enumDescriptor.hasUnknownPreservingSemantics {
       p.print("default: self = .\(unrecognizedCaseName)(rawValue)\n")
     } else {
       p.print("default: return nil\n")
@@ -154,9 +167,10 @@ class EnumGenerator {
     p.indent()
     p.print("switch self {\n")
     for v in mainEnumValueDescriptorsSorted {
-      p.print("case \(v.swiftDottedRelativeName): return \(v.number)\n")
+      let dottedName = namer.dottedRelativeName(enumValue: v)
+      p.print("case \(dottedName): return \(v.number)\n")
     }
-    if enumDescriptor.hasUnknownEnumPreservingSemantics {
+    if enumDescriptor.hasUnknownPreservingSemantics {
       p.print("case .\(unrecognizedCaseName)(let i): return i\n")
     }
     p.print("}\n")

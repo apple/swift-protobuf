@@ -12,11 +12,6 @@ import Foundation
 import SwiftProtobuf
 
 extension FileDescriptor: ProvidesSourceCodeLocation {
-  // True if this file should perserve unknown enums within the enum.
-  public var hasUnknownEnumPreservingSemantics: Bool {
-    return syntax == .proto3
-  }
-
   public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
     // google/protobuf's descriptor.cc says it should be an empty path.
     return sourceCodeInfoLocation(path: IndexPath())
@@ -36,11 +31,6 @@ extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 }
 
 extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  // True if this enum should perserve unknown enums within the enum.
-  public var hasUnknownEnumPreservingSemantics: Bool {
-    return file.hasUnknownEnumPreservingSemantics
-  }
-
   public func getLocationPath(path: inout IndexPath) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
@@ -53,8 +43,6 @@ extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 }
 
 extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public weak var file: FileDescriptor! { return enumType.file }
-
   public func getLocationPath(path: inout IndexPath) {
     enumType.getLocationPath(path: &path)
     path.append(Google_Protobuf_EnumDescriptorProto.FieldNumbers.value)
@@ -63,8 +51,6 @@ extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation 
 }
 
 extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public weak var file: FileDescriptor! { return containingType.file }
-
   public func getLocationPath(path: inout IndexPath) {
     containingType.getLocationPath(path: &path)
     path.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
@@ -87,6 +73,15 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     }
     path.append(index)
   }
+
+  /// Helper to return the name to as the "base" for naming of generated fields.
+  ///
+  /// Groups use the underlying message's name. The way groups are declared in
+  /// proto files, the filed names is derived by lowercasing the Group's name,
+  /// so there are no underscores, etc. to rebuild a camel case name from.
+  var namingBase: String {
+    return type == .group ? messageType.name : name
+  }
 }
 
 extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
@@ -97,8 +92,6 @@ extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 }
 
 extension MethodDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public weak var file: FileDescriptor! { return service.file }
-
   public func getLocationPath(path: inout IndexPath) {
     service.getLocationPath(path: &path)
     path.append(Google_Protobuf_ServiceDescriptorProto.FieldNumbers.method)

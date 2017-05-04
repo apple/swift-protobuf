@@ -31,26 +31,28 @@ extension Google_Protobuf_OneofDescriptorProto {
 class OneofGenerator {
     private let oneofDescriptor: OneofDescriptor
     private let generatorOptions: GeneratorOptions
+    private let namer: SwiftProtobufNamer
 
-    var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
     let fields: [MessageFieldGenerator]
     let fieldsSortedByNumber: [MessageFieldGenerator]
+    let oneofIsContinuousInParent: Bool
     let swiftRelativeName: String
     let swiftFullName: String
-    let isProto3: Bool
-    let comments: String
-    let oneofIsContinuousInParent: Bool
 
-    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, file: FileGenerator, fields: [MessageFieldGenerator], swiftMessageFullName: String, parentFieldNumbersSorted: [Int], parentExtensionRanges: [Google_Protobuf_DescriptorProto.ExtensionRange]) {
+    var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
+    private let comments: String
+
+    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, fields: [MessageFieldGenerator]) {
         self.oneofDescriptor = descriptor
         self.generatorOptions = generatorOptions
+        self.namer = namer
 
         self.fields = fields
         self.fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
-        self.isProto3 = file.isProto3
-        self.swiftRelativeName = sanitizeOneofTypeName(descriptor.proto.swiftRelativeType)
-        self.swiftFullName = swiftMessageFullName + "." + swiftRelativeName
         self.comments = descriptor.protoSourceComments()
+
+        swiftRelativeName = namer.relativeName(oneof: descriptor)
+        swiftFullName = namer.fullName(oneof: descriptor)
 
         let first = fieldsSortedByNumber.first!.number
         let last = fieldsSortedByNumber.last!.number
@@ -73,6 +75,7 @@ class OneofGenerator {
             //      int32 m = 13;
             //    }
             let sortedOneofFieldNumbers = fieldsSortedByNumber.map { $0.number }
+            let parentFieldNumbersSorted = descriptor.containingType.fields.map({ Int($0.number) }).sorted { $0 < $1 }
             let firstIndex = parentFieldNumbersSorted.index(of: first)!
             var isContinuousInParent = sortedOneofFieldNumbers == Array(parentFieldNumbersSorted[firstIndex..<(firstIndex + fields.count)])
             if isContinuousInParent {
@@ -84,7 +87,7 @@ class OneofGenerator {
                 //      }
                 //      extensions 10 to 16;
                 //    }
-                for e in parentExtensionRanges {
+                for e in descriptor.containingType.extensionRanges {
                     if e.start > Int32(first) && e.end <= Int32(last) {
                         isContinuousInParent = false
                         break
@@ -96,12 +99,14 @@ class OneofGenerator {
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
+        let visibility = generatorOptions.visibilitySourceSnippet
+
         // Repeat the comment from the oneof to provide some context
         // to this enum we generated.
         p.print(
             "\n",
             comments,
-            "\(generatorOptions.visibilitySourceSnippet)enum \(swiftRelativeName): Equatable {\n")
+            "\(visibility)enum \(swiftRelativeName): Equatable {\n")
         p.indent()
 
         // Oneof case for each ivar
@@ -114,7 +119,7 @@ class OneofGenerator {
         // Equatable conformance
         p.print(
             "\n",
-            "\(generatorOptions.visibilitySourceSnippet)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
+            "\(visibility)static func ==(lhs: \(swiftFullName), rhs: \(swiftFullName)) -> Bool {\n")
         p.indent()
         p.print("switch (lhs, rhs) {\n")
         for f in fields {
@@ -138,6 +143,8 @@ class OneofGenerator {
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter) {
+        let isProto3 = oneofDescriptor.containingType.file.syntax == .proto3
+
         p.print(
             "\n",
             "extension \(swiftFullName) {\n")

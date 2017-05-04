@@ -20,25 +20,18 @@ import SwiftProtobuf
 /// Generates the `_StorageClass` used for messages that employ copy-on-write
 /// logic for some of their fields.
 class MessageStorageClassGenerator {
+  private let descriptor: Descriptor
   private let fields: [MessageFieldGenerator]
   private let oneofs: [OneofGenerator]
-  private let descriptor: Google_Protobuf_DescriptorProto
-  private let messageSwiftName: String
-  private let context: Context
 
   /// Creates a new `MessageStorageClassGenerator`.
-  init(descriptor: Google_Protobuf_DescriptorProto,
+  init(descriptor: Descriptor,
        fields: [MessageFieldGenerator],
-       oneofs: [OneofGenerator],
-       file: FileGenerator,
-       messageSwiftName: String,
-       context: Context
-  ) {
+       oneofs: [OneofGenerator]
+    ) {
     self.descriptor = descriptor
     self.fields = fields
     self.oneofs = oneofs
-    self.messageSwiftName = messageSwiftName
-    self.context = context
   }
 
   /// Visibility of the storage within the Message.
@@ -84,8 +77,8 @@ class MessageStorageClassGenerator {
       if f.descriptor.hasOneofIndex {
         let oneofIndex = f.descriptor.oneofIndex
         if !oneofsHandled.contains(oneofIndex) {
-          let oneof = f.oneof!
-          p.print("var \(oneof.swiftStorageFieldName): \(messageSwiftName).\(oneof.swiftRelativeType)?\n")
+          let oneofFullName = oneofs[Int(oneofIndex)].swiftFullName
+          p.print("var \(f.oneof!.swiftStorageFieldName): \(oneofFullName)?\n")
           oneofsHandled.insert(oneofIndex)
         }
       } else {

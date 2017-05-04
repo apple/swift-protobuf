@@ -160,6 +160,7 @@ extension Google_Protobuf_FileDescriptorProto {
 class FileGenerator {
     private let fileDescriptor: FileDescriptor
     private let generatorOptions: GeneratorOptions
+    private let namer = SwiftProtobufNamer()
 
     var outputFilename: String {
         let ext = ".pb.swift"
@@ -183,7 +184,7 @@ class FileGenerator {
     }
 
     var protoPackageName: String {return fileDescriptor.package}
-    var swiftPrefix: String {return fileDescriptor.swiftTypePrefix}
+    var swiftPrefix: String {return namer.typePrefix(forFile: fileDescriptor)}
     var isProto3: Bool {return fileDescriptor.syntax == .proto3}
     private var isWellKnownType: Bool {return fileDescriptor.proto.isWellKnownType}
     private var baseFilename: String {return fileDescriptor.proto.baseFilename}
@@ -231,17 +232,17 @@ class FileGenerator {
         generateVersionCheck(printer: &p)
 
         let enums = fileDescriptor.enums.map {
-            return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions)
+            return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
         }
 
         var messages = [MessageGenerator]()
         for m in fileDescriptor.messages {
-            messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, parentSwiftName: nil, parentProtoPath: fileDescriptor.proto.protoPath, file: self, context: context))
+          messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, parentSwiftName: nil, parentProtoPath: fileDescriptor.proto.protoPath, file: self, context: context))
         }
 
         var extensions = [ExtensionGenerator]()
         for e in fileDescriptor.extensions {
-            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, parentProtoPath: fileDescriptor.proto.protoPath, swiftDeclaringMessageName: nil, file: self, context: context))
+            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, namer: namer))
         }
 
         for e in enums {

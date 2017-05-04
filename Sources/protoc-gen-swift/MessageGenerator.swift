@@ -21,6 +21,7 @@ import SwiftProtobuf
 class MessageGenerator {
   private let descriptor: Descriptor
   private let generatorOptions: GeneratorOptions
+  private let namer: SwiftProtobufNamer
   private let context: Context
   private let visibility: String
   private let protoFullName: String
@@ -43,6 +44,7 @@ class MessageGenerator {
   init(
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
+    namer: SwiftProtobufNamer,
     parentSwiftName: String?,
     parentProtoPath: String?,
     file: FileGenerator,
@@ -50,6 +52,7 @@ class MessageGenerator {
   ) {
     self.descriptor = descriptor
     self.generatorOptions = generatorOptions
+    self.namer = namer
 
     let proto = descriptor.proto
     self.protoMessageName = proto.name
@@ -75,19 +78,14 @@ class MessageGenerator {
     }
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
-    var fields = [MessageFieldGenerator]()
-    for f in descriptor.fields {
-      fields.append(MessageFieldGenerator(descriptor: f, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context))
+    fields = descriptor.fields.map {
+      return MessageFieldGenerator(descriptor: $0, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context)
     }
-    self.fields = fields
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
-    let sortedFieldNumbers = fieldsSortedByNumber.map { $0.number }
 
-    var extensions = [ExtensionGenerator]()
-    for e in descriptor.extensions {
-      extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, parentProtoPath: protoFullName, swiftDeclaringMessageName: swiftFullName, file: file, context: context))
+    extensions = descriptor.extensions.map {
+      return ExtensionGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
     }
-    self.extensions = extensions
 
     var i: Int32 = 0
     var oneofs = [OneofGenerator]()
@@ -96,18 +94,18 @@ class MessageGenerator {
         $0.descriptor.hasOneofIndex && $0.descriptor.oneofIndex == Int32(i)
       }
       i += 1
-      let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, file: file, fields: oneofFields, swiftMessageFullName: swiftFullName, parentFieldNumbersSorted: sortedFieldNumbers, parentExtensionRanges: proto.extensionRange)
+      let oneof = OneofGenerator(descriptor: o, generatorOptions: generatorOptions, namer: namer, fields: oneofFields)
       oneofs.append(oneof)
     }
     self.oneofs = oneofs
 
     self.enums = descriptor.enums.map {
-      return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions)
+      return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
     }
 
     var messages = [MessageGenerator]()
     for m in descriptor.messages where !m.isMapEntry {
-      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
+      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
     }
     self.messages = messages
 
@@ -119,20 +117,14 @@ class MessageGenerator {
       hasMessageField(descriptor: descriptor.proto, context: context)
     if isAnyMessage {
       self.storage = AnyMessageStorageClassGenerator(
-        descriptor: proto,
+        descriptor: descriptor,
         fields: fields,
-        oneofs: oneofs,
-        file: file,
-        messageSwiftName: swiftFullName,
-        context: context)
+        oneofs: oneofs)
     } else if useHeapStorage {
       self.storage = MessageStorageClassGenerator(
-        descriptor: proto,
+        descriptor: descriptor,
         fields: fields,
-        oneofs: oneofs,
-        file: file,
-        messageSwiftName: swiftFullName,
-        context: context)
+        oneofs: oneofs)
     } else {
         self.storage = nil
     }
