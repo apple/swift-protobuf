@@ -213,7 +213,7 @@ let ProtobufUnittest_Extend3_Extensions_b = SwiftProtobuf.MessageExtension<Optio
 
 let ProtobufUnittest_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend3_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 321,
-  fieldName: "protobuf_unittest.extend3.C",
+  fieldName: "protobuf_unittest.extend3.c",
   defaultValue: ProtobufUnittest_Extend3_C()
 )
 
@@ -227,7 +227,7 @@ extension ProtobufUnittest_Extend3_MyMessage {
 
     static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend3_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 311,
-      fieldName: "protobuf_unittest.extend3.MyMessage.C",
+      fieldName: "protobuf_unittest.extend3.MyMessage.c",
       defaultValue: ProtobufUnittest_Extend3_MyMessage.C()
     )
   }

@@ -2219,7 +2219,7 @@ let ProtobufUnittest_Extensions_complex_opt3 = SwiftProtobuf.MessageExtension<Op
 
 let ProtobufUnittest_Extensions_ComplexOpt6 = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_ComplexOpt6>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7595468,
-  fieldName: "protobuf_unittest.ComplexOpt6",
+  fieldName: "protobuf_unittest.complexopt6",
   defaultValue: ProtobufUnittest_ComplexOpt6()
 )
 

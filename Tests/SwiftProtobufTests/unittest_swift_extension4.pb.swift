@@ -213,7 +213,7 @@ let Ext4Extensions_b = SwiftProtobuf.MessageExtension<OptionalExtensionField<Swi
 
 let Ext4Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 421,
-  fieldName: "protobuf_unittest.extend4.C",
+  fieldName: "protobuf_unittest.extend4.c",
   defaultValue: Ext4C()
 )
 
@@ -227,7 +227,7 @@ extension Ext4MyMessage {
 
     static let C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<Ext4MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 411,
-      fieldName: "protobuf_unittest.extend4.MyMessage.C",
+      fieldName: "protobuf_unittest.extend4.MyMessage.c",
       defaultValue: Ext4MyMessage.C()
     )
   }

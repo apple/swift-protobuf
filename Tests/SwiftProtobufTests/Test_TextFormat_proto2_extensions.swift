@@ -28,13 +28,13 @@ class Test_TextFormat_proto2_extensions: XCTestCase, PBTestHelpers {
         // Fails if we don't provide the extensions to the decoder:
         assertTextFormatDecodeFails("[protobuf_unittest.optional_int32_extension]: 789\n")
 
-        assertTextFormatEncode("[protobuf_unittest.OptionalGroup_extension] {\n  a: 789\n}\n",
+        assertTextFormatEncode("[protobuf_unittest.optionalgroup_extension] {\n  a: 789\n}\n",
                          extensions: ProtobufUnittest_Unittest_Extensions) {
             (o: inout MessageTestType) in
             o.ProtobufUnittest_optionalGroupExtension.a = 789
         }
         // Fails if we don't provide the extensions to the decoder:
-        assertTextFormatDecodeFails("[protobuf_unittest.OptionalGroup_extension] {\n  a: 789\n}\n")
+        assertTextFormatDecodeFails("[protobuf_unittest.optionalgroup_extension] {\n  a: 789\n}\n")
     }
 
     func test_nested_extension() {
