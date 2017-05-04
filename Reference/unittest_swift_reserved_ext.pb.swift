@@ -161,18 +161,18 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_hashValue: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue) ?? false}
-    set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue, value: newValue)}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_) ?? false}
+    set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_, value: newValue)}
   }
-  /// Returns true if extension `SwiftReservedTestExt2.Extensions.hashValue`
+  /// Returns true if extension `SwiftReservedTestExt2.Extensions.hashValue_`
   /// has been explicitly set.
   var hasSwiftReservedTestExt2_hashValue: Bool {
-    return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue)
+    return hasExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_)
   }
-  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.hashValue`.
+  /// Clears the value of extension `SwiftReservedTestExt2.Extensions.hashValue_`.
   /// Subsequent reads from it will return its default value.
   mutating func clearSwiftReservedTestExt2_hashValue() {
-    clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue)
+    clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_)
   }
 }
 
@@ -274,7 +274,7 @@ let UnittestSwiftReservedExt_Extensions: SwiftProtobuf.SimpleExtensionMap = [
   Extensions_try,
   Extensions_do,
   Extensions_nil,
-  SwiftReservedTestExt2.Extensions.hashValue,
+  SwiftReservedTestExt2.Extensions.hashValue_,
   SwiftReservedTestExt2.Extensions.as,
   SwiftReservedTestExt2.Extensions.var,
   SwiftReservedTestExt2.Extensions.try,
@@ -323,7 +323,7 @@ let Extensions_nil = SwiftProtobuf.MessageExtension<OptionalExtensionField<Swift
 
 extension SwiftReservedTestExt2 {
   enum Extensions {
-    static let hashValue = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
+    static let hashValue_ = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, ProtobufUnittest_SwiftReservedTest.TypeMessage>(
       _protobuf_fieldNumber: 1001,
       fieldName: "SwiftReservedTestExt2.hashValue",
       defaultValue: false
