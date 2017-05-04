@@ -54,7 +54,7 @@ public final class SwiftProtobufNamer {
   /// Calculate the full name for the given enum.
   public func fullName(enum e: EnumDescriptor) -> String {
     let relativeName = self.relativeName(enum: e)
-    guard  let containingType = e.containingType else {
+    guard let containingType = e.containingType else {
       return relativeName
     }
     return fullName(message: containingType) + "." + relativeName
@@ -127,7 +127,7 @@ public final class SwiftProtobufNamer {
 
   public typealias MessageExtensionNames = (value: String, has: String, clear: String)
 
-  /// Calculate the names to use for the Swfit Extension on the extended
+  /// Calculate the names to use for the Swift Extension on the extended
   /// message..
   ///
   /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
@@ -142,7 +142,7 @@ public final class SwiftProtobufNamer {
 
     if let extensionScope = field.extensionScope {
       let extensionScopeSwiftFullName = fullName(message: extensionScope)
-      // Don't worry about any sanitize api on this names; since there is a
+      // Don't worry about any sanitize api on these names; since there is a
       // Message name on the front, it should never hit a reserved word.
       //
       // fieldBaseName is the lowerCase name even though we put more on the
