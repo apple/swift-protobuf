@@ -73,6 +73,15 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     }
     path.append(index)
   }
+
+  /// Helper to return the name to as the "base" for naming of generated fields.
+  ///
+  /// Groups use the underlying message's name. The way groups are declared in
+  /// proto files, the filed names is derived by lowercasing the Group's name,
+  /// so there are no underscores, etc. to rebuild a camel case name from.
+  var namingBase: String {
+    return type == .group ? messageType.name : name
+  }
 }
 
 extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {

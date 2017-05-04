@@ -96,6 +96,88 @@ public final class SwiftProtobufNamer {
     return fullName(message: oneof.containingType) + "." + relativeName(oneof: oneof)
   }
 
+  /// Calculate the relative name for the given entension.
+  ///
+  /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
+  public func relativeName(extensionField field: FieldDescriptor) -> String {
+    precondition(field.isExtension)
+
+    if field.extensionScope != nil {
+      return NamingUtils.sanitize(messageScopedExtensionName: field.namingBase)
+    } else {
+      let swiftPrefix = typePrefix(forFile: field.file)
+      return swiftPrefix + "Extensions_" + field.namingBase
+    }
+  }
+
+  /// Calculate the full name for the given extension.
+  ///
+  /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
+  public func fullName(extensionField field: FieldDescriptor) -> String {
+    precondition(field.isExtension)
+
+    let relativeName = self.relativeName(extensionField: field)
+    guard let extensionScope = field.extensionScope else {
+      return relativeName
+    }
+    let extensionScopeSwiftFullName = fullName(message: extensionScope)
+    let relativeNameNoBackticks = NamingUtils.trimBackticks(relativeName)
+    return extensionScopeSwiftFullName + ".Extensions." + relativeNameNoBackticks
+  }
+
+  public typealias MessageExtensionNames = (value: String, has: String, clear: String)
+
+  /// Calculate the names to use for the Swfit Extension on the extended
+  /// message..
+  ///
+  /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
+  public func messagePropertyNames(extensionField field: FieldDescriptor) -> MessageExtensionNames {
+    precondition(field.isExtension)
+
+    let fieldBaseName = NamingUtils.toLowerCamelCase(field.namingBase)
+
+    let fieldName: String
+    let hasName: String
+    let clearName: String
+
+    if let extensionScope = field.extensionScope {
+      let extensionScopeSwiftFullName = fullName(message: extensionScope)
+      // Don't worry about any sanitize api on this names; since there is a
+      // Message name on the front, it should never hit a reserved word.
+      //
+      // fieldBaseName is the lowerCase name even though we put more on the
+      // front, this seems to help make the field name stick out a little
+      // compared to the message name scoping it on the front.
+      fieldName = NamingUtils.periodsToUnderscores(extensionScopeSwiftFullName + "_" + fieldBaseName)
+      let fieldNameFirstUp = NamingUtils.uppercaseFirstCharacter(fieldName)
+      hasName = "has" + fieldNameFirstUp
+      clearName = "clear" + fieldNameFirstUp
+    } else {
+      // If there was no package and no prefix, fieldBaseName could be a reserved
+      // word, so sanitize. These's also the slim chance the prefix plus the
+      // extension name resulted in a reserved word, so the sanitize is always
+      // needed.
+      let swiftPrefix = typePrefix(forFile: field.file)
+      fieldName = NamingUtils.sanitize(fieldName: swiftPrefix + fieldBaseName)
+      if swiftPrefix.isEmpty {
+        // No prefix, so got back to UpperCamelCasing the extension name, and then
+        // sanitize it like we did for the lower form.
+        let upperCleaned = NamingUtils.sanitize(fieldName: NamingUtils.toUpperCamelCase(field.namingBase),
+                                                basedOn: fieldBaseName)
+        hasName = "has" + upperCleaned
+        clearName = "clear" + upperCleaned
+      } else {
+        // Since there was a prefix, just add has/clear and ensure the first letter
+        // was capitalized.
+        let fieldNameFirstUp = NamingUtils.uppercaseFirstCharacter(fieldName)
+        hasName = "has" + fieldNameFirstUp
+        clearName = "clear" + fieldNameFirstUp
+      }
+    }
+
+    return MessageExtensionNames(value: fieldName, has: hasName, clear: clearName)
+  }
+
   /// Calculate the prefix to use for this file, it is derived from the
   /// proto package or swift_prefix file option.
   public func typePrefix(forFile file: FileDescriptor) -> String {
@@ -108,7 +190,7 @@ public final class SwiftProtobufNamer {
     filePrefixCache[file.name] = result
     return result
   }
-  
+
   // MARK: - Internal helpers
 
   /// Calculate if the given enum's value can use prefix stripping.
