@@ -472,13 +472,13 @@ let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 
 let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
   _protobuf_fieldNumber: 2,
-  fieldName: "ExtensionGroup",
+  fieldName: "extensiongroup",
   defaultValue: ExtensionGroup()
 )
 
 let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
   _protobuf_fieldNumber: 3,
-  fieldName: "RepeatedExtensionGroup",
+  fieldName: "repeatedextensiongroup",
   defaultValue: []
 )
 

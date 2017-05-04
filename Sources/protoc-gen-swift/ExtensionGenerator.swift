@@ -78,7 +78,7 @@ struct ExtensionGenerator {
         self.context = context
         self.apiType = proto.getSwiftApiType(context: context, isProto3: false)
         self.comments = descriptor.protoSourceComments()
-        self.fieldName = proto.isGroup ? proto.bareTypeName : proto.name
+        self.fieldName = proto.name
         if let parentProtoPath = parentProtoPath, !parentProtoPath.isEmpty {
             var p = parentProtoPath
             assert(p.hasPrefix("."))

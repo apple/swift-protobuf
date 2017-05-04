@@ -4043,7 +4043,7 @@ let ProtobufUnittest_Extensions_optional_bytes_extension_lite = SwiftProtobuf.Me
 
 let ProtobufUnittest_Extensions_OptionalGroup_extension_lite = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_OptionalGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 16,
-  fieldName: "protobuf_unittest.OptionalGroup_extension_lite",
+  fieldName: "protobuf_unittest.optionalgroup_extension_lite",
   defaultValue: ProtobufUnittest_OptionalGroup_extension_lite()
 )
 
@@ -4200,7 +4200,7 @@ let ProtobufUnittest_Extensions_repeated_bytes_extension_lite = SwiftProtobuf.Me
 
 let ProtobufUnittest_Extensions_RepeatedGroup_extension_lite = SwiftProtobuf.MessageExtension<RepeatedGroupExtensionField<ProtobufUnittest_RepeatedGroup_extension_lite>, ProtobufUnittest_TestAllExtensionsLite>(
   _protobuf_fieldNumber: 46,
-  fieldName: "protobuf_unittest.RepeatedGroup_extension_lite",
+  fieldName: "protobuf_unittest.repeatedgroup_extension_lite",
   defaultValue: []
 )
 

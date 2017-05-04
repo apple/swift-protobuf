@@ -476,7 +476,7 @@ let ProtobufUnittest_Extend_Extensions_b = SwiftProtobuf.MessageExtension<Option
 
 let ProtobufUnittest_Extend_Extensions_C = SwiftProtobuf.MessageExtension<OptionalGroupExtensionField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.C",
+  fieldName: "protobuf_unittest.extend.c",
   defaultValue: ProtobufUnittest_Extend_C()
 )
 
