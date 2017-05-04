@@ -244,7 +244,7 @@ func sanitizeMessageScopedExtensionName(_ s: String, skipBackticks: Bool = false
   // Since thing else is added to the "enum Extensions" for scoped
   // extensions, there is no need to have a reserved list.
   if reservedEnumCases.contains(s) {
-    return "\(s)"
+    return "\(s)_"
   } else if quotableMessageScopedExtensionNames.contains(s) {
     if skipBackticks {
       return s
