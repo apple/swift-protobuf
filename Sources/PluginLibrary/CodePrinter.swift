@@ -48,6 +48,15 @@ public struct CodePrinter {
       while index != end {
         let remainingSlice = scalars[index..<end]
         if let newLineIndex = remainingSlice.index(of: "\n") {
+#if swift(>=3.1)
+          // No correction needed.
+#else
+          // https://bugs.swift.org/browse/SR-1927
+          // Work around this by finding the distance and computing the correct
+          // index in `scalars`.
+          let distance = remainingSlice.distance(from: remainingSlice.startIndex, to: newLineIndex)
+          let newLineIndex = scalars.index(index, offsetBy: distance)
+#endif
           if index != newLineIndex {
             // Only append indentation if the line isn't blank (i.e., there
             // aren't two adjacent newlines).
