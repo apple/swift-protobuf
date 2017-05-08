@@ -296,8 +296,6 @@ struct MessageFieldGenerator {
 
     init(descriptor: FieldDescriptor,
          generatorOptions: GeneratorOptions,
-         messageDescriptor: Google_Protobuf_DescriptorProto,
-         file: FileGenerator,
          context: Context)
     {
         self.fieldDescriptor = descriptor
@@ -318,14 +316,14 @@ struct MessageFieldGenerator {
             self.swiftHasName = "has" + sanitizedUpper
             self.swiftClearName = "clear" + sanitizedUpper
         }
-        if descriptor.proto.hasOneofIndex {
-            self.oneof = messageDescriptor.oneofDecl[Int(descriptor.proto.oneofIndex)]
+        if let oneof = descriptor.oneof {
+            self.oneof = oneof.proto
         } else {
             self.oneof = nil
         }
         self.swiftStorageName = "_" + self.swiftName
         self.comments = descriptor.protoSourceComments()
-        self.isProto3 = file.isProto3
+        self.isProto3 = descriptor.file.syntax == .proto3
         self.context = context
     }
 
