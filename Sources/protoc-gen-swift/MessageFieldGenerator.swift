@@ -466,9 +466,8 @@ struct MessageFieldGenerator {
     }
 
     func generateHasProperty(printer p: inout CodePrinter, usesHeapStorage: Bool) {
-        if !hasFieldPresence {
-            return
-        }
+        guard hasFieldPresence else { return }
+
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
         p.print(
             "/// Returns true if `\(swiftName)` has been explicitly set.\n",
@@ -476,9 +475,8 @@ struct MessageFieldGenerator {
     }
 
     func generateClearMethod(printer p: inout CodePrinter, usesHeapStorage: Bool) {
-        if !hasFieldPresence {
-            return
-        }
+        guard hasFieldPresence else { return }
+
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
         p.print(
             "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.\n",

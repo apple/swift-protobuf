@@ -127,7 +127,7 @@ class MessageGenerator {
         p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"\n")
     }
 
-    let usesHeadStorage = storage != nil
+    let usesHeapStorage = storage != nil
     var oneofHandled = Set<Int32>()
     for f in fields {
       // If this is in a oneof, generate the oneof first to match the layout in
@@ -137,20 +137,20 @@ class MessageGenerator {
         if !oneofHandled.contains(oneofIndex) {
           let oneof = oneofs[Int(oneofIndex)]
           oneofHandled.insert(oneofIndex)
-          if (usesHeadStorage) {
+          if (usesHeapStorage) {
             oneof.generateProxyIvar(printer: &p)
           } else {
             oneof.generateTopIvar(printer: &p)
           }
         }
       }
-      if usesHeadStorage {
+      if usesHeapStorage {
         f.generateProxyIvar(printer: &p)
       } else {
         f.generateTopIvar(printer: &p)
       }
-      f.generateHasProperty(printer: &p, usesHeapStorage: usesHeadStorage)
-      f.generateClearMethod(printer: &p, usesHeapStorage: usesHeadStorage)
+      f.generateHasProperty(printer: &p, usesHeapStorage: usesHeapStorage)
+      f.generateClearMethod(printer: &p, usesHeapStorage: usesHeapStorage)
     }
 
     p.print(
