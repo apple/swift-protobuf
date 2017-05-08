@@ -275,10 +275,12 @@ extension Google_Protobuf_FieldDescriptorProto {
 struct MessageFieldGenerator {
     private let fieldDescriptor: FieldDescriptor
     private let generatorOptions: GeneratorOptions
+    private let namer: SwiftProtobufNamer
 
     var descriptor: Google_Protobuf_FieldDescriptorProto { return fieldDescriptor.proto }
     let oneof: Google_Protobuf_OneofDescriptorProto?
     let jsonName: String?
+    let hasFieldPresence: Bool
     let swiftName: String
     let swiftHasName: String
     let swiftClearName: String
@@ -296,26 +298,19 @@ struct MessageFieldGenerator {
 
     init(descriptor: FieldDescriptor,
          generatorOptions: GeneratorOptions,
+         namer: SwiftProtobufNamer,
          context: Context)
     {
         self.fieldDescriptor = descriptor
         self.generatorOptions = generatorOptions
+        self.namer = namer
 
         self.jsonName = descriptor.proto.jsonName
-        if descriptor.type == .group {
-            let g = context.getMessageForPath(path: descriptor.proto.typeName)!
-            let lowerName = toLowerCamelCase(g.name)
-            self.swiftName = sanitizeFieldName(lowerName)
-            let sanitizedUpper = sanitizeFieldName(toUpperCamelCase(g.name), basedOn: lowerName)
-            self.swiftHasName = "has" + sanitizedUpper
-            self.swiftClearName = "clear" + sanitizedUpper
-        } else {
-            let lowerName = toLowerCamelCase(descriptor.name)
-            self.swiftName = sanitizeFieldName(lowerName)
-            let sanitizedUpper = sanitizeFieldName(toUpperCamelCase(descriptor.name), basedOn: lowerName)
-            self.swiftHasName = "has" + sanitizedUpper
-            self.swiftClearName = "clear" + sanitizedUpper
-        }
+        hasFieldPresence = descriptor.hasFieldPresence
+        let names = namer.messagePropertyNames(field: descriptor, includeHasAndClear: descriptor.hasFieldPresence)
+        swiftName = names.value
+        swiftHasName = names.has
+        swiftClearName = names.clear
         if let oneof = descriptor.oneof {
             self.oneof = oneof.proto
         } else {
@@ -471,7 +466,7 @@ struct MessageFieldGenerator {
     }
 
     func generateHasProperty(printer p: inout CodePrinter, usesHeapStorage: Bool) {
-        if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
+        if !hasFieldPresence {
             return
         }
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
@@ -481,7 +476,7 @@ struct MessageFieldGenerator {
     }
 
     func generateClearMethod(printer p: inout CodePrinter, usesHeapStorage: Bool) {
-        if isRepeated || isMap || oneof != nil || (isProto3 && !isMessage) {
+        if !hasFieldPresence {
             return
         }
         let storagePrefix = usesHeapStorage ? "_storage." : "self."

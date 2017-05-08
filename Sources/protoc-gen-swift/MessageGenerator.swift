@@ -62,7 +62,7 @@ class MessageGenerator {
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
     fields = descriptor.fields.map {
-      return MessageFieldGenerator(descriptor: $0, generatorOptions: generatorOptions, context: context)
+      return MessageFieldGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer, context: context)
     }
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
