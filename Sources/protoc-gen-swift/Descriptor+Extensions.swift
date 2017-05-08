@@ -17,6 +17,50 @@ extension FileDescriptor {
   }
 }
 
+extension Descriptor {
+  /// Returns True if this message recurisvely contains a required field.
+  /// This is a helper for generating isInitialized methods.
+  ///
+  /// The logic for this check comes from google/protobuf; the C++ and Java
+  /// generators specificly.
+  func hasRequiredFields() -> Bool {
+    var alreadySeen = Set<String>()
+
+    func hasRequiredFieldsInner(_ descriptor: Descriptor) -> Bool {
+      if alreadySeen.contains(descriptor.fullName) {
+        // First required thing found causes this to return true, so one can
+        // assume if it is already visited, it didn't have required fields.
+        return false
+      }
+      alreadySeen.insert(descriptor.fullName)
+
+      // If it can support extensions, then return true as the extension could
+      // have a required field.
+      if !descriptor.extensionRanges.isEmpty {
+        return true
+      }
+
+      for f in descriptor.fields {
+        if f.label == .required {
+          return true
+        }
+        switch f.type {
+        case .group, .message:
+          if hasRequiredFieldsInner(f.messageType) {
+            return true
+          }
+        default:
+          break
+        }
+      }
+
+      return false
+    }
+
+    return hasRequiredFieldsInner(self)
+  }
+}
+
 extension FieldDescriptor {
 
   func swiftType(namer: SwiftProtobufNamer) -> String {

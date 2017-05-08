@@ -289,6 +289,11 @@ struct MessageFieldGenerator {
     let isProto3: Bool
     let context: Context
 
+    var label: Google_Protobuf_FieldDescriptorProto.Label { return fieldDescriptor.label }
+
+    var messageType: Descriptor { return fieldDescriptor.messageType }
+    var enumType: EnumDescriptor { return fieldDescriptor.enumType }
+
     init(descriptor: FieldDescriptor,
          generatorOptions: GeneratorOptions,
          messageDescriptor: Google_Protobuf_DescriptorProto,
@@ -354,39 +359,25 @@ struct MessageFieldGenerator {
         }
     }
 
+    // Note: this could still be a map (since those are repeated message fields
+    var isGroupOrMessage: Bool {
+        switch fieldDescriptor.type {
+        case .group, .message:
+            return true
+        default:
+            return false
+        }
+    }
+
     var isGroup: Bool {return descriptor.isGroup}
-    var isMap: Bool {return descriptor.getIsMap(context: context)}
+    var isMap: Bool {return fieldDescriptor.isMap}
     var isMessage: Bool {return descriptor.isMessage}
     var isEnum: Bool {return descriptor.type == .enum}
     var isString: Bool {return descriptor.type == .string}
     var isBytes: Bool {return descriptor.type == .bytes}
     var isPacked: Bool {return descriptor.isPackable &&
         (descriptor.options.hasPacked ? descriptor.options.packed : isProto3)}
-    var isRepeated: Bool {return descriptor.isRepeated}
-
-    // True/False if the field will be hold a Message. If the field is a map,
-    // the value type for the map is checked.
-    var fieldHoldsMessage: Bool {
-        switch descriptor.label {
-        case .required, .optional:
-            let type = descriptor.type
-            return type == .message || type == .group
-        case .repeated:
-            let type = descriptor.type
-            if type == .group { return true }
-            if type == .message {
-                let m = context.getMessageForPath(path: descriptor.typeName)!
-                if m.options.mapEntry {
-                    let valueField = m.field[1]
-                    return valueField.type == .message
-                } else {
-                    return true
-                }
-            } else {
-                return false
-            }
-        }
-    }
+    var isRepeated: Bool {return fieldDescriptor.label == .repeated}
 
     var name: String {return descriptor.name}
     var protoTypeName: String {return descriptor.getProtoTypeName(context: context)}
