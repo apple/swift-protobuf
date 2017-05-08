@@ -22,14 +22,10 @@ class MessageGenerator {
   private let descriptor: Descriptor
   private let generatorOptions: GeneratorOptions
   private let namer: SwiftProtobufNamer
-  private let context: Context
   private let visibility: String
-  private let protoFullName: String
   private let swiftFullName: String
   private let swiftRelativeName: String
   private let swiftMessageConformance: String
-  private let protoMessageName: String
-  private let protoPackageName: String
   private let fields: [MessageFieldGenerator]
   private let fieldsSortedByNumber: [MessageFieldGenerator]
   private let oneofs: [OneofGenerator]
@@ -45,30 +41,17 @@ class MessageGenerator {
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
     namer: SwiftProtobufNamer,
-    parentSwiftName: String?,
-    parentProtoPath: String?,
-    file: FileGenerator,
     context: Context
   ) {
     self.descriptor = descriptor
     self.generatorOptions = generatorOptions
     self.namer = namer
 
-    let proto = descriptor.proto
-    self.protoMessageName = proto.name
-    self.context = context
     self.visibility = generatorOptions.visibilitySourceSnippet
-    self.protoFullName = (parentProtoPath == nil ? "" : (parentProtoPath! + ".")) + self.protoMessageName
-    self.isProto3 = file.isProto3
-    self.isExtensible = proto.extensionRange.count > 0
-    self.protoPackageName = file.protoPackageName
-    if let parentSwiftName = parentSwiftName {
-      swiftRelativeName = sanitizeMessageTypeName(proto.name)
-      swiftFullName = parentSwiftName + "." + swiftRelativeName
-    } else {
-      swiftRelativeName = sanitizeMessageTypeName(file.swiftPrefix + proto.name)
-      swiftFullName = swiftRelativeName
-    }
+    self.isProto3 = descriptor.file.syntax == .proto3
+    self.isExtensible = !descriptor.extensionRanges.isEmpty
+    swiftRelativeName = namer.relativeName(message: descriptor)
+    swiftFullName = namer.fullName(message: descriptor)
     self.isAnyMessage = (isProto3 &&
                          descriptor.fullName == ".google.protobuf.Any" &&
                          descriptor.file.name == "google/protobuf/any.proto")
@@ -79,7 +62,7 @@ class MessageGenerator {
     self.swiftMessageConformance = conformance.joined(separator: ", ")
 
     fields = descriptor.fields.map {
-      return MessageFieldGenerator(descriptor: $0, generatorOptions: generatorOptions, messageDescriptor: proto, file: file, context: context)
+      return MessageFieldGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer, context: context)
     }
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
@@ -105,7 +88,7 @@ class MessageGenerator {
 
     var messages = [MessageGenerator]()
     for m in descriptor.messages where !m.isMapEntry {
-      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, parentSwiftName: swiftFullName, parentProtoPath: protoFullName, file: file, context: context))
+      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, context: context))
     }
     self.messages = messages
 
@@ -130,21 +113,21 @@ class MessageGenerator {
     }
   }
 
-  func generateMainStruct(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {
+  func generateMainStruct(printer p: inout CodePrinter, parent: MessageGenerator?) {
     p.print(
         "\n",
         descriptor.protoSourceComments(),
         "\(visibility)struct \(swiftRelativeName): \(swiftMessageConformance) {\n")
     p.indent()
     if let parent = parent {
-        p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(protoMessageName)\"\n")
-    } else if !protoPackageName.isEmpty {
-        p.print("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(protoMessageName)\"\n")
+        p.print("\(visibility)static let protoMessageName: String = \(parent.swiftFullName).protoMessageName + \".\(descriptor.name)\"\n")
+    } else if !descriptor.file.package.isEmpty {
+        p.print("\(visibility)static let protoMessageName: String = _protobuf_package + \".\(descriptor.name)\"\n")
     } else {
-        p.print("\(visibility)static let protoMessageName: String = \"\(protoMessageName)\"\n")
+        p.print("\(visibility)static let protoMessageName: String = \"\(descriptor.name)\"\n")
     }
 
-    let usesHeadStorage = storage != nil
+    let usesHeapStorage = storage != nil
     var oneofHandled = Set<Int32>()
     for f in fields {
       // If this is in a oneof, generate the oneof first to match the layout in
@@ -154,20 +137,20 @@ class MessageGenerator {
         if !oneofHandled.contains(oneofIndex) {
           let oneof = oneofs[Int(oneofIndex)]
           oneofHandled.insert(oneofIndex)
-          if (usesHeadStorage) {
+          if (usesHeapStorage) {
             oneof.generateProxyIvar(printer: &p)
           } else {
             oneof.generateTopIvar(printer: &p)
           }
         }
       }
-      if usesHeadStorage {
+      if usesHeapStorage {
         f.generateProxyIvar(printer: &p)
       } else {
         f.generateTopIvar(printer: &p)
       }
-      f.generateHasProperty(printer: &p, usesHeapStorage: usesHeadStorage)
-      f.generateClearMethod(printer: &p, usesHeapStorage: usesHeadStorage)
+      f.generateHasProperty(printer: &p, usesHeapStorage: usesHeapStorage)
+      f.generateClearMethod(printer: &p, usesHeapStorage: usesHeapStorage)
     }
 
     p.print(
@@ -185,7 +168,7 @@ class MessageGenerator {
 
     // Nested messages
     for m in messages {
-      m.generateMainStruct(printer: &p, file: file, parent: self)
+      m.generateMainStruct(printer: &p, parent: self)
     }
 
     // Generate the default initializer. If we don't, Swift seems to sometimes
