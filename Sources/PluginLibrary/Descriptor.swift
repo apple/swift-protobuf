@@ -405,7 +405,7 @@ public final class FieldDescriptor {
     }
 
     switch type {
-    case .message, .group:
+    case .group, .message:
       messageType = registry.descriptor(name: proto.typeName)
     case .enum:
       enumType = registry.enumDescriptor(name: proto.typeName)

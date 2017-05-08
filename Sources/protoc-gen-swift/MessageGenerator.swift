@@ -554,7 +554,7 @@ class MessageGenerator {
       // fields have values.
       requiredPrinter = CodePrinter()
       for f in fields {
-        if f.descriptor.label == .required {
+        if f.label == .required {
           requiredPrinter!.print("if \(storedProperty(forField: f)) == nil {return false}\n")
         }
       }
@@ -563,10 +563,9 @@ class MessageGenerator {
     var subMessagePrinter = CodePrinter()
 
     // Check that all non-oneof embedded messages are initialized.
-    for f in fields {
-      if f.fieldHoldsMessage && f.oneof == nil &&
-        messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
-        if f.isRepeated {
+    for f in fields where f.oneof == nil {
+      if f.isGroupOrMessage && f.messageType.hasRequiredFields() {
+        if f.isRepeated {  // Map or Array
           subMessagePrinter.print("if !SwiftProtobuf.Internal.areAllInitialized(\(storedProperty(forField: f))) {return false}\n")
         } else {
           subMessagePrinter.print("if let v = \(storedProperty(forField: f)), !v.isInitialized {return false}\n")
@@ -578,8 +577,7 @@ class MessageGenerator {
     for oneofField in oneofs {
       var fieldsToCheck: [MessageFieldGenerator] = []
       for f in oneofField.fields {
-        if f.descriptor.isMessage &&
-          messageHasRequiredFields(msgTypeName:f.descriptor.typeName, context: context) {
+        if f.isGroupOrMessage && f.messageType.hasRequiredFields() {
           fieldsToCheck.append(f)
         }
       }
@@ -747,54 +745,4 @@ fileprivate func hasMessageField(
     && (context.getMessageForPath(path: $0.typeName)?.options.mapEntry != true)
   }
   return hasMessageField
-}
-
-// The logic for this check comes from google/protobuf; the C++ and Java
-// generators specificly.
-//
-// This is a helper for generating isInitialized methods.
-fileprivate func messageHasRequiredFields(
-  descriptor: Google_Protobuf_DescriptorProto,
-  context: Context
-) -> Bool {
-  var alreadySeen = Set<Google_Protobuf_DescriptorProto>()
-
-  func hasRequiredFieldsInner(
-    _ descriptor: Google_Protobuf_DescriptorProto
-  ) -> Bool {
-    if alreadySeen.contains(descriptor) {
-      // First required thing found causes this to return true, so one can
-      // assume if it is already visited, it didn't have required fields.
-      return false
-    }
-    alreadySeen.insert(descriptor)
-
-    // If it can support extesions, and extension could be a message with
-    // required fields.
-    if descriptor.extensionRange.count > 0 {
-      return true
-    }
-
-    for f in descriptor.field {
-      if f.label == .required {
-        return true
-      }
-      if (f.isMessage) &&
-        hasRequiredFieldsInner(context.getMessageForPath(path: f.typeName)!) {
-        return true
-      }
-    }
-
-    return false
-  }
-
-  return hasRequiredFieldsInner(descriptor)
-}
-
-fileprivate func messageHasRequiredFields(
-  msgTypeName: String,
-  context: Context
-) -> Bool {
-  let msgDesc = context.getMessageForPath(path: msgTypeName)!
-  return messageHasRequiredFields(descriptor: msgDesc, context: context)
 }
