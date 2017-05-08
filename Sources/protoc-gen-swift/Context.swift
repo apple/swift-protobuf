@@ -91,11 +91,11 @@ class Context {
   init(request: CodeGeneratorRequest) throws {
     if request.hasCompilerVersion {
       let compilerVersion = request.compilerVersion;
-      // Expect 3.1.x or 3.2.x - Yes we have to rev this with new release, but
+      // Expect 3.1.x or 3.3.x - Yes we have to rev this with new release, but
       // that seems like the best thing at the moment.
       let isExpectedVersion = (compilerVersion.major == 3) &&
         (compilerVersion.minor >= 1) &&
-        (compilerVersion.minor <= 2)
+        (compilerVersion.minor <= 3)
       if !isExpectedVersion {
         Stderr.print("WARNING: untested version of protoc (\(compilerVersion.versionString)).")
       }
