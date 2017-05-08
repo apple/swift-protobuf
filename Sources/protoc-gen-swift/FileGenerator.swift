@@ -237,7 +237,7 @@ class FileGenerator {
 
         var messages = [MessageGenerator]()
         for m in fileDescriptor.messages {
-          messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, parentSwiftName: nil, parentProtoPath: fileDescriptor.proto.protoPath, file: self, context: context))
+          messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, context: context))
         }
 
         var extensions = [ExtensionGenerator]()
@@ -250,7 +250,7 @@ class FileGenerator {
         }
 
         for m in messages {
-            m.generateMainStruct(printer: &p, file: self, parent: nil)
+            m.generateMainStruct(printer: &p, parent: nil)
         }
 
         var registry = [String]()
