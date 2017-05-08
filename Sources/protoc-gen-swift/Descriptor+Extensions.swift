@@ -11,9 +11,14 @@
 import PluginLibrary
 
 extension FileDescriptor {
-  // True if this file should perserve unknown enums within the enum.
+  /// True if this file should perserve unknown enums within the enum.
   var hasUnknownEnumPreservingSemantics: Bool {
     return syntax == .proto3
+  }
+
+  /// True of primative field types should have field presence.
+  var hasPrimativeFieldPresence: Bool {
+    return syntax == .proto2
   }
 }
 
@@ -62,6 +67,24 @@ extension Descriptor {
 }
 
 extension FieldDescriptor {
+  /// True if this field should have presence support
+  var hasFieldPresence: Bool {
+    if label == .repeated {  // Covers both Arrays and Maps
+      return false
+    }
+    if oneof != nil {
+      // When in a oneof, no presence is provided.
+      return false
+    }
+    switch type {
+    case .group, .message:
+      // Groups/messages always get field presence.
+      return true
+    default:
+      // Depends on the context the message was declared in.
+      return file.hasPrimativeFieldPresence
+    }
+  }
 
   func swiftType(namer: SwiftProtobufNamer) -> String {
     if isMap {
