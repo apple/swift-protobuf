@@ -125,10 +125,36 @@ public final class SwiftProtobufNamer {
     return extensionScopeSwiftFullName + ".Extensions." + relativeNameNoBackticks
   }
 
+  public typealias MessageFieldNames = (value: String, has: String, clear: String)
+
+  /// Calculate the names to use for the Swift fields on the message.
+  ///
+  /// If `includeHasAndClear` is False, the has:, clear: values in the result will
+  /// be the empty string.
+  ///
+  /// - Precondition: `field` must be FieldDescriptor that's isn't for an extension.
+  public func messagePropertyNames(field: FieldDescriptor,
+                                   includeHasAndClear: Bool) -> MessageExtensionNames {
+    precondition(!field.isExtension)
+
+    let lowerName = NamingUtils.toLowerCamelCase(field.namingBase)
+    let fieldName = NamingUtils.sanitize(fieldName: lowerName)
+
+    if !includeHasAndClear {
+      return MessageFieldNames(value: fieldName, has: "", clear: "")
+    }
+
+    let upperName = NamingUtils.toUpperCamelCase(field.namingBase)
+    let hasName = NamingUtils.sanitize(fieldName: "has\(upperName)", basedOn: lowerName)
+    let clearName = NamingUtils.sanitize(fieldName: "clear\(upperName)", basedOn: lowerName)
+
+    return MessageFieldNames(value: fieldName, has: hasName, clear: clearName)
+  }
+
   public typealias MessageExtensionNames = (value: String, has: String, clear: String)
 
   /// Calculate the names to use for the Swift Extension on the extended
-  /// message..
+  /// message.
   ///
   /// - Precondition: `extensionField` must be FieldDescriptor for an extension.
   public func messagePropertyNames(extensionField field: FieldDescriptor) -> MessageExtensionNames {
