@@ -23,7 +23,7 @@ public enum SwiftProtobufInfo {
     "google/protobuf/api.proto",
     // "google/protobuf/descriptor.proto"
     //    is not a WKT; and while it is used by generator, it does NOT ship
-    //    with the library, if the library every wants to expose full
+    //    with the library, if the library ever wants to expose full
     //    descriptors, that could change.
     "google/protobuf/duration.proto",
     "google/protobuf/empty.proto",

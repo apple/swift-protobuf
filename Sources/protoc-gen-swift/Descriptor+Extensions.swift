@@ -84,7 +84,7 @@ extension Descriptor {
   var swiftExtensionRangeExpressions: String {
     return extensionRanges.lazy.map {
       $0.swiftRangeExpression
-      }.joined(separator: ", ")
+    }.joined(separator: ", ")
   }
 
   /// A `String` containing a Swift Boolean expression that tests if the given
@@ -95,7 +95,7 @@ extension Descriptor {
   func swiftExtensionRangeBooleanExpression(variable: String) -> String {
     return extensionRanges.lazy.map {
       "(\($0.swiftBooleanExpression(variable: variable)))"
-      }.joined(separator: " || ")
+    }.joined(separator: " || ")
   }
 }
 
