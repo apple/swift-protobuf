@@ -32,20 +32,54 @@ class OneofGenerator {
     private let oneofDescriptor: OneofDescriptor
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
+    private let usesHeapStorage: Bool
 
-    let fields: [MessageFieldGenerator]
-    let fieldsSortedByNumber: [MessageFieldGenerator]
-    let oneofIsContinuousInParent: Bool
-    let swiftRelativeName: String
+    private let fields: [MessageFieldGenerator]
+    private let fieldsSortedByNumber: [MessageFieldGenerator]
+    private let oneofIsContinuousInParent: Bool
+    private let swiftRelativeName: String
     let swiftFullName: String
-
-    var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
     private let comments: String
 
-    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, fields: [MessageFieldGenerator]) {
+    private var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
+
+    /// Returns a Swift pattern (or list of patterns) suitable for a `case`
+    /// statement that matches any of the field numbers corresponding to the
+    /// `oneof` with the given index.
+    ///
+    /// This function collapses large contiguous field number sequences into
+    /// into range patterns instead of listing all of the fields explicitly.
+    ///
+    /// - Parameter index: The index of the `oneof`.
+    /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
+    private var fieldNumbersPattern: String {
+        let fieldNumbers = fieldsSortedByNumber.map { $0.number }
+        assert(fieldNumbers.count > 0)
+
+        if fieldNumbers.count <= 2 {
+            // For one or two fields, just return "n" or "n, m". ("n...m" would
+            // also be valid, but this is one character shorter.)
+            return fieldNumbers.lazy.map { String($0) }.joined(separator: ", ")
+        }
+
+        let first = fieldNumbers.first!
+        let last = fieldNumbers.last!
+
+        if first + fieldNumbers.count - 1 == last {
+            // The field numbers were contiguous, so return a range instead.
+            return "\(first)...\(last)"
+        }
+        // Not a contiguous range, so just print the comma-delimited list of
+        // field numbers. (We could consider optimizing this to print ranges
+        // for contiguous subsequences later, as well.)
+        return fieldNumbers.lazy.map { String($0) }.joined(separator: ", ")
+    }
+
+    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, fields: [MessageFieldGenerator], usesHeapStorage: Bool) {
         self.oneofDescriptor = descriptor
         self.generatorOptions = generatorOptions
         self.namer = namer
+        self.usesHeapStorage = usesHeapStorage
 
         self.fields = fields
         self.fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
@@ -247,4 +281,56 @@ class OneofGenerator {
             comments,
             "\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
     }
+
+    private func storedProperty(in variable: String = "") -> String {
+        if usesHeapStorage {
+            return "\(variable)_storage._\(descriptor.swiftFieldName)"
+        }
+        let prefix = variable.isEmpty ? "self." : "\(variable)."
+        return "\(prefix)\(descriptor.swiftFieldName)"
+    }
+
+    func generateDecodeMessage(printer p: inout CodePrinter) {
+        p.print("case \(fieldNumbersPattern):\n")
+        p.indent()
+        p.print("if \(storedProperty()) != nil {\n")
+        p.indent()
+        p.print("try decoder.handleConflictingOneOf()\n")
+        p.outdent()
+        p.print("}\n")
+        p.print("\(storedProperty()) = try \(swiftFullName)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
+        p.outdent()
+    }
+
+    func generateMessageTraverse(printer p: inout CodePrinter, start: Int, end: Int) {
+        if oneofIsContinuousInParent {
+            p.print("try \(storedProperty())?.traverse(visitor: &visitor)\n")
+        } else {
+            p.print("try \(storedProperty())?.traverse(visitor: &visitor, start: \(start), end: \(end))\n")
+        }
+    }
+
+    func inequalityComprison(_ otherVar: String) -> String {
+        return "\(storedProperty()) != \(storedProperty(in: otherVar))"
+    }
+
+    func generateIsInitializedCheck(printer p: inout CodePrinter) {
+        let fieldsToCheck = fields.filter {
+            $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
+        }
+        if fieldsToCheck.count == 1 {
+            let f = fieldsToCheck.first!
+            p.print("if case .\(f.swiftName)(let v)? = \(storedProperty()), !v.isInitialized {return false}\n")
+        } else if fieldsToCheck.count > 1 {
+            p.print("switch \(storedProperty()) {\n")
+            for f in fieldsToCheck {
+                p.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
+            }
+            // Covers other cases or if the oneof wasn't set (was nil).
+            p.print(
+              "default: break\n",
+              "}\n")
+        }
+    }
+
 }

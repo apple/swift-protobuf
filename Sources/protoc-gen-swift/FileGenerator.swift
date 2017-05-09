@@ -124,12 +124,6 @@ extension Google_Protobuf_FileDescriptorProto {
         return splitPath(pathname: name).base
     }
 
-    var isWellKnownType : Bool {
-      // descriptor.proto is also in the "google.protobuf" package, but it isn't
-      // a well known type, so filter it out.
-      return package == "google.protobuf" && baseFilename != "descriptor"
-    }
-
     var swiftPrefix: String {
         if options.hasSwiftPrefix {
             return options.swiftPrefix
@@ -183,12 +177,6 @@ class FileGenerator {
         self.generatorOptions = generatorOptions
     }
 
-    var protoPackageName: String {return fileDescriptor.package}
-    var swiftPrefix: String {return namer.typePrefix(forFile: fileDescriptor)}
-    var isProto3: Bool {return fileDescriptor.syntax == .proto3}
-    private var isWellKnownType: Bool {return fileDescriptor.proto.isWellKnownType}
-    private var baseFilename: String {return fileDescriptor.proto.baseFilename}
-
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
         p.print(
             "/*\n",
@@ -222,7 +210,7 @@ class FileGenerator {
         }
 
         p.print("import Foundation\n")
-        if !isWellKnownType {
+        if !fileDescriptor.isBundledProto {
           // The well known types ship with the runtime, everything else needs
           // to import the runtime.
           p.print("import SwiftProtobuf\n")
@@ -255,7 +243,7 @@ class FileGenerator {
 
         var registry = [String]()
         for e in extensions {
-            registry.append(e.swiftFullExtensionName)
+            e.register(&registry)
         }
         for m in messages {
             m.registerExtensions(registry: &registry)
@@ -308,7 +296,8 @@ class FileGenerator {
             }
         }
 
-        let needsProtoPackage: Bool = !protoPackageName.isEmpty && !messages.isEmpty
+        let protoPackage = fileDescriptor.package
+        let needsProtoPackage: Bool = !protoPackage.isEmpty && !messages.isEmpty
         if needsProtoPackage || !enums.isEmpty || !messages.isEmpty {
             p.print(
                 "\n",
@@ -316,7 +305,7 @@ class FileGenerator {
             if needsProtoPackage {
                 p.print(
                     "\n",
-                    "fileprivate let _protobuf_package = \"\(protoPackageName)\"\n")
+                    "fileprivate let _protobuf_package = \"\(protoPackage)\"\n")
             }
             for e in enums {
                 e.generateRuntimeSupport(printer: &p)

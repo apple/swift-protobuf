@@ -64,6 +64,21 @@ class MessageStorageClassGenerator {
     p.print("}\n")
   }
 
+  /// Generated the uniqueStorage() implementation.
+  func generateUniqueStroage(printer p: inout CodePrinter) {
+    p.print("\(storageVisibility) mutating func _uniqueStorage() -> _StorageClass {\n")
+    p.indent()
+    p.print("if !isKnownUniquelyReferenced(&_storage) {\n")
+    p.indent()
+    p.print("_storage = _StorageClass(copying: _storage)\n")
+    p.outdent()
+    p.print(
+      "}\n",
+      "return _storage\n")
+    p.outdent()
+    p.print("}\n")
+  }
+
   func generatePreTraverse(printer p: inout CodePrinter) {
     // Nothing
   }
