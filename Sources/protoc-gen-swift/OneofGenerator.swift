@@ -16,24 +16,90 @@ import Foundation
 import PluginLibrary
 import SwiftProtobuf
 
-extension Google_Protobuf_OneofDescriptorProto {
-    var swiftFieldName: String {
-        return toLowerCamelCase(name)
-    }
-    var swiftStorageFieldName: String {
-        return "_" + toLowerCamelCase(name)
-    }
-}
-
 class OneofGenerator {
+    /// Custom FieldGenerator that caches come calculated strings, and bridges
+    /// all methods over to the OneofGenerator.
+    class MemberFieldGenerator: FieldGeneratorBase, FieldGenerator {
+        private weak var oneof: OneofGenerator!
+        private(set) var group: Int
+
+        let swiftName: String
+        let swiftType: String
+        let swiftDefaultValue: String
+        let protoGenericType: String
+        let comments: String
+
+        var isMessage: Bool { return fieldDescriptor.type == .message }
+
+        // Only valid on message fields.
+        var messageType: Descriptor { return fieldDescriptor.messageType }
+
+        init(descriptor: FieldDescriptor, namer: SwiftProtobufNamer) {
+            precondition(descriptor.oneofIndex != nil)
+
+            // Set after creation.
+            oneof = nil
+            group = -1
+
+            swiftName = namer.messagePropertyNames(field: descriptor, includeHasAndClear: false).value
+            swiftType = descriptor.swiftType(namer: namer)
+            swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
+            protoGenericType = descriptor.protoGenericType
+            comments = descriptor.protoSourceComments()
+
+            super.init(descriptor: descriptor)
+        }
+
+        func setParent(_ oneof: OneofGenerator, group: Int) {
+            self.oneof = oneof
+            self.group = group
+        }
+
+        // MARK: Forward all the FieldGenerator methods to the OneofGenerator
+
+        func generateInterface(printer p: inout CodePrinter) {
+            oneof.generateInterface(printer: &p, field: self)
+        }
+
+        func generateStorage(printer p: inout CodePrinter) {
+            oneof.generateStorage(printer: &p, field: self)
+        }
+
+        func generateStorageClassClone(printer p: inout CodePrinter) {
+            oneof.generateStorageClassClone(printer: &p, field: self)
+        }
+
+        func generateDecodeFieldCase(printer p: inout CodePrinter) {
+            oneof.generateDecodeFieldCase(printer: &p, field: self)
+        }
+
+        func generateFieldComparison(printer p: inout CodePrinter) {
+            oneof.generateFieldComparison(printer: &p, field: self)
+        }
+
+        func generateRequiredFieldCheck(printer p: inout CodePrinter) {
+            // Oneof members are all optional, so no need to forward this.
+        }
+
+        func generateIsInitializedCheck(printer p: inout CodePrinter) {
+            oneof.generateIsInitializedCheck(printer: &p, field: self)
+        }
+
+        func generateTraverse(printer p: inout CodePrinter) {
+            oneof.generateTraverse(printer: &p, field: self)
+        }
+    }
+
     private let oneofDescriptor: OneofDescriptor
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
     private let usesHeapStorage: Bool
 
-    private let fields: [MessageFieldGenerator]
-    private let fieldsSortedByNumber: [MessageFieldGenerator]
-    private let oneofIsContinuousInParent: Bool
+    private let fields: [MemberFieldGenerator]
+    private let fieldsSortedByNumber: [MemberFieldGenerator]
+    // The fields in number order and group into ranges as they are grouped in the parent.
+    private let fieldSortedGrouped: [[MemberFieldGenerator]]
+    private var oneofIsContinuousInParent: Bool { return fieldSortedGrouped.count == 1 }
     private let swiftRelativeName: String
     private let swiftFullName: String
     private let comments: String
@@ -62,7 +128,7 @@ class OneofGenerator {
         let first = fieldNumbers.first!
         let last = fieldNumbers.last!
 
-        if first + fieldNumbers.count - 1 == last {
+        if first + Int(fieldNumbers.count) - 1 == last {
             // The field numbers were contiguous, so return a range instead.
             return "\(first)...\(last)"
         }
@@ -72,63 +138,69 @@ class OneofGenerator {
         return fieldNumbers.lazy.map { String($0) }.joined(separator: ", ")
     }
 
-    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, fields: [MessageFieldGenerator], usesHeapStorage: Bool) {
+    init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, usesHeapStorage: Bool) {
         self.oneofDescriptor = descriptor
         self.generatorOptions = generatorOptions
         self.namer = namer
         self.usesHeapStorage = usesHeapStorage
 
-        self.fields = fields
-        self.fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
-        self.comments = descriptor.protoSourceComments()
+        comments = descriptor.protoSourceComments()
 
         swiftRelativeName = namer.relativeName(oneof: descriptor)
         swiftFullName = namer.fullName(oneof: descriptor)
-
         swiftFieldName = namer.messagePropertyName(oneof: descriptor)
 
-        let first = fieldsSortedByNumber.first!.number
-        let last = fieldsSortedByNumber.last!.number
-        // Easy case, all in order and no gaps:
-        if first + fields.count - 1 == last {
-            oneofIsContinuousInParent = true
-        } else {
-            // See if all the oneof fields were in order within the (even if there were number gaps).
-            //    message Good {
-            //      oneof o {
-            //        int32 a = 1;
-            //        int32 z = 26;
-            //      }
-            //    }
-            //    message Bad {
-            //      oneof o {
-            //        int32 a = 1;
-            //        int32 z = 26;
-            //      }
-            //      int32 m = 13;
-            //    }
-            let sortedOneofFieldNumbers = fieldsSortedByNumber.map { $0.number }
-            let parentFieldNumbersSorted = descriptor.containingType.fields.map({ Int($0.number) }).sorted { $0 < $1 }
-            let firstIndex = parentFieldNumbersSorted.index(of: first)!
-            var isContinuousInParent = sortedOneofFieldNumbers == Array(parentFieldNumbersSorted[firstIndex..<(firstIndex + fields.count)])
-            if isContinuousInParent {
-                // Make sure there isn't an extension range in the middle of the fields.
-                //    message AlsoBad {
-                //      oneof o {
-                //        int32 a = 1;
-                //        int32 z = 26;
-                //      }
-                //      extensions 10 to 16;
-                //    }
-                for e in descriptor.containingType.extensionRanges {
-                    if e.start > Int32(first) && e.end <= Int32(last) {
-                        isContinuousInParent = false
-                        break
-                    }
-                }
-            }
-            oneofIsContinuousInParent = isContinuousInParent
+        fields = descriptor.fields.map {
+            return MemberFieldGenerator(descriptor: $0, namer: namer)
         }
+        fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
+
+        // Bucked these fields in continuous chunks based on the other fields
+        // in the parent and the parent's extension ranges. Insert the `start`
+        // from each extension range as an easy way to check for them being
+        // mixed in between the fields.
+        var parentNumbers = descriptor.containingType.fields.map { Int($0.number) }
+        parentNumbers.append(contentsOf: descriptor.containingType.extensionRanges.map { Int($0.start) })
+        var parentNumbersIterator = parentNumbers.sorted(by: { $0 < $1 }).makeIterator()
+        var nextParentFieldNumber = parentNumbersIterator.next()
+        var grouped = [[MemberFieldGenerator]]()
+        var currentGroup = [MemberFieldGenerator]()
+        for f in fieldsSortedByNumber {
+          let nextFieldNumber = f.number
+          if nextParentFieldNumber != nextFieldNumber {
+            if !currentGroup.isEmpty {
+                grouped.append(currentGroup)
+                currentGroup.removeAll()
+            }
+            while nextParentFieldNumber != nextFieldNumber {
+                nextParentFieldNumber = parentNumbersIterator.next()
+            }
+          }
+          currentGroup.append(f)
+          nextParentFieldNumber = parentNumbersIterator.next()
+        }
+        if !currentGroup.isEmpty {
+            grouped.append(currentGroup)
+        }
+        self.fieldSortedGrouped = grouped
+
+        // Now that self is fully initialized, set the parent references.
+        var group = 0
+        for g in fieldSortedGrouped {
+            for f in g {
+                f.setParent(self, group: group)
+            }
+            group += 1
+        }
+    }
+
+    func fieldGenerator(forFieldNumber fieldNumber: Int) -> FieldGenerator {
+        for f in fields {
+            if f.number == fieldNumber {
+                return f
+            }
+        }
+        assert(false)
     }
 
     func generateMainEnum(printer p: inout CodePrinter) {
@@ -146,7 +218,7 @@ class OneofGenerator {
         for f in fields {
             p.print(
                 f.comments,
-                "case \(f.swiftName)(\(f.swiftBaseType))\n")
+                "case \(f.swiftName)(\(f.swiftType))\n")
         }
 
         // Equatable conformance
@@ -188,25 +260,24 @@ class OneofGenerator {
         p.indent()
         p.print("switch fieldNumber {\n")
         for f in fieldsSortedByNumber {
-            let modifier = "Singular"
-            let special = f.isGroup ? "Group"
-                        : f.isMessage ? "Message"
-                        : f.isEnum ? "Enum"
-                        : f.protoTypeName
-            let decoderMethod = "decode\(modifier)\(special)Field"
+            let decoderMethod = "decodeSingular\(f.protoGenericType)Field"
 
             p.print("case \(f.number):\n")
             p.indent()
-            if isProto3 && !f.isMessage && !f.isGroup {
+
+            // TODO(thomasvl): Revisit this, in all cases, I think we need success/failure
+            // from decode otherwise we assign to zero for wronge write type. None oneof
+            // is likely also wrong.
+            if isProto3 && !f.isMessage {
                 // Proto3 has non-optional fields, so this is simpler
                 p.print(
-                    "var value = \(f.swiftStorageType)()\n",
+                    "var value = \(f.swiftType)()\n",
                     "try decoder.\(decoderMethod)(value: &value)\n",
                     "self = .\(f.swiftName)(value)\n",
                     "return\n")
             } else {
                 p.print(
-                    "var value: \(f.swiftStorageType)\n",
+                    "var value: \(f.swiftType)?\n",
                     "try decoder.\(decoderMethod)(value: &value)\n",
                     "if let value = value {\n")
                 p.indent()
@@ -244,9 +315,7 @@ class OneofGenerator {
                 p.print("if start <= \(f.number) && \(f.number) < end {\n")
                 p.indent()
             }
-            let special = f.isGroup ? "Group" : f.isMessage ? "Message" : f.isEnum ? "Enum" : f.protoTypeName;
-            let visitorMethod = "visitSingular\(special)Field"
-            p.print("try visitor.\(visitorMethod)(value: v, fieldNumber: \(f.number))\n")
+            p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
             if !oneofIsContinuousInParent {
                 p.outdent()
                 p.print("}\n")
@@ -261,31 +330,6 @@ class OneofGenerator {
         p.print("}\n")
     }
 
-    func generateProxyIvar(printer p: inout CodePrinter) {
-        p.print(
-            "\n",
-            comments,
-            "\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(swiftRelativeName)? {\n")
-        p.indent()
-        p.print(
-            "get {return _storage._\(swiftFieldName)}\n",
-            "set {_uniqueStorage()._\(swiftFieldName) = newValue}\n")
-        p.outdent()
-        p.print("}\n")
-    }
-
-    func generateTopIvar(printer p: inout CodePrinter) {
-        p.print(
-            "\n",
-            comments,
-            "\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(swiftFullName)? = nil\n")
-    }
-
-    func generateStorageIvar(printer p: inout CodePrinter) {
-        p.print(
-            "var _\(swiftFieldName): \(swiftFullName)?\n")
-    }
-
     private func storedProperty(in variable: String = "") -> String {
         if usesHeapStorage {
             return "\(variable)_storage._\(swiftFieldName)"
@@ -294,7 +338,79 @@ class OneofGenerator {
         return "\(prefix)\(swiftFieldName)"
     }
 
-    func generateDecodeMessage(printer p: inout CodePrinter) {
+    private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {
+        let visibility = generatorOptions.visibilitySourceSnippet
+        p.print("\n", comments)
+
+        if usesHeapStorage {
+            p.print(
+              "\(visibility)var \(swiftFieldName): \(swiftRelativeName)? {\n")
+            p.indent()
+            p.print(
+              "get {return _storage._\(swiftFieldName)}\n",
+              "set {_uniqueStorage()._\(swiftFieldName) = newValue}\n")
+            p.outdent()
+            p.print("}\n")
+        } else {
+            p.print(
+              "\(visibility)var \(swiftFieldName): \(swiftFullName)? = nil\n")
+        }
+    }
+
+    // MARK: Things brindged from MemberFieldGenerator
+
+    func generateInterface(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field causes the oneof enum to get generated.
+        if field === fields.first {
+          gerenateOneofEnumProperty(printer: &p)
+        }
+
+        let getterExtra = usesHeapStorage ? "_storage._" : ""
+        let setterExtra = usesHeapStorage ? "_uniqueStorage()._" : ""
+
+        let visibility = generatorOptions.visibilitySourceSnippet
+
+        p.print(
+          "\n",
+          field.comments,
+          "\(visibility)var \(field.swiftName): \(field.swiftType) {\n")
+        p.indent()
+        p.print("get {\n")
+        p.indent()
+        p.print(
+          "if case .\(field.swiftName)(let v)? = \(getterExtra)\(swiftFieldName) {return v}\n",
+          "return \(field.swiftDefaultValue)\n")
+        p.outdent()
+        p.print(
+          "}\n",
+          "set {\(setterExtra)\(swiftFieldName) = .\(field.swiftName)(newValue)}\n")
+        p.outdent()
+        p.print("}\n")
+    }
+
+    func generateStorage(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field causes the output.
+        guard field === fields.first else { return }
+
+        if usesHeapStorage {
+            p.print("var _\(swiftFieldName): \(swiftFullName)?\n")
+        } else {
+            // When not using heap stroage, no extra storage is needed because
+            // the public property for the oneof is the storage.
+        }
+    }
+
+    func generateStorageClassClone(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field causes the output.
+        guard field === fields.first else { return }
+
+        p.print("_\(swiftFieldName) = source._\(swiftFieldName)\n")
+    }
+
+    func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // Lowest numbered field causes the output.
+        guard field === fieldsSortedByNumber.first else { return }
+
         p.print("case \(fieldNumbersPattern):\n")
         p.indent()
         p.print("if \(storedProperty()) != nil {\n")
@@ -306,25 +422,33 @@ class OneofGenerator {
         p.outdent()
     }
 
-    func generateMessageTraverse(printer p: inout CodePrinter, start: Int, end: Int) {
+    func generateTraverse(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field in the group causes the output.
+        let group = fieldSortedGrouped[field.group]
+        guard field === group.first else { return }
+
         if oneofIsContinuousInParent {
             p.print("try \(storedProperty())?.traverse(visitor: &visitor)\n")
         } else {
+            let start = group.first!.number
+            let end = group.last!.number + 1
             p.print("try \(storedProperty())?.traverse(visitor: &visitor, start: \(start), end: \(end))\n")
         }
     }
 
-    func inequalityComprison(_ otherVar: String) -> String {
-        return "\(storedProperty()) != \(storedProperty(in: otherVar))"
+    func generateFieldComparison(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field causes the output.
+        guard field === fields.first else { return }
+
+        p.print("if \(storedProperty()) != \(storedProperty(in: "other")) {return false}\n")
     }
 
-    func generateStorageClone(printer p: inout CodePrinter) {
-        p.print("_\(swiftFieldName) = source._\(swiftFieldName)\n")
-    }
+    func generateIsInitializedCheck(printer p: inout CodePrinter, field: MemberFieldGenerator) {
+        // First field causes the output.
+        guard field === fields.first else { return }
 
-    func generateIsInitializedCheck(printer p: inout CodePrinter) {
         let fieldsToCheck = fields.filter {
-            $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
+            $0.isMessage && $0.messageType.hasRequiredFields()
         }
         if fieldsToCheck.count == 1 {
             let f = fieldsToCheck.first!
@@ -340,5 +464,4 @@ class OneofGenerator {
               "}\n")
         }
     }
-
 }

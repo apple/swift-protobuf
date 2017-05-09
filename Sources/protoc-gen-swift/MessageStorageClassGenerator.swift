@@ -20,15 +20,11 @@ import SwiftProtobuf
 /// Generates the `_StorageClass` used for messages that employ copy-on-write
 /// logic for some of their fields.
 class MessageStorageClassGenerator {
-  private let fields: [MessageFieldGenerator]
-  private let oneofs: [OneofGenerator]
+  private let fields: [FieldGenerator]
 
   /// Creates a new `MessageStorageClassGenerator`.
-  init(fields: [MessageFieldGenerator],
-       oneofs: [OneofGenerator]
-    ) {
+  init(fields: [FieldGenerator]) {
     self.fields = fields
-    self.oneofs = oneofs
   }
 
   /// Visibility of the storage within the Message.
@@ -84,16 +80,8 @@ class MessageStorageClassGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateStoredProperties(printer p: inout CodePrinter) {
-    var oneofsHandled = Set<Int32>()
     for f in fields {
-      if let oneofIndex = f.oneofIndex {
-        if !oneofsHandled.contains(oneofIndex) {
-          oneofs[Int(oneofIndex)].generateStorageIvar(printer: &p)
-          oneofsHandled.insert(oneofIndex)
-        }
-      } else {
-        f.generateStorageIvar(printer: &p)
-      }
+      f.generateStorage(printer: &p)
     }
   }
 
@@ -103,17 +91,8 @@ class MessageStorageClassGenerator {
   private func generateClone(printer p: inout CodePrinter) {
     p.print("init(copying source: _StorageClass) {\n")
     p.indent()
-
-    var oneofsHandled = Set<Int32>()
     for f in fields {
-      if let oneofIndex = f.oneofIndex {
-        if !oneofsHandled.contains(oneofIndex) {
-          oneofs[Int(oneofIndex)].generateStorageClone(printer: &p)
-          oneofsHandled.insert(oneofIndex)
-        }
-      } else {
-        f.generateStorageClone(printer: &p)
-      }
+      f.generateStorageClassClone(printer: &p)
     }
     p.outdent()
     p.print("}\n")
@@ -122,7 +101,6 @@ class MessageStorageClassGenerator {
 
 /// Custom generator for storage of an google.protobuf.Any.
 class AnyMessageStorageClassGenerator : MessageStorageClassGenerator {
-
   override var storageVisibility: String { return "internal" }
   override var storageProvidesEqualTo: Bool { return true }
 

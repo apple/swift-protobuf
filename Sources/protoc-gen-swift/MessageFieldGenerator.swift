@@ -17,27 +17,6 @@ import PluginLibrary
 import SwiftProtobuf
 
 
-/// This must be exactly the same as the corresponding code in the
-/// SwiftProtobuf library.  Changing it will break compatibility of
-/// the generated code with old library version.
-///
-private func toJsonFieldName(_ s: String) -> String {
-    var result = ""
-    var capitalizeNext = false
-
-    for c in s.characters {
-        if c == "_" {
-            capitalizeNext = true
-        } else if capitalizeNext {
-            result.append(String(c).uppercased())
-            capitalizeNext = false
-        } else {
-            result.append(String(c))
-        }
-    }
-    return result;
-}
-
 extension Google_Protobuf_FieldDescriptorProto {
 
     var isRepeated: Bool {return label == .repeated}
@@ -272,23 +251,18 @@ extension Google_Protobuf_FieldDescriptorProto {
     }
 }
 
-struct MessageFieldGenerator {
-    private let fieldDescriptor: FieldDescriptor
+class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
     private let usesHeapStorage: Bool
 
     var descriptor: Google_Protobuf_FieldDescriptorProto { return fieldDescriptor.proto }
-    var oneofIndex: Int32? { return fieldDescriptor.oneofIndex }
-    let oneof: Google_Protobuf_OneofDescriptorProto?
-    let jsonName: String?
     let hasFieldPresence: Bool
     let swiftName: String
     let swiftHasName: String
     let swiftClearName: String
     let swiftStorageName: String
     var protoName: String {return descriptor.name}
-    var number: Int {return Int(descriptor.number)}
     let comments: String
     let isProto3: Bool
     let context: Context
@@ -304,56 +278,23 @@ struct MessageFieldGenerator {
          context: Context,
          usesHeapStorage: Bool)
     {
-        self.fieldDescriptor = descriptor
+        precondition(descriptor.oneofIndex == nil)
+
         self.generatorOptions = generatorOptions
         self.namer = namer
         self.usesHeapStorage = usesHeapStorage
 
-        self.jsonName = descriptor.proto.jsonName
         hasFieldPresence = descriptor.hasFieldPresence
         let names = namer.messagePropertyNames(field: descriptor, includeHasAndClear: descriptor.hasFieldPresence)
         swiftName = names.value
         swiftHasName = names.has
         swiftClearName = names.clear
-        if let oneof = descriptor.oneof {
-            self.oneof = oneof.proto
-        } else {
-            self.oneof = nil
-        }
         self.swiftStorageName = "_" + self.swiftName
         self.comments = descriptor.protoSourceComments()
         self.isProto3 = descriptor.file.syntax == .proto3
         self.context = context
-    }
 
-    var fieldMapNames: String {
-        // Protobuf Text uses the unqualified group name for the field
-        // name instead of the field name provided by protoc.  As far
-        // as I can tell, no one uses the fieldname provided by protoc,
-        // so let's just put the field name that Protobuf Text
-        // actually uses here.
-        let protoName: String
-        let jsonName: String
-        if isGroup {
-            protoName = descriptor.bareTypeName
-        } else {
-            protoName = self.protoName
-        }
-        jsonName = self.jsonName ?? protoName
-        if jsonName == protoName {
-            /// The proto and JSON names are identical:
-            return ".same(proto: \"\(protoName)\")"
-        } else {
-            let libraryGeneratedJsonName = toJsonFieldName(protoName)
-            if jsonName == libraryGeneratedJsonName {
-                /// The library will generate the same thing protoc gave, so
-                /// we can let the library recompute this:
-                return ".standard(proto: \"\(protoName)\")"
-            } else {
-                /// The library's generation didn't match, so specify this explicitly.
-                return ".unique(proto: \"\(protoName)\", json: \"\(jsonName)\")"
-            }
-        }
+        super.init(descriptor: descriptor)
     }
 
     // Note: this could still be a map (since those are repeated message fields
@@ -399,23 +340,62 @@ struct MessageFieldGenerator {
 
     var traitsType: String {return descriptor.getTraitsType(context: context)}
 
-    func generateTopIvar(printer p: inout CodePrinter) {
+    func generateStorage(printer p: inout CodePrinter) {
+        if usesHeapStorage {
+            p.print("var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+        } else {
+          // If this field has field presence, the there is a private storage variable.
+          if hasFieldPresence {
+            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+          }
+        }
+    }
+
+    func generateInterface(printer p: inout CodePrinter) {
+        if usesHeapStorage {
+            generateProxyIvar(printer: &p)
+        } else {
+            generateTopIvar(printer: &p)
+        }
+
+        guard hasFieldPresence else { return }
+
+        let storagePrefix = usesHeapStorage ? "_storage." : "self."
+        p.print(
+            "/// Returns true if `\(swiftName)` has been explicitly set.\n",
+            "\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {return \(storagePrefix)\(swiftStorageName) != nil}\n")
+
+        p.print(
+            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.\n",
+            "\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\(storagePrefix)\(swiftStorageName) = nil}\n")
+    }
+
+    func generateStorageClassClone(printer p: inout CodePrinter) {
+        p.print("\(swiftStorageName) = source.\(swiftStorageName)\n")
+    }
+
+    func generateFieldComparison(printer p: inout CodePrinter) {
+        p.print("if \(storedProperty()) != \(storedProperty(in: "other")) {return false}\n")
+    }
+
+   func generateRequiredFieldCheck(printer p: inout CodePrinter) {
+       guard label == .required else { return }
+       p.print("if \(storedProperty()) == nil {return false}\n")
+    }
+
+    func generateIsInitializedCheck(printer p: inout CodePrinter) {
+        guard isGroupOrMessage && messageType.hasRequiredFields() else { return }
+
+        if isRepeated {  // Map or Array
+            p.print("if !SwiftProtobuf.Internal.areAllInitialized(\(storedProperty())) {return false}\n")
+        } else {
+            p.print("if let v = \(storedProperty()), !v.isInitialized {return false}\n")
+        }
+    }
+
+    private func generateTopIvar(printer p: inout CodePrinter) {
         p.print("\n", comments)
-        if let oneof = oneof {
-            p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
-            p.indent()
-            p.print("get {\n")
-            p.indent()
-            p.print(
-                "if case .\(swiftName)(let v)? = \(oneof.swiftFieldName) {return v}\n",
-                "return \(swiftDefaultValue)\n")
-            p.outdent()
-            p.print(
-                "}\n",
-                "set {\(oneof.swiftFieldName) = .\(swiftName)(newValue)}\n")
-            p.outdent()
-            p.print("}\n")
-        } else if !isRepeated && !isMap && !isProto3 {
+        if !isRepeated && !isMap && !isProto3 {
             p.print("\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
             p.indent()
             p.print(
@@ -428,69 +408,29 @@ struct MessageFieldGenerator {
         }
     }
 
-    func generateTopIvarStorage(printer p: inout CodePrinter) {
-        if oneof == nil && !isRepeated && !isMap && !isProto3 {
-            p.print("fileprivate var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
-        }
-    }
-
-    func generateStorageIvar(printer p: inout CodePrinter) {
-        if oneof == nil {
-            p.print("var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
-        }
-    }
-
-    func generateProxyIvar(printer p: inout CodePrinter) {
+    private func generateProxyIvar(printer p: inout CodePrinter) {
         p.print(
             "\n",
             comments,
             "\(generatorOptions.visibilitySourceSnippet)var \(swiftName): \(swiftApiType) {\n")
         p.indent()
-        if let oneof = oneof {
-            p.print("get {\n")
-            p.indent()
-            p.print(
-                "if case .\(swiftName)(let v)? = _storage.\(oneof.swiftStorageFieldName) {return v}\n",
-                "return \(swiftDefaultValue)\n")
-            p.outdent()
-            p.print(
-                "}\n",
-                "set {_uniqueStorage().\(oneof.swiftStorageFieldName) = .\(swiftName)(newValue)}\n")
+
+        let defaultClause: String
+        if isMap || isRepeated {
+            defaultClause = ""
+        } else if isMessage || isGroup {
+            defaultClause = " ?? " + swiftDefaultValue
+        } else if let d = swiftProto2DefaultValue {
+            defaultClause = " ?? " + d
         } else {
-            let defaultClause: String
-            if isMap || isRepeated {
-                defaultClause = ""
-            } else if isMessage || isGroup {
-                defaultClause = " ?? " + swiftDefaultValue
-            } else if let d = swiftProto2DefaultValue {
-                defaultClause = " ?? " + d
-            } else {
-                defaultClause = isProto3 ? "" : " ?? " + swiftDefaultValue
-            }
-            p.print(
-                "get {return _storage.\(swiftStorageName)\(defaultClause)}\n",
-                "set {_uniqueStorage().\(swiftStorageName) = newValue}\n")
+            defaultClause = isProto3 ? "" : " ?? " + swiftDefaultValue
         }
+        p.print(
+            "get {return _storage.\(swiftStorageName)\(defaultClause)}\n",
+            "set {_uniqueStorage().\(swiftStorageName) = newValue}\n")
+
         p.outdent()
         p.print("}\n")
-    }
-
-    func generateHasProperty(printer p: inout CodePrinter) {
-        guard hasFieldPresence else { return }
-
-        let storagePrefix = usesHeapStorage ? "_storage." : "self."
-        p.print(
-            "/// Returns true if `\(swiftName)` has been explicitly set.\n",
-            "\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {return \(storagePrefix)\(swiftStorageName) != nil}\n")
-    }
-
-    func generateClearMethod(printer p: inout CodePrinter) {
-        guard hasFieldPresence else { return }
-
-        let storagePrefix = usesHeapStorage ? "_storage." : "self."
-        p.print(
-            "/// Clears the value of `\(swiftName)`. Subsequent reads from it will return its default value.\n",
-            "\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\(storagePrefix)\(swiftStorageName) = nil}\n")
     }
 
     func generateDecodeFieldCase(printer p: inout CodePrinter) {
@@ -608,29 +548,5 @@ struct MessageFieldGenerator {
         return "\(prefix)\(swiftStorageName)"
       }
       return "\(prefix)\(swiftName)"
-    }
-
-    func inequalityComprison(_ otherVar: String) -> String {
-        return "\(storedProperty()) != \(storedProperty(in: otherVar))"
-    }
-
-    func generateStorageClone(printer p: inout CodePrinter) {
-        p.print("\(swiftStorageName) = source.\(swiftStorageName)\n")
-    }
-
-    var requiredFieldMissingComparision: String? {
-        guard label == .required else { return nil }
-        return "\(storedProperty()) == nil"
-    }
-
-    var isInitializedComparison: String? {
-        guard isGroupOrMessage && messageType.hasRequiredFields() else {
-            return nil
-        }
-        if isRepeated {  // Map or Array
-          return "!SwiftProtobuf.Internal.areAllInitialized(\(storedProperty()))"
-        } else {
-          return "let v = \(storedProperty()), !v.isInitialized"
-        }
     }
 }
