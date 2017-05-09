@@ -20,6 +20,10 @@ extension FileDescriptor {
   var hasPrimativeFieldPresence: Bool {
     return syntax == .proto2
   }
+
+  var isBundledProto: Bool {
+    return SwiftProtobufInfo.isBundledProto(file: proto)
+  }
 }
 
 extension Descriptor {
