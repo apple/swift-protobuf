@@ -23,6 +23,13 @@ extension FileDescriptor {
 }
 
 extension Descriptor {
+  /// Returns True if this is the Any WKT
+  var isAnyMessage: Bool {
+    return (file.syntax == .proto3 &&
+      fullName == ".google.protobuf.Any" &&
+      file.name == "google/protobuf/any.proto")
+  }
+
   /// Returns True if this message recurisvely contains a required field.
   /// This is a helper for generating isInitialized methods.
   ///
@@ -63,6 +70,28 @@ extension Descriptor {
     }
 
     return hasRequiredFieldsInner(self)
+  }
+
+  /// A `String` containing a comma-delimited list of Swift range expressions
+  /// covering the extension ranges for this message.
+  ///
+  /// This expression list is suitable as a pattern match in a `case`
+  /// statement. For example, `"case 5..<10, 20..<30:"`.
+  var swiftExtensionRangeExpressions: String {
+    return extensionRanges.lazy.map {
+      $0.swiftRangeExpression
+      }.joined(separator: ", ")
+  }
+
+  /// A `String` containing a Swift Boolean expression that tests if the given
+  /// variable is in any of the extension ranges for this message.
+  ///
+  /// - Parameter variable: The name of the variable to test in the expression.
+  /// - Returns: A `String` containing the Boolean expression.
+  func swiftExtensionRangeBooleanExpression(variable: String) -> String {
+    return extensionRanges.lazy.map {
+      "(\($0.swiftBooleanExpression(variable: variable)))"
+      }.joined(separator: " || ")
   }
 }
 

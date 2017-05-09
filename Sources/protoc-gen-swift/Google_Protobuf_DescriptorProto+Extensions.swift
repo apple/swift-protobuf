@@ -18,36 +18,6 @@ import PluginLibrary
 import SwiftProtobuf
 
 extension Google_Protobuf_DescriptorProto {
-  // Field numbers used to collect .proto file comments.
-  struct FieldNumbers {
-    static let field: Int32 = 2
-    static let nestedType: Int32 = 3
-    static let enumType: Int32 = 4
-    static let `extension`: Int32 = 6
-    static let oneofDecl: Int32 = 8
-  }
-
-  /// A `String` containing a comma-delimited list of Swift range expressions
-  /// covering the extension ranges for this message.
-  ///
-  /// This expression list is suitable as a pattern match in a `case`
-  /// statement. For example, `"case 5..<10, 20..<30:"`.
-  var swiftExtensionRangeExpressions: String {
-    return extensionRange.lazy.map {
-      $0.swiftRangeExpression
-    }.joined(separator: ", ")
-  }
-
-  /// A `String` containing a Swift Boolean expression that tests if the given
-  /// variable is in any of the extension ranges for this message.
-  ///
-  /// - Parameter variable: The name of the variable to test in the expression.
-  /// - Returns: A `String` containing the Boolean expression.
-  func swiftExtensionRangeBooleanExpression(variable: String) -> String {
-    return extensionRange.lazy.map {
-      "(\($0.swiftBooleanExpression(variable: variable)))"
-    }.joined(separator: " || ")
-  }
 
   func getMessageForPath(path: String, parentPath: String) -> Google_Protobuf_DescriptorProto? {
     for m in nestedType {

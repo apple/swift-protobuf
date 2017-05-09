@@ -276,8 +276,10 @@ struct MessageFieldGenerator {
     private let fieldDescriptor: FieldDescriptor
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
+    private let usesHeapStorage: Bool
 
     var descriptor: Google_Protobuf_FieldDescriptorProto { return fieldDescriptor.proto }
+    var oneofIndex: Int32? { return fieldDescriptor.oneofIndex }
     let oneof: Google_Protobuf_OneofDescriptorProto?
     let jsonName: String?
     let hasFieldPresence: Bool
@@ -299,11 +301,13 @@ struct MessageFieldGenerator {
     init(descriptor: FieldDescriptor,
          generatorOptions: GeneratorOptions,
          namer: SwiftProtobufNamer,
-         context: Context)
+         context: Context,
+         usesHeapStorage: Bool)
     {
         self.fieldDescriptor = descriptor
         self.generatorOptions = generatorOptions
         self.namer = namer
+        self.usesHeapStorage = usesHeapStorage
 
         self.jsonName = descriptor.proto.jsonName
         hasFieldPresence = descriptor.hasFieldPresence
@@ -465,7 +469,7 @@ struct MessageFieldGenerator {
         p.print("}\n")
     }
 
-    func generateHasProperty(printer p: inout CodePrinter, usesHeapStorage: Bool) {
+    func generateHasProperty(printer p: inout CodePrinter) {
         guard hasFieldPresence else { return }
 
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
@@ -474,7 +478,7 @@ struct MessageFieldGenerator {
             "\(generatorOptions.visibilitySourceSnippet)var \(swiftHasName): Bool {return \(storagePrefix)\(swiftStorageName) != nil}\n")
     }
 
-    func generateClearMethod(printer p: inout CodePrinter, usesHeapStorage: Bool) {
+    func generateClearMethod(printer p: inout CodePrinter) {
         guard hasFieldPresence else { return }
 
         let storagePrefix = usesHeapStorage ? "_storage." : "self."
@@ -483,9 +487,9 @@ struct MessageFieldGenerator {
             "\(generatorOptions.visibilitySourceSnippet)mutating func \(swiftClearName)() {\(storagePrefix)\(swiftStorageName) = nil}\n")
     }
 
-    func generateDecodeFieldCase(printer p: inout CodePrinter, usesStorage: Bool) {
+    func generateDecodeFieldCase(printer p: inout CodePrinter) {
         let prefix: String
-        if usesStorage {
+        if usesHeapStorage {
             prefix = "_storage._"
         } else if !isRepeated && !isMap && !isProto3 {
             prefix = "self._"
@@ -523,9 +527,9 @@ struct MessageFieldGenerator {
         p.print("case \(number): try decoder.\(decoderMethod)(\(traitsArg)\(separator)\(valueArg))\n")
     }
 
-    func generateTraverse(printer p: inout CodePrinter, usesStorage: Bool) {
+    func generateTraverse(printer p: inout CodePrinter) {
         let prefix: String
-        if usesStorage {
+        if usesHeapStorage {
             prefix = "_storage._"
         } else if !isRepeated && !isMap && !isProto3 {
             prefix = "self._"
@@ -584,5 +588,39 @@ struct MessageFieldGenerator {
         p.print("try visitor.\(visitMethod)(\(fieldTypeArg)value: \(varName), fieldNumber: \(number))\n")
         p.outdent()
         p.print("}\n")
+    }
+
+    private func storedProperty(in variable: String = "") -> String {
+      if usesHeapStorage {
+        return "\(variable)_storage.\(swiftStorageName)"
+      }
+      let prefix = variable.isEmpty ? "self." : "\(variable)."
+      if isRepeated || isMap {
+        return "\(prefix)\(swiftName)"
+      }
+      if !isProto3 {
+        return "\(prefix)\(swiftStorageName)"
+      }
+      return "\(prefix)\(swiftName)"
+    }
+
+    func inequalityComprison(_ otherVar: String) -> String {
+        return "\(storedProperty()) != \(storedProperty(in: otherVar))"
+    }
+
+    var requiredFieldMissingComparision: String? {
+        guard label == .required else { return nil }
+        return "\(storedProperty()) == nil"
+    }
+
+    var isInitializedComparison: String? {
+        guard isGroupOrMessage && messageType.hasRequiredFields() else {
+            return nil
+        }
+        if isRepeated {  // Map or Array
+          return "!SwiftProtobuf.Internal.areAllInitialized(\(storedProperty()))"
+        } else {
+          return "let v = \(storedProperty()), !v.isInitialized"
+        }
     }
 }
