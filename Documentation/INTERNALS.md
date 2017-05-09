@@ -192,10 +192,9 @@ cases:
  * If there are any fields containing a message or group type
  * If there are more than 16 total fields
 
-This logic will doubtless change in the future:
-More extensive testing could help fine-tune the logic for when we put fields
-directly into the struct and when we put them into a storage class.
-There are likely cases where it makes more sense to put some fields directly
+This logic will doubtless change in the future.
+In particular, there are likely cases where it makes more sense
+to put some fields directly
 into the struct and others into the storage class, but the current
 implementation will put all fields into the storage class if it decides
 to use a storage class.
@@ -250,7 +249,7 @@ message Foo {
 ```
 
 This generates a storage class, of course.
-The storage class and the generated `traverse()` looks like this:
+The storage class and the generated `traverse()` look like this:
 
 ```swift
   private class _StorageClass {
@@ -296,6 +295,9 @@ The storage class and the generated `traverse()` looks like this:
 
 Note that the visitors are generally structs (not classes) that
 are passed as `inout` parameters.
+Also note that the fields are traversed in order of field number;
+this causes some complexity when dealing with extension ranges
+or `oneof` groups.
 
 Since this example is proto3, we only need to visit fields whose value is not the
 default.

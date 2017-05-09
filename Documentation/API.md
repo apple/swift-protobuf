@@ -145,8 +145,12 @@ depending on the particular serialization.
 
 Proto3 enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
 an unrecognized value is parsed from protobuf serialization or from other
-serializations that store integer enum values.  JSON serialization with named
-enum values drops unrecognize names.
+serializations that store integer enum values.
+Proto2 enums lack this extra case.
+On decode, proto2 treat2 unrecognized enum values as if the entire
+field were unknown.
+JSON serialization can store named or numeric enum values.
+Unknown named values are always dropped when deserializing.
 
 ```swift
 public enum MyEnum: SwiftProtobuf.Enum {
@@ -257,8 +261,8 @@ short example:
 ```protobuf
 syntax = "proto2";
 message ExampleProto2 {
-   int32 item_count = 1 [default = 12];
-   string item_label = 2;
+   optional int32 item_count = 1 [default = 12];
+   optional string item_label = 2;
 }
 ```
 
@@ -285,8 +289,8 @@ a field.)
 Message fields generate `has` and `clear` methods as above for both proto2
 and proto3.
 
-**Proto2 groups** act exactly like messages in all respects, except that they cannot be
-directly serialized on their own.
+**Proto2 groups** act exactly like messages in all respects, except that
+they are serialized differently when they appear as a field value.
 
 **Proto `repeated` fields** generate simple properties of type `Array<T>` where
 T is the base type from above.
