@@ -1,31 +1,38 @@
 # Swift Protobuf Conformance Tester
 
-**Welcome to Swift Protobuf!**
+Google's protobuf project includes an extensive "conformance test suite"
+that exercises various encoding and decoding features of protobuf
+implementations to help ensure that they are all interoperable.
 
-Apple's Swift programming language is a perfect complement to Google's Protocol Buffer serialization technology.  They both emphasize high performance and programmer safety.
+SwiftProtobuf currently passes Google's entire conformance test suite.
+We have integrated the conformance test with the SwiftProtobuf test
+suite to help ensure that we remain conformant in the future as well.
 
-Google's protobuf project includes a conformance checking host program that generates a large number of test cases, feeds them to a test program that executes those test cases, then verifies the results.  This project provides the test program for Swift Protobuf that works with Google's conformance checking host to verify that Swift Protobuf is completely compatible with other implementations of Google's protobuf specification.
+## Preparation
 
-## Requirements
-
-This test suite requires Swift 3.0, standard command-line tools such as make and awk, and a full source checkout of [Google's protobuf project](https://github.com/google/protobuf).
+The conformance test suite requires Swift 3.0, standard command-line tools such as make and awk, and a full source checkout of [Google's protobuf project](https://github.com/google/protobuf).
 
 ## Building the Tests
 
-The `Makefile` at the root of this project has the following lines, which specify how to run the installed `protoc` program on your system, and where to find the Google protobuf source tree:
+The `Makefile` at the root of the SwiftProtobuf project has the following lines, which
+specify how to run the installed `protoc` program on your system, and where to find
+the Google protobuf source tree:
 ```Makefile
 PROTOC=protoc
 GOOGLE_PROTOBUF_CHECKOUT=../protobuf
 ```
 
-If these do not match your system, you can run `make [target] PROTOC=[path] GOOGLE_PROTOBUF_CHECKOUT=[path]`, or edit the `Makefile` directly if you prefer.
+If these do not match your system, you can run `make PROTOC=[path] GOOGLE_PROTOBUF_CHECKOUT=[path] [target]`,
+or edit the `Makefile` directly if you prefer.
 
 After setting these variables, you can type:
 ```console
 $ make test-conformance
 ```
 
-which will build Google's conformance host program (which manages the conformance test process) and the Swift Protobuf conformance checker (which executes the individual test cases).
+which will build Google's conformance host program (which manages the
+conformance test process) and the Swift Protobuf conformance checker
+(which executes the individual test cases).
 
 It will then run the test suite and print out any discrepancies found by the tool.
 
@@ -47,7 +54,7 @@ $ ../protobuf/conformance/conformance-test-runner --failure_list failure_list_sw
 
 ## Known Issues
 
-The conformance test may print out a non-zero of "expected failures".  For more details on these, please look at `failure_list_swift.txt` which lists the tests that are expected to fail and includes some explanation.
+At this writing, all of the conformance tests succeed.
 
 ## Report any issues
 

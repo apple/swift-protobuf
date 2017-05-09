@@ -18,7 +18,7 @@
 
 [Apple's Swift programming language](https://swift.org/) is a perfect
 complement to [Google's Protocol
-Buffer](https://developers.google.com/protocol-buffers/) serialization
+Buffer](https://developers.google.com/protocol-buffers/) ("protobuf") serialization
 technology.
 They both emphasize high performance and programmer safety.
 
@@ -32,20 +32,23 @@ files, you will need to add this library to your project.
 
 More information is available in the associated documentation:
 
- * [API.md](Documentation/API.md) documents the API you should use.
-   This is recommended for anyone using SwiftProtobuf in their
-   project.
+ * [Google's protobuf documentation](https://developers.google.com/protocol-buffers/)
+   provides general information about protocol buffers, the protoc compiler,
+   and how to use protocol buffers with C++, Java, and other languages.
  * [PLUGIN.md](Documentation/PLUGIN.md) documents the `protoc-gen-swift`
    plugin that adds Swift support to the `protoc` program
- * [INTERNALS.md](Documentation/INTERNALS.md) documents the structure
-   of the generated code and how it's used by the library.  This
+ * [API.md](Documentation/API.md) documents how to use the generated code.
+   This is recommended reading for anyone using SwiftProtobuf in their
+   project.
+ * [cocoadocs.org](http://cocoadocs.org/docsets/SwiftProtobuf/) has the generated
+   API documentation
+ * [INTERNALS.md](Documentation/INTERNALS.md) documents the internal structure
+   of the generated code and the library.  This
    should only be needed by folks interested in working on SwiftProtobuf
    itself.
  * [STYLE_GUIDELINES.md](Documentation/STYLE_GUIDELINES.md) documents the style
    guidelines we have adopted in our codebase if you are interested in
    contributing
- * [cocoadocs.org](http://cocoadocs.org/docsets/SwiftProtobuf/) has the latest
-   full API documentation
 
 ## Getting Started
 
@@ -54,7 +57,7 @@ simple:  you just need to build the `protoc-gen-swift` program and copy it into
 your PATH.
 The `protoc` program will find and use it automatically, allowing you
 to build Swift sources for your proto files.
-You will also, of course, need to add the Swift runtime library to
+You will also, of course, need to add the SwiftProtobuf runtime library to
 your project.
 
 ### System Requirements
@@ -63,12 +66,14 @@ To use Swift with Protocol buffers, you'll need:
 
 * A recent Swift 3 compiler that includes the Swift Package Manager.  The Swift
 protobuf project is being developed and tested against the release version of
-Swift 3.0 available from [Swift.org](https://swift.org)
+Swift 3 available from [Swift.org](https://swift.org)
 
-* Google's protoc compiler.  The Swift protoc plugin is being actively developed
-and tested against the latest protobuf 3.x sources; in particular, the tests need a version
-of protoc which supports the `swift_prefix` option.  It may work with earlier versions
-of protoc.  You can get recent versions from
+* Google's protoc compiler.  The Swift protoc plugin is being actively
+developed and tested against the latest protobuf 3.x sources.
+The SwiftProtobuf tests need a version of protoc which supports the
+`swift_prefix` option (introduced in protoc 3.2.0).
+It may work with earlier versions of protoc.
+You can get recent versions from
 [Google's github repository](https://github.com/google/protobuf).
 
 ### Build and Install
@@ -96,7 +101,9 @@ $ swift build
 ```
 
 This will create a binary called `protoc-gen-swift` in the `.build/debug`
-directory.  To install, just copy this one executable anywhere in your `PATH`.
+directory.
+To install, just copy this one executable into a directory that is
+part of your `PATH` environment variable.
 
 ### Converting .proto files into Swift
 
@@ -124,7 +131,7 @@ you used to build the plugin above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,24))
+        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,901))
 ]
 ```
 
@@ -134,11 +141,12 @@ If you are using Xcode, then you should:
 
 * Add the `.pb.swift` source files generated from your protos directly to your
   project
-* Add the Protobuf target from the Xcode project in this package to your project.
+* Add the appropriate `SwiftProtobuf_<platform>` target from the Xcode project
+  in this package to your project.
 
 ## Using the library with CocoaPods
 
-If you're using CocoaPods, add this to your `Podfile` but adjust the `:tag` to
+If you're using CocoaPods, add this to your `Podfile` adjusting the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
@@ -197,9 +205,10 @@ and a host of other capabilities:
   method that can dump a full representation of the data
 * Hashable, Equatable:  The generated struct can be put into a `Set<>` or
   `Dictionary<>`
-* Binary serializable:  The `.serializedData()` method returns a `Data` with
-  a compact binary form of your data.  You can deserialize the data using the
-  `init(serializedData:)` initializer.
+* High-performance binary serialization: The `.serializedData()`
+  method returns a `Data` with a compact binary form of your data.
+  You can deserialize the data using the `init(serializedData:)`
+  initializer.
 * JSON serializable:  The `.jsonUTF8Data()` method returns a flexible JSON
   representation of your data that can be parsed with the `init(jsonUTF8Data:)`
   initializer.
@@ -223,7 +232,7 @@ If you run into problems, please send us a detailed report.
 At a minimum, please include:
 
 * The specific operating system and version (for example, "macOS 10.12.1" or
-  "Ubuntu 15.10")
+  "Ubuntu 16.10")
 * The version of Swift you have installed (from `swift --version`)
 * The version of the protoc compiler you are working with from
   `protoc --version`
