@@ -177,11 +177,6 @@ class FileGenerator {
         self.generatorOptions = generatorOptions
     }
 
-    var protoPackageName: String {return fileDescriptor.package}
-    var swiftPrefix: String {return namer.typePrefix(forFile: fileDescriptor)}
-    var isProto3: Bool {return fileDescriptor.syntax == .proto3}
-    private var baseFilename: String {return fileDescriptor.proto.baseFilename}
-
     func generateOutputFile(printer p: inout CodePrinter, context: Context) {
         p.print(
             "/*\n",
@@ -301,7 +296,8 @@ class FileGenerator {
             }
         }
 
-        let needsProtoPackage: Bool = !protoPackageName.isEmpty && !messages.isEmpty
+        let protoPackage = fileDescriptor.package
+        let needsProtoPackage: Bool = !protoPackage.isEmpty && !messages.isEmpty
         if needsProtoPackage || !enums.isEmpty || !messages.isEmpty {
             p.print(
                 "\n",
@@ -309,7 +305,7 @@ class FileGenerator {
             if needsProtoPackage {
                 p.print(
                     "\n",
-                    "fileprivate let _protobuf_package = \"\(protoPackageName)\"\n")
+                    "fileprivate let _protobuf_package = \"\(protoPackage)\"\n")
             }
             for e in enums {
                 e.generateRuntimeSupport(printer: &p)
