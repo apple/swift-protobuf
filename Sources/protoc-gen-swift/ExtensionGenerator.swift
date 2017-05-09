@@ -23,12 +23,10 @@ struct ExtensionGenerator {
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
 
-    /// The fully qualitied name of in Swift for this extension.
-    let swiftFullExtensionName: String
-
     private let comments: String
     private let defaultValue: String
     private let containingTypeSwiftFullName: String
+    private let swiftFullExtensionName: String
 
     private var extensionFieldType: String {
         let label: String
@@ -64,6 +62,10 @@ struct ExtensionGenerator {
         comments = descriptor.protoSourceComments()
         defaultValue = descriptor.swiftDefaultValue(namer: namer)
         containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
+    }
+
+    func register(_ registry: inout [String]) {
+        registry.append(swiftFullExtensionName)
     }
 
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {

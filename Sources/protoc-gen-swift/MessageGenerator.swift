@@ -243,7 +243,7 @@ class MessageGenerator {
 
   func registerExtensions(registry: inout [String]) {
     for e in extensions {
-      registry.append(e.swiftFullExtensionName)
+      e.register(&registry)
     }
     for m in messages {
       m.registerExtensions(registry: &registry)
