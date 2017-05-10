@@ -38,7 +38,7 @@ class OneofGenerator {
     private let fieldsSortedByNumber: [MessageFieldGenerator]
     private let oneofIsContinuousInParent: Bool
     private let swiftRelativeName: String
-    let swiftFullName: String
+    private let swiftFullName: String
     private let comments: String
 
     private var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
@@ -282,6 +282,11 @@ class OneofGenerator {
             "\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
     }
 
+    func generateStorageIvar(printer p: inout CodePrinter) {
+        p.print(
+            "var \(descriptor.swiftStorageFieldName): \(swiftFullName)?\n")
+    }
+
     private func storedProperty(in variable: String = "") -> String {
         if usesHeapStorage {
             return "\(variable)_storage._\(descriptor.swiftFieldName)"
@@ -312,6 +317,10 @@ class OneofGenerator {
 
     func inequalityComprison(_ otherVar: String) -> String {
         return "\(storedProperty()) != \(storedProperty(in: otherVar))"
+    }
+
+    func generateStorageClone(printer p: inout CodePrinter) {
+        p.print("\(descriptor.swiftStorageFieldName) = source.\(descriptor.swiftStorageFieldName)\n")
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter) {

@@ -87,12 +87,10 @@ class MessageGenerator {
 
     if isAnyMessage {
       storage = AnyMessageStorageClassGenerator(
-        descriptor: descriptor,
         fields: fields,
         oneofs: oneofs)
     } else if useHeapStorage {
       storage = MessageStorageClassGenerator(
-        descriptor: descriptor,
         fields: fields,
         oneofs: oneofs)
     } else {
