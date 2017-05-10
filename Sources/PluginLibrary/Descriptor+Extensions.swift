@@ -14,52 +14,52 @@ import SwiftProtobuf
 extension FileDescriptor: ProvidesSourceCodeLocation {
   public var sourceCodeInfoLocation: Google_Protobuf_SourceCodeInfo.Location? {
     // google/protobuf's descriptor.cc says it should be an empty path.
-    return sourceCodeInfoLocation(path: IndexPath())
+    return sourceCodeInfoLocation(path: [])
   }
 }
 
 extension Descriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.nestedType)
     } else {
       path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.messageType)
     }
-    path.append(index)
+    path.append(Int32(index))
   }
 }
 
 extension EnumDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     if let containingType = containingType {
       containingType.getLocationPath(path: &path)
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.enumType)
     } else {
       path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.enumType)
     }
-    path.append(index)
+    path.append(Int32(index))
   }
 }
 
 extension EnumValueDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     enumType.getLocationPath(path: &path)
     path.append(Google_Protobuf_EnumDescriptorProto.FieldNumbers.value)
-    path.append(index)
+    path.append(Int32(index))
   }
 }
 
 extension OneofDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     containingType.getLocationPath(path: &path)
     path.append(Google_Protobuf_DescriptorProto.FieldNumbers.oneofDecl)
-    path.append(index)
+    path.append(Int32(index))
   }
 }
 
 extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     if isExtension {
       if let extensionScope = extensionScope {
         extensionScope.getLocationPath(path: &path)
@@ -71,7 +71,7 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
       containingType.getLocationPath(path: &path)
       path.append(Google_Protobuf_DescriptorProto.FieldNumbers.field)
     }
-    path.append(index)
+    path.append(Int32(index))
   }
 
   /// Helper to return the name to as the "base" for naming of generated fields.
@@ -85,16 +85,16 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 }
 
 extension ServiceDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     path.append(Google_Protobuf_FileDescriptorProto.FieldNumbers.service)
-    path.append(index)
+    path.append(Int32(index))
   }
 }
 
 extension MethodDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
-  public func getLocationPath(path: inout IndexPath) {
+  public func getLocationPath(path: inout [Int32]) {
     service.getLocationPath(path: &path)
     path.append(Google_Protobuf_ServiceDescriptorProto.FieldNumbers.method)
-    path.append(index)
+    path.append(Int32(index))
   }
 }

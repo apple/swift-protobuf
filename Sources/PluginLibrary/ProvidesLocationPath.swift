@@ -11,6 +11,6 @@
 import Foundation
 
 public protocol ProvidesLocationPath {
-  func getLocationPath(path: inout IndexPath)
+  func getLocationPath(path: inout [Int32])
   weak var file: FileDescriptor! { get }
 }
