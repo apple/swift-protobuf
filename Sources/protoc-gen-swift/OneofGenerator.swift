@@ -23,9 +23,6 @@ extension Google_Protobuf_OneofDescriptorProto {
     var swiftStorageFieldName: String {
         return "_" + toLowerCamelCase(name)
     }
-    var swiftRelativeType: String {
-        return "OneOf_" + toUpperCamelCase(name)
-    }
 }
 
 class OneofGenerator {
@@ -38,10 +35,10 @@ class OneofGenerator {
     private let fieldsSortedByNumber: [MessageFieldGenerator]
     private let oneofIsContinuousInParent: Bool
     private let swiftRelativeName: String
-    let swiftFullName: String
+    private let swiftFullName: String
     private let comments: String
 
-    private var descriptor: Google_Protobuf_OneofDescriptorProto { return oneofDescriptor.proto }
+    private let swiftFieldName: String
 
     /// Returns a Swift pattern (or list of patterns) suitable for a `case`
     /// statement that matches any of the field numbers corresponding to the
@@ -87,6 +84,8 @@ class OneofGenerator {
 
         swiftRelativeName = namer.relativeName(oneof: descriptor)
         swiftFullName = namer.fullName(oneof: descriptor)
+
+        swiftFieldName = namer.messagePropertyName(oneof: descriptor)
 
         let first = fieldsSortedByNumber.first!.number
         let last = fieldsSortedByNumber.last!.number
@@ -266,11 +265,11 @@ class OneofGenerator {
         p.print(
             "\n",
             comments,
-            "\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftRelativeName)? {\n")
+            "\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(swiftRelativeName)? {\n")
         p.indent()
         p.print(
-            "get {return _storage.\(descriptor.swiftStorageFieldName)}\n",
-            "set {_uniqueStorage().\(descriptor.swiftStorageFieldName) = newValue}\n")
+            "get {return _storage._\(swiftFieldName)}\n",
+            "set {_uniqueStorage()._\(swiftFieldName) = newValue}\n")
         p.outdent()
         p.print("}\n")
     }
@@ -279,15 +278,20 @@ class OneofGenerator {
         p.print(
             "\n",
             comments,
-            "\(generatorOptions.visibilitySourceSnippet)var \(descriptor.swiftFieldName): \(swiftFullName)? = nil\n")
+            "\(generatorOptions.visibilitySourceSnippet)var \(swiftFieldName): \(swiftFullName)? = nil\n")
+    }
+
+    func generateStorageIvar(printer p: inout CodePrinter) {
+        p.print(
+            "var _\(swiftFieldName): \(swiftFullName)?\n")
     }
 
     private func storedProperty(in variable: String = "") -> String {
         if usesHeapStorage {
-            return "\(variable)_storage._\(descriptor.swiftFieldName)"
+            return "\(variable)_storage._\(swiftFieldName)"
         }
         let prefix = variable.isEmpty ? "self." : "\(variable)."
-        return "\(prefix)\(descriptor.swiftFieldName)"
+        return "\(prefix)\(swiftFieldName)"
     }
 
     func generateDecodeMessage(printer p: inout CodePrinter) {
@@ -312,6 +316,10 @@ class OneofGenerator {
 
     func inequalityComprison(_ otherVar: String) -> String {
         return "\(storedProperty()) != \(storedProperty(in: otherVar))"
+    }
+
+    func generateStorageClone(printer p: inout CodePrinter) {
+        p.print("_\(swiftFieldName) = source._\(swiftFieldName)\n")
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter) {

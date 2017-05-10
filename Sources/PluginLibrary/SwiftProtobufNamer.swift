@@ -151,6 +151,12 @@ public final class SwiftProtobufNamer {
     return MessageFieldNames(value: fieldName, has: hasName, clear: clearName)
   }
 
+  /// Calculate the name to use for the Swift field on the message.
+  public func messagePropertyName(oneof: OneofDescriptor) -> String {
+    let lowerName = NamingUtils.toLowerCamelCase(oneof.name)
+    return NamingUtils.sanitize(fieldName: lowerName)
+  }
+
   public typealias MessageExtensionNames = (value: String, has: String, clear: String)
 
   /// Calculate the names to use for the Swift Extension on the extended

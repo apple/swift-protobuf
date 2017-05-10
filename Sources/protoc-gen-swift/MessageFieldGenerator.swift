@@ -434,6 +434,12 @@ struct MessageFieldGenerator {
         }
     }
 
+    func generateStorageIvar(printer p: inout CodePrinter) {
+        if oneof == nil {
+            p.print("var \(swiftStorageName): \(swiftStorageType) = \(swiftStorageDefaultValue)\n")
+        }
+    }
+
     func generateProxyIvar(printer p: inout CodePrinter) {
         p.print(
             "\n",
@@ -606,6 +612,10 @@ struct MessageFieldGenerator {
 
     func inequalityComprison(_ otherVar: String) -> String {
         return "\(storedProperty()) != \(storedProperty(in: otherVar))"
+    }
+
+    func generateStorageClone(printer p: inout CodePrinter) {
+        p.print("\(swiftStorageName) = source.\(swiftStorageName)\n")
     }
 
     var requiredFieldMissingComparision: String? {

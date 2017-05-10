@@ -20,16 +20,13 @@ import SwiftProtobuf
 /// Generates the `_StorageClass` used for messages that employ copy-on-write
 /// logic for some of their fields.
 class MessageStorageClassGenerator {
-  private let descriptor: Descriptor
   private let fields: [MessageFieldGenerator]
   private let oneofs: [OneofGenerator]
 
   /// Creates a new `MessageStorageClassGenerator`.
-  init(descriptor: Descriptor,
-       fields: [MessageFieldGenerator],
+  init(fields: [MessageFieldGenerator],
        oneofs: [OneofGenerator]
     ) {
-    self.descriptor = descriptor
     self.fields = fields
     self.oneofs = oneofs
   }
@@ -89,15 +86,13 @@ class MessageStorageClassGenerator {
   private func generateStoredProperties(printer p: inout CodePrinter) {
     var oneofsHandled = Set<Int32>()
     for f in fields {
-      if f.descriptor.hasOneofIndex {
-        let oneofIndex = f.descriptor.oneofIndex
+      if let oneofIndex = f.oneofIndex {
         if !oneofsHandled.contains(oneofIndex) {
-          let oneofFullName = oneofs[Int(oneofIndex)].swiftFullName
-          p.print("var \(f.oneof!.swiftStorageFieldName): \(oneofFullName)?\n")
+          oneofs[Int(oneofIndex)].generateStorageIvar(printer: &p)
           oneofsHandled.insert(oneofIndex)
         }
       } else {
-        p.print("var \(f.swiftStorageName): \(f.swiftStorageType) = \(f.swiftStorageDefaultValue)\n")
+        f.generateStorageIvar(printer: &p)
       }
     }
   }
@@ -111,13 +106,13 @@ class MessageStorageClassGenerator {
 
     var oneofsHandled = Set<Int32>()
     for f in fields {
-      if let o = f.oneof {
-        if !oneofsHandled.contains(f.descriptor.oneofIndex) {
-          p.print("\(o.swiftStorageFieldName) = source.\(o.swiftStorageFieldName)\n")
-          oneofsHandled.insert(f.descriptor.oneofIndex)
+      if let oneofIndex = f.oneofIndex {
+        if !oneofsHandled.contains(oneofIndex) {
+          oneofs[Int(oneofIndex)].generateStorageClone(printer: &p)
+          oneofsHandled.insert(oneofIndex)
         }
       } else {
-        p.print("\(f.swiftStorageName) = source.\(f.swiftStorageName)\n")
+        f.generateStorageClone(printer: &p)
       }
     }
     p.outdent()
