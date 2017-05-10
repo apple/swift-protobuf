@@ -257,13 +257,14 @@ build:
 	@rm Tests/LinuxMain.swift.new
 	${SWIFT} build
 
-# This will get run by any other rule that tries to use the plugin.  This hacks
-# in a check during the library build to ensure that the protoc on the local
-# system is one we expect. This was inspired by the findings that lead to
+# This will get run by any other rule that tries to use the plugin, to
+# ensure that the protoc on the local system is 3.1 or later.
+# For details, see
 #   https://github.com/apple/swift-protobuf/issues/111
-# We want 3.1 or later.
 ${PROTOC_GEN_SWIFT}: build
-	@if [[ ! "$(shell ${PROTOC} --version)" =~ libprotoc\ 3\.[1-9]\.[[:digit:]]+ ]]; then \
+	@if ${PROTOC} --version | grep 'libprotoc\ 3\.[1-9]\.'; then \
+	  true; \
+	else \
 	  echo "===================================================================================="; \
 	  echo "WARNING: Unexpected version of protoc: $(shell ${PROTOC} --version)"; \
 	  echo "WARNING: The JSON support in generated files may not be correct."; \
