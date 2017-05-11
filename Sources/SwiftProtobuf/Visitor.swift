@@ -403,7 +403,6 @@ public protocol Visitor {
   /// implementations.
   mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
-
   /// Called for each map field with primitive values. The method is
   /// called once with the complete dictionary of keys/values for the
   /// field.
