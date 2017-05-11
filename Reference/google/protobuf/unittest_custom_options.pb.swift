@@ -2359,8 +2359,7 @@ extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof {
   }
 
   fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofField(let v):
+    if case .oneofField(let v) = self {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
     }
   }
