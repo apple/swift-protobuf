@@ -262,7 +262,7 @@ build:
 # For details, see
 #   https://github.com/apple/swift-protobuf/issues/111
 ${PROTOC_GEN_SWIFT}: build
-	@if ${PROTOC} --version | grep 'libprotoc\ 3\.[1-9]\.'; then \
+	@if ${PROTOC} --version | grep 'libprotoc\ 3\.[1-9]\.' > /dev/null; then \
 	  true; \
 	else \
 	  echo "===================================================================================="; \
