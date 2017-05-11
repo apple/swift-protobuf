@@ -327,8 +327,9 @@ private func parseBareSInt(
       throw JSONDecodingError.malformedNumber
     }
     if let n = try parseBareUInt(source: source, index: &index, end: end) {
-      if n >= 0x8000000000000000 { // -Int64.min
-        if n > 0x8000000000000000 {
+      let limit: UInt64 = 0x8000000000000000 // -Int64.min
+      if n >= limit {
+        if n > limit {
           // Too large negative number
           throw JSONDecodingError.numberRange
         } else {

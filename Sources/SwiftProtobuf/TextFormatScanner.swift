@@ -507,8 +507,9 @@ internal struct TextFormatScanner {
                 throw TextFormatDecodingError.malformedNumber
             }
             let n = try nextUInt()
-            if n >= 0x8000000000000000 { // -Int64.min
-                if n > 0x8000000000000000 {
+            let limit: UInt64 = 0x8000000000000000 // -Int64.min
+            if n >= limit {
+                if n > limit {
                     // Too large negative number
                     throw TextFormatDecodingError.malformedNumber
                 } else {
