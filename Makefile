@@ -333,7 +333,7 @@ test-runtime: build
 # one at a time instead.
 test-plugin: build ${PROTOC_GEN_SWIFT}
 	@rm -rf _test && mkdir _test
-	for p in `find Protos -type f -name '*.proto'`; do \
+	for p in `find Protos/ -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=_test $$p; \
 	done
 	diff -ru _test Reference
@@ -350,7 +350,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 # one at a time instead.
 reference: build ${PROTOC_GEN_SWIFT}
 	@rm -rf Reference && mkdir Reference
-	for p in `find Protos -type f -name '*.proto'`; do \
+	for p in `find Protos/ -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=Reference $$p; \
 	done
 
