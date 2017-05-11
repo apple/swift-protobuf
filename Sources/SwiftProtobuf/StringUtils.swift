@@ -18,7 +18,19 @@ import Foundation
 // in memory into a String.
 // Returns nil if UTF8 is invalid.
 
-#if os(Linux)
+#if !os(Linux) || swift(>=3.1)
+fileprivate func fastUtf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
+    let s = NSString(bytes: bytes, length: count, encoding: String.Encoding.utf8.rawValue)
+    if let s = s {
+        return String._unconditionallyBridgeFromObjectiveC(s)
+    }
+    return nil
+}
+#endif
+
+#if !os(Linux) || swift(>=3.2)
+// Deliberately empty.  macOS and Linux >=3.2 don't need the slow version.
+#else
 // This is painfully slow but seems to work correctly on every platform.
 // We currently only use it on Linux.  See below.
 fileprivate func slowUtf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
@@ -50,21 +62,27 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
     if count == 0 {
         return String()
     }
-#if os(Linux)
-    // As of March, 2017, the NSString(bytes:length:encoding:)
-    // initializer incorrectly stops at the first zero character for
-    // Linux versions of Swift:
+#if !os(Linux) || swift(>=3.2)
+    // On macOS and Swift Linux >= 3.2, always use a fast
+    // UTF8-to-String conversion:
+    return fastUtf8ToString(bytes: bytes, count: count)
+#else
+#if swift(>=3.1)
+    // On Swift Linux 3.1, the fast conversion incorrectly
+    // stops at the first zero byte:
     //     https://bugs.swift.org/browse/SR-4216
     //
-    // On Linux, test for the presence of a zero byte
-    // and fall back to a much slower conversion in that case:
+    // So we test for the presence of a zero byte
+    // and fall back to a slow conversion in that case:
     if memchr(bytes, 0, count) != nil {
         return slowUtf8ToString(bytes: bytes, count: count)
+    } else {
+        return fastUtf8ToString(bytes: bytes, count: count)
     }
+#else
+    // Linux Swift before 3.1 could not detect broken UTF-8,
+    // so we always use the slow path to get correct error handling:
+    return slowUtf8ToString(bytes: bytes, count: count)
 #endif
-    let s = NSString(bytes: bytes, length: count, encoding: String.Encoding.utf8.rawValue)
-    if let s = s {
-        return String._unconditionallyBridgeFromObjectiveC(s)
-    }
-    return nil
+#endif
 }
