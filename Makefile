@@ -278,7 +278,8 @@ install: build
 	${INSTALL} ${PROTOC_GEN_SWIFT} ${BINDIR}
 
 clean:
-	swift build --clean
+	-swift build --clean
+	-swift package clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT}
 	find . -name '*~' | xargs rm -f
 
