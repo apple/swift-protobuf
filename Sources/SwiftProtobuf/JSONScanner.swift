@@ -91,8 +91,8 @@ private func decodeBytes(base64String s: String) -> Data? {
     switch digit {
     case asciiUpperA...asciiUpperZ: n |= Int(digit - asciiUpperA); bits += 6
     case asciiLowerA...asciiLowerZ:
-      n |= Int(digit - asciiLowerA + 26); bits += 6
-    case asciiZero...asciiNine: n |= Int(digit - asciiZero + 52); bits += 6
+        n |= Int(digit - asciiLowerA + UInt8(26)); bits += 6
+    case asciiZero...asciiNine: n |= Int(digit - asciiZero + UInt8(52)); bits += 6
     case 43: n |= 62; bits += 6
     case 47: n |= 63; bits += 6
     case 61: n |= 0
