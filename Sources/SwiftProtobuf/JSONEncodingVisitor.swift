@@ -281,7 +281,7 @@ internal struct JSONEncodingVisitor: Visitor {
 
 
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+  mutating func visitMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)
@@ -293,7 +293,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+  mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where ValueType.RawValue == Int {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)
@@ -305,7 +305,7 @@ internal struct JSONEncodingVisitor: Visitor {
     encoder.append(text: "}")
   }
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where KeyType.BaseType: Hashable {
+  mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     encoder.append(text: "{")
     var mapVisitor = JSONMapEncodingVisitor(encoder: encoder)

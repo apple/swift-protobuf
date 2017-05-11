@@ -18,22 +18,22 @@ public protocol ExtensibleMessage: Message {
 }
 
 public extension ExtensibleMessage {
-    mutating func setExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>, value: F.ValueType) {
+    mutating func setExtensionValue<F>(ext: MessageExtension<F, Self>, value: F.ValueType) {
         _protobuf_extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
     }
 
-    func getExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>) -> F.ValueType {
+    func getExtensionValue<F>(ext: MessageExtension<F, Self>) -> F.ValueType {
      if let fieldValue = _protobuf_extensionFieldValues[ext.fieldNumber] as? F {
        return fieldValue.value
      }
      return ext.defaultValue
     }
 
-    func hasExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>) -> Bool {
+    func hasExtensionValue<F>(ext: MessageExtension<F, Self>) -> Bool {
       return _protobuf_extensionFieldValues[ext.fieldNumber] is F
     }
 
-    mutating func clearExtensionValue<F: AnyExtensionField>(ext: MessageExtension<F, Self>) {
+    mutating func clearExtensionValue<F>(ext: MessageExtension<F, Self>) {
         _protobuf_extensionFieldValues[ext.fieldNumber] = nil
     }
 }

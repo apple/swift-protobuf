@@ -34,7 +34,7 @@ internal struct HashVisitor: Visitor {
     hashValue = (hashValue ^ hash) &* i_16777619
   }
 
-  private mutating func mixMap<K: Hashable, V: Hashable>(map: Dictionary<K,V>) {
+  private mutating func mixMap<K, V: Hashable>(map: Dictionary<K,V>) {
     var mapHash = 0
     for (k, v) in map {
       // Note: This calculation cannot depend on the order of the items.
@@ -93,31 +93,31 @@ internal struct HashVisitor: Visitor {
     mix(value.hashValue)
   }
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+  mutating func visitMapField<KeyType, ValueType: MapValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) where KeyType.BaseType: Hashable {
+  ) {
     mix(fieldNumber)
     mixMap(map: value)
   }
 
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+  mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) where KeyType.BaseType: Hashable, ValueType.RawValue == Int {
+  ) where ValueType.RawValue == Int {
     mix(fieldNumber)
     mixMap(map: value)
   }
 
 
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(
+  mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) where KeyType.BaseType: Hashable {
+  ) {
     mix(fieldNumber)
     mixMap(map: value)
   }
