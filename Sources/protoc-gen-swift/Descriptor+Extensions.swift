@@ -157,6 +157,31 @@ extension FieldDescriptor {
     return result
   }
 
+  var protoGenericType: String {
+    precondition(!isMap)
+
+    switch type {
+    case .double: return "Double"
+    case .float: return "Float"
+    case .int64: return "Int64"
+    case .uint64: return "UInt64"
+    case .int32: return "Int32"
+    case .fixed64: return "Fixed64"
+    case .fixed32: return "Fixed32"
+    case .bool: return "Bool"
+    case .string: return "String"
+    case .group: return "Group"
+    case .message: return "Message"
+    case .bytes: return "Bytes"
+    case .uint32: return "UInt32"
+    case .enum: return "Enum"
+    case .sfixed32: return "SFixed32"
+    case .sfixed64: return "SFixed64"
+    case .sint32: return "SInt32"
+    case .sint64: return "SInt64"
+    }
+  }
+
   func swiftDefaultValue(namer: SwiftProtobufNamer) -> String {
     if isMap {
       return "[:]"

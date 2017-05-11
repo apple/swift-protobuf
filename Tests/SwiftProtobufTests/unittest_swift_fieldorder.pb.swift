@@ -429,10 +429,12 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 113)
     }
     try self.oConflictField?.traverse(visitor: &visitor, start: 126, end: 127)
+    try self.oConflictExtensionsStart?.traverse(visitor: &visitor, start: 201, end: 202)
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 202, end: 203)
-    try self.oConflictExtensionsStart?.traverse(visitor: &visitor, start: 201, end: 227)
+    try self.oConflictExtensionsStart?.traverse(visitor: &visitor, start: 226, end: 227)
+    try self.oConflictExtensionsEnd?.traverse(visitor: &visitor, start: 301, end: 302)
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 325, end: 326)
-    try self.oConflictExtensionsEnd?.traverse(visitor: &visitor, start: 301, end: 327)
+    try self.oConflictExtensionsEnd?.traverse(visitor: &visitor, start: 326, end: 327)
     try unknownFields.traverse(visitor: &visitor)
   }
 

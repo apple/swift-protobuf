@@ -344,6 +344,11 @@ public final class FieldDescriptor {
     return "\(prefix).\(proto.name)"
   }
 
+  public var jsonName: String? {
+    guard proto.hasJsonName else { return nil }
+    return proto.jsonName
+  }
+
   /// The default value (string) set in the proto file.
   public var explicitDefaultValue: String? {
     if !proto.hasDefaultValue {

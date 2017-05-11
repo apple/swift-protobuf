@@ -18,7 +18,7 @@ import Foundation
 import PluginLibrary
 import SwiftProtobuf
 
-struct ExtensionGenerator {
+class ExtensionGenerator {
     private let fieldDescriptor: FieldDescriptor
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
