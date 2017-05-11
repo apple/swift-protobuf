@@ -1970,7 +1970,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1985,7 +1985,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2001,7 +2001,7 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2017,7 +2017,7 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2032,7 +2032,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -2048,7 +2048,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
@@ -2064,7 +2064,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Debug;
@@ -2079,7 +2079,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
@@ -2094,7 +2094,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = watchos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2110,7 +2110,7 @@
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = watchos;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -2125,7 +2125,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2137,7 +2137,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -2150,7 +2150,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2162,7 +2162,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
-				SWIFT_VERSION = 3.0.1;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
