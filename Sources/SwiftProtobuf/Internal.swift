@@ -40,7 +40,7 @@ public enum Internal {
 
   /// Helper to loop over dictionary with values that are Messages to see if
   /// they are all initialized (see Message.isInitialized for what that means).
-  public static func areAllInitialized<K: Hashable>(_ mapToMessages: [K: Message]) -> Bool {
+  public static func areAllInitialized<K>(_ mapToMessages: [K: Message]) -> Bool {
     for (_, msg) in mapToMessages {
       if !msg.isInitialized {
         return false
