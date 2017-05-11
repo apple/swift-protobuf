@@ -99,7 +99,6 @@ class OneofGenerator {
     private let fieldsSortedByNumber: [MemberFieldGenerator]
     // The fields in number order and group into ranges as they are grouped in the parent.
     private let fieldSortedGrouped: [[MemberFieldGenerator]]
-    private var oneofIsContinuousInParent: Bool { return fieldSortedGrouped.count == 1 }
     private let swiftRelativeName: String
     private let swiftFullName: String
     private let comments: String
@@ -299,32 +298,38 @@ class OneofGenerator {
         p.outdent()
         p.print("}\n")
 
-        // Traverse the current value
-        p.print("\n")
-        if oneofIsContinuousInParent {
-            p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
-        } else {
-            p.print("fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V, start: Int, end: Int) throws {\n")
-        }
-        p.indent()
-        p.print("switch self {\n")
-        for f in fieldsSortedByNumber {
-            p.print("case .\(f.swiftName)(let v):\n")
+        // A Traverse for each group.
+        let hasMultipleGroups = fieldSortedGrouped.count > 1
+        for g in 0..<fieldSortedGrouped.count {
+            p.print("\n")
+            p.print("fileprivate func traverse\(groupName(g))<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
             p.indent()
-            if !oneofIsContinuousInParent {
-                p.print("if start <= \(f.number) && \(f.number) < end {\n")
+            let group = fieldSortedGrouped[g]
+            if group.count == 1 {
+                let f = group.first!
+                p.print("if case .\(f.swiftName)(let v) = self {\n")
                 p.indent()
-            }
-            p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
-            if !oneofIsContinuousInParent {
+                p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
                 p.outdent()
-                p.print("}\n")
+            } else {
+                p.print("switch self {\n")
+                for f in group {
+                    p.print("case .\(f.swiftName)(let v):\n")
+                    p.indent()
+                    p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
+                    p.outdent()
+                }
+                if hasMultipleGroups {
+                    p.print("default:\n")
+                    p.indent()
+                    p.print("break\n")
+                    p.outdent()
+                }
             }
+            p.print("}\n")
             p.outdent()
+            p.print("}\n")
         }
-        p.print("}\n")
-        p.outdent()
-        p.print("}\n")
 
         p.outdent()
         p.print("}\n")
@@ -336,6 +341,23 @@ class OneofGenerator {
         }
         let prefix = variable.isEmpty ? "self." : "\(variable)."
         return "\(prefix)\(swiftFieldName)"
+    }
+
+    private func groupName(_ group: Int) -> String {
+        precondition(group < fieldSortedGrouped.count)
+
+        if fieldSortedGrouped.count == 1 {
+            // One group for the oneof, no names needed.
+            return ""
+        }
+
+        // Name it based on the field number(s).
+        let fieldGroup = fieldSortedGrouped[group]
+        if fieldGroup.count == 1 {
+            return "_\(fieldGroup.first!.number)"
+        } else {
+            return "_\(fieldGroup.first!.number)_\(fieldGroup.last!.number)"
+        }
     }
 
     private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {
@@ -427,13 +449,7 @@ class OneofGenerator {
         let group = fieldSortedGrouped[field.group]
         guard field === group.first else { return }
 
-        if oneofIsContinuousInParent {
-            p.print("try \(storedProperty())?.traverse(visitor: &visitor)\n")
-        } else {
-            let start = group.first!.number
-            let end = group.last!.number + 1
-            p.print("try \(storedProperty())?.traverse(visitor: &visitor, start: \(start), end: \(end))\n")
-        }
+        p.print("try \(storedProperty())?.traverse\(groupName(field.group))(visitor: &visitor)\n")
     }
 
     func generateFieldComparison(printer p: inout CodePrinter, field: MemberFieldGenerator) {
