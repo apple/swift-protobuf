@@ -249,7 +249,7 @@ all: build
 # (Someday, 'swift test' will learn how to auto-discover test cases on Linux,
 # at which time this will no longer be needed.)
 build:
-	@${AWK} -f CollectTests.awk Tests/SwiftProtobufTests/Test_*.swift > Tests/LinuxMain.swift.new
+	@${AWK} -f CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
 		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
 		echo "FYI: Tests/LinuxMain.swift Updated"; \

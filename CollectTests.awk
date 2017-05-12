@@ -38,6 +38,7 @@ BEGIN {
     printf("\n")
     printf("import XCTest\n")
     printf("@testable import SwiftProtobufTests\n")
+    printf("@testable import PluginLibraryTests\n")
     printf("\n")
     printf("private func run_test(test:() -> ()) throws {\n")
     printf("    test()\n")

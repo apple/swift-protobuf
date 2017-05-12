@@ -5,6 +5,7 @@
 
 import XCTest
 @testable import SwiftProtobufTests
+@testable import PluginLibraryTests
 
 private func run_test(test:() -> ()) throws {
     test()
@@ -15,6 +16,44 @@ private func run_test(test:() throws -> ()) throws {
 }
 
 
+
+extension Test_Descriptor {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testParsing", {try run_test(test:($0 as! Test_Descriptor).testParsing)}),
+            ("testLookup", {try run_test(test:($0 as! Test_Descriptor).testLookup)}),
+            ("testParents", {try run_test(test:($0 as! Test_Descriptor).testParents)}),
+            ("testFields", {try run_test(test:($0 as! Test_Descriptor).testFields)}),
+            ("testExtensions", {try run_test(test:($0 as! Test_Descriptor).testExtensions)})
+        ]
+    }
+}
+
+extension Test_NamingUtils {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testTypePrefix", {try run_test(test:($0 as! Test_NamingUtils).testTypePrefix)}),
+            ("testStrip_protoPrefix", {try run_test(test:($0 as! Test_NamingUtils).testStrip_protoPrefix)}),
+            ("testCanStripPrefix", {try run_test(test:($0 as! Test_NamingUtils).testCanStripPrefix)}),
+            ("testSanitize_messageName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_messageName)}),
+            ("testSanitize_enumName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_enumName)}),
+            ("testSanitize_oneofName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_oneofName)}),
+            ("testSanitize_fieldName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_fieldName)}),
+            ("testSanitize_enumCaseName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_enumCaseName)}),
+            ("testSanitize_messageScopedExtensionName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_messageScopedExtensionName)}),
+            ("testToCamelCase", {try run_test(test:($0 as! Test_NamingUtils).testToCamelCase)})
+        ]
+    }
+}
+
+extension Test_SwiftLanguage {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testIsValidSwiftIdentifier", {try run_test(test:($0 as! Test_SwiftLanguage).testIsValidSwiftIdentifier)}),
+            ("testIsNotValidSwiftIdentifier", {try run_test(test:($0 as! Test_SwiftLanguage).testIsNotValidSwiftIdentifier)})
+        ]
+    }
+}
 
 extension Test_AllTypes {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
@@ -361,14 +400,6 @@ extension Test_Conformance {
             ("testRepeatedBoolWrapper", {try run_test(test:($0 as! Test_Conformance).testRepeatedBoolWrapper)}),
             ("testString_badUnicodeEscape", {try run_test(test:($0 as! Test_Conformance).testString_badUnicodeEscape)}),
             ("testString_surrogates", {try run_test(test:($0 as! Test_Conformance).testString_surrogates)})
-        ]
-    }
-}
-
-extension Test_Descriptor {
-    static var allTests: [(String, (XCTestCase) throws -> ())] {
-        return [
-            ("testExists", {try run_test(test:($0 as! Test_Descriptor).testExists)})
         ]
     }
 }
@@ -1121,6 +1152,9 @@ extension Test_Wrappers {
 
 XCTMain(
     [
+        (testCaseClass: Test_Descriptor.self, allTests: Test_Descriptor.allTests),
+        (testCaseClass: Test_NamingUtils.self, allTests: Test_NamingUtils.allTests),
+        (testCaseClass: Test_SwiftLanguage.self, allTests: Test_SwiftLanguage.allTests),
         (testCaseClass: Test_AllTypes.self, allTests: Test_AllTypes.allTests),
         (testCaseClass: Test_AllTypes_Proto3.self, allTests: Test_AllTypes_Proto3.allTests),
         (testCaseClass: Test_Any.self, allTests: Test_Any.allTests),
@@ -1128,7 +1162,6 @@ XCTMain(
         (testCaseClass: Test_BasicFields_Access_Proto2.self, allTests: Test_BasicFields_Access_Proto2.allTests),
         (testCaseClass: Test_BasicFields_Access_Proto3.self, allTests: Test_BasicFields_Access_Proto3.allTests),
         (testCaseClass: Test_Conformance.self, allTests: Test_Conformance.allTests),
-        (testCaseClass: Test_Descriptor.self, allTests: Test_Descriptor.allTests),
         (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
         (testCaseClass: Test_Empty.self, allTests: Test_Empty.allTests),
         (testCaseClass: Test_Enum.self, allTests: Test_Enum.allTests),
