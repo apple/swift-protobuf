@@ -898,7 +898,7 @@ internal struct BinaryDecoder: Decoder {
         return true
     }
 
-    internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
+    internal mutating func decodeMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: inout _ProtobufMap<KeyType, ValueType>.BaseType) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return
         }
@@ -933,7 +933,7 @@ internal struct BinaryDecoder: Decoder {
         consumed = true
     }
 
-    internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
+    internal mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType) throws where ValueType.RawValue == Int {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return
         }
@@ -973,7 +973,7 @@ internal struct BinaryDecoder: Decoder {
         consumed = true
     }
 
-    internal mutating func decodeMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
+    internal mutating func decodeMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType) throws {
         guard fieldWireFormat == WireFormat.lengthDelimited else {
             return
         }

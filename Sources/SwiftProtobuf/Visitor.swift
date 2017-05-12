@@ -403,35 +403,34 @@ public protocol Visitor {
   /// implementations.
   mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws
 
-
   /// Called for each map field with primitive values. The method is
   /// called once with the complete dictionary of keys/values for the
   /// field.
   ///
   /// There is no default implementation.  This must be implemented.
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+  mutating func visitMapField<KeyType, ValueType: MapValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int) throws where KeyType.BaseType: Hashable
+    fieldNumber: Int) throws
 
   /// Called for each map field with enum values. The method is called
   /// once with the complete dictionary of keys/values for the field.
   ///
   /// There is no default implementation.  This must be implemented.
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Enum>(
+  mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int) throws where KeyType.BaseType: Hashable, ValueType.RawValue == Int
+    fieldNumber: Int) throws where ValueType.RawValue == Int
 
   /// Called for each map field with message values. The method is
   /// called once with the complete dictionary of keys/values for the
   /// field.
   ///
   /// There is no default implementation.  This must be implemented.
-  mutating func visitMapField<KeyType: MapKeyType, ValueType: Message & Hashable>(
+  mutating func visitMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
-    fieldNumber: Int) throws where KeyType.BaseType: Hashable
+    fieldNumber: Int) throws
 
   /// Called for each extension range.
   mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws

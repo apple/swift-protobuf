@@ -615,7 +615,7 @@ internal struct JSONDecoder: Decoder {
     throw JSONDecodingError.schemaMismatch
   }
 
-  mutating func decodeMapField<KeyType: MapKeyType, ValueType: MapValueType>(
+  mutating func decodeMapField<KeyType, ValueType: MapValueType>(
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: inout _ProtobufMap<KeyType, ValueType>.BaseType
   ) throws {
@@ -652,7 +652,7 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
-  mutating func decodeMapField<KeyType: MapKeyType, ValueType: Enum>(
+  mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: inout _ProtobufEnumMap<KeyType, ValueType>.BaseType
   ) throws where ValueType.RawValue == Int {
@@ -689,10 +689,7 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
-  mutating func decodeMapField<
-    KeyType: MapKeyType,
-    ValueType: Message & Hashable
-  >(
+  mutating func decodeMapField<KeyType, ValueType>(
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: inout _ProtobufMessageMap<KeyType, ValueType>.BaseType
   ) throws {

@@ -83,13 +83,5 @@ func writeFileData(filename: String, data: [UInt8]) throws {
 }
 
 func readFileData(filename: String) throws -> Data {
-  #if os(Linux)
-    guard let data = NSData(contentsOfFile: filename) else {
-      throw GenerationError.readFailure
-    }
-
-    return data
-  #else
     return try Data(contentsOf:URL(fileURLWithPath: filename))
-  #endif
 }

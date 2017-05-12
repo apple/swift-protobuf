@@ -249,7 +249,7 @@ all: build
 # (Someday, 'swift test' will learn how to auto-discover test cases on Linux,
 # at which time this will no longer be needed.)
 build:
-	@${AWK} -f CollectTests.awk Tests/SwiftProtobufTests/Test_*.swift > Tests/LinuxMain.swift.new
+	@${AWK} -f CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
 		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
 		echo "FYI: Tests/LinuxMain.swift Updated"; \
@@ -278,7 +278,8 @@ install: build
 	${INSTALL} ${PROTOC_GEN_SWIFT} ${BINDIR}
 
 clean:
-	swift build --clean
+	-swift build --clean
+	-swift package clean
 	rm -rf .build _test ${PROTOC_GEN_SWIFT}
 	find . -name '*~' | xargs rm -f
 
@@ -332,7 +333,7 @@ test-runtime: build
 # one at a time instead.
 test-plugin: build ${PROTOC_GEN_SWIFT}
 	@rm -rf _test && mkdir _test
-	for p in `find Protos -type f -name '*.proto'`; do \
+	for p in `find Protos/ -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=_test $$p; \
 	done
 	diff -ru _test Reference
@@ -349,7 +350,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 # one at a time instead.
 reference: build ${PROTOC_GEN_SWIFT}
 	@rm -rf Reference && mkdir Reference
-	for p in `find Protos -type f -name '*.proto'`; do \
+	for p in `find Protos/ -type f -name '*.proto'`; do \
 		${GENERATE_SRCS} --tfiws_out=Reference $$p; \
 	done
 
