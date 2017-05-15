@@ -157,6 +157,20 @@ extension FieldDescriptor {
     return result
   }
 
+  func swiftStorageType(namer: SwiftProtobufNamer) -> String {
+    let swiftType = self.swiftType(namer: namer)
+    switch label {
+    case .repeated:
+      return swiftType
+    case .optional, .required:
+      if hasFieldPresence {
+        return "\(swiftType)?"
+      } else {
+        return swiftType
+      }
+    }
+  }
+
   var protoGenericType: String {
     precondition(!isMap)
 
