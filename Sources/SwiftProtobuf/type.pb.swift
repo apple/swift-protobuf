@@ -163,7 +163,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message {
       if let v = _storage._sourceContext {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       }
-      if _storage._syntax != Google_Protobuf_Syntax.proto2 {
+      if _storage._syntax != .proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 6)
       }
     }
@@ -178,10 +178,10 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Field"
 
   /// The field type.
-  public var kind: Google_Protobuf_Field.Kind = Google_Protobuf_Field.Kind.typeUnknown
+  public var kind: Google_Protobuf_Field.Kind = .typeUnknown
 
   /// The field cardinality.
-  public var cardinality: Google_Protobuf_Field.Cardinality = Google_Protobuf_Field.Cardinality.unknown
+  public var cardinality: Google_Protobuf_Field.Cardinality = .unknown
 
   /// The field number.
   public var number: Int32 = 0
@@ -393,10 +393,10 @@ public struct Google_Protobuf_Field: SwiftProtobuf.Message {
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.kind != Google_Protobuf_Field.Kind.typeUnknown {
+    if self.kind != .typeUnknown {
       try visitor.visitSingularEnumField(value: self.kind, fieldNumber: 1)
     }
-    if self.cardinality != Google_Protobuf_Field.Cardinality.unknown {
+    if self.cardinality != .unknown {
       try visitor.visitSingularEnumField(value: self.cardinality, fieldNumber: 2)
     }
     if self.number != 0 {
@@ -499,7 +499,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
       if let v = _storage._sourceContext {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
       }
-      if _storage._syntax != Google_Protobuf_Syntax.proto2 {
+      if _storage._syntax != .proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 5)
       }
     }
@@ -637,7 +637,7 @@ extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftP
     var _oneofs: [String] = []
     var _options: [Google_Protobuf_Option] = []
     var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+    var _syntax: Google_Protobuf_Syntax = .proto2
 
     init() {}
 
@@ -753,7 +753,7 @@ extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftP
     var _enumvalue: [Google_Protobuf_EnumValue] = []
     var _options: [Google_Protobuf_Option] = []
     var _sourceContext: Google_Protobuf_SourceContext? = nil
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+    var _syntax: Google_Protobuf_Syntax = .proto2
 
     init() {}
 

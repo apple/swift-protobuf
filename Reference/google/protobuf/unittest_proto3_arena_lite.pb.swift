@@ -591,10 +591,10 @@ struct Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf.Message {
       if let v = _storage._optionalImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
       }
-      if _storage._optionalNestedEnum != Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.zero {
+      if _storage._optionalNestedEnum != .zero {
         try visitor.visitSingularEnumField(value: _storage._optionalNestedEnum, fieldNumber: 21)
       }
-      if _storage._optionalForeignEnum != Proto3ArenaLiteUnittest_ForeignEnum.foreignZero {
+      if _storage._optionalForeignEnum != .foreignZero {
         try visitor.visitSingularEnumField(value: _storage._optionalForeignEnum, fieldNumber: 22)
       }
       if !_storage._optionalStringPiece.isEmpty {
@@ -1082,8 +1082,8 @@ extension Proto3ArenaLiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementa
     var _optionalNestedMessage: Proto3ArenaLiteUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto3ArenaLiteUnittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
-    var _optionalNestedEnum: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum = Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum.zero
-    var _optionalForeignEnum: Proto3ArenaLiteUnittest_ForeignEnum = Proto3ArenaLiteUnittest_ForeignEnum.foreignZero
+    var _optionalNestedEnum: Proto3ArenaLiteUnittest_TestAllTypes.NestedEnum = .zero
+    var _optionalForeignEnum: Proto3ArenaLiteUnittest_ForeignEnum = .foreignZero
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil

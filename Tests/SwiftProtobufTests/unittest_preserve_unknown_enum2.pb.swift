@@ -82,7 +82,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
 
   var e: Proto2PreserveUnknownEnumUnittest_MyEnum {
-    get {return _e ?? Proto2PreserveUnknownEnumUnittest_MyEnum.foo}
+    get {return _e ?? .foo}
     set {_e = newValue}
   }
   /// Returns true if `e` has been explicitly set.
@@ -102,7 +102,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   var oneofE1: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE1(let v)? = o {return v}
-      return Proto2PreserveUnknownEnumUnittest_MyEnum.foo
+      return .foo
     }
     set {o = .oneofE1(newValue)}
   }
@@ -110,7 +110,7 @@ struct Proto2PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   var oneofE2: Proto2PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE2(let v)? = o {return v}
-      return Proto2PreserveUnknownEnumUnittest_MyEnum.foo
+      return .foo
     }
     set {o = .oneofE2(newValue)}
   }

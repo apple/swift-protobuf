@@ -114,7 +114,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   }
 
   /// Which format should the testee serialize its message to?
-  var requestedOutputFormat: Conformance_WireFormat = Conformance_WireFormat.unspecified
+  var requestedOutputFormat: Conformance_WireFormat = .unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -156,7 +156,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try self.payload?.traverse(visitor: &visitor)
-    if self.requestedOutputFormat != Conformance_WireFormat.unspecified {
+    if self.requestedOutputFormat != .unspecified {
       try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
     }
     try unknownFields.traverse(visitor: &visitor)

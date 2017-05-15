@@ -1034,7 +1034,7 @@ struct ProtobufUnittest_OldOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".OldOptionType"
 
   var value: ProtobufUnittest_OldOptionType.TestEnum {
-    get {return _value ?? ProtobufUnittest_OldOptionType.TestEnum.oldValue}
+    get {return _value ?? .oldValue}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
@@ -1098,7 +1098,7 @@ struct ProtobufUnittest_NewOptionType: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NewOptionType"
 
   var value: ProtobufUnittest_NewOptionType.TestEnum {
-    get {return _value ?? ProtobufUnittest_NewOptionType.TestEnum.oldValue}
+    get {return _value ?? .oldValue}
     set {_value = newValue}
   }
   /// Returns true if `value` has been explicitly set.
@@ -1320,7 +1320,7 @@ extension Google_Protobuf_ServiceOptions {
 
 extension Google_Protobuf_MethodOptions {
   var ProtobufUnittest_methodOpt1: ProtobufUnittest_MethodOpt1 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_method_opt1) ?? ProtobufUnittest_MethodOpt1.val1}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_method_opt1) ?? .val1}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_method_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_method_opt1`
@@ -1592,7 +1592,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_enumOpt: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt) ?? ProtobufUnittest_DummyMessageContainingEnum.TestEnumType.testOptionEnumType1}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt) ?? .testOptionEnumType1}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_enum_opt`
@@ -2070,7 +2070,7 @@ let ProtobufUnittest_Extensions_service_opt1 = SwiftProtobuf.MessageExtension<Op
 let ProtobufUnittest_Extensions_method_opt1 = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_MethodOpt1>, Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 7890860,
   fieldName: "protobuf_unittest.method_opt1",
-  defaultValue: ProtobufUnittest_MethodOpt1.val1
+  defaultValue: .val1
 )
 
 let ProtobufUnittest_Extensions_bool_opt = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufBool>, Google_Protobuf_MessageOptions>(
@@ -2166,7 +2166,7 @@ let ProtobufUnittest_Extensions_bytes_opt = SwiftProtobuf.MessageExtension<Optio
 let ProtobufUnittest_Extensions_enum_opt = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_DummyMessageContainingEnum.TestEnumType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673233,
   fieldName: "protobuf_unittest.enum_opt",
-  defaultValue: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType.testOptionEnumType1
+  defaultValue: .testOptionEnumType1
 )
 
 let ProtobufUnittest_Extensions_message_type_opt = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_DummyMessageInvalidAsOptionType>, Google_Protobuf_MessageOptions>(

@@ -364,7 +364,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
   var oneofEnum: ProtobufUnittest_Message3.Enum {
     get {
       if case .oneofEnum(let v)? = _storage._o {return v}
-      return ProtobufUnittest_Message3.Enum.foo
+      return .foo
     }
     set {_uniqueStorage()._o = .oneofEnum(newValue)}
   }
@@ -666,7 +666,7 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
       if let v = _storage._optionalMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
       }
-      if _storage._optionalEnum != ProtobufUnittest_Message3.Enum.foo {
+      if _storage._optionalEnum != .foo {
         try visitor.visitSingularEnumField(value: _storage._optionalEnum, fieldNumber: 19)
       }
       if !_storage._repeatedInt32.isEmpty {
@@ -938,7 +938,7 @@ extension ProtobufUnittest_Message3: SwiftProtobuf._MessageImplementationBase, S
     var _optionalString: String = String()
     var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _optionalMessage: ProtobufUnittest_Message3? = nil
-    var _optionalEnum: ProtobufUnittest_Message3.Enum = ProtobufUnittest_Message3.Enum.foo
+    var _optionalEnum: ProtobufUnittest_Message3.Enum = .foo
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []

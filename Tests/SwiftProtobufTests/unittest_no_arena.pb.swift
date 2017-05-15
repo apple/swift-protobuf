@@ -264,7 +264,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearOptionalImportMessage() {_storage._optionalImportMessage = nil}
 
   var optionalNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum {
-    get {return _storage._optionalNestedEnum ?? ProtobufUnittestNoArena_TestAllTypes.NestedEnum.foo}
+    get {return _storage._optionalNestedEnum ?? .foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
   /// Returns true if `optionalNestedEnum` has been explicitly set.
@@ -273,7 +273,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearOptionalNestedEnum() {_storage._optionalNestedEnum = nil}
 
   var optionalForeignEnum: ProtobufUnittestNoArena_ForeignEnum {
-    get {return _storage._optionalForeignEnum ?? ProtobufUnittestNoArena_ForeignEnum.foreignFoo}
+    get {return _storage._optionalForeignEnum ?? .foreignFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
   /// Returns true if `optionalForeignEnum` has been explicitly set.
@@ -282,7 +282,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearOptionalForeignEnum() {_storage._optionalForeignEnum = nil}
 
   var optionalImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._optionalImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
+    get {return _storage._optionalImportEnum ?? .importFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
   /// Returns true if `optionalImportEnum` has been explicitly set.
@@ -590,7 +590,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearDefaultBytes() {_storage._defaultBytes = nil}
 
   var defaultNestedEnum: ProtobufUnittestNoArena_TestAllTypes.NestedEnum {
-    get {return _storage._defaultNestedEnum ?? ProtobufUnittestNoArena_TestAllTypes.NestedEnum.bar}
+    get {return _storage._defaultNestedEnum ?? .bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
   /// Returns true if `defaultNestedEnum` has been explicitly set.
@@ -599,7 +599,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearDefaultNestedEnum() {_storage._defaultNestedEnum = nil}
 
   var defaultForeignEnum: ProtobufUnittestNoArena_ForeignEnum {
-    get {return _storage._defaultForeignEnum ?? ProtobufUnittestNoArena_ForeignEnum.foreignBar}
+    get {return _storage._defaultForeignEnum ?? .foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
   /// Returns true if `defaultForeignEnum` has been explicitly set.
@@ -608,7 +608,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearDefaultForeignEnum() {_storage._defaultForeignEnum = nil}
 
   var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
+    get {return _storage._defaultImportEnum ?? .importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
   /// Returns true if `defaultImportEnum` has been explicitly set.

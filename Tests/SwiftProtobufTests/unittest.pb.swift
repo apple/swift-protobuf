@@ -336,7 +336,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearOptionalImportMessage() {_storage._optionalImportMessage = nil}
 
   var optionalNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum {
-    get {return _storage._optionalNestedEnum ?? ProtobufUnittest_TestAllTypes.NestedEnum.foo}
+    get {return _storage._optionalNestedEnum ?? .foo}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
   /// Returns true if `optionalNestedEnum` has been explicitly set.
@@ -345,7 +345,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearOptionalNestedEnum() {_storage._optionalNestedEnum = nil}
 
   var optionalForeignEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._optionalForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo}
+    get {return _storage._optionalForeignEnum ?? .foreignFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
   /// Returns true if `optionalForeignEnum` has been explicitly set.
@@ -354,7 +354,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearOptionalForeignEnum() {_storage._optionalForeignEnum = nil}
 
   var optionalImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._optionalImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
+    get {return _storage._optionalImportEnum ?? .importFoo}
     set {_uniqueStorage()._optionalImportEnum = newValue}
   }
   /// Returns true if `optionalImportEnum` has been explicitly set.
@@ -662,7 +662,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearDefaultBytes() {_storage._defaultBytes = nil}
 
   var defaultNestedEnum: ProtobufUnittest_TestAllTypes.NestedEnum {
-    get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllTypes.NestedEnum.bar}
+    get {return _storage._defaultNestedEnum ?? .bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
   /// Returns true if `defaultNestedEnum` has been explicitly set.
@@ -671,7 +671,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearDefaultNestedEnum() {_storage._defaultNestedEnum = nil}
 
   var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar}
+    get {return _storage._defaultForeignEnum ?? .foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
   /// Returns true if `defaultForeignEnum` has been explicitly set.
@@ -680,7 +680,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
   mutating func clearDefaultForeignEnum() {_storage._defaultForeignEnum = nil}
 
   var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
+    get {return _storage._defaultImportEnum ?? .importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
   /// Returns true if `defaultImportEnum` has been explicitly set.
@@ -2695,7 +2695,7 @@ struct ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf.Message {
   mutating func clearStringField() {_storage._stringField = nil}
 
   var enumField: ProtobufUnittest_ForeignEnum {
-    get {return _storage._enumField ?? ProtobufUnittest_ForeignEnum.foreignFoo}
+    get {return _storage._enumField ?? .foreignFoo}
     set {_uniqueStorage()._enumField = newValue}
   }
   /// Returns true if `enumField` has been explicitly set.
@@ -3369,7 +3369,7 @@ struct ProtobufUnittest_SparseEnumMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SparseEnumMessage"
 
   var sparseEnum: ProtobufUnittest_TestSparseEnum {
-    get {return _sparseEnum ?? ProtobufUnittest_TestSparseEnum.sparseA}
+    get {return _sparseEnum ?? .sparseA}
     set {_sparseEnum = newValue}
   }
   /// Returns true if `sparseEnum` has been explicitly set.
@@ -4015,7 +4015,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
   var fooEnum: ProtobufUnittest_TestOneof2.NestedEnum {
     get {
       if case .fooEnum(let v)? = _storage._foo {return v}
-      return ProtobufUnittest_TestOneof2.NestedEnum.foo
+      return .foo
     }
     set {_uniqueStorage()._foo = .fooEnum(newValue)}
   }
@@ -4092,7 +4092,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
   var barEnum: ProtobufUnittest_TestOneof2.NestedEnum {
     get {
       if case .barEnum(let v)? = _storage._bar {return v}
-      return ProtobufUnittest_TestOneof2.NestedEnum.bar
+      return .bar
     }
     set {_uniqueStorage()._bar = .barEnum(newValue)}
   }
@@ -4732,7 +4732,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
   mutating func clearScalarExtension() {_storage._scalarExtension = nil}
 
   var enumExtension: ProtobufUnittest_ForeignEnum {
-    get {return _storage._enumExtension ?? ProtobufUnittest_ForeignEnum.foreignFoo}
+    get {return _storage._enumExtension ?? .foreignFoo}
     set {_uniqueStorage()._enumExtension = newValue}
   }
   /// Returns true if `enumExtension` has been explicitly set.
@@ -4741,7 +4741,7 @@ struct ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf.Message {
   mutating func clearEnumExtension() {_storage._enumExtension = nil}
 
   var dynamicEnumExtension: ProtobufUnittest_TestDynamicExtensions.DynamicEnumType {
-    get {return _storage._dynamicEnumExtension ?? ProtobufUnittest_TestDynamicExtensions.DynamicEnumType.dynamicFoo}
+    get {return _storage._dynamicEnumExtension ?? .dynamicFoo}
     set {_uniqueStorage()._dynamicEnumExtension = newValue}
   }
   /// Returns true if `dynamicEnumExtension` has been explicitly set.
@@ -5556,7 +5556,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
   }
 
   var optionalEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._optionalEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo}
+    get {return _storage._optionalEnum ?? .foreignFoo}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
   /// Returns true if `optionalEnum` has been explicitly set.
@@ -6101,7 +6101,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension) ?? ProtobufUnittest_TestAllTypes.NestedEnum.foo}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension) ?? .foo}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_nested_enum_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_nested_enum_extension`
@@ -6118,7 +6118,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalForeignEnumExtension: ProtobufUnittest_ForeignEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension) ?? ProtobufUnittest_ForeignEnum.foreignFoo}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension) ?? .foreignFoo}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_foreign_enum_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_foreign_enum_extension`
@@ -6135,7 +6135,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_optionalImportEnumExtension: ProtobufUnittestImport_ImportEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension) ?? ProtobufUnittestImport_ImportEnum.importFoo}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension) ?? .importFoo}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_optional_import_enum_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_optional_import_enum_extension`
@@ -6902,7 +6902,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_defaultNestedEnumExtension: ProtobufUnittest_TestAllTypes.NestedEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension) ?? ProtobufUnittest_TestAllTypes.NestedEnum.bar}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension) ?? .bar}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_nested_enum_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_nested_enum_extension`
@@ -6919,7 +6919,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_defaultForeignEnumExtension: ProtobufUnittest_ForeignEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension) ?? ProtobufUnittest_ForeignEnum.foreignBar}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension) ?? .foreignBar}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_foreign_enum_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_foreign_enum_extension`
@@ -6936,7 +6936,7 @@ extension ProtobufUnittest_TestAllExtensions {
 
 extension ProtobufUnittest_TestAllExtensions {
   var ProtobufUnittest_defaultImportEnumExtension: ProtobufUnittestImport_ImportEnum {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension) ?? ProtobufUnittestImport_ImportEnum.importBar}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension) ?? .importBar}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_default_import_enum_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_default_import_enum_extension`
@@ -7924,19 +7924,19 @@ let ProtobufUnittest_Extensions_optional_import_message_extension = SwiftProtobu
 let ProtobufUnittest_Extensions_optional_nested_enum_extension = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_TestAllTypes.NestedEnum>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 21,
   fieldName: "protobuf_unittest.optional_nested_enum_extension",
-  defaultValue: ProtobufUnittest_TestAllTypes.NestedEnum.foo
+  defaultValue: .foo
 )
 
 let ProtobufUnittest_Extensions_optional_foreign_enum_extension = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_ForeignEnum>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 22,
   fieldName: "protobuf_unittest.optional_foreign_enum_extension",
-  defaultValue: ProtobufUnittest_ForeignEnum.foreignFoo
+  defaultValue: .foreignFoo
 )
 
 let ProtobufUnittest_Extensions_optional_import_enum_extension = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittestImport_ImportEnum>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 23,
   fieldName: "protobuf_unittest.optional_import_enum_extension",
-  defaultValue: ProtobufUnittestImport_ImportEnum.importFoo
+  defaultValue: .importFoo
 )
 
 let ProtobufUnittest_Extensions_optional_string_piece_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(
@@ -8208,19 +8208,19 @@ let ProtobufUnittest_Extensions_default_bytes_extension = SwiftProtobuf.MessageE
 let ProtobufUnittest_Extensions_default_nested_enum_extension = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_TestAllTypes.NestedEnum>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 81,
   fieldName: "protobuf_unittest.default_nested_enum_extension",
-  defaultValue: ProtobufUnittest_TestAllTypes.NestedEnum.bar
+  defaultValue: .bar
 )
 
 let ProtobufUnittest_Extensions_default_foreign_enum_extension = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittest_ForeignEnum>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 82,
   fieldName: "protobuf_unittest.default_foreign_enum_extension",
-  defaultValue: ProtobufUnittest_ForeignEnum.foreignBar
+  defaultValue: .foreignBar
 )
 
 let ProtobufUnittest_Extensions_default_import_enum_extension = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<ProtobufUnittestImport_ImportEnum>, ProtobufUnittest_TestAllExtensions>(
   _protobuf_fieldNumber: 83,
   fieldName: "protobuf_unittest.default_import_enum_extension",
-  defaultValue: ProtobufUnittestImport_ImportEnum.importBar
+  defaultValue: .importBar
 )
 
 let ProtobufUnittest_Extensions_default_string_piece_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_TestAllExtensions>(

@@ -117,7 +117,7 @@ enum Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra: SwiftProtobuf.Enum {
 struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessage"
 
-  var e: Proto3PreserveUnknownEnumUnittest_MyEnum = Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+  var e: Proto3PreserveUnknownEnumUnittest_MyEnum = .foo
 
   var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnum] = []
 
@@ -131,7 +131,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE1(let v)? = o {return v}
-      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+      return .foo
     }
     set {o = .oneofE1(newValue)}
   }
@@ -139,7 +139,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnum {
     get {
       if case .oneofE2(let v)? = o {return v}
-      return Proto3PreserveUnknownEnumUnittest_MyEnum.foo
+      return .foo
     }
     set {o = .oneofE2(newValue)}
   }
@@ -179,7 +179,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.e != Proto3PreserveUnknownEnumUnittest_MyEnum.foo {
+    if self.e != .foo {
       try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
     }
     if !self.repeatedE.isEmpty {
@@ -199,7 +199,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
 struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".MyMessagePlusExtra"
 
-  var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+  var e: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra = .eFoo
 
   var repeatedE: [Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra] = []
 
@@ -212,7 +212,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   var oneofE1: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
       if case .oneofE1(let v)? = o {return v}
-      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+      return .eFoo
     }
     set {o = .oneofE1(newValue)}
   }
@@ -220,7 +220,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   var oneofE2: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra {
     get {
       if case .oneofE2(let v)? = o {return v}
-      return Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo
+      return .eFoo
     }
     set {o = .oneofE2(newValue)}
   }
@@ -260,7 +260,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.e != Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra.eFoo {
+    if self.e != .eFoo {
       try visitor.visitSingularEnumField(value: self.e, fieldNumber: 1)
     }
     if !self.repeatedE.isEmpty {
