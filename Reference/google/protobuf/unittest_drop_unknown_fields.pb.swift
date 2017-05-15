@@ -54,7 +54,7 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message {
 
   var int32Value: Int32 = 0
 
-  var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = UnittestDropUnknownFields_Foo.NestedEnum.foo
+  var enumValue: UnittestDropUnknownFields_Foo.NestedEnum = .foo
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -105,7 +105,7 @@ struct UnittestDropUnknownFields_Foo: SwiftProtobuf.Message {
     if self.int32Value != 0 {
       try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
     }
-    if self.enumValue != UnittestDropUnknownFields_Foo.NestedEnum.foo {
+    if self.enumValue != .foo {
       try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -117,7 +117,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
 
   var int32Value: Int32 = 0
 
-  var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo
+  var enumValue: UnittestDropUnknownFields_FooWithExtraFields.NestedEnum = .foo
 
   var extraInt32Value: Int32 = 0
 
@@ -174,7 +174,7 @@ struct UnittestDropUnknownFields_FooWithExtraFields: SwiftProtobuf.Message {
     if self.int32Value != 0 {
       try visitor.visitSingularInt32Field(value: self.int32Value, fieldNumber: 1)
     }
-    if self.enumValue != UnittestDropUnknownFields_FooWithExtraFields.NestedEnum.foo {
+    if self.enumValue != .foo {
       try visitor.visitSingularEnumField(value: self.enumValue, fieldNumber: 2)
     }
     if self.extraInt32Value != 0 {

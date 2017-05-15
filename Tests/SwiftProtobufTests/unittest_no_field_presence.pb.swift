@@ -372,7 +372,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
   var oneofEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum {
     get {
       if case .oneofEnum(let v)? = _storage._oneofField {return v}
-      return Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
+      return .foo
     }
     set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
@@ -573,10 +573,10 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
       if let v = _storage._optionalProto2Message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
       }
-      if _storage._optionalNestedEnum != Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo {
+      if _storage._optionalNestedEnum != .foo {
         try visitor.visitSingularEnumField(value: _storage._optionalNestedEnum, fieldNumber: 21)
       }
-      if _storage._optionalForeignEnum != Proto2NofieldpresenceUnittest_ForeignEnum.foreignFoo {
+      if _storage._optionalForeignEnum != .foreignFoo {
         try visitor.visitSingularEnumField(value: _storage._optionalForeignEnum, fieldNumber: 22)
       }
       if !_storage._optionalStringPiece.isEmpty {
@@ -825,8 +825,8 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf._MessageImpl
     var _optionalNestedMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: Proto2NofieldpresenceUnittest_ForeignMessage? = nil
     var _optionalProto2Message: ProtobufUnittest_TestAllTypes? = nil
-    var _optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum = Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum.foo
-    var _optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum = Proto2NofieldpresenceUnittest_ForeignEnum.foreignFoo
+    var _optionalNestedEnum: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum = .foo
+    var _optionalForeignEnum: Proto2NofieldpresenceUnittest_ForeignEnum = .foreignFoo
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
     var _optionalLazyMessage: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage? = nil

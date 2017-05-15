@@ -133,7 +133,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
   var nullValue: Google_Protobuf_NullValue {
     get {
       if case .nullValue(let v)? = _storage._kind {return v}
-      return Google_Protobuf_NullValue.nullValue
+      return .nullValue
     }
     set {_uniqueStorage()._kind = .nullValue(newValue)}
   }

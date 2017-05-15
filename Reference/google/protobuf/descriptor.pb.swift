@@ -536,7 +536,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   mutating func clearNumber() {_storage._number = nil}
 
   var label: Google_Protobuf_FieldDescriptorProto.Label {
-    get {return _storage._label ?? Google_Protobuf_FieldDescriptorProto.Label.`optional`}
+    get {return _storage._label ?? .optional}
     set {_uniqueStorage()._label = newValue}
   }
   /// Returns true if `label` has been explicitly set.
@@ -547,7 +547,7 @@ struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
   /// If type_name is set, this need not be set.  If both this and type_name
   /// are set, this must be one of TYPE_ENUM, TYPE_MESSAGE or TYPE_GROUP.
   var type: Google_Protobuf_FieldDescriptorProto.TypeEnum {
-    get {return _storage._type ?? Google_Protobuf_FieldDescriptorProto.TypeEnum.double}
+    get {return _storage._type ?? .double}
     set {_uniqueStorage()._type = newValue}
   }
   /// Returns true if `type` has been explicitly set.
@@ -1290,7 +1290,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
   mutating func clearJavaStringCheckUtf8() {_storage._javaStringCheckUtf8 = nil}
 
   var optimizeFor: Google_Protobuf_FileOptions.OptimizeMode {
-    get {return _storage._optimizeFor ?? Google_Protobuf_FileOptions.OptimizeMode.speed}
+    get {return _storage._optimizeFor ?? .speed}
     set {_uniqueStorage()._optimizeFor = newValue}
   }
   /// Returns true if `optimizeFor` has been explicitly set.
@@ -1712,7 +1712,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
   /// options below.  This option is not yet implemented in the open source
   /// release -- sorry, we'll try to include it in a future version!
   var ctype: Google_Protobuf_FieldOptions.CType {
-    get {return _ctype ?? Google_Protobuf_FieldOptions.CType.string}
+    get {return _ctype ?? .string}
     set {_ctype = newValue}
   }
   /// Returns true if `ctype` has been explicitly set.
@@ -1744,7 +1744,7 @@ struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf.Extens
   /// This option is an enum to permit additional types to be added,
   /// e.g. goog.math.Integer.
   var jstype: Google_Protobuf_FieldOptions.JSType {
-    get {return _jstype ?? Google_Protobuf_FieldOptions.JSType.jsNormal}
+    get {return _jstype ?? .jsNormal}
     set {_jstype = newValue}
   }
   /// Returns true if `jstype` has been explicitly set.
@@ -2182,7 +2182,7 @@ struct Google_Protobuf_MethodOptions: SwiftProtobuf.Message, SwiftProtobuf.Exten
   mutating func clearDeprecated() {self._deprecated = nil}
 
   var idempotencyLevel: Google_Protobuf_MethodOptions.IdempotencyLevel {
-    get {return _idempotencyLevel ?? Google_Protobuf_MethodOptions.IdempotencyLevel.idempotencyUnknown}
+    get {return _idempotencyLevel ?? .idempotencyUnknown}
     set {_idempotencyLevel = newValue}
   }
   /// Returns true if `idempotencyLevel` has been explicitly set.

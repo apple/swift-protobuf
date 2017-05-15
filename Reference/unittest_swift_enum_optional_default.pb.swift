@@ -55,7 +55,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
     mutating func clearMessage() {_storage._message = nil}
 
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum {
-      get {return _storage._optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage.Enum.foo}
+      get {return _storage._optionalEnum ?? .foo}
       set {_uniqueStorage()._optionalEnum = newValue}
     }
     /// Returns true if `optionalEnum` has been explicitly set.
@@ -122,7 +122,7 @@ struct ProtobufUnittest_Extend_EnumOptionalDefault: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_Extend_EnumOptionalDefault.protoMessageName + ".NestedMessage2"
 
     var optionalEnum: ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum {
-      get {return _optionalEnum ?? ProtobufUnittest_Extend_EnumOptionalDefault.NestedMessage2.Enum.foo}
+      get {return _optionalEnum ?? .foo}
       set {_optionalEnum = newValue}
     }
     /// Returns true if `optionalEnum` has been explicitly set.

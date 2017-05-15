@@ -493,7 +493,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   var oneofEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum {
     get {
       if case .oneofEnum(let v)? = _storage._oneofField {return v}
-      return ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
+      return .foo
     }
     set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
   }
@@ -1096,10 +1096,10 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
       if let v = _storage._optionalForeignMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)
       }
-      if _storage._optionalNestedEnum != ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo {
+      if _storage._optionalNestedEnum != .foo {
         try visitor.visitSingularEnumField(value: _storage._optionalNestedEnum, fieldNumber: 21)
       }
-      if _storage._optionalForeignEnum != ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo {
+      if _storage._optionalForeignEnum != .foreignFoo {
         try visitor.visitSingularEnumField(value: _storage._optionalForeignEnum, fieldNumber: 22)
       }
       if !_storage._optionalStringPiece.isEmpty {
@@ -1562,8 +1562,8 @@ extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplem
     var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
     var _optionalNestedMessage: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage? = nil
     var _optionalForeignMessage: ProtobufTestMessages_Proto3_ForeignMessage? = nil
-    var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum.foo
-    var _optionalForeignEnum: ProtobufTestMessages_Proto3_ForeignEnum = ProtobufTestMessages_Proto3_ForeignEnum.foreignFoo
+    var _optionalNestedEnum: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum = .foo
+    var _optionalForeignEnum: ProtobufTestMessages_Proto3_ForeignEnum = .foreignFoo
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
     var _recursiveMessage: ProtobufTestMessages_Proto3_TestAllTypes? = nil

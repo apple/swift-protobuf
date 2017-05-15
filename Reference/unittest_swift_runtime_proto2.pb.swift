@@ -205,7 +205,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   mutating func clearOptionalMessage() {_storage._optionalMessage = nil}
 
   var optionalEnum: ProtobufUnittest_Message2.Enum {
-    get {return _storage._optionalEnum ?? ProtobufUnittest_Message2.Enum.foo}
+    get {return _storage._optionalEnum ?? .foo}
     set {_uniqueStorage()._optionalEnum = newValue}
   }
   /// Returns true if `optionalEnum` has been explicitly set.
@@ -447,7 +447,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
   var oneofEnum: ProtobufUnittest_Message2.Enum {
     get {
       if case .oneofEnum(let v)? = _storage._o {return v}
-      return ProtobufUnittest_Message2.Enum.baz
+      return .baz
     }
     set {_uniqueStorage()._o = .oneofEnum(newValue)}
   }

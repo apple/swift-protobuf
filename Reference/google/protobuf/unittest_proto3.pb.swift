@@ -662,13 +662,13 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
       if let v = _storage._singleImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
       }
-      if _storage._singleNestedEnum != Proto3TestAllTypes.NestedEnum.unspecified {
+      if _storage._singleNestedEnum != .unspecified {
         try visitor.visitSingularEnumField(value: _storage._singleNestedEnum, fieldNumber: 21)
       }
-      if _storage._singleForeignEnum != Proto3ForeignEnum.foreignUnspecified {
+      if _storage._singleForeignEnum != .foreignUnspecified {
         try visitor.visitSingularEnumField(value: _storage._singleForeignEnum, fieldNumber: 22)
       }
-      if _storage._singleImportEnum != Proto3ImportEnum.unspecified {
+      if _storage._singleImportEnum != .unspecified {
         try visitor.visitSingularEnumField(value: _storage._singleImportEnum, fieldNumber: 23)
       }
       if let v = _storage._singlePublicImportMessage {
@@ -1100,7 +1100,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
 struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumAllowAlias"
 
-  var value: Proto3TestEnumWithDupValue = Proto3TestEnumWithDupValue.unspecified
+  var value: Proto3TestEnumWithDupValue = .unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1116,7 +1116,7 @@ struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.value != Proto3TestEnumWithDupValue.unspecified {
+    if self.value != .unspecified {
       try visitor.visitSingularEnumField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1203,7 +1203,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
       if !_storage._stringField.isEmpty {
         try visitor.visitSingularStringField(value: _storage._stringField, fieldNumber: 2)
       }
-      if _storage._enumField != Proto3ForeignEnum.foreignUnspecified {
+      if _storage._enumField != .foreignUnspecified {
         try visitor.visitSingularEnumField(value: _storage._enumField, fieldNumber: 3)
       }
       if let v = _storage._messageField {
@@ -1335,7 +1335,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SparseEnumMessage"
 
-  var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.unspecified
+  var sparseEnum: Proto3TestSparseEnum = .unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1351,7 +1351,7 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.sparseEnum != Proto3TestSparseEnum.unspecified {
+    if self.sparseEnum != .unspecified {
       try visitor.visitSingularEnumField(value: self.sparseEnum, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2179,9 +2179,9 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     var _singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
     var _singleForeignMessage: Proto3ForeignMessage? = nil
     var _singleImportMessage: Proto3ImportMessage? = nil
-    var _singleNestedEnum: Proto3TestAllTypes.NestedEnum = Proto3TestAllTypes.NestedEnum.unspecified
-    var _singleForeignEnum: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
-    var _singleImportEnum: Proto3ImportEnum = Proto3ImportEnum.unspecified
+    var _singleNestedEnum: Proto3TestAllTypes.NestedEnum = .unspecified
+    var _singleForeignEnum: Proto3ForeignEnum = .foreignUnspecified
+    var _singleImportEnum: Proto3ImportEnum = .unspecified
     var _singlePublicImportMessage: Proto3PublicImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -2654,7 +2654,7 @@ extension Proto3TestCamelCaseFieldNames: SwiftProtobuf._MessageImplementationBas
   fileprivate class _StorageClass {
     var _primitiveField: Int32 = 0
     var _stringField: String = String()
-    var _enumField: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
+    var _enumField: Proto3ForeignEnum = .foreignUnspecified
     var _messageField: Proto3ForeignMessage? = nil
     var _repeatedPrimitiveField: [Int32] = []
     var _repeatedStringField: [String] = []

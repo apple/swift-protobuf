@@ -161,7 +161,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message {
       if !_storage._mixins.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._mixins, fieldNumber: 6)
       }
-      if _storage._syntax != Google_Protobuf_Syntax.proto2 {
+      if _storage._syntax != .proto2 {
         try visitor.visitSingularEnumField(value: _storage._syntax, fieldNumber: 7)
       }
     }
@@ -194,7 +194,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message {
   public var options: [Google_Protobuf_Option] = []
 
   /// The source syntax of this method.
-  public var syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+  public var syntax: Google_Protobuf_Syntax = .proto2
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -234,7 +234,7 @@ public struct Google_Protobuf_Method: SwiftProtobuf.Message {
     if !self.options.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.options, fieldNumber: 6)
     }
-    if self.syntax != Google_Protobuf_Syntax.proto2 {
+    if self.syntax != .proto2 {
       try visitor.visitSingularEnumField(value: self.syntax, fieldNumber: 7)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -375,7 +375,7 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
     var _version: String = String()
     var _sourceContext: Google_Protobuf_SourceContext? = nil
     var _mixins: [Google_Protobuf_Mixin] = []
-    var _syntax: Google_Protobuf_Syntax = Google_Protobuf_Syntax.proto2
+    var _syntax: Google_Protobuf_Syntax = .proto2
 
     init() {}
 

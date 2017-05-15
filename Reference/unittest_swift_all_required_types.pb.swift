@@ -227,7 +227,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   mutating func clearRequiredImportMessage() {_storage._requiredImportMessage = nil}
 
   var requiredNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
-    get {return _storage._requiredNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.foo}
+    get {return _storage._requiredNestedEnum ?? .foo}
     set {_uniqueStorage()._requiredNestedEnum = newValue}
   }
   /// Returns true if `requiredNestedEnum` has been explicitly set.
@@ -236,7 +236,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   mutating func clearRequiredNestedEnum() {_storage._requiredNestedEnum = nil}
 
   var requiredForeignEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._requiredForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignFoo}
+    get {return _storage._requiredForeignEnum ?? .foreignFoo}
     set {_uniqueStorage()._requiredForeignEnum = newValue}
   }
   /// Returns true if `requiredForeignEnum` has been explicitly set.
@@ -245,7 +245,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   mutating func clearRequiredForeignEnum() {_storage._requiredForeignEnum = nil}
 
   var requiredImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._requiredImportEnum ?? ProtobufUnittestImport_ImportEnum.importFoo}
+    get {return _storage._requiredImportEnum ?? .importFoo}
     set {_uniqueStorage()._requiredImportEnum = newValue}
   }
   /// Returns true if `requiredImportEnum` has been explicitly set.
@@ -427,7 +427,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   mutating func clearDefaultBytes() {_storage._defaultBytes = nil}
 
   var defaultNestedEnum: ProtobufUnittest_TestAllRequiredTypes.NestedEnum {
-    get {return _storage._defaultNestedEnum ?? ProtobufUnittest_TestAllRequiredTypes.NestedEnum.bar}
+    get {return _storage._defaultNestedEnum ?? .bar}
     set {_uniqueStorage()._defaultNestedEnum = newValue}
   }
   /// Returns true if `defaultNestedEnum` has been explicitly set.
@@ -436,7 +436,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   mutating func clearDefaultNestedEnum() {_storage._defaultNestedEnum = nil}
 
   var defaultForeignEnum: ProtobufUnittest_ForeignEnum {
-    get {return _storage._defaultForeignEnum ?? ProtobufUnittest_ForeignEnum.foreignBar}
+    get {return _storage._defaultForeignEnum ?? .foreignBar}
     set {_uniqueStorage()._defaultForeignEnum = newValue}
   }
   /// Returns true if `defaultForeignEnum` has been explicitly set.
@@ -445,7 +445,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
   mutating func clearDefaultForeignEnum() {_storage._defaultForeignEnum = nil}
 
   var defaultImportEnum: ProtobufUnittestImport_ImportEnum {
-    get {return _storage._defaultImportEnum ?? ProtobufUnittestImport_ImportEnum.importBar}
+    get {return _storage._defaultImportEnum ?? .importBar}
     set {_uniqueStorage()._defaultImportEnum = newValue}
   }
   /// Returns true if `defaultImportEnum` has been explicitly set.
@@ -964,7 +964,7 @@ struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
   mutating func clearRequiredBytes() {self._requiredBytes = nil}
 
   var requiredNestedEnum: ProtobufUnittest_TestSomeRequiredTypes.NestedEnum {
-    get {return _requiredNestedEnum ?? ProtobufUnittest_TestSomeRequiredTypes.NestedEnum.foo}
+    get {return _requiredNestedEnum ?? .foo}
     set {_requiredNestedEnum = newValue}
   }
   /// Returns true if `requiredNestedEnum` has been explicitly set.

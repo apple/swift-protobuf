@@ -93,7 +93,7 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
   var field3: SDTTopLevelEnum {
     get {
       if case .field3(let v)? = _storage._o {return v}
-      return SDTTopLevelEnum.valueZero
+      return .valueZero
     }
     set {_uniqueStorage()._o = .field3(newValue)}
   }
@@ -101,7 +101,7 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
   var field4: SDTTopLevelMessage.SubEnum {
     get {
       if case .field4(let v)? = _storage._o {return v}
-      return SDTTopLevelMessage.SubEnum.subValue0
+      return .subValue0
     }
     set {_uniqueStorage()._o = .field4(newValue)}
   }
@@ -423,7 +423,7 @@ extension Google_Protobuf_FieldOptions {
 
 extension Google_Protobuf_MessageOptions {
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
-    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? SDTTopLevelEnum.valueZero}
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum, value: newValue)}
   }
   /// Returns true if extension `SDTScoperForExt.Extensions.ext_enum`
@@ -476,7 +476,7 @@ extension SDTScoperForExt {
     static let ext_enum = SwiftProtobuf.MessageExtension<OptionalEnumExtensionField<SDTTopLevelEnum>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99001,
       fieldName: "swift_descriptor_test.ScoperForExt.ext_enum",
-      defaultValue: SDTTopLevelEnum.valueZero
+      defaultValue: .valueZero
     )
 
     static let ext_msg = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<SDTTopLevelMessage2>, Google_Protobuf_MessageOptions>(
