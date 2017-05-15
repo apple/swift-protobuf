@@ -17,18 +17,6 @@ import PluginLibrary
 import SwiftProtobuf
 
 
-extension Google_Protobuf_FieldDescriptorProto {
-
-    var isPackable: Bool {
-        switch type {
-        case .string,.bytes,.group,.message:
-            return false
-        default:
-            return label == .repeated
-        }
-    }
-}
-
 class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
     private let generatorOptions: GeneratorOptions
     private let usesHeapStorage: Bool
