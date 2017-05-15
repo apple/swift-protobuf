@@ -73,9 +73,17 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         baseAssertDecodeSucceeds(bytes, file: file, line: line, check: check)
     }
 
-    func assertDecodesAsUnknownFields(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line) {
+    // Helper to check that decode succeeds by the data ended up in unknown fields.
+    // Supports an optional `check` to do additional validation.
+    func assertDecodesAsUnknownFields(_ bytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: ((MessageTestType) -> Bool)? = nil) {
         assertDecodeSucceeds(bytes, file: file, line: line) {
-            $0.unknownFields.data == Data(bytes: bytes)
+            if $0.unknownFields.data != Data(bytes: bytes) {
+                return false
+            }
+            if let check = check {
+                return check($0)
+            }
+            return true
         }
     }
 

@@ -1908,10 +1908,12 @@ extension ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 111:
-      var value = UInt32()
+      var value: UInt32?
       try decoder.decodeSingularUInt32Field(value: &value)
-      self = .oneofUint32(value)
-      return
+      if let value = value {
+        self = .oneofUint32(value)
+        return
+      }
     case 112:
       var value: ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage?
       try decoder.decodeSingularMessageField(value: &value)
@@ -1920,40 +1922,54 @@ extension ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField {
         return
       }
     case 113:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .oneofString(value)
-      return
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
     case 114:
-      var value = Data()
+      var value: Data?
       try decoder.decodeSingularBytesField(value: &value)
-      self = .oneofBytes(value)
-      return
+      if let value = value {
+        self = .oneofBytes(value)
+        return
+      }
     case 115:
-      var value = Bool()
+      var value: Bool?
       try decoder.decodeSingularBoolField(value: &value)
-      self = .oneofBool(value)
-      return
+      if let value = value {
+        self = .oneofBool(value)
+        return
+      }
     case 116:
-      var value = UInt64()
+      var value: UInt64?
       try decoder.decodeSingularUInt64Field(value: &value)
-      self = .oneofUint64(value)
-      return
+      if let value = value {
+        self = .oneofUint64(value)
+        return
+      }
     case 117:
-      var value = Float()
+      var value: Float?
       try decoder.decodeSingularFloatField(value: &value)
-      self = .oneofFloat(value)
-      return
+      if let value = value {
+        self = .oneofFloat(value)
+        return
+      }
     case 118:
-      var value = Double()
+      var value: Double?
       try decoder.decodeSingularDoubleField(value: &value)
-      self = .oneofDouble(value)
-      return
+      if let value = value {
+        self = .oneofDouble(value)
+        return
+      }
     case 119:
-      var value = ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum()
+      var value: ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofEnum(value)
-      return
+      if let value = value {
+        self = .oneofEnum(value)
+        return
+      }
     default:
       break
     }

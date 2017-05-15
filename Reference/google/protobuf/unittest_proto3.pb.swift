@@ -2326,10 +2326,12 @@ extension Proto3TestAllTypes.OneOf_OneofField {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 111:
-      var value = UInt32()
+      var value: UInt32?
       try decoder.decodeSingularUInt32Field(value: &value)
-      self = .oneofUint32(value)
-      return
+      if let value = value {
+        self = .oneofUint32(value)
+        return
+      }
     case 112:
       var value: Proto3TestAllTypes.NestedMessage?
       try decoder.decodeSingularMessageField(value: &value)
@@ -2338,15 +2340,19 @@ extension Proto3TestAllTypes.OneOf_OneofField {
         return
       }
     case 113:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .oneofString(value)
-      return
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
     case 114:
-      var value = Data()
+      var value: Data?
       try decoder.decodeSingularBytesField(value: &value)
-      self = .oneofBytes(value)
-      return
+      if let value = value {
+        self = .oneofBytes(value)
+        return
+      }
     default:
       break
     }
@@ -2924,15 +2930,19 @@ extension Proto3TestOneof.OneOf_Foo {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1:
-      var value = Int32()
+      var value: Int32?
       try decoder.decodeSingularInt32Field(value: &value)
-      self = .fooInt(value)
-      return
+      if let value = value {
+        self = .fooInt(value)
+        return
+      }
     case 2:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .fooString(value)
-      return
+      if let value = value {
+        self = .fooString(value)
+        return
+      }
     case 3:
       var value: Proto3TestAllTypes?
       try decoder.decodeSingularMessageField(value: &value)

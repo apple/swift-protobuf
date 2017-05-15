@@ -1114,80 +1114,110 @@ extension ProtobufUnittest_Message3.OneOf_O {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 51:
-      var value = Int32()
+      var value: Int32?
       try decoder.decodeSingularInt32Field(value: &value)
-      self = .oneofInt32(value)
-      return
+      if let value = value {
+        self = .oneofInt32(value)
+        return
+      }
     case 52:
-      var value = Int64()
+      var value: Int64?
       try decoder.decodeSingularInt64Field(value: &value)
-      self = .oneofInt64(value)
-      return
+      if let value = value {
+        self = .oneofInt64(value)
+        return
+      }
     case 53:
-      var value = UInt32()
+      var value: UInt32?
       try decoder.decodeSingularUInt32Field(value: &value)
-      self = .oneofUint32(value)
-      return
+      if let value = value {
+        self = .oneofUint32(value)
+        return
+      }
     case 54:
-      var value = UInt64()
+      var value: UInt64?
       try decoder.decodeSingularUInt64Field(value: &value)
-      self = .oneofUint64(value)
-      return
+      if let value = value {
+        self = .oneofUint64(value)
+        return
+      }
     case 55:
-      var value = Int32()
+      var value: Int32?
       try decoder.decodeSingularSInt32Field(value: &value)
-      self = .oneofSint32(value)
-      return
+      if let value = value {
+        self = .oneofSint32(value)
+        return
+      }
     case 56:
-      var value = Int64()
+      var value: Int64?
       try decoder.decodeSingularSInt64Field(value: &value)
-      self = .oneofSint64(value)
-      return
+      if let value = value {
+        self = .oneofSint64(value)
+        return
+      }
     case 57:
-      var value = UInt32()
+      var value: UInt32?
       try decoder.decodeSingularFixed32Field(value: &value)
-      self = .oneofFixed32(value)
-      return
+      if let value = value {
+        self = .oneofFixed32(value)
+        return
+      }
     case 58:
-      var value = UInt64()
+      var value: UInt64?
       try decoder.decodeSingularFixed64Field(value: &value)
-      self = .oneofFixed64(value)
-      return
+      if let value = value {
+        self = .oneofFixed64(value)
+        return
+      }
     case 59:
-      var value = Int32()
+      var value: Int32?
       try decoder.decodeSingularSFixed32Field(value: &value)
-      self = .oneofSfixed32(value)
-      return
+      if let value = value {
+        self = .oneofSfixed32(value)
+        return
+      }
     case 60:
-      var value = Int64()
+      var value: Int64?
       try decoder.decodeSingularSFixed64Field(value: &value)
-      self = .oneofSfixed64(value)
-      return
+      if let value = value {
+        self = .oneofSfixed64(value)
+        return
+      }
     case 61:
-      var value = Float()
+      var value: Float?
       try decoder.decodeSingularFloatField(value: &value)
-      self = .oneofFloat(value)
-      return
+      if let value = value {
+        self = .oneofFloat(value)
+        return
+      }
     case 62:
-      var value = Double()
+      var value: Double?
       try decoder.decodeSingularDoubleField(value: &value)
-      self = .oneofDouble(value)
-      return
+      if let value = value {
+        self = .oneofDouble(value)
+        return
+      }
     case 63:
-      var value = Bool()
+      var value: Bool?
       try decoder.decodeSingularBoolField(value: &value)
-      self = .oneofBool(value)
-      return
+      if let value = value {
+        self = .oneofBool(value)
+        return
+      }
     case 64:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .oneofString(value)
-      return
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
     case 65:
-      var value = Data()
+      var value: Data?
       try decoder.decodeSingularBytesField(value: &value)
-      self = .oneofBytes(value)
-      return
+      if let value = value {
+        self = .oneofBytes(value)
+        return
+      }
     case 68:
       var value: ProtobufUnittest_Message3?
       try decoder.decodeSingularMessageField(value: &value)
@@ -1196,10 +1226,12 @@ extension ProtobufUnittest_Message3.OneOf_O {
         return
       }
     case 69:
-      var value = ProtobufUnittest_Message3.Enum()
+      var value: ProtobufUnittest_Message3.Enum?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofEnum(value)
-      return
+      if let value = value {
+        self = .oneofEnum(value)
+        return
+      }
     default:
       break
     }

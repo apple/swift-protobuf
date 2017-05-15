@@ -326,15 +326,19 @@ extension Conformance_ConformanceRequest.OneOf_Payload {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1:
-      var value = Data()
+      var value: Data?
       try decoder.decodeSingularBytesField(value: &value)
-      self = .protobufPayload(value)
-      return
+      if let value = value {
+        self = .protobufPayload(value)
+        return
+      }
     case 2:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .jsonPayload(value)
-      return
+      if let value = value {
+        self = .jsonPayload(value)
+        return
+      }
     default:
       break
     }
@@ -372,35 +376,47 @@ extension Conformance_ConformanceResponse.OneOf_Result {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .parseError(value)
-      return
+      if let value = value {
+        self = .parseError(value)
+        return
+      }
     case 2:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .runtimeError(value)
-      return
+      if let value = value {
+        self = .runtimeError(value)
+        return
+      }
     case 3:
-      var value = Data()
+      var value: Data?
       try decoder.decodeSingularBytesField(value: &value)
-      self = .protobufPayload(value)
-      return
+      if let value = value {
+        self = .protobufPayload(value)
+        return
+      }
     case 4:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .jsonPayload(value)
-      return
+      if let value = value {
+        self = .jsonPayload(value)
+        return
+      }
     case 5:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .skipped(value)
-      return
+      if let value = value {
+        self = .skipped(value)
+        return
+      }
     case 6:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .serializeError(value)
-      return
+      if let value = value {
+        self = .serializeError(value)
+        return
+      }
     default:
       break
     }
