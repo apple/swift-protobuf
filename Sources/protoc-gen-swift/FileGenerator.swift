@@ -53,7 +53,7 @@ class FileGenerator {
             "// Source: \(fileDescriptor.name)\n",
             "//\n",
             "// For information on using the generated types, please see the documenation:\n",
-            "//   https://github.com/apple/swift-protobuf/blob/master/Documentation/API.md\n",
+            "//   https://github.com/apple/swift-protobuf/\n",
             "\n")
 
         // Attempt to bring over the comments at the top of the .proto file as
