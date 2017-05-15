@@ -92,7 +92,7 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum {
 /// Test an enum that has multiple values with the same number.
 enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
   typealias RawValue = Int
-  case testEnumWithDupValueUnspecified // = 0
+  case unspecified // = 0
   case foo1 // = 1
   case bar1 // = 2
   case baz // = 3
@@ -101,12 +101,12 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
   case UNRECOGNIZED(Int)
 
   init() {
-    self = .testEnumWithDupValueUnspecified
+    self = .unspecified
   }
 
   init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .testEnumWithDupValueUnspecified
+    case 0: self = .unspecified
     case 1: self = .foo1
     case 2: self = .bar1
     case 3: self = .baz
@@ -116,7 +116,7 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
 
   var rawValue: Int {
     switch self {
-    case .testEnumWithDupValueUnspecified: return 0
+    case .unspecified: return 0
     case .foo1: return 1
     case .bar1: return 2
     case .baz: return 3
@@ -129,7 +129,7 @@ enum Proto3TestEnumWithDupValue: SwiftProtobuf.Enum {
 /// Test an enum with large, unordered values.
 enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
-  case testSparseEnumUnspecified // = 0
+  case unspecified // = 0
   case sparseA // = 123
   case sparseB // = 62374
   case sparseC // = 12589234
@@ -142,14 +142,14 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
   case UNRECOGNIZED(Int)
 
   init() {
-    self = .testSparseEnumUnspecified
+    self = .unspecified
   }
 
   init?(rawValue: Int) {
     switch rawValue {
     case -53452: self = .sparseE
     case -15: self = .sparseD
-    case 0: self = .testSparseEnumUnspecified
+    case 0: self = .unspecified
     case 2: self = .sparseG
     case 123: self = .sparseA
     case 62374: self = .sparseB
@@ -162,7 +162,7 @@ enum Proto3TestSparseEnum: SwiftProtobuf.Enum {
     switch self {
     case .sparseE: return -53452
     case .sparseD: return -15
-    case .testSparseEnumUnspecified: return 0
+    case .unspecified: return 0
     case .sparseG: return 2
     case .sparseA: return 123
     case .sparseB: return 62374
@@ -478,7 +478,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
 
   enum NestedEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
-    case nestedEnumUnspecified // = 0
+    case unspecified // = 0
     case foo // = 1
     case bar // = 2
     case baz // = 3
@@ -488,13 +488,13 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     case UNRECOGNIZED(Int)
 
     init() {
-      self = .nestedEnumUnspecified
+      self = .unspecified
     }
 
     init?(rawValue: Int) {
       switch rawValue {
       case -1: self = .neg
-      case 0: self = .nestedEnumUnspecified
+      case 0: self = .unspecified
       case 1: self = .foo
       case 2: self = .bar
       case 3: self = .baz
@@ -505,7 +505,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .neg: return -1
-      case .nestedEnumUnspecified: return 0
+      case .unspecified: return 0
       case .foo: return 1
       case .bar: return 2
       case .baz: return 3
@@ -662,13 +662,13 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
       if let v = _storage._singleImportMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 20)
       }
-      if _storage._singleNestedEnum != Proto3TestAllTypes.NestedEnum.nestedEnumUnspecified {
+      if _storage._singleNestedEnum != Proto3TestAllTypes.NestedEnum.unspecified {
         try visitor.visitSingularEnumField(value: _storage._singleNestedEnum, fieldNumber: 21)
       }
       if _storage._singleForeignEnum != Proto3ForeignEnum.foreignUnspecified {
         try visitor.visitSingularEnumField(value: _storage._singleForeignEnum, fieldNumber: 22)
       }
-      if _storage._singleImportEnum != Proto3ImportEnum.importEnumUnspecified {
+      if _storage._singleImportEnum != Proto3ImportEnum.unspecified {
         try visitor.visitSingularEnumField(value: _storage._singleImportEnum, fieldNumber: 23)
       }
       if let v = _storage._singlePublicImportMessage {
@@ -1100,7 +1100,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
 struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEnumAllowAlias"
 
-  var value: Proto3TestEnumWithDupValue = Proto3TestEnumWithDupValue.testEnumWithDupValueUnspecified
+  var value: Proto3TestEnumWithDupValue = Proto3TestEnumWithDupValue.unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1116,7 +1116,7 @@ struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.value != Proto3TestEnumWithDupValue.testEnumWithDupValueUnspecified {
+    if self.value != Proto3TestEnumWithDupValue.unspecified {
       try visitor.visitSingularEnumField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1335,7 +1335,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".SparseEnumMessage"
 
-  var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.testSparseEnumUnspecified
+  var sparseEnum: Proto3TestSparseEnum = Proto3TestSparseEnum.unspecified
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1351,7 +1351,7 @@ struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
   }
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.sparseEnum != Proto3TestSparseEnum.testSparseEnumUnspecified {
+    if self.sparseEnum != Proto3TestSparseEnum.unspecified {
       try visitor.visitSingularEnumField(value: self.sparseEnum, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2179,9 +2179,9 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     var _singleNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
     var _singleForeignMessage: Proto3ForeignMessage? = nil
     var _singleImportMessage: Proto3ImportMessage? = nil
-    var _singleNestedEnum: Proto3TestAllTypes.NestedEnum = Proto3TestAllTypes.NestedEnum.nestedEnumUnspecified
+    var _singleNestedEnum: Proto3TestAllTypes.NestedEnum = Proto3TestAllTypes.NestedEnum.unspecified
     var _singleForeignEnum: Proto3ForeignEnum = Proto3ForeignEnum.foreignUnspecified
-    var _singleImportEnum: Proto3ImportEnum = Proto3ImportEnum.importEnumUnspecified
+    var _singleImportEnum: Proto3ImportEnum = Proto3ImportEnum.unspecified
     var _singlePublicImportMessage: Proto3PublicImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []

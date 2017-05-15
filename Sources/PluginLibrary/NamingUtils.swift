@@ -371,20 +371,6 @@ enum NamingUtils {
     return from[idx..<from.endIndex]
   }
 
-  static func canStripPrefix(enumProto: Google_Protobuf_EnumDescriptorProto) -> Bool {
-    let enumName = enumProto.name
-    for value in enumProto.value {
-      guard let strippedName = strip(protoPrefix: enumName, from: value.name) else {
-        return false
-      }
-      let camelCased = toLowerCamelCase(strippedName)
-      if !isValidSwiftIdentifier(camelCased) {
-        return false
-      }
-    }
-    return true
-  }
-
   static func sanitize(messageName s: String) -> String {
     return sanitizeTypeName(s, disambiguator: "Message")
   }

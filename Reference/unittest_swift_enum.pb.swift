@@ -82,16 +82,16 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
   enum EnumTest2: SwiftProtobuf.Enum {
     typealias RawValue = Int
-    case enumTest2FirstValue // = 1
+    case firstValue // = 1
     case secondValue // = 2
 
     init() {
-      self = .enumTest2FirstValue
+      self = .firstValue
     }
 
     init?(rawValue: Int) {
       switch rawValue {
-      case 1: self = .enumTest2FirstValue
+      case 1: self = .firstValue
       case 2: self = .secondValue
       default: return nil
       }
@@ -99,7 +99,7 @@ struct ProtobufUnittest_SwiftEnumTest: SwiftProtobuf.Message {
 
     var rawValue: Int {
       switch self {
-      case .enumTest2FirstValue: return 1
+      case .firstValue: return 1
       case .secondValue: return 2
       }
     }

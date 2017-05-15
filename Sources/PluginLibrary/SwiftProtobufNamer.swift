@@ -16,7 +16,6 @@ import Foundation
 
 public final class SwiftProtobufNamer {
   var filePrefixCache = [String:String]()
-  var enumCanStripPrefixCache = [String:Bool]()
 
   public init() {
     // TODO(thomasvl): Eventually support taking a mapping of files to modules.
@@ -62,11 +61,12 @@ public final class SwiftProtobufNamer {
 
   /// Calculate the relative name for the given enum value.
   public func relativeName(enumValue: EnumValueDescriptor) -> String {
-    let baseName: String
-    if canStripPrefix(enum: enumValue.enumType) {
-      baseName = NamingUtils.strip(protoPrefix: enumValue.enumType.name, from: enumValue.name)!
-    } else {
-      baseName = enumValue.name
+    let baseName = enumValue.name
+    if let stripped = NamingUtils.strip(protoPrefix: enumValue.enumType.name, from: baseName) {
+      let camelCased = NamingUtils.toLowerCamelCase(stripped)
+      if isValidSwiftIdentifier(camelCased) {
+        return NamingUtils.sanitize(enumCaseName: camelCased)
+      }
     }
 
     let camelCased = NamingUtils.toLowerCamelCase(baseName)
@@ -220,19 +220,6 @@ public final class SwiftProtobufNamer {
     let result = NamingUtils.typePrefix(protoPackage: file.package,
                                         fileOptions: file.fileOptions)
     filePrefixCache[file.name] = result
-    return result
-  }
-
-  // MARK: - Internal helpers
-
-  /// Calculate if the given enum's value can use prefix stripping.
-  func canStripPrefix(enum e: EnumDescriptor) -> Bool {
-    if let result = enumCanStripPrefixCache[e.fullName] {
-      return result
-    }
-
-    let result = NamingUtils.canStripPrefix(enumProto: e.proto)
-    enumCanStripPrefixCache[e.fullName] = result
     return result
   }
 

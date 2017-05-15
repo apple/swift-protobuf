@@ -161,7 +161,7 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
 
   func testOptionalNestedEnum() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleNestedEnum, .nestedEnumUnspecified)
+    XCTAssertEqual(msg.singleNestedEnum, .unspecified)
     msg.singleNestedEnum = .bar
     XCTAssertEqual(msg.singleNestedEnum, .bar)
   }
@@ -175,7 +175,7 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
 
   func testOptionalImportEnum() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleImportEnum, .importEnumUnspecified)
+    XCTAssertEqual(msg.singleImportEnum, .unspecified)
     msg.singleImportEnum = .importBar
     XCTAssertEqual(msg.singleImportEnum, .importBar)
   }
