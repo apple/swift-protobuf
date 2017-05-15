@@ -34,7 +34,6 @@ extension Test_NamingUtils {
         return [
             ("testTypePrefix", {try run_test(test:($0 as! Test_NamingUtils).testTypePrefix)}),
             ("testStrip_protoPrefix", {try run_test(test:($0 as! Test_NamingUtils).testStrip_protoPrefix)}),
-            ("testCanStripPrefix", {try run_test(test:($0 as! Test_NamingUtils).testCanStripPrefix)}),
             ("testSanitize_messageName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_messageName)}),
             ("testSanitize_enumName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_enumName)}),
             ("testSanitize_oneofName", {try run_test(test:($0 as! Test_NamingUtils).testSanitize_oneofName)}),

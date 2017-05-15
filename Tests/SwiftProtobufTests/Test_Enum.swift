@@ -44,7 +44,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
     func testEnumPrefix() {
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest1.firstValue.rawValue, 1)
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest1.secondValue.rawValue, 2)
-        XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.enumTest2FirstValue.rawValue, 1)
+        XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.firstValue.rawValue, 1)
         XCTAssertEqual(ProtobufUnittest_SwiftEnumTest.EnumTest2.secondValue.rawValue, 2)
     }
 

@@ -93,34 +93,6 @@ class Test_NamingUtils: XCTestCase {
     }
   }
 
-  func testCanStripPrefix() {
-    // enumName, value1, value2, expected
-    let tests: [(String, String, String, Bool)] = [
-      ( "FOO", "foo_bar", "foo_baz", true),
-      ( "FOO", "foo_bar", "foo_baz2", true),
-
-      ( "FOO", "foo_bar", "baz", false),
-      ( "FOO", "bar", "foo_baz", false),
-      ( "FOO", "bar", "baz", false),
-
-      ( "FOO", "foo", "bar", false),
-
-      // Identifier can't start with a number after stripping.
-      ( "FOO", "foo_1bar", "foo_baz", false),
-    ]
-    for (name, value1, value2, expected) in tests {
-      let proto = Google_Protobuf_EnumDescriptorProto.with {
-        $0.name = name
-        $0.value = [
-          Google_Protobuf_EnumValueDescriptorProto(name: value1, number: 0),
-          Google_Protobuf_EnumValueDescriptorProto(name: value2, number: 1),
-        ]
-      }
-      XCTAssertEqual(NamingUtils.canStripPrefix(enumProto: proto), expected,
-                     "Name: \(name), Value1: \(value1), Value2: \(value2)")
-    }
-  }
-
   func testSanitize_messageName() {
     // input, expected
     let tests: [(String, String)] = [

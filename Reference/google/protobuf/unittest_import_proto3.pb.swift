@@ -57,19 +57,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 enum Proto3ImportEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
-  case importEnumUnspecified // = 0
+  case unspecified // = 0
   case importFoo // = 7
   case importBar // = 8
   case importBaz // = 9
   case UNRECOGNIZED(Int)
 
   init() {
-    self = .importEnumUnspecified
+    self = .unspecified
   }
 
   init?(rawValue: Int) {
     switch rawValue {
-    case 0: self = .importEnumUnspecified
+    case 0: self = .unspecified
     case 7: self = .importFoo
     case 8: self = .importBar
     case 9: self = .importBaz
@@ -79,7 +79,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 
   var rawValue: Int {
     switch self {
-    case .importEnumUnspecified: return 0
+    case .unspecified: return 0
     case .importFoo: return 7
     case .importBar: return 8
     case .importBaz: return 9
