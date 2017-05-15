@@ -76,6 +76,7 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
 
   /// Returns true if the type can be used for a Packed field.
   static func isPackable(type: Google_Protobuf_FieldDescriptorProto.TypeEnum) -> Bool {
+    // This logic comes from the C++ FieldDescriptor::IsTypePackable() impl.
     switch type {
     case .string, .group, .message, .bytes:
       return false
