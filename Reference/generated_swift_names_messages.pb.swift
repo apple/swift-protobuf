@@ -4240,6 +4240,32 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
+  struct fastUtf8ToString: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".fastUtf8ToString"
+
+    var fastUtf8ToString: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.fastUtf8ToString)
+        default: break
+        }
+      }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.fastUtf8ToString != 0 {
+        try visitor.visitSingularInt32Field(value: self.fastUtf8ToString, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
   struct field: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".field"
 
@@ -7901,32 +7927,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
       if self.mapHash != 0 {
         try visitor.visitSingularInt32Field(value: self.mapHash, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
-
-  struct MapKeyType: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".MapKeyType"
-
-    var mapKeyType: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.mapKeyType)
-        default: break
-        }
-      }
-    }
-
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.mapKeyType != 0 {
-        try visitor.visitSingularInt32Field(value: self.mapKeyType, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -17987,6 +17987,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.falseMessage: SwiftPro
   }
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.fastUtf8ToString: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "fastUtf8ToString"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.fastUtf8ToString) -> Bool {
+    if self.fastUtf8ToString != other.fastUtf8ToString {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedMessages.field: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "field"),
@@ -19674,18 +19686,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.mapHash: SwiftProtobuf
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.mapHash) -> Bool {
     if self.mapHash != other.mapHash {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.MapKeyType: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "MapKeyType"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.MapKeyType) -> Bool {
-    if self.mapKeyType != other.mapKeyType {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

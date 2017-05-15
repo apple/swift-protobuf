@@ -166,6 +166,7 @@ message GeneratedSwiftReservedMessages {
   message extras { int32 extras = 1; }
   message f { int32 f = 1; }
   message false { int32 false = 1; }
+  message fastUtf8ToString { int32 fastUtf8ToString = 1; }
   message field { int32 field = 1; }
   message FieldMask { int32 FieldMask = 1; }
   message fieldName { int32 fieldName = 1; }
@@ -307,7 +308,6 @@ message GeneratedSwiftReservedMessages {
   message major { int32 major = 1; }
   message makeIterator { int32 makeIterator = 1; }
   message mapHash { int32 mapHash = 1; }
-  message MapKeyType { int32 MapKeyType = 1; }
   message mapNameResolver { int32 mapNameResolver = 1; }
   message mapToMessages { int32 mapToMessages = 1; }
   message MapValueType { int32 MapValueType = 1; }
