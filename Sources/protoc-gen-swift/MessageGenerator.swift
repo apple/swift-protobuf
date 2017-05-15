@@ -269,6 +269,11 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateDecodeMessage(printer p: inout CodePrinter) {
+    p.print(
+      "/// Used by the decoding initializers in the SwiftProtobuf library, not generally\n",
+      "/// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding\n",
+      "/// initializers are defined in the SwiftProtobuf library. See the Message and\n",
+      "/// Message+*Additions` files.\n")
     p.print("\(visibility)mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {\n")
     p.indent()
     if storage != nil {
@@ -318,6 +323,11 @@ class MessageGenerator {
   ///
   /// - Parameter p: The code printer.
   private func generateTraverse(printer p: inout CodePrinter) {
+    p.print(
+      "/// Used by the encoding methods of the SwiftProtobuf library, not generally\n",
+      "/// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and\n",
+      "/// other serializer methods are defined in the SwiftProtobuf library. See the\n",
+      "/// `Message` and `Message+*Additions` files.\n")
     p.print("\(visibility)func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
     p.indent()
     generateWithLifetimeExtension(printer: &p, throws: true) { p in
