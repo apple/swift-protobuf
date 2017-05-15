@@ -388,7 +388,27 @@ public final class FieldDescriptor {
   /// When this is a enum field, the enum's desciptor.
   public private(set) weak var enumType: EnumDescriptor!
 
-  public var isPacked: Bool { return proto.options.packed }
+  /// Should this field be packed format.
+  public var isPacked: Bool {
+    // NOTE: As of May 2017, the proto3 spec says:
+    //
+    // https://developers.google.com/protocol-buffers/docs/proto3#specifying-field-rules -
+    //   "In proto3, repeated fields of scalar numeric types use packed encoding by default."
+    //
+    // But this does not result in the field option for packed being set by protoc. Instead
+    // there is some interesting logic in the C++ desciptor classes that causes the field
+    // to be packed, but does leave the door open for it not to be backed.  So the logic
+    // here and in the helpers this cases duplicates that logic.
+
+    // This logic comes from the C++ FieldDescriptor::is_packed() impl.
+    guard isPackable else { return false }
+    if file.syntax == .proto2 {
+      return proto.hasOptions && proto.options.packed
+    } else {
+      return !proto.hasOptions || !proto.options.hasPacked || proto.options.packed
+    }
+  }
+
   public var options: Google_Protobuf_FieldOptions { return proto.options }
 
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,

@@ -32,35 +32,6 @@ import SwiftProtobuf
 typealias CodeGeneratorRequest = Google_Protobuf_Compiler_CodeGeneratorRequest
 typealias CodeGeneratorResponse = Google_Protobuf_Compiler_CodeGeneratorResponse
 
-extension CodeGeneratorRequest {
-  func getMessageNameForPath(path: String) -> String? {
-    for f in protoFile {
-      if let m = f.getMessageNameForPath(path: path) {
-        return m
-      }
-    }
-    return nil
-  }
-
-  func getEnumNameForPath(path: String) -> String? {
-    for f in protoFile {
-      if let m = f.getEnumNameForPath(path: path) {
-        return m
-      }
-    }
-    return nil
-  }
-
-  func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
-    for f in protoFile {
-      if let m = f.getSwiftNameForEnumCase(path: path, caseName: caseName) {
-        return m
-      }
-    }
-    fatalError("Unable to locate Enum case \(caseName) in path \(path)")
-  }
-}
-
 extension Google_Protobuf_Compiler_Version {
   fileprivate var versionString: String {
     if !suffix.isEmpty {
@@ -72,21 +43,8 @@ extension Google_Protobuf_Compiler_Version {
 
 class Context {
   private let request: CodeGeneratorRequest
-  let options: GeneratorOptions
+  private let options: GeneratorOptions
   private let descriptorSet: DescriptorSet
-
-  // TODO(thomasvl): Revisit to use the Desciptor instead.
-  func getMessageForPath(path: String) -> Google_Protobuf_DescriptorProto? {
-    return descriptor(forProtoName: path).proto
-  }
-
-  func getMessageNameForPath(path: String) -> String? {
-    return request.getMessageNameForPath(path: path)
-  }
-
-  func getEnumNameForPath(path: String) -> String? {
-    return request.getEnumNameForPath(path: path)
-  }
 
   init(request: CodeGeneratorRequest) throws {
     if request.hasCompilerVersion {
@@ -108,18 +66,6 @@ class Context {
     self.descriptorSet = DescriptorSet(protos: request.protoFile)
   }
 
-  func descriptor(forProtoName name: String) -> Descriptor {
-    return descriptorSet.lookupDescriptor(protoName: name)
-  }
-
-  func enumDescriptor(forProtoName name: String) -> EnumDescriptor {
-    return descriptorSet.lookupEnumDescriptor(protoName: name)
-  }
-
-  func getSwiftNameForEnumCase(path: String, caseName: String) -> String {
-    return request.getSwiftNameForEnumCase(path: path, caseName: caseName)
-  }
-
   func generateResponse() -> CodeGeneratorResponse {
     var response = CodeGeneratorResponse()
 
@@ -129,7 +75,7 @@ class Context {
       var printer = CodePrinter()
       // TODO(thomasvl): Go to a model where this can throw or return an error which can be
       // sent back in the response's error (including the input file name that caused it).
-      fileGenerator.generateOutputFile(printer: &printer, context: self)
+      fileGenerator.generateOutputFile(printer: &printer)
       response.file.append(CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                       content: printer.content))
     }
