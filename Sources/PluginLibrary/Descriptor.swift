@@ -388,7 +388,17 @@ public final class FieldDescriptor {
   /// When this is a enum field, the enum's desciptor.
   public private(set) weak var enumType: EnumDescriptor!
 
-  public var isPacked: Bool { return proto.options.packed }
+  /// Should this field be packed format.
+  public var isPacked: Bool {
+    // This logic comes from the C++ FieldDescriptor::is_packed() impl.
+    guard isPackable else { return false }
+    if file.syntax == .proto2 {
+      return proto.hasOptions && proto.options.packed
+    } else {
+      return !proto.hasOptions || !proto.options.hasPacked || proto.options.packed
+    }
+  }
+
   public var options: Google_Protobuf_FieldOptions { return proto.options }
 
   fileprivate init(proto: Google_Protobuf_FieldDescriptorProto,

@@ -74,6 +74,22 @@ extension FieldDescriptor: ProvidesLocationPath, ProvidesSourceCodeLocation {
     path.append(Int32(index))
   }
 
+  /// Returns true if the type can be used for a Packed field.
+  static func isPackable(type: Google_Protobuf_FieldDescriptorProto.TypeEnum) -> Bool {
+    switch type {
+    case .string, .group, .message, .bytes:
+      return false
+    default:
+      return true
+    }
+  }
+
+  /// Is this field packable.
+  var isPackable: Bool {
+    // This logic comes from the C++ FieldDescriptor::is_packable() impl.
+    return label == .repeated && FieldDescriptor.isPackable(type: type)
+  }
+
   /// Helper to return the name to as the "base" for naming of generated fields.
   ///
   /// Groups use the underlying message's name. The way groups are declared in
