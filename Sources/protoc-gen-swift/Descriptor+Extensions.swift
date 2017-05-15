@@ -226,8 +226,7 @@ extension FieldDescriptor {
         return escapedToDataLiteral(defaultValue)
       case .enum:
         let enumValue = enumType.value(named: defaultValue)!
-        // TODO(thomasvl): Can't this be short name?
-        return namer.fullName(enumValue: enumValue)
+        return namer.dottedRelativeName(enumValue: enumValue)
       default:
         return defaultValue
       }
@@ -240,8 +239,7 @@ extension FieldDescriptor {
     case .group, .message:
       return namer.fullName(message: messageType) + "()"
     case .enum:
-      // TODO(thomasvl): Can't this be short name?
-      return namer.fullName(enumValue: enumType.defaultValue)
+      return namer.dottedRelativeName(enumValue: enumType.defaultValue)
     default:
       return "0"
     }
