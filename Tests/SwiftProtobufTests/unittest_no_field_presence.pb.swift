@@ -1010,10 +1010,12 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 111:
-      var value = UInt32()
+      var value: UInt32?
       try decoder.decodeSingularUInt32Field(value: &value)
-      self = .oneofUint32(value)
-      return
+      if let value = value {
+        self = .oneofUint32(value)
+        return
+      }
     case 112:
       var value: Proto2NofieldpresenceUnittest_TestAllTypes.NestedMessage?
       try decoder.decodeSingularMessageField(value: &value)
@@ -1022,15 +1024,19 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField {
         return
       }
     case 113:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .oneofString(value)
-      return
+      if let value = value {
+        self = .oneofString(value)
+        return
+      }
     case 114:
-      var value = Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum()
+      var value: Proto2NofieldpresenceUnittest_TestAllTypes.NestedEnum?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofEnum(value)
-      return
+      if let value = value {
+        self = .oneofEnum(value)
+        return
+      }
     default:
       break
     }

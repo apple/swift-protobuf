@@ -361,25 +361,33 @@ extension Google_Protobuf_Value.OneOf_Kind {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 1:
-      var value = Google_Protobuf_NullValue()
+      var value: Google_Protobuf_NullValue?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .nullValue(value)
-      return
+      if let value = value {
+        self = .nullValue(value)
+        return
+      }
     case 2:
-      var value = Double()
+      var value: Double?
       try decoder.decodeSingularDoubleField(value: &value)
-      self = .numberValue(value)
-      return
+      if let value = value {
+        self = .numberValue(value)
+        return
+      }
     case 3:
-      var value = String()
+      var value: String?
       try decoder.decodeSingularStringField(value: &value)
-      self = .stringValue(value)
-      return
+      if let value = value {
+        self = .stringValue(value)
+        return
+      }
     case 4:
-      var value = Bool()
+      var value: Bool?
       try decoder.decodeSingularBoolField(value: &value)
-      self = .boolValue(value)
-      return
+      if let value = value {
+        self = .boolValue(value)
+        return
+      }
     case 5:
       var value: Google_Protobuf_Struct?
       try decoder.decodeSingularMessageField(value: &value)

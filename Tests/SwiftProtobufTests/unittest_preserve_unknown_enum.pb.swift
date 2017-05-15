@@ -339,15 +339,19 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 5:
-      var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
+      var value: Proto3PreserveUnknownEnumUnittest_MyEnum?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofE1(value)
-      return
+      if let value = value {
+        self = .oneofE1(value)
+        return
+      }
     case 6:
-      var value = Proto3PreserveUnknownEnumUnittest_MyEnum()
+      var value: Proto3PreserveUnknownEnumUnittest_MyEnum?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofE2(value)
-      return
+      if let value = value {
+        self = .oneofE2(value)
+        return
+      }
     default:
       break
     }
@@ -389,15 +393,19 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O {
   fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
     switch fieldNumber {
     case 5:
-      var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
+      var value: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofE1(value)
-      return
+      if let value = value {
+        self = .oneofE1(value)
+        return
+      }
     case 6:
-      var value = Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra()
+      var value: Proto3PreserveUnknownEnumUnittest_MyEnumPlusExtra?
       try decoder.decodeSingularEnumField(value: &value)
-      self = .oneofE2(value)
-      return
+      if let value = value {
+        self = .oneofE2(value)
+        return
+      }
     default:
       break
     }

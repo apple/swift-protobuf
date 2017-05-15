@@ -247,8 +247,6 @@ class OneofGenerator {
     }
 
     func generateRuntimeSupport(printer p: inout CodePrinter) {
-        let isProto3 = oneofDescriptor.containingType.file.syntax == .proto3
-
         p.print(
             "\n",
             "extension \(swiftFullName) {\n")
@@ -263,29 +261,16 @@ class OneofGenerator {
 
             p.print("case \(f.number):\n")
             p.indent()
-
-            // TODO(thomasvl): Revisit this, in all cases, I think we need success/failure
-            // from decode otherwise we assign to zero for wronge write type. None oneof
-            // is likely also wrong.
-            if isProto3 && !f.isMessage {
-                // Proto3 has non-optional fields, so this is simpler
-                p.print(
-                    "var value = \(f.swiftType)()\n",
-                    "try decoder.\(decoderMethod)(value: &value)\n",
-                    "self = .\(f.swiftName)(value)\n",
-                    "return\n")
-            } else {
-                p.print(
-                    "var value: \(f.swiftType)?\n",
-                    "try decoder.\(decoderMethod)(value: &value)\n",
-                    "if let value = value {\n")
-                p.indent()
-                p.print(
-                    "self = .\(f.swiftName)(value)\n",
-                    "return\n")
-                p.outdent()
-                p.print("}\n")
-            }
+            p.print(
+                "var value: \(f.swiftType)?\n",
+                "try decoder.\(decoderMethod)(value: &value)\n",
+                "if let value = value {\n")
+            p.indent()
+            p.print(
+                "self = .\(f.swiftName)(value)\n",
+                "return\n")
+            p.outdent()
+            p.print("}\n")
             p.outdent()
         }
         p.print("default:\n")
