@@ -129,7 +129,7 @@ class Context {
       var printer = CodePrinter()
       // TODO(thomasvl): Go to a model where this can throw or return an error which can be
       // sent back in the response's error (including the input file name that caused it).
-      fileGenerator.generateOutputFile(printer: &printer, context: self)
+      fileGenerator.generateOutputFile(printer: &printer)
       response.file.append(CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                       content: printer.content))
     }

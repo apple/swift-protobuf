@@ -37,8 +37,7 @@ class MessageGenerator {
   init(
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
-    namer: SwiftProtobufNamer,
-    context: Context
+    namer: SwiftProtobufNamer
   ) {
     self.descriptor = descriptor
     self.generatorOptions = generatorOptions
@@ -62,7 +61,6 @@ class MessageGenerator {
 
     let factory = MessageFieldFactory(generatorOptions: generatorOptions,
                                       namer: namer,
-                                      context: context,
                                       useHeapStorage: useHeapStorage,
                                       oneofGenerators: oneofs)
     fields = descriptor.fields.map {
@@ -80,7 +78,7 @@ class MessageGenerator {
 
     var messages = [MessageGenerator]()
     for m in descriptor.messages where !m.isMapEntry {
-      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, context: context))
+      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer))
     }
     self.messages = messages
 
@@ -500,20 +498,17 @@ fileprivate func hasSingleMessageField(descriptor: Descriptor) -> Bool {
 fileprivate struct MessageFieldFactory {
   private let generatorOptions: GeneratorOptions
   private let namer: SwiftProtobufNamer
-  private let context: Context
   private let useHeapStorage: Bool
   private let oneofs: [OneofGenerator]
 
   init(
     generatorOptions: GeneratorOptions,
     namer: SwiftProtobufNamer,
-    context: Context,
     useHeapStorage: Bool,
     oneofGenerators: [OneofGenerator]
   ) {
     self.generatorOptions = generatorOptions
     self.namer = namer
-    self.context = context
     self.useHeapStorage = useHeapStorage
     oneofs = oneofGenerators
   }
@@ -525,7 +520,6 @@ fileprivate struct MessageFieldFactory {
       return MessageFieldGenerator(descriptor: field,
                                    generatorOptions: generatorOptions,
                                    namer: namer,
-                                   context: context,
                                    usesHeapStorage: useHeapStorage)
     }
   }

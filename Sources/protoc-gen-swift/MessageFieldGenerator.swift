@@ -57,12 +57,9 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
       }
     }
 
-    private let context: Context
-
     init(descriptor: FieldDescriptor,
          generatorOptions: GeneratorOptions,
          namer: SwiftProtobufNamer,
-         context: Context,
          usesHeapStorage: Bool)
     {
         precondition(descriptor.oneofIndex == nil)
@@ -80,8 +77,6 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
         traitsType = descriptor.traitsType(namer: namer)
         comments = descriptor.protoSourceComments()
-
-        self.context = context
 
         super.init(descriptor: descriptor)
     }

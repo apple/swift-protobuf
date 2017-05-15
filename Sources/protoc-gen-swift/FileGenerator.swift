@@ -177,7 +177,7 @@ class FileGenerator {
         self.generatorOptions = generatorOptions
     }
 
-    func generateOutputFile(printer p: inout CodePrinter, context: Context) {
+    func generateOutputFile(printer p: inout CodePrinter) {
         p.print(
             "/*\n",
             " * DO NOT EDIT.\n",
@@ -225,7 +225,7 @@ class FileGenerator {
 
         var messages = [MessageGenerator]()
         for m in fileDescriptor.messages {
-          messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer, context: context))
+          messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer))
         }
 
         var extensions = [ExtensionGenerator]()
