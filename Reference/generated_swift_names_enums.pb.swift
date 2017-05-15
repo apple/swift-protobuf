@@ -4078,6 +4078,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum fastUtf8ToString: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFastUtf8ToString // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFastUtf8ToString
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFastUtf8ToString
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFastUtf8ToString: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum field: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneField // = 0
@@ -7597,31 +7622,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneMapHash: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
-  enum MapKeyType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneMapKeyType // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneMapKeyType
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneMapKeyType
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneMapKeyType: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -16400,6 +16400,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.falseEnum: SwiftProtobuf.
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.fastUtf8ToString: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_fastUtf8ToString"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_field"),
@@ -17243,12 +17249,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.makeIterator: SwiftProtob
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.mapHash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapHash"),
-  ]
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MapKeyType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_MapKeyType"),
   ]
 }
 

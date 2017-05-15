@@ -166,6 +166,7 @@ message GeneratedSwiftReservedEnums {
   enum extras { NONE_extras = 0; }
   enum f { NONE_f = 0; }
   enum false { NONE_false = 0; }
+  enum fastUtf8ToString { NONE_fastUtf8ToString = 0; }
   enum field { NONE_field = 0; }
   enum FieldMask { NONE_FieldMask = 0; }
   enum fieldName { NONE_fieldName = 0; }
@@ -307,7 +308,6 @@ message GeneratedSwiftReservedEnums {
   enum major { NONE_major = 0; }
   enum makeIterator { NONE_makeIterator = 0; }
   enum mapHash { NONE_mapHash = 0; }
-  enum MapKeyType { NONE_MapKeyType = 0; }
   enum mapNameResolver { NONE_mapNameResolver = 0; }
   enum mapToMessages { NONE_mapToMessages = 0; }
   enum MapValueType { NONE_MapValueType = 0; }
