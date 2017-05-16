@@ -262,7 +262,7 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       case .listValue(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

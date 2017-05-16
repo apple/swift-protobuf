@@ -682,7 +682,7 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
       case .oneofEnum(let v)?:
         try visitor.visitSingularEnumField(value: v, fieldNumber: 114)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

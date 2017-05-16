@@ -157,7 +157,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       case .stringField(let v)?:
         try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-      default: break
+      case nil: break
       }
       if let v = _storage._msg {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 19)

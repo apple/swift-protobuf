@@ -289,7 +289,7 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
       case .field6(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

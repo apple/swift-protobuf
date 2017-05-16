@@ -1251,7 +1251,7 @@ struct ProtobufUnittest_TestAllTypes: SwiftProtobuf.Message {
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
       case .oneofBytes(let v)?:
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4215,7 +4215,7 @@ struct ProtobufUnittest_TestOneof: SwiftProtobuf.Message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
       case .fooGroup(let v)?:
         try visitor.visitSingularGroupField(value: v, fieldNumber: 4)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -4758,7 +4758,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 8)
       case .fooLazyMessage(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-      default: break
+      case nil: break
       }
       switch _storage._bar {
       case .barInt(let v)?:
@@ -4773,7 +4773,7 @@ struct ProtobufUnittest_TestOneof2: SwiftProtobuf.Message {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 16)
       case .barEnum(let v)?:
         try visitor.visitSingularEnumField(value: v, fieldNumber: 17)
-      default: break
+      case nil: break
       }
       if let v = _storage._bazInt {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 18)
@@ -4927,7 +4927,7 @@ struct ProtobufUnittest_TestRequiredOneof: SwiftProtobuf.Message {
         try visitor.visitSingularStringField(value: v, fieldNumber: 2)
       case .fooMessage(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -6443,7 +6443,7 @@ struct ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf.Message, SwiftProtob
         try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
       case .oneofBytes(let v)?:
         try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

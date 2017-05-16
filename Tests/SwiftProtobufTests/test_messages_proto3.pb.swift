@@ -1266,7 +1266,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
         try visitor.visitSingularDoubleField(value: v, fieldNumber: 118)
       case .oneofEnum(let v)?:
         try visitor.visitSingularEnumField(value: v, fieldNumber: 119)
-      default: break
+      case nil: break
       }
       if let v = _storage._optionalBoolWrapper {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 201)

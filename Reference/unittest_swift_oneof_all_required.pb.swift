@@ -315,7 +315,7 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
         try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
       case .option4(let v)?:
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

@@ -765,7 +765,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
       case .oneofBytes(let v)?:
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1889,7 +1889,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
         try visitor.visitSingularStringField(value: v, fieldNumber: 2)
       case .fooMessage(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

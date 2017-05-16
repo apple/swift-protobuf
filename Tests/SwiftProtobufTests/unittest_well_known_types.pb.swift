@@ -768,7 +768,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
       case .bytesField(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

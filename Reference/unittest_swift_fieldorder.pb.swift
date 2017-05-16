@@ -235,6 +235,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
         try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
       case .oneofInt32(let v)?:
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+      case nil: break
       default: break
       }
       if let v = _storage._myString {
@@ -462,7 +463,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
     case .b(let v)?:
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
-    default: break
+    case nil: break
     }
     if case .a2(let v)? = self.oConflictField {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)

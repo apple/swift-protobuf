@@ -998,7 +998,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
       case .oneofEnum(let v)?:
         try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
-      default: break
+      case nil: break
       }
       if !_storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 70)

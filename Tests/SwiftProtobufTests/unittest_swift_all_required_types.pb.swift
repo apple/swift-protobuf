@@ -939,7 +939,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
         try visitor.visitSingularStringField(value: v, fieldNumber: 113)
       case .oneofBytes(let v)?:
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

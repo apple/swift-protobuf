@@ -1252,7 +1252,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
       case .oneofLazyNestedMessage(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
-      default: break
+      case nil: break
       }
       if let v = _storage._deceptivelyNamedList {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
@@ -2467,7 +2467,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
         try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
       case .oneofBytes(let v)?:
         try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

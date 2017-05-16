@@ -1191,7 +1191,7 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
       case .lazyOneofNestedMessage(let v)?:
         try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
-      default: break
+      case nil: break
       }
     }
     try unknownFields.traverse(visitor: &visitor)

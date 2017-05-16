@@ -204,7 +204,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
       try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
     case .oneofE2(let v)?:
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    default: break
+    case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -299,7 +299,7 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
       try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
     case .oneofE2(let v)?:
       try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    default: break
+    case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }

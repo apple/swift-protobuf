@@ -168,7 +168,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
       try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
     case .jsonPayload(let v)?:
       try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    default: break
+    case nil: break
     }
     if self.requestedOutputFormat != .unspecified {
       try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
@@ -325,7 +325,7 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
       try visitor.visitSingularStringField(value: v, fieldNumber: 5)
     case .serializeError(let v)?:
       try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-    default: break
+    case nil: break
     }
     try unknownFields.traverse(visitor: &visitor)
   }
