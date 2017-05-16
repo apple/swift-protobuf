@@ -731,7 +731,45 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._oneofField?.traverse(visitor: &visitor)
+      switch _storage._oneofField {
+      case .anyField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      case .apiField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      case .durationField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      case .emptyField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+      case .fieldMaskField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      case .sourceContextField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      case .structField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+      case .timestampField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+      case .typeField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
+      case .doubleField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
+      case .floatField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
+      case .int64Field(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
+      case .uint64Field(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
+      case .int32Field(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
+      case .uint32Field(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
+      case .boolField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
+      case .stringField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
+      case .bytesField(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
+      case nil: break
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1338,47 +1376,6 @@ extension ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .anyField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    case .apiField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    case .durationField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    case .emptyField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    case .fieldMaskField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    case .sourceContextField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    case .structField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    case .timestampField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-    case .typeField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 9)
-    case .doubleField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 10)
-    case .floatField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 11)
-    case .int64Field(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 12)
-    case .uint64Field(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 13)
-    case .int32Field(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 14)
-    case .uint32Field(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 15)
-    case .boolField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 16)
-    case .stringField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 17)
-    case .bytesField(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 18)
-    }
   }
 }
 

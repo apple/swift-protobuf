@@ -306,7 +306,17 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._option?.traverse(visitor: &visitor)
+      switch _storage._option {
+      case .option1(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      case .option2(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      case .option3(let v)?:
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
+      case .option4(let v)?:
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
+      case nil: break
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -415,19 +425,6 @@ extension ProtobufUnittest_OneOfContainer.OneOf_Option {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .option1(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    case .option2(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    case .option3(let v):
-      try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
-    case .option4(let v):
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
-    }
   }
 }
 

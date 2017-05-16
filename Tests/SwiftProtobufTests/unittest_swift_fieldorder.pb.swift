@@ -230,16 +230,27 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
         try visitor.visitSingularInt64Field(value: v, fieldNumber: 1)
       }
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 2, end: 9)
-      try _storage._options?.traverse_9_10(visitor: &visitor)
+      switch _storage._options {
+      case .oneofBool(let v)?:
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
+      case .oneofInt32(let v)?:
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
+      case nil: break
+      default: break
+      }
       if let v = _storage._myString {
         try visitor.visitSingularStringField(value: v, fieldNumber: 11)
       }
       try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 12, end: 56)
-      try _storage._options?.traverse_60(visitor: &visitor)
+      if case .oneofInt64(let v)? = _storage._options {
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
+      }
       if let v = _storage._myFloat {
         try visitor.visitSingularFloatField(value: v, fieldNumber: 101)
       }
-      try _storage._options?.traverse_150(visitor: &visitor)
+      if case .oneofString(let v)? = _storage._options {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 150)
+      }
       if let v = _storage._optionalNestedMessage {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 200)
       }
@@ -447,18 +458,36 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try self.oGood?.traverse(visitor: &visitor)
-    try self.oConflictField?.traverse_101(visitor: &visitor)
+    switch self.oGood {
+    case .a(let v)?:
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    case .b(let v)?:
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
+    case nil: break
+    }
+    if case .a2(let v)? = self.oConflictField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)
+    }
     if let v = self._m {
       try visitor.visitSingularInt32Field(value: v, fieldNumber: 113)
     }
-    try self.oConflictField?.traverse_126(visitor: &visitor)
-    try self.oConflictExtensionsStart?.traverse_201(visitor: &visitor)
+    if case .b2(let v)? = self.oConflictField {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 126)
+    }
+    if case .a3(let v)? = self.oConflictExtensionsStart {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
+    }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 202, end: 203)
-    try self.oConflictExtensionsStart?.traverse_226(visitor: &visitor)
-    try self.oConflictExtensionsEnd?.traverse_301(visitor: &visitor)
+    if case .b3(let v)? = self.oConflictExtensionsStart {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
+    }
+    if case .a4(let v)? = self.oConflictExtensionsEnd {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 301)
+    }
     try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 325, end: 326)
-    try self.oConflictExtensionsEnd?.traverse_326(visitor: &visitor)
+    if case .b4(let v)? = self.oConflictExtensionsEnd {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 326)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -618,29 +647,6 @@ extension Swift_Protobuf_TestFieldOrderings.OneOf_Options {
     }
     return nil
   }
-
-  fileprivate func traverse_9_10<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofBool(let v):
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 9)
-    case .oneofInt32(let v):
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 10)
-    default:
-      break
-    }
-  }
-
-  fileprivate func traverse_60<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .oneofInt64(let v) = self {
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 60)
-    }
-  }
-
-  fileprivate func traverse_150<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .oneofString(let v) = self {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 150)
-    }
-  }
 }
 
 extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -704,15 +710,6 @@ extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood {
     }
     return nil
   }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .a(let v):
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    case .b(let v):
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 26)
-    }
-  }
 }
 
 extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField {
@@ -736,18 +733,6 @@ extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse_101<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .a2(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 101)
-    }
-  }
-
-  fileprivate func traverse_126<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .b2(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 126)
-    }
   }
 }
 
@@ -773,18 +758,6 @@ extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart
     }
     return nil
   }
-
-  fileprivate func traverse_201<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .a3(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 201)
-    }
-  }
-
-  fileprivate func traverse_226<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .b3(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 226)
-    }
-  }
 }
 
 extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd {
@@ -808,17 +781,5 @@ extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse_301<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .a4(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 301)
-    }
-  }
-
-  fileprivate func traverse_326<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .b4(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 326)
-    }
   }
 }

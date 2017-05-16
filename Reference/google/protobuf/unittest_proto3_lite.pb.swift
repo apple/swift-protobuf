@@ -694,7 +694,17 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
       if !_storage._repeatedLazyMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor)
+      switch _storage._oneofField {
+      case .oneofUint32(let v)?:
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
+      case .oneofNestedMessage(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
+      case .oneofString(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 113)
+      case .oneofBytes(let v)?:
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+      case nil: break
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1325,19 +1335,6 @@ extension Proto3LiteUnittest_TestAllTypes.OneOf_OneofField {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofUint32(let v):
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-    case .oneofNestedMessage(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-    case .oneofString(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-    case .oneofBytes(let v):
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-    }
   }
 }
 
