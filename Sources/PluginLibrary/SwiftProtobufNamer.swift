@@ -134,7 +134,7 @@ public final class SwiftProtobufNamer {
   ///
   /// - Precondition: `field` must be FieldDescriptor that's isn't for an extension.
   public func messagePropertyNames(field: FieldDescriptor,
-                                   includeHasAndClear: Bool) -> MessageExtensionNames {
+                                   includeHasAndClear: Bool) -> MessageFieldNames {
     precondition(!field.isExtension)
 
     let lowerName = NamingUtils.toLowerCamelCase(field.namingBase)
