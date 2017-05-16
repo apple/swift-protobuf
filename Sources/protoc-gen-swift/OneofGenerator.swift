@@ -301,9 +301,26 @@ class OneofGenerator {
     func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
         p.print("case \(field.number):\n")
         p.indent()
+
+        if field.isGroupOrMessage {
+            // Messages need to fetch the current value so new fields are merged into the existing
+            // value
+            p.print(
+              "var v: \(field.swiftType)?\n",
+              "if let current = \(storedProperty()) {\n")
+            p.indent()
+            p.print(
+              "try decoder.handleConflictingOneOf()\n",
+              "if case .\(field.swiftName)(let m) = current {v = m}\n")
+            p.outdent()
+            p.print("}\n")
+        } else {
+            p.print(
+              "if \(storedProperty()) != nil {try decoder.handleConflictingOneOf()}\n",
+              "var v: \(field.swiftType)?\n")
+        }
+
         p.print(
-          "if \(storedProperty()) != nil {try decoder.handleConflictingOneOf()}\n",
-          "var v: \(field.swiftType)?\n",
           "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
           "if let v = v {\(storedProperty()) = .\(field.swiftName)(v)}\n")
         p.outdent()
