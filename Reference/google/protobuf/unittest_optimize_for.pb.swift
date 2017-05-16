@@ -129,11 +129,16 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt32Field(value: &_storage._i)
-        case 2, 3:
-          if _storage._foo != nil {
-            try decoder.handleConflictingOneOf()
-          }
-          _storage._foo = try ProtobufUnittest_TestOptimizedForSize.OneOf_Foo(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 2:
+          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {_storage._foo = .integerField(v)}
+        case 3:
+          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._foo = .stringField(v)}
         case 19: try decoder.decodeSingularMessageField(value: &_storage._msg)
         case 1000..<536870912:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_TestOptimizedForSize.self, fieldNumber: fieldNumber)
@@ -381,30 +386,6 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf._MessageImplement
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
-  }
-}
-
-extension ProtobufUnittest_TestOptimizedForSize.OneOf_Foo {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 2:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .integerField(value)
-        return
-      }
-    case 3:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .stringField(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 

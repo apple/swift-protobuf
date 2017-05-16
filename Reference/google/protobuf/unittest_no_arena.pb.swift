@@ -950,11 +950,31 @@ struct ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf.Message {
         case 83: try decoder.decodeSingularEnumField(value: &_storage._defaultImportEnum)
         case 84: try decoder.decodeSingularStringField(value: &_storage._defaultStringPiece)
         case 85: try decoder.decodeSingularStringField(value: &_storage._defaultCord)
-        case 111...115:
-          if _storage._oneofField != nil {
-            try decoder.handleConflictingOneOf()
-          }
-          _storage._oneofField = try ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 111:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: UInt32?
+          try decoder.decodeSingularUInt32Field(value: &v)
+          if let v = v {_storage._oneofField = .oneofUint32(v)}
+        case 112:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
+        case 113:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._oneofField = .oneofString(v)}
+        case 114:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Data?
+          try decoder.decodeSingularBytesField(value: &v)
+          if let v = v {_storage._oneofField = .oneofBytes(v)}
+        case 115:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._oneofField = .lazyOneofNestedMessage(v)}
         default: break
         }
       }
@@ -1625,51 +1645,6 @@ extension ProtobufUnittestNoArena_TestAllTypes: SwiftProtobuf._MessageImplementa
     }
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension ProtobufUnittestNoArena_TestAllTypes.OneOf_OneofField {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 111:
-      var value: UInt32?
-      try decoder.decodeSingularUInt32Field(value: &value)
-      if let value = value {
-        self = .oneofUint32(value)
-        return
-      }
-    case 112:
-      var value: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .oneofNestedMessage(value)
-        return
-      }
-    case 113:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .oneofString(value)
-        return
-      }
-    case 114:
-      var value: Data?
-      try decoder.decodeSingularBytesField(value: &value)
-      if let value = value {
-        self = .oneofBytes(value)
-        return
-      }
-    case 115:
-      var value: ProtobufUnittestNoArena_TestAllTypes.NestedMessage?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .lazyOneofNestedMessage(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 

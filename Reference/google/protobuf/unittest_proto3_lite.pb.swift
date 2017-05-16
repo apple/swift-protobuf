@@ -536,11 +536,26 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
         case 54: try decoder.decodeRepeatedStringField(value: &_storage._repeatedStringPiece)
         case 55: try decoder.decodeRepeatedStringField(value: &_storage._repeatedCord)
         case 57: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedLazyMessage)
-        case 111...114:
-          if _storage._oneofField != nil {
-            try decoder.handleConflictingOneOf()
-          }
-          _storage._oneofField = try Proto3LiteUnittest_TestAllTypes.OneOf_OneofField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 111:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: UInt32?
+          try decoder.decodeSingularUInt32Field(value: &v)
+          if let v = v {_storage._oneofField = .oneofUint32(v)}
+        case 112:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Proto3LiteUnittest_TestAllTypes.NestedMessage?
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
+        case 113:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._oneofField = .oneofString(v)}
+        case 114:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Data?
+          try decoder.decodeSingularBytesField(value: &v)
+          if let v = v {_storage._oneofField = .oneofBytes(v)}
         default: break
         }
       }
@@ -1297,44 +1312,6 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationB
     }
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension Proto3LiteUnittest_TestAllTypes.OneOf_OneofField {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 111:
-      var value: UInt32?
-      try decoder.decodeSingularUInt32Field(value: &value)
-      if let value = value {
-        self = .oneofUint32(value)
-        return
-      }
-    case 112:
-      var value: Proto3LiteUnittest_TestAllTypes.NestedMessage?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .oneofNestedMessage(value)
-        return
-      }
-    case 113:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .oneofString(value)
-        return
-      }
-    case 114:
-      var value: Data?
-      try decoder.decodeSingularBytesField(value: &value)
-      if let value = value {
-        self = .oneofBytes(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 
