@@ -1241,7 +1241,20 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
       if let v = _storage._defaultCord {
         try visitor.visitSingularStringField(value: v, fieldNumber: 85)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor)
+      if let o = _storage._oneofField {
+        switch o {
+        case .oneofUint32(let v):
+          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
+        case .oneofNestedMessage(let v):
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
+        case .oneofString(let v):
+          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
+        case .oneofBytes(let v):
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
+        case .oneofLazyNestedMessage(let v):
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
+        }
+      }
       if let v = _storage._deceptivelyNamedList {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 116)
       }
@@ -2446,7 +2459,18 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
       if !_storage._stringStringMap.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: _storage._stringStringMap, fieldNumber: 536870010)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor)
+      if let o = _storage._oneofField {
+        switch o {
+        case .oneofUint32(let v):
+          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
+        case .oneofTestAllTypes(let v):
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
+        case .oneofString(let v):
+          try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
+        case .oneofBytes(let v):
+          try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
+        }
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -5107,21 +5131,6 @@ extension ProtobufUnittest_TestAllTypesLite.OneOf_OneofField {
     }
     return nil
   }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofUint32(let v):
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-    case .oneofNestedMessage(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-    case .oneofString(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-    case .oneofBytes(let v):
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
-    case .oneofLazyNestedMessage(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
-    }
-  }
 }
 
 extension ProtobufUnittest_TestAllTypesLite.NestedEnum: SwiftProtobuf._ProtoNameProviding {
@@ -5662,19 +5671,6 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofUint32(let v):
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 536870011)
-    case .oneofTestAllTypes(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 536870012)
-    case .oneofString(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 536870013)
-    case .oneofBytes(let v):
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 536870014)
-    }
   }
 }
 

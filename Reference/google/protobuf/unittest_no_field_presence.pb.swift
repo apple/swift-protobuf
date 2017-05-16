@@ -673,7 +673,18 @@ struct Proto2NofieldpresenceUnittest_TestAllTypes: SwiftProtobuf.Message {
       if !_storage._repeatedLazyMessage.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._repeatedLazyMessage, fieldNumber: 57)
       }
-      try _storage._oneofField?.traverse(visitor: &visitor)
+      if let o = _storage._oneofField {
+        switch o {
+        case .oneofUint32(let v):
+          try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
+        case .oneofNestedMessage(let v):
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
+        case .oneofString(let v):
+          try visitor.visitSingularStringField(value: v, fieldNumber: 113)
+        case .oneofEnum(let v):
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 114)
+        }
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -1041,19 +1052,6 @@ extension Proto2NofieldpresenceUnittest_TestAllTypes.OneOf_OneofField {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofUint32(let v):
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 111)
-    case .oneofNestedMessage(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 112)
-    case .oneofString(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 113)
-    case .oneofEnum(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 114)
-    }
   }
 }
 

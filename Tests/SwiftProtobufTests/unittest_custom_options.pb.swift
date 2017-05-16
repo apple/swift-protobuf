@@ -194,7 +194,9 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
     if let v = self._field1 {
       try visitor.visitSingularStringField(value: v, fieldNumber: 1)
     }
-    try self.anOneof?.traverse(visitor: &visitor)
+    if case .oneofField(let v)? = self.anOneof {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2580,12 +2582,6 @@ extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if case .oneofField(let v) = self {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
   }
 }
 

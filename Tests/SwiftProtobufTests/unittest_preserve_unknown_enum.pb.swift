@@ -199,7 +199,14 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessage: SwiftProtobuf.Message {
     if !self.repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try self.o?.traverse(visitor: &visitor)
+    if let o = self.o {
+      switch o {
+      case .oneofE1(let v):
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      case .oneofE2(let v):
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      }
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -288,7 +295,14 @@ struct Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf.Messa
     if !self.repeatedPackedUnexpectedE.isEmpty {
       try visitor.visitPackedEnumField(value: self.repeatedPackedUnexpectedE, fieldNumber: 4)
     }
-    try self.o?.traverse(visitor: &visitor)
+    if let o = self.o {
+      switch o {
+      case .oneofE1(let v):
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
+      case .oneofE2(let v):
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
+      }
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -357,15 +371,6 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessage.OneOf_O {
     }
     return nil
   }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofE1(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    case .oneofE2(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    }
-  }
 }
 
 extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
@@ -410,14 +415,5 @@ extension Proto3PreserveUnknownEnumUnittest_MyMessagePlusExtra.OneOf_O {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofE1(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 5)
-    case .oneofE2(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 6)
-    }
   }
 }

@@ -283,39 +283,6 @@ class OneofGenerator {
         p.outdent()
         p.print("}\n")
 
-        // A Traverse for each group.
-        let hasMultipleGroups = fieldSortedGrouped.count > 1
-        for g in 0..<fieldSortedGrouped.count {
-            p.print("\n")
-            p.print("fileprivate func traverse\(groupName(g))<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {\n")
-            p.indent()
-            let group = fieldSortedGrouped[g]
-            if group.count == 1 {
-                let f = group.first!
-                p.print("if case .\(f.swiftName)(let v) = self {\n")
-                p.indent()
-                p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
-                p.outdent()
-            } else {
-                p.print("switch self {\n")
-                for f in group {
-                    p.print("case .\(f.swiftName)(let v):\n")
-                    p.indent()
-                    p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
-                    p.outdent()
-                }
-                if hasMultipleGroups {
-                    p.print("default:\n")
-                    p.indent()
-                    p.print("break\n")
-                    p.outdent()
-                }
-            }
-            p.print("}\n")
-            p.outdent()
-            p.print("}\n")
-        }
-
         p.outdent()
         p.print("}\n")
     }
@@ -326,23 +293,6 @@ class OneofGenerator {
         }
         let prefix = variable.isEmpty ? "self." : "\(variable)."
         return "\(prefix)\(swiftFieldName)"
-    }
-
-    private func groupName(_ group: Int) -> String {
-        precondition(group < fieldSortedGrouped.count)
-
-        if fieldSortedGrouped.count == 1 {
-            // One group for the oneof, no names needed.
-            return ""
-        }
-
-        // Name it based on the field number(s).
-        let fieldGroup = fieldSortedGrouped[group]
-        if fieldGroup.count == 1 {
-            return "_\(fieldGroup.first!.number)"
-        } else {
-            return "_\(fieldGroup.first!.number)_\(fieldGroup.last!.number)"
-        }
     }
 
     private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {
@@ -434,7 +384,28 @@ class OneofGenerator {
         let group = fieldSortedGrouped[field.group]
         guard field === group.first else { return }
 
-        p.print("try \(storedProperty())?.traverse\(groupName(field.group))(visitor: &visitor)\n")
+        if group.count == 1 {
+            p.print("if case .\(field.swiftName)(let v)? = \(storedProperty()) {\n")
+            p.indent()
+            p.print("try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))\n")
+            p.outdent()
+        } else {
+            p.print("if let o = \(storedProperty()) {\n")
+            p.indent()
+            p.print("switch o {\n")
+            for f in group {
+                p.print("case .\(f.swiftName)(let v):\n")
+                p.indent()
+                p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
+                p.outdent()
+            }
+            if fieldSortedGrouped.count > 1 {
+              p.print("default: break\n")
+            }
+            p.print("}\n")
+            p.outdent()
+        }
+        p.print("}\n")
     }
 
     func generateFieldComparison(printer p: inout CodePrinter, field: MemberFieldGenerator) {
