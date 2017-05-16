@@ -10,8 +10,10 @@
 ///
 /// This provides some utilities for generating names.
 ///
-/// NOTE: These are *NOT* public since the expectation is the results exposed
-/// on the Descriptor object is all that is needed.
+/// NOTE: Only a very small subset of this is public. The intent is for this to
+/// expose a defined api within the PluginLib, but the the SwiftProtobufNamer
+/// to be what exposes the reusable parts at a much higher level. This reduces
+/// the changes of something being reimplemented but with minor differences.
 ///
 // -----------------------------------------------------------------------------
 
@@ -20,7 +22,7 @@ import Foundation
 ///
 /// We won't generate types (structs, enums) with these names:
 ///
-private let reservedTypeNames: Set<String> = {
+fileprivate let reservedTypeNames: Set<String> = {
   () -> Set<String> in
 
   var names: Set<String> = []
@@ -68,7 +70,7 @@ private let reservedTypeNames: Set<String> = {
   return names
 }()
 
-private let reservedFieldNames: Set<String> = {
+fileprivate let reservedFieldNames: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
@@ -107,7 +109,7 @@ private let reservedFieldNames: Set<String> = {
  * Many Swift reserved words can be used as enum cases if we put
  * backticks around them:
  */
-private let quotableEnumCases: Set<String> = {
+fileprivate let quotableEnumCases: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
@@ -133,7 +135,7 @@ private let quotableEnumCases: Set<String> = {
  * Some words cannot be used for enum cases, even if they
  * are quoted with backticks:
  */
-private let reservedEnumCases: Set<String> = [
+fileprivate let reservedEnumCases: Set<String> = [
   // Don't conflict with standard Swift property names:
   "debugDescription",
   "description",
@@ -149,11 +151,11 @@ private let reservedEnumCases: Set<String> = [
  * `enum Extensions { ... }`, so we resuse the same sets for backticks
  * and reserved words.
  */
-private let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
-private let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
+fileprivate let quotableMessageScopedExtensionNames: Set<String> = quotableEnumCases
+fileprivate let reservedMessageScopedExtensionNames: Set<String> = reservedEnumCases
 
 
-private func isAllUnderscore(_ s: String) -> Bool {
+fileprivate func isAllUnderscore(_ s: String) -> Bool {
   if s.isEmpty {
     return false
   }
@@ -163,7 +165,7 @@ private func isAllUnderscore(_ s: String) -> Bool {
   return true
 }
 
-private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
+fileprivate func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
   if reservedTypeNames.contains(s) {
     return s + disambiguator
   } else if isAllUnderscore(s) {
@@ -183,7 +185,7 @@ private func sanitizeTypeName(_ s: String, disambiguator: String) -> String {
   }
 }
 
-private func isCharacterUppercase(_ s: String, index: Int) -> Bool {
+fileprivate func isCharacterUppercase(_ s: String, index: Int) -> Bool {
   let start = s.index(s.startIndex, offsetBy: index)
   if start == s.endIndex {
     // it ended, so just say the next character wasn't uppercase.
@@ -194,9 +196,9 @@ private func isCharacterUppercase(_ s: String, index: Int) -> Bool {
   return sub != sub.lowercased()
 }
 
-private let digits: Set<String> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+fileprivate let digits: Set<String> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
-private func splitIdentifier(_ s: String) -> [String] {
+fileprivate func splitIdentifier(_ s: String) -> [String] {
   var out = [String]()
   var current = ""
   var last = ""
@@ -251,7 +253,7 @@ private func splitIdentifier(_ s: String) -> [String] {
 }
 
 /// Only allow ASCII alphanumerics and underscore.
-private func basicSanitize(_ s: String) -> String {
+fileprivate func basicSanitize(_ s: String) -> String {
   var out = ""
   for c in s.characters {
     switch c {
@@ -270,13 +272,13 @@ private func basicSanitize(_ s: String) -> String {
   return out
 }
 
-private let upperInitials: Set<String> = ["url", "http", "https", "id"]
+fileprivate let upperInitials: Set<String> = ["url", "http", "https", "id"]
 
-private let backtickCharacterSet = CharacterSet(charactersIn: "`")
+fileprivate let backtickCharacterSet = CharacterSet(charactersIn: "`")
 
 // Scope for the utilies to they are less likely to conflict when imported into
 // generators.
-enum NamingUtils {
+public enum NamingUtils {
 
   // Returns the type prefix to use for a given
   static func typePrefix(protoPackage: String, fileOptions: Google_Protobuf_FileOptions) -> String {
@@ -435,7 +437,7 @@ enum NamingUtils {
     }
   }
 
-  static func toUpperCamelCase(_ s: String) -> String {
+  public static func toUpperCamelCase(_ s: String) -> String {
     var out = ""
     let t = splitIdentifier(s)
     for word in t {
@@ -448,7 +450,7 @@ enum NamingUtils {
     return out
   }
 
-  static func toLowerCamelCase(_ s: String) -> String {
+  public static func toLowerCamelCase(_ s: String) -> String {
     var out = ""
     let t = splitIdentifier(s)
     // Lowercase the first letter/word.

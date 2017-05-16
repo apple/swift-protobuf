@@ -133,7 +133,7 @@ class FileGenerator {
             }
 
             // Generate a registry for the file.
-            let filenameAsIdentifer = toUpperCamelCase(pathParts.base)
+            let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
             let filePrefix = namer.typePrefix(forFile: fileDescriptor)
             p.print(
                 "\n",
