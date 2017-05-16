@@ -163,7 +163,14 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try self.payload?.traverse(visitor: &visitor)
+    if let o = self.payload {
+      switch o {
+      case .protobufPayload(let v):
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
+      case .jsonPayload(let v):
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+    }
     if self.requestedOutputFormat != .unspecified {
       try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
     }
@@ -306,7 +313,22 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try self.result?.traverse(visitor: &visitor)
+    if let o = self.result {
+      switch o {
+      case .parseError(let v):
+        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+      case .runtimeError(let v):
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      case .protobufPayload(let v):
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
+      case .jsonPayload(let v):
+        try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+      case .skipped(let v):
+        try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+      case .serializeError(let v):
+        try visitor.visitSingularStringField(value: v, fieldNumber: 6)
+      }
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 }
@@ -359,15 +381,6 @@ extension Conformance_ConformanceRequest.OneOf_Payload {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .protobufPayload(let v):
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
-    case .jsonPayload(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    }
   }
 }
 
@@ -437,22 +450,5 @@ extension Conformance_ConformanceResponse.OneOf_Result {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .parseError(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    case .runtimeError(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-    case .protobufPayload(let v):
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 3)
-    case .jsonPayload(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-    case .skipped(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 5)
-    case .serializeError(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 6)
-    }
   }
 }

@@ -280,7 +280,18 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
       if let v = _storage._field2 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
       }
-      try _storage._o?.traverse(visitor: &visitor)
+      if let o = _storage._o {
+        switch o {
+        case .field3(let v):
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
+        case .field4(let v):
+          try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
+        case .field5(let v):
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+        case .field6(let v):
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+        }
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -620,19 +631,6 @@ extension SDTTopLevelMessage.OneOf_O {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .field3(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 3)
-    case .field4(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 4)
-    case .field5(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    case .field6(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }
   }
 }
 
