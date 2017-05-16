@@ -48,7 +48,7 @@ internal func typeName(fromURL s: String) -> String {
   return s[typeStart..<s.endIndex]
 }
 
-fileprivate var serialQueue = DispatchQueue(label: "com.apple.swift.typeRegistry")
+fileprivate var serialQueue = DispatchQueue(label: "org.swift.protobuf.typeRegistry")
 
 // All access to this should be done on `serialQueue`.
 fileprivate var knownTypes: [String:Message.Type] = [
