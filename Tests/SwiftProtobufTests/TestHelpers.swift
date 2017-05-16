@@ -87,6 +87,19 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 
+    func assertMergesAsUnknownFields(_ bytes: [UInt8], inTo message: MessageTestType, file: XCTestFileArgType = #file, line: UInt = #line, check: ((MessageTestType) -> Bool)? = nil) {
+        var msgCopy = message
+        do {
+            try msgCopy.merge(serializedData: Data(bytes: bytes))
+        } catch let e {
+            XCTFail("Failed to decode: \(e)", file: file, line: line)
+        }
+        XCTAssertEqual(msgCopy.unknownFields.data, Data(bytes: bytes), file: file, line: line)
+        if let check = check {
+            XCTAssert(check(msgCopy), "Condition failed for \(msgCopy)", file: file, line: line)
+        }
+    }
+
     func assertDecodeSucceeds(inputBytes bytes: [UInt8], recodedBytes: [UInt8], file: XCTestFileArgType = #file, line: UInt = #line, check: (MessageTestType) -> Bool) {
         do {
             let decoded = try MessageTestType(serializedData: Data(bytes: bytes))

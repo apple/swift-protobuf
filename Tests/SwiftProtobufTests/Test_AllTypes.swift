@@ -1956,6 +1956,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodesAsUnknownFields([250, 6, 0]) {  // Wrong wire type (length delimited), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
         }
+        let initialMsg = MessageTestType.with { $0.oneofString = "initial" }
+        assertMergesAsUnknownFields([250, 6, 0], inTo: initialMsg) {
+            $0.oneofString == "initial"   // Shouldn't have gotten cleared.
+        }
         assertDecodeFails([251, 6])
         assertDecodeFails([251, 6, 0])
         assertDecodeFails([252, 6])
@@ -2031,6 +2035,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodesAsUnknownFields([128, 7, 0]) {  // Wrong wire type (varint), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
         }
+        let initialMsg = MessageTestType.with { $0.oneofString = "initial" }
+        assertMergesAsUnknownFields([128, 7, 0], inTo: initialMsg) {
+            $0.oneofString == "initial"   // Shouldn't have gotten cleared.
+        }
         assertDecodeFails([129, 7])
         assertDecodeFails([129, 7, 0])
         assertDecodeFails([131, 7])
@@ -2061,17 +2069,30 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodesAsUnknownFields([136, 7, 0]) {  // Wrong wire type (varint), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
         }
+        let initialMsg = MessageTestType.with { $0.oneofUint32 = 123 }
+        assertMergesAsUnknownFields([136, 7, 0], inTo: initialMsg) {
+            $0.oneofUint32 == 123   // Shouldn't have gotten cleared.
+        }
         assertDecodesAsUnknownFields([136, 7, 1]) {  // Wrong wire type (varint), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
         }
+        assertMergesAsUnknownFields([136, 7, 1], inTo: initialMsg) {
+            $0.oneofUint32 == 123   // Shouldn't have gotten cleared.
+        }
         assertDecodesAsUnknownFields([137, 7, 1, 1, 1, 1, 1, 1, 1, 1]) {  // Wrong wire type (fixed64), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
+        }
+        assertMergesAsUnknownFields([137, 7, 1, 1, 1, 1, 1, 1, 1, 1], inTo: initialMsg) {
+            $0.oneofUint32 == 123   // Shouldn't have gotten cleared.
         }
         assertDecodeFails([139, 7]) // Wire type 3
         assertDecodeFails([140, 7]) // Wire type 4
         assertDecodeFails([141, 7, 0])  // Wire type 5
         assertDecodesAsUnknownFields([141, 7, 0, 0, 0, 0]) {  // Wrong wire type (fixed32), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
+        }
+        assertMergesAsUnknownFields([141, 7, 0, 0, 0, 0], inTo: initialMsg) {
+            $0.oneofUint32 == 123   // Shouldn't have gotten cleared.
         }
         assertDecodeFails([142, 7]) // Wire type 6
         assertDecodeFails([142, 7, 0]) // Wire type 6
@@ -2131,6 +2152,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeFails([144, 7])
         assertDecodesAsUnknownFields([144, 7, 0]) {  // Wrong wire type (varint), valid as an unknown field
             $0.oneofField == nil  // oneof doesn't get set.
+        }
+        let initialMsg = MessageTestType.with { $0.oneofString = "initial" }
+        assertMergesAsUnknownFields([144, 7, 0], inTo: initialMsg) {
+            $0.oneofString == "initial"   // Shouldn't have gotten cleared.
         }
         assertDecodeFails([145, 7])
         assertDecodeFails([145, 7, 0])

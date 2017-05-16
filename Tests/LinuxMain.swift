@@ -851,7 +851,8 @@ extension Test_Packed {
 extension Test_ParsingMerge {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("test_Merge", {try run_test(test:($0 as! Test_ParsingMerge).test_Merge)})
+            ("test_Merge", {try run_test(test:($0 as! Test_ParsingMerge).test_Merge)}),
+            ("test_Merge_Oneof", {try run_test(test:($0 as! Test_ParsingMerge).test_Merge_Oneof)})
         ]
     }
 }

@@ -204,13 +204,28 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularInt64Field(value: &_storage._myInt)
-        case 9, 10, 60, 150:
-          if _storage._options != nil {
-            try decoder.handleConflictingOneOf()
-          }
-          _storage._options = try Swift_Protobuf_TestFieldOrderings.OneOf_Options(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        case 9:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: Bool?
+          try decoder.decodeSingularBoolField(value: &v)
+          if let v = v {_storage._options = .oneofBool(v)}
+        case 10:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {_storage._options = .oneofInt32(v)}
         case 11: try decoder.decodeSingularStringField(value: &_storage._myString)
+        case 60:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: Int64?
+          try decoder.decodeSingularInt64Field(value: &v)
+          if let v = v {_storage._options = .oneofInt64(v)}
         case 101: try decoder.decodeSingularFloatField(value: &_storage._myFloat)
+        case 150:
+          if _storage._options != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._options = .oneofString(v)}
         case 200: try decoder.decodeSingularMessageField(value: &_storage._optionalNestedMessage)
         case 2..<9, 12..<56:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_TestFieldOrderings.self, fieldNumber: fieldNumber)
@@ -425,27 +440,47 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1, 26:
-        if self.oGood != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.oGood = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-      case 101, 126:
-        if self.oConflictField != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.oConflictField = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 1:
+        if self.oGood != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oGood = .a(v)}
+      case 26:
+        if self.oGood != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oGood = .b(v)}
+      case 101:
+        if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictField = .a2(v)}
       case 113: try decoder.decodeSingularInt32Field(value: &self._m)
-      case 201, 226:
-        if self.oConflictExtensionsStart != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.oConflictExtensionsStart = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
-      case 301, 326:
-        if self.oConflictExtensionsEnd != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.oConflictExtensionsEnd = try Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 126:
+        if self.oConflictField != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictField = .b2(v)}
+      case 201:
+        if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsStart = .a3(v)}
+      case 226:
+        if self.oConflictExtensionsStart != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsStart = .b3(v)}
+      case 301:
+        if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsEnd = .a4(v)}
+      case 326:
+        if self.oConflictExtensionsEnd != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.oConflictExtensionsEnd = .b4(v)}
       case 202..<203, 325..<326:
         try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Swift_Protobuf_OneofTraversalGeneration.self, fieldNumber: fieldNumber)
       default: break
@@ -611,44 +646,6 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
   }
 }
 
-extension Swift_Protobuf_TestFieldOrderings.OneOf_Options {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 9:
-      var value: Bool?
-      try decoder.decodeSingularBoolField(value: &value)
-      if let value = value {
-        self = .oneofBool(value)
-        return
-      }
-    case 10:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .oneofInt32(value)
-        return
-      }
-    case 60:
-      var value: Int64?
-      try decoder.decodeSingularInt64Field(value: &value)
-      if let value = value {
-        self = .oneofInt64(value)
-        return
-      }
-    case 150:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .oneofString(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
-  }
-}
-
 extension Swift_Protobuf_TestFieldOrderings.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "oo"),
@@ -685,101 +682,5 @@ extension Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf._MessageImpleme
     if unknownFields != other.unknownFields {return false}
     if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
-  }
-}
-
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OGood {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .a(value)
-        return
-      }
-    case 26:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .b(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
-  }
-}
-
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictField {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 101:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .a2(value)
-        return
-      }
-    case 126:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .b2(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
-  }
-}
-
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsStart {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 201:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .a3(value)
-        return
-      }
-    case 226:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .b3(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
-  }
-}
-
-extension Swift_Protobuf_OneofTraversalGeneration.OneOf_OConflictExtensionsEnd {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 301:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .a4(value)
-        return
-      }
-    case 326:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .b4(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }

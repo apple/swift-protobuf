@@ -257,11 +257,32 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
         switch fieldNumber {
         case 1: try decoder.decodeSingularStringField(value: &_storage._field1)
         case 2: try decoder.decodeSingularInt32Field(value: &_storage._field2)
-        case 3...6:
-          if _storage._o != nil {
+        case 3:
+          if _storage._o != nil {try decoder.handleConflictingOneOf()}
+          var v: SDTTopLevelEnum?
+          try decoder.decodeSingularEnumField(value: &v)
+          if let v = v {_storage._o = .field3(v)}
+        case 4:
+          if _storage._o != nil {try decoder.handleConflictingOneOf()}
+          var v: SDTTopLevelMessage.SubEnum?
+          try decoder.decodeSingularEnumField(value: &v)
+          if let v = v {_storage._o = .field4(v)}
+        case 5:
+          var v: SDTTopLevelMessage.SubMessage?
+          if let current = _storage._o {
             try decoder.handleConflictingOneOf()
+            if case .field5(let m) = current {v = m}
           }
-          _storage._o = try SDTTopLevelMessage.OneOf_O(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._o = .field5(v)}
+        case 6:
+          var v: SDTTopLevelMessage2?
+          if let current = _storage._o {
+            try decoder.handleConflictingOneOf()
+            if case .field6(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._o = .field6(v)}
         default: break
         }
       }
@@ -592,44 +613,6 @@ extension SDTTopLevelMessage: SwiftProtobuf._MessageImplementationBase, SwiftPro
     }
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension SDTTopLevelMessage.OneOf_O {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 3:
-      var value: SDTTopLevelEnum?
-      try decoder.decodeSingularEnumField(value: &value)
-      if let value = value {
-        self = .field3(value)
-        return
-      }
-    case 4:
-      var value: SDTTopLevelMessage.SubEnum?
-      try decoder.decodeSingularEnumField(value: &value)
-      if let value = value {
-        self = .field4(value)
-        return
-      }
-    case 5:
-      var value: SDTTopLevelMessage.SubMessage?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .field5(value)
-        return
-      }
-    case 6:
-      var value: SDTTopLevelMessage2?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .field6(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 

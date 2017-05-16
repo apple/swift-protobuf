@@ -289,11 +289,35 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1, 2, 3, 6:
-          if _storage._option != nil {
+        case 1:
+          var v: ProtobufUnittest_OneOfOptionMessage1?
+          if let current = _storage._option {
             try decoder.handleConflictingOneOf()
+            if case .option1(let m) = current {v = m}
           }
-          _storage._option = try ProtobufUnittest_OneOfContainer.OneOf_Option(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._option = .option1(v)}
+        case 2:
+          var v: ProtobufUnittest_OneOfOptionMessage2?
+          if let current = _storage._option {
+            try decoder.handleConflictingOneOf()
+            if case .option2(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._option = .option2(v)}
+        case 3:
+          var v: ProtobufUnittest_OneOfContainer.Option3?
+          if let current = _storage._option {
+            try decoder.handleConflictingOneOf()
+            if case .option3(let m) = current {v = m}
+          }
+          try decoder.decodeSingularGroupField(value: &v)
+          if let v = v {_storage._option = .option3(v)}
+        case 6:
+          if _storage._option != nil {try decoder.handleConflictingOneOf()}
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {_storage._option = .option4(v)}
         default: break
         }
       }
@@ -387,44 +411,6 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf._MessageImplementationB
     }
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension ProtobufUnittest_OneOfContainer.OneOf_Option {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1:
-      var value: ProtobufUnittest_OneOfOptionMessage1?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .option1(value)
-        return
-      }
-    case 2:
-      var value: ProtobufUnittest_OneOfOptionMessage2?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .option2(value)
-        return
-      }
-    case 3:
-      var value: ProtobufUnittest_OneOfContainer.Option3?
-      try decoder.decodeSingularGroupField(value: &value)
-      if let value = value {
-        self = .option3(value)
-        return
-      }
-    case 6:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .option4(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 

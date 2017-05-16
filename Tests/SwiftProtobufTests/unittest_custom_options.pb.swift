@@ -177,10 +177,10 @@ struct ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf.Message {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self._field1)
       case 2:
-        if self.anOneof != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.anOneof = try ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+        if self.anOneof != nil {try decoder.handleConflictingOneOf()}
+        var v: Int32?
+        try decoder.decodeSingularInt32Field(value: &v)
+        if let v = v {self.anOneof = .oneofField(v)}
       default: break
       }
     }
@@ -2565,23 +2565,6 @@ extension ProtobufUnittest_TestMessageWithCustomOptions: SwiftProtobuf._MessageI
     if self.anOneof != other.anOneof {return false}
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension ProtobufUnittest_TestMessageWithCustomOptions.OneOf_AnOneof {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 2:
-      var value: Int32?
-      try decoder.decodeSingularInt32Field(value: &value)
-      if let value = value {
-        self = .oneofField(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 

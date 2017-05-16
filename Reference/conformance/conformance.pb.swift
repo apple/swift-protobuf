@@ -147,11 +147,16 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1, 2:
-        if self.payload != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.payload = try Conformance_ConformanceRequest.OneOf_Payload(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 1:
+        if self.payload != nil {try decoder.handleConflictingOneOf()}
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {self.payload = .protobufPayload(v)}
+      case 2:
+        if self.payload != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.payload = .jsonPayload(v)}
       case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
       default: break
       }
@@ -297,11 +302,36 @@ struct Conformance_ConformanceResponse: SwiftProtobuf.Message {
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1...6:
-        if self.result != nil {
-          try decoder.handleConflictingOneOf()
-        }
-        self.result = try Conformance_ConformanceResponse.OneOf_Result(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+      case 1:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .parseError(v)}
+      case 2:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .runtimeError(v)}
+      case 3:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: Data?
+        try decoder.decodeSingularBytesField(value: &v)
+        if let v = v {self.result = .protobufPayload(v)}
+      case 4:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .jsonPayload(v)}
+      case 5:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .skipped(v)}
+      case 6:
+        if self.result != nil {try decoder.handleConflictingOneOf()}
+        var v: String?
+        try decoder.decodeSingularStringField(value: &v)
+        if let v = v {self.result = .serializeError(v)}
       default: break
       }
     }
@@ -358,30 +388,6 @@ extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBa
   }
 }
 
-extension Conformance_ConformanceRequest.OneOf_Payload {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1:
-      var value: Data?
-      try decoder.decodeSingularBytesField(value: &value)
-      if let value = value {
-        self = .protobufPayload(value)
-        return
-      }
-    case 2:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .jsonPayload(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
-  }
-}
-
 extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "parse_error"),
@@ -396,57 +402,5 @@ extension Conformance_ConformanceResponse: SwiftProtobuf._MessageImplementationB
     if self.result != other.result {return false}
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension Conformance_ConformanceResponse.OneOf_Result {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .parseError(value)
-        return
-      }
-    case 2:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .runtimeError(value)
-        return
-      }
-    case 3:
-      var value: Data?
-      try decoder.decodeSingularBytesField(value: &value)
-      if let value = value {
-        self = .protobufPayload(value)
-        return
-      }
-    case 4:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .jsonPayload(value)
-        return
-      }
-    case 5:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .skipped(value)
-        return
-      }
-    case 6:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .serializeError(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }

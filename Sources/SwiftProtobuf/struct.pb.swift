@@ -232,11 +232,42 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1...6:
-          if _storage._kind != nil {
+        case 1:
+          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
+          var v: Google_Protobuf_NullValue?
+          try decoder.decodeSingularEnumField(value: &v)
+          if let v = v {_storage._kind = .nullValue(v)}
+        case 2:
+          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
+          var v: Double?
+          try decoder.decodeSingularDoubleField(value: &v)
+          if let v = v {_storage._kind = .numberValue(v)}
+        case 3:
+          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._kind = .stringValue(v)}
+        case 4:
+          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
+          var v: Bool?
+          try decoder.decodeSingularBoolField(value: &v)
+          if let v = v {_storage._kind = .boolValue(v)}
+        case 5:
+          var v: Google_Protobuf_Struct?
+          if let current = _storage._kind {
             try decoder.handleConflictingOneOf()
+            if case .structValue(let m) = current {v = m}
           }
-          _storage._kind = try Google_Protobuf_Value.OneOf_Kind(byDecodingFrom: &decoder, fieldNumber: fieldNumber)
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._kind = .structValue(v)}
+        case 6:
+          var v: Google_Protobuf_ListValue?
+          if let current = _storage._kind {
+            try decoder.handleConflictingOneOf()
+            if case .listValue(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._kind = .listValue(v)}
         default: break
         }
       }
@@ -368,58 +399,6 @@ extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, Swift
     }
     if unknownFields != other.unknownFields {return false}
     return true
-  }
-}
-
-extension Google_Protobuf_Value.OneOf_Kind {
-  fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {
-    switch fieldNumber {
-    case 1:
-      var value: Google_Protobuf_NullValue?
-      try decoder.decodeSingularEnumField(value: &value)
-      if let value = value {
-        self = .nullValue(value)
-        return
-      }
-    case 2:
-      var value: Double?
-      try decoder.decodeSingularDoubleField(value: &value)
-      if let value = value {
-        self = .numberValue(value)
-        return
-      }
-    case 3:
-      var value: String?
-      try decoder.decodeSingularStringField(value: &value)
-      if let value = value {
-        self = .stringValue(value)
-        return
-      }
-    case 4:
-      var value: Bool?
-      try decoder.decodeSingularBoolField(value: &value)
-      if let value = value {
-        self = .boolValue(value)
-        return
-      }
-    case 5:
-      var value: Google_Protobuf_Struct?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .structValue(value)
-        return
-      }
-    case 6:
-      var value: Google_Protobuf_ListValue?
-      try decoder.decodeSingularMessageField(value: &value)
-      if let value = value {
-        self = .listValue(value)
-        return
-      }
-    default:
-      break
-    }
-    return nil
   }
 }
 
