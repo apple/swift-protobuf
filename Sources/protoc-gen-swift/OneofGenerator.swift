@@ -29,7 +29,14 @@ class OneofGenerator {
         let protoGenericType: String
         let comments: String
 
-        var isMessage: Bool { return fieldDescriptor.type == .message }
+        var isGroupOrMessage: Bool {
+            switch fieldDescriptor.type {
+            case .group, .message:
+                return true
+            default:
+                return false
+            }
+        }
 
         // Only valid on message fields.
         var messageType: Descriptor { return fieldDescriptor.messageType }
@@ -449,7 +456,7 @@ class OneofGenerator {
         guard field === fields.first else { return }
 
         let fieldsToCheck = fields.filter {
-            $0.isMessage && $0.messageType.hasRequiredFields()
+            $0.isGroupOrMessage && $0.messageType.hasRequiredFields()
         }
         if fieldsToCheck.count == 1 {
             let f = fieldsToCheck.first!
