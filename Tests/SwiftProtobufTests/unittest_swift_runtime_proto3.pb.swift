@@ -666,8 +666,11 @@ struct ProtobufUnittest_Message3: SwiftProtobuf.Message {
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {_storage._o = .oneofBytes(v)}
         case 68:
-          if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_Message3?
+          if let current = _storage._o {
+            try decoder.handleConflictingOneOf()
+            if case .oneofMessage(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._o = .oneofMessage(v)}
         case 69:

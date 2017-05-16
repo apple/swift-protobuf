@@ -290,18 +290,27 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1:
-          if _storage._option != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_OneOfOptionMessage1?
+          if let current = _storage._option {
+            try decoder.handleConflictingOneOf()
+            if case .option1(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._option = .option1(v)}
         case 2:
-          if _storage._option != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_OneOfOptionMessage2?
+          if let current = _storage._option {
+            try decoder.handleConflictingOneOf()
+            if case .option2(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._option = .option2(v)}
         case 3:
-          if _storage._option != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_OneOfContainer.Option3?
+          if let current = _storage._option {
+            try decoder.handleConflictingOneOf()
+            if case .option3(let m) = current {v = m}
+          }
           try decoder.decodeSingularGroupField(value: &v)
           if let v = v {_storage._option = .option3(v)}
         case 6:

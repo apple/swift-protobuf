@@ -542,8 +542,11 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {_storage._oneofField = .oneofUint32(v)}
         case 112:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Proto3LiteUnittest_TestAllTypes.NestedMessage?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofNestedMessage(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
         case 113:

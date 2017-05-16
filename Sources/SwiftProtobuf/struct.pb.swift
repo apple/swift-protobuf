@@ -253,13 +253,19 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
           try decoder.decodeSingularBoolField(value: &v)
           if let v = v {_storage._kind = .boolValue(v)}
         case 5:
-          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Struct?
+          if let current = _storage._kind {
+            try decoder.handleConflictingOneOf()
+            if case .structValue(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._kind = .structValue(v)}
         case 6:
-          if _storage._kind != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_ListValue?
+          if let current = _storage._kind {
+            try decoder.handleConflictingOneOf()
+            if case .listValue(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._kind = .listValue(v)}
         default: break

@@ -268,13 +268,19 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
           try decoder.decodeSingularEnumField(value: &v)
           if let v = v {_storage._o = .field4(v)}
         case 5:
-          if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: SDTTopLevelMessage.SubMessage?
+          if let current = _storage._o {
+            try decoder.handleConflictingOneOf()
+            if case .field5(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._o = .field5(v)}
         case 6:
-          if _storage._o != nil {try decoder.handleConflictingOneOf()}
           var v: SDTTopLevelMessage2?
+          if let current = _storage._o {
+            try decoder.handleConflictingOneOf()
+            if case .field6(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._o = .field6(v)}
         default: break

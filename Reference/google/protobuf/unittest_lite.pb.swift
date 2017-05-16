@@ -1016,8 +1016,11 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {_storage._oneofField = .oneofUint32(v)}
         case 112:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_TestAllTypesLite.NestedMessage?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofNestedMessage(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
         case 113:
@@ -1031,8 +1034,11 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {_storage._oneofField = .oneofBytes(v)}
         case 115:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_TestAllTypesLite.NestedMessage?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofLazyNestedMessage(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .oneofLazyNestedMessage(v)}
         case 116: try decoder.decodeSingularInt32Field(value: &_storage._deceptivelyNamedList)
@@ -2434,8 +2440,11 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {_storage._oneofField = .oneofUint32(v)}
         case 536870012:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: ProtobufUnittest_TestAllTypesLite?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofTestAllTypes(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .oneofTestAllTypes(v)}
         case 536870013:

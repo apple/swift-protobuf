@@ -715,93 +715,147 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Any?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .anyField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .anyField(v)}
         case 2:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Api?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .apiField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .apiField(v)}
         case 3:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Duration?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .durationField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .durationField(v)}
         case 4:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Empty?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .emptyField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .emptyField(v)}
         case 5:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_FieldMask?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .fieldMaskField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .fieldMaskField(v)}
         case 6:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_SourceContext?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .sourceContextField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .sourceContextField(v)}
         case 7:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Struct?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .structField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .structField(v)}
         case 8:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Timestamp?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .timestampField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .timestampField(v)}
         case 9:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Type?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .typeField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .typeField(v)}
         case 10:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_DoubleValue?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .doubleField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .doubleField(v)}
         case 11:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_FloatValue?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .floatField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .floatField(v)}
         case 12:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Int64Value?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .int64Field(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .int64Field(v)}
         case 13:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_UInt64Value?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .uint64Field(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .uint64Field(v)}
         case 14:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_Int32Value?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .int32Field(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .int32Field(v)}
         case 15:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_UInt32Value?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .uint32Field(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .uint32Field(v)}
         case 16:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_BoolValue?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .boolField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .boolField(v)}
         case 17:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_StringValue?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .stringField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .stringField(v)}
         case 18:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Google_Protobuf_BytesValue?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .bytesField(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .bytesField(v)}
         default: break

@@ -613,8 +613,11 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {_storage._oneofField = .oneofUint32(v)}
         case 112:
-          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: Proto3TestAllTypes.NestedMessage?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofNestedMessage(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._oneofField = .oneofNestedMessage(v)}
         case 113:
@@ -1891,8 +1894,11 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
           try decoder.decodeSingularStringField(value: &v)
           if let v = v {_storage._foo = .fooString(v)}
         case 3:
-          if _storage._foo != nil {try decoder.handleConflictingOneOf()}
           var v: Proto3TestAllTypes?
+          if let current = _storage._foo {
+            try decoder.handleConflictingOneOf()
+            if case .fooMessage(let m) = current {v = m}
+          }
           try decoder.decodeSingularMessageField(value: &v)
           if let v = v {_storage._foo = .fooMessage(v)}
         default: break
