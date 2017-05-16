@@ -44,5 +44,10 @@ message OneOfContainer {
   oneof option {
     OneOfOptionMessage1 option1 = 1;
     OneOfOptionMessage2 option2 = 2;
+    group Option3 = 3 {
+      required int32 a = 4;
+      optional string b = 5;
+    }
+    int32 option4 = 6;
   }
 }

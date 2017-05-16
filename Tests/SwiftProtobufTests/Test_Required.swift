@@ -60,6 +60,18 @@ class Test_Required: XCTestCase, PBTestHelpers {
         XCTAssertFalse(msg.isInitialized)
         msg.fooMessage.requiredDouble = 1.1
         XCTAssertTrue(msg.isInitialized)
+
+        // group within the oneof that has a required field.
+        var msg2 = ProtobufUnittest_OneOfContainer()
+        XCTAssertTrue(msg2.isInitialized)
+        msg2.option3 = ProtobufUnittest_OneOfContainer.Option3()
+        XCTAssertFalse(msg2.isInitialized)
+        msg2.option4 = 1
+        XCTAssertTrue(msg2.isInitialized)
+        msg2.option3 = ProtobufUnittest_OneOfContainer.Option3()
+        XCTAssertFalse(msg2.isInitialized)
+        msg2.option3.a = 1
+        XCTAssertTrue(msg2.isInitialized)
     }
 
 

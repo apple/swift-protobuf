@@ -169,19 +169,101 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
     set {_uniqueStorage()._option = .option2(newValue)}
   }
 
+  var option3: ProtobufUnittest_OneOfContainer.Option3 {
+    get {
+      if case .option3(let v)? = _storage._option {return v}
+      return ProtobufUnittest_OneOfContainer.Option3()
+    }
+    set {_uniqueStorage()._option = .option3(newValue)}
+  }
+
+  var option4: Int32 {
+    get {
+      if case .option4(let v)? = _storage._option {return v}
+      return 0
+    }
+    set {_uniqueStorage()._option = .option4(newValue)}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   enum OneOf_Option: Equatable {
     case option1(ProtobufUnittest_OneOfOptionMessage1)
     case option2(ProtobufUnittest_OneOfOptionMessage2)
+    case option3(ProtobufUnittest_OneOfContainer.Option3)
+    case option4(Int32)
 
     static func ==(lhs: ProtobufUnittest_OneOfContainer.OneOf_Option, rhs: ProtobufUnittest_OneOfContainer.OneOf_Option) -> Bool {
       switch (lhs, rhs) {
       case (.option1(let l), .option1(let r)): return l == r
       case (.option2(let l), .option2(let r)): return l == r
+      case (.option3(let l), .option3(let r)): return l == r
+      case (.option4(let l), .option4(let r)): return l == r
       default: return false
       }
     }
+  }
+
+  struct Option3: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_OneOfContainer.protoMessageName + ".Option3"
+
+    var a: Int32 {
+      get {return _a ?? 0}
+      set {_a = newValue}
+    }
+    /// Returns true if `a` has been explicitly set.
+    var hasA: Bool {return self._a != nil}
+    /// Clears the value of `a`. Subsequent reads from it will return its default value.
+    mutating func clearA() {self._a = nil}
+
+    var b: String {
+      get {return _b ?? String()}
+      set {_b = newValue}
+    }
+    /// Returns true if `b` has been explicitly set.
+    var hasB: Bool {return self._b != nil}
+    /// Clears the value of `b`. Subsequent reads from it will return its default value.
+    mutating func clearB() {self._b = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    public var isInitialized: Bool {
+      if self._a == nil {return false}
+      return true
+    }
+
+    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+    /// initializers are defined in the SwiftProtobuf library. See the Message and
+    /// Message+*Additions` files.
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 4: try decoder.decodeSingularInt32Field(value: &self._a)
+        case 5: try decoder.decodeSingularStringField(value: &self._b)
+        default: break
+        }
+      }
+    }
+
+    /// Used by the encoding methods of the SwiftProtobuf library, not generally
+    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+    /// other serializer methods are defined in the SwiftProtobuf library. See the
+    /// `Message` and `Message+*Additions` files.
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if let v = self._a {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 4)
+      }
+      if let v = self._b {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+
+    fileprivate var _a: Int32? = nil
+    fileprivate var _b: String? = nil
   }
 
   init() {}
@@ -191,6 +273,7 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
       switch _storage._option {
       case .option1(let v)?: if !v.isInitialized {return false}
       case .option2(let v)?: if !v.isInitialized {return false}
+      case .option3(let v)?: if !v.isInitialized {return false}
       default: break
       }
       return true
@@ -206,7 +289,7 @@ struct ProtobufUnittest_OneOfContainer: SwiftProtobuf.Message {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1, 2:
+        case 1, 2, 3, 6:
           if _storage._option != nil {
             try decoder.handleConflictingOneOf()
           }
@@ -263,6 +346,8 @@ extension ProtobufUnittest_OneOfContainer: SwiftProtobuf._MessageImplementationB
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "option1"),
     2: .same(proto: "option2"),
+    3: .unique(proto: "Option3", json: "option3"),
+    6: .same(proto: "option4"),
   ]
 
   fileprivate class _StorageClass {
@@ -312,6 +397,20 @@ extension ProtobufUnittest_OneOfContainer.OneOf_Option {
         self = .option2(value)
         return
       }
+    case 3:
+      var value: ProtobufUnittest_OneOfContainer.Option3?
+      try decoder.decodeSingularGroupField(value: &value)
+      if let value = value {
+        self = .option3(value)
+        return
+      }
+    case 6:
+      var value: Int32?
+      try decoder.decodeSingularInt32Field(value: &value)
+      if let value = value {
+        self = .option4(value)
+        return
+      }
     default:
       break
     }
@@ -324,6 +423,24 @@ extension ProtobufUnittest_OneOfContainer.OneOf_Option {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     case .option2(let v):
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    case .option3(let v):
+      try visitor.visitSingularGroupField(value: v, fieldNumber: 3)
+    case .option4(let v):
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 6)
     }
+  }
+}
+
+extension ProtobufUnittest_OneOfContainer.Option3: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    4: .same(proto: "a"),
+    5: .same(proto: "b"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneOfContainer.Option3) -> Bool {
+    if self._a != other._a {return false}
+    if self._b != other._b {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
   }
 }
