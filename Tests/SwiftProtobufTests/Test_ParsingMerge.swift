@@ -91,4 +91,105 @@ class Test_ParsingMerge: XCTestCase {
             XCTFail("Encoding failed for \(m) with error \(e)")
         }
     }
+
+    func test_Merge_Oneof() {
+        // This is like the above, but focuses on ensuring a message within a oneof gets
+        // reused to merge the submessage.
+
+        // Each time the oneof is changed to a different subfield, the previous state
+        // is cleared.
+
+        var m = SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator()
+
+        var t1 = SwiftUnittest_TestMessage()
+        t1.oneofNestedMessage.a = 1
+        t1.oneofNestedMessage.b = 1
+        var t2 = SwiftUnittest_TestMessage()
+        t2.oneofString = "string"
+        m.field1 = [t1, t2]
+        m.field2 = [t1, t2]
+
+        do {
+            let encoded = try m.serializedData()
+            do {
+                let decoded = try SwiftUnittest_TestParsingMerge(serializedData: encoded)
+
+                // optional_message <== merge of field1
+                let field1 = decoded.optionalMessage
+                XCTAssertFalse(field1.oneofNestedMessage.hasA)
+                XCTAssertFalse(field1.oneofNestedMessage.hasB)
+                XCTAssertEqual(field1.oneofString, "string")
+
+                // repeated_message <== field2 without merging
+                XCTAssertEqual(decoded.repeatedMessage, [t1, t2])
+                            } catch {
+                XCTFail("Decoding failed \(encoded)")
+            }
+        } catch let e {
+            XCTFail("Encoding failed for \(m) with error \(e)")
+        }
+
+        // Second, including if it is changed back to a message, anything from the first
+        // one is lost.
+
+        m = SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator()
+
+        var t3 = SwiftUnittest_TestMessage()
+        t3.oneofNestedMessage.b = 3
+        t3.oneofNestedMessage.c = 3
+        m.field1 = [t1, t2, t3]
+        m.field2 = [t1, t2, t3]
+
+        do {
+            let encoded = try m.serializedData()
+            do {
+                let decoded = try SwiftUnittest_TestParsingMerge(serializedData: encoded)
+
+                // optional_message <== merge of field1
+                let field1 = decoded.optionalMessage
+                XCTAssertFalse(field1.oneofNestedMessage.hasA)
+                XCTAssertEqual(field1.oneofNestedMessage.b, 3)
+                XCTAssertEqual(field1.oneofNestedMessage.c, 3)
+                XCTAssertEqual(field1.oneofString, "")
+
+                // repeated_message <== field2 without merging
+                XCTAssertEqual(decoded.repeatedMessage, [t1, t2, t3])
+                            } catch {
+                XCTFail("Decoding failed \(encoded)")
+            }
+        } catch let e {
+            XCTFail("Encoding failed for \(m) with error \(e)")
+        }
+
+
+        // But, if the oneofs are set to the message field without chaning between, just like
+        // a normal opitional/required message field, the data should be merged.
+
+        m = SwiftUnittest_TestParsingMerge.RepeatedFieldsGenerator()
+
+        m.field1 = [t1, t3]
+        m.field2 = [t1, t3]
+
+        // Encode/decode should merge repeated fields into non-repeated
+        do {
+            let encoded = try m.serializedData()
+            do {
+                let decoded = try SwiftUnittest_TestParsingMerge(serializedData: encoded)
+
+                // optional_message <== merge of field1
+                let field1 = decoded.optionalMessage
+                XCTAssertEqual(field1.oneofNestedMessage.a, 1)
+                XCTAssertEqual(field1.oneofNestedMessage.b, 3)  // t3 replaces the value in t1
+                XCTAssertEqual(field1.oneofNestedMessage.c, 3)
+
+                // repeated_message <== field2 without merging
+                XCTAssertEqual(decoded.repeatedMessage, [t1, t3])
+                            } catch {
+                XCTFail("Decoding failed \(encoded)")
+            }
+        } catch let e {
+            XCTFail("Encoding failed for \(m) with error \(e)")
+        }
+
+    }
 }
