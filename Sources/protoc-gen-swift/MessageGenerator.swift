@@ -237,10 +237,6 @@ class MessageGenerator {
     p.outdent()
     p.print("}\n")
 
-    for o in oneofs {
-      o.generateRuntimeSupport(printer: &p)
-    }
-
     // Nested enums and messages
     for e in enums {
       e.generateRuntimeSupport(printer: &p)

@@ -112,38 +112,6 @@ class OneofGenerator {
 
     private let swiftFieldName: String
 
-    /// Returns a Swift pattern (or list of patterns) suitable for a `case`
-    /// statement that matches any of the field numbers corresponding to the
-    /// `oneof` with the given index.
-    ///
-    /// This function collapses large contiguous field number sequences into
-    /// into range patterns instead of listing all of the fields explicitly.
-    ///
-    /// - Parameter index: The index of the `oneof`.
-    /// - Returns: The Swift pattern(s) that match the `oneof`'s field numbers.
-    private var fieldNumbersPattern: String {
-        let fieldNumbers = fieldsSortedByNumber.map { $0.number }
-        assert(fieldNumbers.count > 0)
-
-        if fieldNumbers.count <= 2 {
-            // For one or two fields, just return "n" or "n, m". ("n...m" would
-            // also be valid, but this is one character shorter.)
-            return fieldNumbers.lazy.map { String($0) }.joined(separator: ", ")
-        }
-
-        let first = fieldNumbers.first!
-        let last = fieldNumbers.last!
-
-        if first + Int(fieldNumbers.count) - 1 == last {
-            // The field numbers were contiguous, so return a range instead.
-            return "\(first)...\(last)"
-        }
-        // Not a contiguous range, so just print the comma-delimited list of
-        // field numbers. (We could consider optimizing this to print ranges
-        // for contiguous subsequences later, as well.)
-        return fieldNumbers.lazy.map { String($0) }.joined(separator: ", ")
-    }
-
     init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, usesHeapStorage: Bool) {
         self.oneofDescriptor = descriptor
         self.generatorOptions = generatorOptions
@@ -253,47 +221,6 @@ class OneofGenerator {
         p.print("}\n")
     }
 
-    func generateRuntimeSupport(printer p: inout CodePrinter) {
-        p.print(
-            "\n",
-            "extension \(swiftFullName) {\n")
-        p.indent()
-
-        // Decode one of our members
-        p.print("fileprivate init?<T: SwiftProtobuf.Decoder>(byDecodingFrom decoder: inout T, fieldNumber: Int) throws {\n")
-        p.indent()
-        p.print("switch fieldNumber {\n")
-        for f in fieldsSortedByNumber {
-            let decoderMethod = "decodeSingular\(f.protoGenericType)Field"
-
-            p.print("case \(f.number):\n")
-            p.indent()
-            p.print(
-                "var value: \(f.swiftType)?\n",
-                "try decoder.\(decoderMethod)(value: &value)\n",
-                "if let value = value {\n")
-            p.indent()
-            p.print(
-                "self = .\(f.swiftName)(value)\n",
-                "return\n")
-            p.outdent()
-            p.print("}\n")
-            p.outdent()
-        }
-        p.print("default:\n")
-        p.indent()
-        p.print("break\n")
-        p.outdent()
-        p.print(
-            "}\n",
-            "return nil\n")
-        p.outdent()
-        p.print("}\n")
-
-        p.outdent()
-        p.print("}\n")
-    }
-
     private func storedProperty(in variable: String = "") -> String {
         if usesHeapStorage {
             return "\(variable)_storage._\(swiftFieldName)"
@@ -372,17 +299,13 @@ class OneofGenerator {
     }
 
     func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
-        // Lowest numbered field causes the output.
-        guard field === fieldsSortedByNumber.first else { return }
-
-        p.print("case \(fieldNumbersPattern):\n")
+        p.print("case \(field.number):\n")
         p.indent()
-        p.print("if \(storedProperty()) != nil {\n")
-        p.indent()
-        p.print("try decoder.handleConflictingOneOf()\n")
-        p.outdent()
-        p.print("}\n")
-        p.print("\(storedProperty()) = try \(swiftFullName)(byDecodingFrom: &decoder, fieldNumber: fieldNumber)\n")
+        p.print(
+          "if \(storedProperty()) != nil {try decoder.handleConflictingOneOf()}\n",
+          "var v: \(field.swiftType)?\n",
+          "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
+          "if let v = v {\(storedProperty()) = .\(field.swiftName)(v)}\n")
         p.outdent()
     }
 
