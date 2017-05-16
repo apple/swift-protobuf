@@ -961,7 +961,45 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
       if !_storage._repeatedEnum.isEmpty {
         try visitor.visitRepeatedEnumField(value: _storage._repeatedEnum, fieldNumber: 49)
       }
-      try _storage._o?.traverse(visitor: &visitor)
+      switch _storage._o {
+      case .oneofInt32(let v)?:
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
+      case .oneofInt64(let v)?:
+        try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
+      case .oneofUint32(let v)?:
+        try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
+      case .oneofUint64(let v)?:
+        try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
+      case .oneofSint32(let v)?:
+        try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
+      case .oneofSint64(let v)?:
+        try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
+      case .oneofFixed32(let v)?:
+        try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
+      case .oneofFixed64(let v)?:
+        try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
+      case .oneofSfixed32(let v)?:
+        try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
+      case .oneofSfixed64(let v)?:
+        try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
+      case .oneofFloat(let v)?:
+        try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
+      case .oneofDouble(let v)?:
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
+      case .oneofBool(let v)?:
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
+      case .oneofString(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 64)
+      case .oneofBytes(let v)?:
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
+      case .oneofGroup(let v)?:
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 66)
+      case .oneofMessage(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
+      case .oneofEnum(let v)?:
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
+      default: break
+      }
       if !_storage._mapInt32Int32.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufInt32,SwiftProtobuf.ProtobufInt32>.self, value: _storage._mapInt32Int32, fieldNumber: 70)
       }
@@ -1509,47 +1547,6 @@ extension ProtobufUnittest_Message2.OneOf_O {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .oneofInt32(let v):
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 51)
-    case .oneofInt64(let v):
-      try visitor.visitSingularInt64Field(value: v, fieldNumber: 52)
-    case .oneofUint32(let v):
-      try visitor.visitSingularUInt32Field(value: v, fieldNumber: 53)
-    case .oneofUint64(let v):
-      try visitor.visitSingularUInt64Field(value: v, fieldNumber: 54)
-    case .oneofSint32(let v):
-      try visitor.visitSingularSInt32Field(value: v, fieldNumber: 55)
-    case .oneofSint64(let v):
-      try visitor.visitSingularSInt64Field(value: v, fieldNumber: 56)
-    case .oneofFixed32(let v):
-      try visitor.visitSingularFixed32Field(value: v, fieldNumber: 57)
-    case .oneofFixed64(let v):
-      try visitor.visitSingularFixed64Field(value: v, fieldNumber: 58)
-    case .oneofSfixed32(let v):
-      try visitor.visitSingularSFixed32Field(value: v, fieldNumber: 59)
-    case .oneofSfixed64(let v):
-      try visitor.visitSingularSFixed64Field(value: v, fieldNumber: 60)
-    case .oneofFloat(let v):
-      try visitor.visitSingularFloatField(value: v, fieldNumber: 61)
-    case .oneofDouble(let v):
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 62)
-    case .oneofBool(let v):
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 63)
-    case .oneofString(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 64)
-    case .oneofBytes(let v):
-      try visitor.visitSingularBytesField(value: v, fieldNumber: 65)
-    case .oneofGroup(let v):
-      try visitor.visitSingularGroupField(value: v, fieldNumber: 66)
-    case .oneofMessage(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 68)
-    case .oneofEnum(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 69)
-    }
   }
 }
 

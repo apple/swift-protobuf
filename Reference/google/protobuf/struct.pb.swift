@@ -249,7 +249,21 @@ struct Google_Protobuf_Value: SwiftProtobuf.Message {
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      try _storage._kind?.traverse(visitor: &visitor)
+      switch _storage._kind {
+      case .nullValue(let v)?:
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
+      case .numberValue(let v)?:
+        try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
+      case .stringValue(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      case .boolValue(let v)?:
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
+      case .structValue(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+      case .listValue(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+      default: break
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -406,23 +420,6 @@ extension Google_Protobuf_Value.OneOf_Kind {
       break
     }
     return nil
-  }
-
-  fileprivate func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    switch self {
-    case .nullValue(let v):
-      try visitor.visitSingularEnumField(value: v, fieldNumber: 1)
-    case .numberValue(let v):
-      try visitor.visitSingularDoubleField(value: v, fieldNumber: 2)
-    case .stringValue(let v):
-      try visitor.visitSingularStringField(value: v, fieldNumber: 3)
-    case .boolValue(let v):
-      try visitor.visitSingularBoolField(value: v, fieldNumber: 4)
-    case .structValue(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    case .listValue(let v):
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }
   }
 }
 
