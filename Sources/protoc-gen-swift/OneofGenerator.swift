@@ -49,9 +49,11 @@ class OneofGenerator {
             oneof = nil
             group = -1
 
-            let names = namer.messagePropertyNames(field: descriptor, includeHasAndClear: false)
-            swiftName = names.value
-            dottedSwiftName = ".\(names.value)"
+            let names = namer.messagePropertyNames(field: descriptor,
+                                                   prefixed: ".",
+                                                   includeHasAndClear: false)
+            swiftName = names.name
+            dottedSwiftName = names.prefixed
             swiftType = descriptor.swiftType(namer: namer)
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
@@ -127,9 +129,9 @@ class OneofGenerator {
 
         swiftRelativeName = namer.relativeName(oneof: descriptor)
         swiftFullName = namer.fullName(oneof: descriptor)
-        let name = namer.messagePropertyName(oneof: descriptor)
-        swiftFieldName = name
-        underscoreSwiftFieldName = "_\(name)"
+        let names = namer.messagePropertyName(oneof: descriptor)
+        swiftFieldName = names.name
+        underscoreSwiftFieldName = names.prefixed
 
         if usesHeapStorage {
             storedProperty = "_storage.\(underscoreSwiftFieldName)"

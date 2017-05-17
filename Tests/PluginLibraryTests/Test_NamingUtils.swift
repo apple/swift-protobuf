@@ -203,10 +203,10 @@ class Test_NamingUtils: XCTestCase {
       ( "isInitialized", "isInitialized_p" ),
 
       // Some Swift keywords.
-      ( "associatedtype", "associatedtype_p" ),
-      ( "class", "class_p" ),
-      ( "break", "break_p" ),
-      ( "do", "do_p" ),
+      ( "associatedtype", "`associatedtype`" ),
+      ( "class", "`class`" ),
+      ( "break", "`break`" ),
+      ( "do", "`do`" ),
 
       // "has"/"clear" get added by us, so they get the disambiguator...
       ( "hasFoo", "hasFoo_p" ),
@@ -228,7 +228,7 @@ class Test_NamingUtils: XCTestCase {
       XCTAssertEqual(NamingUtils.sanitize(fieldName: input), expected)
 
       let inputPrefixed = "XX" + NamingUtils.uppercaseFirstCharacter(input)
-      let expected2 = "XX" + NamingUtils.uppercaseFirstCharacter(expected)
+      let expected2 = "XX" + NamingUtils.uppercaseFirstCharacter(NamingUtils.trimBackticks(expected))
       XCTAssertEqual(NamingUtils.sanitize(fieldName: inputPrefixed, basedOn: input), expected2)
     }
   }

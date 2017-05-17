@@ -58,9 +58,11 @@ class MessageFieldGenerator: FieldGeneratorBase, FieldGenerator {
         self.usesHeapStorage = usesHeapStorage
 
         hasFieldPresence = descriptor.hasFieldPresence
-        let names = namer.messagePropertyNames(field: descriptor, includeHasAndClear: hasFieldPresence)
-        swiftName = names.value
-        underscoreSwiftName = "_\(names.value)"
+        let names = namer.messagePropertyNames(field: descriptor,
+                                               prefixed: "_",
+                                               includeHasAndClear: hasFieldPresence)
+        swiftName = names.name
+        underscoreSwiftName = names.prefixed
         swiftHasName = names.has
         swiftClearName = names.clear
         swiftType = descriptor.swiftType(namer: namer)
