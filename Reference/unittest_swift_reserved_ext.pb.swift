@@ -83,86 +83,86 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   /// These will get _p added for the same reasoning.
-  var as_p: Bool {
+  var `as`: Bool {
     get {return getExtensionValue(ext: Extensions_as) ?? false}
     set {setExtensionValue(ext: Extensions_as, value: newValue)}
   }
   /// Returns true if extension `Extensions_as`
   /// has been explicitly set.
-  var hasAs_p: Bool {
+  var hasAs: Bool {
     return hasExtensionValue(ext: Extensions_as)
   }
   /// Clears the value of extension `Extensions_as`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearAs_p() {
+  mutating func clearAs() {
     clearExtensionValue(ext: Extensions_as)
   }
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  var var_p: Bool {
+  var `var`: Bool {
     get {return getExtensionValue(ext: Extensions_var) ?? false}
     set {setExtensionValue(ext: Extensions_var, value: newValue)}
   }
   /// Returns true if extension `Extensions_var`
   /// has been explicitly set.
-  var hasVar_p: Bool {
+  var hasVar: Bool {
     return hasExtensionValue(ext: Extensions_var)
   }
   /// Clears the value of extension `Extensions_var`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearVar_p() {
+  mutating func clearVar() {
     clearExtensionValue(ext: Extensions_var)
   }
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  var try_p: Bool {
+  var `try`: Bool {
     get {return getExtensionValue(ext: Extensions_try) ?? false}
     set {setExtensionValue(ext: Extensions_try, value: newValue)}
   }
   /// Returns true if extension `Extensions_try`
   /// has been explicitly set.
-  var hasTry_p: Bool {
+  var hasTry: Bool {
     return hasExtensionValue(ext: Extensions_try)
   }
   /// Clears the value of extension `Extensions_try`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearTry_p() {
+  mutating func clearTry() {
     clearExtensionValue(ext: Extensions_try)
   }
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  var do_p: Bool {
+  var `do`: Bool {
     get {return getExtensionValue(ext: Extensions_do) ?? false}
     set {setExtensionValue(ext: Extensions_do, value: newValue)}
   }
   /// Returns true if extension `Extensions_do`
   /// has been explicitly set.
-  var hasDo_p: Bool {
+  var hasDo: Bool {
     return hasExtensionValue(ext: Extensions_do)
   }
   /// Clears the value of extension `Extensions_do`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearDo_p() {
+  mutating func clearDo() {
     clearExtensionValue(ext: Extensions_do)
   }
 }
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
-  var nil_p: Bool {
+  var `nil`: Bool {
     get {return getExtensionValue(ext: Extensions_nil) ?? false}
     set {setExtensionValue(ext: Extensions_nil, value: newValue)}
   }
   /// Returns true if extension `Extensions_nil`
   /// has been explicitly set.
-  var hasNil_p: Bool {
+  var hasNil: Bool {
     return hasExtensionValue(ext: Extensions_nil)
   }
   /// Clears the value of extension `Extensions_nil`.
   /// Subsequent reads from it will return its default value.
-  mutating func clearNil_p() {
+  mutating func clearNil() {
     clearExtensionValue(ext: Extensions_nil)
   }
 }

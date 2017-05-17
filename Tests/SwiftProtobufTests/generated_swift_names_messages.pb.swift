@@ -541,7 +541,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct asMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".as"
 
-    var as_p: Int32 = 0
+    var `as`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -554,7 +554,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.as_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`as`)
         default: break
         }
       }
@@ -565,8 +565,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.as_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.as_p, fieldNumber: 1)
+      if self.`as` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`as`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -5131,7 +5131,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct Enum: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Enum"
 
-    var enum_p: Int32 = 0
+    var `enum`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5144,7 +5144,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.enum_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`enum`)
         default: break
         }
       }
@@ -5155,8 +5155,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.enum_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.enum_p, fieldNumber: 1)
+      if self.`enum` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`enum`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -5505,7 +5505,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct falseMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".false"
 
-    var false_p: Int32 = 0
+    var `false`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5518,7 +5518,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.false_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`false`)
         default: break
         }
       }
@@ -5529,8 +5529,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.false_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.false_p, fieldNumber: 1)
+      if self.`false` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`false`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -5981,7 +5981,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct fileprivateMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".fileprivate"
 
-    var fileprivate_p: Int32 = 0
+    var `fileprivate`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -5994,7 +5994,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.fileprivate_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`fileprivate`)
         default: break
         }
       }
@@ -6005,8 +6005,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.fileprivate_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.fileprivate_p, fieldNumber: 1)
+      if self.`fileprivate` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`fileprivate`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -6253,7 +6253,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct forMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".for"
 
-    var for_p: Int32 = 0
+    var `for`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6266,7 +6266,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.for_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`for`)
         default: break
         }
       }
@@ -6277,8 +6277,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.for_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.for_p, fieldNumber: 1)
+      if self.`for` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`for`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -6797,7 +6797,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct funcMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".func"
 
-    var func_p: Int32 = 0
+    var `func`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -6810,7 +6810,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.func_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`func`)
         default: break
         }
       }
@@ -6821,8 +6821,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.func_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.func_p, fieldNumber: 1)
+      if self.`func` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`func`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -8531,7 +8531,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct inoutMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".inout"
 
-    var inout_p: Int32 = 0
+    var `inout`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8544,7 +8544,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.inout_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`inout`)
         default: break
         }
       }
@@ -8555,8 +8555,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.inout_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.inout_p, fieldNumber: 1)
+      if self.`inout` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`inout`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -8939,7 +8939,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct Internal: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Internal"
 
-    var internal_p: Int32 = 0
+    var `internal`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -8952,7 +8952,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.internal_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`internal`)
         default: break
         }
       }
@@ -8963,8 +8963,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.internal_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.internal_p, fieldNumber: 1)
+      if self.`internal` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`internal`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -10027,7 +10027,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct letMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".let"
 
-    var let_p: Int32 = 0
+    var `let`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -10040,7 +10040,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.let_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`let`)
         default: break
         }
       }
@@ -10051,8 +10051,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.let_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.let_p, fieldNumber: 1)
+      if self.`let` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`let`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -11455,7 +11455,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct nilMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".nil"
 
-    var nil_p: Int32 = 0
+    var `nil`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -11468,7 +11468,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.nil_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`nil`)
         default: break
         }
       }
@@ -11479,8 +11479,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.nil_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.nil_p, fieldNumber: 1)
+      if self.`nil` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`nil`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -12815,7 +12815,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct privateMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".private"
 
-    var private_p: Int32 = 0
+    var `private`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -12828,7 +12828,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.private_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`private`)
         default: break
         }
       }
@@ -12839,8 +12839,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.private_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.private_p, fieldNumber: 1)
+      if self.`private` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`private`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -13767,7 +13767,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct publicMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".public"
 
-    var public_p: Int32 = 0
+    var `public`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -13780,7 +13780,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.public_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`public`)
         default: break
         }
       }
@@ -13791,8 +13791,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.public_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.public_p, fieldNumber: 1)
+      if self.`public` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`public`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -14651,7 +14651,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct returnMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".return"
 
-    var return_p: Int32 = 0
+    var `return`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -14664,7 +14664,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.return_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`return`)
         default: break
         }
       }
@@ -14675,8 +14675,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.return_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.return_p, fieldNumber: 1)
+      if self.`return` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`return`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -15807,7 +15807,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct staticMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".static"
 
-    var static_p: Int32 = 0
+    var `static`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -15820,7 +15820,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.static_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`static`)
         default: break
         }
       }
@@ -15831,8 +15831,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.static_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.static_p, fieldNumber: 1)
+      if self.`static` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`static`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -16113,7 +16113,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct Struct: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".Struct"
 
-    var struct_p: Int32 = 0
+    var `struct`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16126,7 +16126,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.struct_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`struct`)
         default: break
         }
       }
@@ -16137,8 +16137,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.struct_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.struct_p, fieldNumber: 1)
+      if self.`struct` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`struct`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -16215,7 +16215,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct subscriptMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".subscript"
 
-    var subscript_p: Int32 = 0
+    var `subscript`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16228,7 +16228,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.subscript_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`subscript`)
         default: break
         }
       }
@@ -16239,8 +16239,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.subscript_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.subscript_p, fieldNumber: 1)
+      if self.`subscript` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`subscript`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -16827,7 +16827,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct throwsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".throws"
 
-    var throws_p: Int32 = 0
+    var `throws`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -16840,7 +16840,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.throws_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`throws`)
         default: break
         }
       }
@@ -16851,8 +16851,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.throws_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.throws_p, fieldNumber: 1)
+      if self.`throws` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`throws`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -17133,7 +17133,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct trueMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".true"
 
-    var true_p: Int32 = 0
+    var `true`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17146,7 +17146,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.true_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`true`)
         default: break
         }
       }
@@ -17157,8 +17157,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.true_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.true_p, fieldNumber: 1)
+      if self.`true` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`true`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -17167,7 +17167,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct tryMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".try"
 
-    var try_p: Int32 = 0
+    var `try`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17180,7 +17180,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.try_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`try`)
         default: break
         }
       }
@@ -17191,8 +17191,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.try_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.try_p, fieldNumber: 1)
+      if self.`try` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`try`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -17235,7 +17235,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct typealiasMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".typealias"
 
-    var typealias_p: Int32 = 0
+    var `typealias`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -17248,7 +17248,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.typealias_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`typealias`)
         default: break
         }
       }
@@ -17259,8 +17259,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.typealias_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.typealias_p, fieldNumber: 1)
+      if self.`typealias` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`typealias`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -18663,7 +18663,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct varMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".var"
 
-    var var_p: Int32 = 0
+    var `var`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -18676,7 +18676,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.var_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`var`)
         default: break
         }
       }
@@ -18687,8 +18687,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.var_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.var_p, fieldNumber: 1)
+      if self.`var` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`var`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -20703,7 +20703,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
   struct whereMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".where"
 
-    var where_p: Int32 = 0
+    var `where`: Int32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -20716,7 +20716,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.where_p)
+        case 1: try decoder.decodeSingularInt32Field(value: &self.`where`)
         default: break
         }
       }
@@ -20727,8 +20727,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.where_p != 0 {
-        try visitor.visitSingularInt32Field(value: self.where_p, fieldNumber: 1)
+      if self.`where` != 0 {
+        try visitor.visitSingularInt32Field(value: self.`where`, fieldNumber: 1)
       }
       try unknownFields.traverse(visitor: &visitor)
     }
@@ -21157,7 +21157,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.asMessage: SwiftProtob
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.asMessage) -> Bool {
-    if self.as_p != other.as_p {return false}
+    if self.`as` != other.`as` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -22777,7 +22777,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.Enum: SwiftProtobuf._M
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Enum) -> Bool {
-    if self.enum_p != other.enum_p {return false}
+    if self.`enum` != other.`enum` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -22909,7 +22909,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.falseMessage: SwiftPro
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.falseMessage) -> Bool {
-    if self.false_p != other.false_p {return false}
+    if self.`false` != other.`false` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -23077,7 +23077,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.fileprivateMessage: Sw
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.fileprivateMessage) -> Bool {
-    if self.fileprivate_p != other.fileprivate_p {return false}
+    if self.`fileprivate` != other.`fileprivate` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -23173,7 +23173,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.forMessage: SwiftProto
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.forMessage) -> Bool {
-    if self.for_p != other.for_p {return false}
+    if self.`for` != other.`for` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -23365,7 +23365,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.funcMessage: SwiftProt
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.funcMessage) -> Bool {
-    if self.func_p != other.func_p {return false}
+    if self.`func` != other.`func` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -23977,7 +23977,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.inoutMessage: SwiftPro
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.inoutMessage) -> Bool {
-    if self.inout_p != other.inout_p {return false}
+    if self.`inout` != other.`inout` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -24121,7 +24121,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.Internal: SwiftProtobu
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Internal) -> Bool {
-    if self.internal_p != other.internal_p {return false}
+    if self.`internal` != other.`internal` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -24505,7 +24505,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.letMessage: SwiftProto
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.letMessage) -> Bool {
-    if self.let_p != other.let_p {return false}
+    if self.`let` != other.`let` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -25009,7 +25009,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.nilMessage: SwiftProto
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.nilMessage) -> Bool {
-    if self.nil_p != other.nil_p {return false}
+    if self.`nil` != other.`nil` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -25489,7 +25489,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.privateMessage: SwiftP
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.privateMessage) -> Bool {
-    if self.private_p != other.private_p {return false}
+    if self.`private` != other.`private` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -25825,7 +25825,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.publicMessage: SwiftPr
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.publicMessage) -> Bool {
-    if self.public_p != other.public_p {return false}
+    if self.`public` != other.`public` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -26137,7 +26137,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.returnMessage: SwiftPr
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.returnMessage) -> Bool {
-    if self.return_p != other.return_p {return false}
+    if self.`return` != other.`return` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -26545,7 +26545,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.staticMessage: SwiftPr
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.staticMessage) -> Bool {
-    if self.static_p != other.static_p {return false}
+    if self.`static` != other.`static` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -26653,7 +26653,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.Struct: SwiftProtobuf.
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.Struct) -> Bool {
-    if self.struct_p != other.struct_p {return false}
+    if self.`struct` != other.`struct` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -26689,7 +26689,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.subscriptMessage: Swif
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.subscriptMessage) -> Bool {
-    if self.subscript_p != other.subscript_p {return false}
+    if self.`subscript` != other.`subscript` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -26905,7 +26905,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.throwsMessage: SwiftPr
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.throwsMessage) -> Bool {
-    if self.throws_p != other.throws_p {return false}
+    if self.`throws` != other.`throws` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -27013,7 +27013,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.trueMessage: SwiftProt
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.trueMessage) -> Bool {
-    if self.true_p != other.true_p {return false}
+    if self.`true` != other.`true` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -27025,7 +27025,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.tryMessage: SwiftProto
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.tryMessage) -> Bool {
-    if self.try_p != other.try_p {return false}
+    if self.`try` != other.`try` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -27049,7 +27049,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.typealiasMessage: Swif
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.typealiasMessage) -> Bool {
-    if self.typealias_p != other.typealias_p {return false}
+    if self.`typealias` != other.`typealias` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -27553,7 +27553,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.varMessage: SwiftProto
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.varMessage) -> Bool {
-    if self.var_p != other.var_p {return false}
+    if self.`var` != other.`var` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -28273,7 +28273,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.whereMessage: SwiftPro
   ]
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.whereMessage) -> Bool {
-    if self.where_p != other.where_p {return false}
+    if self.`where` != other.`where` {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

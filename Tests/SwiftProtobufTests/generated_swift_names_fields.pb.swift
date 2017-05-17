@@ -101,9 +101,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._arraySeparator = newValue}
   }
 
-  var as_p: Int32 {
-    get {return _storage._as_p}
-    set {_uniqueStorage()._as_p = newValue}
+  var `as`: Int32 {
+    get {return _storage._as}
+    set {_uniqueStorage()._as = newValue}
   }
 
   var asciiOpenCurlyBracket: Int32 {
@@ -776,9 +776,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._endRegularField = newValue}
   }
 
-  var enum_p: Int32 {
-    get {return _storage._enum_p}
-    set {_uniqueStorage()._enum_p = newValue}
+  var `enum`: Int32 {
+    get {return _storage._enum}
+    set {_uniqueStorage()._enum = newValue}
   }
 
   var enumvalue: Int32 {
@@ -831,9 +831,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._f = newValue}
   }
 
-  var false_p: Int32 {
-    get {return _storage._false_p}
-    set {_uniqueStorage()._false_p = newValue}
+  var `false`: Int32 {
+    get {return _storage._false}
+    set {_uniqueStorage()._false = newValue}
   }
 
   var fastUtf8ToString: Int32 {
@@ -901,9 +901,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._fileName = newValue}
   }
 
-  var fileprivate_p: Int32 {
-    get {return _storage._fileprivate_p}
-    set {_uniqueStorage()._fileprivate_p = newValue}
+  var `fileprivate`: Int32 {
+    get {return _storage._fileprivate}
+    set {_uniqueStorage()._fileprivate = newValue}
   }
 
   var firstItem: Int32 {
@@ -941,9 +941,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._floatValue = newValue}
   }
 
-  var for_p: Int32 {
-    get {return _storage._for_p}
-    set {_uniqueStorage()._for_p = newValue}
+  var `for`: Int32 {
+    get {return _storage._for}
+    set {_uniqueStorage()._for = newValue}
   }
 
   var formatDuration: Int32 {
@@ -1021,9 +1021,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._fromURL = newValue}
   }
 
-  var func_p: Int32 {
-    get {return _storage._func_p}
-    set {_uniqueStorage()._func_p = newValue}
+  var `func`: Int32 {
+    get {return _storage._func}
+    set {_uniqueStorage()._func = newValue}
   }
 
   var functions: Int32 {
@@ -1276,9 +1276,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._init_p = newValue}
   }
 
-  var inout_p: Int32 {
-    get {return _storage._inout_p}
-    set {_uniqueStorage()._inout_p = newValue}
+  var `inout`: Int32 {
+    get {return _storage._inout}
+    set {_uniqueStorage()._inout = newValue}
   }
 
   var insert: Int32 {
@@ -1336,9 +1336,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._intern = newValue}
   }
 
-  var internal_p: Int32 {
-    get {return _storage._internal_p}
-    set {_uniqueStorage()._internal_p = newValue}
+  var `internal`: Int32 {
+    get {return _storage._internal}
+    set {_uniqueStorage()._internal = newValue}
   }
 
   var internalState: Int32 {
@@ -1496,9 +1496,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._length = newValue}
   }
 
-  var let_p: Int32 {
-    get {return _storage._let_p}
-    set {_uniqueStorage()._let_p = newValue}
+  var `let`: Int32 {
+    get {return _storage._let}
+    set {_uniqueStorage()._let = newValue}
   }
 
   var lhs: Int32 {
@@ -1706,9 +1706,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._nextFieldNumber = newValue}
   }
 
-  var nil_p: Int32 {
-    get {return _storage._nil_p}
-    set {_uniqueStorage()._nil_p = newValue}
+  var `nil`: Int32 {
+    get {return _storage._nil}
+    set {_uniqueStorage()._nil = newValue}
   }
 
   var nilLiteral: Int32 {
@@ -1906,9 +1906,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._preTraverse = newValue}
   }
 
-  var private_p: Int32 {
-    get {return _storage._private_p}
-    set {_uniqueStorage()._private_p = newValue}
+  var `private`: Int32 {
+    get {return _storage._private}
+    set {_uniqueStorage()._private = newValue}
   }
 
   var proto: Int32 {
@@ -2046,9 +2046,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._protoToJson = newValue}
   }
 
-  var public_p: Int32 {
-    get {return _storage._public_p}
-    set {_uniqueStorage()._public_p = newValue}
+  var `public`: Int32 {
+    get {return _storage._public}
+    set {_uniqueStorage()._public = newValue}
   }
 
   var putBoolValue: Int32 {
@@ -2176,9 +2176,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._result = newValue}
   }
 
-  var return_p: Int32 {
-    get {return _storage._return_p}
-    set {_uniqueStorage()._return_p = newValue}
+  var `return`: Int32 {
+    get {return _storage._return}
+    set {_uniqueStorage()._return = newValue}
   }
 
   var revision: Int32 {
@@ -2346,9 +2346,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._state = newValue}
   }
 
-  var static_p: Int32 {
-    get {return _storage._static_p}
-    set {_uniqueStorage()._static_p = newValue}
+  var `static`: Int32 {
+    get {return _storage._static}
+    set {_uniqueStorage()._static = newValue}
   }
 
   var staticString: Int32 {
@@ -2391,9 +2391,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._stringValue = newValue}
   }
 
-  var struct_p: Int32 {
-    get {return _storage._struct_p}
-    set {_uniqueStorage()._struct_p = newValue}
+  var `struct`: Int32 {
+    get {return _storage._struct}
+    set {_uniqueStorage()._struct = newValue}
   }
 
   var structValue: Int32 {
@@ -2406,9 +2406,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._subDecoder = newValue}
   }
 
-  var subscript_p: Int32 {
-    get {return _storage._subscript_p}
-    set {_uniqueStorage()._subscript_p = newValue}
+  var `subscript`: Int32 {
+    get {return _storage._subscript}
+    set {_uniqueStorage()._subscript = newValue}
   }
 
   var swift: Int32 {
@@ -2496,9 +2496,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._they = newValue}
   }
 
-  var throws_p: Int32 {
-    get {return _storage._throws_p}
-    set {_uniqueStorage()._throws_p = newValue}
+  var `throws`: Int32 {
+    get {return _storage._throws}
+    set {_uniqueStorage()._throws = newValue}
   }
 
   var timeInterval: Int32 {
@@ -2541,14 +2541,14 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._traverse = newValue}
   }
 
-  var true_p: Int32 {
-    get {return _storage._true_p}
-    set {_uniqueStorage()._true_p = newValue}
+  var `true`: Int32 {
+    get {return _storage._true}
+    set {_uniqueStorage()._true = newValue}
   }
 
-  var try_p: Int32 {
-    get {return _storage._try_p}
-    set {_uniqueStorage()._try_p = newValue}
+  var `try`: Int32 {
+    get {return _storage._try}
+    set {_uniqueStorage()._try = newValue}
   }
 
   var type: Int32 {
@@ -2556,9 +2556,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._type = newValue}
   }
 
-  var typealias_p: Int32 {
-    get {return _storage._typealias_p}
-    set {_uniqueStorage()._typealias_p = newValue}
+  var `typealias`: Int32 {
+    get {return _storage._typealias}
+    set {_uniqueStorage()._typealias = newValue}
   }
 
   var typeName: Int32 {
@@ -2766,9 +2766,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._valueType = newValue}
   }
 
-  var var_p: Int32 {
-    get {return _storage._var_p}
-    set {_uniqueStorage()._var_p = newValue}
+  var `var`: Int32 {
+    get {return _storage._var}
+    set {_uniqueStorage()._var = newValue}
   }
 
   var version: Int32 {
@@ -3066,9 +3066,9 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
     set {_uniqueStorage()._visitUnknown = newValue}
   }
 
-  var where_p: Int32 {
-    get {return _storage._where_p}
-    set {_uniqueStorage()._where_p = newValue}
+  var `where`: Int32 {
+    get {return _storage._where}
+    set {_uniqueStorage()._where = newValue}
   }
 
   var wireFormat: Int32 {
@@ -3129,7 +3129,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 13: try decoder.decodeSingularInt32Field(value: &_storage._array)
         case 14: try decoder.decodeSingularInt32Field(value: &_storage._arrayLiteral)
         case 15: try decoder.decodeSingularInt32Field(value: &_storage._arraySeparator)
-        case 16: try decoder.decodeSingularInt32Field(value: &_storage._as_p)
+        case 16: try decoder.decodeSingularInt32Field(value: &_storage._as)
         case 17: try decoder.decodeSingularInt32Field(value: &_storage._asciiOpenCurlyBracket)
         case 18: try decoder.decodeSingularInt32Field(value: &_storage._asciiZero)
         case 19: try decoder.decodeSingularInt32Field(value: &_storage._asJsonobject)
@@ -3264,7 +3264,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 148: try decoder.decodeSingularInt32Field(value: &_storage._endMessageField)
         case 149: try decoder.decodeSingularInt32Field(value: &_storage._endObject)
         case 150: try decoder.decodeSingularInt32Field(value: &_storage._endRegularField)
-        case 151: try decoder.decodeSingularInt32Field(value: &_storage._enum_p)
+        case 151: try decoder.decodeSingularInt32Field(value: &_storage._enum)
         case 152: try decoder.decodeSingularInt32Field(value: &_storage._enumvalue)
         case 153: try decoder.decodeSingularInt32Field(value: &_storage._equatable)
         case 154: try decoder.decodeSingularInt32Field(value: &_storage._ext)
@@ -3275,7 +3275,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 159: try decoder.decodeSingularInt32Field(value: &_storage._extensions)
         case 160: try decoder.decodeSingularInt32Field(value: &_storage._extras)
         case 161: try decoder.decodeSingularInt32Field(value: &_storage._f)
-        case 162: try decoder.decodeSingularInt32Field(value: &_storage._false_p)
+        case 162: try decoder.decodeSingularInt32Field(value: &_storage._false)
         case 163: try decoder.decodeSingularInt32Field(value: &_storage._fastUtf8ToString)
         case 164: try decoder.decodeSingularInt32Field(value: &_storage._field)
         case 165: try decoder.decodeSingularInt32Field(value: &_storage._fieldMask)
@@ -3289,7 +3289,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 173: try decoder.decodeSingularInt32Field(value: &_storage._fieldType)
         case 174: try decoder.decodeSingularInt32Field(value: &_storage._fieldValue)
         case 175: try decoder.decodeSingularInt32Field(value: &_storage._fileName)
-        case 176: try decoder.decodeSingularInt32Field(value: &_storage._fileprivate_p)
+        case 176: try decoder.decodeSingularInt32Field(value: &_storage._fileprivate)
         case 177: try decoder.decodeSingularInt32Field(value: &_storage._firstItem)
         case 178: try decoder.decodeSingularInt32Field(value: &_storage._flatMap)
         case 179: try decoder.decodeSingularInt32Field(value: &_storage._float)
@@ -3297,7 +3297,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 181: try decoder.decodeSingularInt32Field(value: &_storage._floatLiteralType)
         case 182: try decoder.decodeSingularInt32Field(value: &_storage._floatToUtf8)
         case 183: try decoder.decodeSingularInt32Field(value: &_storage._floatValue)
-        case 184: try decoder.decodeSingularInt32Field(value: &_storage._for_p)
+        case 184: try decoder.decodeSingularInt32Field(value: &_storage._for)
         case 185: try decoder.decodeSingularInt32Field(value: &_storage._formatDuration)
         case 186: try decoder.decodeSingularInt32Field(value: &_storage._formatTimestamp)
         case 187: try decoder.decodeSingularInt32Field(value: &_storage._forMessage)
@@ -3313,7 +3313,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 197: try decoder.decodeSingularInt32Field(value: &_storage._fromJsonutf8Data)
         case 198: try decoder.decodeSingularInt32Field(value: &_storage._fromMessage)
         case 199: try decoder.decodeSingularInt32Field(value: &_storage._fromURL)
-        case 200: try decoder.decodeSingularInt32Field(value: &_storage._func_p)
+        case 200: try decoder.decodeSingularInt32Field(value: &_storage._func)
         case 201: try decoder.decodeSingularInt32Field(value: &_storage._functions)
         case 202: try decoder.decodeSingularInt32Field(value: &_storage._g)
         case 203: try decoder.decodeSingularInt32Field(value: &_storage._generated)
@@ -3364,7 +3364,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 248: try decoder.decodeSingularInt32Field(value: &_storage._i)
         case 249: try decoder.decodeSingularInt32Field(value: &_storage._index)
         case 250: try decoder.decodeSingularInt32Field(value: &_storage._init_p)
-        case 251: try decoder.decodeSingularInt32Field(value: &_storage._inout_p)
+        case 251: try decoder.decodeSingularInt32Field(value: &_storage._inout)
         case 252: try decoder.decodeSingularInt32Field(value: &_storage._insert)
         case 253: try decoder.decodeSingularInt32Field(value: &_storage._insertIntoSet)
         case 254: try decoder.decodeSingularInt32Field(value: &_storage._int)
@@ -3376,7 +3376,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 260: try decoder.decodeSingularInt32Field(value: &_storage._integerLiteral)
         case 261: try decoder.decodeSingularInt32Field(value: &_storage._integerLiteralType)
         case 262: try decoder.decodeSingularInt32Field(value: &_storage._intern)
-        case 263: try decoder.decodeSingularInt32Field(value: &_storage._internal_p)
+        case 263: try decoder.decodeSingularInt32Field(value: &_storage._internal)
         case 264: try decoder.decodeSingularInt32Field(value: &_storage._internalState)
         case 265: try decoder.decodeSingularInt32Field(value: &_storage._isA)
         case 266: try decoder.decodeSingularInt32Field(value: &_storage._isEqual)
@@ -3408,7 +3408,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 292: try decoder.decodeSingularInt32Field(value: &_storage._l)
         case 293: try decoder.decodeSingularInt32Field(value: &_storage._label)
         case 294: try decoder.decodeSingularInt32Field(value: &_storage._length)
-        case 295: try decoder.decodeSingularInt32Field(value: &_storage._let_p)
+        case 295: try decoder.decodeSingularInt32Field(value: &_storage._let)
         case 296: try decoder.decodeSingularInt32Field(value: &_storage._lhs)
         case 297: try decoder.decodeSingularInt32Field(value: &_storage._listOfMessages)
         case 298: try decoder.decodeSingularInt32Field(value: &_storage._listValue)
@@ -3450,7 +3450,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 334: try decoder.decodeSingularInt32Field(value: &_storage._newL)
         case 335: try decoder.decodeSingularInt32Field(value: &_storage._newValue)
         case 336: try decoder.decodeSingularInt32Field(value: &_storage._nextFieldNumber)
-        case 337: try decoder.decodeSingularInt32Field(value: &_storage._nil_p)
+        case 337: try decoder.decodeSingularInt32Field(value: &_storage._nil)
         case 338: try decoder.decodeSingularInt32Field(value: &_storage._nilLiteral)
         case 339: try decoder.decodeSingularInt32Field(value: &_storage._no)
         case 340: try decoder.decodeSingularInt32Field(value: &_storage._normalizeForDuration)
@@ -3490,7 +3490,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 374: try decoder.decodeSingularInt32Field(value: &_storage._pos)
         case 375: try decoder.decodeSingularInt32Field(value: &_storage._prefix)
         case 376: try decoder.decodeSingularInt32Field(value: &_storage._preTraverse)
-        case 377: try decoder.decodeSingularInt32Field(value: &_storage._private_p)
+        case 377: try decoder.decodeSingularInt32Field(value: &_storage._private)
         case 378: try decoder.decodeSingularInt32Field(value: &_storage._proto)
         case 379: try decoder.decodeSingularInt32Field(value: &_storage._proto2)
         case 380: try decoder.decodeSingularInt32Field(value: &_storage._proto3DefaultValue)
@@ -3518,7 +3518,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 402: try decoder.decodeSingularInt32Field(value: &_storage._protoMessageName)
         case 403: try decoder.decodeSingularInt32Field(value: &_storage._protoPaths)
         case 404: try decoder.decodeSingularInt32Field(value: &_storage._protoToJson)
-        case 405: try decoder.decodeSingularInt32Field(value: &_storage._public_p)
+        case 405: try decoder.decodeSingularInt32Field(value: &_storage._public)
         case 406: try decoder.decodeSingularInt32Field(value: &_storage._putBoolValue)
         case 407: try decoder.decodeSingularInt32Field(value: &_storage._putBytesValue)
         case 408: try decoder.decodeSingularInt32Field(value: &_storage._putDoubleValue)
@@ -3544,7 +3544,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 428: try decoder.decodeSingularInt32Field(value: &_storage._responseStreaming)
         case 429: try decoder.decodeSingularInt32Field(value: &_storage._responseTypeURL)
         case 430: try decoder.decodeSingularInt32Field(value: &_storage._result)
-        case 431: try decoder.decodeSingularInt32Field(value: &_storage._return_p)
+        case 431: try decoder.decodeSingularInt32Field(value: &_storage._return)
         case 432: try decoder.decodeSingularInt32Field(value: &_storage._revision)
         case 433: try decoder.decodeSingularInt32Field(value: &_storage._rhs)
         case 434: try decoder.decodeSingularInt32Field(value: &_storage._root)
@@ -3578,7 +3578,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 462: try decoder.decodeSingularInt32Field(value: &_storage._startObject)
         case 463: try decoder.decodeSingularInt32Field(value: &_storage._startRegularField)
         case 464: try decoder.decodeSingularInt32Field(value: &_storage._state)
-        case 465: try decoder.decodeSingularInt32Field(value: &_storage._static_p)
+        case 465: try decoder.decodeSingularInt32Field(value: &_storage._static)
         case 466: try decoder.decodeSingularInt32Field(value: &_storage._staticString)
         case 467: try decoder.decodeSingularInt32Field(value: &_storage._storage)
         case 468: try decoder.decodeSingularInt32Field(value: &_storage._storageClass)
@@ -3587,10 +3587,10 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 471: try decoder.decodeSingularInt32Field(value: &_storage._stringLiteralType)
         case 472: try decoder.decodeSingularInt32Field(value: &_storage._stringResult)
         case 473: try decoder.decodeSingularInt32Field(value: &_storage._stringValue)
-        case 474: try decoder.decodeSingularInt32Field(value: &_storage._struct_p)
+        case 474: try decoder.decodeSingularInt32Field(value: &_storage._struct)
         case 475: try decoder.decodeSingularInt32Field(value: &_storage._structValue)
         case 476: try decoder.decodeSingularInt32Field(value: &_storage._subDecoder)
-        case 477: try decoder.decodeSingularInt32Field(value: &_storage._subscript_p)
+        case 477: try decoder.decodeSingularInt32Field(value: &_storage._subscript)
         case 478: try decoder.decodeSingularInt32Field(value: &_storage._swift)
         case 479: try decoder.decodeSingularInt32Field(value: &_storage._swiftProtobuf)
         case 480: try decoder.decodeSingularInt32Field(value: &_storage._syntax)
@@ -3608,7 +3608,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 492: try decoder.decodeSingularInt32Field(value: &_storage._textFormatString)
         case 493: try decoder.decodeSingularInt32Field(value: &_storage._that)
         case 494: try decoder.decodeSingularInt32Field(value: &_storage._they)
-        case 495: try decoder.decodeSingularInt32Field(value: &_storage._throws_p)
+        case 495: try decoder.decodeSingularInt32Field(value: &_storage._throws)
         case 496: try decoder.decodeSingularInt32Field(value: &_storage._timeInterval)
         case 497: try decoder.decodeSingularInt32Field(value: &_storage._timeIntervalSince1970)
         case 498: try decoder.decodeSingularInt32Field(value: &_storage._timeIntervalSinceReferenceDate)
@@ -3617,10 +3617,10 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 501: try decoder.decodeSingularInt32Field(value: &_storage._toJsonFieldName)
         case 502: try decoder.decodeSingularInt32Field(value: &_storage._total)
         case 503: try decoder.decodeSingularInt32Field(value: &_storage._traverse)
-        case 504: try decoder.decodeSingularInt32Field(value: &_storage._true_p)
-        case 505: try decoder.decodeSingularInt32Field(value: &_storage._try_p)
+        case 504: try decoder.decodeSingularInt32Field(value: &_storage._true)
+        case 505: try decoder.decodeSingularInt32Field(value: &_storage._try)
         case 506: try decoder.decodeSingularInt32Field(value: &_storage._type)
-        case 507: try decoder.decodeSingularInt32Field(value: &_storage._typealias_p)
+        case 507: try decoder.decodeSingularInt32Field(value: &_storage._typealias)
         case 508: try decoder.decodeSingularInt32Field(value: &_storage._typeName)
         case 509: try decoder.decodeSingularInt32Field(value: &_storage._typePrefix)
         case 510: try decoder.decodeSingularInt32Field(value: &_storage._typeRegistry)
@@ -3662,7 +3662,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 546: try decoder.decodeSingularInt32Field(value: &_storage._valueField)
         case 547: try decoder.decodeSingularInt32Field(value: &_storage._values)
         case 548: try decoder.decodeSingularInt32Field(value: &_storage._valueType)
-        case 549: try decoder.decodeSingularInt32Field(value: &_storage._var_p)
+        case 549: try decoder.decodeSingularInt32Field(value: &_storage._var)
         case 550: try decoder.decodeSingularInt32Field(value: &_storage._version)
         case 551: try decoder.decodeSingularInt32Field(value: &_storage._versionString)
         case 552: try decoder.decodeSingularInt32Field(value: &_storage._visitExtensionFields)
@@ -3722,7 +3722,7 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
         case 606: try decoder.decodeSingularInt32Field(value: &_storage._visitSingularUint32Field)
         case 607: try decoder.decodeSingularInt32Field(value: &_storage._visitSingularUint64Field)
         case 608: try decoder.decodeSingularInt32Field(value: &_storage._visitUnknown)
-        case 609: try decoder.decodeSingularInt32Field(value: &_storage._where_p)
+        case 609: try decoder.decodeSingularInt32Field(value: &_storage._where)
         case 610: try decoder.decodeSingularInt32Field(value: &_storage._wireFormat)
         case 611: try decoder.decodeSingularInt32Field(value: &_storage._with)
         case 612: try decoder.decodeSingularInt32Field(value: &_storage._wrappedType)
@@ -3786,8 +3786,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._arraySeparator != 0 {
         try visitor.visitSingularInt32Field(value: _storage._arraySeparator, fieldNumber: 15)
       }
-      if _storage._as_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._as_p, fieldNumber: 16)
+      if _storage._as != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._as, fieldNumber: 16)
       }
       if _storage._asciiOpenCurlyBracket != 0 {
         try visitor.visitSingularInt32Field(value: _storage._asciiOpenCurlyBracket, fieldNumber: 17)
@@ -4191,8 +4191,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._endRegularField != 0 {
         try visitor.visitSingularInt32Field(value: _storage._endRegularField, fieldNumber: 150)
       }
-      if _storage._enum_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._enum_p, fieldNumber: 151)
+      if _storage._enum != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._enum, fieldNumber: 151)
       }
       if _storage._enumvalue != 0 {
         try visitor.visitSingularInt32Field(value: _storage._enumvalue, fieldNumber: 152)
@@ -4224,8 +4224,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._f != 0 {
         try visitor.visitSingularInt32Field(value: _storage._f, fieldNumber: 161)
       }
-      if _storage._false_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._false_p, fieldNumber: 162)
+      if _storage._false != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._false, fieldNumber: 162)
       }
       if _storage._fastUtf8ToString != 0 {
         try visitor.visitSingularInt32Field(value: _storage._fastUtf8ToString, fieldNumber: 163)
@@ -4266,8 +4266,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._fileName != 0 {
         try visitor.visitSingularInt32Field(value: _storage._fileName, fieldNumber: 175)
       }
-      if _storage._fileprivate_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._fileprivate_p, fieldNumber: 176)
+      if _storage._fileprivate != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._fileprivate, fieldNumber: 176)
       }
       if _storage._firstItem != 0 {
         try visitor.visitSingularInt32Field(value: _storage._firstItem, fieldNumber: 177)
@@ -4290,8 +4290,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._floatValue != 0 {
         try visitor.visitSingularInt32Field(value: _storage._floatValue, fieldNumber: 183)
       }
-      if _storage._for_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._for_p, fieldNumber: 184)
+      if _storage._for != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._for, fieldNumber: 184)
       }
       if _storage._formatDuration != 0 {
         try visitor.visitSingularInt32Field(value: _storage._formatDuration, fieldNumber: 185)
@@ -4338,8 +4338,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._fromURL != 0 {
         try visitor.visitSingularInt32Field(value: _storage._fromURL, fieldNumber: 199)
       }
-      if _storage._func_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._func_p, fieldNumber: 200)
+      if _storage._func != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._func, fieldNumber: 200)
       }
       if _storage._functions != 0 {
         try visitor.visitSingularInt32Field(value: _storage._functions, fieldNumber: 201)
@@ -4491,8 +4491,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._init_p != 0 {
         try visitor.visitSingularInt32Field(value: _storage._init_p, fieldNumber: 250)
       }
-      if _storage._inout_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._inout_p, fieldNumber: 251)
+      if _storage._inout != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._inout, fieldNumber: 251)
       }
       if _storage._insert != 0 {
         try visitor.visitSingularInt32Field(value: _storage._insert, fieldNumber: 252)
@@ -4527,8 +4527,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._intern != 0 {
         try visitor.visitSingularInt32Field(value: _storage._intern, fieldNumber: 262)
       }
-      if _storage._internal_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._internal_p, fieldNumber: 263)
+      if _storage._internal != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._internal, fieldNumber: 263)
       }
       if _storage._internalState != 0 {
         try visitor.visitSingularInt32Field(value: _storage._internalState, fieldNumber: 264)
@@ -4623,8 +4623,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._length != 0 {
         try visitor.visitSingularInt32Field(value: _storage._length, fieldNumber: 294)
       }
-      if _storage._let_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._let_p, fieldNumber: 295)
+      if _storage._let != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._let, fieldNumber: 295)
       }
       if _storage._lhs != 0 {
         try visitor.visitSingularInt32Field(value: _storage._lhs, fieldNumber: 296)
@@ -4749,8 +4749,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._nextFieldNumber != 0 {
         try visitor.visitSingularInt32Field(value: _storage._nextFieldNumber, fieldNumber: 336)
       }
-      if _storage._nil_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._nil_p, fieldNumber: 337)
+      if _storage._nil != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._nil, fieldNumber: 337)
       }
       if _storage._nilLiteral != 0 {
         try visitor.visitSingularInt32Field(value: _storage._nilLiteral, fieldNumber: 338)
@@ -4869,8 +4869,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._preTraverse != 0 {
         try visitor.visitSingularInt32Field(value: _storage._preTraverse, fieldNumber: 376)
       }
-      if _storage._private_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._private_p, fieldNumber: 377)
+      if _storage._private != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._private, fieldNumber: 377)
       }
       if _storage._proto != 0 {
         try visitor.visitSingularInt32Field(value: _storage._proto, fieldNumber: 378)
@@ -4953,8 +4953,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._protoToJson != 0 {
         try visitor.visitSingularInt32Field(value: _storage._protoToJson, fieldNumber: 404)
       }
-      if _storage._public_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._public_p, fieldNumber: 405)
+      if _storage._public != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._public, fieldNumber: 405)
       }
       if _storage._putBoolValue != 0 {
         try visitor.visitSingularInt32Field(value: _storage._putBoolValue, fieldNumber: 406)
@@ -5031,8 +5031,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._result != 0 {
         try visitor.visitSingularInt32Field(value: _storage._result, fieldNumber: 430)
       }
-      if _storage._return_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._return_p, fieldNumber: 431)
+      if _storage._return != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._return, fieldNumber: 431)
       }
       if _storage._revision != 0 {
         try visitor.visitSingularInt32Field(value: _storage._revision, fieldNumber: 432)
@@ -5133,8 +5133,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._state != 0 {
         try visitor.visitSingularInt32Field(value: _storage._state, fieldNumber: 464)
       }
-      if _storage._static_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._static_p, fieldNumber: 465)
+      if _storage._static != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._static, fieldNumber: 465)
       }
       if _storage._staticString != 0 {
         try visitor.visitSingularInt32Field(value: _storage._staticString, fieldNumber: 466)
@@ -5160,8 +5160,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._stringValue != 0 {
         try visitor.visitSingularInt32Field(value: _storage._stringValue, fieldNumber: 473)
       }
-      if _storage._struct_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._struct_p, fieldNumber: 474)
+      if _storage._struct != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._struct, fieldNumber: 474)
       }
       if _storage._structValue != 0 {
         try visitor.visitSingularInt32Field(value: _storage._structValue, fieldNumber: 475)
@@ -5169,8 +5169,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._subDecoder != 0 {
         try visitor.visitSingularInt32Field(value: _storage._subDecoder, fieldNumber: 476)
       }
-      if _storage._subscript_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._subscript_p, fieldNumber: 477)
+      if _storage._subscript != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._subscript, fieldNumber: 477)
       }
       if _storage._swift != 0 {
         try visitor.visitSingularInt32Field(value: _storage._swift, fieldNumber: 478)
@@ -5223,8 +5223,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._they != 0 {
         try visitor.visitSingularInt32Field(value: _storage._they, fieldNumber: 494)
       }
-      if _storage._throws_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._throws_p, fieldNumber: 495)
+      if _storage._throws != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._throws, fieldNumber: 495)
       }
       if _storage._timeInterval != 0 {
         try visitor.visitSingularInt32Field(value: _storage._timeInterval, fieldNumber: 496)
@@ -5250,17 +5250,17 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._traverse != 0 {
         try visitor.visitSingularInt32Field(value: _storage._traverse, fieldNumber: 503)
       }
-      if _storage._true_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._true_p, fieldNumber: 504)
+      if _storage._true != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._true, fieldNumber: 504)
       }
-      if _storage._try_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._try_p, fieldNumber: 505)
+      if _storage._try != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._try, fieldNumber: 505)
       }
       if _storage._type != 0 {
         try visitor.visitSingularInt32Field(value: _storage._type, fieldNumber: 506)
       }
-      if _storage._typealias_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._typealias_p, fieldNumber: 507)
+      if _storage._typealias != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._typealias, fieldNumber: 507)
       }
       if _storage._typeName != 0 {
         try visitor.visitSingularInt32Field(value: _storage._typeName, fieldNumber: 508)
@@ -5385,8 +5385,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._valueType != 0 {
         try visitor.visitSingularInt32Field(value: _storage._valueType, fieldNumber: 548)
       }
-      if _storage._var_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._var_p, fieldNumber: 549)
+      if _storage._var != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._var, fieldNumber: 549)
       }
       if _storage._version != 0 {
         try visitor.visitSingularInt32Field(value: _storage._version, fieldNumber: 550)
@@ -5565,8 +5565,8 @@ struct ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf.Message {
       if _storage._visitUnknown != 0 {
         try visitor.visitSingularInt32Field(value: _storage._visitUnknown, fieldNumber: 608)
       }
-      if _storage._where_p != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._where_p, fieldNumber: 609)
+      if _storage._where != 0 {
+        try visitor.visitSingularInt32Field(value: _storage._where, fieldNumber: 609)
       }
       if _storage._wireFormat != 0 {
         try visitor.visitSingularInt32Field(value: _storage._wireFormat, fieldNumber: 610)
@@ -6232,7 +6232,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _array: Int32 = 0
     var _arrayLiteral: Int32 = 0
     var _arraySeparator: Int32 = 0
-    var _as_p: Int32 = 0
+    var _as: Int32 = 0
     var _asciiOpenCurlyBracket: Int32 = 0
     var _asciiZero: Int32 = 0
     var _asJsonobject: Int32 = 0
@@ -6367,7 +6367,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _endMessageField: Int32 = 0
     var _endObject: Int32 = 0
     var _endRegularField: Int32 = 0
-    var _enum_p: Int32 = 0
+    var _enum: Int32 = 0
     var _enumvalue: Int32 = 0
     var _equatable: Int32 = 0
     var _ext: Int32 = 0
@@ -6378,7 +6378,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _extensions: Int32 = 0
     var _extras: Int32 = 0
     var _f: Int32 = 0
-    var _false_p: Int32 = 0
+    var _false: Int32 = 0
     var _fastUtf8ToString: Int32 = 0
     var _field: Int32 = 0
     var _fieldMask: Int32 = 0
@@ -6392,7 +6392,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _fieldType: Int32 = 0
     var _fieldValue: Int32 = 0
     var _fileName: Int32 = 0
-    var _fileprivate_p: Int32 = 0
+    var _fileprivate: Int32 = 0
     var _firstItem: Int32 = 0
     var _flatMap: Int32 = 0
     var _float: Int32 = 0
@@ -6400,7 +6400,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _floatLiteralType: Int32 = 0
     var _floatToUtf8: Int32 = 0
     var _floatValue: Int32 = 0
-    var _for_p: Int32 = 0
+    var _for: Int32 = 0
     var _formatDuration: Int32 = 0
     var _formatTimestamp: Int32 = 0
     var _forMessage: Int32 = 0
@@ -6416,7 +6416,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _fromJsonutf8Data: Int32 = 0
     var _fromMessage: Int32 = 0
     var _fromURL: Int32 = 0
-    var _func_p: Int32 = 0
+    var _func: Int32 = 0
     var _functions: Int32 = 0
     var _g: Int32 = 0
     var _generated: Int32 = 0
@@ -6467,7 +6467,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _i: Int32 = 0
     var _index: Int32 = 0
     var _init_p: Int32 = 0
-    var _inout_p: Int32 = 0
+    var _inout: Int32 = 0
     var _insert: Int32 = 0
     var _insertIntoSet: Int32 = 0
     var _int: Int32 = 0
@@ -6479,7 +6479,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _integerLiteral: Int32 = 0
     var _integerLiteralType: Int32 = 0
     var _intern: Int32 = 0
-    var _internal_p: Int32 = 0
+    var _internal: Int32 = 0
     var _internalState: Int32 = 0
     var _isA: Int32 = 0
     var _isEqual: Int32 = 0
@@ -6511,7 +6511,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _l: Int32 = 0
     var _label: Int32 = 0
     var _length: Int32 = 0
-    var _let_p: Int32 = 0
+    var _let: Int32 = 0
     var _lhs: Int32 = 0
     var _listOfMessages: Int32 = 0
     var _listValue: Int32 = 0
@@ -6553,7 +6553,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _newL: Int32 = 0
     var _newValue: Int32 = 0
     var _nextFieldNumber: Int32 = 0
-    var _nil_p: Int32 = 0
+    var _nil: Int32 = 0
     var _nilLiteral: Int32 = 0
     var _no: Int32 = 0
     var _normalizeForDuration: Int32 = 0
@@ -6593,7 +6593,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _pos: Int32 = 0
     var _prefix: Int32 = 0
     var _preTraverse: Int32 = 0
-    var _private_p: Int32 = 0
+    var _private: Int32 = 0
     var _proto: Int32 = 0
     var _proto2: Int32 = 0
     var _proto3DefaultValue: Int32 = 0
@@ -6621,7 +6621,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _protoMessageName: Int32 = 0
     var _protoPaths: Int32 = 0
     var _protoToJson: Int32 = 0
-    var _public_p: Int32 = 0
+    var _public: Int32 = 0
     var _putBoolValue: Int32 = 0
     var _putBytesValue: Int32 = 0
     var _putDoubleValue: Int32 = 0
@@ -6647,7 +6647,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _responseStreaming: Int32 = 0
     var _responseTypeURL: Int32 = 0
     var _result: Int32 = 0
-    var _return_p: Int32 = 0
+    var _return: Int32 = 0
     var _revision: Int32 = 0
     var _rhs: Int32 = 0
     var _root: Int32 = 0
@@ -6681,7 +6681,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _startObject: Int32 = 0
     var _startRegularField: Int32 = 0
     var _state: Int32 = 0
-    var _static_p: Int32 = 0
+    var _static: Int32 = 0
     var _staticString: Int32 = 0
     var _storage: Int32 = 0
     var _storageClass: Int32 = 0
@@ -6690,10 +6690,10 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _stringLiteralType: Int32 = 0
     var _stringResult: Int32 = 0
     var _stringValue: Int32 = 0
-    var _struct_p: Int32 = 0
+    var _struct: Int32 = 0
     var _structValue: Int32 = 0
     var _subDecoder: Int32 = 0
-    var _subscript_p: Int32 = 0
+    var _subscript: Int32 = 0
     var _swift: Int32 = 0
     var _swiftProtobuf: Int32 = 0
     var _syntax: Int32 = 0
@@ -6711,7 +6711,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _textFormatString: Int32 = 0
     var _that: Int32 = 0
     var _they: Int32 = 0
-    var _throws_p: Int32 = 0
+    var _throws: Int32 = 0
     var _timeInterval: Int32 = 0
     var _timeIntervalSince1970: Int32 = 0
     var _timeIntervalSinceReferenceDate: Int32 = 0
@@ -6720,10 +6720,10 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _toJsonFieldName: Int32 = 0
     var _total: Int32 = 0
     var _traverse: Int32 = 0
-    var _true_p: Int32 = 0
-    var _try_p: Int32 = 0
+    var _true: Int32 = 0
+    var _try: Int32 = 0
     var _type: Int32 = 0
-    var _typealias_p: Int32 = 0
+    var _typealias: Int32 = 0
     var _typeName: Int32 = 0
     var _typePrefix: Int32 = 0
     var _typeRegistry: Int32 = 0
@@ -6765,7 +6765,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _valueField: Int32 = 0
     var _values: Int32 = 0
     var _valueType: Int32 = 0
-    var _var_p: Int32 = 0
+    var _var: Int32 = 0
     var _version: Int32 = 0
     var _versionString: Int32 = 0
     var _visitExtensionFields: Int32 = 0
@@ -6825,7 +6825,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
     var _visitSingularUint32Field: Int32 = 0
     var _visitSingularUint64Field: Int32 = 0
     var _visitUnknown: Int32 = 0
-    var _where_p: Int32 = 0
+    var _where: Int32 = 0
     var _wireFormat: Int32 = 0
     var _with: Int32 = 0
     var _wrappedType: Int32 = 0
@@ -6851,7 +6851,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _array = source._array
       _arrayLiteral = source._arrayLiteral
       _arraySeparator = source._arraySeparator
-      _as_p = source._as_p
+      _as = source._as
       _asciiOpenCurlyBracket = source._asciiOpenCurlyBracket
       _asciiZero = source._asciiZero
       _asJsonobject = source._asJsonobject
@@ -6986,7 +6986,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _endMessageField = source._endMessageField
       _endObject = source._endObject
       _endRegularField = source._endRegularField
-      _enum_p = source._enum_p
+      _enum = source._enum
       _enumvalue = source._enumvalue
       _equatable = source._equatable
       _ext = source._ext
@@ -6997,7 +6997,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _extensions = source._extensions
       _extras = source._extras
       _f = source._f
-      _false_p = source._false_p
+      _false = source._false
       _fastUtf8ToString = source._fastUtf8ToString
       _field = source._field
       _fieldMask = source._fieldMask
@@ -7011,7 +7011,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _fieldType = source._fieldType
       _fieldValue = source._fieldValue
       _fileName = source._fileName
-      _fileprivate_p = source._fileprivate_p
+      _fileprivate = source._fileprivate
       _firstItem = source._firstItem
       _flatMap = source._flatMap
       _float = source._float
@@ -7019,7 +7019,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _floatLiteralType = source._floatLiteralType
       _floatToUtf8 = source._floatToUtf8
       _floatValue = source._floatValue
-      _for_p = source._for_p
+      _for = source._for
       _formatDuration = source._formatDuration
       _formatTimestamp = source._formatTimestamp
       _forMessage = source._forMessage
@@ -7035,7 +7035,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _fromJsonutf8Data = source._fromJsonutf8Data
       _fromMessage = source._fromMessage
       _fromURL = source._fromURL
-      _func_p = source._func_p
+      _func = source._func
       _functions = source._functions
       _g = source._g
       _generated = source._generated
@@ -7086,7 +7086,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _i = source._i
       _index = source._index
       _init_p = source._init_p
-      _inout_p = source._inout_p
+      _inout = source._inout
       _insert = source._insert
       _insertIntoSet = source._insertIntoSet
       _int = source._int
@@ -7098,7 +7098,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _integerLiteral = source._integerLiteral
       _integerLiteralType = source._integerLiteralType
       _intern = source._intern
-      _internal_p = source._internal_p
+      _internal = source._internal
       _internalState = source._internalState
       _isA = source._isA
       _isEqual = source._isEqual
@@ -7130,7 +7130,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _l = source._l
       _label = source._label
       _length = source._length
-      _let_p = source._let_p
+      _let = source._let
       _lhs = source._lhs
       _listOfMessages = source._listOfMessages
       _listValue = source._listValue
@@ -7172,7 +7172,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _newL = source._newL
       _newValue = source._newValue
       _nextFieldNumber = source._nextFieldNumber
-      _nil_p = source._nil_p
+      _nil = source._nil
       _nilLiteral = source._nilLiteral
       _no = source._no
       _normalizeForDuration = source._normalizeForDuration
@@ -7212,7 +7212,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _pos = source._pos
       _prefix = source._prefix
       _preTraverse = source._preTraverse
-      _private_p = source._private_p
+      _private = source._private
       _proto = source._proto
       _proto2 = source._proto2
       _proto3DefaultValue = source._proto3DefaultValue
@@ -7240,7 +7240,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _protoMessageName = source._protoMessageName
       _protoPaths = source._protoPaths
       _protoToJson = source._protoToJson
-      _public_p = source._public_p
+      _public = source._public
       _putBoolValue = source._putBoolValue
       _putBytesValue = source._putBytesValue
       _putDoubleValue = source._putDoubleValue
@@ -7266,7 +7266,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _responseStreaming = source._responseStreaming
       _responseTypeURL = source._responseTypeURL
       _result = source._result
-      _return_p = source._return_p
+      _return = source._return
       _revision = source._revision
       _rhs = source._rhs
       _root = source._root
@@ -7300,7 +7300,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _startObject = source._startObject
       _startRegularField = source._startRegularField
       _state = source._state
-      _static_p = source._static_p
+      _static = source._static
       _staticString = source._staticString
       _storage = source._storage
       _storageClass = source._storageClass
@@ -7309,10 +7309,10 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _stringLiteralType = source._stringLiteralType
       _stringResult = source._stringResult
       _stringValue = source._stringValue
-      _struct_p = source._struct_p
+      _struct = source._struct
       _structValue = source._structValue
       _subDecoder = source._subDecoder
-      _subscript_p = source._subscript_p
+      _subscript = source._subscript
       _swift = source._swift
       _swiftProtobuf = source._swiftProtobuf
       _syntax = source._syntax
@@ -7330,7 +7330,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _textFormatString = source._textFormatString
       _that = source._that
       _they = source._they
-      _throws_p = source._throws_p
+      _throws = source._throws
       _timeInterval = source._timeInterval
       _timeIntervalSince1970 = source._timeIntervalSince1970
       _timeIntervalSinceReferenceDate = source._timeIntervalSinceReferenceDate
@@ -7339,10 +7339,10 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _toJsonFieldName = source._toJsonFieldName
       _total = source._total
       _traverse = source._traverse
-      _true_p = source._true_p
-      _try_p = source._try_p
+      _true = source._true
+      _try = source._try
       _type = source._type
-      _typealias_p = source._typealias_p
+      _typealias = source._typealias
       _typeName = source._typeName
       _typePrefix = source._typePrefix
       _typeRegistry = source._typeRegistry
@@ -7384,7 +7384,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _valueField = source._valueField
       _values = source._values
       _valueType = source._valueType
-      _var_p = source._var_p
+      _var = source._var
       _version = source._version
       _versionString = source._versionString
       _visitExtensionFields = source._visitExtensionFields
@@ -7444,7 +7444,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
       _visitSingularUint32Field = source._visitSingularUint32Field
       _visitSingularUint64Field = source._visitSingularUint64Field
       _visitUnknown = source._visitUnknown
-      _where_p = source._where_p
+      _where = source._where
       _wireFormat = source._wireFormat
       _with = source._with
       _wrappedType = source._wrappedType
@@ -7479,7 +7479,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._array != other_storage._array {return false}
         if _storage._arrayLiteral != other_storage._arrayLiteral {return false}
         if _storage._arraySeparator != other_storage._arraySeparator {return false}
-        if _storage._as_p != other_storage._as_p {return false}
+        if _storage._as != other_storage._as {return false}
         if _storage._asciiOpenCurlyBracket != other_storage._asciiOpenCurlyBracket {return false}
         if _storage._asciiZero != other_storage._asciiZero {return false}
         if _storage._asJsonobject != other_storage._asJsonobject {return false}
@@ -7614,7 +7614,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._endMessageField != other_storage._endMessageField {return false}
         if _storage._endObject != other_storage._endObject {return false}
         if _storage._endRegularField != other_storage._endRegularField {return false}
-        if _storage._enum_p != other_storage._enum_p {return false}
+        if _storage._enum != other_storage._enum {return false}
         if _storage._enumvalue != other_storage._enumvalue {return false}
         if _storage._equatable != other_storage._equatable {return false}
         if _storage._ext != other_storage._ext {return false}
@@ -7625,7 +7625,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._extensions != other_storage._extensions {return false}
         if _storage._extras != other_storage._extras {return false}
         if _storage._f != other_storage._f {return false}
-        if _storage._false_p != other_storage._false_p {return false}
+        if _storage._false != other_storage._false {return false}
         if _storage._fastUtf8ToString != other_storage._fastUtf8ToString {return false}
         if _storage._field != other_storage._field {return false}
         if _storage._fieldMask != other_storage._fieldMask {return false}
@@ -7639,7 +7639,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._fieldType != other_storage._fieldType {return false}
         if _storage._fieldValue != other_storage._fieldValue {return false}
         if _storage._fileName != other_storage._fileName {return false}
-        if _storage._fileprivate_p != other_storage._fileprivate_p {return false}
+        if _storage._fileprivate != other_storage._fileprivate {return false}
         if _storage._firstItem != other_storage._firstItem {return false}
         if _storage._flatMap != other_storage._flatMap {return false}
         if _storage._float != other_storage._float {return false}
@@ -7647,7 +7647,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._floatLiteralType != other_storage._floatLiteralType {return false}
         if _storage._floatToUtf8 != other_storage._floatToUtf8 {return false}
         if _storage._floatValue != other_storage._floatValue {return false}
-        if _storage._for_p != other_storage._for_p {return false}
+        if _storage._for != other_storage._for {return false}
         if _storage._formatDuration != other_storage._formatDuration {return false}
         if _storage._formatTimestamp != other_storage._formatTimestamp {return false}
         if _storage._forMessage != other_storage._forMessage {return false}
@@ -7663,7 +7663,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._fromJsonutf8Data != other_storage._fromJsonutf8Data {return false}
         if _storage._fromMessage != other_storage._fromMessage {return false}
         if _storage._fromURL != other_storage._fromURL {return false}
-        if _storage._func_p != other_storage._func_p {return false}
+        if _storage._func != other_storage._func {return false}
         if _storage._functions != other_storage._functions {return false}
         if _storage._g != other_storage._g {return false}
         if _storage._generated != other_storage._generated {return false}
@@ -7714,7 +7714,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._i != other_storage._i {return false}
         if _storage._index != other_storage._index {return false}
         if _storage._init_p != other_storage._init_p {return false}
-        if _storage._inout_p != other_storage._inout_p {return false}
+        if _storage._inout != other_storage._inout {return false}
         if _storage._insert != other_storage._insert {return false}
         if _storage._insertIntoSet != other_storage._insertIntoSet {return false}
         if _storage._int != other_storage._int {return false}
@@ -7726,7 +7726,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._integerLiteral != other_storage._integerLiteral {return false}
         if _storage._integerLiteralType != other_storage._integerLiteralType {return false}
         if _storage._intern != other_storage._intern {return false}
-        if _storage._internal_p != other_storage._internal_p {return false}
+        if _storage._internal != other_storage._internal {return false}
         if _storage._internalState != other_storage._internalState {return false}
         if _storage._isA != other_storage._isA {return false}
         if _storage._isEqual != other_storage._isEqual {return false}
@@ -7758,7 +7758,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._l != other_storage._l {return false}
         if _storage._label != other_storage._label {return false}
         if _storage._length != other_storage._length {return false}
-        if _storage._let_p != other_storage._let_p {return false}
+        if _storage._let != other_storage._let {return false}
         if _storage._lhs != other_storage._lhs {return false}
         if _storage._listOfMessages != other_storage._listOfMessages {return false}
         if _storage._listValue != other_storage._listValue {return false}
@@ -7800,7 +7800,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._newL != other_storage._newL {return false}
         if _storage._newValue != other_storage._newValue {return false}
         if _storage._nextFieldNumber != other_storage._nextFieldNumber {return false}
-        if _storage._nil_p != other_storage._nil_p {return false}
+        if _storage._nil != other_storage._nil {return false}
         if _storage._nilLiteral != other_storage._nilLiteral {return false}
         if _storage._no != other_storage._no {return false}
         if _storage._normalizeForDuration != other_storage._normalizeForDuration {return false}
@@ -7840,7 +7840,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._pos != other_storage._pos {return false}
         if _storage._prefix != other_storage._prefix {return false}
         if _storage._preTraverse != other_storage._preTraverse {return false}
-        if _storage._private_p != other_storage._private_p {return false}
+        if _storage._private != other_storage._private {return false}
         if _storage._proto != other_storage._proto {return false}
         if _storage._proto2 != other_storage._proto2 {return false}
         if _storage._proto3DefaultValue != other_storage._proto3DefaultValue {return false}
@@ -7868,7 +7868,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._protoMessageName != other_storage._protoMessageName {return false}
         if _storage._protoPaths != other_storage._protoPaths {return false}
         if _storage._protoToJson != other_storage._protoToJson {return false}
-        if _storage._public_p != other_storage._public_p {return false}
+        if _storage._public != other_storage._public {return false}
         if _storage._putBoolValue != other_storage._putBoolValue {return false}
         if _storage._putBytesValue != other_storage._putBytesValue {return false}
         if _storage._putDoubleValue != other_storage._putDoubleValue {return false}
@@ -7894,7 +7894,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._responseStreaming != other_storage._responseStreaming {return false}
         if _storage._responseTypeURL != other_storage._responseTypeURL {return false}
         if _storage._result != other_storage._result {return false}
-        if _storage._return_p != other_storage._return_p {return false}
+        if _storage._return != other_storage._return {return false}
         if _storage._revision != other_storage._revision {return false}
         if _storage._rhs != other_storage._rhs {return false}
         if _storage._root != other_storage._root {return false}
@@ -7928,7 +7928,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._startObject != other_storage._startObject {return false}
         if _storage._startRegularField != other_storage._startRegularField {return false}
         if _storage._state != other_storage._state {return false}
-        if _storage._static_p != other_storage._static_p {return false}
+        if _storage._static != other_storage._static {return false}
         if _storage._staticString != other_storage._staticString {return false}
         if _storage._storage != other_storage._storage {return false}
         if _storage._storageClass != other_storage._storageClass {return false}
@@ -7937,10 +7937,10 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._stringLiteralType != other_storage._stringLiteralType {return false}
         if _storage._stringResult != other_storage._stringResult {return false}
         if _storage._stringValue != other_storage._stringValue {return false}
-        if _storage._struct_p != other_storage._struct_p {return false}
+        if _storage._struct != other_storage._struct {return false}
         if _storage._structValue != other_storage._structValue {return false}
         if _storage._subDecoder != other_storage._subDecoder {return false}
-        if _storage._subscript_p != other_storage._subscript_p {return false}
+        if _storage._subscript != other_storage._subscript {return false}
         if _storage._swift != other_storage._swift {return false}
         if _storage._swiftProtobuf != other_storage._swiftProtobuf {return false}
         if _storage._syntax != other_storage._syntax {return false}
@@ -7958,7 +7958,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._textFormatString != other_storage._textFormatString {return false}
         if _storage._that != other_storage._that {return false}
         if _storage._they != other_storage._they {return false}
-        if _storage._throws_p != other_storage._throws_p {return false}
+        if _storage._throws != other_storage._throws {return false}
         if _storage._timeInterval != other_storage._timeInterval {return false}
         if _storage._timeIntervalSince1970 != other_storage._timeIntervalSince1970 {return false}
         if _storage._timeIntervalSinceReferenceDate != other_storage._timeIntervalSinceReferenceDate {return false}
@@ -7967,10 +7967,10 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._toJsonFieldName != other_storage._toJsonFieldName {return false}
         if _storage._total != other_storage._total {return false}
         if _storage._traverse != other_storage._traverse {return false}
-        if _storage._true_p != other_storage._true_p {return false}
-        if _storage._try_p != other_storage._try_p {return false}
+        if _storage._true != other_storage._true {return false}
+        if _storage._try != other_storage._try {return false}
         if _storage._type != other_storage._type {return false}
-        if _storage._typealias_p != other_storage._typealias_p {return false}
+        if _storage._typealias != other_storage._typealias {return false}
         if _storage._typeName != other_storage._typeName {return false}
         if _storage._typePrefix != other_storage._typePrefix {return false}
         if _storage._typeRegistry != other_storage._typeRegistry {return false}
@@ -8012,7 +8012,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._valueField != other_storage._valueField {return false}
         if _storage._values != other_storage._values {return false}
         if _storage._valueType != other_storage._valueType {return false}
-        if _storage._var_p != other_storage._var_p {return false}
+        if _storage._var != other_storage._var {return false}
         if _storage._version != other_storage._version {return false}
         if _storage._versionString != other_storage._versionString {return false}
         if _storage._visitExtensionFields != other_storage._visitExtensionFields {return false}
@@ -8072,7 +8072,7 @@ extension ProtobufUnittest_GeneratedSwiftReservedFields: SwiftProtobuf._MessageI
         if _storage._visitSingularUint32Field != other_storage._visitSingularUint32Field {return false}
         if _storage._visitSingularUint64Field != other_storage._visitSingularUint64Field {return false}
         if _storage._visitUnknown != other_storage._visitUnknown {return false}
-        if _storage._where_p != other_storage._where_p {return false}
+        if _storage._where != other_storage._where {return false}
         if _storage._wireFormat != other_storage._wireFormat {return false}
         if _storage._with != other_storage._with {return false}
         if _storage._wrappedType != other_storage._wrappedType {return false}
