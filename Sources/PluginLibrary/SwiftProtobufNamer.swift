@@ -125,36 +125,45 @@ public final class SwiftProtobufNamer {
     return extensionScopeSwiftFullName + ".Extensions." + relativeNameNoBackticks
   }
 
-  public typealias MessageFieldNames = (value: String, has: String, clear: String)
+  public typealias MessageFieldNames = (name: String, prefixed: String, has: String, clear: String)
 
   /// Calculate the names to use for the Swift fields on the message.
+  ///
+  /// If `prefixed` is not empty, the name prefixed with that will also be included.
   ///
   /// If `includeHasAndClear` is False, the has:, clear: values in the result will
   /// be the empty string.
   ///
   /// - Precondition: `field` must be FieldDescriptor that's isn't for an extension.
   public func messagePropertyNames(field: FieldDescriptor,
+                                   prefixed: String,
                                    includeHasAndClear: Bool) -> MessageFieldNames {
     precondition(!field.isExtension)
 
     let lowerName = NamingUtils.toLowerCamelCase(field.namingBase)
     let fieldName = NamingUtils.sanitize(fieldName: lowerName)
+    let prefixedFieldName =
+      prefixed.isEmpty ? "" : NamingUtils.sanitize(fieldName: "\(prefixed)\(lowerName)", basedOn: lowerName)
 
     if !includeHasAndClear {
-      return MessageFieldNames(value: fieldName, has: "", clear: "")
+      return MessageFieldNames(name: fieldName, prefixed: prefixedFieldName, has: "", clear: "")
     }
 
     let upperName = NamingUtils.toUpperCamelCase(field.namingBase)
     let hasName = NamingUtils.sanitize(fieldName: "has\(upperName)", basedOn: lowerName)
     let clearName = NamingUtils.sanitize(fieldName: "clear\(upperName)", basedOn: lowerName)
 
-    return MessageFieldNames(value: fieldName, has: hasName, clear: clearName)
+    return MessageFieldNames(name: fieldName, prefixed: prefixedFieldName, has: hasName, clear: clearName)
   }
 
+  public typealias OneofFieldNames = (name: String, prefixed: String)
+
   /// Calculate the name to use for the Swift field on the message.
-  public func messagePropertyName(oneof: OneofDescriptor) -> String {
+  public func messagePropertyName(oneof: OneofDescriptor, prefixed: String = "_") -> OneofFieldNames {
     let lowerName = NamingUtils.toLowerCamelCase(oneof.name)
-    return NamingUtils.sanitize(fieldName: lowerName)
+    let fieldName = NamingUtils.sanitize(fieldName: lowerName)
+    let prefixedFieldName = NamingUtils.sanitize(fieldName: "\(prefixed)\(lowerName)", basedOn: lowerName)
+    return OneofFieldNames(name: fieldName, prefixed: prefixedFieldName)
   }
 
   public typealias MessageExtensionNames = (value: String, has: String, clear: String)

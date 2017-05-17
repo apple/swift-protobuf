@@ -157,9 +157,9 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     set {_uniqueStorage()._service = newValue}
   }
 
-  var extension_p: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage._extension_p}
-    set {_uniqueStorage()._extension_p = newValue}
+  var `extension`: [Google_Protobuf_FieldDescriptorProto] {
+    get {return _storage._extension}
+    set {_uniqueStorage()._extension = newValue}
   }
 
   var options: Google_Protobuf_FileOptions {
@@ -204,7 +204,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._messageType) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._service) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension_p) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension) {return false}
       if let v = _storage._options, !v.isInitialized {return false}
       return true
     }
@@ -225,7 +225,7 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
         case 4: try decoder.decodeRepeatedMessageField(value: &_storage._messageType)
         case 5: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
         case 6: try decoder.decodeRepeatedMessageField(value: &_storage._service)
-        case 7: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
+        case 7: try decoder.decodeRepeatedMessageField(value: &_storage._extension)
         case 8: try decoder.decodeSingularMessageField(value: &_storage._options)
         case 9: try decoder.decodeSingularMessageField(value: &_storage._sourceCodeInfo)
         case 10: try decoder.decodeRepeatedInt32Field(value: &_storage._publicDependency)
@@ -261,8 +261,8 @@ struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
       if !_storage._service.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._service, fieldNumber: 6)
       }
-      if !_storage._extension_p.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._extension_p, fieldNumber: 7)
+      if !_storage._extension.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._extension, fieldNumber: 7)
       }
       if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
@@ -304,9 +304,9 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     set {_uniqueStorage()._field = newValue}
   }
 
-  var extension_p: [Google_Protobuf_FieldDescriptorProto] {
-    get {return _storage._extension_p}
-    set {_uniqueStorage()._extension_p = newValue}
+  var `extension`: [Google_Protobuf_FieldDescriptorProto] {
+    get {return _storage._extension}
+    set {_uniqueStorage()._extension = newValue}
   }
 
   var nestedType: [Google_Protobuf_DescriptorProto] {
@@ -476,7 +476,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   public var isInitialized: Bool {
     return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._field) {return false}
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension_p) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._nestedType) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._oneofDecl) {return false}
@@ -499,7 +499,7 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
         case 3: try decoder.decodeRepeatedMessageField(value: &_storage._nestedType)
         case 4: try decoder.decodeRepeatedMessageField(value: &_storage._enumType)
         case 5: try decoder.decodeRepeatedMessageField(value: &_storage._extensionRange)
-        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension_p)
+        case 6: try decoder.decodeRepeatedMessageField(value: &_storage._extension)
         case 7: try decoder.decodeSingularMessageField(value: &_storage._options)
         case 8: try decoder.decodeRepeatedMessageField(value: &_storage._oneofDecl)
         case 9: try decoder.decodeRepeatedMessageField(value: &_storage._reservedRange)
@@ -531,8 +531,8 @@ struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       if !_storage._extensionRange.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._extensionRange, fieldNumber: 5)
       }
-      if !_storage._extension_p.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._extension_p, fieldNumber: 6)
+      if !_storage._extension.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._extension, fieldNumber: 6)
       }
       if let v = _storage._options {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
@@ -3017,7 +3017,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
     var _messageType: [Google_Protobuf_DescriptorProto] = []
     var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
     var _service: [Google_Protobuf_ServiceDescriptorProto] = []
-    var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
+    var _extension: [Google_Protobuf_FieldDescriptorProto] = []
     var _options: Google_Protobuf_FileOptions? = nil
     var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
     var _syntax: String? = nil
@@ -3033,7 +3033,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
       _messageType = source._messageType
       _enumType = source._enumType
       _service = source._service
-      _extension_p = source._extension_p
+      _extension = source._extension
       _options = source._options
       _sourceCodeInfo = source._sourceCodeInfo
       _syntax = source._syntax
@@ -3058,7 +3058,7 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
         if _storage._messageType != other_storage._messageType {return false}
         if _storage._enumType != other_storage._enumType {return false}
         if _storage._service != other_storage._service {return false}
-        if _storage._extension_p != other_storage._extension_p {return false}
+        if _storage._extension != other_storage._extension {return false}
         if _storage._options != other_storage._options {return false}
         if _storage._sourceCodeInfo != other_storage._sourceCodeInfo {return false}
         if _storage._syntax != other_storage._syntax {return false}
@@ -3088,7 +3088,7 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
   fileprivate class _StorageClass {
     var _name: String? = nil
     var _field: [Google_Protobuf_FieldDescriptorProto] = []
-    var _extension_p: [Google_Protobuf_FieldDescriptorProto] = []
+    var _extension: [Google_Protobuf_FieldDescriptorProto] = []
     var _nestedType: [Google_Protobuf_DescriptorProto] = []
     var _enumType: [Google_Protobuf_EnumDescriptorProto] = []
     var _extensionRange: [Google_Protobuf_DescriptorProto.ExtensionRange] = []
@@ -3102,7 +3102,7 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
     init(copying source: _StorageClass) {
       _name = source._name
       _field = source._field
-      _extension_p = source._extension_p
+      _extension = source._extension
       _nestedType = source._nestedType
       _enumType = source._enumType
       _extensionRange = source._extensionRange
@@ -3125,7 +3125,7 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._name != other_storage._name {return false}
         if _storage._field != other_storage._field {return false}
-        if _storage._extension_p != other_storage._extension_p {return false}
+        if _storage._extension != other_storage._extension {return false}
         if _storage._nestedType != other_storage._nestedType {return false}
         if _storage._enumType != other_storage._enumType {return false}
         if _storage._extensionRange != other_storage._extensionRange {return false}

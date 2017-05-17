@@ -24,6 +24,7 @@ class OneofGenerator {
         private(set) var group: Int
 
         let swiftName: String
+        let dottedSwiftName: String
         let swiftType: String
         let swiftDefaultValue: String
         let protoGenericType: String
@@ -48,7 +49,11 @@ class OneofGenerator {
             oneof = nil
             group = -1
 
-            swiftName = namer.messagePropertyNames(field: descriptor, includeHasAndClear: false).value
+            let names = namer.messagePropertyNames(field: descriptor,
+                                                   prefixed: ".",
+                                                   includeHasAndClear: false)
+            swiftName = names.name
+            dottedSwiftName = names.prefixed
             swiftType = descriptor.swiftType(namer: namer)
             swiftDefaultValue = descriptor.swiftDefaultValue(namer: namer)
             protoGenericType = descriptor.protoGenericType
@@ -111,6 +116,8 @@ class OneofGenerator {
     private let comments: String
 
     private let swiftFieldName: String
+    private let underscoreSwiftFieldName: String
+    private let storedProperty: String
 
     init(descriptor: OneofDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer, usesHeapStorage: Bool) {
         self.oneofDescriptor = descriptor
@@ -122,7 +129,15 @@ class OneofGenerator {
 
         swiftRelativeName = namer.relativeName(oneof: descriptor)
         swiftFullName = namer.fullName(oneof: descriptor)
-        swiftFieldName = namer.messagePropertyName(oneof: descriptor)
+        let names = namer.messagePropertyName(oneof: descriptor)
+        swiftFieldName = names.name
+        underscoreSwiftFieldName = names.prefixed
+
+        if usesHeapStorage {
+            storedProperty = "_storage.\(underscoreSwiftFieldName)"
+        } else {
+            storedProperty = "self.\(swiftFieldName)"
+        }
 
         fields = descriptor.fields.map {
             return MemberFieldGenerator(descriptor: $0, namer: namer)
@@ -202,7 +217,7 @@ class OneofGenerator {
         p.indent()
         p.print("switch (lhs, rhs) {\n")
         for f in fields {
-            p.print("case (.\(f.swiftName)(let l), .\(f.swiftName)(let r)): return l == r\n")
+            p.print("case (\(f.dottedSwiftName)(let l), \(f.dottedSwiftName)(let r)): return l == r\n")
         }
         if fields.count > 1 {
             // A tricky edge case: If the oneof only has a single case, then
@@ -221,14 +236,6 @@ class OneofGenerator {
         p.print("}\n")
     }
 
-    private func storedProperty(in variable: String = "") -> String {
-        if usesHeapStorage {
-            return "\(variable)_storage._\(swiftFieldName)"
-        }
-        let prefix = variable.isEmpty ? "self." : "\(variable)."
-        return "\(prefix)\(swiftFieldName)"
-    }
-
     private func gerenateOneofEnumProperty(printer p: inout CodePrinter) {
         let visibility = generatorOptions.visibilitySourceSnippet
         p.print("\n", comments)
@@ -238,8 +245,8 @@ class OneofGenerator {
               "\(visibility)var \(swiftFieldName): \(swiftRelativeName)? {\n")
             p.indent()
             p.print(
-              "get {return _storage._\(swiftFieldName)}\n",
-              "set {_uniqueStorage()._\(swiftFieldName) = newValue}\n")
+              "get {return _storage.\(underscoreSwiftFieldName)}\n",
+              "set {_uniqueStorage().\(underscoreSwiftFieldName) = newValue}\n")
             p.outdent()
             p.print("}\n")
         } else {
@@ -256,8 +263,8 @@ class OneofGenerator {
           gerenateOneofEnumProperty(printer: &p)
         }
 
-        let getterExtra = usesHeapStorage ? "_storage._" : ""
-        let setterExtra = usesHeapStorage ? "_uniqueStorage()._" : ""
+        let getter = usesHeapStorage ? "_storage.\(underscoreSwiftFieldName)" : swiftFieldName
+        let setter = usesHeapStorage ? "_uniqueStorage().\(underscoreSwiftFieldName)" : swiftFieldName
 
         let visibility = generatorOptions.visibilitySourceSnippet
 
@@ -269,12 +276,12 @@ class OneofGenerator {
         p.print("get {\n")
         p.indent()
         p.print(
-          "if case .\(field.swiftName)(let v)? = \(getterExtra)\(swiftFieldName) {return v}\n",
+          "if case \(field.dottedSwiftName)(let v)? = \(getter) {return v}\n",
           "return \(field.swiftDefaultValue)\n")
         p.outdent()
         p.print(
           "}\n",
-          "set {\(setterExtra)\(swiftFieldName) = .\(field.swiftName)(newValue)}\n")
+          "set {\(setter) = \(field.dottedSwiftName)(newValue)}\n")
         p.outdent()
         p.print("}\n")
     }
@@ -284,7 +291,7 @@ class OneofGenerator {
         guard field === fields.first else { return }
 
         if usesHeapStorage {
-            p.print("var _\(swiftFieldName): \(swiftFullName)?\n")
+            p.print("var \(underscoreSwiftFieldName): \(swiftFullName)?\n")
         } else {
             // When not using heap stroage, no extra storage is needed because
             // the public property for the oneof is the storage.
@@ -295,7 +302,7 @@ class OneofGenerator {
         // First field causes the output.
         guard field === fields.first else { return }
 
-        p.print("_\(swiftFieldName) = source._\(swiftFieldName)\n")
+        p.print("\(underscoreSwiftFieldName) = source.\(underscoreSwiftFieldName)\n")
     }
 
     func generateDecodeFieldCase(printer p: inout CodePrinter, field: MemberFieldGenerator) {
@@ -307,22 +314,22 @@ class OneofGenerator {
             // value
             p.print(
               "var v: \(field.swiftType)?\n",
-              "if let current = \(storedProperty()) {\n")
+              "if let current = \(storedProperty) {\n")
             p.indent()
             p.print(
               "try decoder.handleConflictingOneOf()\n",
-              "if case .\(field.swiftName)(let m) = current {v = m}\n")
+              "if case \(field.dottedSwiftName)(let m) = current {v = m}\n")
             p.outdent()
             p.print("}\n")
         } else {
             p.print(
-              "if \(storedProperty()) != nil {try decoder.handleConflictingOneOf()}\n",
+              "if \(storedProperty) != nil {try decoder.handleConflictingOneOf()}\n",
               "var v: \(field.swiftType)?\n")
         }
 
         p.print(
           "try decoder.decodeSingular\(field.protoGenericType)Field(value: &v)\n",
-          "if let v = v {\(storedProperty()) = .\(field.swiftName)(v)}\n")
+          "if let v = v {\(storedProperty) = \(field.dottedSwiftName)(v)}\n")
         p.outdent()
     }
 
@@ -332,14 +339,14 @@ class OneofGenerator {
         guard field === group.first else { return }
 
         if group.count == 1 {
-            p.print("if case .\(field.swiftName)(let v)? = \(storedProperty()) {\n")
+            p.print("if case \(field.dottedSwiftName)(let v)? = \(storedProperty) {\n")
             p.indent()
             p.print("try visitor.visitSingular\(field.protoGenericType)Field(value: v, fieldNumber: \(field.number))\n")
             p.outdent()
         } else {
-            p.print("switch \(storedProperty()) {\n")
+            p.print("switch \(storedProperty) {\n")
             for f in group {
-                p.print("case .\(f.swiftName)(let v)?:\n")
+                p.print("case \(f.dottedSwiftName)(let v)?:\n")
                 p.indent()
                 p.print("try visitor.visitSingular\(f.protoGenericType)Field(value: v, fieldNumber: \(f.number))\n")
                 p.outdent()
@@ -356,7 +363,14 @@ class OneofGenerator {
         // First field causes the output.
         guard field === fields.first else { return }
 
-        p.print("if \(storedProperty()) != \(storedProperty(in: "other")) {return false}\n")
+        let otherStoredProperty: String
+        if usesHeapStorage {
+          otherStoredProperty = "other_storage.\(underscoreSwiftFieldName)"
+        } else {
+          otherStoredProperty = "other.\(swiftFieldName)"
+        }
+
+        p.print("if \(storedProperty) != \(otherStoredProperty) {return false}\n")
     }
 
     func generateIsInitializedCheck(printer p: inout CodePrinter, field: MemberFieldGenerator) {
@@ -368,11 +382,11 @@ class OneofGenerator {
         }
         if fieldsToCheck.count == 1 {
             let f = fieldsToCheck.first!
-            p.print("if case .\(f.swiftName)(let v)? = \(storedProperty()), !v.isInitialized {return false}\n")
+            p.print("if case \(f.dottedSwiftName)(let v)? = \(storedProperty), !v.isInitialized {return false}\n")
         } else if fieldsToCheck.count > 1 {
-            p.print("switch \(storedProperty()) {\n")
+            p.print("switch \(storedProperty) {\n")
             for f in fieldsToCheck {
-                p.print("case .\(f.swiftName)(let v)?: if !v.isInitialized {return false}\n")
+                p.print("case \(f.dottedSwiftName)(let v)?: if !v.isInitialized {return false}\n")
             }
             // Covers other cases or if the oneof wasn't set (was nil).
             p.print(

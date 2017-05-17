@@ -109,7 +109,7 @@ public final class FileDescriptor {
     self.messages = proto.messageType.enumeratedMap {
       return Descriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
-    self.extensions = proto.extension_p.enumeratedMap {
+    self.extensions = proto.extension.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
     }
     self.services = proto.service.enumeratedMap {
@@ -191,7 +191,7 @@ public final class Descriptor {
     self.oneofs = proto.oneofDecl.enumeratedMap {
       return OneofDescriptor(proto: $1, index: $0, registry: registry)
     }
-    self.extensions = proto.extension_p.enumeratedMap {
+    self.extensions = proto.extension.enumeratedMap {
       return FieldDescriptor(proto: $1, index: $0, registry: registry, isExtension: true)
     }
 
