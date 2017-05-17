@@ -1323,13 +1323,13 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   /// Clears the value of `___`. Subsequent reads from it will return its default value.
   mutating func clear___() {_storage.____ = nil}
 
-  var `associativity`: Int32 {
+  var associativity: Int32 {
     get {return _storage._associativity ?? 0}
     set {_uniqueStorage()._associativity = newValue}
   }
-  /// Returns true if ``associativity`` has been explicitly set.
+  /// Returns true if `associativity` has been explicitly set.
   var hasAssociativity: Bool {return _storage._associativity != nil}
-  /// Clears the value of ``associativity``. Subsequent reads from it will return its default value.
+  /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
   mutating func clearAssociativity() {_storage._associativity = nil}
 
   var convenience: Int32 {
@@ -1440,13 +1440,13 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   /// Clears the value of `nonmutating`. Subsequent reads from it will return its default value.
   mutating func clearNonmutating() {_storage._nonmutating = nil}
 
-  var `optional`: Int32 {
+  var optional: Int32 {
     get {return _storage._optional ?? 0}
     set {_uniqueStorage()._optional = newValue}
   }
-  /// Returns true if ``optional`` has been explicitly set.
+  /// Returns true if `optional` has been explicitly set.
   var hasOptional: Bool {return _storage._optional != nil}
-  /// Clears the value of ``optional``. Subsequent reads from it will return its default value.
+  /// Clears the value of `optional`. Subsequent reads from it will return its default value.
   mutating func clearOptional() {_storage._optional = nil}
 
   var override: Int32 {
@@ -1485,13 +1485,13 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
   /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
   mutating func clearPrefix() {_storage._prefix = nil}
 
-  var `required`: Int32 {
+  var required: Int32 {
     get {return _storage._required ?? 0}
     set {_uniqueStorage()._required = newValue}
   }
-  /// Returns true if ``required`` has been explicitly set.
+  /// Returns true if `required` has been explicitly set.
   var hasRequired: Bool {return _storage._required != nil}
-  /// Clears the value of ``required``. Subsequent reads from it will return its default value.
+  /// Clears the value of `required`. Subsequent reads from it will return its default value.
   mutating func clearRequired() {_storage._required = nil}
 
   var right: Int32 {
@@ -6520,13 +6520,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct associativity: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".associativity"
 
-    var `associativity`: Int32 {
+    var associativity: Int32 {
       get {return _associativity ?? 0}
       set {_associativity = newValue}
     }
-    /// Returns true if ``associativity`` has been explicitly set.
+    /// Returns true if `associativity` has been explicitly set.
     var hasAssociativity: Bool {return self._associativity != nil}
-    /// Clears the value of ``associativity``. Subsequent reads from it will return its default value.
+    /// Clears the value of `associativity`. Subsequent reads from it will return its default value.
     mutating func clearAssociativity() {self._associativity = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7079,13 +7079,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct optional: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".optional"
 
-    var `optional`: Int32 {
+    var optional: Int32 {
       get {return _optional ?? 0}
       set {_optional = newValue}
     }
-    /// Returns true if ``optional`` has been explicitly set.
+    /// Returns true if `optional` has been explicitly set.
     var hasOptional: Bool {return self._optional != nil}
-    /// Clears the value of ``optional``. Subsequent reads from it will return its default value.
+    /// Clears the value of `optional`. Subsequent reads from it will return its default value.
     mutating func clearOptional() {self._optional = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -7294,13 +7294,13 @@ struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
   struct required: SwiftProtobuf.Message {
     static let protoMessageName: String = SwiftUnittest_Names_MessageNames.protoMessageName + ".required"
 
-    var `required`: Int32 {
+    var required: Int32 {
       get {return _required ?? 0}
       set {_required = newValue}
     }
-    /// Returns true if ``required`` has been explicitly set.
+    /// Returns true if `required` has been explicitly set.
     var hasRequired: Bool {return self._required != nil}
-    /// Clears the value of ``required``. Subsequent reads from it will return its default value.
+    /// Clears the value of `required`. Subsequent reads from it will return its default value.
     mutating func clearRequired() {self._required = nil}
 
     var unknownFields = SwiftProtobuf.UnknownStorage()

@@ -77,21 +77,9 @@ fileprivate let quotableFieldNames: Set<String> = {
   () -> Set<String> in
   var names: Set<String> = []
 
-  // We don't need to protect all of these keywords, just the ones
-  // that interfere with enum cases:
-  // names = names.union(swiftKeywordsReservedInParticularContexts)
-  names.insert("associativity")
-  names.insert("dynamicType")
-  names.insert("optional")
-  names.insert("required")
-
   names = names.union(swiftKeywordsUsedInDeclarations)
   names = names.union(swiftKeywordsUsedInStatements)
   names = names.union(swiftKeywordsUsedInExpressionsAndTypes)
-  // Common type and variable names don't cause problems as enum
-  // cases, because enum case names only appear in special contexts:
-  // names = names.union(swiftCommonTypes)
-  // names = names.union(swiftSpecialVariables)
   return names
 }()
 
@@ -418,7 +406,7 @@ public enum NamingUtils {
       return s + "_p"
     } else if basedOn == s && quotableFieldNames.contains(basedOn) {
       // backticks are only used on the base names, if we're sanitizing based on something else
-      // this is skiped (the "hasFoo" doesn't get backticks just because the "foo" does).
+      // this is skipped (the "hasFoo" doesn't get backticks just because the "foo" does).
       return "`\(s)`"
     } else if isAllUnderscore(basedOn) {
       return s + "__"
