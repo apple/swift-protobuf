@@ -123,6 +123,40 @@ The possible values for `Visibility` are:
 * `Public`: The visibility on the types is set to `public` so the types will
   be exposed outside the module they are compiled into.
 
+
+##### Generation Option: `ProtoPathModuleMappings` - Swift Module names for proto paths
+
+By default, the sources generated assume all the generated types will be in the same
+module. However, since protos can reference types from another proto file, there is
+the possibility that those generated files might need to end up different modules.
+This options allow you to provide a mapping of module names the and proto files that
+will end up in each one. This data is used during generation to then `import` the
+module and scope the types. This option takes an path to where to read a TextFormat
+mapping:
+
+```
+$ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
+```
+
+The format of that mapping files defined in
+[swift_protobuf_module_mappings.proto](../Protos/PluginLibrary/swift_protobuf_module_mappings.proto),
+and files would look something like:
+
+```
+mapping {
+  module_name: "MyModule"
+  proto_file_path: "foo/bar.proto"
+}
+mapping {
+  module_name: "OtherModule"
+  proto_file_path: "mumble.proto"
+  proto_file_path: "other/file.proto"
+}
+```
+
+The `proto_file_path` values should be just like the `import` paths in the proto files,
+they are the how `protoc` sees the file during generation.
+
 ### Building your project
 
 After copying the `.pb.swift` files into your project, you will need
