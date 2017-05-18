@@ -79,9 +79,15 @@ class FileGenerator {
 
         p.print("import Foundation\n")
         if !fileDescriptor.isBundledProto {
-          // The well known types ship with the runtime, everything else needs
-          // to import the runtime.
-          p.print("import SwiftProtobuf\n")
+            // The well known types ship with the runtime, everything else needs
+            // to import the runtime.
+            p.print("import SwiftProtobuf\n")
+        }
+        if let neededImports = generatorOptions.protoToModuleMappings.neededModules(forFile: fileDescriptor) {
+            p.print("\n")
+            for i in neededImports {
+                p.print("import \(i)\n")
+            }
         }
 
         p.print("\n")

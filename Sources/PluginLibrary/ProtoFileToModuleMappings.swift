@@ -75,6 +75,40 @@ public struct ProtoFileToModuleMappings {
   public init() {
     mappings = wktMappings
   }
+
+  /// Looks up the module a given file is in.
+  public func moduleName(forFile file: FileDescriptor) -> String? {
+    return mappings[file.name]
+  }
+
+  /// Returns the list of modules that need to be imported for a given file based on
+  /// the dependencies it has.
+  public func neededModules(forFile file: FileDescriptor) -> [String]? {
+    if file.dependencies.isEmpty {
+      return nil
+    }
+
+    var collector = Set<String>()
+
+    for dependencyName in file.dependencies {
+      if let depModule = mappings[dependencyName] {
+        collector.insert(depModule)
+      }
+    }
+
+    if let moduleForThisFile = mappings[file.name] {
+      collector.remove(moduleForThisFile)
+    }
+
+    // The library itself (happens if the import one of the WKTs).
+    collector.remove(SwiftProtobufInfo.name)
+
+    if collector.isEmpty {
+      return nil
+    }
+
+    return collector.sorted()
+  }
 }
 
 // Used to seed the mappings, the wkt are all part of the main library.

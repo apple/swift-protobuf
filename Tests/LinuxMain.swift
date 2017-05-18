@@ -49,7 +49,9 @@ extension Test_ProtoFileToModuleMappings {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_Initialization", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_Initialization)}),
-            ("test_Initialization_InvalidConfigs", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_Initialization_InvalidConfigs)})
+            ("test_Initialization_InvalidConfigs", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_Initialization_InvalidConfigs)}),
+            ("test_moduleName_forFile", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_moduleName_forFile)}),
+            ("test_neededModules_forFile", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_neededModules_forFile)})
         ]
     }
 }

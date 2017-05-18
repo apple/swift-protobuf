@@ -24,6 +24,18 @@ extension ProtoFileToModuleMappings.LoadError: Equatable {
   }
 }
 
+// Helpers to make test cases.
+
+typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
+
+extension Google_Protobuf_FileDescriptorProto {
+  init(name: String, dependencies: [String] = []) {
+    self.init()
+    self.name = name
+    dependency = dependencies
+  }
+}
+
 class Test_ProtoFileToModuleMappings: XCTestCase {
 
   func test_Initialization() {
@@ -133,4 +145,73 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
       }
     }
   }
+
+  func test_moduleName_forFile() {
+    let configText = [
+      "mapping { module_name: \"foo\", proto_file_path: \"file\" }",
+      "mapping { module_name: \"bar\", proto_file_path: \"dir1/file\" }",
+      "mapping { module_name: \"baz\", proto_file_path: [\"dir2/file\",\"file4\"] }",
+      "mapping { module_name: \"foo\", proto_file_path: \"file5\" }",
+    ].joined(separator: "\n")
+
+    let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+
+    let tests: [(String, String?)] = [
+      ( "file", "foo" ),
+      ( "dir1/file", "bar" ),
+      ( "dir2/file", "baz" ),
+      ( "file4", "baz" ),
+      ( "file5", "foo" ),
+
+      ( "", nil ),
+      ( "not found", nil ),
+    ]
+
+    for (name, expected) in tests {
+      let descSet = DescriptorSet(protos: [FileDescriptorProto(name: name)])
+      XCTAssertEqual(mapper.moduleName(forFile: descSet.files.first!), expected, "Looking for \(name)")
+    }
+  }
+
+  func test_neededModules_forFile() {
+    let configText = [
+      "mapping { module_name: \"foo\", proto_file_path: \"file\" }",
+      "mapping { module_name: \"bar\", proto_file_path: \"dir1/file\" }",
+      "mapping { module_name: \"baz\", proto_file_path: [\"dir2/file\",\"file4\"] }",
+      "mapping { module_name: \"foo\", proto_file_path: \"file5\" }",
+      ].joined(separator: "\n")
+
+    let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+
+    let fileProtos = [
+      FileDescriptorProto(name: "file"),
+      FileDescriptorProto(name: "dir1/file", dependencies: ["file"]),
+      FileDescriptorProto(name: "dir2/file", dependencies: ["google/protobuf/any.proto"]),
+      FileDescriptorProto(name: "file4", dependencies: ["dir2/file", "dir1/file", "file"]),
+      FileDescriptorProto(name: "file5", dependencies: ["file"]),
+    ]
+    let descSet = DescriptorSet(protos: fileProtos)
+
+    // ( filename, [deps] )
+    let tests: [(String, [String]?)] = [
+      ( "file", nil ),
+      ( "dir1/file", ["foo"] ),
+      ( "dir2/file", nil ),
+      ( "file4", ["bar", "foo"] ),
+      ( "file5", nil ),
+    ]
+
+    for (name, expected) in tests {
+      let fileDesc = descSet.files.filter{ $0.name == name }.first!
+      let result = mapper.neededModules(forFile: fileDesc)
+      if let expected = expected {
+        XCTAssertEqual(result!, expected, "Looking for \(name)")
+      } else {
+        XCTAssertNil(result, "Looking for \(name)")
+      }
+    }
+  }
+
 }
