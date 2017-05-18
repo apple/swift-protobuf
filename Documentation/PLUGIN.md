@@ -126,13 +126,13 @@ The possible values for `Visibility` are:
 
 ##### Generation Option: `ProtoPathModuleMappings` - Swift Module names for proto paths
 
-By default, the sources generated assume all the generated types will be in the same
-module. However, since protos can reference types from another proto file, there is
-the possibility that those generated files might need to end up different modules.
-This options allow you to provide a mapping of module names the and proto files that
-will end up in each one. This data is used during generation to then `import` the
-module and scope the types. This option takes an path to where to read a TextFormat
-mapping:
+By default, the code generator assumes all of the resulting Swift files will
+be put into the same module. However, since protos can reference types from
+another proto file, those generated files might end up in different modules.
+This option allows you to specify that the code generated from the proto
+files will be distributed in multiple modules. This data is used during
+generation to then `import` the module and scope the types. This option
+takes the path of a file providing the mapping:
 
 ```
 $ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
@@ -154,8 +154,8 @@ mapping {
 }
 ```
 
-The `proto_file_path` values should be just like the `import` paths in the proto files,
-they are the how `protoc` sees the file during generation.
+The `proto_file_path` values here should match the paths used in the proto file
+`import` statements.
 
 ### Building your project
 
