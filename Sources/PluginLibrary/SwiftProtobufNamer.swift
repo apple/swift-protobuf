@@ -16,9 +16,31 @@ import Foundation
 
 public final class SwiftProtobufNamer {
   var filePrefixCache = [String:String]()
+  var mappings: ProtoFileToModuleMappings
+  var targetModule: String
 
-  public init() {
-    // TODO(thomasvl): Eventually support taking a mapping of files to modules.
+  /// Initializes a a new namer, assuming everything will be in the same Swift module.
+  public convenience init() {
+    self.init(protoFileToModuleMappings: ProtoFileToModuleMappings(), targetModule: "")
+  }
+
+  /// Initializes a a new namer.  All names will be generated as from the pov of the
+  /// given file using the provided file to module mapper.
+  public convenience init(
+    currentFile file: FileDescriptor,
+    protoFileToModuleMappings mappings: ProtoFileToModuleMappings
+  ) {
+    let targetModule = mappings.moduleName(forFile: file) ?? ""
+    self.init(protoFileToModuleMappings: mappings, targetModule: targetModule)
+  }
+
+  /// Internal initializer.
+  init(
+    protoFileToModuleMappings mappings: ProtoFileToModuleMappings,
+    targetModule: String
+  ) {
+    self.mappings = mappings
+    self.targetModule = targetModule
   }
 
   /// Calculate the relative name for the given message.
@@ -35,7 +57,7 @@ public final class SwiftProtobufNamer {
   public func fullName(message: Descriptor) -> String {
     let relativeName = self.relativeName(message: message)
     guard let containingType = message.containingType else {
-      return relativeName
+      return modulePrefix(file: message.file) + relativeName
     }
     return fullName(message:containingType) + "." + relativeName
   }
@@ -54,7 +76,7 @@ public final class SwiftProtobufNamer {
   public func fullName(enum e: EnumDescriptor) -> String {
     let relativeName = self.relativeName(enum: e)
     guard let containingType = e.containingType else {
-      return relativeName
+      return modulePrefix(file: e.file) + relativeName
     }
     return fullName(message: containingType) + "." + relativeName
   }
@@ -118,7 +140,7 @@ public final class SwiftProtobufNamer {
 
     let relativeName = self.relativeName(extensionField: field)
     guard let extensionScope = field.extensionScope else {
-      return relativeName
+      return modulePrefix(file: field.file) + relativeName
     }
     let extensionScopeSwiftFullName = fullName(message: extensionScope)
     let relativeNameNoBackticks = NamingUtils.trimBackticks(relativeName)
@@ -232,4 +254,16 @@ public final class SwiftProtobufNamer {
     return result
   }
 
+  /// Internal helper to find the module prefix for a symbol given a file.
+  func modulePrefix(file: FileDescriptor) -> String {
+    guard let prefix = mappings.moduleName(forFile: file) else {
+      return String()
+    }
+
+    if prefix == targetModule {
+      return String()
+    }
+
+    return "\(prefix)."
+  }
 }

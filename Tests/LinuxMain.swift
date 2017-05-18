@@ -45,6 +45,17 @@ extension Test_NamingUtils {
     }
 }
 
+extension Test_ProtoFileToModuleMappings {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("test_Initialization", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_Initialization)}),
+            ("test_Initialization_InvalidConfigs", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_Initialization_InvalidConfigs)}),
+            ("test_moduleName_forFile", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_moduleName_forFile)}),
+            ("test_neededModules_forFile", {try run_test(test:($0 as! Test_ProtoFileToModuleMappings).test_neededModules_forFile)})
+        ]
+    }
+}
+
 extension Test_SwiftLanguage {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1154,6 +1165,7 @@ XCTMain(
     [
         (testCaseClass: Test_Descriptor.self, allTests: Test_Descriptor.allTests),
         (testCaseClass: Test_NamingUtils.self, allTests: Test_NamingUtils.allTests),
+        (testCaseClass: Test_ProtoFileToModuleMappings.self, allTests: Test_ProtoFileToModuleMappings.allTests),
         (testCaseClass: Test_SwiftLanguage.self, allTests: Test_SwiftLanguage.allTests),
         (testCaseClass: Test_AllTypes.self, allTests: Test_AllTypes.allTests),
         (testCaseClass: Test_AllTypes_Proto3.self, allTests: Test_AllTypes_Proto3.allTests),

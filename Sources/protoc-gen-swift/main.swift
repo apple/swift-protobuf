@@ -85,6 +85,8 @@ if justVersion {
   } catch GenerationError.invalidParameterValue(let name, let value) {
     response = CodeGeneratorResponse(
       error: "Unknown value for generation parameter '\(name)': '\(value)'")
+  } catch GenerationError.wrappedError(let message, let e) {
+    response = CodeGeneratorResponse(error: "\(message): \(e)")
   } catch let e {
     response = CodeGeneratorResponse(error: "Internal Error: \(e)")
   }

@@ -499,8 +499,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   }
 
   /// Well-known types
-  var optionalBoolWrapper: Google_Protobuf_BoolValue {
-    get {return _storage._optionalBoolWrapper ?? Google_Protobuf_BoolValue()}
+  var optionalBoolWrapper: SwiftProtobuf.Google_Protobuf_BoolValue {
+    get {return _storage._optionalBoolWrapper ?? SwiftProtobuf.Google_Protobuf_BoolValue()}
     set {_uniqueStorage()._optionalBoolWrapper = newValue}
   }
   /// Returns true if `optionalBoolWrapper` has been explicitly set.
@@ -508,8 +508,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalBoolWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBoolWrapper() {_storage._optionalBoolWrapper = nil}
 
-  var optionalInt32Wrapper: Google_Protobuf_Int32Value {
-    get {return _storage._optionalInt32Wrapper ?? Google_Protobuf_Int32Value()}
+  var optionalInt32Wrapper: SwiftProtobuf.Google_Protobuf_Int32Value {
+    get {return _storage._optionalInt32Wrapper ?? SwiftProtobuf.Google_Protobuf_Int32Value()}
     set {_uniqueStorage()._optionalInt32Wrapper = newValue}
   }
   /// Returns true if `optionalInt32Wrapper` has been explicitly set.
@@ -517,8 +517,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalInt32Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt32Wrapper() {_storage._optionalInt32Wrapper = nil}
 
-  var optionalInt64Wrapper: Google_Protobuf_Int64Value {
-    get {return _storage._optionalInt64Wrapper ?? Google_Protobuf_Int64Value()}
+  var optionalInt64Wrapper: SwiftProtobuf.Google_Protobuf_Int64Value {
+    get {return _storage._optionalInt64Wrapper ?? SwiftProtobuf.Google_Protobuf_Int64Value()}
     set {_uniqueStorage()._optionalInt64Wrapper = newValue}
   }
   /// Returns true if `optionalInt64Wrapper` has been explicitly set.
@@ -526,8 +526,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalInt64Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalInt64Wrapper() {_storage._optionalInt64Wrapper = nil}
 
-  var optionalUint32Wrapper: Google_Protobuf_UInt32Value {
-    get {return _storage._optionalUint32Wrapper ?? Google_Protobuf_UInt32Value()}
+  var optionalUint32Wrapper: SwiftProtobuf.Google_Protobuf_UInt32Value {
+    get {return _storage._optionalUint32Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt32Value()}
     set {_uniqueStorage()._optionalUint32Wrapper = newValue}
   }
   /// Returns true if `optionalUint32Wrapper` has been explicitly set.
@@ -535,8 +535,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalUint32Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint32Wrapper() {_storage._optionalUint32Wrapper = nil}
 
-  var optionalUint64Wrapper: Google_Protobuf_UInt64Value {
-    get {return _storage._optionalUint64Wrapper ?? Google_Protobuf_UInt64Value()}
+  var optionalUint64Wrapper: SwiftProtobuf.Google_Protobuf_UInt64Value {
+    get {return _storage._optionalUint64Wrapper ?? SwiftProtobuf.Google_Protobuf_UInt64Value()}
     set {_uniqueStorage()._optionalUint64Wrapper = newValue}
   }
   /// Returns true if `optionalUint64Wrapper` has been explicitly set.
@@ -544,8 +544,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalUint64Wrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalUint64Wrapper() {_storage._optionalUint64Wrapper = nil}
 
-  var optionalFloatWrapper: Google_Protobuf_FloatValue {
-    get {return _storage._optionalFloatWrapper ?? Google_Protobuf_FloatValue()}
+  var optionalFloatWrapper: SwiftProtobuf.Google_Protobuf_FloatValue {
+    get {return _storage._optionalFloatWrapper ?? SwiftProtobuf.Google_Protobuf_FloatValue()}
     set {_uniqueStorage()._optionalFloatWrapper = newValue}
   }
   /// Returns true if `optionalFloatWrapper` has been explicitly set.
@@ -553,8 +553,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalFloatWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFloatWrapper() {_storage._optionalFloatWrapper = nil}
 
-  var optionalDoubleWrapper: Google_Protobuf_DoubleValue {
-    get {return _storage._optionalDoubleWrapper ?? Google_Protobuf_DoubleValue()}
+  var optionalDoubleWrapper: SwiftProtobuf.Google_Protobuf_DoubleValue {
+    get {return _storage._optionalDoubleWrapper ?? SwiftProtobuf.Google_Protobuf_DoubleValue()}
     set {_uniqueStorage()._optionalDoubleWrapper = newValue}
   }
   /// Returns true if `optionalDoubleWrapper` has been explicitly set.
@@ -562,8 +562,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalDoubleWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDoubleWrapper() {_storage._optionalDoubleWrapper = nil}
 
-  var optionalStringWrapper: Google_Protobuf_StringValue {
-    get {return _storage._optionalStringWrapper ?? Google_Protobuf_StringValue()}
+  var optionalStringWrapper: SwiftProtobuf.Google_Protobuf_StringValue {
+    get {return _storage._optionalStringWrapper ?? SwiftProtobuf.Google_Protobuf_StringValue()}
     set {_uniqueStorage()._optionalStringWrapper = newValue}
   }
   /// Returns true if `optionalStringWrapper` has been explicitly set.
@@ -571,8 +571,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalStringWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStringWrapper() {_storage._optionalStringWrapper = nil}
 
-  var optionalBytesWrapper: Google_Protobuf_BytesValue {
-    get {return _storage._optionalBytesWrapper ?? Google_Protobuf_BytesValue()}
+  var optionalBytesWrapper: SwiftProtobuf.Google_Protobuf_BytesValue {
+    get {return _storage._optionalBytesWrapper ?? SwiftProtobuf.Google_Protobuf_BytesValue()}
     set {_uniqueStorage()._optionalBytesWrapper = newValue}
   }
   /// Returns true if `optionalBytesWrapper` has been explicitly set.
@@ -580,53 +580,53 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalBytesWrapper`. Subsequent reads from it will return its default value.
   mutating func clearOptionalBytesWrapper() {_storage._optionalBytesWrapper = nil}
 
-  var repeatedBoolWrapper: [Google_Protobuf_BoolValue] {
+  var repeatedBoolWrapper: [SwiftProtobuf.Google_Protobuf_BoolValue] {
     get {return _storage._repeatedBoolWrapper}
     set {_uniqueStorage()._repeatedBoolWrapper = newValue}
   }
 
-  var repeatedInt32Wrapper: [Google_Protobuf_Int32Value] {
+  var repeatedInt32Wrapper: [SwiftProtobuf.Google_Protobuf_Int32Value] {
     get {return _storage._repeatedInt32Wrapper}
     set {_uniqueStorage()._repeatedInt32Wrapper = newValue}
   }
 
-  var repeatedInt64Wrapper: [Google_Protobuf_Int64Value] {
+  var repeatedInt64Wrapper: [SwiftProtobuf.Google_Protobuf_Int64Value] {
     get {return _storage._repeatedInt64Wrapper}
     set {_uniqueStorage()._repeatedInt64Wrapper = newValue}
   }
 
-  var repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] {
+  var repeatedUint32Wrapper: [SwiftProtobuf.Google_Protobuf_UInt32Value] {
     get {return _storage._repeatedUint32Wrapper}
     set {_uniqueStorage()._repeatedUint32Wrapper = newValue}
   }
 
-  var repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] {
+  var repeatedUint64Wrapper: [SwiftProtobuf.Google_Protobuf_UInt64Value] {
     get {return _storage._repeatedUint64Wrapper}
     set {_uniqueStorage()._repeatedUint64Wrapper = newValue}
   }
 
-  var repeatedFloatWrapper: [Google_Protobuf_FloatValue] {
+  var repeatedFloatWrapper: [SwiftProtobuf.Google_Protobuf_FloatValue] {
     get {return _storage._repeatedFloatWrapper}
     set {_uniqueStorage()._repeatedFloatWrapper = newValue}
   }
 
-  var repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] {
+  var repeatedDoubleWrapper: [SwiftProtobuf.Google_Protobuf_DoubleValue] {
     get {return _storage._repeatedDoubleWrapper}
     set {_uniqueStorage()._repeatedDoubleWrapper = newValue}
   }
 
-  var repeatedStringWrapper: [Google_Protobuf_StringValue] {
+  var repeatedStringWrapper: [SwiftProtobuf.Google_Protobuf_StringValue] {
     get {return _storage._repeatedStringWrapper}
     set {_uniqueStorage()._repeatedStringWrapper = newValue}
   }
 
-  var repeatedBytesWrapper: [Google_Protobuf_BytesValue] {
+  var repeatedBytesWrapper: [SwiftProtobuf.Google_Protobuf_BytesValue] {
     get {return _storage._repeatedBytesWrapper}
     set {_uniqueStorage()._repeatedBytesWrapper = newValue}
   }
 
-  var optionalDuration: Google_Protobuf_Duration {
-    get {return _storage._optionalDuration ?? Google_Protobuf_Duration()}
+  var optionalDuration: SwiftProtobuf.Google_Protobuf_Duration {
+    get {return _storage._optionalDuration ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_uniqueStorage()._optionalDuration = newValue}
   }
   /// Returns true if `optionalDuration` has been explicitly set.
@@ -634,8 +634,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalDuration`. Subsequent reads from it will return its default value.
   mutating func clearOptionalDuration() {_storage._optionalDuration = nil}
 
-  var optionalTimestamp: Google_Protobuf_Timestamp {
-    get {return _storage._optionalTimestamp ?? Google_Protobuf_Timestamp()}
+  var optionalTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+    get {return _storage._optionalTimestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._optionalTimestamp = newValue}
   }
   /// Returns true if `optionalTimestamp` has been explicitly set.
@@ -643,8 +643,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalTimestamp`. Subsequent reads from it will return its default value.
   mutating func clearOptionalTimestamp() {_storage._optionalTimestamp = nil}
 
-  var optionalFieldMask: Google_Protobuf_FieldMask {
-    get {return _storage._optionalFieldMask ?? Google_Protobuf_FieldMask()}
+  var optionalFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask {
+    get {return _storage._optionalFieldMask ?? SwiftProtobuf.Google_Protobuf_FieldMask()}
     set {_uniqueStorage()._optionalFieldMask = newValue}
   }
   /// Returns true if `optionalFieldMask` has been explicitly set.
@@ -652,8 +652,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalFieldMask`. Subsequent reads from it will return its default value.
   mutating func clearOptionalFieldMask() {_storage._optionalFieldMask = nil}
 
-  var optionalStruct: Google_Protobuf_Struct {
-    get {return _storage._optionalStruct ?? Google_Protobuf_Struct()}
+  var optionalStruct: SwiftProtobuf.Google_Protobuf_Struct {
+    get {return _storage._optionalStruct ?? SwiftProtobuf.Google_Protobuf_Struct()}
     set {_uniqueStorage()._optionalStruct = newValue}
   }
   /// Returns true if `optionalStruct` has been explicitly set.
@@ -661,8 +661,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalStruct`. Subsequent reads from it will return its default value.
   mutating func clearOptionalStruct() {_storage._optionalStruct = nil}
 
-  var optionalAny: Google_Protobuf_Any {
-    get {return _storage._optionalAny ?? Google_Protobuf_Any()}
+  var optionalAny: SwiftProtobuf.Google_Protobuf_Any {
+    get {return _storage._optionalAny ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_uniqueStorage()._optionalAny = newValue}
   }
   /// Returns true if `optionalAny` has been explicitly set.
@@ -670,8 +670,8 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalAny`. Subsequent reads from it will return its default value.
   mutating func clearOptionalAny() {_storage._optionalAny = nil}
 
-  var optionalValue: Google_Protobuf_Value {
-    get {return _storage._optionalValue ?? Google_Protobuf_Value()}
+  var optionalValue: SwiftProtobuf.Google_Protobuf_Value {
+    get {return _storage._optionalValue ?? SwiftProtobuf.Google_Protobuf_Value()}
     set {_uniqueStorage()._optionalValue = newValue}
   }
   /// Returns true if `optionalValue` has been explicitly set.
@@ -679,32 +679,32 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalValue`. Subsequent reads from it will return its default value.
   mutating func clearOptionalValue() {_storage._optionalValue = nil}
 
-  var repeatedDuration: [Google_Protobuf_Duration] {
+  var repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] {
     get {return _storage._repeatedDuration}
     set {_uniqueStorage()._repeatedDuration = newValue}
   }
 
-  var repeatedTimestamp: [Google_Protobuf_Timestamp] {
+  var repeatedTimestamp: [SwiftProtobuf.Google_Protobuf_Timestamp] {
     get {return _storage._repeatedTimestamp}
     set {_uniqueStorage()._repeatedTimestamp = newValue}
   }
 
-  var repeatedFieldmask: [Google_Protobuf_FieldMask] {
+  var repeatedFieldmask: [SwiftProtobuf.Google_Protobuf_FieldMask] {
     get {return _storage._repeatedFieldmask}
     set {_uniqueStorage()._repeatedFieldmask = newValue}
   }
 
-  var repeatedStruct: [Google_Protobuf_Struct] {
+  var repeatedStruct: [SwiftProtobuf.Google_Protobuf_Struct] {
     get {return _storage._repeatedStruct}
     set {_uniqueStorage()._repeatedStruct = newValue}
   }
 
-  var repeatedAny: [Google_Protobuf_Any] {
+  var repeatedAny: [SwiftProtobuf.Google_Protobuf_Any] {
     get {return _storage._repeatedAny}
     set {_uniqueStorage()._repeatedAny = newValue}
   }
 
-  var repeatedValue: [Google_Protobuf_Value] {
+  var repeatedValue: [SwiftProtobuf.Google_Protobuf_Value] {
     get {return _storage._repeatedValue}
     set {_uniqueStorage()._repeatedValue = newValue}
   }
@@ -1695,36 +1695,36 @@ extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplem
     var _mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Proto3_TestAllTypes.NestedEnum> = [:]
     var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto3_ForeignEnum> = [:]
     var _oneofField: ProtobufTestMessages_Proto3_TestAllTypes.OneOf_OneofField?
-    var _optionalBoolWrapper: Google_Protobuf_BoolValue? = nil
-    var _optionalInt32Wrapper: Google_Protobuf_Int32Value? = nil
-    var _optionalInt64Wrapper: Google_Protobuf_Int64Value? = nil
-    var _optionalUint32Wrapper: Google_Protobuf_UInt32Value? = nil
-    var _optionalUint64Wrapper: Google_Protobuf_UInt64Value? = nil
-    var _optionalFloatWrapper: Google_Protobuf_FloatValue? = nil
-    var _optionalDoubleWrapper: Google_Protobuf_DoubleValue? = nil
-    var _optionalStringWrapper: Google_Protobuf_StringValue? = nil
-    var _optionalBytesWrapper: Google_Protobuf_BytesValue? = nil
-    var _repeatedBoolWrapper: [Google_Protobuf_BoolValue] = []
-    var _repeatedInt32Wrapper: [Google_Protobuf_Int32Value] = []
-    var _repeatedInt64Wrapper: [Google_Protobuf_Int64Value] = []
-    var _repeatedUint32Wrapper: [Google_Protobuf_UInt32Value] = []
-    var _repeatedUint64Wrapper: [Google_Protobuf_UInt64Value] = []
-    var _repeatedFloatWrapper: [Google_Protobuf_FloatValue] = []
-    var _repeatedDoubleWrapper: [Google_Protobuf_DoubleValue] = []
-    var _repeatedStringWrapper: [Google_Protobuf_StringValue] = []
-    var _repeatedBytesWrapper: [Google_Protobuf_BytesValue] = []
-    var _optionalDuration: Google_Protobuf_Duration? = nil
-    var _optionalTimestamp: Google_Protobuf_Timestamp? = nil
-    var _optionalFieldMask: Google_Protobuf_FieldMask? = nil
-    var _optionalStruct: Google_Protobuf_Struct? = nil
-    var _optionalAny: Google_Protobuf_Any? = nil
-    var _optionalValue: Google_Protobuf_Value? = nil
-    var _repeatedDuration: [Google_Protobuf_Duration] = []
-    var _repeatedTimestamp: [Google_Protobuf_Timestamp] = []
-    var _repeatedFieldmask: [Google_Protobuf_FieldMask] = []
-    var _repeatedStruct: [Google_Protobuf_Struct] = []
-    var _repeatedAny: [Google_Protobuf_Any] = []
-    var _repeatedValue: [Google_Protobuf_Value] = []
+    var _optionalBoolWrapper: SwiftProtobuf.Google_Protobuf_BoolValue? = nil
+    var _optionalInt32Wrapper: SwiftProtobuf.Google_Protobuf_Int32Value? = nil
+    var _optionalInt64Wrapper: SwiftProtobuf.Google_Protobuf_Int64Value? = nil
+    var _optionalUint32Wrapper: SwiftProtobuf.Google_Protobuf_UInt32Value? = nil
+    var _optionalUint64Wrapper: SwiftProtobuf.Google_Protobuf_UInt64Value? = nil
+    var _optionalFloatWrapper: SwiftProtobuf.Google_Protobuf_FloatValue? = nil
+    var _optionalDoubleWrapper: SwiftProtobuf.Google_Protobuf_DoubleValue? = nil
+    var _optionalStringWrapper: SwiftProtobuf.Google_Protobuf_StringValue? = nil
+    var _optionalBytesWrapper: SwiftProtobuf.Google_Protobuf_BytesValue? = nil
+    var _repeatedBoolWrapper: [SwiftProtobuf.Google_Protobuf_BoolValue] = []
+    var _repeatedInt32Wrapper: [SwiftProtobuf.Google_Protobuf_Int32Value] = []
+    var _repeatedInt64Wrapper: [SwiftProtobuf.Google_Protobuf_Int64Value] = []
+    var _repeatedUint32Wrapper: [SwiftProtobuf.Google_Protobuf_UInt32Value] = []
+    var _repeatedUint64Wrapper: [SwiftProtobuf.Google_Protobuf_UInt64Value] = []
+    var _repeatedFloatWrapper: [SwiftProtobuf.Google_Protobuf_FloatValue] = []
+    var _repeatedDoubleWrapper: [SwiftProtobuf.Google_Protobuf_DoubleValue] = []
+    var _repeatedStringWrapper: [SwiftProtobuf.Google_Protobuf_StringValue] = []
+    var _repeatedBytesWrapper: [SwiftProtobuf.Google_Protobuf_BytesValue] = []
+    var _optionalDuration: SwiftProtobuf.Google_Protobuf_Duration? = nil
+    var _optionalTimestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
+    var _optionalFieldMask: SwiftProtobuf.Google_Protobuf_FieldMask? = nil
+    var _optionalStruct: SwiftProtobuf.Google_Protobuf_Struct? = nil
+    var _optionalAny: SwiftProtobuf.Google_Protobuf_Any? = nil
+    var _optionalValue: SwiftProtobuf.Google_Protobuf_Value? = nil
+    var _repeatedDuration: [SwiftProtobuf.Google_Protobuf_Duration] = []
+    var _repeatedTimestamp: [SwiftProtobuf.Google_Protobuf_Timestamp] = []
+    var _repeatedFieldmask: [SwiftProtobuf.Google_Protobuf_FieldMask] = []
+    var _repeatedStruct: [SwiftProtobuf.Google_Protobuf_Struct] = []
+    var _repeatedAny: [SwiftProtobuf.Google_Protobuf_Any] = []
+    var _repeatedValue: [SwiftProtobuf.Google_Protobuf_Value] = []
     var _fieldname1: Int32 = 0
     var _fieldName2: Int32 = 0
     var _fieldName3: Int32 = 0

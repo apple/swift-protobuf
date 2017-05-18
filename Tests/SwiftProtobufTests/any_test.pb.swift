@@ -57,8 +57,8 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
     set {_uniqueStorage()._int32Value = newValue}
   }
 
-  var anyValue: Google_Protobuf_Any {
-    get {return _storage._anyValue ?? Google_Protobuf_Any()}
+  var anyValue: SwiftProtobuf.Google_Protobuf_Any {
+    get {return _storage._anyValue ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_uniqueStorage()._anyValue = newValue}
   }
   /// Returns true if `anyValue` has been explicitly set.
@@ -66,7 +66,7 @@ struct ProtobufUnittest_TestAny: SwiftProtobuf.Message {
   /// Clears the value of `anyValue`. Subsequent reads from it will return its default value.
   mutating func clearAnyValue() {_storage._anyValue = nil}
 
-  var repeatedAnyValue: [Google_Protobuf_Any] {
+  var repeatedAnyValue: [SwiftProtobuf.Google_Protobuf_Any] {
     get {return _storage._repeatedAnyValue}
     set {_uniqueStorage()._repeatedAnyValue = newValue}
   }
@@ -128,8 +128,8 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf._MessageImplementationBase, Sw
 
   fileprivate class _StorageClass {
     var _int32Value: Int32 = 0
-    var _anyValue: Google_Protobuf_Any? = nil
-    var _repeatedAnyValue: [Google_Protobuf_Any] = []
+    var _anyValue: SwiftProtobuf.Google_Protobuf_Any? = nil
+    var _repeatedAnyValue: [SwiftProtobuf.Google_Protobuf_Any] = []
 
     init() {}
 

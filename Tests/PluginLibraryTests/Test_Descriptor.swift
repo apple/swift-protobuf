@@ -17,12 +17,13 @@ class Test_Descriptor: XCTestCase {
     let fileSet = try Google_Protobuf_FileDescriptorSet(serializedData: fileDesciptorSetData)
 
     let descriptorSet = DescriptorSet(proto: fileSet)
-    XCTAssertEqual(descriptorSet.files.count, 3)
+    XCTAssertEqual(descriptorSet.files.count, 4)
     // descriptor.proto documents the protoc will order the files based on the import
     // from plugin on descriptor.
     XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
     XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
+    XCTAssertEqual(descriptorSet.files[3].name, "PluginLibrary/swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
 
