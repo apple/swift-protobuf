@@ -29,7 +29,7 @@ public final class SwiftProtobufNamer {
   public convenience init(
     currentFile file: FileDescriptor,
     protoFileToModuleMappings mappings: ProtoFileToModuleMappings
-   ) {
+  ) {
     let targetModule = mappings.moduleName(forFile: file) ?? ""
     self.init(protoFileToModuleMappings: mappings, targetModule: targetModule)
   }

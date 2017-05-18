@@ -138,7 +138,7 @@ mapping:
 $ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/bar/*.proto
 ```
 
-The format of that mapping files defined in
+The format of that mapping file is defined in
 [swift_protobuf_module_mappings.proto](../Protos/PluginLibrary/swift_protobuf_module_mappings.proto),
 and files would look something like:
 

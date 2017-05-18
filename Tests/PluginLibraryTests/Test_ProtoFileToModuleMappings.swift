@@ -17,8 +17,8 @@ extension ProtoFileToModuleMappings.LoadError: Equatable {
     switch (lhs, rhs) {
     case (.entryMissingModuleName(let l), .entryMissingModuleName(let r)): return l == r
     case (.entryHasNoProtoPaths(let l), .entryHasNoProtoPaths(let r)): return l == r
-      case (.duplicateProtoPathMapping(let l1, let l2, let l3),
-            .duplicateProtoPathMapping(let r1, let r2, let r3)): return l1 == r1 && l2 == r2 && l3 == r3
+    case (.duplicateProtoPathMapping(let l1, let l2, let l3),
+          .duplicateProtoPathMapping(let r1, let r2, let r3)): return l1 == r1 && l2 == r2 && l3 == r3
     default: return false
     }
   }
