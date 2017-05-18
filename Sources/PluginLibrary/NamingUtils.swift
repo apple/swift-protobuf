@@ -28,7 +28,7 @@ fileprivate let reservedTypeNames: Set<String> = {
 
   // Main SwiftProtobuf namespace
   // Shadowing this leads to Bad Things.
-  names.insert("SwiftProtobuf")
+  names.insert(SwiftProtobufInfo.name)
 
   // Subtype of many messages, used to scope nested extensions
   names.insert("Extensions")
