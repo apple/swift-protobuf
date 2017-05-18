@@ -157,7 +157,8 @@ LIBRARY_PROTOS= \
 # Protos that are used internally by the plugin
 PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
-	Protos/google/protobuf/descriptor.proto
+	Protos/google/protobuf/descriptor.proto \
+	Protos/PluginLibrary/swift_protobuf_module_mappings.proto
 
 # Protos that are used by the conformance test runner.
 CONFORMANCE_PROTOS= \
