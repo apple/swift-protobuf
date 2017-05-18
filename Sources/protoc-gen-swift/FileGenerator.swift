@@ -22,7 +22,7 @@ import SwiftProtobuf
 class FileGenerator {
     private let fileDescriptor: FileDescriptor
     private let generatorOptions: GeneratorOptions
-    private let namer = SwiftProtobufNamer()
+    private let namer: SwiftProtobufNamer
 
     var outputFilename: String {
         let ext = ".pb.swift"
@@ -43,6 +43,8 @@ class FileGenerator {
          generatorOptions: GeneratorOptions) {
         self.fileDescriptor = fileDescriptor
         self.generatorOptions = generatorOptions
+        namer = SwiftProtobufNamer(currentFile: fileDescriptor,
+                                   protoFileToModuleMappings: generatorOptions.protoToModuleMappings)
     }
 
     func generateOutputFile(printer p: inout CodePrinter) {
