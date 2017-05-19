@@ -59,12 +59,7 @@ message Foo {
 }
 ```
 
-The original implementation of Swift Protobuf generated properties with
-Swift optional type, but that obvious approach proved problematic.
-In practice, testing whether a field is set is fairly uncommon and using
-Swift optionals directly tended to lead to abuse of the Swift `!` operator
-in many cases where the user knew that certain fields would always be set.
-Instead we generate fields that use Swift optionals internally (to track
+In this case, we generate fields that use Swift optionals internally (to track
 whether the field was set on the message) but expose a non-optional
 value for the field and a separate `hasXyz` property that can be used to
 test whether the field was set:
@@ -95,25 +90,46 @@ the generated getters.
 The `clearXyz` methods above ensure that users can always reset a field
 to the default value without needing to know what the default value is.
 
-**Proto2 and proto3 repeated and map fields:**
-Repeated and map fields work the same way in proto2 and proto3.
-The following proto definition:
+**Proto2 optional vs. Swift Optional**
 
-```protobuf
-message Foo {
-   map<string, int32> fieldMap = 1;
-   repeated int32 fieldRepeated = 2;
-}
-```
+The original implementation of Swift Protobuf handled proto2 optional
+fields by generating properties with Swift `Optional<>` type.
+Although the common name makes this approach obvious (which is no doubt
+why it keeps getting suggested), experience with that first
+implementation prompted us to change it to have separate
+explicit `has` properties and `clear` methods for each field instead.
 
-results in the obvious properties on the generated struct:
+To understand why, it might help to first think about why proto2 and
+proto3 each sometimes omit fields from the encoded data.
+Proto3 has the simplest model; it omits fields as a form of compression.
+In particular, proto3 fields always have a value (they are never "not set"),
+we just sometimes save a few bytes by not transferring that value.
 
-```swift
-struct Foo {
-  var fieldMap: Dictionary<String,Int32> = [:]
-  var fieldRepeated: [Int32] = []
-}
-```
+Proto2 is only slightly different.
+Like proto3, proto2 fields also always have a value.
+Unlike proto3, however, proto2 keeps track of whether the current
+value was explicitly set or not.
+If it was not explicitly given a value, then proto2 doesn't transfer it.
+Note that the presence or absence of a field in the encoded data
+only indicates whether the field value was explicitly set;
+the field itself still always has a value.
+
+This is fundamentally different than Swift Optionals.
+A Swift Optional is "nullable"; it can explicitly represent
+the absence of a value.
+Proto2 optional fields are not nullable; they always have a value.
+This is a subtle but important difference between the two.
+
+In my own code, I've found that I use proto2 optionals
+in two different ways:
+Most of the time, I just use whatever value is there,
+relying on the default when no value was set explicitly.
+But sometimes, I do need to verify that the other side
+explicitly provided the values I expect.
+In these cases, it is far easier for me to assert
+that the received object `has` the expected fields
+in just one place, then use the current values throughout,
+than to unwrap Swift Optionals at every access.
 
 **Proto2 required fields:**
 
@@ -137,6 +153,27 @@ there actually are some required fields.
 Since extensions may be compiled separately, the `isInitialized`
 check must always visit any extensible messages in case one of
 their extensions has required fields.)
+
+**Proto2 and proto3 repeated and map fields:**
+
+Repeated and map fields work the same way in proto2 and proto3.
+The following proto definition:
+
+```protobuf
+message Foo {
+   map<string, int32> fieldMap = 1;
+   repeated int32 fieldRepeated = 2;
+}
+```
+
+results in the obvious properties on the generated struct:
+
+```swift
+struct Foo {
+  var fieldMap: Dictionary<String,Int32> = [:]
+  var fieldRepeated: [Int32] = []
+}
+```
 
 ### Message-valued Fields
 
