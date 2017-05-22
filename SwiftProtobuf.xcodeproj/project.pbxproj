@@ -1966,7 +1966,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
@@ -1981,7 +1981,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
@@ -1996,7 +1996,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
@@ -2012,7 +2012,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
@@ -2028,7 +2028,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = appletvos;
@@ -2044,7 +2044,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = appletvos;
@@ -2060,7 +2060,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = appletvos;
@@ -2075,7 +2075,7 @@
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = appletvos;
@@ -2090,7 +2090,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = watchos;
@@ -2106,7 +2106,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = watchos;
@@ -2122,7 +2122,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SWIFT_VERSION = 3.0;
@@ -2134,7 +2134,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SWIFT_VERSION = 3.0;
@@ -2147,7 +2147,7 @@
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobuf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
 				PRODUCT_MODULE_NAME = SwiftProtobuf;
 				PRODUCT_NAME = SwiftProtobuf;
 				SWIFT_VERSION = 3.0;
@@ -2159,7 +2159,7 @@
 			buildSettings = {
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apple.protobuf.SwiftProtobufTests;
+				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobufTests;
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SWIFT_VERSION = 3.0;
