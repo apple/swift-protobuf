@@ -328,36 +328,42 @@ internal struct JSONEncoder {
     internal mutating func putBytesValue(value: Data) {
         data.append(asciiDoubleQuote)
         if value.count > 0 {
-            var t: Int = 0
-            for (i,v) in value.enumerated() {
-                if i > 0 && i % 3 == 0 {
+            value.withUnsafeBytes { (p: UnsafePointer<UInt8>) in
+                var t: Int = 0
+                var bytesInGroup: Int = 0
+                for i in 0..<value.count {
+                    if bytesInGroup == 3 {
+                        data.append(base64Digits[(t >> 18) & 63])
+                        data.append(base64Digits[(t >> 12) & 63])
+                        data.append(base64Digits[(t >> 6) & 63])
+                        data.append(base64Digits[t & 63])
+                        t = 0
+                        bytesInGroup = 0
+                    }
+                    t = (t << 8) + Int(p[i])
+                    bytesInGroup += 1
+                }
+                switch bytesInGroup {
+                case 3:
                     data.append(base64Digits[(t >> 18) & 63])
                     data.append(base64Digits[(t >> 12) & 63])
                     data.append(base64Digits[(t >> 6) & 63])
                     data.append(base64Digits[t & 63])
-                    t = 0
+                case 2:
+                    t <<= 8
+                    data.append(base64Digits[(t >> 18) & 63])
+                    data.append(base64Digits[(t >> 12) & 63])
+                    data.append(base64Digits[(t >> 6) & 63])
+                    data.append(asciiEquals)
+                case 1:
+                    t <<= 16
+                    data.append(base64Digits[(t >> 18) & 63])
+                    data.append(base64Digits[(t >> 12) & 63])
+                    data.append(asciiEquals)
+                    data.append(asciiEquals)
+                default:
+                    break
                 }
-                t <<= 8
-                t += Int(v)
-            }
-            switch value.count % 3 {
-            case 0:
-                data.append(base64Digits[(t >> 18) & 63])
-                data.append(base64Digits[(t >> 12) & 63])
-                data.append(base64Digits[(t >> 6) & 63])
-                data.append(base64Digits[t & 63])
-            case 1:
-                t <<= 16
-                data.append(base64Digits[(t >> 18) & 63])
-                data.append(base64Digits[(t >> 12) & 63])
-                data.append(asciiEquals)
-                data.append(asciiEquals)
-            default:
-                t <<= 8
-                data.append(base64Digits[(t >> 18) & 63])
-                data.append(base64Digits[(t >> 12) & 63])
-                data.append(base64Digits[(t >> 6) & 63])
-                data.append(asciiEquals)
             }
         }
         data.append(asciiDoubleQuote)
