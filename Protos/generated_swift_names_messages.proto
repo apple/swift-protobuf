@@ -8,6 +8,7 @@ message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
+  message AnyMessageExtension { int32 AnyMessageExtension = 1; }
   message AnyMessageStorage { int32 AnyMessageStorage = 1; }
   message Api { int32 Api = 1; }
   message appended { int32 appended = 1; }
@@ -315,7 +316,6 @@ message GeneratedSwiftReservedMessages {
   message merge { int32 merge = 1; }
   message message { int32 message = 1; }
   message MessageExtension { int32 MessageExtension = 1; }
-  message MessageExtensionBase { int32 MessageExtensionBase = 1; }
   message messageType { int32 messageType = 1; }
   message Method { int32 Method = 1; }
   message methods { int32 methods = 1; }

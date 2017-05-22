@@ -128,6 +128,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum AnyMessageExtension: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneAnyMessageExtension // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAnyMessageExtension
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAnyMessageExtension
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAnyMessageExtension: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum AnyMessageStorage: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneAnyMessageStorage // = 0
@@ -7803,31 +7828,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
-  enum MessageExtensionBase: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneMessageExtensionBase // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneMessageExtensionBase
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneMessageExtensionBase
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneMessageExtensionBase: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum messageType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneMessageType // = 0
@@ -15435,6 +15435,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyExtensionField: SwiftP
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyMessageExtension: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_AnyMessageExtension"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyMessageStorage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_AnyMessageStorage"),
@@ -17274,12 +17280,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.message: SwiftProtobuf._P
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageExtension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_MessageExtension"),
-  ]
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageExtensionBase: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_MessageExtensionBase"),
   ]
 }
 
