@@ -38,9 +38,6 @@ public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: 
         self.messageType = MessageType.self
         self.defaultValue = defaultValue
     }
-    public func _protobuf_set(value: FieldType.ValueType) -> AnyExtensionField {
-        return FieldType(protobufExtension: self, value: value)
-    }
     public func _protobuf_newField() -> AnyExtensionField {
         return FieldType(protobufExtension: self, value: defaultValue)
     }

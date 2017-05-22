@@ -403,7 +403,6 @@ message GeneratedSwiftReservedEnums {
   enum protobuf_nameMap { NONE_protobuf_nameMap = 0; }
   enum protobuf_newField { NONE_protobuf_newField = 0; }
   enum protobuf_package { NONE_protobuf_package = 0; }
-  enum protobuf_set { NONE_protobuf_set = 0; }
   enum protoFieldName { NONE_protoFieldName = 0; }
   enum protoMessageName { NONE_protoMessageName = 0; }
   enum protoPaths { NONE_protoPaths = 0; }

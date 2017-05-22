@@ -403,7 +403,6 @@ message GeneratedSwiftReservedMessages {
   message protobuf_nameMap { int32 protobuf_nameMap = 1; }
   message protobuf_newField { int32 protobuf_newField = 1; }
   message protobuf_package { int32 protobuf_package = 1; }
-  message protobuf_set { int32 protobuf_set = 1; }
   message protoFieldName { int32 protoFieldName = 1; }
   message protoMessageName { int32 protoMessageName = 1; }
   message protoPaths { int32 protoPaths = 1; }

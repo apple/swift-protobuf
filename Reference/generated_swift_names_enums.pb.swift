@@ -10003,31 +10003,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
-  enum protobuf_set: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneProtobufSet // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneProtobufSet
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneProtobufSet
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneProtobufSet: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum protoFieldName: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneProtoFieldName // = 0
@@ -17827,12 +17802,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_newField: SwiftP
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_package: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_package"),
-  ]
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_set: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_protobuf_set"),
   ]
 }
 
