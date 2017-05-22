@@ -19,7 +19,7 @@ public protocol ExtensibleMessage: Message {
 
 public extension ExtensibleMessage {
     mutating func setExtensionValue<F>(ext: MessageExtension<F, Self>, value: F.ValueType) {
-        _protobuf_extensionFieldValues[ext.fieldNumber] = ext._protobuf_set(value: value)
+        _protobuf_extensionFieldValues[ext.fieldNumber] = F(protobufExtension: ext, value: value)
     }
 
     func getExtensionValue<F>(ext: MessageExtension<F, Self>) -> F.ValueType {

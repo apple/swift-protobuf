@@ -45,8 +45,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct ProtobufObjcUnittest_TestObjCStartupMessage: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -115,7 +115,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message {
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   /// Singular
   var ProtobufObjcUnittest_optionalInt32Extension: Int32 {
-    get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension) ?? 0}
+    get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension)}
     set {setExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufObjcUnittest_Extensions_optional_int32_extension`
@@ -149,7 +149,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String {
-    get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? String()}
+    get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension)}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension`

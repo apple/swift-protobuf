@@ -31,8 +31,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct ProtobufUnittest_Extend_Foo: SwiftProtobuf.Message {
@@ -383,7 +383,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? String()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_b`
@@ -400,7 +400,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_c: ProtobufUnittest_Extend_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C) ?? ProtobufUnittest_Extend_C()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_C`
@@ -417,7 +417,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Msg1 {
   var ProtobufUnittest_Extend_aB: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_a_b`
@@ -434,7 +434,7 @@ extension ProtobufUnittest_Extend_Msg1 {
 
 extension ProtobufUnittest_Extend_Msg2 {
   var ProtobufUnittest_Extend_aB: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_aB`
@@ -451,7 +451,7 @@ extension ProtobufUnittest_Extend_Msg2 {
 
 extension ProtobufUnittest_Extend_MsgNoStorage {
   var ProtobufUnittest_Extend_extA: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_a`
@@ -468,7 +468,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
 
 extension ProtobufUnittest_Extend_MsgNoStorage {
   var ProtobufUnittest_Extend_extB: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_b`
@@ -485,7 +485,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
 
 extension ProtobufUnittest_Extend_MsgUsesStorage {
   var ProtobufUnittest_Extend_extC: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_c`
@@ -502,7 +502,7 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
 
 extension ProtobufUnittest_Extend_MsgUsesStorage {
   var ProtobufUnittest_Extend_extD: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_d`

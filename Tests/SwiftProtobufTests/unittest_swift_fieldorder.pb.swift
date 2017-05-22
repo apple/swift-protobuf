@@ -31,8 +31,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -534,7 +534,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
   /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_string`
@@ -551,7 +551,7 @@ extension Swift_Protobuf_TestFieldOrderings {
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionInt: Int32 {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
   }
   /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_int`

@@ -33,8 +33,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct ProtobufUnittest_Extend3_MyMessage: SwiftProtobuf.Message {
@@ -152,7 +152,7 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b) ?? String()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_Extensions_b`
@@ -169,7 +169,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_c: ProtobufUnittest_Extend3_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C) ?? ProtobufUnittest_Extend3_C()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_Extensions_C`
@@ -186,7 +186,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b) ?? String()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_MyMessage.Extensions.b`
@@ -203,7 +203,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_MyMessage_c: ProtobufUnittest_Extend3_MyMessage.C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend3_MyMessage.C()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_MyMessage.Extensions.C`

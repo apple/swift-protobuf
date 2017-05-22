@@ -51,8 +51,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -283,7 +283,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
 
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension`
@@ -300,7 +300,7 @@ extension ProtobufUnittest_TestOptimizedForSize {
 
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2`

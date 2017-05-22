@@ -45,8 +45,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 /// Same field number appears inside and outside of the group.
@@ -501,7 +501,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
-    get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
+    get {return getExtensionValue(ext: Extensions_ExtensionGroup)}
     set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
   }
   /// Returns true if extension `Extensions_ExtensionGroup`

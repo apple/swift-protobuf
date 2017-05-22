@@ -31,8 +31,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 enum SDTTopLevelEnum: SwiftProtobuf.Enum {
@@ -477,7 +477,7 @@ struct SDTScoperForExt: SwiftProtobuf.Message {
 
 extension Google_Protobuf_FieldOptions {
   var SDTextStr: String {
-    get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
+    get {return getExtensionValue(ext: SDTExtensions_ext_str)}
     set {setExtensionValue(ext: SDTExtensions_ext_str, value: newValue)}
   }
   /// Returns true if extension `SDTExtensions_ext_str`
@@ -494,7 +494,7 @@ extension Google_Protobuf_FieldOptions {
 
 extension Google_Protobuf_MessageOptions {
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
-    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum)}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum, value: newValue)}
   }
   /// Returns true if extension `SDTScoperForExt.Extensions.ext_enum`
@@ -511,7 +511,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var SDTScoperForExt_extMsg: SDTTopLevelMessage2 {
-    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg) ?? SDTTopLevelMessage2()}
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg)}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg, value: newValue)}
   }
   /// Returns true if extension `SDTScoperForExt.Extensions.ext_msg`

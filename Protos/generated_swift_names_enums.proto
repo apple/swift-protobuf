@@ -13,7 +13,6 @@ message GeneratedSwiftReservedEnums {
   enum appended { NONE_appended = 0; }
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
-  enum apple { NONE_apple = 0; }
   enum are { NONE_are = 0; }
   enum areAllInitialized { NONE_areAllInitialized = 0; }
   enum array { NONE_array = 0; }
@@ -55,7 +54,6 @@ message GeneratedSwiftReservedEnums {
   enum clearSourceContext { NONE_clearSourceContext = 0; }
   enum clearValue { NONE_clearValue = 0; }
   enum Collection { NONE_Collection = 0; }
-  enum com { NONE_com = 0; }
   enum consume { NONE_consume = 0; }
   enum contentJSON { NONE_contentJSON = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
@@ -359,6 +357,7 @@ message GeneratedSwiftReservedEnums {
   enum OptionalGroupExtensionField { NONE_OptionalGroupExtensionField = 0; }
   enum OptionalMessageExtensionField { NONE_OptionalMessageExtensionField = 0; }
   enum options { NONE_options = 0; }
+  enum org { NONE_org = 0; }
   enum other { NONE_other = 0; }
   enum out { NONE_out = 0; }
   enum output { NONE_output = 0; }
@@ -384,6 +383,7 @@ message GeneratedSwiftReservedEnums {
   enum proto { NONE_proto = 0; }
   enum proto2 { NONE_proto2 = 0; }
   enum proto3DefaultValue { NONE_proto3DefaultValue = 0; }
+  enum protobuf { NONE_protobuf = 0; }
   enum ProtobufBool { NONE_ProtobufBool = 0; }
   enum ProtobufBytes { NONE_ProtobufBytes = 0; }
   enum ProtobufDouble { NONE_ProtobufDouble = 0; }
@@ -403,7 +403,6 @@ message GeneratedSwiftReservedEnums {
   enum protobuf_nameMap { NONE_protobuf_nameMap = 0; }
   enum protobuf_newField { NONE_protobuf_newField = 0; }
   enum protobuf_package { NONE_protobuf_package = 0; }
-  enum protobuf_set { NONE_protobuf_set = 0; }
   enum protoFieldName { NONE_protoFieldName = 0; }
   enum protoMessageName { NONE_protoMessageName = 0; }
   enum protoPaths { NONE_protoPaths = 0; }

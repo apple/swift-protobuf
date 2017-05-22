@@ -33,8 +33,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct Ext4MyMessage: SwiftProtobuf.Message {
@@ -152,7 +152,7 @@ struct Ext4C: SwiftProtobuf.Message {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4b: String {
-    get {return getExtensionValue(ext: Ext4Extensions_b) ?? String()}
+    get {return getExtensionValue(ext: Ext4Extensions_b)}
     set {setExtensionValue(ext: Ext4Extensions_b, value: newValue)}
   }
   /// Returns true if extension `Ext4Extensions_b`
@@ -169,7 +169,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4c: Ext4C {
-    get {return getExtensionValue(ext: Ext4Extensions_C) ?? Ext4C()}
+    get {return getExtensionValue(ext: Ext4Extensions_C)}
     set {setExtensionValue(ext: Ext4Extensions_C, value: newValue)}
   }
   /// Returns true if extension `Ext4Extensions_C`
@@ -186,7 +186,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_b: String {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b)}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
   }
   /// Returns true if extension `Ext4MyMessage.Extensions.b`
@@ -203,7 +203,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_c: Ext4MyMessage.C {
-    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C) ?? Ext4MyMessage.C()}
+    get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C)}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.C, value: newValue)}
   }
   /// Returns true if extension `Ext4MyMessage.Extensions.C`

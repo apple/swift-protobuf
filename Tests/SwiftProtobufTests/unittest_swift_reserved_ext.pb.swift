@@ -31,8 +31,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 struct SwiftReservedTestExt2: SwiftProtobuf.Message {
@@ -66,7 +66,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   /// Will get _p added because it has no package/swift prefix to scope and
   /// would otherwise be a problem when added to the message.
   var debugDescription_p: Bool {
-    get {return getExtensionValue(ext: Extensions_debugDescription) ?? false}
+    get {return getExtensionValue(ext: Extensions_debugDescription)}
     set {setExtensionValue(ext: Extensions_debugDescription, value: newValue)}
   }
   /// Returns true if extension `Extensions_debugDescription`
@@ -84,7 +84,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   /// These will get _p added for the same reasoning.
   var `as`: Bool {
-    get {return getExtensionValue(ext: Extensions_as) ?? false}
+    get {return getExtensionValue(ext: Extensions_as)}
     set {setExtensionValue(ext: Extensions_as, value: newValue)}
   }
   /// Returns true if extension `Extensions_as`
@@ -101,7 +101,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `var`: Bool {
-    get {return getExtensionValue(ext: Extensions_var) ?? false}
+    get {return getExtensionValue(ext: Extensions_var)}
     set {setExtensionValue(ext: Extensions_var, value: newValue)}
   }
   /// Returns true if extension `Extensions_var`
@@ -118,7 +118,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `try`: Bool {
-    get {return getExtensionValue(ext: Extensions_try) ?? false}
+    get {return getExtensionValue(ext: Extensions_try)}
     set {setExtensionValue(ext: Extensions_try, value: newValue)}
   }
   /// Returns true if extension `Extensions_try`
@@ -135,7 +135,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `do`: Bool {
-    get {return getExtensionValue(ext: Extensions_do) ?? false}
+    get {return getExtensionValue(ext: Extensions_do)}
     set {setExtensionValue(ext: Extensions_do, value: newValue)}
   }
   /// Returns true if extension `Extensions_do`
@@ -152,7 +152,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `nil`: Bool {
-    get {return getExtensionValue(ext: Extensions_nil) ?? false}
+    get {return getExtensionValue(ext: Extensions_nil)}
     set {setExtensionValue(ext: Extensions_nil, value: newValue)}
   }
   /// Returns true if extension `Extensions_nil`
@@ -169,7 +169,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_hashValue: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_) ?? false}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_)}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_, value: newValue)}
   }
   /// Returns true if extension `SwiftReservedTestExt2.Extensions.hashValue_`
@@ -188,7 +188,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   /// Reserved words, since these end up in the "enum Extensions", they
   /// can't just be get their names, and sanitation kicks.
   var SwiftReservedTestExt2_as: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.as) ?? false}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.as)}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.as, value: newValue)}
   }
   /// Returns true if extension `SwiftReservedTestExt2.Extensions.as`
@@ -205,7 +205,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_var: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.var) ?? false}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.var)}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.var, value: newValue)}
   }
   /// Returns true if extension `SwiftReservedTestExt2.Extensions.var`
@@ -222,7 +222,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_try: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.try) ?? false}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.try)}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.try, value: newValue)}
   }
   /// Returns true if extension `SwiftReservedTestExt2.Extensions.try`
@@ -239,7 +239,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_do: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.do) ?? false}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.do)}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.do, value: newValue)}
   }
   /// Returns true if extension `SwiftReservedTestExt2.Extensions.do`
@@ -256,7 +256,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_nil: Bool {
-    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil) ?? false}
+    get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil)}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil, value: newValue)}
   }
   /// Returns true if extension `SwiftReservedTestExt2.Extensions.nil`

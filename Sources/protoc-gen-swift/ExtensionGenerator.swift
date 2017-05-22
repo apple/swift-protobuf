@@ -24,7 +24,6 @@ class ExtensionGenerator {
     private let namer: SwiftProtobufNamer
 
     private let comments: String
-    private let defaultValue: String
     private let containingTypeSwiftFullName: String
     private let swiftFullExtensionName: String
 
@@ -55,7 +54,6 @@ class ExtensionGenerator {
         swiftFullExtensionName = namer.fullName(extensionField: descriptor)
 
         comments = descriptor.protoSourceComments()
-        defaultValue = descriptor.swiftDefaultValue(namer: namer)
         containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
     }
 
@@ -67,6 +65,7 @@ class ExtensionGenerator {
         let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
         let traitsType = fieldDescriptor.traitsType(namer: namer)
         let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
+        let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
         var fieldNamePath = fieldDescriptor.fullName
         assert(fieldNamePath.hasPrefix("."))
@@ -96,14 +95,9 @@ class ExtensionGenerator {
           comments,
           "\(visibility)var \(extensionNames.value): \(apiType) {\n")
         p.indent()
-        if fieldDescriptor.label == .repeated {
-            p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName))}\n")
-        } else {
-            // TODO(thomasvl): The default was passed to the extension creation, so can't
-            // getExtensionValue directly fetch the value?
-            p.print("get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}\n")
-        }
-        p.print("set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
+        p.print(
+          "get {return getExtensionValue(ext: \(swiftFullExtensionName))}\n",
+          "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
         p.outdent()
         p.print("}\n")
 

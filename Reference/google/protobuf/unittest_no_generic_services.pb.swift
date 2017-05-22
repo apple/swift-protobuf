@@ -47,8 +47,8 @@ import SwiftProtobuf
 // Please ensure that your are building against the same version of the API
 // that was used to generate this file.
 fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _1: SwiftProtobuf.ProtobufAPIVersion_1 {}
-  typealias Version = _1
+  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+  typealias Version = _2
 }
 
 enum Google_Protobuf_NoGenericServicesTest_TestEnum: SwiftProtobuf.Enum {
@@ -130,7 +130,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
-    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
+    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
   /// Returns true if extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`
