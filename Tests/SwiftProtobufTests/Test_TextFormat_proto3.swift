@@ -655,6 +655,17 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("single_bytes: \"\\x&\"\n")
         assertTextFormatDecodeFails("single_bytes: \"\\xg\"\n")
         assertTextFormatDecodeFails("single_bytes: \"\\q\"\n")
+        assertTextFormatDecodeFails("single_bytes: \"\\777\"\n") // Out-of-range octal
+        assertTextFormatDecodeFails("single_bytes: \"")
+        assertTextFormatDecodeFails("single_bytes: \"abcde")
+        assertTextFormatDecodeFails("single_bytes: \"\\")
+        assertTextFormatDecodeFails("single_bytes: \"\\3")
+        assertTextFormatDecodeFails("single_bytes: \"\\32")
+        assertTextFormatDecodeFails("single_bytes: \"\\232")
+        assertTextFormatDecodeFails("single_bytes: \"\\x")
+        assertTextFormatDecodeFails("single_bytes: \"\\x1")
+        assertTextFormatDecodeFails("single_bytes: \"\\x12")
+        assertTextFormatDecodeFails("single_bytes: \"\\x12q")
     }
 
     func testEncoding_singleBytes_roundtrip() throws {
