@@ -130,7 +130,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
-    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
+    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
   /// Returns true if extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`

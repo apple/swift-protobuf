@@ -18789,7 +18789,7 @@ struct SwiftUnittest_Names_ExtensionNamingInitialsWordCase: SwiftProtobuf.Messag
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_http) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_http)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_http, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_http`
@@ -18806,7 +18806,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_http_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_http_request`
@@ -18823,7 +18823,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_http_request`
@@ -18840,7 +18840,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_http, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_http`
@@ -18857,7 +18857,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_https) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_https)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_https, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_https`
@@ -18874,7 +18874,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_https_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_https_request`
@@ -18891,7 +18891,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_https_request`
@@ -18908,7 +18908,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_https, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_https`
@@ -18925,7 +18925,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_url) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_url)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_url, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_url`
@@ -18942,7 +18942,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_url_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_url_value`
@@ -18959,7 +18959,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_url_value`
@@ -18976,7 +18976,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_url, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_url`
@@ -18993,7 +18993,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_aBC: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_a_b_c, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_a_b_c`
@@ -19010,7 +19010,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_id`
@@ -19027,7 +19027,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_id_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_id_number`
@@ -19044,7 +19044,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_id_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_id_number`
@@ -19061,7 +19061,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var SwiftUnittest_Names_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_id, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_request_id`
@@ -19078,7 +19078,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTP`
@@ -19095,7 +19095,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTP_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTP_request`
@@ -19112,7 +19112,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTP_request`
@@ -19129,7 +19129,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTP, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTP`
@@ -19146,7 +19146,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTPS`
@@ -19163,7 +19163,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HTTPS_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_HTTPS_request`
@@ -19180,7 +19180,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTPS_request`
@@ -19197,7 +19197,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_HTTPS, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_HTTPS`
@@ -19214,7 +19214,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_URL) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_URL)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_URL, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_URL`
@@ -19231,7 +19231,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_URL_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_URL_value`
@@ -19248,7 +19248,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_URL_value`
@@ -19265,7 +19265,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_URL, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_URL`
@@ -19282,7 +19282,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_ID`
@@ -19299,7 +19299,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_ID_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_ID_number`
@@ -19316,7 +19316,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_the_ID_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_the_ID_number`
@@ -19333,7 +19333,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var SwiftUnittest_Names_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_request_ID, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_request_ID`
@@ -19350,7 +19350,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Http) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Http)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Http, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_Http`
@@ -19367,7 +19367,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_HttpRequest`
@@ -19384,7 +19384,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttpRequest`
@@ -19401,7 +19401,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttp, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttp`
@@ -19418,7 +19418,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Https) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Https)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Https, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_Https`
@@ -19435,7 +19435,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_HttpsRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_HttpsRequest`
@@ -19452,7 +19452,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttpsRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttpsRequest`
@@ -19469,7 +19469,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheHttps, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheHttps`
@@ -19486,7 +19486,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Url) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Url)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Url, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_Url`
@@ -19503,7 +19503,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_UrlValue, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_UrlValue`
@@ -19520,7 +19520,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrlValue, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheUrlValue`
@@ -19537,7 +19537,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheUrl, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheUrl`
@@ -19554,7 +19554,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Id) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_Id)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_Id, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_Id`
@@ -19571,7 +19571,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_IdNumber, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_IdNumber`
@@ -19588,7 +19588,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_TheIdNumber, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_TheIdNumber`
@@ -19605,7 +19605,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var SwiftUnittest_Names_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Extensions_RequestId, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Extensions_RequestId`
@@ -19622,7 +19622,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_Foo {
   var SwiftUnittest_Names_FieldNames_foo1: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1)}
     set {setExtensionValue(ext: SwiftUnittest_Names_FieldNames.Extensions.foo1, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_FieldNames.Extensions.foo1`
@@ -19639,7 +19639,7 @@ extension SwiftUnittest_Names_Foo {
 
 extension SwiftUnittest_Names_Foo {
   var SwiftUnittest_Names_MessageNames_foo2: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2)}
     set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo2, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_MessageNames.Extensions.foo2`
@@ -19656,7 +19656,7 @@ extension SwiftUnittest_Names_Foo {
 
 extension SwiftUnittest_Names_Foo {
   var SwiftUnittest_Names_MessageNames_foo4: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4)}
     set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.Extensions.foo4, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_MessageNames.Extensions.foo4`
@@ -19673,7 +19673,7 @@ extension SwiftUnittest_Names_Foo {
 
 extension SwiftUnittest_Names_Foo {
   var SwiftUnittest_Names_MessageNames_StringMessage_foo3: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3)}
     set {setExtensionValue(ext: SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_MessageNames.StringMessage.Extensions.foo3`
@@ -19690,7 +19690,7 @@ extension SwiftUnittest_Names_Foo {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.http`
@@ -19707,7 +19707,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.http_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.http_request`
@@ -19724,7 +19724,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_http_request`
@@ -19741,7 +19741,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_http, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_http`
@@ -19758,7 +19758,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.https`
@@ -19775,7 +19775,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.https_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.https_request`
@@ -19792,7 +19792,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_https_request`
@@ -19809,7 +19809,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_https, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_https`
@@ -19826,7 +19826,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.url`
@@ -19843,7 +19843,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.url_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.url_value`
@@ -19860,7 +19860,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_url_value`
@@ -19877,7 +19877,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_url, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_url`
@@ -19894,7 +19894,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_aBC: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.a_b_c, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.a_b_c`
@@ -19911,7 +19911,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.id`
@@ -19928,7 +19928,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.id_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.id_number`
@@ -19945,7 +19945,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.the_id_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.the_id_number`
@@ -19962,7 +19962,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Lowers_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Lowers.Extensions.request_id, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Lowers.Extensions.request_id`
@@ -19979,7 +19979,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTP`
@@ -19996,7 +19996,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTP_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTP_request`
@@ -20013,7 +20013,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTP_request`
@@ -20030,7 +20030,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTP, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTP`
@@ -20047,7 +20047,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTPS`
@@ -20064,7 +20064,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.HTTPS_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.HTTPS_request`
@@ -20081,7 +20081,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTPS_request`
@@ -20098,7 +20098,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_HTTPS, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_HTTPS`
@@ -20115,7 +20115,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.URL`
@@ -20132,7 +20132,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.URL_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.URL_value`
@@ -20149,7 +20149,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL_value, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_URL_value`
@@ -20166,7 +20166,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_URL, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_URL`
@@ -20183,7 +20183,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.ID`
@@ -20200,7 +20200,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.ID_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.ID_number`
@@ -20217,7 +20217,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.the_ID_number, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.the_ID_number`
@@ -20234,7 +20234,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_Uppers_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID)}
     set {setExtensionValue(ext: SwiftUnittest_Names_Uppers.Extensions.request_ID, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_Uppers.Extensions.request_ID`
@@ -20251,7 +20251,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_http: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Http, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Http`
@@ -20268,7 +20268,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_httpRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.HttpRequest`
@@ -20285,7 +20285,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttpRequest`
@@ -20302,7 +20302,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theHTTP: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttp, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttp`
@@ -20319,7 +20319,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_https: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Https, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Https`
@@ -20336,7 +20336,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_httpsRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.HttpsRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.HttpsRequest`
@@ -20353,7 +20353,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttpsRequest`
@@ -20370,7 +20370,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theHTTPS: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheHttps, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheHttps`
@@ -20387,7 +20387,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_url: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Url, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Url`
@@ -20404,7 +20404,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_urlValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.UrlValue, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.UrlValue`
@@ -20421,7 +20421,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theURLValue: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrlValue, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheUrlValue`
@@ -20438,7 +20438,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theURL: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheUrl, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheUrl`
@@ -20455,7 +20455,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_id: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.Id, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.Id`
@@ -20472,7 +20472,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_idNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.IdNumber, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.IdNumber`
@@ -20489,7 +20489,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_theIDNumber: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.TheIdNumber, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.TheIdNumber`
@@ -20506,7 +20506,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitials {
 
 extension SwiftUnittest_Names_ExtensionNamingInitials {
   var SwiftUnittest_Names_WordCase_requestID: Int32 {
-    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId) ?? 0}
+    get {return getExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId)}
     set {setExtensionValue(ext: SwiftUnittest_Names_WordCase.Extensions.RequestId, value: newValue)}
   }
   /// Returns true if extension `SwiftUnittest_Names_WordCase.Extensions.RequestId`

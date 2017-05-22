@@ -534,7 +534,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
   /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_string`
@@ -551,7 +551,7 @@ extension Swift_Protobuf_TestFieldOrderings {
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionInt: Int32 {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
   }
   /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_int`

@@ -13,7 +13,6 @@ message GeneratedSwiftReservedMessages {
   message appended { int32 appended = 1; }
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
-  message apple { int32 apple = 1; }
   message are { int32 are = 1; }
   message areAllInitialized { int32 areAllInitialized = 1; }
   message array { int32 array = 1; }
@@ -55,7 +54,6 @@ message GeneratedSwiftReservedMessages {
   message clearSourceContext { int32 clearSourceContext = 1; }
   message clearValue { int32 clearValue = 1; }
   message Collection { int32 Collection = 1; }
-  message com { int32 com = 1; }
   message consume { int32 consume = 1; }
   message contentJSON { int32 contentJSON = 1; }
   message contentsOf { int32 contentsOf = 1; }
@@ -359,6 +357,7 @@ message GeneratedSwiftReservedMessages {
   message OptionalGroupExtensionField { int32 OptionalGroupExtensionField = 1; }
   message OptionalMessageExtensionField { int32 OptionalMessageExtensionField = 1; }
   message options { int32 options = 1; }
+  message org { int32 org = 1; }
   message other { int32 other = 1; }
   message out { int32 out = 1; }
   message output { int32 output = 1; }
@@ -384,6 +383,7 @@ message GeneratedSwiftReservedMessages {
   message proto { int32 proto = 1; }
   message proto2 { int32 proto2 = 1; }
   message proto3DefaultValue { int32 proto3DefaultValue = 1; }
+  message protobuf { int32 protobuf = 1; }
   message ProtobufBool { int32 ProtobufBool = 1; }
   message ProtobufBytes { int32 ProtobufBytes = 1; }
   message ProtobufDouble { int32 ProtobufDouble = 1; }

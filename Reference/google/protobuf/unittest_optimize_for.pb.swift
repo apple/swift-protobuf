@@ -283,7 +283,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
 
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension`
@@ -300,7 +300,7 @@ extension ProtobufUnittest_TestOptimizedForSize {
 
 extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize {
-    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
+    get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2`

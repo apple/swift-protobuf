@@ -501,7 +501,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
-    get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
+    get {return getExtensionValue(ext: Extensions_ExtensionGroup)}
     set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
   }
   /// Returns true if extension `Extensions_ExtensionGroup`

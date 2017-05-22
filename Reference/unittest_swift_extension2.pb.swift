@@ -152,7 +152,7 @@ struct ProtobufUnittest_Extend2_C: SwiftProtobuf.Message {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b) ?? String()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend2_Extensions_b`
@@ -169,7 +169,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_c: ProtobufUnittest_Extend2_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C) ?? ProtobufUnittest_Extend2_C()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_Extensions_C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend2_Extensions_C`
@@ -186,7 +186,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b) ?? String()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend2_MyMessage.Extensions.b`
@@ -203,7 +203,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend2_MyMessage_c: ProtobufUnittest_Extend2_MyMessage.C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend2_MyMessage.C()}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C)}
     set {setExtensionValue(ext: ProtobufUnittest_Extend2_MyMessage.Extensions.C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend2_MyMessage.Extensions.C`
