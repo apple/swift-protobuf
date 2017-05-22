@@ -33,12 +33,7 @@ class ExtensionGenerator {
         switch fieldDescriptor.label {
         case .optional: label = "Optional"
         case .required: label = "Required"
-        case .repeated:
-            if fieldDescriptor.isPacked {
-                label = "Packed"
-            } else {
-                label = "Repeated"
-            }
+        case .repeated: label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
         }
 
         let modifier: String
@@ -49,7 +44,7 @@ class ExtensionGenerator {
         default: modifier = ""
         }
 
-        return "\(label)\(modifier)ExtensionField"
+        return "SwiftProtobuf.\(label)\(modifier)ExtensionField"
     }
 
     init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
@@ -74,6 +69,7 @@ class ExtensionGenerator {
         let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
         var fieldNamePath = fieldDescriptor.fullName
+        assert(fieldNamePath.hasPrefix("."))
         fieldNamePath.remove(at: fieldNamePath.startIndex)  // Remove the leading '.'
 
         p.print(

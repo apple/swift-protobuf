@@ -153,7 +153,7 @@ let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: 
   Google_Protobuf_NoGenericServicesTest_Extensions_test_extension
 ]
 
-let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
+let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
   _protobuf_fieldNumber: 1000,
   fieldName: "google.protobuf.no_generic_services_test.test_extension",
   defaultValue: 0

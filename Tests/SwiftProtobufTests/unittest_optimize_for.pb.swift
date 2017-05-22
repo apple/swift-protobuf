@@ -326,13 +326,13 @@ let ProtobufUnittest_UnittestOptimizeFor_Extensions: SwiftProtobuf.SimpleExtensi
 
 extension ProtobufUnittest_TestOptimizedForSize {
   enum Extensions {
-    static let test_extension = SwiftProtobuf.MessageExtension<OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
+    static let test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1234,
       fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension",
       defaultValue: 0
     )
 
-    static let test_extension2 = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
+    static let test_extension2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestRequiredOptimizedForSize>, ProtobufUnittest_TestOptimizedForSize>(
       _protobuf_fieldNumber: 1235,
       fieldName: "protobuf_unittest.TestOptimizedForSize.test_extension2",
       defaultValue: ProtobufUnittest_TestRequiredOptimizedForSize()
