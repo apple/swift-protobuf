@@ -120,16 +120,15 @@ the absence of a value.
 Proto2 optional fields are not nullable; they always have a value.
 This is a subtle but important difference between the two.
 
-In my own code, I've found that I use proto2 optionals
-in two different ways:
-Most of the time, I just use whatever value is there,
+Usually, the current form seems to noticeably simplify the usage:
+Most of the time, you just want to use whatever value is there,
 relying on the default when no value was set explicitly.
-But sometimes, I do need to verify that the other side
-explicitly provided the values I expect.
-In these cases, it is far easier for me to assert
+Sometimes, you may need to verify that the other side
+explicitly provided the values you expect.
+In these cases, it is generally easier to assert
 that the received object `has` the expected fields
 in just one place, then use the current values throughout,
-than to unwrap Swift Optionals at every access.
+than to test and unwrap Swift Optionals at every access.
 
 **Proto2 required fields:**
 
