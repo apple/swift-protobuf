@@ -347,7 +347,7 @@ let ProtobufUnittest_UnittestMset_Extensions: SwiftProtobuf.SimpleExtensionMap =
 
 extension ProtobufUnittest_TestMessageSetExtension1 {
   enum Extensions {
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
+    static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension1>, Proto2WireformatUnittest_TestMessageSet>(
       _protobuf_fieldNumber: 1545008,
       fieldName: "protobuf_unittest.TestMessageSetExtension1.message_set_extension",
       defaultValue: ProtobufUnittest_TestMessageSetExtension1()
@@ -357,7 +357,7 @@ extension ProtobufUnittest_TestMessageSetExtension1 {
 
 extension ProtobufUnittest_TestMessageSetExtension2 {
   enum Extensions {
-    static let message_set_extension = SwiftProtobuf.MessageExtension<OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
+    static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_TestMessageSetExtension2>, Proto2WireformatUnittest_TestMessageSet>(
       _protobuf_fieldNumber: 1547769,
       fieldName: "protobuf_unittest.TestMessageSetExtension2.message_set_extension",
       defaultValue: ProtobufUnittest_TestMessageSetExtension2()
