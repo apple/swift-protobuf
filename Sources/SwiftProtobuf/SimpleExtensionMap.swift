@@ -15,10 +15,10 @@
 
 // Note: The generated code only relies on ExpressibleByArrayLiteral
 public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, CustomDebugStringConvertible {
-    public typealias Element = MessageExtensionBase
+    public typealias Element = AnyMessageExtension
 
     // Since type objects aren't Hashable, we can't do much better than this...
-    private var fields = [Int: Array<(Message.Type, MessageExtensionBase)>]()
+    private var fields = [Int: Array<(Message.Type, AnyMessageExtension)>]()
 
     public init() {}
 
@@ -26,7 +26,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         insert(contentsOf: arrayLiteral)
     }
 
-    public subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? {
+    public subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? {
         get {
             if let l = fields[fieldNumber] {
                 for (t, e) in l {
@@ -57,7 +57,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         let fieldNumber = newValue.fieldNumber
         if let l = fields[fieldNumber] {
             var newL = l.flatMap {
-                pair -> (Message.Type, MessageExtensionBase)? in
+                pair -> (Message.Type, AnyMessageExtension)? in
                 if pair.0 == messageType { return nil }
                 else { return pair }
             }
