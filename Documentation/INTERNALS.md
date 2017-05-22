@@ -153,6 +153,16 @@ Since extensions may be compiled separately, the `isInitialized`
 check must always visit any extensible messages in case one of
 their extensions has required fields.)
 
+The generated `isInitialized` property is used in the following cases:
+
+* When initializing an `Any` field
+* Just before serializing to binary format
+* Just after decoding from binary format
+
+Each of these APIs supports a `partial` parameter; setting this
+parameter to `true` will suppress the check, allowing you to encode or
+decode a partial object that may be lacking required fields.
+
 **Proto2 and proto3 repeated and map fields:**
 
 Repeated and map fields work the same way in proto2 and proto3.
