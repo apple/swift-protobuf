@@ -274,9 +274,10 @@ internal struct TextFormatScanner {
 
     /// Scan a string that encodes a byte field, return a count of
     /// the number of bytes that should be decoded from it
-    private mutating func validateAndCountBytesFromString(terminator: UInt8) throws -> Int {
+    private mutating func validateAndCountBytesFromString(terminator: UInt8, sawBackslash: inout Bool) throws -> Int {
       var count = 0
       let start = p
+      sawBackslash = false
       while p != end {
         let byte = p[0]
         p += 1
@@ -286,6 +287,7 @@ internal struct TextFormatScanner {
         }
         switch byte {
         case asciiBackslash: //  "\\"
+          sawBackslash = true
           if p != end {
             let escaped = p[0]
             p += 1
@@ -619,9 +621,15 @@ internal struct TextFormatScanner {
             throw TextFormatDecodingError.malformedText
         }
         p += 1
-        let n = try validateAndCountBytesFromString(terminator: c)
-        result = Data(count: n)
-        parseBytesFromString(terminator: c, into: &result)
+        var sawBackslash = false
+        let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
+        if sawBackslash {
+          result = Data(count: n)
+          parseBytesFromString(terminator: c, into: &result)
+        } else {
+          result = Data(bytes: p, count: n)
+          p += n + 1
+        }
 
         // If there are more strings, decode them
         // and append to the result:
@@ -635,10 +643,16 @@ internal struct TextFormatScanner {
                 return result
             }
             p += 1
-            let n = try validateAndCountBytesFromString(terminator: c)
-            var b = Data(count: n)
-            parseBytesFromString(terminator: c, into: &b)
-            result.append(b)
+            var sawBackslash = false
+            let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
+            if sawBackslash {
+              var b = Data(count: n)
+              parseBytesFromString(terminator: c, into: &b)
+              result.append(b)
+            } else {
+              result.append(p, count: n)
+              p += n + 1
+            }
         }
     }
 
