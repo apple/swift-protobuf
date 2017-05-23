@@ -1018,10 +1018,11 @@ internal struct BinaryDecoder: Decoder {
                 if fieldValue != nil {
                     values[fieldNumber] = fieldValue
                 } else {
-                    // Really things should never get here as the required data
-                    // should always be available or the decode of the extension
-                    // would throw.
-                    throw BinaryDecodingError.truncated
+                    // Really things should never get here, if the decoder says
+                    // the bytes were consumed, then there should have been a
+                    // field that consumed them (existing or created). This
+                    // specific error result is to allow this to be more detectable.
+                    throw BinaryDecodingError.internalExtensionError
                 }
             }
         }

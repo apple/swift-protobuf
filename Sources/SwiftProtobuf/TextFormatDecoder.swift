@@ -703,10 +703,10 @@ internal struct TextFormatDecoder: Decoder {
             if fieldValue != nil {
                 values[fieldNumber] = fieldValue
             } else {
-                // Really things should never get here as the required data
-                // should always be available or the decode of the extension
-                // would throw.
-                throw TextFormatDecodingError.truncated
+                // Really things should never get here, for TextFormat, decoding
+                // the value should always work or throw an error.  This specific
+                // error result is to allow this to be more detectable.
+                throw TextFormatDecodingError.internalExtensionError
             }
         }
     }

@@ -33,4 +33,8 @@ public enum TextFormatDecodingError: Error {
     case unrecognizedEnumValue
     /// Text format rejects conflicting values for the same oneof field
     case conflictingOneOf
+    /// An internal error happened while decoding.  If this is ever encountered,
+    /// please file an issue with SwiftProtobuf with as much details as possible
+    /// for what happened (proto definitions, bytes being decoded (if possible)).
+    case internalExtensionError
 }
