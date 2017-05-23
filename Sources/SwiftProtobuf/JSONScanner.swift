@@ -79,6 +79,7 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
   }
 }
 
+// Decode the RFC 4648 section 4 Base 64 encoding.
 let base64Values: [Int] = [
 /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -101,14 +102,17 @@ let base64Values: [Int] = [
 /// Returns a `Data` value containing bytes equivalent to the given
 /// Base64-encoded string, or nil if the conversion fails.
 ///
-/// Notes on Google's implementation:
+/// Notes on Google's implementation (Base64Unescape() in strutil.cc):
 ///  * Google's C++ implementation accepts arbitrary whitespace
 ///    mixed in with the base-64 characters
 ///  * Google's C++ implementation ignores missing '=' characters
 ///    but if present, there must be the exact correct number of them.
-///  * Google's C++ implementation accepts both "regular" and
-///    "web-safe" base-64 variants (it seems to prefer the
-///    web-safe version as defined in RFC 4648
+///
+/// Note: Google's C++ code seems to allow many base-64 extensions
+/// (including websafe and '.' as padding), but the Java version just
+/// uses uses Guava's BaseEncoding.base64() (which only supports the
+/// RFC4648 standard encoding) and the conformance test explicitly
+/// requires us to reject '-' and '_' characters.
 private func parseBytes(
   source: UnsafeBufferPointer<UInt8>,
   index: inout UnsafeBufferPointer<UInt8>.Index,
