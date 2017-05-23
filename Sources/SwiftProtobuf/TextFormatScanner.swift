@@ -114,20 +114,16 @@ private func decodeString(_ s: String) -> String? {
             bytes = savedPosition
           }
         case asciiLowerX: // "x"
-          // C standard allows any number of hex digits after \x
-          // We ignore all but the last two
-          var n: UInt8 = 0
-          var count = 0
-          var savedPosition = bytes
-          while let byte = bytes.next(), let digit = fromHexDigit(byte) {
-            n &= 15
-            n = n * 16
-            n += digit
-            count += 1
-            savedPosition = bytes
-          }
-          bytes = savedPosition
-          if count > 0 {
+          // Unlike C/C++, protobuf only allows 1 or 2 digits here:
+          if let byte = bytes.next(), let digit = fromHexDigit(byte) {
+            var n = digit
+            let savedPosition = bytes
+            if let byte = bytes.next(), let digit = fromHexDigit(byte) {
+              n = n &* 16 + digit
+            } else {
+              // No second digit; reset the iterator
+              bytes = savedPosition
+            }
             out.append(n)
           } else {
             return nil // Hex escape must have at least 1 digit
@@ -306,14 +302,12 @@ internal struct TextFormatScanner {
                 }
                 count += 1
               case asciiLowerX: // 'x' hexadecimal escape
-                // C standard allows any number of digits after \x
-                // We ignore all but the last two
-                var hexDigits = 0
-                while p != end && fromHexDigit(p[0]) != nil {
-                  hexDigits += 1
+                if p != end && fromHexDigit(p[0]) != nil {
                   p += 1
-                }
-                if hexDigits == 0 {
+                  if p != end && fromHexDigit(p[0]) != nil {
+                    p += 1
+                  }
+                } else {
                   throw TextFormatDecodingError.malformedText // Hex escape must have at least 1 digit
                 }
                 count += 1
@@ -380,10 +374,10 @@ internal struct TextFormatScanner {
                 out += 1
               }
             case asciiLowerX: // 'x' hexadecimal escape
-              // C standard allows any number of digits after \x
-              // We ignore all but the last two
-              var n: UInt8 = 0
-              while let digit = fromHexDigit(p[0]) {
+              // We already validated, so we know there's at least one digit:
+              var n = fromHexDigit(p[0])!
+              p += 1
+              if let digit = fromHexDigit(p[0]) {
                 n = n &* 16 &+ digit
                 p += 1
               }
