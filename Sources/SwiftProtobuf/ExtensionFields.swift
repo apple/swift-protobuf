@@ -30,7 +30,7 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   var protobufExtension: AnyMessageExtension { get }
   func isEqual(other: AnyExtensionField) -> Bool
 
-  /// General field decoding
+  /// Merging field decoding
   mutating func decodeExtensionField<T: Decoder>(decoder: inout T) throws
 
   /// Fields know their own type, so can dispatch to a visitor
@@ -158,9 +158,6 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
     var v: ValueType = []
     try T.decodeRepeated(value: &v, from: &decoder)
-    if v.isEmpty {
-      return nil
-    }
     self.init(protobufExtension: protobufExtension, value: v)
   }
 
@@ -219,9 +216,6 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
     var v: ValueType = []
     try T.decodeRepeated(value: &v, from: &decoder)
-    if v.isEmpty {
-      return nil
-    }
     self.init(protobufExtension: protobufExtension, value: v)
   }
 
@@ -336,9 +330,6 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
     var v: ValueType = []
     try decoder.decodeRepeatedEnumField(value: &v)
-    if v.isEmpty {
-      return nil
-    }
     self.init(protobufExtension: protobufExtension, value: v)
   }
 
@@ -399,9 +390,6 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
     var v: ValueType = []
     try decoder.decodeRepeatedEnumField(value: &v)
-    if v.isEmpty {
-      return nil
-    }
     self.init(protobufExtension: protobufExtension, value: v)
   }
 
@@ -518,9 +506,6 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
     var v: ValueType = []
     try decoder.decodeRepeatedMessageField(value: &v)
-    if v.isEmpty {
-      return nil
-    }
     self.init(protobufExtension: protobufExtension, value: v)
   }
 
@@ -639,9 +624,6 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
   public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
     var v: ValueType = []
     try decoder.decodeRepeatedGroupField(value: &v)
-    if v.isEmpty {
-      return nil
-    }
     self.init(protobufExtension: protobufExtension, value: v)
   }
 
