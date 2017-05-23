@@ -8,6 +8,7 @@ message GeneratedSwiftReservedEnums {
   enum adjusted { NONE_adjusted = 0; }
   enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
+  enum AnyMessageExtension { NONE_AnyMessageExtension = 0; }
   enum AnyMessageStorage { NONE_AnyMessageStorage = 0; }
   enum Api { NONE_Api = 0; }
   enum appended { NONE_appended = 0; }
@@ -315,7 +316,6 @@ message GeneratedSwiftReservedEnums {
   enum merge { NONE_merge = 0; }
   enum message { NONE_message = 0; }
   enum MessageExtension { NONE_MessageExtension = 0; }
-  enum MessageExtensionBase { NONE_MessageExtensionBase = 0; }
   enum messageType { NONE_messageType = 0; }
   enum Method { NONE_Method = 0; }
   enum methods { NONE_methods = 0; }

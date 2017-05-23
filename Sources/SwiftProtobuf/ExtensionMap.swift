@@ -24,7 +24,7 @@
 /// standard `SimpleExtensionMap` implementation.
 public protocol ExtensionMap {
     /// Returns the extension object describing an extension or nil
-    subscript(messageType: Message.Type, fieldNumber: Int) -> MessageExtensionBase? { get }
+    subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? { get }
 
     /// Returns the field number for a message with a specific field name
     ///

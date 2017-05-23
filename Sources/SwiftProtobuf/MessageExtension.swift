@@ -15,9 +15,8 @@
 ///
 // -----------------------------------------------------------------------------
 
-/// Note that the MessageExtensionBase protocol has no generic
-/// pieces.
-public protocol MessageExtensionBase {
+/// Type-erased MessageExtension field implementation.
+public protocol AnyMessageExtension {
     var fieldNumber: Int { get }
     var fieldName: String { get }
     var messageType: Message.Type { get }
@@ -27,7 +26,7 @@ public protocol MessageExtensionBase {
 /// A "Message Extension" relates a particular extension field to
 /// a particular message.  The generic constraints allow
 /// compile-time compatibility checks.
-public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: MessageExtensionBase {
+public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: AnyMessageExtension {
     public let fieldNumber: Int
     public let fieldName: String
     public let messageType: Message.Type

@@ -27,7 +27,7 @@ private let i_16777619 = Int(16777619)
 //
 public protocol AnyExtensionField: CustomDebugStringConvertible {
   var hashValue: Int { get }
-  var protobufExtension: MessageExtensionBase { get }
+  var protobufExtension: AnyMessageExtension { get }
   func isEqual(other: AnyExtensionField) -> Bool
 
   /// General field decoding
@@ -52,7 +52,7 @@ public extension AnyExtensionField {
 public protocol ExtensionField: AnyExtensionField, Hashable {
   associatedtype ValueType
   var value: ValueType { get set }
-  init(protobufExtension: MessageExtensionBase, value: ValueType)
+  init(protobufExtension: AnyMessageExtension, value: ValueType)
 }
 
 ///
@@ -62,14 +62,14 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
   public typealias BaseType = T.BaseType
   public typealias ValueType = BaseType
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: OptionalExtensionField,
                         rhs: OptionalExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -109,14 +109,14 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   public typealias BaseType = T.BaseType
   public typealias ValueType = [BaseType]
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: RepeatedExtensionField,
                         rhs: RepeatedExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -161,14 +161,14 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
   public typealias BaseType = T.BaseType
   public typealias ValueType = [BaseType]
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: PackedExtensionField,
                         rhs: PackedExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -210,14 +210,14 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public typealias BaseType = E
   public typealias ValueType = E
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: OptionalEnumExtensionField,
                         rhs: OptionalEnumExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -259,14 +259,14 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
   public typealias BaseType = E
   public typealias ValueType = [E]
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: RepeatedEnumExtensionField,
                         rhs: RepeatedEnumExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -313,14 +313,14 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
   public typealias BaseType = E
   public typealias ValueType = [E]
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: PackedEnumExtensionField,
                         rhs: PackedEnumExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -365,14 +365,14 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
   public typealias BaseType = M
   public typealias ValueType = BaseType
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: OptionalMessageExtensionField,
                         rhs: OptionalMessageExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -413,14 +413,14 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
   public typealias BaseType = M
   public typealias ValueType = [BaseType]
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: RepeatedMessageExtensionField,
                         rhs: RepeatedMessageExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -471,14 +471,14 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
   public typealias BaseType = G
   public typealias ValueType = BaseType
   public var value: G
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: OptionalGroupExtensionField,
                         rhs: OptionalGroupExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
@@ -515,14 +515,14 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
   public typealias BaseType = G
   public typealias ValueType = [BaseType]
   public var value: ValueType
-  public var protobufExtension: MessageExtensionBase
+  public var protobufExtension: AnyMessageExtension
 
   public static func ==(lhs: RepeatedGroupExtensionField,
                         rhs: RepeatedGroupExtensionField) -> Bool {
     return lhs.value == rhs.value
   }
 
-  public init(protobufExtension: MessageExtensionBase, value: ValueType) {
+  public init(protobufExtension: AnyMessageExtension, value: ValueType) {
     self.protobufExtension = protobufExtension
     self.value = value
   }
