@@ -383,7 +383,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_b`
@@ -400,7 +400,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_c: ProtobufUnittest_Extend_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C) ?? ProtobufUnittest_Extend_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_C`
@@ -417,7 +417,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Msg1 {
   var ProtobufUnittest_Extend_aB: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_a_b`
@@ -434,7 +434,7 @@ extension ProtobufUnittest_Extend_Msg1 {
 
 extension ProtobufUnittest_Extend_Msg2 {
   var ProtobufUnittest_Extend_aB: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_aB`
@@ -451,7 +451,7 @@ extension ProtobufUnittest_Extend_Msg2 {
 
 extension ProtobufUnittest_Extend_MsgNoStorage {
   var ProtobufUnittest_Extend_extA: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_a`
@@ -468,7 +468,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
 
 extension ProtobufUnittest_Extend_MsgNoStorage {
   var ProtobufUnittest_Extend_extB: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_b`
@@ -485,7 +485,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
 
 extension ProtobufUnittest_Extend_MsgUsesStorage {
   var ProtobufUnittest_Extend_extC: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_c`
@@ -502,7 +502,7 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
 
 extension ProtobufUnittest_Extend_MsgUsesStorage {
   var ProtobufUnittest_Extend_extD: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend_Extensions_ext_d`
@@ -534,50 +534,42 @@ let ProtobufUnittest_Extend_UnittestSwiftExtension_Extensions: SwiftProtobuf.Sim
 
 let ProtobufUnittest_Extend_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.extend.b",
-  defaultValue: String()
+  fieldName: "protobuf_unittest.extend.b"
 )
 
 let ProtobufUnittest_Extend_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_Extend_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.c",
-  defaultValue: ProtobufUnittest_Extend_C()
+  fieldName: "protobuf_unittest.extend.c"
 )
 
 let ProtobufUnittest_Extend_Extensions_a_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg1>(
   _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.extend.a_b",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.extend.a_b"
 )
 
 let ProtobufUnittest_Extend_Extensions_aB = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_Msg2>(
   _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_unittest.extend.aB",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.extend.aB"
 )
 
 let ProtobufUnittest_Extend_Extensions_ext_a = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgNoStorage>(
   _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.extend.ext_a",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.extend.ext_a"
 )
 
 let ProtobufUnittest_Extend_Extensions_ext_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgNoStorage>(
   _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.ext_b",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.extend.ext_b"
 )
 
 let ProtobufUnittest_Extend_Extensions_ext_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgUsesStorage>(
   _protobuf_fieldNumber: 100,
-  fieldName: "protobuf_unittest.extend.ext_c",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.extend.ext_c"
 )
 
 let ProtobufUnittest_Extend_Extensions_ext_d = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_Extend_MsgUsesStorage>(
   _protobuf_fieldNumber: 101,
-  fieldName: "protobuf_unittest.extend.ext_d",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.extend.ext_d"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

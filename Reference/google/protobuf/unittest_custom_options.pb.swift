@@ -1408,7 +1408,7 @@ struct ProtobufUnittest_TestMessageWithRequiredEnumOption: SwiftProtobuf.Message
 
 extension Google_Protobuf_FileOptions {
   var ProtobufUnittest_fileOpt1: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_file_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_file_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_file_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_file_opt1`
@@ -1425,7 +1425,7 @@ extension Google_Protobuf_FileOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_messageOpt1: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_message_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_message_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_message_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_message_opt1`
@@ -1442,7 +1442,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_FieldOptions {
   var ProtobufUnittest_fieldOpt1: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_field_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_field_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_field_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_field_opt1`
@@ -1461,7 +1461,7 @@ extension Google_Protobuf_FieldOptions {
   /// This is useful for testing that we correctly register default values for
   /// extension options.
   var ProtobufUnittest_fieldOpt2: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_field_opt2)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_field_opt2) ?? 42}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_field_opt2, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_field_opt2`
@@ -1478,7 +1478,7 @@ extension Google_Protobuf_FieldOptions {
 
 extension Google_Protobuf_OneofOptions {
   var ProtobufUnittest_oneofOpt1: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_oneof_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_oneof_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_oneof_opt1`
@@ -1495,7 +1495,7 @@ extension Google_Protobuf_OneofOptions {
 
 extension Google_Protobuf_EnumOptions {
   var ProtobufUnittest_enumOpt1: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_enum_opt1`
@@ -1512,7 +1512,7 @@ extension Google_Protobuf_EnumOptions {
 
 extension Google_Protobuf_EnumValueOptions {
   var ProtobufUnittest_enumValueOpt1: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_value_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_value_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_enum_value_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_enum_value_opt1`
@@ -1529,7 +1529,7 @@ extension Google_Protobuf_EnumValueOptions {
 
 extension Google_Protobuf_ServiceOptions {
   var ProtobufUnittest_serviceOpt1: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_service_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_service_opt1) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_service_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_service_opt1`
@@ -1546,7 +1546,7 @@ extension Google_Protobuf_ServiceOptions {
 
 extension Google_Protobuf_MethodOptions {
   var ProtobufUnittest_methodOpt1: ProtobufUnittest_MethodOpt1 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_method_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_method_opt1) ?? .val1}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_method_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_method_opt1`
@@ -1563,7 +1563,7 @@ extension Google_Protobuf_MethodOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_boolOpt: Bool {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bool_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bool_opt) ?? false}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_bool_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_bool_opt`
@@ -1580,7 +1580,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_int32Opt: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_int32_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_int32_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_int32_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_int32_opt`
@@ -1597,7 +1597,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_int64Opt: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_int64_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_int64_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_int64_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_int64_opt`
@@ -1614,7 +1614,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_uint32Opt: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_uint32_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_uint32_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_uint32_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_uint32_opt`
@@ -1631,7 +1631,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_uint64Opt: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_uint64_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_uint64_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_uint64_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_uint64_opt`
@@ -1648,7 +1648,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_sint32Opt: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sint32_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sint32_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_sint32_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_sint32_opt`
@@ -1665,7 +1665,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_sint64Opt: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sint64_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sint64_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_sint64_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_sint64_opt`
@@ -1682,7 +1682,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_fixed32Opt: UInt32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fixed32_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fixed32_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_fixed32_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_fixed32_opt`
@@ -1699,7 +1699,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_fixed64Opt: UInt64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fixed64_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fixed64_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_fixed64_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_fixed64_opt`
@@ -1716,7 +1716,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_sfixed32Opt: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sfixed32_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sfixed32_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_sfixed32_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_sfixed32_opt`
@@ -1733,7 +1733,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_sfixed64Opt: Int64 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sfixed64_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_sfixed64_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_sfixed64_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_sfixed64_opt`
@@ -1750,7 +1750,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_floatOpt: Float {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_float_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_float_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_float_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_float_opt`
@@ -1767,7 +1767,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_doubleOpt: Double {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_double_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_double_opt) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_double_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_double_opt`
@@ -1784,7 +1784,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_stringOpt: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_string_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_string_opt) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_string_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_string_opt`
@@ -1801,7 +1801,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_bytesOpt: Data {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt) ?? SwiftProtobuf.Internal.emptyData}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_bytes_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_bytes_opt`
@@ -1818,7 +1818,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_enumOpt: ProtobufUnittest_DummyMessageContainingEnum.TestEnumType {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt) ?? .testOptionEnumType1}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_enum_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_enum_opt`
@@ -1835,7 +1835,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_messageTypeOpt: ProtobufUnittest_DummyMessageInvalidAsOptionType {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_message_type_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_message_type_opt) ?? ProtobufUnittest_DummyMessageInvalidAsOptionType()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_message_type_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_message_type_opt`
@@ -1852,7 +1852,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension ProtobufUnittest_ComplexOptionType1 {
   var ProtobufUnittest_quux: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_quux)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_quux) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_quux, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_quux`
@@ -1869,7 +1869,7 @@ extension ProtobufUnittest_ComplexOptionType1 {
 
 extension ProtobufUnittest_ComplexOptionType1 {
   var ProtobufUnittest_corge: ProtobufUnittest_ComplexOptionType3 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_corge)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_corge) ?? ProtobufUnittest_ComplexOptionType3()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_corge, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_corge`
@@ -1886,7 +1886,7 @@ extension ProtobufUnittest_ComplexOptionType1 {
 
 extension ProtobufUnittest_ComplexOptionType2 {
   var ProtobufUnittest_grault: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_grault)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_grault) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_grault, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_grault`
@@ -1903,7 +1903,7 @@ extension ProtobufUnittest_ComplexOptionType2 {
 
 extension ProtobufUnittest_ComplexOptionType2 {
   var ProtobufUnittest_garply: ProtobufUnittest_ComplexOptionType1 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_garply)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_garply) ?? ProtobufUnittest_ComplexOptionType1()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_garply, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_garply`
@@ -1920,7 +1920,7 @@ extension ProtobufUnittest_ComplexOptionType2 {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_complexOpt1: ProtobufUnittest_ComplexOptionType1 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt1)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt1) ?? ProtobufUnittest_ComplexOptionType1()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt1, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_complex_opt1`
@@ -1937,7 +1937,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_complexOpt2: ProtobufUnittest_ComplexOptionType2 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt2)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt2) ?? ProtobufUnittest_ComplexOptionType2()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt2, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_complex_opt2`
@@ -1954,7 +1954,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_complexOpt3: ProtobufUnittest_ComplexOptionType3 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt3)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt3) ?? ProtobufUnittest_ComplexOptionType3()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_complex_opt3, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_complex_opt3`
@@ -1971,7 +1971,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_complexOpt6: ProtobufUnittest_ComplexOpt6 {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_ComplexOpt6)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_ComplexOpt6) ?? ProtobufUnittest_ComplexOpt6()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_ComplexOpt6, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_ComplexOpt6`
@@ -1988,7 +1988,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_FileOptions {
   var ProtobufUnittest_fileopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fileopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fileopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_fileopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_fileopt`
@@ -2005,7 +2005,7 @@ extension Google_Protobuf_FileOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_msgopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_msgopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_msgopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_msgopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_msgopt`
@@ -2022,7 +2022,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_FieldOptions {
   var ProtobufUnittest_fieldopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fieldopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_fieldopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_fieldopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_fieldopt`
@@ -2039,7 +2039,7 @@ extension Google_Protobuf_FieldOptions {
 
 extension Google_Protobuf_EnumOptions {
   var ProtobufUnittest_enumopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enumopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enumopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_enumopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_enumopt`
@@ -2056,7 +2056,7 @@ extension Google_Protobuf_EnumOptions {
 
 extension Google_Protobuf_EnumValueOptions {
   var ProtobufUnittest_enumvalopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enumvalopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_enumvalopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_enumvalopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_enumvalopt`
@@ -2073,7 +2073,7 @@ extension Google_Protobuf_EnumValueOptions {
 
 extension Google_Protobuf_ServiceOptions {
   var ProtobufUnittest_serviceopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_serviceopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_serviceopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_serviceopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_serviceopt`
@@ -2090,7 +2090,7 @@ extension Google_Protobuf_ServiceOptions {
 
 extension Google_Protobuf_MethodOptions {
   var ProtobufUnittest_methodopt: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_methodopt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_methodopt) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_methodopt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_methodopt`
@@ -2107,7 +2107,7 @@ extension Google_Protobuf_MethodOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_requiredEnumOpt: ProtobufUnittest_OldOptionType {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_required_enum_opt)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extensions_required_enum_opt) ?? ProtobufUnittest_OldOptionType()}
     set {setExtensionValue(ext: ProtobufUnittest_Extensions_required_enum_opt, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extensions_required_enum_opt`
@@ -2124,7 +2124,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var ProtobufUnittest_ComplexOptionType2_ComplexOptionType4_complexOpt4: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
-    get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.complex_opt4)}
+    get {return getExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.complex_opt4) ?? ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()}
     set {setExtensionValue(ext: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.complex_opt4, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_ComplexOptionType2.ComplexOptionType4.Extensions.complex_opt4`
@@ -2141,7 +2141,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension ProtobufUnittest_AggregateMessageSet {
   var ProtobufUnittest_AggregateMessageSetElement_messageSetExtension: ProtobufUnittest_AggregateMessageSetElement {
-    get {return getExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.message_set_extension)}
+    get {return getExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.message_set_extension) ?? ProtobufUnittest_AggregateMessageSetElement()}
     set {setExtensionValue(ext: ProtobufUnittest_AggregateMessageSetElement.Extensions.message_set_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_AggregateMessageSetElement.Extensions.message_set_extension`
@@ -2158,7 +2158,7 @@ extension ProtobufUnittest_AggregateMessageSet {
 
 extension Google_Protobuf_FileOptions {
   var ProtobufUnittest_Aggregate_nested: ProtobufUnittest_Aggregate {
-    get {return getExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.nested)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.nested) ?? ProtobufUnittest_Aggregate()}
     set {setExtensionValue(ext: ProtobufUnittest_Aggregate.Extensions.nested, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Aggregate.Extensions.nested`
@@ -2175,7 +2175,7 @@ extension Google_Protobuf_FileOptions {
 
 extension Google_Protobuf_FileOptions {
   var ProtobufUnittest_NestedOptionType_nestedExtension: Int32 {
-    get {return getExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.nested_extension)}
+    get {return getExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.nested_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_NestedOptionType.Extensions.nested_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_NestedOptionType.Extensions.nested_extension`
@@ -2245,264 +2245,221 @@ let ProtobufUnittest_UnittestCustomOptions_Extensions: SwiftProtobuf.SimpleExten
 
 let ProtobufUnittest_Extensions_file_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 7736974,
-  fieldName: "protobuf_unittest.file_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.file_opt1"
 )
 
 let ProtobufUnittest_Extensions_message_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7739036,
-  fieldName: "protobuf_unittest.message_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.message_opt1"
 )
 
 let ProtobufUnittest_Extensions_field_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 7740936,
-  fieldName: "protobuf_unittest.field_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.field_opt1"
 )
 
 /// This is useful for testing that we correctly register default values for
 /// extension options.
 let ProtobufUnittest_Extensions_field_opt2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 7753913,
-  fieldName: "protobuf_unittest.field_opt2",
-  defaultValue: 42
+  fieldName: "protobuf_unittest.field_opt2"
 )
 
 let ProtobufUnittest_Extensions_oneof_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_OneofOptions>(
   _protobuf_fieldNumber: 7740111,
-  fieldName: "protobuf_unittest.oneof_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.oneof_opt1"
 )
 
 let ProtobufUnittest_Extensions_enum_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, Google_Protobuf_EnumOptions>(
   _protobuf_fieldNumber: 7753576,
-  fieldName: "protobuf_unittest.enum_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.enum_opt1"
 )
 
 let ProtobufUnittest_Extensions_enum_value_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_EnumValueOptions>(
   _protobuf_fieldNumber: 1560678,
-  fieldName: "protobuf_unittest.enum_value_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.enum_value_opt1"
 )
 
 let ProtobufUnittest_Extensions_service_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 7887650,
-  fieldName: "protobuf_unittest.service_opt1",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.service_opt1"
 )
 
 let ProtobufUnittest_Extensions_method_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_MethodOpt1>, Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 7890860,
-  fieldName: "protobuf_unittest.method_opt1",
-  defaultValue: .val1
+  fieldName: "protobuf_unittest.method_opt1"
 )
 
 let ProtobufUnittest_Extensions_bool_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBool>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7706090,
-  fieldName: "protobuf_unittest.bool_opt",
-  defaultValue: false
+  fieldName: "protobuf_unittest.bool_opt"
 )
 
 let ProtobufUnittest_Extensions_int32_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7705709,
-  fieldName: "protobuf_unittest.int32_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.int32_opt"
 )
 
 let ProtobufUnittest_Extensions_int64_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7705542,
-  fieldName: "protobuf_unittest.int64_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.int64_opt"
 )
 
 let ProtobufUnittest_Extensions_uint32_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7704880,
-  fieldName: "protobuf_unittest.uint32_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.uint32_opt"
 )
 
 let ProtobufUnittest_Extensions_uint64_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufUInt64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7702367,
-  fieldName: "protobuf_unittest.uint64_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.uint64_opt"
 )
 
 let ProtobufUnittest_Extensions_sint32_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7701568,
-  fieldName: "protobuf_unittest.sint32_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.sint32_opt"
 )
 
 let ProtobufUnittest_Extensions_sint64_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSInt64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7700863,
-  fieldName: "protobuf_unittest.sint64_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.sint64_opt"
 )
 
 let ProtobufUnittest_Extensions_fixed32_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7700307,
-  fieldName: "protobuf_unittest.fixed32_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.fixed32_opt"
 )
 
 let ProtobufUnittest_Extensions_fixed64_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFixed64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7700194,
-  fieldName: "protobuf_unittest.fixed64_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.fixed64_opt"
 )
 
 let ProtobufUnittest_Extensions_sfixed32_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed32>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7698645,
-  fieldName: "protobuf_unittest.sfixed32_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.sfixed32_opt"
 )
 
 let ProtobufUnittest_Extensions_sfixed64_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufSFixed64>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7685475,
-  fieldName: "protobuf_unittest.sfixed64_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.sfixed64_opt"
 )
 
 let ProtobufUnittest_Extensions_float_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufFloat>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7675390,
-  fieldName: "protobuf_unittest.float_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.float_opt"
 )
 
 let ProtobufUnittest_Extensions_double_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufDouble>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673293,
-  fieldName: "protobuf_unittest.double_opt",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.double_opt"
 )
 
 let ProtobufUnittest_Extensions_string_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673285,
-  fieldName: "protobuf_unittest.string_opt",
-  defaultValue: String()
+  fieldName: "protobuf_unittest.string_opt"
 )
 
 let ProtobufUnittest_Extensions_bytes_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufBytes>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673238,
-  fieldName: "protobuf_unittest.bytes_opt",
-  defaultValue: SwiftProtobuf.Internal.emptyData
+  fieldName: "protobuf_unittest.bytes_opt"
 )
 
 let ProtobufUnittest_Extensions_enum_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<ProtobufUnittest_DummyMessageContainingEnum.TestEnumType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7673233,
-  fieldName: "protobuf_unittest.enum_opt",
-  defaultValue: .testOptionEnumType1
+  fieldName: "protobuf_unittest.enum_opt"
 )
 
 let ProtobufUnittest_Extensions_message_type_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_DummyMessageInvalidAsOptionType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7665967,
-  fieldName: "protobuf_unittest.message_type_opt",
-  defaultValue: ProtobufUnittest_DummyMessageInvalidAsOptionType()
+  fieldName: "protobuf_unittest.message_type_opt"
 )
 
 let ProtobufUnittest_Extensions_quux = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_ComplexOptionType1>(
   _protobuf_fieldNumber: 7663707,
-  fieldName: "protobuf_unittest.quux",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.quux"
 )
 
 let ProtobufUnittest_Extensions_corge = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType3>, ProtobufUnittest_ComplexOptionType1>(
   _protobuf_fieldNumber: 7663442,
-  fieldName: "protobuf_unittest.corge",
-  defaultValue: ProtobufUnittest_ComplexOptionType3()
+  fieldName: "protobuf_unittest.corge"
 )
 
 let ProtobufUnittest_Extensions_grault = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufUnittest_ComplexOptionType2>(
   _protobuf_fieldNumber: 7650927,
-  fieldName: "protobuf_unittest.grault",
-  defaultValue: 0
+  fieldName: "protobuf_unittest.grault"
 )
 
 let ProtobufUnittest_Extensions_garply = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType1>, ProtobufUnittest_ComplexOptionType2>(
   _protobuf_fieldNumber: 7649992,
-  fieldName: "protobuf_unittest.garply",
-  defaultValue: ProtobufUnittest_ComplexOptionType1()
+  fieldName: "protobuf_unittest.garply"
 )
 
 let ProtobufUnittest_Extensions_complex_opt1 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType1>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7646756,
-  fieldName: "protobuf_unittest.complex_opt1",
-  defaultValue: ProtobufUnittest_ComplexOptionType1()
+  fieldName: "protobuf_unittest.complex_opt1"
 )
 
 let ProtobufUnittest_Extensions_complex_opt2 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType2>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7636949,
-  fieldName: "protobuf_unittest.complex_opt2",
-  defaultValue: ProtobufUnittest_ComplexOptionType2()
+  fieldName: "protobuf_unittest.complex_opt2"
 )
 
 let ProtobufUnittest_Extensions_complex_opt3 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType3>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7636463,
-  fieldName: "protobuf_unittest.complex_opt3",
-  defaultValue: ProtobufUnittest_ComplexOptionType3()
+  fieldName: "protobuf_unittest.complex_opt3"
 )
 
 let ProtobufUnittest_Extensions_ComplexOpt6 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_ComplexOpt6>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 7595468,
-  fieldName: "protobuf_unittest.complexopt6",
-  defaultValue: ProtobufUnittest_ComplexOpt6()
+  fieldName: "protobuf_unittest.complexopt6"
 )
 
 let ProtobufUnittest_Extensions_fileopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FileOptions>(
   _protobuf_fieldNumber: 15478479,
-  fieldName: "protobuf_unittest.fileopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.fileopt"
 )
 
 let ProtobufUnittest_Extensions_msgopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 15480088,
-  fieldName: "protobuf_unittest.msgopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.msgopt"
 )
 
 let ProtobufUnittest_Extensions_fieldopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 15481374,
-  fieldName: "protobuf_unittest.fieldopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.fieldopt"
 )
 
 let ProtobufUnittest_Extensions_enumopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_EnumOptions>(
   _protobuf_fieldNumber: 15483218,
-  fieldName: "protobuf_unittest.enumopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.enumopt"
 )
 
 let ProtobufUnittest_Extensions_enumvalopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_EnumValueOptions>(
   _protobuf_fieldNumber: 15486921,
-  fieldName: "protobuf_unittest.enumvalopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.enumvalopt"
 )
 
 let ProtobufUnittest_Extensions_serviceopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_ServiceOptions>(
   _protobuf_fieldNumber: 15497145,
-  fieldName: "protobuf_unittest.serviceopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.serviceopt"
 )
 
 let ProtobufUnittest_Extensions_methodopt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_MethodOptions>(
   _protobuf_fieldNumber: 15512713,
-  fieldName: "protobuf_unittest.methodopt",
-  defaultValue: ProtobufUnittest_Aggregate()
+  fieldName: "protobuf_unittest.methodopt"
 )
 
 let ProtobufUnittest_Extensions_required_enum_opt = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_OldOptionType>, Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 106161807,
-  fieldName: "protobuf_unittest.required_enum_opt",
-  defaultValue: ProtobufUnittest_OldOptionType()
+  fieldName: "protobuf_unittest.required_enum_opt"
 )
 
 extension ProtobufUnittest_ComplexOptionType2.ComplexOptionType4 {
   enum Extensions {
     static let complex_opt4 = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_ComplexOptionType2.ComplexOptionType4>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 7633546,
-      fieldName: "protobuf_unittest.ComplexOptionType2.ComplexOptionType4.complex_opt4",
-      defaultValue: ProtobufUnittest_ComplexOptionType2.ComplexOptionType4()
+      fieldName: "protobuf_unittest.ComplexOptionType2.ComplexOptionType4.complex_opt4"
     )
   }
 }
@@ -2511,8 +2468,7 @@ extension ProtobufUnittest_AggregateMessageSetElement {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_AggregateMessageSetElement>, ProtobufUnittest_AggregateMessageSet>(
       _protobuf_fieldNumber: 15447542,
-      fieldName: "protobuf_unittest.AggregateMessageSetElement.message_set_extension",
-      defaultValue: ProtobufUnittest_AggregateMessageSetElement()
+      fieldName: "protobuf_unittest.AggregateMessageSetElement.message_set_extension"
     )
   }
 }
@@ -2521,8 +2477,7 @@ extension ProtobufUnittest_Aggregate {
   enum Extensions {
     static let nested = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_Aggregate>, Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 15476903,
-      fieldName: "protobuf_unittest.Aggregate.nested",
-      defaultValue: ProtobufUnittest_Aggregate()
+      fieldName: "protobuf_unittest.Aggregate.nested"
     )
   }
 }
@@ -2531,8 +2486,7 @@ extension ProtobufUnittest_NestedOptionType {
   enum Extensions {
     static let nested_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_FileOptions>(
       _protobuf_fieldNumber: 7912573,
-      fieldName: "protobuf_unittest.NestedOptionType.nested_extension",
-      defaultValue: 0
+      fieldName: "protobuf_unittest.NestedOptionType.nested_extension"
     )
   }
 }

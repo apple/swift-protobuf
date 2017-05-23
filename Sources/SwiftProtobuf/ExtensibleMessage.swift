@@ -22,15 +22,15 @@ public extension ExtensibleMessage {
         _protobuf_extensionFieldValues[ext.fieldNumber] = F(protobufExtension: ext, value: value)
     }
 
-    func getExtensionValue<F>(ext: MessageExtension<F, Self>) -> F.ValueType {
-     if let fieldValue = _protobuf_extensionFieldValues[ext.fieldNumber] as? F {
-       return fieldValue.value
-     }
-     return ext.defaultValue
+    func getExtensionValue<F>(ext: MessageExtension<F, Self>) -> F.ValueType? {
+        if let fieldValue = _protobuf_extensionFieldValues[ext.fieldNumber] as? F {
+          return fieldValue.value
+        }
+        return nil
     }
 
     func hasExtensionValue<F>(ext: MessageExtension<F, Self>) -> Bool {
-      return _protobuf_extensionFieldValues[ext.fieldNumber] is F
+        return _protobuf_extensionFieldValues[ext.fieldNumber] is F
     }
 
     mutating func clearExtensionValue<F>(ext: MessageExtension<F, Self>) {

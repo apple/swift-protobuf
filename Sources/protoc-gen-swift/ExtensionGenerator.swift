@@ -65,7 +65,6 @@ class ExtensionGenerator {
         let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
         let traitsType = fieldDescriptor.traitsType(namer: namer)
         let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
-        let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
         var fieldNamePath = fieldDescriptor.fullName
         assert(fieldNamePath.hasPrefix("."))
@@ -77,8 +76,7 @@ class ExtensionGenerator {
         p.indent()
         p.print(
           "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
-          "fieldName: \"\(fieldNamePath)\",\n",
-          "defaultValue: \(defaultValue)\n")
+          "fieldName: \"\(fieldNamePath)\"\n")
         p.outdent()
         p.print(")\n")
     }
@@ -87,6 +85,7 @@ class ExtensionGenerator {
         let visibility = generatorOptions.visibilitySourceSnippet
         let apiType = fieldDescriptor.swiftType(namer: namer)
         let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
+        let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
         p.print("\n")
         p.print("extension \(containingTypeSwiftFullName) {\n")
@@ -96,7 +95,7 @@ class ExtensionGenerator {
           "\(visibility)var \(extensionNames.value): \(apiType) {\n")
         p.indent()
         p.print(
-          "get {return getExtensionValue(ext: \(swiftFullExtensionName))}\n",
+          "get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}\n",
           "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
         p.outdent()
         p.print("}\n")

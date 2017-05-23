@@ -115,7 +115,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message {
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   /// Singular
   var ProtobufObjcUnittest_optionalInt32Extension: Int32 {
-    get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension)}
+    get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufObjcUnittest_Extensions_optional_int32_extension`
@@ -132,7 +132,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_repeatedInt32Extension: [Int32] {
-    get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension)}
+    get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension) ?? []}
     set {setExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufObjcUnittest_Extensions_repeated_int32_extension`
@@ -149,7 +149,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String {
-    get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension)}
+    get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension, value: newValue)}
   }
   /// Returns true if extension `ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension`
@@ -177,22 +177,19 @@ let ProtobufObjcUnittest_UnittestSwiftStartup_Extensions: SwiftProtobuf.SimpleEx
 /// Singular
 let ProtobufObjcUnittest_Extensions_optional_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
   _protobuf_fieldNumber: 1,
-  fieldName: "protobuf_objc_unittest.optional_int32_extension",
-  defaultValue: 0
+  fieldName: "protobuf_objc_unittest.optional_int32_extension"
 )
 
 let ProtobufObjcUnittest_Extensions_repeated_int32_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufInt32>, ProtobufObjcUnittest_TestObjCStartupMessage>(
   _protobuf_fieldNumber: 2,
-  fieldName: "protobuf_objc_unittest.repeated_int32_extension",
-  defaultValue: []
+  fieldName: "protobuf_objc_unittest.repeated_int32_extension"
 )
 
 extension ProtobufObjcUnittest_TestObjCStartupNested {
   enum Extensions {
     static let nested_string_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufObjcUnittest_TestObjCStartupMessage>(
       _protobuf_fieldNumber: 3,
-      fieldName: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension",
-      defaultValue: String()
+      fieldName: "protobuf_objc_unittest.TestObjCStartupNested.nested_string_extension"
     )
   }
 }

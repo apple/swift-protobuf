@@ -130,7 +130,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
-    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)}
+    get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
   }
   /// Returns true if extension `Google_Protobuf_NoGenericServicesTest_Extensions_test_extension`
@@ -155,8 +155,7 @@ let Google_Protobuf_NoGenericServicesTest_UnittestNoGenericServices_Extensions: 
 
 let Google_Protobuf_NoGenericServicesTest_Extensions_test_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Google_Protobuf_NoGenericServicesTest_TestMessage>(
   _protobuf_fieldNumber: 1000,
-  fieldName: "google.protobuf.no_generic_services_test.test_extension",
-  defaultValue: 0
+  fieldName: "google.protobuf.no_generic_services_test.test_extension"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

@@ -501,7 +501,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
 
 extension SwiftTestGroupExtensions {
   var extensionGroup: ExtensionGroup {
-    get {return getExtensionValue(ext: Extensions_ExtensionGroup)}
+    get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
     set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
   }
   /// Returns true if extension `Extensions_ExtensionGroup`
@@ -518,7 +518,7 @@ extension SwiftTestGroupExtensions {
 
 extension SwiftTestGroupExtensions {
   var repeatedExtensionGroup: [RepeatedExtensionGroup] {
-    get {return getExtensionValue(ext: Extensions_RepeatedExtensionGroup)}
+    get {return getExtensionValue(ext: Extensions_RepeatedExtensionGroup) ?? []}
     set {setExtensionValue(ext: Extensions_RepeatedExtensionGroup, value: newValue)}
   }
   /// Returns true if extension `Extensions_RepeatedExtensionGroup`
@@ -544,14 +544,12 @@ let UnittestSwiftGroups_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 
 let Extensions_ExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ExtensionGroup>, SwiftTestGroupExtensions>(
   _protobuf_fieldNumber: 2,
-  fieldName: "extensiongroup",
-  defaultValue: ExtensionGroup()
+  fieldName: "extensiongroup"
 )
 
 let Extensions_RepeatedExtensionGroup = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedGroupExtensionField<RepeatedExtensionGroup>, SwiftTestGroupExtensions>(
   _protobuf_fieldNumber: 3,
-  fieldName: "repeatedextensiongroup",
-  defaultValue: []
+  fieldName: "repeatedextensiongroup"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
