@@ -1007,11 +1007,22 @@ internal struct BinaryDecoder: Decoder {
 
     internal mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
         if let ext = extensions?[messageType, fieldNumber] {
-            var fieldValue = values[fieldNumber] ?? ext._protobuf_newField()
             assert(!consumed)
-            try fieldValue.decodeExtensionField(decoder: &self)
+            var fieldValue = values[fieldNumber]
+            if fieldValue != nil {
+                try fieldValue!.decodeExtensionField(decoder: &self)
+            } else {
+                fieldValue = try ext._protobuf_newField(decoder: &self)
+            }
             if consumed {
-              values[fieldNumber] = fieldValue
+                if fieldValue != nil {
+                    values[fieldNumber] = fieldValue
+                } else {
+                    // Really things should never get here as the required data
+                    // should always be available or the decode of the extension
+                    // would throw.
+                    throw BinaryDecodingError.truncated
+                }
             }
         }
     }
