@@ -34,11 +34,11 @@ Building the plugin should be simple on any supported Swift platform:
 ```
 $ git clone https://github.com/apple/swift-protobuf
 $ cd swift-protobuf
-$ swift build
+$ swift build -c release -Xswiftc -static-stdlib
 ```
 
 This will create a binary called `protoc-gen-swift` in the
-`.build/debug` directory.  To install, just copy this one executable
+`.build/release` directory.  To install, just copy this one executable
 anywhere in your PATH.
 
 ### Converting .proto files into Swift
