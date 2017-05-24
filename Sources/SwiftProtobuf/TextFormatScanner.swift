@@ -622,7 +622,7 @@ internal struct TextFormatScanner {
           parseBytesFromString(terminator: c, into: &result)
         } else {
           result = Data(bytes: p, count: n)
-          p += n + 1
+          p += n + 1 // Skip string body + close quote
         }
 
         // If there are more strings, decode them
@@ -645,7 +645,7 @@ internal struct TextFormatScanner {
               result.append(b)
             } else {
               result.append(p, count: n)
-              p += n + 1
+              p += n + 1 // Skip string body + close quote
             }
         }
     }
