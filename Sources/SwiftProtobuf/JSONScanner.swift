@@ -79,41 +79,147 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
   }
 }
 
+// Decode the RFC 4648 section 4 Base 64 encoding.
+let base64Values: [Int] = [
+/* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0x20 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63,
+/* 0x30 */ 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,
+/* 0x40 */ -1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,
+/* 0x50 */ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1,
+/* 0x60 */ -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+/* 0x70 */ 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1,
+/* 0x80 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0x90 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0xa0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0xb0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0xc0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0xd0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0xe0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+/* 0xf0 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
+]
+
 /// Returns a `Data` value containing bytes equivalent to the given
 /// Base64-encoded string, or nil if the conversion fails.
-private func decodeBytes(base64String s: String) -> Data? {
-  var out = [UInt8]()
-  let digits = s.utf8
-  var n = 0
-  var bits = 0
-  for (i, digit) in digits.enumerated() {
-    n <<= 6
-    switch digit {
-    case asciiUpperA...asciiUpperZ: n |= Int(digit - asciiUpperA); bits += 6
-    case asciiLowerA...asciiLowerZ:
-        n |= Int(digit - asciiLowerA + UInt8(26)); bits += 6
-    case asciiZero...asciiNine: n |= Int(digit - asciiZero + UInt8(52)); bits += 6
-    case 43: n |= 62; bits += 6
-    case 47: n |= 63; bits += 6
-    case 61: n |= 0
-    default:
-      return nil
+///
+/// Notes on Google's implementation (Base64Unescape() in strutil.cc):
+///  * Google's C++ implementation accepts arbitrary whitespace
+///    mixed in with the base-64 characters
+///  * Google's C++ implementation ignores missing '=' characters
+///    but if present, there must be the exact correct number of them.
+///
+/// Note: Google's C++ code seems to allow many base-64 extensions
+/// (including websafe and '.' as padding), but the Java version just
+/// uses uses Guava's BaseEncoding.base64() (which only supports the
+/// RFC4648 standard encoding) and the conformance test explicitly
+/// requires us to reject '-' and '_' characters.
+private func parseBytes(
+  source: UnsafeBufferPointer<UInt8>,
+  index: inout UnsafeBufferPointer<UInt8>.Index,
+  end: UnsafeBufferPointer<UInt8>.Index
+) throws -> Data {
+    let c = source[index]
+    if c != asciiDoubleQuote {
+        throw JSONDecodingError.malformedString
     }
-    if i % 4 == 3 {
-      out.append(UInt8(truncatingBitPattern: n >> 16))
-      if bits >= 16 {
-        out.append(UInt8(truncatingBitPattern: n >> 8))
-        if bits >= 24 {
-          out.append(UInt8(truncatingBitPattern: n))
+    source.formIndex(after: &index)
+
+    // Count the base-64 digits
+    let digitsStart = index
+    var rawChars = 0
+    while index != end {
+        let digit = source[index]
+        if digit == asciiDoubleQuote {
+            break
         }
-      }
-      bits = 0
+        let k = base64Values[Int(digit)]
+        if k >= 0 {
+            rawChars += 1
+        }
+        source.formIndex(after: &index)
     }
-  }
-  if bits != 0 {
-    return nil
-  }
-  return Data(bytes: out)
+
+    // We reached the end without seeing the close quote
+    if index == end {
+        throw JSONDecodingError.malformedString
+    }
+
+    // Allocate a Data object of exactly the right size
+    var value = Data(count: rawChars * 3 / 4)
+
+    // Scan the digits again and populate the Data object
+    index = digitsStart
+    try value.withUnsafeMutableBytes {
+        (dataPointer: UnsafeMutablePointer<UInt8>) in
+        var p = dataPointer
+        var n = 0
+        var chars = 0 // # chars in current group
+        var padding = 0 // # padding '=' chars
+        digits: while true {
+            let digit = source[index]
+            let k = base64Values[Int(digit)]
+            if k >= 0 {
+                n <<= 6
+                n |= k
+                chars += 1
+                if chars == 4 {
+                    p[0] = UInt8(truncatingBitPattern: n >> 16)
+                    p[1] = UInt8(truncatingBitPattern: n >> 8)
+                    p[2] = UInt8(truncatingBitPattern: n)
+                    p += 3
+                    chars = 0
+                    n = 0
+                }
+            } else {
+                switch digit {
+                case asciiDoubleQuote:
+                    source.formIndex(after: &index)
+                    break digits
+                case asciiSpace:
+                    break
+                case 61: // Count padding
+                    while true {
+                        switch source[index] {
+                        case asciiDoubleQuote:
+                            source.formIndex(after: &index)
+                            break digits
+                        case asciiSpace:
+                            break
+                        case 61:
+                            padding += 1
+                        default: // Only '=' and whitespace permitted
+                            throw JSONDecodingError.malformedString
+                        }
+                        source.formIndex(after: &index)
+                    }
+                default:
+                    throw JSONDecodingError.malformedString
+                }
+            }
+            source.formIndex(after: &index)
+        }
+        switch chars {
+        case 3:
+            p[0] = UInt8(truncatingBitPattern: n >> 10)
+            p[1] = UInt8(truncatingBitPattern: n >> 2)
+            if padding == 1 {
+                return
+            }
+        case 2:
+            p[0] = UInt8(truncatingBitPattern: n >> 4)
+            if padding == 2 {
+                return
+            }
+        case 0:
+            if padding == 0 {
+                return
+            }
+        default:
+            break
+        }
+        throw JSONDecodingError.malformedString
+    }
+    return value
 }
 
 // JSON encoding allows a variety of \-escapes, including
@@ -677,7 +783,6 @@ internal struct JSONScanner {
     throw JSONDecodingError.malformedNumber
   }
 
-
   /// Parse a signed integer, quoted or not, including handling
   /// backslash escapes for quoted values.
   ///
@@ -913,21 +1018,21 @@ internal struct JSONScanner {
 
   /// Return a Data with the decoded contents of the
   /// following base-64 string.
+  ///
+  /// Notes on Google's implementation:
+  ///  * Google's C++ implementation accepts arbitrary whitespace
+  ///    mixed in with the base-64 characters
+  ///  * Google's C++ implementation ignores missing '=' characters
+  ///    but if present, there must be the exact correct number of them.
+  ///  * Google's C++ implementation accepts both "regular" and
+  ///    "web-safe" base-64 variants (it seems to prefer the
+  ///    web-safe version as defined in RFC 4648
   internal mutating func nextBytesValue() throws -> Data {
     skipWhitespace()
     guard hasMoreContent else {
       throw JSONDecodingError.truncated
     }
-    let c = currentByte
-    if c != asciiDoubleQuote {
-      throw JSONDecodingError.malformedString
-    }
-    if let s = parseOptionalQuotedString(),
-      let b = decodeBytes(base64String: s) {
-      return b
-    } else {
-      throw JSONDecodingError.malformedString
-    }
+    return try parseBytes(source: source, index: &index, end: source.endIndex)
   }
 
   /// Private function to help parse keywords.

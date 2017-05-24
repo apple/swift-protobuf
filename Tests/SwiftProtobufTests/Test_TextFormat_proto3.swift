@@ -558,7 +558,7 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         }
         assertTextFormatDecodeSucceeds("single_string: \"\\x1\\x12\\x123\\x1234\"") {
             (o: MessageTestType) in
-            return o.singleString == "\u{01}\u{12}\u{23}\u{34}"
+            return o.singleString == "\u{01}\u{12}\u{12}3\u{12}34"
         }
         assertTextFormatDecodeSucceeds("single_string: \"\\x0f\\x3g\"") {
             (o: MessageTestType) in
@@ -632,15 +632,15 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             return o.singleBytes == Data(bytes: [65, 66])
         }
         assertTextFormatDecodeSucceeds("single_bytes: \"\\0\\1AB\\178\\189\\x61\\xdq\\x123456789\"\n") {(o: MessageTestType) in
-            return o.singleBytes == Data(bytes: [0, 1, 65, 66, 15, 56, 1, 56, 57, 97, 13, 113, 137])
+            return o.singleBytes == Data(bytes: [0, 1, 65, 66, 15, 56, 1, 56, 57, 97, 13, 113, 18, 51, 52, 53, 54, 55, 56, 57])
         }
         // "\1" followed by "2", not "\12"
         assertTextFormatDecodeSucceeds("single_bytes: \"\\1\" \"2\"") {(o: MessageTestType) in
             return o.singleBytes == Data(bytes: [1, 50]) // Not [10]
         }
-        // "\x61" followed by "6" and "2", not "\x6162" (== "\x62")
-        assertTextFormatDecodeSucceeds("single_bytes: \"\\x61\" \"62\"") {(o: MessageTestType) in
-            return o.singleBytes == Data(bytes: [97, 54, 50]) // Not [98]
+        // "\x6" followed by "2", not "\x62"
+        assertTextFormatDecodeSucceeds("single_bytes: \"\\x6\" \"2\"") {(o: MessageTestType) in
+            return o.singleBytes == Data(bytes: [6, 50]) // Not [98]
         }
         assertTextFormatDecodeSucceeds("single_bytes: \"\"\n") {(o: MessageTestType) in
             return o.singleBytes == Data()
@@ -655,6 +655,17 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("single_bytes: \"\\x&\"\n")
         assertTextFormatDecodeFails("single_bytes: \"\\xg\"\n")
         assertTextFormatDecodeFails("single_bytes: \"\\q\"\n")
+        assertTextFormatDecodeFails("single_bytes: \"\\777\"\n") // Out-of-range octal
+        assertTextFormatDecodeFails("single_bytes: \"")
+        assertTextFormatDecodeFails("single_bytes: \"abcde")
+        assertTextFormatDecodeFails("single_bytes: \"\\")
+        assertTextFormatDecodeFails("single_bytes: \"\\3")
+        assertTextFormatDecodeFails("single_bytes: \"\\32")
+        assertTextFormatDecodeFails("single_bytes: \"\\232")
+        assertTextFormatDecodeFails("single_bytes: \"\\x")
+        assertTextFormatDecodeFails("single_bytes: \"\\x1")
+        assertTextFormatDecodeFails("single_bytes: \"\\x12")
+        assertTextFormatDecodeFails("single_bytes: \"\\x12q")
     }
 
     func testEncoding_singleBytes_roundtrip() throws {

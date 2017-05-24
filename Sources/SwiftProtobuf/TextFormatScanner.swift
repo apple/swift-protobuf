@@ -23,6 +23,7 @@ private let asciiFormFeed = UInt8(12)
 private let asciiCarriageReturn = UInt8(13)
 private let asciiZero = UInt8(ascii: "0")
 private let asciiOne = UInt8(ascii: "1")
+private let asciiThree = UInt8(ascii: "3")
 private let asciiSeven = UInt8(ascii: "7")
 private let asciiNine = UInt8(ascii: "9")
 private let asciiColon = UInt8(ascii: ":")
@@ -76,92 +77,6 @@ private func fromHexDigit(_ c: UInt8) -> UInt8? {
   return nil
 }
 
-// Protobuf Text format uses C ASCII conventions for
-// encoding byte sequences, including the use of octal
-// and hexadecimal escapes.
-private func decodeBytes(_ s: String) -> Data? {
-  var out = [UInt8]()
-  var bytes = s.utf8.makeIterator()
-  while let byte = bytes.next() {
-    switch byte {
-    case asciiBackslash: //  "\\"
-      if let escaped = bytes.next() {
-        switch escaped {
-        case asciiZero...asciiSeven: // '0'...'7'
-          // C standard allows 1, 2, or 3 octal digits.
-          let savedPosition = bytes
-          let digit1 = escaped
-          let digit1Value = digit1 - asciiZero
-          if let digit2 = bytes.next(),
-             digit2 >= asciiZero, digit2 <= asciiSeven {
-            let digit2Value = digit2 - asciiZero
-            let innerSavedPosition = bytes
-            if let digit3 = bytes.next(),
-               digit3 >= asciiZero, digit3 <= asciiSeven {
-              let digit3Value = digit3 - asciiZero
-              let n = digit1Value * 64 + digit2Value * 8 + digit3Value
-              out.append(UInt8(n))
-            } else {
-              let n = digit1Value * 8 + digit2Value
-              out.append(UInt8(n))
-              bytes = innerSavedPosition
-            }
-          } else {
-            let n = digit1Value
-            out.append(UInt8(n))
-            bytes = savedPosition
-          }
-        case asciiLowerX: // 'x' hexadecimal escape
-          // C standard allows any number of digits after \x
-          // We ignore all but the last two
-          var n: UInt8 = 0
-          var count = 0
-          var savedPosition = bytes
-          while let byte = bytes.next(), let digit = fromHexDigit(byte) {
-            n &= 15
-            n = n * 16
-            n += digit
-            count += 1
-            savedPosition = bytes
-          }
-          bytes = savedPosition
-          if count > 0 {
-            out.append(n)
-          } else {
-            return nil // Hex escape must have at least 1 digit
-          }
-        case asciiLowerA: // \a ("alert")
-          out.append(asciiBell)
-        case asciiLowerB: // \b
-          out.append(asciiBackspace)
-        case asciiLowerF: // \f
-          out.append(asciiFormFeed)
-        case asciiLowerN: // \n
-          out.append(asciiNewLine)
-        case asciiLowerR: // \r
-          out.append(asciiCarriageReturn)
-        case asciiLowerT: // \t
-          out.append(asciiTab)
-        case asciiLowerV: // \v
-          out.append(asciiVerticalTab)
-        case asciiSingleQuote,
-             asciiDoubleQuote,
-             asciiQuestionMark,
-             asciiBackslash: // \'  \"  \?  \\
-          out.append(escaped)
-        default:
-          return nil // Unrecognized escape
-        }
-      } else {
-        return nil // Input ends with backslash
-      }
-    default:
-      out.append(byte)
-    }
-  }
-  return Data(bytes: out)
-}
-
 // Protobuf Text encoding assumes that you're working directly
 // in UTF-8.  So this implementation converts the string to UTF8,
 // then decodes it into a sequence of bytes, then converts
@@ -199,20 +114,16 @@ private func decodeString(_ s: String) -> String? {
             bytes = savedPosition
           }
         case asciiLowerX: // "x"
-          // C standard allows any number of hex digits after \x
-          // We ignore all but the last two
-          var n: UInt8 = 0
-          var count = 0
-          var savedPosition = bytes
-          while let byte = bytes.next(), let digit = fromHexDigit(byte) {
-            n &= 15
-            n = n * 16
-            n += digit
-            count += 1
-            savedPosition = bytes
-          }
-          bytes = savedPosition
-          if count > 0 {
+          // Unlike C/C++, protobuf only allows 1 or 2 digits here:
+          if let byte = bytes.next(), let digit = fromHexDigit(byte) {
+            var n = digit
+            let savedPosition = bytes
+            if let byte = bytes.next(), let digit = fromHexDigit(byte) {
+              n = n &* 16 + digit
+            } else {
+              // No second digit; reset the iterator
+              bytes = savedPosition
+            }
             out.append(n)
           } else {
             return nil // Hex escape must have at least 1 digit
@@ -357,26 +268,153 @@ internal struct TextFormatScanner {
         return nil
     }
 
-    /// Assumes the leading quote has already been consumed
-    private mutating func parseQuotedString(terminator: UInt8) -> String? {
-        let start = p
-        while p != end {
-            let c = p[0]
-            if c == terminator {
-                let s = utf8ToString(bytes: start, count: p - start)
-                p += 1
-                skipWhitespace()
-                return s
-            }
-            p += 1
-            if c == asciiBackslash { //  \
-                if p == end {
-                    return nil
-                }
-                p += 1
-            }
+    /// Scan a string that encodes a byte field, return a count of
+    /// the number of bytes that should be decoded from it
+    private mutating func validateAndCountBytesFromString(terminator: UInt8, sawBackslash: inout Bool) throws -> Int {
+      var count = 0
+      let start = p
+      sawBackslash = false
+      while p != end {
+        let byte = p[0]
+        p += 1
+        if byte == terminator {
+          p = start
+          return count
         }
-        return nil // Unterminated quoted string
+        switch byte {
+        case asciiBackslash: //  "\\"
+          sawBackslash = true
+          if p != end {
+            let escaped = p[0]
+            p += 1
+            switch escaped {
+              case asciiZero...asciiSeven: // '0'...'7'
+                // C standard allows 1, 2, or 3 octal digits.
+                if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
+                  p += 1
+                  if p != end, p[0] >= asciiZero, p[0] <= asciiSeven {
+                    if escaped > asciiThree {
+                       // Out of range octal: three digits and first digit is greater than 3
+                      throw TextFormatDecodingError.malformedText
+                    }
+                    p += 1
+                  }
+                }
+                count += 1
+              case asciiLowerX: // 'x' hexadecimal escape
+                if p != end && fromHexDigit(p[0]) != nil {
+                  p += 1
+                  if p != end && fromHexDigit(p[0]) != nil {
+                    p += 1
+                  }
+                } else {
+                  throw TextFormatDecodingError.malformedText // Hex escape must have at least 1 digit
+                }
+                count += 1
+              case asciiLowerA, // \a ("alert")
+                   asciiLowerB, // \b
+                   asciiLowerF, // \f
+                   asciiLowerN, // \n
+                   asciiLowerR, // \r
+                   asciiLowerT, // \t
+                   asciiLowerV, // \v
+                   asciiSingleQuote, // \'
+                   asciiDoubleQuote, // \"
+                   asciiQuestionMark, // \?
+                   asciiBackslash: // \\
+                count += 1
+              default:
+                throw TextFormatDecodingError.malformedText // Unrecognized escape
+            }
+          }
+        default:
+          count += 1
+        }
+      }
+      throw TextFormatDecodingError.malformedText
+    }
+
+    /// Protobuf Text format uses C ASCII conventions for
+    /// encoding byte sequences, including the use of octal
+    /// and hexadecimal escapes.
+    ///
+    /// Assumes that validateAndCountBytesFromString() has already
+    /// verified the correctness.  So we get to avoid error checks here.
+    private mutating func parseBytesFromString(terminator: UInt8, into data: inout Data) {
+      data.withUnsafeMutableBytes {
+        (dataPointer: UnsafeMutablePointer<UInt8>) in
+        var out = dataPointer
+        while p[0] != terminator {
+          let byte = p[0]
+          p += 1
+          switch byte {
+          case asciiBackslash: //  "\\"
+            let escaped = p[0]
+            p += 1
+            switch escaped {
+            case asciiZero...asciiSeven: // '0'...'7'
+              // C standard allows 1, 2, or 3 octal digits.
+              let digit1Value = escaped - asciiZero
+              let digit2 = p[0]
+              if digit2 >= asciiZero, digit2 <= asciiSeven {
+                p += 1
+                let digit2Value = digit2 - asciiZero
+                let digit3 = p[0]
+                if digit3 >= asciiZero, digit3 <= asciiSeven {
+                  p += 1
+                  let digit3Value = digit3 - asciiZero
+                  out[0] = digit1Value &* 64 + digit2Value * 8 + digit3Value
+                  out += 1
+                } else {
+                  out[0] = digit1Value * 8 + digit2Value
+                  out += 1
+                }
+              } else {
+                out[0] = digit1Value
+                out += 1
+              }
+            case asciiLowerX: // 'x' hexadecimal escape
+              // We already validated, so we know there's at least one digit:
+              var n = fromHexDigit(p[0])!
+              p += 1
+              if let digit = fromHexDigit(p[0]) {
+                n = n &* 16 &+ digit
+                p += 1
+              }
+              out[0] = n
+              out += 1
+            case asciiLowerA: // \a ("alert")
+              out[0] = asciiBell
+              out += 1
+            case asciiLowerB: // \b
+              out[0] = asciiBackspace
+              out += 1
+            case asciiLowerF: // \f
+              out[0] = asciiFormFeed
+              out += 1
+            case asciiLowerN: // \n
+              out[0] = asciiNewLine
+              out += 1
+            case asciiLowerR: // \r
+              out[0] = asciiCarriageReturn
+              out += 1
+            case asciiLowerT: // \t
+              out[0] = asciiTab
+              out += 1
+            case asciiLowerV: // \v
+              out[0] = asciiVerticalTab
+              out += 1
+            default:
+              out[0] = escaped
+              out += 1
+            }
+          default:
+            out[0] = byte
+            out += 1
+          }
+        }
+        p += 1 // Consume terminator
+      }
     }
 
     /// Assumes the leading quote has already been consumed
@@ -560,7 +598,13 @@ internal struct TextFormatScanner {
         }
     }
 
+    /// Protobuf Text Format allows a single bytes field to
+    /// contain multiple quoted strings.  The values
+    /// are separately decoded and then concatenated:
+    ///  field1: "bytes" 'more bytes'
+    ///        "and even more bytes"
     internal mutating func nextBytesValue() throws -> Data {
+        // Get the first string's contents
         var result: Data
         skipWhitespace()
         if p == end {
@@ -571,12 +615,18 @@ internal struct TextFormatScanner {
             throw TextFormatDecodingError.malformedText
         }
         p += 1
-        if let s = parseQuotedString(terminator: c), let b = decodeBytes(s) {
-            result = b
+        var sawBackslash = false
+        let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
+        if sawBackslash {
+          result = Data(count: n)
+          parseBytesFromString(terminator: c, into: &result)
         } else {
-            throw TextFormatDecodingError.malformedText
+          result = Data(bytes: p, count: n)
+          p += n + 1 // Skip string body + close quote
         }
 
+        // If there are more strings, decode them
+        // and append to the result:
         while true {
             skipWhitespace()
             if p == end {
@@ -587,11 +637,15 @@ internal struct TextFormatScanner {
                 return result
             }
             p += 1
-            if let s = parseQuotedString(terminator: c),
-               let b = decodeBytes(s) {
-                result.append(b)
+            var sawBackslash = false
+            let n = try validateAndCountBytesFromString(terminator: c, sawBackslash: &sawBackslash)
+            if sawBackslash {
+              var b = Data(count: n)
+              parseBytesFromString(terminator: c, into: &b)
+              result.append(b)
             } else {
-                throw TextFormatDecodingError.malformedText
+              result.append(p, count: n)
+              p += n + 1 // Skip string body + close quote
             }
         }
     }
