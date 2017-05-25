@@ -178,7 +178,7 @@ public struct Google_Protobuf_Type: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A single field of a message type.
@@ -530,7 +530,7 @@ public struct Google_Protobuf_Enum: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Enum value definition.
@@ -647,7 +647,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -679,7 +679,9 @@ extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftP
     var _sourceContext: Google_Protobuf_SourceContext? = nil
     var _syntax: Google_Protobuf_Syntax = .proto2
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -795,7 +797,9 @@ extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftP
     var _sourceContext: Google_Protobuf_SourceContext? = nil
     var _syntax: Google_Protobuf_Syntax = .proto2
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -856,7 +860,9 @@ extension Google_Protobuf_Option: SwiftProtobuf._MessageImplementationBase, Swif
     var _name: String = String()
     var _value: Google_Protobuf_Any? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name

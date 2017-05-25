@@ -173,7 +173,7 @@ struct ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf.Message, SwiftProtob
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestRequiredOptimizedForSize: SwiftProtobuf.Message {
@@ -276,7 +276,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_optimize_for.proto.
@@ -355,7 +355,9 @@ extension ProtobufUnittest_TestOptimizedForSize: SwiftProtobuf._MessageImplement
     var _msg: ProtobufUnittest_ForeignMessage? = nil
     var _foo: ProtobufUnittest_TestOptimizedForSize.OneOf_Foo?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _i = source._i
@@ -407,7 +409,9 @@ extension ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf._MessageI
   fileprivate class _StorageClass {
     var _o: ProtobufUnittest_TestRequiredOptimizedForSize? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _o = source._o

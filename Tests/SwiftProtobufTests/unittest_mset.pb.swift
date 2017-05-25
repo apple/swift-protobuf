@@ -108,7 +108,7 @@ struct ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestMessageSetExtension1: SwiftProtobuf.Message {
@@ -375,7 +375,9 @@ extension ProtobufUnittest_TestMessageSetContainer: SwiftProtobuf._MessageImplem
   fileprivate class _StorageClass {
     var _messageSet: Proto2WireformatUnittest_TestMessageSet? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _messageSet = source._messageSet

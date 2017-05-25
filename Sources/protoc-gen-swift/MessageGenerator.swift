@@ -157,7 +157,7 @@ class MessageGenerator {
       if !isExtensible {
         p.print("\n")
       }
-      p.print("\(storage.storageVisibility) var _storage = _StorageClass()\n")
+      p.print("\(storage.storageVisibility) var _storage = _StorageClass.defaultInstance\n")
     } else {
       var subMessagePrinter = CodePrinter()
       for f in fields {

@@ -44,12 +44,16 @@ class MessageStorageClassGenerator {
 
     generateStoredProperties(printer: &p)
 
-    // Generate the default initializer. If we don't, Swift may generate one
-    // for some of the stored properties, which we will never use (so it just
-    // wastes space in the final binary).
+    // Generate a default instance to be used so the heap allocation is
+    // delayed until mutation is needed. This is the largest savings when
+    // the message is used as a field in another message as it causes
+    // returning the default to not require that heap allocation, i.e. -
+    // readonly usage never causes the allocation.
     p.print(
         "\n",
-        "init() {}\n",
+        "static let defaultInstance = _StorageClass()\n",
+        "\n",
+        "private init() {}\n",
         "\n")
     generateClone(printer: &p)
 

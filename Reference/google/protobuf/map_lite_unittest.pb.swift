@@ -333,7 +333,7 @@ struct ProtobufUnittest_TestMapLite: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message {
@@ -530,7 +530,7 @@ struct ProtobufUnittest_TestArenaMapLite: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Test embedded message with required fields
@@ -879,7 +879,9 @@ extension ProtobufUnittest_TestMapLite: SwiftProtobuf._MessageImplementationBase
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageLite> = [:]
     var _teboring: Dictionary<Int32,Int32> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _mapInt32Int32 = source._mapInt32Int32
@@ -982,7 +984,9 @@ extension ProtobufUnittest_TestArenaMapLite: SwiftProtobuf._MessageImplementatio
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessageArenaLite> = [:]
     var _mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessageLite> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _mapInt32Int32 = source._mapInt32Int32

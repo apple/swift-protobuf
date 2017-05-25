@@ -376,7 +376,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_swift_extension.proto.
@@ -662,7 +662,9 @@ extension ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf._MessageImplemen
     var _x: Int32? = nil
     var _y: ProtobufUnittest_Extend_MsgUsesStorage? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _x = source._x

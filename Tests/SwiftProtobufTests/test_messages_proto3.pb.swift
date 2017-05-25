@@ -920,7 +920,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _storage = _StorageClass()
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
@@ -1459,7 +1459,7 @@ struct ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufTestMessages_Proto3_ForeignMessage: SwiftProtobuf.Message {
@@ -1744,7 +1744,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypes: SwiftProtobuf._MessageImplem
     var _fieldName17__: Int32 = 0
     var _fieldName18__: Int32 = 0
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
@@ -2010,7 +2012,9 @@ extension ProtobufTestMessages_Proto3_TestAllTypes.NestedMessage: SwiftProtobuf.
     var _a: Int32 = 0
     var _corecursive: ProtobufTestMessages_Proto3_TestAllTypes? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _a = source._a

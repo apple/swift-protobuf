@@ -253,7 +253,7 @@ struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.
@@ -471,7 +471,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
     var _protoFile: [Google_Protobuf_FileDescriptorProto] = []
     var _compilerVersion: Google_Protobuf_Compiler_Version? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _fileToGenerate = source._fileToGenerate

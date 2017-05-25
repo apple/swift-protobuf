@@ -190,7 +190,7 @@ struct Google_Protobuf_Any: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  internal var _storage = _StorageClass()
+  internal var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

@@ -117,6 +117,7 @@ message GeneratedSwiftReservedEnums {
   enum decodeSingularUInt64Field { NONE_decodeSingularUInt64Field = 0; }
   enum decodeString { NONE_decodeString = 0; }
   enum decodeTextFormat { NONE_decodeTextFormat = 0; }
+  enum defaultInstance { NONE_defaultInstance = 0; }
   enum defaultValue { NONE_defaultValue = 0; }
   enum description { NONE_description = 0; }
   enum destination { NONE_destination = 0; }

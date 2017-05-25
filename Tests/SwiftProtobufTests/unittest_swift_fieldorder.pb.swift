@@ -274,7 +274,7 @@ struct Swift_Protobuf_TestFieldOrderings: SwiftProtobuf.Message, SwiftProtobuf.E
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// These checks how the traverse() generated for a oneof
@@ -608,7 +608,9 @@ extension Swift_Protobuf_TestFieldOrderings: SwiftProtobuf._MessageImplementatio
     var _options: Swift_Protobuf_TestFieldOrderings.OneOf_Options?
     var _optionalNestedMessage: Swift_Protobuf_TestFieldOrderings.NestedMessage? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _myString = source._myString

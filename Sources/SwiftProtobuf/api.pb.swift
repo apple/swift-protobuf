@@ -176,7 +176,7 @@ public struct Google_Protobuf_Api: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Method represents a method of an api.
@@ -401,7 +401,9 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
     var _mixins: [Google_Protobuf_Mixin] = []
     var _syntax: Google_Protobuf_Syntax = .proto2
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name

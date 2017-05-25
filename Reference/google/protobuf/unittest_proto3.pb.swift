@@ -789,7 +789,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// This proto includes a recusively nested message.
@@ -860,7 +860,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3TestDeprecatedFields: SwiftProtobuf.Message {
@@ -1004,7 +1004,7 @@ struct Proto3TestForeignNested: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Test that really large tag numbers don't break anything.
@@ -1104,7 +1104,7 @@ struct Proto3TestRecursiveMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Test that mutual recursion works.
@@ -1153,7 +1153,7 @@ struct Proto3TestMutualRecursionA: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
@@ -1210,7 +1210,7 @@ struct Proto3TestMutualRecursionB: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3TestEnumAllowAlias: SwiftProtobuf.Message {
@@ -1357,7 +1357,7 @@ struct Proto3TestCamelCaseFieldNames: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// We list fields out of order, to ensure that we're using field number and not
@@ -1477,7 +1477,7 @@ struct Proto3TestFieldOrderings: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3SparseEnumMessage: SwiftProtobuf.Message {
@@ -1926,7 +1926,7 @@ struct Proto3TestOneof: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3TestPackedTypes: SwiftProtobuf.Message {
@@ -2544,7 +2544,9 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     var _repeatedPublicImportMessage: [Proto3PublicImportMessage] = []
     var _oneofField: Proto3TestAllTypes.OneOf_OneofField?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _singleInt32 = source._singleInt32
@@ -2693,7 +2695,9 @@ extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, Sw
     var _payload: Proto3TestAllTypes? = nil
     var _repeatedChild: [Proto3NestedTestAllTypes] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _child = source._child
@@ -2765,7 +2769,9 @@ extension Proto3TestForeignNested: SwiftProtobuf._MessageImplementationBase, Swi
   fileprivate class _StorageClass {
     var _foreignNested: Proto3TestAllTypes.NestedMessage? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _foreignNested = source._foreignNested
@@ -2816,7 +2822,9 @@ extension Proto3TestRecursiveMessage: SwiftProtobuf._MessageImplementationBase, 
     var _a: Proto3TestRecursiveMessage? = nil
     var _i: Int32 = 0
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _a = source._a
@@ -2853,7 +2861,9 @@ extension Proto3TestMutualRecursionA: SwiftProtobuf._MessageImplementationBase, 
   fileprivate class _StorageClass {
     var _bb: Proto3TestMutualRecursionB? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _bb = source._bb
@@ -2890,7 +2900,9 @@ extension Proto3TestMutualRecursionB: SwiftProtobuf._MessageImplementationBase, 
     var _a: Proto3TestMutualRecursionA? = nil
     var _optionalInt32: Int32 = 0
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _a = source._a
@@ -2953,7 +2965,9 @@ extension Proto3TestCamelCaseFieldNames: SwiftProtobuf._MessageImplementationBas
     var _repeatedEnumField: [Proto3ForeignEnum] = []
     var _repeatedMessageField: [Proto3ForeignMessage] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _primitiveField = source._primitiveField
@@ -3008,7 +3022,9 @@ extension Proto3TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, Sw
     var _myFloat: Float = 0
     var _singleNestedMessage: Proto3TestFieldOrderings.NestedMessage? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _myString = source._myString
@@ -3185,7 +3201,9 @@ extension Proto3TestOneof: SwiftProtobuf._MessageImplementationBase, SwiftProtob
   fileprivate class _StorageClass {
     var _foo: Proto3TestOneof.OneOf_Foo?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _foo = source._foo

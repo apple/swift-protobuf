@@ -2853,6 +2853,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum defaultInstance: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDefaultInstance // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDefaultInstance
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDefaultInstance
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDefaultInstance: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum defaultValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneDefaultValue // = 0
@@ -16186,6 +16211,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeString: SwiftProtob
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeTextFormat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeTextFormat"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.defaultInstance: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_defaultInstance"),
   ]
 }
 
