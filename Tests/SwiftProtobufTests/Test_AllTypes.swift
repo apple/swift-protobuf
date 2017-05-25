@@ -667,10 +667,10 @@ class Test_AllTypes: XCTestCase, PBTestHelpers {
         assertDecodeSucceeds([131, 1, 136, 1, 159, 141, 6, 132, 1]) {
             $0.optionalGroup.a == 99999
         }
-        // Extra field 1 within group
-        // TODO: That extra field should be an unknownField (current doesn't work)
+        // Extra field 1 (varint of zero) within group
         assertDecodeSucceeds([131, 1, 8, 0, 136, 1, 159, 141, 6, 132, 1]) {
             $0.optionalGroup.a == 99999
+              && $0.optionalGroup.unknownFields.data == Data(bytes:[8, 0])
         }
         // Empty group
         assertDecodeSucceeds([131, 1, 132, 1]) {
