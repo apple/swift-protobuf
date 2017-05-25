@@ -25,7 +25,6 @@ message GeneratedSwiftReservedEnums {
   enum asJSONObject { NONE_asJSONObject = 0; }
   enum available { NONE_available = 0; }
   enum b { NONE_b = 0; }
-  enum base64String { NONE_base64String = 0; }
   enum BaseType { NONE_BaseType = 0; }
   enum because { NONE_because = 0; }
   enum binary { NONE_binary = 0; }
@@ -33,7 +32,6 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncoder { NONE_BinaryEncoder = 0; }
   enum BinaryEncodingSizeVisitor { NONE_BinaryEncodingSizeVisitor = 0; }
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
-  enum bits { NONE_bits = 0; }
   enum body { NONE_body = 0; }
   enum bodySize { NONE_bodySize = 0; }
   enum Bool { NONE_Bool = 0; }
@@ -44,6 +42,7 @@ message GeneratedSwiftReservedEnums {
   enum buildTypeURL { NONE_buildTypeURL = 0; }
   enum by { NONE_by = 0; }
   enum bytes { NONE_bytes = 0; }
+  enum bytesInGroup { NONE_bytesInGroup = 0; }
   enum BytesValue { NONE_BytesValue = 0; }
   enum c { NONE_c = 0; }
   enum capitalizeNext { NONE_capitalizeNext = 0; }
@@ -59,9 +58,11 @@ message GeneratedSwiftReservedEnums {
   enum contentJSON { NONE_contentJSON = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
+  enum current { NONE_current = 0; }
   enum customCodable { NONE_customCodable = 0; }
   enum d { NONE_d = 0; }
   enum Data { NONE_Data = 0; }
+  enum dataPointer { NONE_dataPointer = 0; }
   enum dataResult { NONE_dataResult = 0; }
   enum dataSize { NONE_dataSize = 0; }
   enum date { NONE_date = 0; }
@@ -69,7 +70,6 @@ message GeneratedSwiftReservedEnums {
   enum daysSinceEpoch { NONE_daysSinceEpoch = 0; }
   enum DD { NONE_DD = 0; }
   enum debugDescription { NONE_debugDescription = 0; }
-  enum decodeBytes { NONE_decodeBytes = 0; }
   enum decoded { NONE_decoded = 0; }
   enum decodedFromJSONNull { NONE_decodedFromJSONNull = 0; }
   enum decodeExtensionField { NONE_decodeExtensionField = 0; }
@@ -122,6 +122,7 @@ message GeneratedSwiftReservedEnums {
   enum destination { NONE_destination = 0; }
   enum Dictionary { NONE_Dictionary = 0; }
   enum dictionaryLiteral { NONE_dictionaryLiteral = 0; }
+  enum digit { NONE_digit = 0; }
   enum digit0 { NONE_digit0 = 0; }
   enum digit1 { NONE_digit1 = 0; }
   enum digitCount { NONE_digitCount = 0; }
@@ -251,6 +252,7 @@ message GeneratedSwiftReservedEnums {
   enum hh { NONE_hh = 0; }
   enum hour { NONE_hour = 0; }
   enum i { NONE_i = 0; }
+  enum in { NONE_in = 0; }
   enum index { NONE_index = 0; }
   enum init { NONE_init = 0; }
   enum inout { NONE_inout = 0; }
@@ -366,9 +368,11 @@ message GeneratedSwiftReservedEnums {
   enum PackedEnumExtensionField { NONE_PackedEnumExtensionField = 0; }
   enum PackedExtensionField { NONE_PackedExtensionField = 0; }
   enum packedSize { NONE_packedSize = 0; }
+  enum padding { NONE_padding = 0; }
   enum parseBareFloatString { NONE_parseBareFloatString = 0; }
   enum parseBareSInt { NONE_parseBareSInt = 0; }
   enum parseBareUInt { NONE_parseBareUInt = 0; }
+  enum parseBytes { NONE_parseBytes = 0; }
   enum parseDuration { NONE_parseDuration = 0; }
   enum parseJSONFieldNames { NONE_parseJSONFieldNames = 0; }
   enum parseTimestamp { NONE_parseTimestamp = 0; }
@@ -421,6 +425,7 @@ message GeneratedSwiftReservedEnums {
   enum putUInt64Hex { NONE_putUInt64Hex = 0; }
   enum putVarInt { NONE_putVarInt = 0; }
   enum putZigZagVarInt { NONE_putZigZagVarInt = 0; }
+  enum rawChars { NONE_rawChars = 0; }
   enum RawValue { NONE_RawValue = 0; }
   enum register { NONE_register = 0; }
   enum RepeatedEnumExtensionField { NONE_RepeatedEnumExtensionField = 0; }
@@ -438,7 +443,6 @@ message GeneratedSwiftReservedEnums {
   enum rhs { NONE_rhs = 0; }
   enum root { NONE_root = 0; }
   enum s { NONE_s = 0; }
-  enum savedPosition { NONE_savedPosition = 0; }
   enum sawBackslash { NONE_sawBackslash = 0; }
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }

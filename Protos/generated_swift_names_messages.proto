@@ -25,7 +25,6 @@ message GeneratedSwiftReservedMessages {
   message asJSONObject { int32 asJSONObject = 1; }
   message available { int32 available = 1; }
   message b { int32 b = 1; }
-  message base64String { int32 base64String = 1; }
   message BaseType { int32 BaseType = 1; }
   message because { int32 because = 1; }
   message binary { int32 binary = 1; }
@@ -33,7 +32,6 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncoder { int32 BinaryEncoder = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
-  message bits { int32 bits = 1; }
   message body { int32 body = 1; }
   message bodySize { int32 bodySize = 1; }
   message Bool { int32 Bool = 1; }
@@ -44,6 +42,7 @@ message GeneratedSwiftReservedMessages {
   message buildTypeURL { int32 buildTypeURL = 1; }
   message by { int32 by = 1; }
   message bytes { int32 bytes = 1; }
+  message bytesInGroup { int32 bytesInGroup = 1; }
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
@@ -59,9 +58,11 @@ message GeneratedSwiftReservedMessages {
   message contentJSON { int32 contentJSON = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
+  message current { int32 current = 1; }
   message customCodable { int32 customCodable = 1; }
   message d { int32 d = 1; }
   message Data { int32 Data = 1; }
+  message dataPointer { int32 dataPointer = 1; }
   message dataResult { int32 dataResult = 1; }
   message dataSize { int32 dataSize = 1; }
   message date { int32 date = 1; }
@@ -69,7 +70,6 @@ message GeneratedSwiftReservedMessages {
   message daysSinceEpoch { int32 daysSinceEpoch = 1; }
   message DD { int32 DD = 1; }
   message debugDescription { int32 debugDescription = 1; }
-  message decodeBytes { int32 decodeBytes = 1; }
   message decoded { int32 decoded = 1; }
   message decodedFromJSONNull { int32 decodedFromJSONNull = 1; }
   message decodeExtensionField { int32 decodeExtensionField = 1; }
@@ -122,6 +122,7 @@ message GeneratedSwiftReservedMessages {
   message destination { int32 destination = 1; }
   message Dictionary { int32 Dictionary = 1; }
   message dictionaryLiteral { int32 dictionaryLiteral = 1; }
+  message digit { int32 digit = 1; }
   message digit0 { int32 digit0 = 1; }
   message digit1 { int32 digit1 = 1; }
   message digitCount { int32 digitCount = 1; }
@@ -251,6 +252,7 @@ message GeneratedSwiftReservedMessages {
   message hh { int32 hh = 1; }
   message hour { int32 hour = 1; }
   message i { int32 i = 1; }
+  message in { int32 in = 1; }
   message index { int32 index = 1; }
   message init { int32 init = 1; }
   message inout { int32 inout = 1; }
@@ -366,9 +368,11 @@ message GeneratedSwiftReservedMessages {
   message PackedEnumExtensionField { int32 PackedEnumExtensionField = 1; }
   message PackedExtensionField { int32 PackedExtensionField = 1; }
   message packedSize { int32 packedSize = 1; }
+  message padding { int32 padding = 1; }
   message parseBareFloatString { int32 parseBareFloatString = 1; }
   message parseBareSInt { int32 parseBareSInt = 1; }
   message parseBareUInt { int32 parseBareUInt = 1; }
+  message parseBytes { int32 parseBytes = 1; }
   message parseDuration { int32 parseDuration = 1; }
   message parseJSONFieldNames { int32 parseJSONFieldNames = 1; }
   message parseTimestamp { int32 parseTimestamp = 1; }
@@ -421,6 +425,7 @@ message GeneratedSwiftReservedMessages {
   message putUInt64Hex { int32 putUInt64Hex = 1; }
   message putVarInt { int32 putVarInt = 1; }
   message putZigZagVarInt { int32 putZigZagVarInt = 1; }
+  message rawChars { int32 rawChars = 1; }
   message RawValue { int32 RawValue = 1; }
   message register { int32 register = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
@@ -438,7 +443,6 @@ message GeneratedSwiftReservedMessages {
   message rhs { int32 rhs = 1; }
   message root { int32 root = 1; }
   message s { int32 s = 1; }
-  message savedPosition { int32 savedPosition = 1; }
   message sawBackslash { int32 sawBackslash = 1; }
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
