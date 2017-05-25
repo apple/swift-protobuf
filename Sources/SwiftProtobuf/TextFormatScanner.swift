@@ -951,6 +951,28 @@ internal struct TextFormatScanner {
             } else {
                 throw TextFormatDecodingError.unknownField
             }
+        case asciiOne...asciiNine:  // 1-9 (field numbers should be 0123, just 123)
+            var fieldNum = Int(c) - Int(asciiZero)
+            p += 1
+            while p != end {
+              let c = p[0]
+              if c >= asciiZero && c <= asciiNine {
+                fieldNum = fieldNum &* 10 &+ (Int(c) - Int(asciiZero))
+              } else {
+                break
+              }
+              p += 1
+            }
+            skipWhitespace()
+            if names.names(for: fieldNum) != nil {
+              return fieldNum
+            } else {
+              // It was a number that isn't a known field.
+              // The C++ version (TextFormat::Parser::ParserImpl::ConsumeField()),
+              // supports an option to file or skip the field's value (this is true
+              // of unknown names or numbers).
+              throw TextFormatDecodingError.unknownField
+            }
         default:
             break
         }
