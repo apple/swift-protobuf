@@ -283,7 +283,7 @@ public struct Google_Protobuf_FileDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a message type.
@@ -550,7 +550,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a field within a message.
@@ -870,7 +870,7 @@ public struct Google_Protobuf_FieldDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a oneof.
@@ -939,7 +939,7 @@ public struct Google_Protobuf_OneofDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes an enum type.
@@ -1018,7 +1018,7 @@ public struct Google_Protobuf_EnumDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a value within an enum.
@@ -1100,7 +1100,7 @@ public struct Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a service.
@@ -1179,7 +1179,7 @@ public struct Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Describes a method of a service.
@@ -1304,7 +1304,7 @@ public struct Google_Protobuf_MethodDescriptorProto: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -1657,7 +1657,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   }
 
   public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 public struct Google_Protobuf_MessageOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
@@ -3022,7 +3022,9 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
     var _sourceCodeInfo: Google_Protobuf_SourceCodeInfo? = nil
     var _syntax: String? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3097,7 +3099,9 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
     var _reservedRange: [Google_Protobuf_DescriptorProto.ReservedRange] = []
     var _reservedName: [String] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3196,7 +3200,9 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
     var _jsonName: String? = nil
     var _options: Google_Protobuf_FieldOptions? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3282,7 +3288,9 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementa
     var _name: String? = nil
     var _options: Google_Protobuf_OneofOptions? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3323,7 +3331,9 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementat
     var _value: [Google_Protobuf_EnumValueDescriptorProto] = []
     var _options: Google_Protobuf_EnumOptions? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3366,7 +3376,9 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplem
     var _number: Int32? = nil
     var _options: Google_Protobuf_EnumValueOptions? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3409,7 +3421,9 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplemen
     var _method: [Google_Protobuf_MethodDescriptorProto] = []
     var _options: Google_Protobuf_ServiceOptions? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3458,7 +3472,9 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplement
     var _clientStreaming: Bool? = nil
     var _serverStreaming: Bool? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _name = source._name
@@ -3535,7 +3551,9 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     var _phpClassPrefix: String? = nil
     var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _javaPackage = source._javaPackage

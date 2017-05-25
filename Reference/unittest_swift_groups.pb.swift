@@ -360,7 +360,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _storage = _StorageClass()
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   struct SubGroup3: SwiftProtobuf.Message {
@@ -494,7 +494,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_swift_groups.proto.
@@ -615,7 +615,9 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBas
     var _subGroup1: SwiftTestNestingGroupsMessage.SubGroup1? = nil
     var _subGroup3: [SwiftTestNestingGroupsMessage.SubGroup3] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _outerA = source._outerA
@@ -656,7 +658,9 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImpleme
     var _sub1A: Int32? = nil
     var _subGroup2: SwiftTestNestingGroupsMessage.SubGroup1.SubGroup2? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _sub1A = source._sub1A

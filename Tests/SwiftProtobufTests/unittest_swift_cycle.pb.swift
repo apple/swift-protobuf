@@ -119,7 +119,7 @@ struct ProtobufUnittest_CycleFoo: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
@@ -193,7 +193,7 @@ struct ProtobufUnittest_CycleBar: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
@@ -267,7 +267,7 @@ struct ProtobufUnittest_CycleBaz: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -286,7 +286,9 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, S
     var _aBar: ProtobufUnittest_CycleBar? = nil
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _aFoo = source._aFoo
@@ -329,7 +331,9 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, S
     var _aBaz: ProtobufUnittest_CycleBaz? = nil
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _aBar = source._aBar
@@ -372,7 +376,9 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf._MessageImplementationBase, S
     var _aFoo: ProtobufUnittest_CycleFoo? = nil
     var _aBar: ProtobufUnittest_CycleBar? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _aBaz = source._aBaz

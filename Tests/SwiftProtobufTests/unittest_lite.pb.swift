@@ -1287,7 +1287,7 @@ struct ProtobufUnittest_TestAllTypesLite: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_ForeignMessageLite: SwiftProtobuf.Message {
@@ -1780,7 +1780,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         try unknownFields.traverse(visitor: &visitor)
       }
 
-      fileprivate var _storage = _StorageClass()
+      fileprivate var _storage = _StorageClass.defaultInstance
     }
 
     struct Group2: SwiftProtobuf.Message {
@@ -1828,7 +1828,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
         try unknownFields.traverse(visitor: &visitor)
       }
 
-      fileprivate var _storage = _StorageClass()
+      fileprivate var _storage = _StorageClass.defaultInstance
     }
 
     init() {}
@@ -1927,7 +1927,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _storage = _StorageClass()
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   struct RepeatedGroup: SwiftProtobuf.Message {
@@ -1975,7 +1975,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _storage = _StorageClass()
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
@@ -2037,7 +2037,7 @@ struct ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf.Message, SwiftProtob
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// TestEmptyMessageLite is used to test unknown fields support in lite mode.
@@ -2518,7 +2518,7 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   }
 
   var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Extension support defined in unittest_lite.proto.
@@ -4866,7 +4866,9 @@ extension ProtobufUnittest_TestAllTypesLite: SwiftProtobuf._MessageImplementatio
     var _oneofField: ProtobufUnittest_TestAllTypesLite.OneOf_OneofField?
     var _deceptivelyNamedList: Int32? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
@@ -5214,7 +5216,9 @@ extension ProtobufUnittest_TestParsingMergeLite: SwiftProtobuf._MessageImplement
     var _optionalGroup: ProtobufUnittest_TestParsingMergeLite.OptionalGroup? = nil
     var _repeatedGroup: [ProtobufUnittest_TestParsingMergeLite.RepeatedGroup] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _requiredAllTypes = source._requiredAllTypes
@@ -5282,7 +5286,9 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group1: 
   fileprivate class _StorageClass {
     var _field1: ProtobufUnittest_TestAllTypesLite? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _field1 = source._field1
@@ -5317,7 +5323,9 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedFieldsGenerator.Group2: 
   fileprivate class _StorageClass {
     var _field1: ProtobufUnittest_TestAllTypesLite? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _field1 = source._field1
@@ -5352,7 +5360,9 @@ extension ProtobufUnittest_TestParsingMergeLite.OptionalGroup: SwiftProtobuf._Me
   fileprivate class _StorageClass {
     var _optionalGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalGroupAllTypes = source._optionalGroupAllTypes
@@ -5387,7 +5397,9 @@ extension ProtobufUnittest_TestParsingMergeLite.RepeatedGroup: SwiftProtobuf._Me
   fileprivate class _StorageClass {
     var _repeatedGroupAllTypes: ProtobufUnittest_TestAllTypesLite? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _repeatedGroupAllTypes = source._repeatedGroupAllTypes
@@ -5492,7 +5504,9 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf._MessageImple
     var _stringStringMap: Dictionary<String,String> = [:]
     var _oneofField: ProtobufUnittest_TestHugeFieldNumbersLite.OneOf_OneofField?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32

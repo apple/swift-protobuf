@@ -3671,7 +3671,7 @@ struct SwiftUnittest_Names_FieldNames: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct SwiftUnittest_Names_MessageNames: SwiftProtobuf.Message {
@@ -18037,7 +18037,7 @@ struct SwiftUnittest_Names_FieldNamingInitials: SwiftProtobuf.Message {
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _storage = _StorageClass()
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   struct Uppers: SwiftProtobuf.Message {
@@ -21848,7 +21848,9 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
     var _extension: Int32? = nil
     var _extensions: Int32? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _string = source._string
@@ -26218,7 +26220,9 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._Message
     var _theIDNumber: Int32? = nil
     var _requestID: Int32? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _http = source._http

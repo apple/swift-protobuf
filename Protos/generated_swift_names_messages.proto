@@ -117,6 +117,7 @@ message GeneratedSwiftReservedMessages {
   message decodeSingularUInt64Field { int32 decodeSingularUInt64Field = 1; }
   message decodeString { int32 decodeString = 1; }
   message decodeTextFormat { int32 decodeTextFormat = 1; }
+  message defaultInstance { int32 defaultInstance = 1; }
   message defaultValue { int32 defaultValue = 1; }
   message description { int32 description = 1; }
   message destination { int32 destination = 1; }

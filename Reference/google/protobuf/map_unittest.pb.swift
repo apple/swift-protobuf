@@ -275,7 +275,7 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message {
@@ -323,7 +323,7 @@ struct ProtobufUnittest_TestMapSubmessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestMessageMap: SwiftProtobuf.Message {
@@ -635,7 +635,7 @@ struct ProtobufUnittest_TestArenaMap: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Previously, message containing enum called Type cannot be used as value of
@@ -822,7 +822,9 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> = [:]
     var _mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _mapInt32Int32 = source._mapInt32Int32
@@ -891,7 +893,9 @@ extension ProtobufUnittest_TestMapSubmessage: SwiftProtobuf._MessageImplementati
   fileprivate class _StorageClass {
     var _testMap: ProtobufUnittest_TestMap? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _testMap = source._testMap
@@ -998,7 +1002,9 @@ extension ProtobufUnittest_TestArenaMap: SwiftProtobuf._MessageImplementationBas
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> = [:]
     var _mapInt32ForeignMessageNoArena: Dictionary<Int32,ProtobufUnittestNoArena_ForeignMessage> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _mapInt32Int32 = source._mapInt32Int32

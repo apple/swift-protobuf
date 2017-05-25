@@ -727,7 +727,7 @@ struct Proto3LiteUnittest_TestAllTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3LiteUnittest_TestPackedTypes: SwiftProtobuf.Message {
@@ -1014,7 +1014,7 @@ struct Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Define these after TestAllTypes to make sure the compiler can handle
@@ -1197,7 +1197,9 @@ extension Proto3LiteUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationB
     var _repeatedLazyMessage: [Proto3LiteUnittest_TestAllTypes.NestedMessage] = []
     var _oneofField: Proto3LiteUnittest_TestAllTypes.OneOf_OneofField?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
@@ -1426,7 +1428,9 @@ extension Proto3LiteUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplement
     var _child: Proto3LiteUnittest_NestedTestAllTypes? = nil
     var _payload: Proto3LiteUnittest_TestAllTypes? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _child = source._child

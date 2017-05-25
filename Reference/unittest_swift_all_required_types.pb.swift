@@ -963,7 +963,7 @@ struct ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_TestSomeRequiredTypes: SwiftProtobuf.Message {
@@ -1220,7 +1220,9 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplement
     var _defaultCord: String? = nil
     var _oneofField: ProtobufUnittest_TestAllRequiredTypes.OneOf_OneofField?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _requiredInt32 = source._requiredInt32

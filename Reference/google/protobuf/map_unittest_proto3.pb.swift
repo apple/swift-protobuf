@@ -273,7 +273,7 @@ struct Proto3TestMap: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
@@ -321,7 +321,7 @@ struct Proto3TestMapSubmessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Proto3TestMessageMap: SwiftProtobuf.Message {
@@ -665,7 +665,9 @@ extension Proto3TestMap: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf
     var _mapInt32Enum: Dictionary<Int32,Proto3MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,Proto3ForeignMessage> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _mapInt32Int32 = source._mapInt32Int32
@@ -732,7 +734,9 @@ extension Proto3TestMapSubmessage: SwiftProtobuf._MessageImplementationBase, Swi
   fileprivate class _StorageClass {
     var _testMap: Proto3TestMap? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _testMap = source._testMap

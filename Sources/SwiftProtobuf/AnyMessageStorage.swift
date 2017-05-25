@@ -119,7 +119,9 @@ internal class AnyMessageStorage {
   }
   var state: InternalState = .binary(Internal.emptyData)
 
-  init() {}
+  static let defaultInstance = AnyMessageStorage()
+
+  private init() {}
 
   init(copying source: AnyMessageStorage) {
     _typeURL = source._typeURL

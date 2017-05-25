@@ -228,7 +228,7 @@ struct SwiftUnittest_TestMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message {
@@ -325,7 +325,7 @@ struct SwiftUnittest_TestParsingMerge: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -343,7 +343,9 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf._MessageImplementationBase, S
   fileprivate class _StorageClass {
     var _oneofField: SwiftUnittest_TestMessage.OneOf_OneofField?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _oneofField = source._oneofField
@@ -396,7 +398,9 @@ extension SwiftUnittest_TestParsingMerge: SwiftProtobuf._MessageImplementationBa
     var _optionalMessage: SwiftUnittest_TestMessage? = nil
     var _repeatedMessage: [SwiftUnittest_TestMessage] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalMessage = source._optionalMessage

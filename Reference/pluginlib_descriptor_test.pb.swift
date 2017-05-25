@@ -241,7 +241,7 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _storage = _StorageClass()
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   init() {}
@@ -316,7 +316,7 @@ struct SDTTopLevelMessage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct SDTTopLevelMessage2: SwiftProtobuf.Message {
@@ -377,7 +377,7 @@ struct SDTTopLevelMessage2: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct SDTExternalRefs: SwiftProtobuf.Message {
@@ -445,7 +445,7 @@ struct SDTExternalRefs: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct SDTScoperForExt: SwiftProtobuf.Message {
@@ -582,7 +582,9 @@ extension SDTTopLevelMessage: SwiftProtobuf._MessageImplementationBase, SwiftPro
     var _field2: Int32? = nil
     var _o: SDTTopLevelMessage.OneOf_O?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _field1 = source._field1
@@ -633,7 +635,9 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf._MessageImplementationBas
     var _field2: String? = nil
     var _field3: SDTTopLevelMessage.SubMessage? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _field1 = source._field1
@@ -674,7 +678,9 @@ extension SDTTopLevelMessage2: SwiftProtobuf._MessageImplementationBase, SwiftPr
     var _left: SDTTopLevelMessage? = nil
     var _right: SDTTopLevelMessage2? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _left = source._left
@@ -713,7 +719,9 @@ extension SDTExternalRefs: SwiftProtobuf._MessageImplementationBase, SwiftProtob
     var _desc: Google_Protobuf_DescriptorProto? = nil
     var _ver: Google_Protobuf_Compiler_Version? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _desc = source._desc

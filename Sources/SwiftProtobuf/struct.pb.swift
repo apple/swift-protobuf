@@ -299,7 +299,7 @@ public struct Google_Protobuf_Value: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// `ListValue` is a wrapper around a repeated field of values.
@@ -375,7 +375,9 @@ extension Google_Protobuf_Value: SwiftProtobuf._MessageImplementationBase, Swift
   fileprivate class _StorageClass {
     var _kind: Google_Protobuf_Value.OneOf_Kind?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _kind = source._kind

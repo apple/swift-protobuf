@@ -1152,7 +1152,7 @@ struct ProtobufUnittest_Message2: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_Msg2NoStorage: SwiftProtobuf.Message {
@@ -1226,7 +1226,7 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1368,7 +1368,9 @@ extension ProtobufUnittest_Message2: SwiftProtobuf._MessageImplementationBase, S
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_Message2.Enum> = [:]
     var _mapInt32Message: Dictionary<Int32,ProtobufUnittest_Message2> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _optionalInt32 = source._optionalInt32
@@ -1569,7 +1571,9 @@ extension ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf._MessageImplementation
   fileprivate class _StorageClass {
     var _y: ProtobufUnittest_Msg2UsesStorage? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _y = source._y

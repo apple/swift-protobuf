@@ -302,7 +302,7 @@ struct ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A repeated field for each well-known type.
@@ -501,7 +501,7 @@ struct ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
@@ -913,7 +913,7 @@ struct ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A map field for each well-known type. We only
@@ -1113,7 +1113,7 @@ struct ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf.Message {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  fileprivate var _storage = _StorageClass()
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -1164,7 +1164,9 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementat
     var _bytesField: SwiftProtobuf.Google_Protobuf_BytesValue? = nil
     var _valueField: SwiftProtobuf.Google_Protobuf_Value? = nil
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _anyField = source._anyField
@@ -1269,7 +1271,9 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImpleme
     var _stringField: [SwiftProtobuf.Google_Protobuf_StringValue] = []
     var _bytesField: [SwiftProtobuf.Google_Protobuf_BytesValue] = []
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _anyField = source._anyField
@@ -1355,7 +1359,9 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementa
   fileprivate class _StorageClass {
     var _oneofField: ProtobufUnittest_OneofWellKnownTypes.OneOf_OneofField?
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _oneofField = source._oneofField
@@ -1424,7 +1430,9 @@ extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf._MessageImplementati
     var _stringField: Dictionary<Int32,SwiftProtobuf.Google_Protobuf_StringValue> = [:]
     var _bytesField: Dictionary<Int32,SwiftProtobuf.Google_Protobuf_BytesValue> = [:]
 
-    init() {}
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
 
     init(copying source: _StorageClass) {
       _anyField = source._anyField
