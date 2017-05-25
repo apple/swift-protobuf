@@ -792,6 +792,9 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         XCTAssertEqual("single_foreign_enum: FOREIGN_BAZ\n", a.textFormatString())
 
         assertTextFormatEncode("single_foreign_enum: FOREIGN_BAZ\n") {(o: inout MessageTestType) in o.singleForeignEnum = .foreignBaz }
+        assertTextFormatDecodeSucceeds("single_foreign_enum: 6\n") {(o: MessageTestType) in o.singleForeignEnum == .foreignBaz }
+
+        assertTextFormatEncode("single_foreign_enum: 99\n") {(o: inout MessageTestType) in o.singleForeignEnum = .UNRECOGNIZED(99) }
 
         assertTextFormatDecodeFails("single_foreign_enum: a\n")
     }
@@ -803,6 +806,9 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         XCTAssertEqual("single_import_enum: IMPORT_BAZ\n", a.textFormatString())
 
         assertTextFormatEncode("single_import_enum: IMPORT_BAZ\n") {(o: inout MessageTestType) in o.singleImportEnum = .importBaz }
+        assertTextFormatDecodeSucceeds("single_import_enum: 9\n") {(o: MessageTestType) in o.singleImportEnum == .importBaz }
+
+        assertTextFormatEncode("single_import_enum: 66\n") {(o: inout MessageTestType) in o.singleImportEnum = .UNRECOGNIZED(66) }
 
         assertTextFormatDecodeFails("single_import_enum: a\n")
     }
@@ -1151,12 +1157,28 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
         }
 
+        assertTextFormatDecodeSucceeds("repeated_foreign_enum: [5, 6]\n") {(o: MessageTestType) in
+            o.repeatedForeignEnum == [.foreignBar, .foreignBaz]
+        }
+
+        assertTextFormatEncode("repeated_foreign_enum: [123, 321]\n") {(o: inout MessageTestType) in
+            o.repeatedForeignEnum = [.UNRECOGNIZED(123), .UNRECOGNIZED(321)]
+        }
+
         assertTextFormatDecodeFails("repeated_foreign_enum: FOREIGN_BAR\nrepeated_foreign_enum: a\n")
     }
 
     func testEncoding_repeatedImportEnum() {
         assertTextFormatEncode("repeated_import_enum: [IMPORT_BAR, IMPORT_BAZ]\n") {(o: inout MessageTestType) in
             o.repeatedImportEnum = [.importBar, .importBaz]
+        }
+
+        assertTextFormatDecodeSucceeds("repeated_import_enum: [8, 9]\n") {(o: MessageTestType) in
+            o.repeatedImportEnum == [.importBar, .importBaz]
+        }
+
+        assertTextFormatEncode("repeated_import_enum: [999, 888]\n") {(o: inout MessageTestType) in
+            o.repeatedImportEnum = [.UNRECOGNIZED(999), .UNRECOGNIZED(888)]
         }
 
         assertTextFormatDecodeFails("repeated_import_enum: IMPORT_BAR\nrepeated_import_enum: a\n")
