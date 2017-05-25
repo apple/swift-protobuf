@@ -26,6 +26,13 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         }
     }
 
+    func testDecoding_comments_numbers() {
+        assertTextFormatDecodeSucceeds("1: 41#single_int32: 42\n2: 8") {
+            (o: MessageTestType) in
+            return o.singleInt32 == 41 && o.singleInt64 == 8
+        }
+    }
+
     //
     // Singular types
     //
@@ -1388,5 +1395,88 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
             + "oneof_uint32: 99\n")
 
         assertTextFormatEncode(expected, configure: configureLargeObject)
+    }
+
+    func testMultipleFields_numbers() {
+        let text: String = ("1: 1\n"
+            + "2: 2\n"
+            + "3: 3\n"
+            + "4: 4\n"
+            + "5: 5\n"
+            + "6: 6\n"
+            + "7: 7\n"
+            + "8: 8\n"
+            + "9: 9\n"
+            + "10: 10\n"
+            + "11: 11\n"
+            + "12: 12\n"
+            + "13: true\n"
+            + "14: \"abc\"\n"
+            + "15: \"AB\"\n"
+            + "18 {\n"
+            + "  bb: 7\n"
+            + "}\n"
+            + "19 {\n"
+            + "  c: 88\n"
+            + "}\n"
+            + "20 {\n"
+            + "  d: -9\n"
+            + "}\n"
+            + "21: BAZ\n"
+            + "22: FOREIGN_BAZ\n"
+            + "23: IMPORT_BAZ\n"
+            + "26 {\n"
+            + "  e: -999999\n"
+            + "}\n"
+            + "31: [1, 2]\n"
+            + "32: [3, 4]\n"
+            + "33: [5, 6]\n"
+            + "34: [7, 8]\n"
+            + "35: [9, 10]\n"
+            + "36: [11, 12]\n"
+            + "37: [13, 14]\n"
+            + "38: [15, 16]\n"
+            + "39: [17, 18]\n"
+            + "40: [19, 20]\n"
+            + "41: [21, 22]\n"
+            + "42: [23, 24]\n"
+            + "43: [true, false]\n"
+            + "44: \"abc\"\n"
+            + "44: \"def\"\n"
+            + "45: \"\"\n"
+            + "45: \"AB\"\n"
+            + "48 {\n"
+            + "  bb: 7\n"
+            + "}\n"
+            + "48 {\n"
+            + "  bb: -7\n"
+            + "}\n"
+            + "49 {\n"
+            + "  c: 88\n"
+            + "}\n"
+            + "49 {\n"
+            + "  c: -88\n"
+            + "}\n"
+            + "50 {\n"
+            + "  d: -9\n"
+            + "}\n"
+            + "50 {\n"
+            + "  d: 999999\n"
+            + "}\n"
+            + "51: [BAR, BAZ]\n"
+            + "52: [FOREIGN_BAR, FOREIGN_BAZ]\n"
+            + "53: [IMPORT_BAR, IMPORT_BAZ]\n"
+            + "54 {\n"
+            + "  e: -999999\n"
+            + "}\n"
+            + "54 {\n"
+            + "  e: 999999\n"
+            + "}\n"
+            + "111: 99\n")
+
+        let expected = MessageTestType.with { configureLargeObject(&$0) }
+        assertTextFormatDecodeSucceeds(text) {(o: MessageTestType) in
+            o == expected
+        }
     }
 }

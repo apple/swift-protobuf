@@ -24,6 +24,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 0\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_fixed64() throws {
@@ -31,6 +38,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 0x0706050403020100\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_lengthDelimited_string() throws {
@@ -38,6 +52,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: \"abc\"\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_lengthDelimited_message() throws {
@@ -46,6 +67,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1 {\n  1: 1\n  2: \"ab\"\n}\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_lengthDelimited_notmessage() throws {
@@ -55,6 +83,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: \"\\b\\001\\022\\003ab\"\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_lengthDelimited_nested_message() throws {
@@ -62,6 +97,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  1: 2\n  2 {\n    1: 3\n  }\n}\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_group() throws {
@@ -69,6 +111,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  3 {\n    1: 1\n  }\n}\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_nested_group() throws {
@@ -76,6 +125,13 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 1\n2 {\n  3 {\n    1: 1\n  }\n  4 {\n    5: 7\n  }\n}\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 
     func test_unknown_fixed32() throws {
@@ -83,5 +139,12 @@ class Test_TextFormat_Unknown: XCTestCase, PBTestHelpers {
         let msg = try MessageTestType(serializedData: bytes)
         let text = msg.textFormatString()
         XCTAssertEqual(text, "1: 0x03020100\n")
+
+        do {
+            let _ = try MessageTestType(textFormatString: text)
+            XCTFail("Shouldn't get here")
+        } catch TextFormatDecodingError.unknownField {
+            // This is what should have happened.
+        }
     }
 }

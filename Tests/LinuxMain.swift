@@ -970,7 +970,9 @@ extension Test_TextFormat_Map_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_Int32Int32", {try run_test(test:($0 as! Test_TextFormat_Map_proto3).test_Int32Int32)}),
-            ("test_StringMessage", {try run_test(test:($0 as! Test_TextFormat_Map_proto3).test_StringMessage)})
+            ("test_Int32Int32_numbers", {try run_test(test:($0 as! Test_TextFormat_Map_proto3).test_Int32Int32_numbers)}),
+            ("test_StringMessage", {try run_test(test:($0 as! Test_TextFormat_Map_proto3).test_StringMessage)}),
+            ("test_StringMessage_numbers", {try run_test(test:($0 as! Test_TextFormat_Map_proto3).test_StringMessage_numbers)})
         ]
     }
 }
@@ -1021,7 +1023,9 @@ extension Test_TextFormat_proto2 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("test_group", {try run_test(test:($0 as! Test_TextFormat_proto2).test_group)}),
-            ("test_repeatedGroup", {try run_test(test:($0 as! Test_TextFormat_proto2).test_repeatedGroup)})
+            ("test_group_numbers", {try run_test(test:($0 as! Test_TextFormat_proto2).test_group_numbers)}),
+            ("test_repeatedGroup", {try run_test(test:($0 as! Test_TextFormat_proto2).test_repeatedGroup)}),
+            ("test_repeatedGroup_numbers", {try run_test(test:($0 as! Test_TextFormat_proto2).test_repeatedGroup_numbers)})
         ]
     }
 }
@@ -1039,6 +1043,7 @@ extension Test_TextFormat_proto3 {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
             ("testDecoding_comments", {try run_test(test:($0 as! Test_TextFormat_proto3).testDecoding_comments)}),
+            ("testDecoding_comments_numbers", {try run_test(test:($0 as! Test_TextFormat_proto3).testDecoding_comments_numbers)}),
             ("testEncoding_singleInt32", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleInt32)}),
             ("testEncoding_singleInt64", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleInt64)}),
             ("testEncoding_singleUint32", {try run_test(test:($0 as! Test_TextFormat_proto3).testEncoding_singleUint32)}),
@@ -1091,7 +1096,8 @@ extension Test_TextFormat_proto3 {
             ("testInvalidFieldName", {try run_test(test:($0 as! Test_TextFormat_proto3).testInvalidFieldName)}),
             ("testInvalidCapitalization", {try run_test(test:($0 as! Test_TextFormat_proto3).testInvalidCapitalization)}),
             ("testExplicitDelimiters", {try run_test(test:($0 as! Test_TextFormat_proto3).testExplicitDelimiters)}),
-            ("testMultipleFields", {try run_test(test:($0 as! Test_TextFormat_proto3).testMultipleFields)})
+            ("testMultipleFields", {try run_test(test:($0 as! Test_TextFormat_proto3).testMultipleFields)}),
+            ("testMultipleFields_numbers", {try run_test(test:($0 as! Test_TextFormat_proto3).testMultipleFields_numbers)})
         ]
     }
 }
