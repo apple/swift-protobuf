@@ -57,6 +57,7 @@ private let asciiLowerI = UInt8(ascii: "i")
 private let asciiLowerN = UInt8(ascii: "n")
 private let asciiLowerR = UInt8(ascii: "r")
 private let asciiLowerT = UInt8(ascii: "t")
+private let asciiUpperT = UInt8(ascii: "T")
 private let asciiLowerU = UInt8(ascii: "u")
 private let asciiLowerV = UInt8(ascii: "v")
 private let asciiLowerX = UInt8(ascii: "x")
@@ -808,23 +809,19 @@ internal struct TextFormatScanner {
         }
         let c = p[0]
         switch c {
-        case asciiZero: // 0
-            p += 1
-            return false
-        case asciiOne: // 1
-            p += 1
-            return true
-        default:
+        case asciiZero, asciiOne, asciiLowerF, asciiUpperF, asciiLowerT, asciiUpperT:
             if let s = parseIdentifier() {
                 switch s {
-                case "f", "false", "False":
+                case "0", "f", "false", "False":
                     return false
-                case "t", "true", "True":
+                case "1", "t", "true", "True":
                     return true
                 default:
                     break
                 }
             }
+        default:
+            break
         }
         throw TextFormatDecodingError.malformedText
     }
