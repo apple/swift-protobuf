@@ -152,7 +152,7 @@ struct ProtobufUnittest_Extend3_C: SwiftProtobuf.Message {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_Extensions_b`
@@ -169,7 +169,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_c: ProtobufUnittest_Extend3_C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C) ?? ProtobufUnittest_Extend3_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_Extensions_C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_Extensions_C`
@@ -186,7 +186,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_MyMessage_b: String {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.b, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_MyMessage.Extensions.b`
@@ -203,7 +203,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend3_MyMessage_c: ProtobufUnittest_Extend3_MyMessage.C {
-    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C)}
+    get {return getExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C) ?? ProtobufUnittest_Extend3_MyMessage.C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend3_MyMessage.Extensions.C, value: newValue)}
   }
   /// Returns true if extension `ProtobufUnittest_Extend3_MyMessage.Extensions.C`
@@ -231,28 +231,24 @@ let ProtobufUnittest_Extend3_UnittestSwiftExtension3_Extensions: SwiftProtobuf.S
 
 let ProtobufUnittest_Extend3_Extensions_b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 320,
-  fieldName: "protobuf_unittest.extend3.b",
-  defaultValue: String()
+  fieldName: "protobuf_unittest.extend3.b"
 )
 
 let ProtobufUnittest_Extend3_Extensions_C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_Extend3_C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
   _protobuf_fieldNumber: 321,
-  fieldName: "protobuf_unittest.extend3.c",
-  defaultValue: ProtobufUnittest_Extend3_C()
+  fieldName: "protobuf_unittest.extend3.c"
 )
 
 extension ProtobufUnittest_Extend3_MyMessage {
   enum Extensions {
     static let b = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 310,
-      fieldName: "protobuf_unittest.extend3.MyMessage.b",
-      defaultValue: String()
+      fieldName: "protobuf_unittest.extend3.MyMessage.b"
     )
 
     static let C = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalGroupExtensionField<ProtobufUnittest_Extend3_MyMessage.C>, ProtobufUnittest_Extend_Foo.Bar.Baz>(
       _protobuf_fieldNumber: 311,
-      fieldName: "protobuf_unittest.extend3.MyMessage.c",
-      defaultValue: ProtobufUnittest_Extend3_MyMessage.C()
+      fieldName: "protobuf_unittest.extend3.MyMessage.c"
     )
   }
 }

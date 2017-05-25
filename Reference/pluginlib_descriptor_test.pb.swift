@@ -477,7 +477,7 @@ struct SDTScoperForExt: SwiftProtobuf.Message {
 
 extension Google_Protobuf_FieldOptions {
   var SDTextStr: String {
-    get {return getExtensionValue(ext: SDTExtensions_ext_str)}
+    get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
     set {setExtensionValue(ext: SDTExtensions_ext_str, value: newValue)}
   }
   /// Returns true if extension `SDTExtensions_ext_str`
@@ -494,7 +494,7 @@ extension Google_Protobuf_FieldOptions {
 
 extension Google_Protobuf_MessageOptions {
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
-    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum)}
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum, value: newValue)}
   }
   /// Returns true if extension `SDTScoperForExt.Extensions.ext_enum`
@@ -511,7 +511,7 @@ extension Google_Protobuf_MessageOptions {
 
 extension Google_Protobuf_MessageOptions {
   var SDTScoperForExt_extMsg: SDTTopLevelMessage2 {
-    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg)}
+    get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg) ?? SDTTopLevelMessage2()}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg, value: newValue)}
   }
   /// Returns true if extension `SDTScoperForExt.Extensions.ext_msg`
@@ -538,22 +538,19 @@ let SDTPluginlibDescriptorTest_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 
 let SDTExtensions_ext_str = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 90000,
-  fieldName: "swift_descriptor_test.ext_str",
-  defaultValue: String()
+  fieldName: "swift_descriptor_test.ext_str"
 )
 
 extension SDTScoperForExt {
   enum Extensions {
     static let ext_enum = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalEnumExtensionField<SDTTopLevelEnum>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99001,
-      fieldName: "swift_descriptor_test.ScoperForExt.ext_enum",
-      defaultValue: .valueZero
+      fieldName: "swift_descriptor_test.ScoperForExt.ext_enum"
     )
 
     static let ext_msg = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<SDTTopLevelMessage2>, Google_Protobuf_MessageOptions>(
       _protobuf_fieldNumber: 99002,
-      fieldName: "swift_descriptor_test.ScoperForExt.ext_msg",
-      defaultValue: SDTTopLevelMessage2()
+      fieldName: "swift_descriptor_test.ScoperForExt.ext_msg"
     )
   }
 }

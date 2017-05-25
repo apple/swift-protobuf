@@ -20,7 +20,7 @@ public protocol AnyMessageExtension {
     var fieldNumber: Int { get }
     var fieldName: String { get }
     var messageType: Message.Type { get }
-    func _protobuf_newField() -> AnyExtensionField
+    func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> AnyExtensionField?
 }
 
 /// A "Message Extension" relates a particular extension field to
@@ -30,14 +30,12 @@ public class MessageExtension<FieldType: ExtensionField, MessageType: Message>: 
     public let fieldNumber: Int
     public let fieldName: String
     public let messageType: Message.Type
-    public let defaultValue: FieldType.ValueType
-    public init(_protobuf_fieldNumber: Int, fieldName: String, defaultValue: FieldType.ValueType) {
+    public init(_protobuf_fieldNumber: Int, fieldName: String) {
         self.fieldNumber = _protobuf_fieldNumber
         self.fieldName = fieldName
         self.messageType = MessageType.self
-        self.defaultValue = defaultValue
     }
-    public func _protobuf_newField() -> AnyExtensionField {
-        return FieldType(protobufExtension: self, value: defaultValue)
+    public func _protobuf_newField<D: Decoder>(decoder: inout D) throws -> AnyExtensionField? {
+        return try FieldType(protobufExtension: self, decoder: &decoder)
     }
 }

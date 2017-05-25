@@ -534,7 +534,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionString: String {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
   }
   /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_string`
@@ -551,7 +551,7 @@ extension Swift_Protobuf_TestFieldOrderings {
 
 extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionInt: Int32 {
-    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)}
+    get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
   }
   /// Returns true if extension `Swift_Protobuf_Extensions_my_extension_int`
@@ -577,14 +577,12 @@ let Swift_Protobuf_UnittestSwiftFieldorder_Extensions: SwiftProtobuf.SimpleExten
 
 let Swift_Protobuf_Extensions_my_extension_string = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, Swift_Protobuf_TestFieldOrderings>(
   _protobuf_fieldNumber: 50,
-  fieldName: "swift.protobuf.my_extension_string",
-  defaultValue: String()
+  fieldName: "swift.protobuf.my_extension_string"
 )
 
 let Swift_Protobuf_Extensions_my_extension_int = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, Swift_Protobuf_TestFieldOrderings>(
   _protobuf_fieldNumber: 5,
-  fieldName: "swift.protobuf.my_extension_int",
-  defaultValue: 0
+  fieldName: "swift.protobuf.my_extension_int"
 )
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.

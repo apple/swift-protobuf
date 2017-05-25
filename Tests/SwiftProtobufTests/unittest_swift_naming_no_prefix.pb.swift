@@ -39,7 +39,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var http: Int32 {
-    get {return getExtensionValue(ext: Extensions_http)}
+    get {return getExtensionValue(ext: Extensions_http) ?? 0}
     set {setExtensionValue(ext: Extensions_http, value: newValue)}
   }
   /// Returns true if extension `Extensions_http`
@@ -56,7 +56,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var httpRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_http_request)}
+    get {return getExtensionValue(ext: Extensions_http_request) ?? 0}
     set {setExtensionValue(ext: Extensions_http_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_http_request`
@@ -73,7 +73,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_http_request)}
+    get {return getExtensionValue(ext: Extensions_the_http_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_http_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_http_request`
@@ -90,7 +90,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theHTTP: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_http)}
+    get {return getExtensionValue(ext: Extensions_the_http) ?? 0}
     set {setExtensionValue(ext: Extensions_the_http, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_http`
@@ -107,7 +107,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var https: Int32 {
-    get {return getExtensionValue(ext: Extensions_https)}
+    get {return getExtensionValue(ext: Extensions_https) ?? 0}
     set {setExtensionValue(ext: Extensions_https, value: newValue)}
   }
   /// Returns true if extension `Extensions_https`
@@ -124,7 +124,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var httpsRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_https_request)}
+    get {return getExtensionValue(ext: Extensions_https_request) ?? 0}
     set {setExtensionValue(ext: Extensions_https_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_https_request`
@@ -141,7 +141,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_https_request)}
+    get {return getExtensionValue(ext: Extensions_the_https_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_https_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_https_request`
@@ -158,7 +158,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theHTTPS: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_https)}
+    get {return getExtensionValue(ext: Extensions_the_https) ?? 0}
     set {setExtensionValue(ext: Extensions_the_https, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_https`
@@ -175,7 +175,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var url: Int32 {
-    get {return getExtensionValue(ext: Extensions_url)}
+    get {return getExtensionValue(ext: Extensions_url) ?? 0}
     set {setExtensionValue(ext: Extensions_url, value: newValue)}
   }
   /// Returns true if extension `Extensions_url`
@@ -192,7 +192,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var urlValue: Int32 {
-    get {return getExtensionValue(ext: Extensions_url_value)}
+    get {return getExtensionValue(ext: Extensions_url_value) ?? 0}
     set {setExtensionValue(ext: Extensions_url_value, value: newValue)}
   }
   /// Returns true if extension `Extensions_url_value`
@@ -209,7 +209,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theURLValue: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_url_value)}
+    get {return getExtensionValue(ext: Extensions_the_url_value) ?? 0}
     set {setExtensionValue(ext: Extensions_the_url_value, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_url_value`
@@ -226,7 +226,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theURL: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_url)}
+    get {return getExtensionValue(ext: Extensions_the_url) ?? 0}
     set {setExtensionValue(ext: Extensions_the_url, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_url`
@@ -243,7 +243,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var aBC: Int32 {
-    get {return getExtensionValue(ext: Extensions_a_b_c)}
+    get {return getExtensionValue(ext: Extensions_a_b_c) ?? 0}
     set {setExtensionValue(ext: Extensions_a_b_c, value: newValue)}
   }
   /// Returns true if extension `Extensions_a_b_c`
@@ -260,7 +260,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var id: Int32 {
-    get {return getExtensionValue(ext: Extensions_id)}
+    get {return getExtensionValue(ext: Extensions_id) ?? 0}
     set {setExtensionValue(ext: Extensions_id, value: newValue)}
   }
   /// Returns true if extension `Extensions_id`
@@ -277,7 +277,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var idNumber: Int32 {
-    get {return getExtensionValue(ext: Extensions_id_number)}
+    get {return getExtensionValue(ext: Extensions_id_number) ?? 0}
     set {setExtensionValue(ext: Extensions_id_number, value: newValue)}
   }
   /// Returns true if extension `Extensions_id_number`
@@ -294,7 +294,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var theIDNumber: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_id_number)}
+    get {return getExtensionValue(ext: Extensions_the_id_number) ?? 0}
     set {setExtensionValue(ext: Extensions_the_id_number, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_id_number`
@@ -311,7 +311,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
   var requestID: Int32 {
-    get {return getExtensionValue(ext: Extensions_request_id)}
+    get {return getExtensionValue(ext: Extensions_request_id) ?? 0}
     set {setExtensionValue(ext: Extensions_request_id, value: newValue)}
   }
   /// Returns true if extension `Extensions_request_id`
@@ -328,7 +328,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsLowers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var http: Int32 {
-    get {return getExtensionValue(ext: Extensions_HTTP)}
+    get {return getExtensionValue(ext: Extensions_HTTP) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTP, value: newValue)}
   }
   /// Returns true if extension `Extensions_HTTP`
@@ -345,7 +345,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var httpRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_HTTP_request)}
+    get {return getExtensionValue(ext: Extensions_HTTP_request) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTP_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_HTTP_request`
@@ -362,7 +362,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_HTTP_request)}
+    get {return getExtensionValue(ext: Extensions_the_HTTP_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTP_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_HTTP_request`
@@ -379,7 +379,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theHTTP: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_HTTP)}
+    get {return getExtensionValue(ext: Extensions_the_HTTP) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTP, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_HTTP`
@@ -396,7 +396,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var https: Int32 {
-    get {return getExtensionValue(ext: Extensions_HTTPS)}
+    get {return getExtensionValue(ext: Extensions_HTTPS) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTPS, value: newValue)}
   }
   /// Returns true if extension `Extensions_HTTPS`
@@ -413,7 +413,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var httpsRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_HTTPS_request)}
+    get {return getExtensionValue(ext: Extensions_HTTPS_request) ?? 0}
     set {setExtensionValue(ext: Extensions_HTTPS_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_HTTPS_request`
@@ -430,7 +430,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_HTTPS_request)}
+    get {return getExtensionValue(ext: Extensions_the_HTTPS_request) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTPS_request, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_HTTPS_request`
@@ -447,7 +447,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theHTTPS: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_HTTPS)}
+    get {return getExtensionValue(ext: Extensions_the_HTTPS) ?? 0}
     set {setExtensionValue(ext: Extensions_the_HTTPS, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_HTTPS`
@@ -464,7 +464,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var url: Int32 {
-    get {return getExtensionValue(ext: Extensions_URL)}
+    get {return getExtensionValue(ext: Extensions_URL) ?? 0}
     set {setExtensionValue(ext: Extensions_URL, value: newValue)}
   }
   /// Returns true if extension `Extensions_URL`
@@ -481,7 +481,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var urlValue: Int32 {
-    get {return getExtensionValue(ext: Extensions_URL_value)}
+    get {return getExtensionValue(ext: Extensions_URL_value) ?? 0}
     set {setExtensionValue(ext: Extensions_URL_value, value: newValue)}
   }
   /// Returns true if extension `Extensions_URL_value`
@@ -498,7 +498,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theURLValue: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_URL_value)}
+    get {return getExtensionValue(ext: Extensions_the_URL_value) ?? 0}
     set {setExtensionValue(ext: Extensions_the_URL_value, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_URL_value`
@@ -515,7 +515,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theURL: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_URL)}
+    get {return getExtensionValue(ext: Extensions_the_URL) ?? 0}
     set {setExtensionValue(ext: Extensions_the_URL, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_URL`
@@ -532,7 +532,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var id: Int32 {
-    get {return getExtensionValue(ext: Extensions_ID)}
+    get {return getExtensionValue(ext: Extensions_ID) ?? 0}
     set {setExtensionValue(ext: Extensions_ID, value: newValue)}
   }
   /// Returns true if extension `Extensions_ID`
@@ -549,7 +549,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var idNumber: Int32 {
-    get {return getExtensionValue(ext: Extensions_ID_number)}
+    get {return getExtensionValue(ext: Extensions_ID_number) ?? 0}
     set {setExtensionValue(ext: Extensions_ID_number, value: newValue)}
   }
   /// Returns true if extension `Extensions_ID_number`
@@ -566,7 +566,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var theIDNumber: Int32 {
-    get {return getExtensionValue(ext: Extensions_the_ID_number)}
+    get {return getExtensionValue(ext: Extensions_the_ID_number) ?? 0}
     set {setExtensionValue(ext: Extensions_the_ID_number, value: newValue)}
   }
   /// Returns true if extension `Extensions_the_ID_number`
@@ -583,7 +583,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
   var requestID: Int32 {
-    get {return getExtensionValue(ext: Extensions_request_ID)}
+    get {return getExtensionValue(ext: Extensions_request_ID) ?? 0}
     set {setExtensionValue(ext: Extensions_request_ID, value: newValue)}
   }
   /// Returns true if extension `Extensions_request_ID`
@@ -600,7 +600,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsUppers {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var http: Int32 {
-    get {return getExtensionValue(ext: Extensions_Http)}
+    get {return getExtensionValue(ext: Extensions_Http) ?? 0}
     set {setExtensionValue(ext: Extensions_Http, value: newValue)}
   }
   /// Returns true if extension `Extensions_Http`
@@ -617,7 +617,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var httpRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_HttpRequest)}
+    get {return getExtensionValue(ext: Extensions_HttpRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_HttpRequest, value: newValue)}
   }
   /// Returns true if extension `Extensions_HttpRequest`
@@ -634,7 +634,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theHTTPRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheHttpRequest)}
+    get {return getExtensionValue(ext: Extensions_TheHttpRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttpRequest, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheHttpRequest`
@@ -651,7 +651,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theHTTP: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheHttp)}
+    get {return getExtensionValue(ext: Extensions_TheHttp) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttp, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheHttp`
@@ -668,7 +668,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var https: Int32 {
-    get {return getExtensionValue(ext: Extensions_Https)}
+    get {return getExtensionValue(ext: Extensions_Https) ?? 0}
     set {setExtensionValue(ext: Extensions_Https, value: newValue)}
   }
   /// Returns true if extension `Extensions_Https`
@@ -685,7 +685,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var httpsRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_HttpsRequest)}
+    get {return getExtensionValue(ext: Extensions_HttpsRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_HttpsRequest, value: newValue)}
   }
   /// Returns true if extension `Extensions_HttpsRequest`
@@ -702,7 +702,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theHTTPSRequest: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheHttpsRequest)}
+    get {return getExtensionValue(ext: Extensions_TheHttpsRequest) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttpsRequest, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheHttpsRequest`
@@ -719,7 +719,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theHTTPS: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheHttps)}
+    get {return getExtensionValue(ext: Extensions_TheHttps) ?? 0}
     set {setExtensionValue(ext: Extensions_TheHttps, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheHttps`
@@ -736,7 +736,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var url: Int32 {
-    get {return getExtensionValue(ext: Extensions_Url)}
+    get {return getExtensionValue(ext: Extensions_Url) ?? 0}
     set {setExtensionValue(ext: Extensions_Url, value: newValue)}
   }
   /// Returns true if extension `Extensions_Url`
@@ -753,7 +753,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var urlValue: Int32 {
-    get {return getExtensionValue(ext: Extensions_UrlValue)}
+    get {return getExtensionValue(ext: Extensions_UrlValue) ?? 0}
     set {setExtensionValue(ext: Extensions_UrlValue, value: newValue)}
   }
   /// Returns true if extension `Extensions_UrlValue`
@@ -770,7 +770,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theURLValue: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheUrlValue)}
+    get {return getExtensionValue(ext: Extensions_TheUrlValue) ?? 0}
     set {setExtensionValue(ext: Extensions_TheUrlValue, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheUrlValue`
@@ -787,7 +787,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theURL: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheUrl)}
+    get {return getExtensionValue(ext: Extensions_TheUrl) ?? 0}
     set {setExtensionValue(ext: Extensions_TheUrl, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheUrl`
@@ -804,7 +804,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var id: Int32 {
-    get {return getExtensionValue(ext: Extensions_Id)}
+    get {return getExtensionValue(ext: Extensions_Id) ?? 0}
     set {setExtensionValue(ext: Extensions_Id, value: newValue)}
   }
   /// Returns true if extension `Extensions_Id`
@@ -821,7 +821,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var idNumber: Int32 {
-    get {return getExtensionValue(ext: Extensions_IdNumber)}
+    get {return getExtensionValue(ext: Extensions_IdNumber) ?? 0}
     set {setExtensionValue(ext: Extensions_IdNumber, value: newValue)}
   }
   /// Returns true if extension `Extensions_IdNumber`
@@ -838,7 +838,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var theIDNumber: Int32 {
-    get {return getExtensionValue(ext: Extensions_TheIdNumber)}
+    get {return getExtensionValue(ext: Extensions_TheIdNumber) ?? 0}
     set {setExtensionValue(ext: Extensions_TheIdNumber, value: newValue)}
   }
   /// Returns true if extension `Extensions_TheIdNumber`
@@ -855,7 +855,7 @@ extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
 
 extension SwiftUnittest_Names_ExtensionNamingInitialsWordCase {
   var requestID: Int32 {
-    get {return getExtensionValue(ext: Extensions_RequestId)}
+    get {return getExtensionValue(ext: Extensions_RequestId) ?? 0}
     set {setExtensionValue(ext: Extensions_RequestId, value: newValue)}
   }
   /// Returns true if extension `Extensions_RequestId`
@@ -928,294 +928,245 @@ let UnittestSwiftNamingNoPrefix_Extensions: SwiftProtobuf.SimpleExtensionMap = [
 
 let Extensions_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 101,
-  fieldName: "http",
-  defaultValue: 0
+  fieldName: "http"
 )
 
 let Extensions_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 102,
-  fieldName: "http_request",
-  defaultValue: 0
+  fieldName: "http_request"
 )
 
 let Extensions_the_http_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 103,
-  fieldName: "the_http_request",
-  defaultValue: 0
+  fieldName: "the_http_request"
 )
 
 let Extensions_the_http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 104,
-  fieldName: "the_http",
-  defaultValue: 0
+  fieldName: "the_http"
 )
 
 let Extensions_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 111,
-  fieldName: "https",
-  defaultValue: 0
+  fieldName: "https"
 )
 
 let Extensions_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 112,
-  fieldName: "https_request",
-  defaultValue: 0
+  fieldName: "https_request"
 )
 
 let Extensions_the_https_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 113,
-  fieldName: "the_https_request",
-  defaultValue: 0
+  fieldName: "the_https_request"
 )
 
 let Extensions_the_https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 114,
-  fieldName: "the_https",
-  defaultValue: 0
+  fieldName: "the_https"
 )
 
 let Extensions_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 121,
-  fieldName: "url",
-  defaultValue: 0
+  fieldName: "url"
 )
 
 let Extensions_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 122,
-  fieldName: "url_value",
-  defaultValue: 0
+  fieldName: "url_value"
 )
 
 let Extensions_the_url_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 123,
-  fieldName: "the_url_value",
-  defaultValue: 0
+  fieldName: "the_url_value"
 )
 
 let Extensions_the_url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 124,
-  fieldName: "the_url",
-  defaultValue: 0
+  fieldName: "the_url"
 )
 
 let Extensions_a_b_c = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 131,
-  fieldName: "a_b_c",
-  defaultValue: 0
+  fieldName: "a_b_c"
 )
 
 let Extensions_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 141,
-  fieldName: "id",
-  defaultValue: 0
+  fieldName: "id"
 )
 
 let Extensions_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 142,
-  fieldName: "id_number",
-  defaultValue: 0
+  fieldName: "id_number"
 )
 
 let Extensions_the_id_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 143,
-  fieldName: "the_id_number",
-  defaultValue: 0
+  fieldName: "the_id_number"
 )
 
 let Extensions_request_id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsLowers>(
   _protobuf_fieldNumber: 144,
-  fieldName: "request_id",
-  defaultValue: 0
+  fieldName: "request_id"
 )
 
 let Extensions_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 101,
-  fieldName: "HTTP",
-  defaultValue: 0
+  fieldName: "HTTP"
 )
 
 let Extensions_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 102,
-  fieldName: "HTTP_request",
-  defaultValue: 0
+  fieldName: "HTTP_request"
 )
 
 let Extensions_the_HTTP_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 103,
-  fieldName: "the_HTTP_request",
-  defaultValue: 0
+  fieldName: "the_HTTP_request"
 )
 
 let Extensions_the_HTTP = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 104,
-  fieldName: "the_HTTP",
-  defaultValue: 0
+  fieldName: "the_HTTP"
 )
 
 let Extensions_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 111,
-  fieldName: "HTTPS",
-  defaultValue: 0
+  fieldName: "HTTPS"
 )
 
 let Extensions_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 112,
-  fieldName: "HTTPS_request",
-  defaultValue: 0
+  fieldName: "HTTPS_request"
 )
 
 let Extensions_the_HTTPS_request = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 113,
-  fieldName: "the_HTTPS_request",
-  defaultValue: 0
+  fieldName: "the_HTTPS_request"
 )
 
 let Extensions_the_HTTPS = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 114,
-  fieldName: "the_HTTPS",
-  defaultValue: 0
+  fieldName: "the_HTTPS"
 )
 
 let Extensions_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 121,
-  fieldName: "URL",
-  defaultValue: 0
+  fieldName: "URL"
 )
 
 let Extensions_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 122,
-  fieldName: "URL_value",
-  defaultValue: 0
+  fieldName: "URL_value"
 )
 
 let Extensions_the_URL_value = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 123,
-  fieldName: "the_URL_value",
-  defaultValue: 0
+  fieldName: "the_URL_value"
 )
 
 let Extensions_the_URL = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 124,
-  fieldName: "the_URL",
-  defaultValue: 0
+  fieldName: "the_URL"
 )
 
 let Extensions_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 141,
-  fieldName: "ID",
-  defaultValue: 0
+  fieldName: "ID"
 )
 
 let Extensions_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 142,
-  fieldName: "ID_number",
-  defaultValue: 0
+  fieldName: "ID_number"
 )
 
 let Extensions_the_ID_number = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 143,
-  fieldName: "the_ID_number",
-  defaultValue: 0
+  fieldName: "the_ID_number"
 )
 
 let Extensions_request_ID = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsUppers>(
   _protobuf_fieldNumber: 144,
-  fieldName: "request_ID",
-  defaultValue: 0
+  fieldName: "request_ID"
 )
 
 let Extensions_Http = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 101,
-  fieldName: "Http",
-  defaultValue: 0
+  fieldName: "Http"
 )
 
 let Extensions_HttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 102,
-  fieldName: "HttpRequest",
-  defaultValue: 0
+  fieldName: "HttpRequest"
 )
 
 let Extensions_TheHttpRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 103,
-  fieldName: "TheHttpRequest",
-  defaultValue: 0
+  fieldName: "TheHttpRequest"
 )
 
 let Extensions_TheHttp = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 104,
-  fieldName: "TheHttp",
-  defaultValue: 0
+  fieldName: "TheHttp"
 )
 
 let Extensions_Https = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 111,
-  fieldName: "Https",
-  defaultValue: 0
+  fieldName: "Https"
 )
 
 let Extensions_HttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 112,
-  fieldName: "HttpsRequest",
-  defaultValue: 0
+  fieldName: "HttpsRequest"
 )
 
 let Extensions_TheHttpsRequest = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 113,
-  fieldName: "TheHttpsRequest",
-  defaultValue: 0
+  fieldName: "TheHttpsRequest"
 )
 
 let Extensions_TheHttps = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 114,
-  fieldName: "TheHttps",
-  defaultValue: 0
+  fieldName: "TheHttps"
 )
 
 let Extensions_Url = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 121,
-  fieldName: "Url",
-  defaultValue: 0
+  fieldName: "Url"
 )
 
 let Extensions_UrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 122,
-  fieldName: "UrlValue",
-  defaultValue: 0
+  fieldName: "UrlValue"
 )
 
 let Extensions_TheUrlValue = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 123,
-  fieldName: "TheUrlValue",
-  defaultValue: 0
+  fieldName: "TheUrlValue"
 )
 
 let Extensions_TheUrl = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 124,
-  fieldName: "TheUrl",
-  defaultValue: 0
+  fieldName: "TheUrl"
 )
 
 let Extensions_Id = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 141,
-  fieldName: "Id",
-  defaultValue: 0
+  fieldName: "Id"
 )
 
 let Extensions_IdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 142,
-  fieldName: "IdNumber",
-  defaultValue: 0
+  fieldName: "IdNumber"
 )
 
 let Extensions_TheIdNumber = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 143,
-  fieldName: "TheIdNumber",
-  defaultValue: 0
+  fieldName: "TheIdNumber"
 )
 
 let Extensions_RequestId = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufInt32>, SwiftUnittest_Names_ExtensionNamingInitialsWordCase>(
   _protobuf_fieldNumber: 144,
-  fieldName: "RequestId",
-  defaultValue: 0
+  fieldName: "RequestId"
 )

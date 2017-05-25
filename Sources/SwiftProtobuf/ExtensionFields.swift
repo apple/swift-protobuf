@@ -30,7 +30,7 @@ public protocol AnyExtensionField: CustomDebugStringConvertible {
   var protobufExtension: AnyMessageExtension { get }
   func isEqual(other: AnyExtensionField) -> Bool
 
-  /// General field decoding
+  /// Merging field decoding
   mutating func decodeExtensionField<T: Decoder>(decoder: inout T) throws
 
   /// Fields know their own type, so can dispatch to a visitor
@@ -53,6 +53,7 @@ public protocol ExtensionField: AnyExtensionField, Hashable {
   associatedtype ValueType
   var value: ValueType { get set }
   init(protobufExtension: AnyMessageExtension, value: ValueType)
+  init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws
 }
 
 ///
@@ -95,6 +96,16 @@ public struct OptionalExtensionField<T: FieldType>: ExtensionField {
       if let v = v {
           value = v
       }
+  }
+
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType?
+    try T.decodeSingular(value: &v, from: &decoder)
+    if let v = v {
+      self.init(protobufExtension: protobufExtension, value: v)
+    } else {
+      return nil
+    }
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
@@ -141,7 +152,13 @@ public struct RepeatedExtensionField<T: FieldType>: ExtensionField {
   }
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
-      try T.decodeRepeated(value: &value, from: &decoder)
+    try T.decodeRepeated(value: &value, from: &decoder)
+  }
+
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType = []
+    try T.decodeRepeated(value: &v, from: &decoder)
+    self.init(protobufExtension: protobufExtension, value: v)
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
@@ -196,6 +213,12 @@ public struct PackedExtensionField<T: FieldType>: ExtensionField {
     try T.decodeRepeated(value: &value, from: &decoder)
   }
 
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType = []
+    try T.decodeRepeated(value: &v, from: &decoder)
+    self.init(protobufExtension: protobufExtension, value: v)
+  }
+
   public func traverse<V: Visitor>(visitor: inout V) throws {
     if value.count > 0 {
       try T.visitPacked(value: value, fieldNumber: protobufExtension.fieldNumber, with: &visitor)
@@ -245,6 +268,16 @@ public struct OptionalEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
       }
   }
 
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType?
+    try decoder.decodeSingularEnumField(value: &v)
+    if let v = v {
+      self.init(protobufExtension: protobufExtension, value: v)
+    } else {
+      return nil
+    }
+  }
+
   public func traverse<V: Visitor>(visitor: inout V) throws {
     try visitor.visitSingularEnumField(
       value: value,
@@ -292,6 +325,12 @@ public struct RepeatedEnumExtensionField<E: Enum>: ExtensionField where E.RawVal
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedEnumField(value: &value)
+  }
+
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType = []
+    try decoder.decodeRepeatedEnumField(value: &v)
+    self.init(protobufExtension: protobufExtension, value: v)
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
@@ -348,6 +387,12 @@ public struct PackedEnumExtensionField<E: Enum>: ExtensionField where E.RawValue
     try decoder.decodeRepeatedEnumField(value: &value)
   }
 
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType = []
+    try decoder.decodeRepeatedEnumField(value: &v)
+    self.init(protobufExtension: protobufExtension, value: v)
+  }
+
   public func traverse<V: Visitor>(visitor: inout V) throws {
     if value.count > 0 {
       try visitor.visitPackedEnumField(
@@ -395,6 +440,16 @@ public struct OptionalMessageExtensionField<M: Message & Equatable>:
     try decoder.decodeSingularMessageField(value: &v)
     if let v = v {
       self.value = v
+    }
+  }
+
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType?
+    try decoder.decodeSingularMessageField(value: &v)
+    if let v = v {
+      self.init(protobufExtension: protobufExtension, value: v)
+    } else {
+      return nil
     }
   }
 
@@ -446,6 +501,12 @@ public struct RepeatedMessageExtensionField<M: Message & Equatable>:
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedMessageField(value: &value)
+  }
+
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType = []
+    try decoder.decodeRepeatedMessageField(value: &v)
+    self.init(protobufExtension: protobufExtension, value: v)
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
@@ -500,6 +561,16 @@ public struct OptionalGroupExtensionField<G: Message & Hashable>:
     }
   }
 
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType?
+    try decoder.decodeSingularGroupField(value: &v)
+    if let v = v {
+      self.init(protobufExtension: protobufExtension, value: v)
+    } else {
+      return nil
+    }
+  }
+
   public func traverse<V: Visitor>(visitor: inout V) throws {
     try visitor.visitSingularGroupField(
       value: value, fieldNumber: protobufExtension.fieldNumber)
@@ -548,6 +619,12 @@ public struct RepeatedGroupExtensionField<G: Message & Hashable>:
 
   public mutating func decodeExtensionField<D: Decoder>(decoder: inout D) throws {
     try decoder.decodeRepeatedGroupField(value: &value)
+  }
+
+  public init?<D: Decoder>(protobufExtension: AnyMessageExtension, decoder: inout D) throws {
+    var v: ValueType = []
+    try decoder.decodeRepeatedGroupField(value: &v)
+    self.init(protobufExtension: protobufExtension, value: v)
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
