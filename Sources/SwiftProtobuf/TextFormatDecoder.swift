@@ -566,9 +566,9 @@ internal struct TextFormatDecoder: Decoder {
             }
             if let key = try scanner.nextKey() {
                 switch key {
-                case "key":
+                case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
-                case "value":
+                case "value", "2":
                     try ValueType.decodeSingular(value: &valueField, from: &self)
                 default:
                     throw TextFormatDecodingError.unknownField
@@ -613,9 +613,9 @@ internal struct TextFormatDecoder: Decoder {
             }
             if let key = try scanner.nextKey() {
                 switch key {
-                case "key":
+                case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
-                case "value":
+                case "value", "2":
                     try decodeSingularEnumField(value: &valueField)
                 default:
                     throw TextFormatDecodingError.unknownField
@@ -660,9 +660,9 @@ internal struct TextFormatDecoder: Decoder {
             }
             if let key = try scanner.nextKey() {
                 switch key {
-                case "key":
+                case "key", "1":
                     try KeyType.decodeSingular(value: &keyField, from: &self)
-                case "value":
+                case "value", "2":
                     try decodeSingularMessageField(value: &valueField)
                 default:
                     throw TextFormatDecodingError.unknownField

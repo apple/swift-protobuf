@@ -901,7 +901,8 @@ internal struct TextFormatScanner {
         case asciiOpenSquareBracket: // [
             throw TextFormatDecodingError.malformedText
         case asciiLowerA...asciiLowerZ,
-             asciiUpperA...asciiUpperZ: // a...z, A...Z
+             asciiUpperA...asciiUpperZ,
+             asciiOne...asciiNine: // a...z, A...Z, 1...9
             if let s = parseIdentifier() {
                 return s
             } else {

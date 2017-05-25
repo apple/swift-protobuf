@@ -74,7 +74,34 @@ class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeFails("1 [{key:1 value:2 nonsense:3}")
         assertTextFormatDecodeFails("1 {key:1}")
 
-        // TODO: Use numbers for "key" and "value" in the map entries.
+        // Using numbers for "key" and "value" in the map entries.
+
+        assertTextFormatDecodeSucceeds("1 {\n  1: 1\n  2: 2\n}\n") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextFormatDecodeSucceeds("1 {1: 1, 2: 2}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextFormatDecodeSucceeds("1 {1: 1; 2: 2}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextFormatDecodeSucceeds("1 {1:1 2:2}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2]
+        }
+        assertTextFormatDecodeSucceeds("1 {1:1 2:2}\n1 {1:3 2:4}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2, 3:4]
+        }
+        assertTextFormatDecodeSucceeds("1 [{1:1 2:2}, {1:3 2:4}]") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2, 3:4]
+        }
+        assertTextFormatDecodeSucceeds("1 [{1:1 2:2}];1 {1:3 2:4}") {(o: MessageTestType) in
+            return o.mapInt32Int32 == [1:2, 3:4]
+        }
+        assertTextFormatDecodeFails("1 [{1:1 2:2},]")
+        assertTextFormatDecodeFails("1 [{1:1 2:2}")
+        assertTextFormatDecodeFails("1 [{1:1 2:2 3:3}")
+        assertTextFormatDecodeFails("1 {1:1}")
+
     }
 
     func test_StringMessage() {
@@ -92,6 +119,10 @@ class Test_TextFormat_Map_proto3: XCTestCase, PBTestHelpers {
             o.mapStringForeignMessage == ["foo": foo]
         }
 
-        // TODO: Use numbers for "key" and "value" in the map entries.
+        // Using numbers for "key" and "value" in the map entries.
+
+        assertTextFormatDecodeSucceeds("18 {\n  1: \"foo\"\n  2 {\n    1: 999\n  }\n}\n") {(o: MessageTestType) in
+            o.mapStringForeignMessage == ["foo": foo]
+        }
     }
 }
