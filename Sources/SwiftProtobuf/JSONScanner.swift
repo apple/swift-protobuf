@@ -673,7 +673,7 @@ internal struct JSONScanner {
     // This should never happen, if it does, something is probably corrupting memory, and
     // simply throwing doesn't make much sense.
     if recursionBudget > recursionLimit {
-      fatalError("Some how JSONDecoding unwound more objects than it started")
+      fatalError("Somehow JSONDecoding unwound more objects than it started")
     }
   }
 

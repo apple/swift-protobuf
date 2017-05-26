@@ -55,7 +55,10 @@ public extension Message {
   /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
   ///   default instance will be used.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(jsonString: String, options: JSONDecodingOptions? = nil) throws {
+  public init(
+    jsonString: String,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
@@ -75,7 +78,10 @@ public extension Message {
   /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
   ///   default instance will be used.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(jsonUTF8Data: Data, options: JSONDecodingOptions? = nil) throws {
+  public init(
+    jsonUTF8Data: Data,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
       let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)

@@ -58,7 +58,7 @@ public extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
-    options: JSONDecodingOptions? = nil
+    options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
@@ -81,7 +81,7 @@ public extension Message {
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONUTF8Data jsonUTF8Data: Data,
-    options: JSONDecodingOptions? = nil
+    options: JSONDecodingOptions = JSONDecodingOptions()
   ) throws -> [Self] {
     return try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
       var array = [Self]()
