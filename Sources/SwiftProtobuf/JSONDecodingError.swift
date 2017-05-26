@@ -53,4 +53,6 @@ public enum JSONDecodingError: Error {
     case trailingGarbage
     /// More than one value was specified for the same oneof field
     case conflictingOneOf
+    /// Reached the nesting limit for messages within messages while decoding.
+    case messageDepthLimit
 }

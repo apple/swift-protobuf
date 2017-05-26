@@ -190,4 +190,44 @@ class Test_JSON_Conformance: XCTestCase {
             return
         }
     }
+
+    func testMessageDepthLimit() {
+        let jsonInputs: [String] = [
+            // Proper field names.
+            "{ \"a\": { \"a\": { \"i\": 1 } } }",
+            // Wrong names, causes the skipping of values to be trigger, which also should
+            // honor depth limits.
+            "{ \"x\": { \"x\": { \"z\": 1 } } }",
+        ]
+
+        let tests: [(Int, Bool)] = [
+            // Limit, success/failure
+            ( 10, true ),
+            ( 4, true ),
+            ( 3, true ),
+            ( 2, false ),
+            ( 1, false ),
+        ]
+
+        for (i, jsonInput) in jsonInputs.enumerated() {
+            for (limit, expectSuccess) in tests {
+                do {
+                    var options = JSONDecodingOptions()
+                    options.messageDepthLimit = limit
+                    let _ = try Proto3TestRecursiveMessage(jsonString: jsonInput, options: options)
+                    if !expectSuccess {
+                        XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
+                    }
+                } catch JSONDecodingError.messageDepthLimit {
+                    if expectSuccess {
+                        XCTFail("Decode failed because of limit, but should *NOT* have, pass: \(i), limit: \(limit)")
+                    } else {
+                        // Nothing, this is what was expected.
+                    }
+                } catch let e  {
+                    XCTFail("Decode failed (pass: \(i), limit: \(limit) with unexpected error: \(e)")
+                }
+            }
+        }
+    }
 }

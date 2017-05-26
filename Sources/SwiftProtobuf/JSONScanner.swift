@@ -631,6 +631,8 @@ private func parseBareFloatString(
 internal struct JSONScanner {
   private let source: UnsafeBufferPointer<UInt8>
   private var index: UnsafeBufferPointer<UInt8>.Index
+  internal var recursionLimit: Int
+  internal var recursionBudget: Int
 
   /// True if the scanner has read all of the data from the source, with the
   /// exception of any trailing whitespace (which is consumed by reading this
@@ -652,9 +654,27 @@ internal struct JSONScanner {
     return source[index]
   }
 
-  internal init(source: UnsafeBufferPointer<UInt8>) {
+  internal init(source: UnsafeBufferPointer<UInt8>, messageDepthLimit: Int) {
     self.source = source
     self.index = source.startIndex
+    self.recursionLimit = messageDepthLimit
+    self.recursionBudget = messageDepthLimit
+  }
+
+  private mutating func incrementRecursionDepth() throws {
+    recursionBudget -= 1
+    if recursionBudget < 0 {
+      throw JSONDecodingError.messageDepthLimit
+    }
+  }
+
+  private mutating func decrementRecursionDepth() {
+    recursionBudget += 1
+    // This should never happen, if it does, something is probably corrupting memory, and
+    // simply throwing doesn't make much sense.
+    if recursionBudget > recursionLimit {
+      fatalError("Somehow JSONDecoding unwound more objects than it started")
+    }
   }
 
   /// Advances the scanner to the next position in the source.
@@ -1198,6 +1218,7 @@ internal struct JSONScanner {
   /// Skip "{", throw if that's not the next character
   internal mutating func skipRequiredObjectStart() throws {
     try skipRequiredCharacter(asciiOpenCurlyBracket) // {
+    try incrementRecursionDepth()
   }
 
   /// Skip ",", throw if that's not the next character
@@ -1234,7 +1255,11 @@ internal struct JSONScanner {
   /// If the next non-whitespace character is "}", skip it
   /// and return true.  Otherwise, return false.
   internal mutating func skipOptionalObjectEnd() -> Bool {
-    return skipOptionalCharacter(asciiCloseCurlyBracket) // }
+    let result = skipOptionalCharacter(asciiCloseCurlyBracket) // }
+    if result {
+      decrementRecursionDepth()
+    }
+    return result
   }
 
   /// Return the next complete JSON structure as a string.

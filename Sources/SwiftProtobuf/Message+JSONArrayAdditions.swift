@@ -53,13 +53,18 @@ public extension Message {
   /// serialized array of messages in JSON format.
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
+  ///   default instance will be used.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public static func array(fromJSONString jsonString: String) throws -> [Self] {
+  public static func array(
+    fromJSONString jsonString: String,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws -> [Self] {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      return try array(fromJSONUTF8Data: data)
+      return try array(fromJSONUTF8Data: data, options: options)
     } else {
       throw JSONDecodingError.truncated
     }
@@ -71,12 +76,17 @@ public extension Message {
   ///
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
+  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
+  ///   default instance will be used.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public static func array(fromJSONUTF8Data jsonUTF8Data: Data) throws -> [Self] {
+  public static func array(
+    fromJSONUTF8Data jsonUTF8Data: Data,
+    options: JSONDecodingOptions = JSONDecodingOptions()
+  ) throws -> [Self] {
     return try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
       var array = [Self]()
       let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
-      var decoder = JSONDecoder(source: buffer)
+      var decoder = JSONDecoder(source: buffer, options: options)
       try decoder.decodeRepeatedMessageField(value: &array)
       if !decoder.scanner.complete {
         throw JSONDecodingError.trailingGarbage
