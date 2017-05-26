@@ -16,6 +16,7 @@ import Foundation
 
 internal struct JSONDecoder: Decoder {
   internal var scanner: JSONScanner
+  internal var options: JSONDecodingOptions
   private var fieldCount = 0
   private var isMapKey = false
   private var fieldNameMap: _NameMap?
@@ -24,12 +25,15 @@ internal struct JSONDecoder: Decoder {
     throw JSONDecodingError.conflictingOneOf
   }
 
-  internal init(source: UnsafeBufferPointer<UInt8>) {
-    self.scanner = JSONScanner(source: source)
+  internal init(source: UnsafeBufferPointer<UInt8>, options: JSONDecodingOptions?) {
+    self.options = options ?? JSONDecodingOptions()
+    self.scanner = JSONScanner(source: source, messageDepthLimit: self.options.messageDepthLimit)
   }
 
-  private init(scanner: JSONScanner) {
-    self.scanner = scanner
+  private init(decoder: JSONDecoder) {
+    // The scanner is copied over along with the options.
+    scanner = decoder.scanner
+    options = decoder.options
   }
 
   mutating func nextFieldNumber() throws -> Int? {
@@ -564,8 +568,9 @@ internal struct JSONDecoder: Decoder {
     if value == nil {
       value = M()
     }
-    var subDecoder = JSONDecoder(scanner: scanner)
+    var subDecoder = JSONDecoder(decoder: self)
     try subDecoder.decodeFullObject(message: &value!)
+    assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
     scanner = subDecoder.scanner
   }
 
@@ -594,10 +599,10 @@ internal struct JSONDecoder: Decoder {
         }
       } else {
         var message = M()
-        var subDecoder = JSONDecoder(scanner: scanner)
+        var subDecoder = JSONDecoder(decoder: self)
         try subDecoder.decodeFullObject(message: &message)
-        scanner = subDecoder.scanner
         value.append(message)
+        assert(scanner.recursionBudget == subDecoder.scanner.recursionBudget)
         scanner = subDecoder.scanner
       }
       if scanner.skipOptionalArrayEnd() {

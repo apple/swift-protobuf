@@ -52,13 +52,15 @@ public extension Message {
   /// serialized message in JSON format.
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
+  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
+  ///   default instance will be used.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(jsonString: String) throws {
+  public init(jsonString: String, options: JSONDecodingOptions? = nil) throws {
     if jsonString.isEmpty {
       throw JSONDecodingError.truncated
     }
     if let data = jsonString.data(using: String.Encoding.utf8) {
-      try self.init(jsonUTF8Data: data)
+      try self.init(jsonUTF8Data: data, options: options)
     } else {
       throw JSONDecodingError.truncated
     }
@@ -70,12 +72,14 @@ public extension Message {
   ///
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
+  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
+  ///   default instance will be used.
   /// - Throws: `JSONDecodingError` if decoding fails.
-  public init(jsonUTF8Data: Data) throws {
+  public init(jsonUTF8Data: Data, options: JSONDecodingOptions? = nil) throws {
     self.init()
     try jsonUTF8Data.withUnsafeBytes { (bytes:UnsafePointer<UInt8>) in
       let buffer = UnsafeBufferPointer(start: bytes, count: jsonUTF8Data.count)
-      var decoder = JSONDecoder(source: buffer)
+      var decoder = JSONDecoder(source: buffer, options: options)
       if !decoder.scanner.skipOptionalNull() {
         try decoder.decodeFullObject(message: &self)
       } else if Self.self is _CustomJSONCodable.Type {
