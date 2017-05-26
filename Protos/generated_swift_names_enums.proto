@@ -172,6 +172,7 @@ message GeneratedSwiftReservedEnums {
   enum FieldMask { NONE_FieldMask = 0; }
   enum fieldName { NONE_fieldName = 0; }
   enum fieldNameCount { NONE_fieldNameCount = 0; }
+  enum fieldNum { NONE_fieldNum = 0; }
   enum fieldNumber { NONE_fieldNumber = 0; }
   enum fieldNumberForProto { NONE_fieldNumberForProto = 0; }
   enum fields { NONE_fields = 0; }
@@ -200,8 +201,6 @@ message GeneratedSwiftReservedEnums {
   enum fromAscii2 { NONE_fromAscii2 = 0; }
   enum fromAscii4 { NONE_fromAscii4 = 0; }
   enum fromHexDigit { NONE_fromHexDigit = 0; }
-  enum fromJSONString { NONE_fromJSONString = 0; }
-  enum fromJSONUTF8Data { NONE_fromJSONUTF8Data = 0; }
   enum fromMessage { NONE_fromMessage = 0; }
   enum fromURL { NONE_fromURL = 0; }
   enum func { NONE_func = 0; }
@@ -318,6 +317,7 @@ message GeneratedSwiftReservedEnums {
   enum members { NONE_members = 0; }
   enum merge { NONE_merge = 0; }
   enum message { NONE_message = 0; }
+  enum messageDepthLimit { NONE_messageDepthLimit = 0; }
   enum MessageExtension { NONE_MessageExtension = 0; }
   enum messageType { NONE_messageType = 0; }
   enum Method { NONE_Method = 0; }
@@ -513,7 +513,7 @@ message GeneratedSwiftReservedEnums {
   enum traverse { NONE_traverse = 0; }
   enum true { NONE_true = 0; }
   enum try { NONE_try = 0; }
-  enum Type { NONE_Type = 0; }
+  enum type { NONE_type = 0; }
   enum typealias { NONE_typealias = 0; }
   enum typeName { NONE_typeName = 0; }
   enum typePrefix { NONE_typePrefix = 0; }
@@ -543,6 +543,7 @@ message GeneratedSwiftReservedEnums {
   enum UnsafeMutablePointer { NONE_UnsafeMutablePointer = 0; }
   enum UnsafeMutableRawBufferPointer { NONE_UnsafeMutableRawBufferPointer = 0; }
   enum UnsafePointer { NONE_UnsafePointer = 0; }
+  enum updatedOptions { NONE_updatedOptions = 0; }
   enum url { NONE_url = 0; }
   enum used { NONE_used = 0; }
   enum utf8 { NONE_utf8 = 0; }

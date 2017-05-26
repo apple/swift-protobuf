@@ -172,6 +172,7 @@ message GeneratedSwiftReservedMessages {
   message FieldMask { int32 FieldMask = 1; }
   message fieldName { int32 fieldName = 1; }
   message fieldNameCount { int32 fieldNameCount = 1; }
+  message fieldNum { int32 fieldNum = 1; }
   message fieldNumber { int32 fieldNumber = 1; }
   message fieldNumberForProto { int32 fieldNumberForProto = 1; }
   message fields { int32 fields = 1; }
@@ -200,8 +201,6 @@ message GeneratedSwiftReservedMessages {
   message fromAscii2 { int32 fromAscii2 = 1; }
   message fromAscii4 { int32 fromAscii4 = 1; }
   message fromHexDigit { int32 fromHexDigit = 1; }
-  message fromJSONString { int32 fromJSONString = 1; }
-  message fromJSONUTF8Data { int32 fromJSONUTF8Data = 1; }
   message fromMessage { int32 fromMessage = 1; }
   message fromURL { int32 fromURL = 1; }
   message func { int32 func = 1; }
@@ -318,6 +317,7 @@ message GeneratedSwiftReservedMessages {
   message members { int32 members = 1; }
   message merge { int32 merge = 1; }
   message message { int32 message = 1; }
+  message messageDepthLimit { int32 messageDepthLimit = 1; }
   message MessageExtension { int32 MessageExtension = 1; }
   message messageType { int32 messageType = 1; }
   message Method { int32 Method = 1; }
@@ -513,7 +513,7 @@ message GeneratedSwiftReservedMessages {
   message traverse { int32 traverse = 1; }
   message true { int32 true = 1; }
   message try { int32 try = 1; }
-  message Type { int32 Type = 1; }
+  message type { int32 type = 1; }
   message typealias { int32 typealias = 1; }
   message typeName { int32 typeName = 1; }
   message typePrefix { int32 typePrefix = 1; }
@@ -543,6 +543,7 @@ message GeneratedSwiftReservedMessages {
   message UnsafeMutablePointer { int32 UnsafeMutablePointer = 1; }
   message UnsafeMutableRawBufferPointer { int32 UnsafeMutableRawBufferPointer = 1; }
   message UnsafePointer { int32 UnsafePointer = 1; }
+  message updatedOptions { int32 updatedOptions = 1; }
   message url { int32 url = 1; }
   message used { int32 used = 1; }
   message utf8 { int32 utf8 = 1; }
