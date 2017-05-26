@@ -79,7 +79,15 @@ internal struct HashVisitor: Visitor {
 
   mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
     mix(fieldNumber)
+#if swift(>=3.1)
     mix(value.hashValue)
+#else
+    value.enumerateBytes { (block, index, stop) in
+        for b in block {
+            mix(Int(b))
+        }
+    }
+#endif
   }
 
   mutating func visitSingularEnumField<E: Enum>(value: E,
