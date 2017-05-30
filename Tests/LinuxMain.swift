@@ -612,6 +612,14 @@ extension Test_JSONUnpacked {
     }
 }
 
+extension Test_JSONDecodingOptions {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testMessageDepthLimit", {try run_test(test:($0 as! Test_JSONDecodingOptions).testMessageDepthLimit)})
+        ]
+    }
+}
+
 extension Test_JSON_Array {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -631,8 +639,7 @@ extension Test_JSON_Conformance {
             ("testNullSupport_RepeatedValue", {try run_test(test:($0 as! Test_JSON_Conformance).testNullSupport_RepeatedValue)}),
             ("testNullConformance", {try run_test(test:($0 as! Test_JSON_Conformance).testNullConformance)}),
             ("testValueList", {try run_test(test:($0 as! Test_JSON_Conformance).testValueList)}),
-            ("testNestedAny", {try run_test(test:($0 as! Test_JSON_Conformance).testNestedAny)}),
-            ("testMessageDepthLimit", {try run_test(test:($0 as! Test_JSON_Conformance).testMessageDepthLimit)})
+            ("testNestedAny", {try run_test(test:($0 as! Test_JSON_Conformance).testNestedAny)})
         ]
     }
 }
@@ -1194,6 +1201,7 @@ XCTMain(
         (testCaseClass: Test_JSON.self, allTests: Test_JSON.allTests),
         (testCaseClass: Test_JSONPacked.self, allTests: Test_JSONPacked.allTests),
         (testCaseClass: Test_JSONUnpacked.self, allTests: Test_JSONUnpacked.allTests),
+        (testCaseClass: Test_JSONDecodingOptions.self, allTests: Test_JSONDecodingOptions.allTests),
         (testCaseClass: Test_JSON_Array.self, allTests: Test_JSON_Array.allTests),
         (testCaseClass: Test_JSON_Conformance.self, allTests: Test_JSON_Conformance.allTests),
         (testCaseClass: Test_JSON_Group.self, allTests: Test_JSON_Group.allTests),
