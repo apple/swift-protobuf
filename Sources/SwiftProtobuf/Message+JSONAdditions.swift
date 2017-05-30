@@ -52,8 +52,7 @@ public extension Message {
   /// serialized message in JSON format.
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
-  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
-  ///   default instance will be used.
+  /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonString: String,
@@ -75,8 +74,7 @@ public extension Message {
   ///
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
-  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
-  ///   default instance will be used.
+  /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public init(
     jsonUTF8Data: Data,
