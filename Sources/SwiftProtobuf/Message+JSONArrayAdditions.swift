@@ -53,8 +53,7 @@ public extension Message {
   /// serialized array of messages in JSON format.
   ///
   /// - Parameter jsonString: The JSON-formatted string to decode.
-  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
-  ///   default instance will be used.
+  /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONString jsonString: String,
@@ -76,8 +75,7 @@ public extension Message {
   ///
   /// - Parameter jsonUTF8Data: The JSON-formatted data to decode, represented
   ///   as UTF-8 encoded text.
-  /// - Parameter options: The JSONDecodingOptions to use. If `nil` a
-  ///   default instance will be used.
+  /// - Parameter options: The JSONDecodingOptions to use.
   /// - Throws: `JSONDecodingError` if decoding fails.
   public static func array(
     fromJSONUTF8Data jsonUTF8Data: Data,
