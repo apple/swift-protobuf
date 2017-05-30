@@ -10,7 +10,7 @@ message GeneratedSwiftReservedMessages {
   message AnyExtensionField { int32 AnyExtensionField = 1; }
   message AnyMessageExtension { int32 AnyMessageExtension = 1; }
   message AnyMessageStorage { int32 AnyMessageStorage = 1; }
-  message Api { int32 Api = 1; }
+  message api { int32 api = 1; }
   message appended { int32 appended = 1; }
   message appendUIntHex { int32 appendUIntHex = 1; }
   message appendUnknown { int32 appendUnknown = 1; }
@@ -32,6 +32,7 @@ message GeneratedSwiftReservedMessages {
   message BinaryEncoder { int32 BinaryEncoder = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
+  message blob { int32 blob = 1; }
   message body { int32 body = 1; }
   message bodySize { int32 bodySize = 1; }
   message Bool { int32 Bool = 1; }
@@ -162,7 +163,6 @@ message GeneratedSwiftReservedMessages {
   message extendedGraphemeClusterLiteral { int32 extendedGraphemeClusterLiteral = 1; }
   message ExtendedGraphemeClusterLiteralType { int32 ExtendedGraphemeClusterLiteralType = 1; }
   message ExtensionFieldValueSet { int32 ExtensionFieldValueSet = 1; }
-  message ExtensionMap { int32 ExtensionMap = 1; }
   message extensions { int32 extensions = 1; }
   message extras { int32 extras = 1; }
   message f { int32 f = 1; }
@@ -258,6 +258,7 @@ message GeneratedSwiftReservedMessages {
   message inout { int32 inout = 1; }
   message insert { int32 insert = 1; }
   message insertIntoSet { int32 insertIntoSet = 1; }
+  message Instead { int32 Instead = 1; }
   message Int { int32 Int = 1; }
   message Int32 { int32 Int32 = 1; }
   message Int32Value { int32 Int32Value = 1; }
@@ -269,6 +270,7 @@ message GeneratedSwiftReservedMessages {
   message intern { int32 intern = 1; }
   message Internal { int32 Internal = 1; }
   message InternalState { int32 InternalState = 1; }
+  message is { int32 is = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }
@@ -370,6 +372,7 @@ message GeneratedSwiftReservedMessages {
   message PackedExtensionField { int32 PackedExtensionField = 1; }
   message packedSize { int32 packedSize = 1; }
   message padding { int32 padding = 1; }
+  message parent { int32 parent = 1; }
   message parseBareFloatString { int32 parseBareFloatString = 1; }
   message parseBareSInt { int32 parseBareSInt = 1; }
   message parseBareUInt { int32 parseBareUInt = 1; }
@@ -378,6 +381,7 @@ message GeneratedSwiftReservedMessages {
   message parseJSONFieldNames { int32 parseJSONFieldNames = 1; }
   message parseTimestamp { int32 parseTimestamp = 1; }
   message partial { int32 partial = 1; }
+  message pass { int32 pass = 1; }
   message path { int32 path = 1; }
   message paths { int32 paths = 1; }
   message pointer { int32 pointer = 1; }
@@ -490,7 +494,6 @@ message GeneratedSwiftReservedMessages {
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
   message tag { int32 tag = 1; }
-  message target { int32 target = 1; }
   message terminator { int32 terminator = 1; }
   message testDecoder { int32 testDecoder = 1; }
   message text { int32 text = 1; }
@@ -501,7 +504,10 @@ message GeneratedSwiftReservedMessages {
   message TextFormatScanner { int32 TextFormatScanner = 1; }
   message textFormatString { int32 textFormatString = 1; }
   message that { int32 that = 1; }
+  message the { int32 the = 1; }
+  message there { int32 there = 1; }
   message they { int32 they = 1; }
+  message through { int32 through = 1; }
   message throws { int32 throws = 1; }
   message timeInterval { int32 timeInterval = 1; }
   message timeIntervalSince1970 { int32 timeIntervalSince1970 = 1; }

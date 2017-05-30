@@ -70,14 +70,16 @@ public extension Message {
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryEncodingError.missingRequiredFields`.
+  ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   init(
     serializedData data: Data,
     extensions: ExtensionMap? = nil,
-    partial: Bool = false
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
-    try merge(serializedData: data, extensions: extensions, partial: partial)
+    try merge(serializedData: data, extensions: extensions, partial: partial, options: options)
   }
 
   /// Updates the message by decoding the given `Data` value containing a
@@ -96,16 +98,19 @@ public extension Message {
   ///     `Message.isInitialized` before encoding to verify that all required
   ///     fields are present. If any are missing, this method throws
   ///     `BinaryEncodingError.missingRequiredFields`.
+  ///   - options: The BinaryDecodingOptions to use.
   /// - Throws: `BinaryDecodingError` if decoding fails.
   mutating func merge(
     serializedData data: Data,
     extensions: ExtensionMap? = nil,
-    partial: Bool = false
+    partial: Bool = false,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     if !data.isEmpty {
       try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
         var decoder = BinaryDecoder(forReadingFrom: pointer,
                                     count: data.count,
+                                    options: options,
                                     extensions: extensions)
         try decoder.decodeFullMessage(message: &self)
       }

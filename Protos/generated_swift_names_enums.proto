@@ -10,7 +10,7 @@ message GeneratedSwiftReservedEnums {
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
   enum AnyMessageExtension { NONE_AnyMessageExtension = 0; }
   enum AnyMessageStorage { NONE_AnyMessageStorage = 0; }
-  enum Api { NONE_Api = 0; }
+  enum api { NONE_api = 0; }
   enum appended { NONE_appended = 0; }
   enum appendUIntHex { NONE_appendUIntHex = 0; }
   enum appendUnknown { NONE_appendUnknown = 0; }
@@ -32,6 +32,7 @@ message GeneratedSwiftReservedEnums {
   enum BinaryEncoder { NONE_BinaryEncoder = 0; }
   enum BinaryEncodingSizeVisitor { NONE_BinaryEncodingSizeVisitor = 0; }
   enum BinaryEncodingVisitor { NONE_BinaryEncodingVisitor = 0; }
+  enum blob { NONE_blob = 0; }
   enum body { NONE_body = 0; }
   enum bodySize { NONE_bodySize = 0; }
   enum Bool { NONE_Bool = 0; }
@@ -162,7 +163,6 @@ message GeneratedSwiftReservedEnums {
   enum extendedGraphemeClusterLiteral { NONE_extendedGraphemeClusterLiteral = 0; }
   enum ExtendedGraphemeClusterLiteralType { NONE_ExtendedGraphemeClusterLiteralType = 0; }
   enum ExtensionFieldValueSet { NONE_ExtensionFieldValueSet = 0; }
-  enum ExtensionMap { NONE_ExtensionMap = 0; }
   enum extensions { NONE_extensions = 0; }
   enum extras { NONE_extras = 0; }
   enum f { NONE_f = 0; }
@@ -258,6 +258,7 @@ message GeneratedSwiftReservedEnums {
   enum inout { NONE_inout = 0; }
   enum insert { NONE_insert = 0; }
   enum insertIntoSet { NONE_insertIntoSet = 0; }
+  enum Instead { NONE_Instead = 0; }
   enum Int { NONE_Int = 0; }
   enum Int32 { NONE_Int32 = 0; }
   enum Int32Value { NONE_Int32Value = 0; }
@@ -269,6 +270,7 @@ message GeneratedSwiftReservedEnums {
   enum intern { NONE_intern = 0; }
   enum Internal { NONE_Internal = 0; }
   enum InternalState { NONE_InternalState = 0; }
+  enum is { NONE_is = 0; }
   enum isA { NONE_isA = 0; }
   enum isEqual { NONE_isEqual = 0; }
   enum isEqualTo { NONE_isEqualTo = 0; }
@@ -370,6 +372,7 @@ message GeneratedSwiftReservedEnums {
   enum PackedExtensionField { NONE_PackedExtensionField = 0; }
   enum packedSize { NONE_packedSize = 0; }
   enum padding { NONE_padding = 0; }
+  enum parent { NONE_parent = 0; }
   enum parseBareFloatString { NONE_parseBareFloatString = 0; }
   enum parseBareSInt { NONE_parseBareSInt = 0; }
   enum parseBareUInt { NONE_parseBareUInt = 0; }
@@ -378,6 +381,7 @@ message GeneratedSwiftReservedEnums {
   enum parseJSONFieldNames { NONE_parseJSONFieldNames = 0; }
   enum parseTimestamp { NONE_parseTimestamp = 0; }
   enum partial { NONE_partial = 0; }
+  enum pass { NONE_pass = 0; }
   enum path { NONE_path = 0; }
   enum paths { NONE_paths = 0; }
   enum pointer { NONE_pointer = 0; }
@@ -490,7 +494,6 @@ message GeneratedSwiftReservedEnums {
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
   enum tag { NONE_tag = 0; }
-  enum target { NONE_target = 0; }
   enum terminator { NONE_terminator = 0; }
   enum testDecoder { NONE_testDecoder = 0; }
   enum text { NONE_text = 0; }
@@ -501,7 +504,10 @@ message GeneratedSwiftReservedEnums {
   enum TextFormatScanner { NONE_TextFormatScanner = 0; }
   enum textFormatString { NONE_textFormatString = 0; }
   enum that { NONE_that = 0; }
+  enum the { NONE_the = 0; }
+  enum there { NONE_there = 0; }
   enum they { NONE_they = 0; }
+  enum through { NONE_through = 0; }
   enum throws { NONE_throws = 0; }
   enum timeInterval { NONE_timeInterval = 0; }
   enum timeIntervalSince1970 { NONE_timeIntervalSince1970 = 0; }

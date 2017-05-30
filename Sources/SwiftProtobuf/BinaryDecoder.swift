@@ -37,6 +37,10 @@ internal struct BinaryDecoder: Decoder {
     // The current group number. See decodeFullGroup(group:fieldNumber:) for how
     // this is used.
     private var groupFieldNumber: Int?
+    // The options for decoding.
+    private var options: BinaryDecodingOptions
+
+    private var recursionBudget: Int
 
     // Collects the unknown data found while decoding a message.
     private var unknownData: Data?
@@ -46,12 +50,47 @@ internal struct BinaryDecoder: Decoder {
 
     private var complete: Bool {return available == 0}
 
-    internal init(forReadingFrom pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap? = nil) {
+    internal init(
+      forReadingFrom pointer: UnsafePointer<UInt8>,
+      count: Int,
+      options: BinaryDecodingOptions,
+      extensions: ExtensionMap? = nil
+    ) {
         // Assuming baseAddress is not nil.
         p = pointer
         available = count
         fieldStartP = p
         self.extensions = extensions
+        self.options = options
+        recursionBudget = options.messageDepthLimit
+    }
+
+    internal init(
+      forReadingFrom pointer: UnsafePointer<UInt8>,
+      count: Int,
+      parent: BinaryDecoder
+    ) {
+      self.init(forReadingFrom: pointer,
+                count: count,
+                options: parent.options,
+                extensions: parent.extensions)
+      recursionBudget = parent.recursionBudget
+    }
+
+    private mutating func incrementRecursionDepth() throws {
+        recursionBudget -= 1
+        if recursionBudget < 0 {
+            throw BinaryDecodingError.messageDepthLimit
+        }
+    }
+
+    private mutating func decrementRecursionDepth() {
+        recursionBudget += 1
+        // This should never happen, if it does, something is probably corrupting memory, and
+        // simply throwing doesn't make much sense.
+        if recursionBudget > options.messageDepthLimit {
+            fatalError("Somehow BinaryDecoding unwound more objects than it started")
+        }
     }
 
     internal mutating func handleConflictingOneOf() throws {
@@ -274,7 +313,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
                 value.append(Int32(truncatingBitPattern: varint))
@@ -312,7 +351,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
                 value.append(Int64(bitPattern: varint))
@@ -350,7 +389,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let t = try decoder.decodeVarint()
                 value.append(UInt32(truncatingBitPattern: t))
@@ -386,7 +425,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let t = try decoder.decodeVarint()
                 value.append(t)
@@ -427,7 +466,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
                 let t = UInt32(truncatingBitPattern: varint)
@@ -466,7 +505,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let varint = try decoder.decodeVarint()
                 value.append(ZigZag.decoded(varint))
@@ -508,7 +547,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<UInt32>.size)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             var i: UInt32 = 0
             while !decoder.complete {
                 try decoder.decodeFourByteNumber(value: &i)
@@ -551,7 +590,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<UInt64>.size)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             var i: UInt64 = 0
             while !decoder.complete {
                 try decoder.decodeEightByteNumber(value: &i)
@@ -594,7 +633,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<Int32>.size)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             var i: Int32 = 0
             while !decoder.complete {
                 try decoder.decodeFourByteNumber(value: &i)
@@ -637,7 +676,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
             value.reserveCapacity(value.count + n / MemoryLayout<Int64>.size)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             var i: Int64 = 0
             while !decoder.complete {
                 try decoder.decodeEightByteNumber(value: &i)
@@ -674,7 +713,7 @@ internal struct BinaryDecoder: Decoder {
         case WireFormat.lengthDelimited:
             var n: Int = 0
             let p = try getFieldBodyBytes(count: &n)
-            var decoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var decoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !decoder.complete {
                 let t = try decoder.decodeVarint()
                 value.append(t != 0)
@@ -795,7 +834,7 @@ internal struct BinaryDecoder: Decoder {
             var n: Int = 0
             var extras = [Int32]()
             let p = try getFieldBodyBytes(count: &n)
-            var subdecoder = BinaryDecoder(forReadingFrom: p, count: n)
+            var subdecoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !subdecoder.complete {
                 let u64 = try subdecoder.decodeVarint()
                 let i32 = Int32(truncatingBitPattern: u64)
@@ -838,7 +877,7 @@ internal struct BinaryDecoder: Decoder {
         if value == nil {
             value = M()
         }
-        var subDecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        var subDecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         try subDecoder.decodeFullMessage(message: &value!)
         consumed = true
     }
@@ -850,14 +889,16 @@ internal struct BinaryDecoder: Decoder {
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
         var newValue = M()
-        var subDecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        var subDecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         try subDecoder.decodeFullMessage(message: &newValue)
         value.append(newValue)
         consumed = true
     }
 
     internal mutating func decodeFullMessage<M: Message>(message: inout M) throws {
+      try incrementRecursionDepth()
       try message.decodeMessage(decoder: &self)
+      decrementRecursionDepth()
       guard complete else {
         throw BinaryDecodingError.trailingGarbage
       }
@@ -888,6 +929,8 @@ internal struct BinaryDecoder: Decoder {
         }
         assert(unknownData == nil)
 
+        try incrementRecursionDepth()
+
         // This works by making a clone of the current decoder state and
         // setting `groupFieldNumber` to signal `nextFieldNumber()` to watch
         // for that as a marker for having reached the end of a group/message.
@@ -908,6 +951,8 @@ internal struct BinaryDecoder: Decoder {
         }
         // Advance over what was parsed.
         consume(length: available - subDecoder.available)
+        assert(recursionBudget == subDecoder.recursionBudget)
+        decrementRecursionDepth()
         return true
     }
 
@@ -919,7 +964,7 @@ internal struct BinaryDecoder: Decoder {
         var v: ValueType.BaseType?
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
-        var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         while let tag = try subdecoder.getTag() {
             if tag.wireFormat == .endGroup {
                 throw BinaryDecodingError.malformedProtobuf
@@ -954,7 +999,7 @@ internal struct BinaryDecoder: Decoder {
         var v: ValueType?
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
-        var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         while let tag = try subdecoder.getTag() {
             if tag.wireFormat == .endGroup {
                 throw BinaryDecodingError.malformedProtobuf
@@ -994,7 +1039,7 @@ internal struct BinaryDecoder: Decoder {
         var v: ValueType?
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
-        var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        var subdecoder = BinaryDecoder(forReadingFrom: p, count: count, parent: self)
         while let tag = try subdecoder.getTag() {
             if tag.wireFormat == .endGroup {
                 throw BinaryDecodingError.malformedProtobuf
@@ -1022,6 +1067,8 @@ internal struct BinaryDecoder: Decoder {
         if let ext = extensions?[messageType, fieldNumber] {
             assert(!consumed)
             var fieldValue = values[fieldNumber]
+            // Message/Group extensions both will call back into the matching
+            // decode methods, so the recursion depth will be tracked there.
             if fieldValue != nil {
                 try fieldValue!.decodeExtensionField(decoder: &self)
             } else {
@@ -1088,10 +1135,12 @@ internal struct BinaryDecoder: Decoder {
                 throw BinaryDecodingError.truncated
             }
         case .startGroup:
+            try incrementRecursionDepth()
             while true {
                 if let innerTag = try getTagWithoutUpdatingFieldStart() {
                     if innerTag.wireFormat == .endGroup {
                         if innerTag.fieldNumber == tag.fieldNumber {
+                            decrementRecursionDepth()
                             break
                         } else {
                             // .endGroup for a something other than the current
