@@ -18,9 +18,6 @@
 import Foundation
 
 internal struct BinaryDecoder: Decoder {
-    // Used only by packed repeated enums; see below
-    private var unknownOverride: Data?
-
     // Current position
     private var p : UnsafePointer<UInt8>
     // Remaining bytes in input.
@@ -41,9 +38,13 @@ internal struct BinaryDecoder: Decoder {
     // this is used.
     private var groupFieldNumber: Int?
 
-    var unknownData: Data?
+    // Collects the unknown data found while decoding a message.
+    private var unknownData: Data?
+    // Custom data to use as the unknown data while parsing a field. Used only by
+    // packed repeated enums; see below
+    private var unknownOverride: Data?
 
-    internal var complete: Bool {return available == 0}
+    private var complete: Bool {return available == 0}
 
     internal init(forReadingFrom pointer: UnsafePointer<UInt8>, count: Int, extensions: ExtensionMap? = nil) {
         // Assuming baseAddress is not nil.
@@ -837,7 +838,8 @@ internal struct BinaryDecoder: Decoder {
         if value == nil {
             value = M()
         }
-        try value!._protobuf_mergeSerializedBytes(from: p, count: count, extensions: extensions)
+        var subDecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        try subDecoder.decodeFullMessage(message: &value!)
         consumed = true
     }
 
@@ -848,9 +850,20 @@ internal struct BinaryDecoder: Decoder {
         var count: Int = 0
         let p = try getFieldBodyBytes(count: &count)
         var newValue = M()
-        try newValue._protobuf_mergeSerializedBytes(from: p, count: count, extensions: extensions)
+        var subDecoder = BinaryDecoder(forReadingFrom: p, count: count, extensions: extensions)
+        try subDecoder.decodeFullMessage(message: &newValue)
         value.append(newValue)
         consumed = true
+    }
+
+    internal mutating func decodeFullMessage<M: Message>(message: inout M) throws {
+      try message.decodeMessage(decoder: &self)
+      guard complete else {
+        throw BinaryDecodingError.trailingGarbage
+      }
+      if let unknownData = unknownData {
+        message.unknownFields.append(protobufData: unknownData)
+      }
     }
 
     internal mutating func decodeSingularGroupField<G: Message>(value: inout G?) throws {

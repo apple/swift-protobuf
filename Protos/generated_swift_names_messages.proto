@@ -534,7 +534,6 @@ message GeneratedSwiftReservedMessages {
   message union { int32 union = 1; }
   message uniqueStorage { int32 uniqueStorage = 1; }
   message unknown { int32 unknown = 1; }
-  message unknownData { int32 unknownData = 1; }
   message unknownFields { int32 unknownFields = 1; }
   message UnknownStorage { int32 UnknownStorage = 1; }
   message unpack { int32 unpack = 1; }

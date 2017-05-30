@@ -104,29 +104,14 @@ public extension Message {
   ) throws {
     if !data.isEmpty {
       try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
-        try _protobuf_mergeSerializedBytes(from: pointer,
-                                           count: data.count,
-                                           extensions: extensions)
+        var decoder = BinaryDecoder(forReadingFrom: pointer,
+                                    count: data.count,
+                                    extensions: extensions)
+        try decoder.decodeFullMessage(message: &self)
       }
     }
     if !partial && !isInitialized {
       throw BinaryDecodingError.missingRequiredFields
-    }
-  }
-
-  /// SwiftProtobuf Internal: Common support for decoding.
-  internal mutating func _protobuf_mergeSerializedBytes(
-    from bytes: UnsafePointer<UInt8>,
-    count: Int,
-    extensions: ExtensionMap?
-  ) throws {
-    var decoder = BinaryDecoder(forReadingFrom: bytes, count: count, extensions: extensions)
-    try decodeMessage(decoder: &decoder)
-    guard decoder.complete else {
-      throw BinaryDecodingError.trailingGarbage
-    }
-    if let unknownData = decoder.unknownData {
-      unknownFields.append(protobufData: unknownData)
     }
   }
 }

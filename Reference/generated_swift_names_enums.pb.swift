@@ -13278,31 +13278,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
-  enum unknownData: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneUnknownData // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneUnknownData
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneUnknownData
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneUnknownData: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
   enum unknownFieldsEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneUnknownFields // = 0
@@ -18738,12 +18713,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.uniqueStorage: SwiftProto
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.unknown: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unknown"),
-  ]
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.unknownData: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_unknownData"),
   ]
 }
 
