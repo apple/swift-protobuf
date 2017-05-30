@@ -303,6 +303,9 @@
 		ECBC5C4F1DF6ABC500F658E8 /* ZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA28A4A51DA30E5900C866D9 /* ZigZag.swift */; };
 		ECBC5C501DF6ABC500F658E8 /* source_context.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = __PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */; };
 		ECBC5C511DF6ABC500F658E8 /* wrappers.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEA52731DA80DEA003F318F /* wrappers.pb.swift */; };
+		F411FE9C1EDDD706001AE6B2 /* JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4584DB71EDDCAD600803AB6 /* JSONDecodingOptions.swift */; };
+		F411FE9D1EDDD706001AE6B2 /* JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4584DB71EDDCAD600803AB6 /* JSONDecodingOptions.swift */; };
+		F411FE9E1EDDD707001AE6B2 /* JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4584DB71EDDCAD600803AB6 /* JSONDecodingOptions.swift */; };
 		F41BA3FC1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
 		F41BA3FD1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
 		F41BA3FE1E76F639004F6E95 /* Google_Protobuf_Any+Registry.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41BA3FB1E76F635004F6E95 /* Google_Protobuf_Any+Registry.swift */; };
@@ -1423,6 +1426,7 @@
 				DB2E0AFF1EB25D1D00F59319 /* Message+JSONArrayAdditions.swift in Sources */,
 				AA78AD371E84C5B4001C43F9 /* Message+AnyAdditions.swift in Sources */,
 				9C2F23831D7780D1008524F2 /* Google_Protobuf_Timestamp+Extensions.swift in Sources */,
+				F411FE9C1EDDD706001AE6B2 /* JSONDecodingOptions.swift in Sources */,
 				9C2F23851D7780D1008524F2 /* BinaryDecoder.swift in Sources */,
 				AA3640921E60D592000C3CF4 /* struct.pb.swift in Sources */,
 				9C2F23861D7780D1008524F2 /* BinaryEncoder.swift in Sources */,
@@ -1698,6 +1702,7 @@
 				DB2E0B001EB25D1D00F59319 /* Message+JSONArrayAdditions.swift in Sources */,
 				AA78AD381E84C5B4001C43F9 /* Message+AnyAdditions.swift in Sources */,
 				F44F938F1DAEA76700BC5B85 /* Message.swift in Sources */,
+				F411FE9D1EDDD706001AE6B2 /* JSONDecodingOptions.swift in Sources */,
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
 				F44F938A1DAEA76700BC5B85 /* Decoder.swift in Sources */,
 				AA3640931E60D593000C3CF4 /* struct.pb.swift in Sources */,
@@ -1892,6 +1897,7 @@
 				DB2E0B011EB25D1D00F59319 /* Message+JSONArrayAdditions.swift in Sources */,
 				AA78AD391E84C5B4001C43F9 /* Message+AnyAdditions.swift in Sources */,
 				AA05BF521DAEB7E800619042 /* FieldTag.swift in Sources */,
+				F411FE9E1EDDD707001AE6B2 /* JSONDecodingOptions.swift in Sources */,
 				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
 				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
 				AA3640941E60D593000C3CF4 /* struct.pb.swift in Sources */,
