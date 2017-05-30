@@ -18048,40 +18048,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
-  struct unknownData: SwiftProtobuf.Message {
-    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".unknownData"
-
-    var unknownData: Int32 = 0
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
-
-    init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self.unknownData)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if self.unknownData != 0 {
-        try visitor.visitSingularInt32Field(value: self.unknownData, fieldNumber: 1)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-  }
-
   struct unknownFieldsMessage: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".unknownFields"
 
@@ -27496,18 +27462,6 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.unknown: SwiftProtobuf
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.unknown) -> Bool {
     if self.unknown != other.unknown {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension ProtobufUnittest_GeneratedSwiftReservedMessages.unknownData: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "unknownData"),
-  ]
-
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.unknownData) -> Bool {
-    if self.unknownData != other.unknownData {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
