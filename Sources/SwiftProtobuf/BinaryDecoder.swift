@@ -104,6 +104,7 @@ internal struct BinaryDecoder: Decoder {
         // the varint parser.
         if fieldNumber > 0 {
             if let override = unknownOverride {
+                assert(!options.discardUnknownFields)
                 assert(fieldWireFormat != .startGroup && fieldWireFormat != .endGroup)
                 if unknownData == nil {
                     unknownData = override
@@ -112,11 +113,15 @@ internal struct BinaryDecoder: Decoder {
                 }
                 unknownOverride = nil
             } else if !consumed {
-                let u = try getRawField()
-                if unknownData == nil {
-                    unknownData = u
+                if options.discardUnknownFields {
+                    try skip()
                 } else {
-                    unknownData!.append(u)
+                    let u = try getRawField()
+                    if unknownData == nil {
+                        unknownData = u
+                    } else {
+                        unknownData!.append(u)
+                    }
                 }
             }
         }
@@ -832,7 +837,7 @@ internal struct BinaryDecoder: Decoder {
             }
         case WireFormat.lengthDelimited:
             var n: Int = 0
-            var extras = [Int32]()
+            var extras: [Int32]?
             let p = try getFieldBodyBytes(count: &n)
             var subdecoder = BinaryDecoder(forReadingFrom: p, count: n, parent: self)
             while !subdecoder.complete {
@@ -840,11 +845,14 @@ internal struct BinaryDecoder: Decoder {
                 let i32 = Int32(truncatingBitPattern: u64)
                 if let v = E(rawValue: Int(i32)) {
                     value.append(v)
-                } else {
-                    extras.append(i32)
+                } else if !options.discardUnknownFields {
+                    if extras == nil {
+                        extras = []
+                    }
+                    extras!.append(i32)
                 }
             }
-            if !extras.isEmpty {
+            if let extras = extras {
                 let fieldTag = FieldTag(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
                 var bodySize = 0
                 for v in extras {
