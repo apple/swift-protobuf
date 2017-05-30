@@ -131,6 +131,7 @@ message GeneratedSwiftReservedEnums {
   enum digits { NONE_digits = 0; }
   enum digitValue { NONE_digitValue = 0; }
   enum discardableResult { NONE_discardableResult = 0; }
+  enum discardUnknownFields { NONE_discardUnknownFields = 0; }
   enum DispatchQueue { NONE_DispatchQueue = 0; }
   enum div { NONE_div = 0; }
   enum double { NONE_double = 0; }

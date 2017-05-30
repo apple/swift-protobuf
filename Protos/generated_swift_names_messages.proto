@@ -131,6 +131,7 @@ message GeneratedSwiftReservedMessages {
   message digits { int32 digits = 1; }
   message digitValue { int32 digitValue = 1; }
   message discardableResult { int32 discardableResult = 1; }
+  message discardUnknownFields { int32 discardUnknownFields = 1; }
   message DispatchQueue { int32 DispatchQueue = 1; }
   message div { int32 div = 1; }
   message double { int32 double = 1; }
