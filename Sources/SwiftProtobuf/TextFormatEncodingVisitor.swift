@@ -69,7 +69,9 @@ internal struct TextFormatEncodingVisitor: Visitor {
 
   mutating func visitUnknown(bytes: Data) throws {
       try bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
-          var decoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
+          var decoder = BinaryDecoder(forReadingFrom: p,
+                                      count: bytes.count,
+                                      options: BinaryDecodingOptions())
           try visitUnknown(decoder: &decoder, groupFieldNumber: nil)
       }
   }
@@ -96,13 +98,17 @@ internal struct TextFormatEncodingVisitor: Visitor {
               var bytes = Internal.emptyData
               try decoder.decodeSingularBytesField(value: &bytes)
               bytes.withUnsafeBytes { (p: UnsafePointer<UInt8>) -> () in
-                  var testDecoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
+                  var testDecoder = BinaryDecoder(forReadingFrom: p,
+                                                  count: bytes.count,
+                                                  parent: decoder)
                   do {
                       // Skip all the fields to test if it looks like a message
                       while let _ = try testDecoder.nextFieldNumber() {
                       }
                       // No error?  Output the message body.
-                      var subDecoder = BinaryDecoder(forReadingFrom: p, count: bytes.count)
+                      var subDecoder = BinaryDecoder(forReadingFrom: p,
+                                                     count: bytes.count,
+                                                     parent: decoder)
                       encoder.startMessageField()
                       try visitUnknown(decoder: &subDecoder, groupFieldNumber: nil)
                       encoder.endMessageField()

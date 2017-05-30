@@ -31,13 +31,15 @@ public extension Message {
   /// - Parameter extensions: An `ExtensionMap` used to look up and decode any
   ///   extensions in this message or messages nested within this message's
   ///   fields.
+  /// - Parameter options: The BinaryDecodingOptions to use.
   /// - Throws: an instance of `AnyUnpackError`, `JSONDecodingError`, or
   ///   `BinaryDecodingError` on failure.
   public init(
     unpackingAny: Google_Protobuf_Any,
-    extensions: ExtensionMap? = nil
+    extensions: ExtensionMap? = nil,
+    options: BinaryDecodingOptions = BinaryDecodingOptions()
   ) throws {
     self.init()
-    try unpackingAny._storage.unpackTo(target: &self, extensions: extensions)
+    try unpackingAny._storage.unpackTo(target: &self, extensions: extensions, options: options)
   }
 }

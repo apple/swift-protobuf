@@ -115,6 +115,11 @@ internal class AnyMessageStorage {
 
   enum InternalState {
     // a serialized binary
+    // Note: Unlike contentJSON below, binary does not bother to capture the
+    // decoding options. This is because the actual binary format is the binary
+    // blob, i.e. - when decoding from binary, the spec doesn't include decoding
+    // the binary blob, it is pass through. Instead there is a public api for
+    // unpacking that takes new options when a developer decides to decode it.
     case binary(Data)
     // a message
     case message(Message)
@@ -142,14 +147,18 @@ internal class AnyMessageStorage {
 
   // This is only ever called with the expactation that target will be fully
   // replaced during the unpacking and never as a merge.
-  func unpackTo<M: Message>(target: inout M, extensions: ExtensionMap?) throws {
+  func unpackTo<M: Message>(
+    target: inout M,
+    extensions: ExtensionMap?,
+    options: BinaryDecodingOptions
+  ) throws {
     guard isA(M.self) else {
       throw AnyUnpackError.typeMismatch
     }
 
     switch state {
     case .binary(let data):
-      target = try M(serializedData: data, extensions: extensions, partial: true)
+      target = try M(serializedData: data, extensions: extensions, partial: true, options: options)
 
     case .message(let msg):
       if let message = msg as? M {
