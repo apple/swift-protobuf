@@ -282,6 +282,7 @@ struct ProtobufUnittest_TestOptionalOptimizedForSize: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_optimize_for.proto.
 
 extension ProtobufUnittest_TestOptimizedForSize {
+
   var ProtobufUnittest_TestOptimizedForSize_testExtension: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension, value: newValue)}
@@ -296,9 +297,7 @@ extension ProtobufUnittest_TestOptimizedForSize {
   mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension)
   }
-}
 
-extension ProtobufUnittest_TestOptimizedForSize {
   var ProtobufUnittest_TestOptimizedForSize_testExtension2: ProtobufUnittest_TestRequiredOptimizedForSize {
     get {return getExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2) ?? ProtobufUnittest_TestRequiredOptimizedForSize()}
     set {setExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2, value: newValue)}
@@ -313,6 +312,7 @@ extension ProtobufUnittest_TestOptimizedForSize {
   mutating func clearProtobufUnittest_TestOptimizedForSize_testExtension2() {
     clearExtensionValue(ext: ProtobufUnittest_TestOptimizedForSize.Extensions.test_extension2)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

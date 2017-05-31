@@ -151,6 +151,7 @@ struct Ext4C: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_swift_extension4.proto.
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+
   var Ext4b: String {
     get {return getExtensionValue(ext: Ext4Extensions_b) ?? String()}
     set {setExtensionValue(ext: Ext4Extensions_b, value: newValue)}
@@ -165,9 +166,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   mutating func clearExt4b() {
     clearExtensionValue(ext: Ext4Extensions_b)
   }
-}
 
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4c: Ext4C {
     get {return getExtensionValue(ext: Ext4Extensions_C) ?? Ext4C()}
     set {setExtensionValue(ext: Ext4Extensions_C, value: newValue)}
@@ -182,9 +181,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   mutating func clearExt4c() {
     clearExtensionValue(ext: Ext4Extensions_C)
   }
-}
 
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_b: String {
     get {return getExtensionValue(ext: Ext4MyMessage.Extensions.b) ?? String()}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.b, value: newValue)}
@@ -199,9 +196,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   mutating func clearExt4MyMessage_b() {
     clearExtensionValue(ext: Ext4MyMessage.Extensions.b)
   }
-}
 
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var Ext4MyMessage_c: Ext4MyMessage.C {
     get {return getExtensionValue(ext: Ext4MyMessage.Extensions.C) ?? Ext4MyMessage.C()}
     set {setExtensionValue(ext: Ext4MyMessage.Extensions.C, value: newValue)}
@@ -216,6 +211,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   mutating func clearExt4MyMessage_c() {
     clearExtensionValue(ext: Ext4MyMessage.Extensions.C)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

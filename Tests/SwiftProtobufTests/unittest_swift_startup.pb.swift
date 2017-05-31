@@ -113,6 +113,7 @@ struct ProtobufObjcUnittest_TestObjCStartupNested: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_swift_startup.proto.
 
 extension ProtobufObjcUnittest_TestObjCStartupMessage {
+
   /// Singular
   var ProtobufObjcUnittest_optionalInt32Extension: Int32 {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension) ?? 0}
@@ -128,9 +129,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
   mutating func clearProtobufObjcUnittest_optionalInt32Extension() {
     clearExtensionValue(ext: ProtobufObjcUnittest_Extensions_optional_int32_extension)
   }
-}
 
-extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_repeatedInt32Extension: [Int32] {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension) ?? []}
     set {setExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension, value: newValue)}
@@ -145,9 +144,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
   mutating func clearProtobufObjcUnittest_repeatedInt32Extension() {
     clearExtensionValue(ext: ProtobufObjcUnittest_Extensions_repeated_int32_extension)
   }
-}
 
-extension ProtobufObjcUnittest_TestObjCStartupMessage {
   var ProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension: String {
     get {return getExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension) ?? String()}
     set {setExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension, value: newValue)}
@@ -162,6 +159,7 @@ extension ProtobufObjcUnittest_TestObjCStartupMessage {
   mutating func clearProtobufObjcUnittest_TestObjCStartupNested_nestedStringExtension() {
     clearExtensionValue(ext: ProtobufObjcUnittest_TestObjCStartupNested.Extensions.nested_string_extension)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

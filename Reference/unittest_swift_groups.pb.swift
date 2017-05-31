@@ -500,6 +500,7 @@ struct SwiftTestNestingGroupsMessage: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_swift_groups.proto.
 
 extension SwiftTestGroupExtensions {
+
   var extensionGroup: ExtensionGroup {
     get {return getExtensionValue(ext: Extensions_ExtensionGroup) ?? ExtensionGroup()}
     set {setExtensionValue(ext: Extensions_ExtensionGroup, value: newValue)}
@@ -514,9 +515,7 @@ extension SwiftTestGroupExtensions {
   mutating func clearExtensionGroup() {
     clearExtensionValue(ext: Extensions_ExtensionGroup)
   }
-}
 
-extension SwiftTestGroupExtensions {
   var repeatedExtensionGroup: [RepeatedExtensionGroup] {
     get {return getExtensionValue(ext: Extensions_RepeatedExtensionGroup) ?? []}
     set {setExtensionValue(ext: Extensions_RepeatedExtensionGroup, value: newValue)}
@@ -531,6 +530,7 @@ extension SwiftTestGroupExtensions {
   mutating func clearRepeatedExtensionGroup() {
     clearExtensionValue(ext: Extensions_RepeatedExtensionGroup)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
