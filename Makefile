@@ -421,6 +421,7 @@ Tests/PluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${S
 # The logic here builds a word list as follows:
 #  = Look at every Swift source file in the library
 #  = Take every line with the word 'public', 'func', or 'var'
+#  = Remove any comments from the line.
 #  = Break each such line into words (stripping all punctuation)
 #  = Remove words that differ only in case
 #
@@ -431,8 +432,9 @@ Tests/PluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${S
 Protos/mined_words.txt: Sources/SwiftProtobuf/*
 	@echo Building $@
 	@cat Sources/SwiftProtobuf/* | \
-	grep ' \(public\|func\|var\) ' | \
-	grep -v ' \(private\|internal\) ' | \
+	grep -E '\b(public|func|var)\b' | \
+	grep -vE '\b(private|internal|fileprivate)\b' | \
+	sed -e 's|//.*$$||g' | \
 	sed -e 's/[^a-zA-Z0-9_]/ /g' | \
 	tr " " "\n" | \
 	sed -e 's/^_//' | \
