@@ -79,10 +79,9 @@ class Test_BinaryDecodingOptions: XCTestCase {
                 do {
                     var options = BinaryDecodingOptions()
                     options.messageDepthLimit = limit
-                    let a =
+                    let _ =
                         try ProtobufUnittest_NestedTestAllTypes(serializedData: Data(binaryInput),
                                                                 options: options)
-                  print("TVL: \(a)")
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
@@ -100,6 +99,12 @@ class Test_BinaryDecodingOptions: XCTestCase {
     }
 
     func testDiscaringUnknownFields() throws {
+        // All tests decode once confirming things show up in unknowns, then decode
+        // a second time confirming they were dropped.
+
+        var discardOptions = BinaryDecodingOptions()
+        discardOptions.discardUnknownFields = true
+
         // Unknown fields at the root of a message:
         //   2: 1
         //   3: 0x0000000000000002
@@ -121,16 +126,14 @@ class Test_BinaryDecodingOptions: XCTestCase {
             53, 5, 0, 0, 0,
         ]
         let inputCurrentLevelData = Data(inputCurrentLevel)
+        do {
+            let msg1 = try ProtobufUnittest_TestEmptyMessage(serializedData: inputCurrentLevelData)
+            XCTAssertEqual(msg1.unknownFields.data, inputCurrentLevelData)
 
-        // Normal decode should put everything into unknowns.
-        let msg1 = try ProtobufUnittest_TestEmptyMessage(serializedData: inputCurrentLevelData)
-        XCTAssertEqual(msg1.unknownFields.data, inputCurrentLevelData)
-
-        var discardOptions = BinaryDecodingOptions()
-        discardOptions.discardUnknownFields = true
-        let msg2 = try ProtobufUnittest_TestEmptyMessage(serializedData: inputCurrentLevelData,
-                                                      options: discardOptions)
-        XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+            let msg2 = try ProtobufUnittest_TestEmptyMessage(serializedData: inputCurrentLevelData,
+                                                          options: discardOptions)
+            XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+        }
 
         // Unknown fields nested within a message field:
         //   optional_nested_message {
@@ -147,16 +150,42 @@ class Test_BinaryDecodingOptions: XCTestCase {
             146, 1, UInt8(inputCurrentLevel.count),
         ] + inputCurrentLevel
         let inputSubMessageData = Data(inputSubMessage)
+        do {
+            let msg1 = try ProtobufUnittest_TestAllTypes(serializedData: inputSubMessageData)
+            XCTAssertTrue(msg1.unknownFields.data.isEmpty)
+            XCTAssertEqual(msg1.optionalNestedMessage.unknownFields.data, inputCurrentLevelData)
 
-        // Normal decode should put everything into unknowns.
-        let msg3 = try ProtobufUnittest_TestAllTypes(serializedData: inputSubMessageData)
-        XCTAssertTrue(msg3.unknownFields.data.isEmpty)
-        XCTAssertEqual(msg3.optionalNestedMessage.unknownFields.data, inputCurrentLevelData)
+            let msg2 = try ProtobufUnittest_TestAllTypes(serializedData: inputSubMessageData,
+                                                          options: discardOptions)
+            XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+            XCTAssertTrue(msg2.optionalNestedMessage.unknownFields.data.isEmpty)
+        }
 
-        let msg4 = try ProtobufUnittest_TestAllTypes(serializedData: inputSubMessageData,
-                                                      options: discardOptions)
-        XCTAssertTrue(msg4.unknownFields.data.isEmpty)
-        XCTAssertTrue(msg4.optionalNestedMessage.unknownFields.data.isEmpty)
+        // Unknown fields nested within a message extension field:
+        //   [protobuf_unittest.optional_nested_message_extension] {
+        //     2: 1
+        //     3: 0x0000000000000002
+        //     4: "\003"
+        //     5 {
+        //       7: 4
+        //     }
+        //     6: 0x00000005
+        //   }
+        do {
+            let msg1 = try ProtobufUnittest_TestAllExtensions(
+              serializedData: inputSubMessageData,
+              extensions: ProtobufUnittest_Unittest_Extensions)
+            XCTAssertTrue(msg1.unknownFields.data.isEmpty)
+            XCTAssertEqual(msg1.ProtobufUnittest_optionalNestedMessageExtension.unknownFields.data,
+                           inputCurrentLevelData)
+
+            let msg2 = try ProtobufUnittest_TestAllExtensions(
+              serializedData: inputSubMessageData,
+              extensions: ProtobufUnittest_Unittest_Extensions,
+              options: discardOptions)
+            XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+            XCTAssertTrue(msg2.ProtobufUnittest_optionalNestedMessageExtension.unknownFields.data.isEmpty)
+        }
 
         // Unknown fields nested within a group field:
         //   OptionalGroup {
@@ -176,16 +205,42 @@ class Test_BinaryDecodingOptions: XCTestCase {
             132, 1,
         ]
         let inputGroupData = Data(inputGroup)
+        do {
+            let msg1 = try ProtobufUnittest_TestAllExtensions(
+              serializedData: inputGroupData,
+              extensions: ProtobufUnittest_Unittest_Extensions)
+            XCTAssertTrue(msg1.unknownFields.data.isEmpty)
+            XCTAssertEqual(msg1.ProtobufUnittest_optionalGroupExtension.unknownFields.data,
+                           inputCurrentLevelData)
 
-        // Normal decode should put everything into unknowns.
-        let msg5 = try ProtobufUnittest_TestAllTypes(serializedData: inputGroupData)
-        XCTAssertTrue(msg5.unknownFields.data.isEmpty)
-        XCTAssertEqual(msg5.optionalGroup.unknownFields.data, inputCurrentLevelData)
+            let msg2 = try ProtobufUnittest_TestAllExtensions(
+              serializedData: inputGroupData,
+              extensions: ProtobufUnittest_Unittest_Extensions,
+              options: discardOptions)
+            XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+            XCTAssertTrue(msg2.ProtobufUnittest_optionalGroupExtension.unknownFields.data.isEmpty)
+        }
 
-        let msg6 = try ProtobufUnittest_TestAllTypes(serializedData: inputGroupData,
-                                                      options: discardOptions)
-        XCTAssertTrue(msg6.unknownFields.data.isEmpty)
-        XCTAssertTrue(msg6.optionalGroup.unknownFields.data.isEmpty)
+        // Unknown fields nested within a group extension field:
+        //   [protobuf_unittest.optionalgroup_extension] {
+        //     2: 1
+        //     3: 0x0000000000000002
+        //     4: "\003"
+        //     5 {
+        //       7: 4
+        //     }
+        //     6: 0x00000005
+        //   }
+        do {
+            let msg1 = try ProtobufUnittest_TestAllTypes(serializedData: inputGroupData)
+            XCTAssertTrue(msg1.unknownFields.data.isEmpty)
+            XCTAssertEqual(msg1.optionalGroup.unknownFields.data, inputCurrentLevelData)
+
+            let msg2 = try ProtobufUnittest_TestAllTypes(serializedData: inputGroupData,
+                                                          options: discardOptions)
+            XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+            XCTAssertTrue(msg2.optionalGroup.unknownFields.data.isEmpty)
+        }
 
         // An unknown enum value. proto2 syntax unknown enums uses a different code
         // path to end up in unknown fiels, so ensure that is honoring the option.
@@ -196,13 +251,13 @@ class Test_BinaryDecodingOptions: XCTestCase {
             168, 1, 13
         ]
         let inputUnknownEnumData = Data(inputUnknownEnum)
+        do {
+            let msg1 = try ProtobufUnittest_TestAllTypes(serializedData: inputUnknownEnumData)
+            XCTAssertEqual(msg1.unknownFields.data, inputUnknownEnumData)
 
-        // Normal decode should put everything into unknowns.
-        let msg7 = try ProtobufUnittest_TestAllTypes(serializedData: inputUnknownEnumData)
-        XCTAssertEqual(msg7.unknownFields.data, inputUnknownEnumData)
-
-        let msg8 = try ProtobufUnittest_TestAllTypes(serializedData: inputUnknownEnumData,
-                                                      options: discardOptions)
-        XCTAssertTrue(msg8.unknownFields.data.isEmpty)
+            let msg2 = try ProtobufUnittest_TestAllTypes(serializedData: inputUnknownEnumData,
+                                                          options: discardOptions)
+            XCTAssertTrue(msg2.unknownFields.data.isEmpty)
+        }
     }
 }
