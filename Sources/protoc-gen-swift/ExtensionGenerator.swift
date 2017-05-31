@@ -18,236 +18,236 @@ import Foundation
 import PluginLibrary
 import SwiftProtobuf
 
-class ExtensionGenerator {
+/// Provides the generation for proto2 syntax extensions in a file.
+class ExtensionSetGenerator {
 
-    // Helper to hold all the extensions when generating things across all
-    // the extensions within a given file.
-    class ExtensionSet {
-        private let fileDescriptor: FileDescriptor
-        private let generatorOptions: GeneratorOptions
-        private let namer: SwiftProtobufNamer
+    /// Private helper used for the ExtensionSetGenerator.
+    private class ExtensionGenerator {
+        let fieldDescriptor: FieldDescriptor
+        let generatorOptions: GeneratorOptions
+        let namer: SwiftProtobufNamer
 
-        // The order of these is as they are created, so it keeps them grouped by
-        // where they were declared.
-        private var extensions: [ExtensionGenerator] = []
+        let comments: String
+        let containingTypeSwiftFullName: String
+        let swiftFullExtensionName: String
 
-        var isEmpty: Bool { return extensions.isEmpty }
+        var extensionFieldType: String {
+            let label: String
+            switch fieldDescriptor.label {
+            case .optional: label = "Optional"
+            case .required: label = "Required"
+            case .repeated: label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
+            }
 
-        init(
-          fileDescriptor: FileDescriptor,
-          generatorOptions: GeneratorOptions,
-          namer: SwiftProtobufNamer
-        ) {
-            self.fileDescriptor = fileDescriptor
+            let modifier: String
+            switch fieldDescriptor.type {
+            case .group: modifier = "Group"
+            case .message: modifier = "Message"
+            case .enum: modifier = "Enum"
+            default: modifier = ""
+            }
+
+            return "SwiftProtobuf.\(label)\(modifier)ExtensionField"
+        }
+
+        init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
+            self.fieldDescriptor = descriptor
             self.generatorOptions = generatorOptions
             self.namer = namer
-        }
 
-        func add(extensionFields: [FieldDescriptor]) {
-            for e in extensionFields {
-                assert(e.isExtension)
-                let extensionGenerator = ExtensionGenerator(descriptor: e,
-                                                            generatorOptions: generatorOptions,
-                                                            namer: namer)
-                extensions.append(extensionGenerator)
-            }
-        }
+            swiftFullExtensionName = namer.fullName(extensionField: descriptor)
 
-        func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
-            guard !extensions.isEmpty else { return }
-
-            // Reorder the list so they are grouped by the Message being extended, but
-            // maintaining the order they were within the file within those groups.
-            let grouped: [ExtensionGenerator] = extensions.enumerated().sorted {
-                // When they extend the same Message, use the original order.
-                if $0.element.containingTypeSwiftFullName == $1.element.containingTypeSwiftFullName {
-                    return $0.offset < $1.offset
-                }
-                // Otherwise, sort by the Message being extended.
-                return $0.element.containingTypeSwiftFullName < $1.element.containingTypeSwiftFullName
-            }.map {
-                // Now strip off the original index to just get the list of ExtensionGenerators
-                // again.
-                return $0.element
-            }
-
-            // Loop through the group list and each time a new containing type is hit,
-            // generate the Swift Extension block. This way there is only one Swift
-            // Extension for each Message rather then one for every extension.  This make
-            // the file a little easier to navigate.
-            var currentType: String = ""
-            for e in grouped {
-                if currentType != e.containingTypeSwiftFullName {
-                    if !currentType.isEmpty {
-                        p.outdent()
-                        p.print("}\n")
-                    }
-                    currentType = e.containingTypeSwiftFullName
-                    p.print(
-                      "\n",
-                      "extension \(currentType) {\n")
-                    p.indent()
-                }
-                e.generateMessageSwiftExtension(printer: &p)
-            }
-            p.outdent()
-            p.print(
-              "\n",
-              "}\n")
-        }
-
-        func generateFileProtobufExtensionRegistry(printer p: inout CodePrinter) {
-            guard !extensions.isEmpty else { return }
-
-            let pathParts = splitPath(pathname: fileDescriptor.name)
-            let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
-            let filePrefix = namer.typePrefix(forFile: fileDescriptor)
-            p.print(
-              "\n",
-              "/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n",
-              "/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n",
-              "/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n",
-              "/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n",
-              "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
-            p.indent()
-            var separator = ""
-            for e in extensions {
-                p.print(separator, e.swiftFullExtensionName)
-                separator = ",\n"
-            }
-            p.print("\n")
-            p.outdent()
-            p.print("]\n")
+            comments = descriptor.protoSourceComments()
+            containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
         }
 
         func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
-          guard !extensions.isEmpty else { return }
+            let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
+            let traitsType = fieldDescriptor.traitsType(namer: namer)
+            let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
-          func endScope() {
-              p.outdent()
-              p.print("}\n")
-              p.outdent()
-              p.print("}\n")
-          }
+            var fieldNamePath = fieldDescriptor.fullName
+            assert(fieldNamePath.hasPrefix("."))
+            fieldNamePath.remove(at: fieldNamePath.startIndex)  // Remove the leading '.'
 
-          var currentScope: Descriptor? = nil
-          var addNewline = true
-          for e in extensions {
-            if currentScope !== e.fieldDescriptor.extensionScope {
-              if currentScope != nil { endScope() }
-              currentScope = e.fieldDescriptor.extensionScope
-              let scopeSwiftFullName = namer.fullName(message: currentScope!)
-              p.print(
-                "\n",
-                "extension \(scopeSwiftFullName) {\n")
-              p.indent()
-              p.print("enum Extensions {\n")
-              p.indent()
-              addNewline = false
-            }
+            p.print(
+              comments,
+              "\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
+            p.indent()
+            p.print(
+              "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
+              "fieldName: \"\(fieldNamePath)\"\n")
+            p.outdent()
+            p.print(")\n")
+        }
 
-            if addNewline {
-              p.print("\n")
-            } else {
-              addNewline = true
-            }
-            e.generateProtobufExtensionDeclarations(printer: &p)
-          }
-          if currentScope != nil { endScope() }
+        func generateMessageSwiftExtension(printer p: inout CodePrinter) {
+            let visibility = generatorOptions.visibilitySourceSnippet
+            let apiType = fieldDescriptor.swiftType(namer: namer)
+            let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
+            let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
+
+            // ExtensionGenerator.Set provides the context to write out the properties.
+
+            p.print(
+              "\n",
+              comments,
+              "\(visibility)var \(extensionNames.value): \(apiType) {\n")
+            p.indent()
+            p.print(
+              "get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}\n",
+              "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
+            p.outdent()
+            p.print("}\n")
+
+            p.print(
+                "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
+                "\(visibility)var \(extensionNames.has): Bool {\n")
+            p.indent()
+            p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
+            p.outdent()
+            p.print("}\n")
+
+            p.print(
+                "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
+                "\(visibility)mutating func \(extensionNames.clear)() {\n")
+            p.indent()
+            p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
+            p.outdent()
+            p.print("}\n")
         }
     }
 
-    private let fieldDescriptor: FieldDescriptor
+    private let fileDescriptor: FileDescriptor
     private let generatorOptions: GeneratorOptions
     private let namer: SwiftProtobufNamer
 
-    private let comments: String
-    private let containingTypeSwiftFullName: String
-    private let swiftFullExtensionName: String
+    // The order of these is as they are created, so it keeps them grouped by
+    // where they were declared.
+    private var extensions: [ExtensionGenerator] = []
 
-    private var extensionFieldType: String {
-        let label: String
-        switch fieldDescriptor.label {
-        case .optional: label = "Optional"
-        case .required: label = "Required"
-        case .repeated: label = fieldDescriptor.isPacked ? "Packed" : "Repeated"
-        }
+    var isEmpty: Bool { return extensions.isEmpty }
 
-        let modifier: String
-        switch fieldDescriptor.type {
-        case .group: modifier = "Group"
-        case .message: modifier = "Message"
-        case .enum: modifier = "Enum"
-        default: modifier = ""
-        }
-
-        return "SwiftProtobuf.\(label)\(modifier)ExtensionField"
-    }
-
-    init(descriptor: FieldDescriptor, generatorOptions: GeneratorOptions, namer: SwiftProtobufNamer) {
-        self.fieldDescriptor = descriptor
+    init(
+      fileDescriptor: FileDescriptor,
+      generatorOptions: GeneratorOptions,
+      namer: SwiftProtobufNamer
+    ) {
+        self.fileDescriptor = fileDescriptor
         self.generatorOptions = generatorOptions
         self.namer = namer
+    }
 
-        swiftFullExtensionName = namer.fullName(extensionField: descriptor)
+    func add(extensionFields: [FieldDescriptor]) {
+        for e in extensionFields {
+            assert(e.isExtension)
+            let extensionGenerator = ExtensionGenerator(descriptor: e,
+                                                        generatorOptions: generatorOptions,
+                                                        namer: namer)
+            extensions.append(extensionGenerator)
+        }
+    }
 
-        comments = descriptor.protoSourceComments()
-        containingTypeSwiftFullName = namer.fullName(message: fieldDescriptor.containingType)
+    func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
+        guard !extensions.isEmpty else { return }
+
+        // Reorder the list so they are grouped by the Message being extended, but
+        // maintaining the order they were within the file within those groups.
+        let grouped: [ExtensionGenerator] = extensions.enumerated().sorted {
+            // When they extend the same Message, use the original order.
+            if $0.element.containingTypeSwiftFullName == $1.element.containingTypeSwiftFullName {
+                return $0.offset < $1.offset
+            }
+            // Otherwise, sort by the Message being extended.
+            return $0.element.containingTypeSwiftFullName < $1.element.containingTypeSwiftFullName
+        }.map {
+            // Now strip off the original index to just get the list of ExtensionGenerators
+            // again.
+            return $0.element
+        }
+
+        // Loop through the group list and each time a new containing type is hit,
+        // generate the Swift Extension block. This way there is only one Swift
+        // Extension for each Message rather then one for every extension.  This make
+        // the file a little easier to navigate.
+        var currentType: String = ""
+        for e in grouped {
+            if currentType != e.containingTypeSwiftFullName {
+                if !currentType.isEmpty {
+                    p.outdent()
+                    p.print("}\n")
+                }
+                currentType = e.containingTypeSwiftFullName
+                p.print(
+                  "\n",
+                  "extension \(currentType) {\n")
+                p.indent()
+            }
+            e.generateMessageSwiftExtension(printer: &p)
+        }
+        p.outdent()
+        p.print(
+          "\n",
+          "}\n")
+    }
+
+    func generateFileProtobufExtensionRegistry(printer p: inout CodePrinter) {
+        guard !extensions.isEmpty else { return }
+
+        let pathParts = splitPath(pathname: fileDescriptor.name)
+        let filenameAsIdentifer = NamingUtils.toUpperCamelCase(pathParts.base)
+        let filePrefix = namer.typePrefix(forFile: fileDescriptor)
+        p.print(
+          "\n",
+          "/// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by\n",
+          "/// this .proto file. It can be used any place an `SwiftProtobuf.ExtensionMap` is needed\n",
+          "/// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create\n",
+          "/// a larger `SwiftProtobuf.SimpleExtensionMap`.\n",
+          "\(generatorOptions.visibilitySourceSnippet)let \(filePrefix)\(filenameAsIdentifer)_Extensions: SwiftProtobuf.SimpleExtensionMap = [\n")
+        p.indent()
+        var separator = ""
+        for e in extensions {
+            p.print(separator, e.swiftFullExtensionName)
+            separator = ",\n"
+        }
+        p.print("\n")
+        p.outdent()
+        p.print("]\n")
     }
 
     func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
-        let scope = fieldDescriptor.extensionScope == nil ? "" : "static "
-        let traitsType = fieldDescriptor.traitsType(namer: namer)
-        let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
+      guard !extensions.isEmpty else { return }
 
-        var fieldNamePath = fieldDescriptor.fullName
-        assert(fieldNamePath.hasPrefix("."))
-        fieldNamePath.remove(at: fieldNamePath.startIndex)  // Remove the leading '.'
+      func endScope() {
+          p.outdent()
+          p.print("}\n")
+          p.outdent()
+          p.print("}\n")
+      }
 
-        p.print(
-          comments,
-          "\(scope)let \(swiftRelativeExtensionName) = SwiftProtobuf.MessageExtension<\(extensionFieldType)<\(traitsType)>, \(containingTypeSwiftFullName)>(\n")
-        p.indent()
-        p.print(
-          "_protobuf_fieldNumber: \(fieldDescriptor.number),\n",
-          "fieldName: \"\(fieldNamePath)\"\n")
-        p.outdent()
-        p.print(")\n")
-    }
+      var currentScope: Descriptor? = nil
+      var addNewline = true
+      for e in extensions {
+        if currentScope !== e.fieldDescriptor.extensionScope {
+          if currentScope != nil { endScope() }
+          currentScope = e.fieldDescriptor.extensionScope
+          let scopeSwiftFullName = namer.fullName(message: currentScope!)
+          p.print(
+            "\n",
+            "extension \(scopeSwiftFullName) {\n")
+          p.indent()
+          p.print("enum Extensions {\n")
+          p.indent()
+          addNewline = false
+        }
 
-    func generateMessageSwiftExtension(printer p: inout CodePrinter) {
-        let visibility = generatorOptions.visibilitySourceSnippet
-        let apiType = fieldDescriptor.swiftType(namer: namer)
-        let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
-        let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
-
-        // ExtensionGenerator.Set provides the context to write out the properties.
-
-        p.print(
-          "\n",
-          comments,
-          "\(visibility)var \(extensionNames.value): \(apiType) {\n")
-        p.indent()
-        p.print(
-          "get {return getExtensionValue(ext: \(swiftFullExtensionName)) ?? \(defaultValue)}\n",
-          "set {setExtensionValue(ext: \(swiftFullExtensionName), value: newValue)}\n")
-        p.outdent()
-        p.print("}\n")
-
-        p.print(
-            "/// Returns true if extension `\(swiftFullExtensionName)`\n/// has been explicitly set.\n",
-            "\(visibility)var \(extensionNames.has): Bool {\n")
-        p.indent()
-        p.print("return hasExtensionValue(ext: \(swiftFullExtensionName))\n")
-        p.outdent()
-        p.print("}\n")
-
-        p.print(
-            "/// Clears the value of extension `\(swiftFullExtensionName)`.\n/// Subsequent reads from it will return its default value.\n",
-            "\(visibility)mutating func \(extensionNames.clear)() {\n")
-        p.indent()
-        p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
-        p.outdent()
-        p.print("}\n")
+        if addNewline {
+          p.print("\n")
+        } else {
+          addNewline = true
+        }
+        e.generateProtobufExtensionDeclarations(printer: &p)
+      }
+      if currentScope != nil { endScope() }
     }
 }

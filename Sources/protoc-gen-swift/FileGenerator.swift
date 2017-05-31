@@ -96,9 +96,9 @@ class FileGenerator {
         generateVersionCheck(printer: &p)
 
         let extensionSet =
-            ExtensionGenerator.ExtensionSet(fileDescriptor: fileDescriptor,
-                                            generatorOptions: generatorOptions,
-                                            namer: namer)
+            ExtensionSetGenerator(fileDescriptor: fileDescriptor,
+                                  generatorOptions: generatorOptions,
+                                  namer: namer)
 
         extensionSet.add(extensionFields: fileDescriptor.extensions)
 

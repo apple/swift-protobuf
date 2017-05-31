@@ -37,7 +37,7 @@ class MessageGenerator {
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
     namer: SwiftProtobufNamer,
-    extensionSet: ExtensionGenerator.ExtensionSet
+    extensionSet: ExtensionSetGenerator
   ) {
     self.descriptor = descriptor
     self.generatorOptions = generatorOptions
