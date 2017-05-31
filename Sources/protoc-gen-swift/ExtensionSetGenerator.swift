@@ -1,4 +1,4 @@
-// Sources/protoc-gen-swift/ExtensionGenerator.swift - Handle Proto2 extension
+// Sources/protoc-gen-swift/ExtensionSetGenerator.swift - Handle Proto2 extension
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
