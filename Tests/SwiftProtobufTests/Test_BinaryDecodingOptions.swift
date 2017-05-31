@@ -20,7 +20,7 @@ class Test_BinaryDecodingOptions: XCTestCase {
 
     func testMessageDepthLimit() throws {
 
-        let tests: [([UInt8], [(Int, Bool)])] = [
+        let tests: [([UInt8], Message.Type, ExtensionMap?, [(Int, Bool)])] = [
             // Input, (Limit, success/failure)
 
             // Messages within messages:     // outer is msg 1
@@ -32,6 +32,8 @@ class Test_BinaryDecodingOptions: XCTestCase {
             //       }
             //     }
             ([10, 6, 10, 4, 18, 2, 8, 99],
+             ProtobufUnittest_NestedTestAllTypes.self,
+             nil,  // No Extensions
              [( 10, true ),
               ( 4, true ),
               ( 3, false ),
@@ -48,6 +50,8 @@ class Test_BinaryDecodingOptions: XCTestCase {
             //       }
             //     }
             ([10, 11, 10, 9, 18, 7, 131, 1, 136, 1, 98, 132, 1],
+             ProtobufUnittest_NestedTestAllTypes.self,
+             nil,  // No Extensions
              [( 10, true ),
               ( 5, true ),
               ( 4, false ),
@@ -65,23 +69,48 @@ class Test_BinaryDecodingOptions: XCTestCase {
             // 8, 1 -> field 1/varint, value of 1
             // 36 = 0b100100 -> field 4/end group
             ([35, 35, 35, 8, 1, 36, 36, 36],
+             ProtobufUnittest_TestEmptyMessage.self,
+             nil,  // No Extensions
              [( 10, true ),
               ( 4, true ),
               ( 3, false ),
               ( 2, false )]),
 
             // Nested message are on the wire as length delimited, so no depth comes into
-            // play when they are unknown.
+            // play when they are unknown message fields.
+
+            // Limit applies to message extension fields:                   // outer is msg 1
+            //     [protobuf_unittest.optional_nested_message_extension] {  // sub msg 2
+            //       bb: 1
+            //     }
+            ([146, 1, 2, 8, 1],
+             ProtobufUnittest_TestAllExtensions.self,
+             ProtobufUnittest_Unittest_Extensions,
+             [( 10, true ),
+              ( 2, true ),
+              ( 1, false )]),
+
+            // Limit applies to group extension fields:                     // outer is msg 1
+            //     [protobuf_unittest.optionalgroup_extension] {            // sub msg 2
+            //       a: 1
+            //     }
+            ([131, 1, 136, 1, 1, 132, 1],
+             ProtobufUnittest_TestAllExtensions.self,
+             ProtobufUnittest_Unittest_Extensions,
+             [( 10, true ),
+              ( 2, true ),
+              ( 1, false )]),
         ]
 
-        for (i, (binaryInput, testCases)) in tests.enumerated() {
+        for (i, (binaryInput, messageType, extensions, testCases)) in tests.enumerated() {
             for (limit, expectSuccess) in testCases {
                 do {
                     var options = BinaryDecodingOptions()
                     options.messageDepthLimit = limit
                     let _ =
-                        try ProtobufUnittest_NestedTestAllTypes(serializedData: Data(binaryInput),
-                                                                options: options)
+                        try messageType.init(serializedData: Data(binaryInput),
+                                             extensions: extensions,
+                                             options: options)
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }
