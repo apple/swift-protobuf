@@ -117,9 +117,10 @@ class FileGenerator {
             m.generateMainStruct(printer: &p, parent: nil)
         }
 
-        let extensionSet = ExtensionGenerator.Set(fileDescriptor: fileDescriptor,
-                                                  generatorOptions: generatorOptions,
-                                                  namer: namer)
+        let extensionSet = ExtensionGenerator.ExtensionSet(
+          fileDescriptor: fileDescriptor,
+          generatorOptions: generatorOptions,
+          namer: namer)
         extensionSet.register(extensions: extensions)
         for m in messages {
             m.registerExtensions(set: extensionSet)

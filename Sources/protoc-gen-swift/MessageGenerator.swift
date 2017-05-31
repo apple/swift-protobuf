@@ -202,7 +202,7 @@ class MessageGenerator {
     }
   }
 
-  func registerExtensions(set: ExtensionGenerator.Set) {
+  func registerExtensions(set: ExtensionGenerator.ExtensionSet) {
     set.register(extensions: extensions)
     for m in messages {
       m.registerExtensions(set: set)

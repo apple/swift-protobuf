@@ -22,7 +22,7 @@ class ExtensionGenerator {
 
     // Helper to hold all the extensions when generating things across all
     // the extensions within a given file.
-    class Set {
+    class ExtensionSet {
         private let fileDescriptor: FileDescriptor
         private let generatorOptions: GeneratorOptions
         private let namer: SwiftProtobufNamer
