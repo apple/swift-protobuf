@@ -402,7 +402,8 @@ extension Test_BasicFields_Access_Proto3 {
 extension Test_BinaryDecodingOptions {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
-            ("testMessageDepthLimit", {try run_test(test:($0 as! Test_BinaryDecodingOptions).testMessageDepthLimit)})
+            ("testMessageDepthLimit", {try run_test(test:($0 as! Test_BinaryDecodingOptions).testMessageDepthLimit)}),
+            ("testDiscaringUnknownFields", {try run_test(test:($0 as! Test_BinaryDecodingOptions).testDiscaringUnknownFields)})
         ]
     }
 }
