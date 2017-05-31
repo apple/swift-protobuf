@@ -382,6 +382,7 @@ struct ProtobufUnittest_Extend_MsgUsesStorage: SwiftProtobuf.Message, SwiftProto
 // MARK: - Extension support defined in unittest_swift_extension.proto.
 
 extension ProtobufUnittest_Extend_Foo.Bar.Baz {
+
   var ProtobufUnittest_Extend_b: String {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b) ?? String()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b, value: newValue)}
@@ -396,9 +397,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   mutating func clearProtobufUnittest_Extend_b() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_b)
   }
-}
 
-extension ProtobufUnittest_Extend_Foo.Bar.Baz {
   var ProtobufUnittest_Extend_c: ProtobufUnittest_Extend_C {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C) ?? ProtobufUnittest_Extend_C()}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_C, value: newValue)}
@@ -416,6 +415,7 @@ extension ProtobufUnittest_Extend_Foo.Bar.Baz {
 }
 
 extension ProtobufUnittest_Extend_Msg1 {
+
   var ProtobufUnittest_Extend_aB: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_a_b, value: newValue)}
@@ -433,6 +433,7 @@ extension ProtobufUnittest_Extend_Msg1 {
 }
 
 extension ProtobufUnittest_Extend_Msg2 {
+
   var ProtobufUnittest_Extend_aB: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_aB, value: newValue)}
@@ -450,6 +451,7 @@ extension ProtobufUnittest_Extend_Msg2 {
 }
 
 extension ProtobufUnittest_Extend_MsgNoStorage {
+
   var ProtobufUnittest_Extend_extA: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a, value: newValue)}
@@ -464,9 +466,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
   mutating func clearProtobufUnittest_Extend_extA() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_a)
   }
-}
 
-extension ProtobufUnittest_Extend_MsgNoStorage {
   var ProtobufUnittest_Extend_extB: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_b, value: newValue)}
@@ -484,6 +484,7 @@ extension ProtobufUnittest_Extend_MsgNoStorage {
 }
 
 extension ProtobufUnittest_Extend_MsgUsesStorage {
+
   var ProtobufUnittest_Extend_extC: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c, value: newValue)}
@@ -498,9 +499,7 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
   mutating func clearProtobufUnittest_Extend_extC() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_c)
   }
-}
 
-extension ProtobufUnittest_Extend_MsgUsesStorage {
   var ProtobufUnittest_Extend_extD: Int32 {
     get {return getExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d) ?? 0}
     set {setExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d, value: newValue)}
@@ -515,6 +514,7 @@ extension ProtobufUnittest_Extend_MsgUsesStorage {
   mutating func clearProtobufUnittest_Extend_extD() {
     clearExtensionValue(ext: ProtobufUnittest_Extend_Extensions_ext_d)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

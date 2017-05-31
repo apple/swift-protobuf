@@ -63,6 +63,7 @@ struct SwiftReservedTestExt2: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_swift_reserved_ext.proto.
 
 extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
+
   /// Will get _p added because it has no package/swift prefix to scope and
   /// would otherwise be a problem when added to the message.
   var debugDescription_p: Bool {
@@ -79,9 +80,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearDebugDescription_p() {
     clearExtensionValue(ext: Extensions_debugDescription)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   /// These will get _p added for the same reasoning.
   var `as`: Bool {
     get {return getExtensionValue(ext: Extensions_as) ?? false}
@@ -97,9 +96,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearAs() {
     clearExtensionValue(ext: Extensions_as)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `var`: Bool {
     get {return getExtensionValue(ext: Extensions_var) ?? false}
     set {setExtensionValue(ext: Extensions_var, value: newValue)}
@@ -114,9 +111,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearVar() {
     clearExtensionValue(ext: Extensions_var)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `try`: Bool {
     get {return getExtensionValue(ext: Extensions_try) ?? false}
     set {setExtensionValue(ext: Extensions_try, value: newValue)}
@@ -131,9 +126,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearTry() {
     clearExtensionValue(ext: Extensions_try)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `do`: Bool {
     get {return getExtensionValue(ext: Extensions_do) ?? false}
     set {setExtensionValue(ext: Extensions_do, value: newValue)}
@@ -148,9 +141,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearDo() {
     clearExtensionValue(ext: Extensions_do)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var `nil`: Bool {
     get {return getExtensionValue(ext: Extensions_nil) ?? false}
     set {setExtensionValue(ext: Extensions_nil, value: newValue)}
@@ -165,9 +156,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearNil() {
     clearExtensionValue(ext: Extensions_nil)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_hashValue: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_, value: newValue)}
@@ -182,9 +171,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearSwiftReservedTestExt2_hashValue() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.hashValue_)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   /// Reserved words, since these end up in the "enum Extensions", they
   /// can't just be get their names, and sanitation kicks.
   var SwiftReservedTestExt2_as: Bool {
@@ -201,9 +188,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearSwiftReservedTestExt2_as() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.as)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_var: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.var) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.var, value: newValue)}
@@ -218,9 +203,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearSwiftReservedTestExt2_var() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.var)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_try: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.try) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.try, value: newValue)}
@@ -235,9 +218,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearSwiftReservedTestExt2_try() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.try)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_do: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.do) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.do, value: newValue)}
@@ -252,9 +233,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearSwiftReservedTestExt2_do() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.do)
   }
-}
 
-extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   var SwiftReservedTestExt2_nil: Bool {
     get {return getExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil) ?? false}
     set {setExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil, value: newValue)}
@@ -269,6 +248,7 @@ extension ProtobufUnittest_SwiftReservedTest.TypeMessage {
   mutating func clearSwiftReservedTestExt2_nil() {
     clearExtensionValue(ext: SwiftReservedTestExt2.Extensions.nil)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

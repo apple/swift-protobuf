@@ -533,6 +533,7 @@ struct Swift_Protobuf_OneofTraversalGeneration: SwiftProtobuf.Message, SwiftProt
 // MARK: - Extension support defined in unittest_swift_fieldorder.proto.
 
 extension Swift_Protobuf_TestFieldOrderings {
+
   var Swift_Protobuf_myExtensionString: String {
     get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string) ?? String()}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string, value: newValue)}
@@ -547,9 +548,7 @@ extension Swift_Protobuf_TestFieldOrderings {
   mutating func clearSwift_Protobuf_myExtensionString() {
     clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_string)
   }
-}
 
-extension Swift_Protobuf_TestFieldOrderings {
   var Swift_Protobuf_myExtensionInt: Int32 {
     get {return getExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int) ?? 0}
     set {setExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int, value: newValue)}
@@ -564,6 +563,7 @@ extension Swift_Protobuf_TestFieldOrderings {
   mutating func clearSwift_Protobuf_myExtensionInt() {
     clearExtensionValue(ext: Swift_Protobuf_Extensions_my_extension_int)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

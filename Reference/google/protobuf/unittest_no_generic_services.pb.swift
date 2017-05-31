@@ -129,6 +129,7 @@ struct Google_Protobuf_NoGenericServicesTest_TestMessage: SwiftProtobuf.Message,
 // MARK: - Extension support defined in unittest_no_generic_services.proto.
 
 extension Google_Protobuf_NoGenericServicesTest_TestMessage {
+
   var Google_Protobuf_NoGenericServicesTest_testExtension: Int32 {
     get {return getExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension) ?? 0}
     set {setExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension, value: newValue)}
@@ -143,6 +144,7 @@ extension Google_Protobuf_NoGenericServicesTest_TestMessage {
   mutating func clearGoogle_Protobuf_NoGenericServicesTest_testExtension() {
     clearExtensionValue(ext: Google_Protobuf_NoGenericServicesTest_Extensions_test_extension)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

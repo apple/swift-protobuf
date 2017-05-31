@@ -303,6 +303,7 @@ struct ProtobufUnittest_RawMessageSet: SwiftProtobuf.Message {
 // MARK: - Extension support defined in unittest_mset.proto.
 
 extension Proto2WireformatUnittest_TestMessageSet {
+
   var ProtobufUnittest_TestMessageSetExtension1_messageSetExtension: ProtobufUnittest_TestMessageSetExtension1 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension1()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension, value: newValue)}
@@ -317,9 +318,7 @@ extension Proto2WireformatUnittest_TestMessageSet {
   mutating func clearProtobufUnittest_TestMessageSetExtension1_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension)
   }
-}
 
-extension Proto2WireformatUnittest_TestMessageSet {
   var ProtobufUnittest_TestMessageSetExtension2_messageSetExtension: ProtobufUnittest_TestMessageSetExtension2 {
     get {return getExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension) ?? ProtobufUnittest_TestMessageSetExtension2()}
     set {setExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension, value: newValue)}
@@ -334,6 +333,7 @@ extension Proto2WireformatUnittest_TestMessageSet {
   mutating func clearProtobufUnittest_TestMessageSetExtension2_messageSetExtension() {
     clearExtensionValue(ext: ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by

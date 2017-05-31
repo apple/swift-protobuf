@@ -476,6 +476,7 @@ struct SDTScoperForExt: SwiftProtobuf.Message {
 // MARK: - Extension support defined in pluginlib_descriptor_test.proto.
 
 extension Google_Protobuf_FieldOptions {
+
   var SDTextStr: String {
     get {return getExtensionValue(ext: SDTExtensions_ext_str) ?? String()}
     set {setExtensionValue(ext: SDTExtensions_ext_str, value: newValue)}
@@ -493,6 +494,7 @@ extension Google_Protobuf_FieldOptions {
 }
 
 extension Google_Protobuf_MessageOptions {
+
   var SDTScoperForExt_extEnum: SDTTopLevelEnum {
     get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum) ?? .valueZero}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum, value: newValue)}
@@ -507,9 +509,7 @@ extension Google_Protobuf_MessageOptions {
   mutating func clearSDTScoperForExt_extEnum() {
     clearExtensionValue(ext: SDTScoperForExt.Extensions.ext_enum)
   }
-}
 
-extension Google_Protobuf_MessageOptions {
   var SDTScoperForExt_extMsg: SDTTopLevelMessage2 {
     get {return getExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg) ?? SDTTopLevelMessage2()}
     set {setExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg, value: newValue)}
@@ -524,6 +524,7 @@ extension Google_Protobuf_MessageOptions {
   mutating func clearSDTScoperForExt_extMsg() {
     clearExtensionValue(ext: SDTScoperForExt.Extensions.ext_msg)
   }
+
 }
 
 /// A `SwiftProtobuf.SimpleExtensionMap` that includes all of the extensions defined by
