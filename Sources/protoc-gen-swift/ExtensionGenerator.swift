@@ -46,9 +46,46 @@ class ExtensionGenerator {
         }
 
         func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
-            for e in extensions {
+            guard !extensions.isEmpty else { return }
+
+            // Reorder the list so they are grouped by the Message being extended, but
+            // maintaining the order they were within the file within those groups.
+            let grouped: [ExtensionGenerator] = extensions.enumerated().sorted {
+                // When they extend the same Message, use the original order.
+                if $0.element.containingTypeSwiftFullName == $1.element.containingTypeSwiftFullName {
+                    return $0.offset < $1.offset
+                }
+                // Otherwise, sort by the Message being extended.
+                return $0.element.containingTypeSwiftFullName < $1.element.containingTypeSwiftFullName
+            }.map {
+                // Now strip off the original index to just get the list of ExtensionGenerators
+                // again.
+                return $0.element
+            }
+
+            // Loop through the group list and each time a new containing type is hit,
+            // generate the Swift Extension block. This way there is only one Swift
+            // Extension for each Message rather then one for every extension.  This make
+            // the file a little easier to navigate.
+            var currentType: String = ""
+            for e in grouped {
+                if currentType != e.containingTypeSwiftFullName {
+                    if !currentType.isEmpty {
+                        p.outdent()
+                        p.print("}\n")
+                    }
+                    currentType = e.containingTypeSwiftFullName
+                    p.print(
+                      "\n",
+                      "extension \(currentType) {\n")
+                    p.indent()
+                }
                 e.generateMessageSwiftExtension(printer: &p)
             }
+            p.outdent()
+            p.print(
+              "\n",
+              "}\n")
         }
 
         func generateFileProtobufExtensionRegistry(printer p: inout CodePrinter) {
@@ -141,10 +178,10 @@ class ExtensionGenerator {
         let extensionNames = namer.messagePropertyNames(extensionField: fieldDescriptor)
         let defaultValue = fieldDescriptor.swiftDefaultValue(namer: namer)
 
-        p.print("\n")
-        p.print("extension \(containingTypeSwiftFullName) {\n")
-        p.indent()
+        // ExtensionGenerator.Set provides the context to write out the properties.
+
         p.print(
+          "\n",
           comments,
           "\(visibility)var \(extensionNames.value): \(apiType) {\n")
         p.indent()
@@ -167,8 +204,6 @@ class ExtensionGenerator {
             "\(visibility)mutating func \(extensionNames.clear)() {\n")
         p.indent()
         p.print("clearExtensionValue(ext: \(swiftFullExtensionName))\n")
-        p.outdent()
-        p.print("}\n")
         p.outdent()
         p.print("}\n")
     }
