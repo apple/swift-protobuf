@@ -21,7 +21,8 @@ public struct BinaryDecodingOptions {
   /// while parsing.
   public var messageDepthLimit: Int = 100
 
-  /// Discard unknown fields while parsing.
+  /// Discard unknown fields while parsing.  The default is false, so parsering
+  /// does not discard unknown fields.
   ///
   /// The Protobuf binary format allows unknown fields to be still parsed
   /// so the schema can be expanded without requiring all readers to be updated.
@@ -30,7 +31,7 @@ public struct BinaryDecodingOptions {
   /// called for unknown fields to be dropped, but that lead to problems in
   /// some case. The default is to follow the spec and keep them, but setting
   /// this option to `true` allows a developer to strip them during a parse
-  /// incase they have a specific need to drop the unknown fields from the
+  /// in case they have a specific need to drop the unknown fields from the
   /// object graph being created.
   public var discardUnknownFields: Bool = false
 
