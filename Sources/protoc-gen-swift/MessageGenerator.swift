@@ -28,7 +28,6 @@ class MessageGenerator {
   private let fields: [FieldGenerator]
   private let fieldsSortedByNumber: [FieldGenerator]
   private let oneofs: [OneofGenerator]
-  private let extensions: [ExtensionGenerator]
   private let storage: MessageStorageClassGenerator?
   private let enums: [EnumGenerator]
   private let messages: [MessageGenerator]
@@ -37,7 +36,8 @@ class MessageGenerator {
   init(
     descriptor: Descriptor,
     generatorOptions: GeneratorOptions,
-    namer: SwiftProtobufNamer
+    namer: SwiftProtobufNamer,
+    extensionSet: ExtensionGenerator.ExtensionSet
   ) {
     self.descriptor = descriptor
     self.generatorOptions = generatorOptions
@@ -68,19 +68,18 @@ class MessageGenerator {
     }
     fieldsSortedByNumber = fields.sorted {$0.number < $1.number}
 
-    extensions = descriptor.extensions.map {
-      return ExtensionGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
-    }
+    extensionSet.add(extensionFields: descriptor.extensions)
 
     enums = descriptor.enums.map {
       return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
     }
 
-    var messages = [MessageGenerator]()
-    for m in descriptor.messages where !m.isMapEntry {
-      messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer))
+    messages = descriptor.messages.filter { return !$0.isMapEntry }.map {
+      return MessageGenerator(descriptor: $0,
+                              generatorOptions: generatorOptions,
+                              namer: namer,
+                              extensionSet: extensionSet)
     }
-    self.messages = messages
 
     if isAnyMessage {
       storage = AnyMessageStorageClassGenerator(fields: fields)
@@ -173,13 +172,6 @@ class MessageGenerator {
 
     p.outdent()
     p.print("}\n")
-  }
-
-  func registerExtensions(set: ExtensionGenerator.ExtensionSet) {
-    set.register(extensions: extensions)
-    for m in messages {
-      m.registerExtensions(set: set)
-    }
   }
 
   func generateRuntimeSupport(printer p: inout CodePrinter, file: FileGenerator, parent: MessageGenerator?) {

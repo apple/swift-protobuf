@@ -43,8 +43,14 @@ class ExtensionGenerator {
             self.namer = namer
         }
 
-        func register(extensions: [ExtensionGenerator]) {
-            self.extensions.append(contentsOf: extensions)
+        func add(extensionFields: [FieldDescriptor]) {
+            for e in extensionFields {
+                assert(e.isExtension)
+                let extensionGenerator = ExtensionGenerator(descriptor: e,
+                                                            generatorOptions: generatorOptions,
+                                                            namer: namer)
+                extensions.append(extensionGenerator)
+            }
         }
 
         func generateMessageSwiftExtensions(printer p: inout CodePrinter) {
