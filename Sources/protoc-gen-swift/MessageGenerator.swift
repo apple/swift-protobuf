@@ -202,21 +202,10 @@ class MessageGenerator {
     }
   }
 
-  func generateMessageSwiftExtensionForProtobufExtensions(printer p: inout CodePrinter) {
-    for e in extensions {
-      e.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
-    }
+  func registerExtensions(set: ExtensionGenerator.Set) {
+    set.register(extensions: extensions)
     for m in messages {
-      m.generateMessageSwiftExtensionForProtobufExtensions(printer: &p)
-    }
-  }
-
-  func registerExtensions(registry: inout [String]) {
-    for e in extensions {
-      e.register(&registry)
-    }
-    for m in messages {
-      m.registerExtensions(registry: &registry)
+      m.registerExtensions(set: set)
     }
   }
 
