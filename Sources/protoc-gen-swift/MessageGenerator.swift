@@ -175,33 +175,6 @@ class MessageGenerator {
     p.print("}\n")
   }
 
-  func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
-    if !extensions.isEmpty {
-      p.print(
-          "\n",
-          "extension \(swiftFullName) {\n")
-      p.indent()
-      p.print("enum Extensions {\n")
-      p.indent()
-      var addNewline = false
-      for e in extensions {
-        if addNewline {
-          p.print("\n")
-        } else {
-          addNewline = true
-        }
-        e.generateProtobufExtensionDeclarations(printer: &p)
-      }
-      p.outdent()
-      p.print("}\n")
-      p.outdent()
-      p.print("}\n")
-    }
-    for m in messages {
-      m.generateProtobufExtensionDeclarations(printer: &p)
-    }
-  }
-
   func registerExtensions(set: ExtensionGenerator.ExtensionSet) {
     set.register(extensions: extensions)
     for m in messages {

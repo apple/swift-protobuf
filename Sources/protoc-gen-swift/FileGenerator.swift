@@ -144,17 +144,7 @@ class FileGenerator {
             // This is done after the other two as the only time developers will need
             // these symbols is if they are manually building their own ExtensionMap;
             // so the others are assumed more interesting.
-            //
-            // This is not done via the ExtensionSet because for Message scoped
-            // extensions, they are done in a Swift Extension on the Message's
-            // type.
-            for e in extensions {
-                p.print("\n")
-                e.generateProtobufExtensionDeclarations(printer: &p)
-            }
-            for m in messages {
-                m.generateProtobufExtensionDeclarations(printer: &p)
-            }
+            extensionSet.generateProtobufExtensionDeclarations(printer: &p)
         }
 
         let protoPackage = fileDescriptor.package

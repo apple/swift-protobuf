@@ -27,6 +27,8 @@ class ExtensionGenerator {
         private let generatorOptions: GeneratorOptions
         private let namer: SwiftProtobufNamer
 
+        // The order of these is as they are created, so it keeps them grouped by
+        // where they were declared.
         private var extensions: [ExtensionGenerator] = []
 
         var isEmpty: Bool { return extensions.isEmpty }
@@ -110,7 +112,42 @@ class ExtensionGenerator {
             p.print("\n")
             p.outdent()
             p.print("]\n")
+        }
 
+        func generateProtobufExtensionDeclarations(printer p: inout CodePrinter) {
+          guard !extensions.isEmpty else { return }
+
+          func endScope() {
+              p.outdent()
+              p.print("}\n")
+              p.outdent()
+              p.print("}\n")
+          }
+
+          var currentScope: Descriptor? = nil
+          var addNewline = true
+          for e in extensions {
+            if currentScope !== e.fieldDescriptor.extensionScope {
+              if currentScope != nil { endScope() }
+              currentScope = e.fieldDescriptor.extensionScope
+              let scopeSwiftFullName = namer.fullName(message: currentScope!)
+              p.print(
+                "\n",
+                "extension \(scopeSwiftFullName) {\n")
+              p.indent()
+              p.print("enum Extensions {\n")
+              p.indent()
+              addNewline = false
+            }
+
+            if addNewline {
+              p.print("\n")
+            } else {
+              addNewline = true
+            }
+            e.generateProtobufExtensionDeclarations(printer: &p)
+          }
+          if currentScope != nil { endScope() }
         }
     }
 
