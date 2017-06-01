@@ -95,18 +95,22 @@ class FileGenerator {
         p.print("\n")
         generateVersionCheck(printer: &p)
 
+        let extensionSet =
+            ExtensionSetGenerator(fileDescriptor: fileDescriptor,
+                                  generatorOptions: generatorOptions,
+                                  namer: namer)
+
+        extensionSet.add(extensionFields: fileDescriptor.extensions)
+
         let enums = fileDescriptor.enums.map {
             return EnumGenerator(descriptor: $0, generatorOptions: generatorOptions, namer: namer)
         }
 
-        var messages = [MessageGenerator]()
-        for m in fileDescriptor.messages {
-          messages.append(MessageGenerator(descriptor: m, generatorOptions: generatorOptions, namer: namer))
-        }
-
-        var extensions = [ExtensionGenerator]()
-        for e in fileDescriptor.extensions {
-            extensions.append(ExtensionGenerator(descriptor: e, generatorOptions: generatorOptions, namer: namer))
+        let messages = fileDescriptor.messages.map {
+          return MessageGenerator(descriptor: $0,
+                                  generatorOptions: generatorOptions,
+                                  namer: namer,
+                                  extensionSet: extensionSet)
         }
 
         for e in enums {
@@ -117,14 +121,6 @@ class FileGenerator {
             m.generateMainStruct(printer: &p, parent: nil)
         }
 
-        let extensionSet = ExtensionGenerator.ExtensionSet(
-          fileDescriptor: fileDescriptor,
-          generatorOptions: generatorOptions,
-          namer: namer)
-        extensionSet.register(extensions: extensions)
-        for m in messages {
-            m.registerExtensions(set: extensionSet)
-        }
         if !extensionSet.isEmpty {
             let pathParts = splitPath(pathname: fileDescriptor.name)
             let filename = pathParts.base + pathParts.suffix
@@ -144,17 +140,7 @@ class FileGenerator {
             // This is done after the other two as the only time developers will need
             // these symbols is if they are manually building their own ExtensionMap;
             // so the others are assumed more interesting.
-            //
-            // This is not done via the ExtensionSet because for Message scoped
-            // extensions, they are done in a Swift Extension on the Message's
-            // type.
-            for e in extensions {
-                p.print("\n")
-                e.generateProtobufExtensionDeclarations(printer: &p)
-            }
-            for m in messages {
-                m.generateProtobufExtensionDeclarations(printer: &p)
-            }
+            extensionSet.generateProtobufExtensionDeclarations(printer: &p)
         }
 
         let protoPackage = fileDescriptor.package
