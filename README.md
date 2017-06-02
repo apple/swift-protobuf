@@ -136,10 +136,10 @@ build the protoc plugin:
 
 ```
 $ git checkout tags/[tag_name]
-$ swift build
+$ swift build -c release -Xswiftc -static-stdlib
 ```
 
-This will create a binary called `protoc-gen-swift` in the `.build/debug`
+This will create a binary called `protoc-gen-swift` in the `.build/release`
 directory.
 To install, just copy this one executable into a directory that is
 part of your `PATH` environment variable.
@@ -158,6 +158,9 @@ The `protoc` program will automatically look for `protoc-gen-swift` in your
 
 Each `.proto` input file will get translated to a corresponding `.pb.swift`
 file in the output directory.
+
+More information about building and using `protoc-gen-swift` can be found
+in the [detailed Plugin documentation](Documentation/PLUGIN.md).
 
 ## Adding the SwiftProtobuf library to your project...
 
@@ -250,23 +253,23 @@ info.title = "Really Interesting Book"
 info.author = "Jane Smith"
 
 // As above, but generating a read-only value:
-let info2 = BookInfo. with {
+let info2 = BookInfo.with {
     $0.id = 1735
     $0.title = "Even More Interesting"
     $0.author = "Jane Q. Smith"
   }
 
 // Serialize to binary protobuf format:
-let binaryData: Data = info.serializedData()
+let binaryData: Data = try info.serializedData()
 
-// Deserialize a received Data object
-let decodedInfo = BookInfo(serializedData: binaryData)
+// Deserialize a received Data object from `binaryData`
+let decodedInfo = try BookInfo(serializedData: binaryData)
 
 // Serialize to JSON format as a Data object
-let jsonData: Data = info.jsonUTF8Data()
+let jsonData: Data = try info.jsonUTF8Data()
 
-// Deserialize from JSON format
-let receivedFromJSON = BookInfo(jsonUTF8Data: jsonData)
+// Deserialize from JSON format from `jsonData`
+let receivedFromJSON = try BookInfo(jsonUTF8Data: jsonData)
 ```
 
 You can find more information in the detailed
