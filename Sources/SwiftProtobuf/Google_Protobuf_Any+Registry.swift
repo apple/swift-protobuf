@@ -45,7 +45,7 @@ internal func typeName(fromURL s: String) -> String {
     }
   }
 
-  return s[typeStart..<s.endIndex]
+  return String(s[typeStart..<s.endIndex])
 }
 
 fileprivate var serialQueue = DispatchQueue(label: "org.swift.protobuf.typeRegistry")
