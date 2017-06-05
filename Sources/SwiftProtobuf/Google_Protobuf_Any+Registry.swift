@@ -32,7 +32,7 @@ internal func typeName(fromMessage message: Message) -> String {
   return messageType.protoMessageName
 }
 
-internal let defaultTypePrefix: String = "type.googleapis.com"
+public let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
 
 internal func typeName(fromURL s: String) -> String {
   var typeStart = s.startIndex
@@ -45,7 +45,7 @@ internal func typeName(fromURL s: String) -> String {
     }
   }
 
-  return s[typeStart..<s.endIndex]
+  return String(s[typeStart..<s.endIndex])
 }
 
 fileprivate var serialQueue = DispatchQueue(label: "org.swift.protobuf.typeRegistry")

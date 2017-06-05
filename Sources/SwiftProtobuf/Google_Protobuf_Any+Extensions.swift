@@ -38,7 +38,7 @@ public extension Google_Protobuf_Any {
   public init(
     message: Message,
     partial: Bool = false,
-    typePrefix: String = defaultTypePrefix
+    typePrefix: String = defaultAnyTypeURLPrefix
   ) throws {
     if !partial && !message.isInitialized {
       throw BinaryEncodingError.missingRequiredFields

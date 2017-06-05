@@ -35,7 +35,7 @@ fileprivate func serializeAnyJSON(for message: Message, typeURL: String) throws 
 fileprivate func emitVerboseTextForm(visitor: inout TextFormatEncodingVisitor, message: Message, typeURL: String) {
   let url: String
   if typeURL.isEmpty {
-    url = buildTypeURL(forMessage: message, typePrefix: defaultTypePrefix)
+    url = buildTypeURL(forMessage: message, typePrefix: defaultAnyTypeURLPrefix)
   } else {
     url = typeURL
   }
@@ -386,7 +386,7 @@ extension AnyMessageStorage {
     case .message(let msg):
       // We should have been initialized with a typeURL, but
       // ensure it wasn't cleared.
-      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultTypePrefix)
+      let url = !_typeURL.isEmpty ? _typeURL : buildTypeURL(forMessage: msg, typePrefix: defaultAnyTypeURLPrefix)
       return try serializeAnyJSON(for: msg, typeURL: url)
 
     case .contentJSON(let contentJSON, _):

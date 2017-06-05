@@ -420,22 +420,22 @@ class MessageGenerator {
     if storage != nil {
       let prefixKeywords = "\(returns ? "return " : "")" +
         "\(canThrow ? "try " : "")"
+      p.print(prefixKeywords)
 
-      let actualArgs: String
-      let formalArgs: String
       if let capturedVariable = capturedVariable {
-        actualArgs = "(_storage, \(capturedVariable)._storage)"
-        formalArgs = "(_storage, \(capturedVariable)_storage)"
+        // withExtendedLifetime can only pass a single argument,
+        // so we have to build and deconstruct a tuple in this case:
+        let actualArgs = "(_storage, \(capturedVariable)._storage)"
+        let formalArgs = "(_args: (_StorageClass, _StorageClass))"
+        p.print("withExtendedLifetime(\(actualArgs)) { \(formalArgs) in\n")
+        p.indent()
+        p.print("let _storage = _args.0\n")
+        p.print("let \(capturedVariable)_storage = _args.1\n")
       } else {
-        actualArgs = "_storage"
-        // The way withExtendedLifetime is defined causes ambiguities in the
-        // singleton argument case, which we have to resolve by writing out
-        // the explicit type of the closure argument.
-        formalArgs = "(_storage: _StorageClass)"
+        // Single argument can be passed directly:
+        p.print("withExtendedLifetime(_storage) { (_storage: _StorageClass) in\n")
+        p.indent()
       }
-      p.print(prefixKeywords +
-        "withExtendedLifetime(\(actualArgs)) { \(formalArgs) in\n")
-      p.indent()
     }
 
     body(&p)
