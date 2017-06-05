@@ -44,6 +44,18 @@ internal func utf8ToString(
 // Swift 4 introduced new faster String facilities
 // that seem to work consistently across all platforms.
 
+// Notes on performance:
+//
+// The pre-verification here only takes about 10% of
+// the time needed for constructing the string.
+// Eliminating it would provide only a very minor
+// speed improvement.
+//
+// On macOS, this is only about 25% faster than
+// the Foundation initializer used below for Swift 3.
+// On Linux, the Foundation initializer is much
+// slower than on macOS, so this is a much bigger
+// win there.
 internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
     if count == 0 {
         return String()
