@@ -200,7 +200,7 @@ If you're using CocoaPods, add this to your `Podfile` adjusting the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', git: 'https://github.com/apple/swift-protobuf.git', :tag => '0.9.903'
+pod 'SwiftProtobuf', '~> 0.9.903'
 ```
 
 And run `pod install`.
