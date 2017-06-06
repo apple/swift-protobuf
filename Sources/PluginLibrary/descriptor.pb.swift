@@ -1506,6 +1506,18 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// Clears the value of `phpClassPrefix`. Subsequent reads from it will return its default value.
   public mutating func clearPhpClassPrefix() {_storage._phpClassPrefix = nil}
 
+  /// Use this option to change the namespace of php generated classes. Default
+  /// is empty. When this option is empty, the package name will be used for
+  /// determining the namespace.
+  public var phpNamespace: String {
+    get {return _storage._phpNamespace ?? String()}
+    set {_uniqueStorage()._phpNamespace = newValue}
+  }
+  /// Returns true if `phpNamespace` has been explicitly set.
+  public var hasPhpNamespace: Bool {return _storage._phpNamespace != nil}
+  /// Clears the value of `phpNamespace`. Subsequent reads from it will return its default value.
+  public mutating func clearPhpNamespace() {_storage._phpNamespace = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] {
     get {return _storage._uninterpretedOption}
@@ -1585,6 +1597,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
         case 37: try decoder.decodeSingularStringField(value: &_storage._csharpNamespace)
         case 39: try decoder.decodeSingularStringField(value: &_storage._swiftPrefix)
         case 40: try decoder.decodeSingularStringField(value: &_storage._phpClassPrefix)
+        case 41: try decoder.decodeSingularStringField(value: &_storage._phpNamespace)
         case 999: try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption)
         case 1000..<536870912:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
@@ -1647,6 +1660,9 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
       }
       if let v = _storage._phpClassPrefix {
         try visitor.visitSingularStringField(value: v, fieldNumber: 40)
+      }
+      if let v = _storage._phpNamespace {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 41)
       }
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
@@ -3529,6 +3545,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     37: .standard(proto: "csharp_namespace"),
     39: .standard(proto: "swift_prefix"),
     40: .standard(proto: "php_class_prefix"),
+    41: .standard(proto: "php_namespace"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3549,6 +3566,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     var _csharpNamespace: String? = nil
     var _swiftPrefix: String? = nil
     var _phpClassPrefix: String? = nil
+    var _phpNamespace: String? = nil
     var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
     static let defaultInstance = _StorageClass()
@@ -3572,6 +3590,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
       _csharpNamespace = source._csharpNamespace
       _swiftPrefix = source._swiftPrefix
       _phpClassPrefix = source._phpClassPrefix
+      _phpNamespace = source._phpNamespace
       _uninterpretedOption = source._uninterpretedOption
     }
   }
@@ -3602,6 +3621,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
         if _storage._csharpNamespace != other_storage._csharpNamespace {return false}
         if _storage._swiftPrefix != other_storage._swiftPrefix {return false}
         if _storage._phpClassPrefix != other_storage._phpClassPrefix {return false}
+        if _storage._phpNamespace != other_storage._phpNamespace {return false}
         if _storage._uninterpretedOption != other_storage._uninterpretedOption {return false}
         return true
       }

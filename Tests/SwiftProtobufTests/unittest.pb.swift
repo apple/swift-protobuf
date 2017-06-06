@@ -2491,7 +2491,126 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
   /// Clears the value of `bb`. Subsequent reads from it will return its default value.
   mutating func clearBb() {_storage._bb = nil}
 
+  var subGroup: ProtobufUnittest_TestMutualRecursionA.SubGroup {
+    get {return _storage._subGroup ?? ProtobufUnittest_TestMutualRecursionA.SubGroup()}
+    set {_uniqueStorage()._subGroup = newValue}
+  }
+  /// Returns true if `subGroup` has been explicitly set.
+  var hasSubGroup: Bool {return _storage._subGroup != nil}
+  /// Clears the value of `subGroup`. Subsequent reads from it will return its default value.
+  mutating func clearSubGroup() {_storage._subGroup = nil}
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct SubMessage: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_TestMutualRecursionA.protoMessageName + ".SubMessage"
+
+    var b: ProtobufUnittest_TestMutualRecursionB {
+      get {return _storage._b ?? ProtobufUnittest_TestMutualRecursionB()}
+      set {_uniqueStorage()._b = newValue}
+    }
+    /// Returns true if `b` has been explicitly set.
+    var hasB: Bool {return _storage._b != nil}
+    /// Clears the value of `b`. Subsequent reads from it will return its default value.
+    mutating func clearB() {_storage._b = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+    /// initializers are defined in the SwiftProtobuf library. See the Message and
+    /// Message+*Additions` files.
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      _ = _uniqueStorage()
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularMessageField(value: &_storage._b)
+          default: break
+          }
+        }
+      }
+    }
+
+    /// Used by the encoding methods of the SwiftProtobuf library, not generally
+    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+    /// other serializer methods are defined in the SwiftProtobuf library. See the
+    /// `Message` and `Message+*Additions` files.
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._b {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        }
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+  }
+
+  struct SubGroup: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_TestMutualRecursionA.protoMessageName + ".SubGroup"
+
+    /// Needed because of bug in javatest
+    var subMessage: ProtobufUnittest_TestMutualRecursionA.SubMessage {
+      get {return _storage._subMessage ?? ProtobufUnittest_TestMutualRecursionA.SubMessage()}
+      set {_uniqueStorage()._subMessage = newValue}
+    }
+    /// Returns true if `subMessage` has been explicitly set.
+    var hasSubMessage: Bool {return _storage._subMessage != nil}
+    /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
+    mutating func clearSubMessage() {_storage._subMessage = nil}
+
+    var notInThisScc: ProtobufUnittest_TestAllTypes {
+      get {return _storage._notInThisScc ?? ProtobufUnittest_TestAllTypes()}
+      set {_uniqueStorage()._notInThisScc = newValue}
+    }
+    /// Returns true if `notInThisScc` has been explicitly set.
+    var hasNotInThisScc: Bool {return _storage._notInThisScc != nil}
+    /// Clears the value of `notInThisScc`. Subsequent reads from it will return its default value.
+    mutating func clearNotInThisScc() {_storage._notInThisScc = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+    /// initializers are defined in the SwiftProtobuf library. See the Message and
+    /// Message+*Additions` files.
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      _ = _uniqueStorage()
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          switch fieldNumber {
+          case 3: try decoder.decodeSingularMessageField(value: &_storage._subMessage)
+          case 4: try decoder.decodeSingularMessageField(value: &_storage._notInThisScc)
+          default: break
+          }
+        }
+      }
+    }
+
+    /// Used by the encoding methods of the SwiftProtobuf library, not generally
+    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+    /// other serializer methods are defined in the SwiftProtobuf library. See the
+    /// `Message` and `Message+*Additions` files.
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._subMessage {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+        }
+        if let v = _storage._notInThisScc {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+        }
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+  }
 
   init() {}
 
@@ -2505,6 +2624,7 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
       while let fieldNumber = try decoder.nextFieldNumber() {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._bb)
+        case 2: try decoder.decodeSingularGroupField(value: &_storage._subGroup)
         default: break
         }
       }
@@ -2519,6 +2639,9 @@ struct ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf.Message {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._bb {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._subGroup {
+        try visitor.visitSingularGroupField(value: v, fieldNumber: 2)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -2580,6 +2703,164 @@ struct ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf.Message {
       }
       if let v = _storage._optionalInt32 {
         try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+struct ProtobufUnittest_TestIsInitialized: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".TestIsInitialized"
+
+  var subMessage: ProtobufUnittest_TestIsInitialized.SubMessage {
+    get {return _storage._subMessage ?? ProtobufUnittest_TestIsInitialized.SubMessage()}
+    set {_uniqueStorage()._subMessage = newValue}
+  }
+  /// Returns true if `subMessage` has been explicitly set.
+  var hasSubMessage: Bool {return _storage._subMessage != nil}
+  /// Clears the value of `subMessage`. Subsequent reads from it will return its default value.
+  mutating func clearSubMessage() {_storage._subMessage = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  struct SubMessage: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_TestIsInitialized.protoMessageName + ".SubMessage"
+
+    var subGroup: ProtobufUnittest_TestIsInitialized.SubMessage.SubGroup {
+      get {return _storage._subGroup ?? ProtobufUnittest_TestIsInitialized.SubMessage.SubGroup()}
+      set {_uniqueStorage()._subGroup = newValue}
+    }
+    /// Returns true if `subGroup` has been explicitly set.
+    var hasSubGroup: Bool {return _storage._subGroup != nil}
+    /// Clears the value of `subGroup`. Subsequent reads from it will return its default value.
+    mutating func clearSubGroup() {_storage._subGroup = nil}
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    struct SubGroup: SwiftProtobuf.Message {
+      static let protoMessageName: String = ProtobufUnittest_TestIsInitialized.SubMessage.protoMessageName + ".SubGroup"
+
+      var i: Int32 {
+        get {return _i ?? 0}
+        set {_i = newValue}
+      }
+      /// Returns true if `i` has been explicitly set.
+      var hasI: Bool {return self._i != nil}
+      /// Clears the value of `i`. Subsequent reads from it will return its default value.
+      mutating func clearI() {self._i = nil}
+
+      var unknownFields = SwiftProtobuf.UnknownStorage()
+
+      init() {}
+
+      public var isInitialized: Bool {
+        if self._i == nil {return false}
+        return true
+      }
+
+      /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+      /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+      /// initializers are defined in the SwiftProtobuf library. See the Message and
+      /// Message+*Additions` files.
+      mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          switch fieldNumber {
+          case 2: try decoder.decodeSingularInt32Field(value: &self._i)
+          default: break
+          }
+        }
+      }
+
+      /// Used by the encoding methods of the SwiftProtobuf library, not generally
+      /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+      /// other serializer methods are defined in the SwiftProtobuf library. See the
+      /// `Message` and `Message+*Additions` files.
+      func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if let v = self._i {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
+      }
+
+      fileprivate var _i: Int32? = nil
+    }
+
+    init() {}
+
+    public var isInitialized: Bool {
+      return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._subGroup, !v.isInitialized {return false}
+        return true
+      }
+    }
+
+    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+    /// initializers are defined in the SwiftProtobuf library. See the Message and
+    /// Message+*Additions` files.
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      _ = _uniqueStorage()
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularGroupField(value: &_storage._subGroup)
+          default: break
+          }
+        }
+      }
+    }
+
+    /// Used by the encoding methods of the SwiftProtobuf library, not generally
+    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+    /// other serializer methods are defined in the SwiftProtobuf library. See the
+    /// `Message` and `Message+*Additions` files.
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._subGroup {
+          try visitor.visitSingularGroupField(value: v, fieldNumber: 1)
+        }
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+  }
+
+  init() {}
+
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._subMessage, !v.isInitialized {return false}
+      return true
+    }
+  }
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._subMessage)
+        default: break
+        }
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._subMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -9872,10 +10153,12 @@ extension ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf._MessageImplement
 extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
+    2: .unique(proto: "SubGroup", json: "subgroup"),
   ]
 
   fileprivate class _StorageClass {
     var _bb: ProtobufUnittest_TestMutualRecursionB? = nil
+    var _subGroup: ProtobufUnittest_TestMutualRecursionA.SubGroup? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -9883,6 +10166,7 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf._MessageImplement
 
     init(copying source: _StorageClass) {
       _bb = source._bb
+      _subGroup = source._subGroup
     }
   }
 
@@ -9897,6 +10181,85 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf._MessageImplement
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
         if _storage._bb != other_storage._bb {return false}
+        if _storage._subGroup != other_storage._subGroup {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMutualRecursionA.SubMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "b"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _b: ProtobufUnittest_TestMutualRecursionB? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _b = source._b
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA.SubMessage) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._b != other_storage._b {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestMutualRecursionA.SubGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    3: .standard(proto: "sub_message"),
+    4: .standard(proto: "not_in_this_scc"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _subMessage: ProtobufUnittest_TestMutualRecursionA.SubMessage? = nil
+    var _notInThisScc: ProtobufUnittest_TestAllTypes? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _subMessage = source._subMessage
+      _notInThisScc = source._notInThisScc
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA.SubGroup) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._subMessage != other_storage._subMessage {return false}
+        if _storage._notInThisScc != other_storage._notInThisScc {return false}
         return true
       }
       if !storagesAreEqual {return false}
@@ -9942,6 +10305,92 @@ extension ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf._MessageImplement
       }
       if !storagesAreEqual {return false}
     }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestIsInitialized: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "sub_message"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _subMessage: ProtobufUnittest_TestIsInitialized.SubMessage? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _subMessage = source._subMessage
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIsInitialized) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._subMessage != other_storage._subMessage {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestIsInitialized.SubMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .unique(proto: "SubGroup", json: "subgroup"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _subGroup: ProtobufUnittest_TestIsInitialized.SubMessage.SubGroup? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _subGroup = source._subGroup
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIsInitialized.SubMessage) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._subGroup != other_storage._subGroup {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestIsInitialized.SubMessage.SubGroup: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    2: .same(proto: "i"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIsInitialized.SubMessage.SubGroup) -> Bool {
+    if self._i != other._i {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
