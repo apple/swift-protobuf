@@ -359,6 +359,55 @@ struct ProtobufUnittest_TestMaps: SwiftProtobuf.Message {
   }
 }
 
+/// Test maps in submessages.
+struct ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".TestSubmessageMaps"
+
+  var m: ProtobufUnittest_TestMaps {
+    get {return _storage._m ?? ProtobufUnittest_TestMaps()}
+    set {_uniqueStorage()._m = newValue}
+  }
+  /// Returns true if `m` has been explicitly set.
+  var hasM: Bool {return _storage._m != nil}
+  /// Clears the value of `m`. Subsequent reads from it will return its default value.
+  mutating func clearM() {_storage._m = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularMessageField(value: &_storage._m)
+        default: break
+        }
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._m {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"
@@ -461,6 +510,43 @@ extension ProtobufUnittest_TestMaps: SwiftProtobuf._MessageImplementationBase, S
     if self.mSfixed64 != other.mSfixed64 {return false}
     if self.mBool != other.mBool {return false}
     if self.mString != other.mString {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "m"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _m: ProtobufUnittest_TestMaps? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _m = source._m
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSubmessageMaps) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+        if _storage._m != other_storage._m {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if unknownFields != other.unknownFields {return false}
     return true
   }
