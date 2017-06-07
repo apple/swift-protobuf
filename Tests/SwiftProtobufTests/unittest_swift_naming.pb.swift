@@ -21899,7 +21899,9 @@ extension SwiftUnittest_Names_FieldNames: SwiftProtobuf._MessageImplementationBa
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNames) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._string != other_storage._string {return false}
         if _storage._int != other_storage._int {return false}
         if _storage._double != other_storage._double {return false}
@@ -26066,7 +26068,9 @@ extension SwiftUnittest_Names_FieldNamingInitials.Lowers: SwiftProtobuf._Message
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_Names_FieldNamingInitials.Lowers) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._http != other_storage._http {return false}
         if _storage._httpRequest != other_storage._httpRequest {return false}
         if _storage._theHTTPRequest != other_storage._theHTTPRequest {return false}

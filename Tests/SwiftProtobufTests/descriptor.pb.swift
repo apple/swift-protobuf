@@ -1506,6 +1506,18 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
   /// Clears the value of `phpClassPrefix`. Subsequent reads from it will return its default value.
   mutating func clearPhpClassPrefix() {_storage._phpClassPrefix = nil}
 
+  /// Use this option to change the namespace of php generated classes. Default
+  /// is empty. When this option is empty, the package name will be used for
+  /// determining the namespace.
+  var phpNamespace: String {
+    get {return _storage._phpNamespace ?? String()}
+    set {_uniqueStorage()._phpNamespace = newValue}
+  }
+  /// Returns true if `phpNamespace` has been explicitly set.
+  var hasPhpNamespace: Bool {return _storage._phpNamespace != nil}
+  /// Clears the value of `phpNamespace`. Subsequent reads from it will return its default value.
+  mutating func clearPhpNamespace() {_storage._phpNamespace = nil}
+
   /// The parser stores options it doesn't recognize here. See above.
   var uninterpretedOption: [Google_Protobuf_UninterpretedOption] {
     get {return _storage._uninterpretedOption}
@@ -1585,6 +1597,7 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
         case 37: try decoder.decodeSingularStringField(value: &_storage._csharpNamespace)
         case 39: try decoder.decodeSingularStringField(value: &_storage._swiftPrefix)
         case 40: try decoder.decodeSingularStringField(value: &_storage._phpClassPrefix)
+        case 41: try decoder.decodeSingularStringField(value: &_storage._phpNamespace)
         case 999: try decoder.decodeRepeatedMessageField(value: &_storage._uninterpretedOption)
         case 1000..<536870912:
           try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_FileOptions.self, fieldNumber: fieldNumber)
@@ -1647,6 +1660,9 @@ struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.Extensi
       }
       if let v = _storage._phpClassPrefix {
         try visitor.visitSingularStringField(value: v, fieldNumber: 40)
+      }
+      if let v = _storage._phpNamespace {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 41)
       }
       if !_storage._uninterpretedOption.isEmpty {
         try visitor.visitRepeatedMessageField(value: _storage._uninterpretedOption, fieldNumber: 999)
@@ -3051,7 +3067,9 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._package != other_storage._package {return false}
         if _storage._dependency != other_storage._dependency {return false}
@@ -3126,7 +3144,9 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._field != other_storage._field {return false}
         if _storage._extension != other_storage._extension {return false}
@@ -3227,7 +3247,9 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._number != other_storage._number {return false}
         if _storage._label != other_storage._label {return false}
@@ -3307,7 +3329,9 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementa
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._options != other_storage._options {return false}
         return true
@@ -3351,7 +3375,9 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._value != other_storage._value {return false}
         if _storage._options != other_storage._options {return false}
@@ -3396,7 +3422,9 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplem
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._number != other_storage._number {return false}
         if _storage._options != other_storage._options {return false}
@@ -3441,7 +3469,9 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplemen
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._method != other_storage._method {return false}
         if _storage._options != other_storage._options {return false}
@@ -3495,7 +3525,9 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._inputType != other_storage._inputType {return false}
         if _storage._outputType != other_storage._outputType {return false}
@@ -3529,6 +3561,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     37: .standard(proto: "csharp_namespace"),
     39: .standard(proto: "swift_prefix"),
     40: .standard(proto: "php_class_prefix"),
+    41: .standard(proto: "php_namespace"),
     999: .standard(proto: "uninterpreted_option"),
   ]
 
@@ -3549,6 +3582,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     var _csharpNamespace: String? = nil
     var _swiftPrefix: String? = nil
     var _phpClassPrefix: String? = nil
+    var _phpNamespace: String? = nil
     var _uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
 
     static let defaultInstance = _StorageClass()
@@ -3572,6 +3606,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
       _csharpNamespace = source._csharpNamespace
       _swiftPrefix = source._swiftPrefix
       _phpClassPrefix = source._phpClassPrefix
+      _phpNamespace = source._phpNamespace
       _uninterpretedOption = source._uninterpretedOption
     }
   }
@@ -3585,7 +3620,9 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._javaPackage != other_storage._javaPackage {return false}
         if _storage._javaOuterClassname != other_storage._javaOuterClassname {return false}
         if _storage._javaMultipleFiles != other_storage._javaMultipleFiles {return false}
@@ -3602,6 +3639,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
         if _storage._csharpNamespace != other_storage._csharpNamespace {return false}
         if _storage._swiftPrefix != other_storage._swiftPrefix {return false}
         if _storage._phpClassPrefix != other_storage._phpClassPrefix {return false}
+        if _storage._phpNamespace != other_storage._phpNamespace {return false}
         if _storage._uninterpretedOption != other_storage._uninterpretedOption {return false}
         return true
       }

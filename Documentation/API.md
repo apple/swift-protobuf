@@ -147,7 +147,7 @@ Proto3 enums have an additional `UNRECOGNIZED(Int)` case that is used whenever
 an unrecognized value is parsed from protobuf serialization or from other
 serializations that store integer enum values.
 Proto2 enums lack this extra case.
-On decode, proto2 treat2 unrecognized enum values as if the entire
+On decode, proto2 treats unrecognized enum values as if the entire
 field were unknown.
 JSON serialization can store named or numeric enum values.
 Unknown named values are always dropped when deserializing.

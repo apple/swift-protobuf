@@ -186,6 +186,9 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
   /// the entire set into memory at once.  However, as of this writing, this
   /// is not similarly optimized on protoc's end -- it will store all fields in
   /// memory at once before sending them to the plugin.
+  ///
+  /// Type names of fields and extensions in the FileDescriptorProto are always
+  /// fully qualified.
   public var protoFile: [Google_Protobuf_FileDescriptorProto] {
     get {return _storage._protoFile}
     set {_uniqueStorage()._protoFile = newValue}
@@ -492,7 +495,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
         if _storage._parameter != other_storage._parameter {return false}
         if _storage._protoFile != other_storage._protoFile {return false}

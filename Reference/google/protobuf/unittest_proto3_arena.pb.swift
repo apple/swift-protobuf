@@ -230,6 +230,15 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalLazyMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalLazyMessage() {_storage._optionalLazyMessage = nil}
 
+  var optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage {
+    get {return _storage._optionalLazyImportMessage ?? ProtobufUnittestImport_ImportMessage()}
+    set {_uniqueStorage()._optionalLazyImportMessage = newValue}
+  }
+  /// Returns true if `optionalLazyImportMessage` has been explicitly set.
+  var hasOptionalLazyImportMessage: Bool {return _storage._optionalLazyImportMessage != nil}
+  /// Clears the value of `optionalLazyImportMessage`. Subsequent reads from it will return its default value.
+  mutating func clearOptionalLazyImportMessage() {_storage._optionalLazyImportMessage = nil}
+
   /// Repeated
   var repeatedInt32: [Int32] {
     get {return _storage._repeatedInt32}
@@ -559,6 +568,7 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
           var v: Data?
           try decoder.decodeSingularBytesField(value: &v)
           if let v = v {_storage._oneofField = .oneofBytes(v)}
+        case 115: try decoder.decodeSingularMessageField(value: &_storage._optionalLazyImportMessage)
         default: break
         }
       }
@@ -722,6 +732,9 @@ struct Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf.Message {
       case .oneofBytes(let v)?:
         try visitor.visitSingularBytesField(value: v, fieldNumber: 114)
       case nil: break
+      }
+      if let v = _storage._optionalLazyImportMessage {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 115)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1118,6 +1131,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf._MessageImplementation
     25: .standard(proto: "optional_cord"),
     26: .standard(proto: "optional_public_import_message"),
     27: .standard(proto: "optional_lazy_message"),
+    115: .standard(proto: "optional_lazy_import_message"),
     31: .standard(proto: "repeated_int32"),
     32: .standard(proto: "repeated_int64"),
     33: .standard(proto: "repeated_uint32"),
@@ -1172,6 +1186,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf._MessageImplementation
     var _optionalCord: String = String()
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
     var _optionalLazyMessage: Proto3ArenaUnittest_TestAllTypes.NestedMessage? = nil
+    var _optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
     var _repeatedUint32: [UInt32] = []
@@ -1226,6 +1241,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf._MessageImplementation
       _optionalCord = source._optionalCord
       _optionalPublicImportMessage = source._optionalPublicImportMessage
       _optionalLazyMessage = source._optionalLazyMessage
+      _optionalLazyImportMessage = source._optionalLazyImportMessage
       _repeatedInt32 = source._repeatedInt32
       _repeatedInt64 = source._repeatedInt64
       _repeatedUint32 = source._repeatedUint32
@@ -1262,7 +1278,9 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf._MessageImplementation
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaUnittest_TestAllTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
         if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
@@ -1287,6 +1305,7 @@ extension Proto3ArenaUnittest_TestAllTypes: SwiftProtobuf._MessageImplementation
         if _storage._optionalCord != other_storage._optionalCord {return false}
         if _storage._optionalPublicImportMessage != other_storage._optionalPublicImportMessage {return false}
         if _storage._optionalLazyMessage != other_storage._optionalLazyMessage {return false}
+        if _storage._optionalLazyImportMessage != other_storage._optionalLazyImportMessage {return false}
         if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}
         if _storage._repeatedInt64 != other_storage._repeatedInt64 {return false}
         if _storage._repeatedUint32 != other_storage._repeatedUint32 {return false}
@@ -1447,7 +1466,9 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplemen
 
   func _protobuf_generated_isEqualTo(other: Proto3ArenaUnittest_NestedTestAllTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._child != other_storage._child {return false}
         if _storage._payload != other_storage._payload {return false}
         return true

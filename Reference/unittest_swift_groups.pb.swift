@@ -635,7 +635,9 @@ extension SwiftTestNestingGroupsMessage: SwiftProtobuf._MessageImplementationBas
 
   func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._outerA != other_storage._outerA {return false}
         if _storage._subGroup1 != other_storage._subGroup1 {return false}
         if _storage._subGroup3 != other_storage._subGroup3 {return false}
@@ -677,7 +679,9 @@ extension SwiftTestNestingGroupsMessage.SubGroup1: SwiftProtobuf._MessageImpleme
 
   func _protobuf_generated_isEqualTo(other: SwiftTestNestingGroupsMessage.SubGroup1) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._sub1A != other_storage._sub1A {return false}
         if _storage._subGroup2 != other_storage._subGroup2 {return false}
         return true

@@ -1284,7 +1284,9 @@ extension ProtobufUnittest_TestAllRequiredTypes: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllRequiredTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._requiredInt32 != other_storage._requiredInt32 {return false}
         if _storage._requiredInt64 != other_storage._requiredInt64 {return false}
         if _storage._requiredUint32 != other_storage._requiredUint32 {return false}

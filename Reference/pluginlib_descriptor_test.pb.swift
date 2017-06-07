@@ -603,7 +603,9 @@ extension SDTTopLevelMessage: SwiftProtobuf._MessageImplementationBase, SwiftPro
 
   func _protobuf_generated_isEqualTo(other: SDTTopLevelMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._field1 != other_storage._field1 {return false}
         if _storage._field2 != other_storage._field2 {return false}
         if _storage._o != other_storage._o {return false}
@@ -656,7 +658,9 @@ extension SDTTopLevelMessage.SubMessage: SwiftProtobuf._MessageImplementationBas
 
   func _protobuf_generated_isEqualTo(other: SDTTopLevelMessage.SubMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._field1 != other_storage._field1 {return false}
         if _storage._field2 != other_storage._field2 {return false}
         if _storage._field3 != other_storage._field3 {return false}
@@ -698,7 +702,9 @@ extension SDTTopLevelMessage2: SwiftProtobuf._MessageImplementationBase, SwiftPr
 
   func _protobuf_generated_isEqualTo(other: SDTTopLevelMessage2) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._left != other_storage._left {return false}
         if _storage._right != other_storage._right {return false}
         return true
@@ -739,7 +745,9 @@ extension SDTExternalRefs: SwiftProtobuf._MessageImplementationBase, SwiftProtob
 
   func _protobuf_generated_isEqualTo(other: SDTExternalRefs) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._desc != other_storage._desc {return false}
         if _storage._ver != other_storage._ver {return false}
         return true
