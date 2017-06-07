@@ -3067,7 +3067,9 @@ extension Google_Protobuf_FileDescriptorProto: SwiftProtobuf._MessageImplementat
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._package != other_storage._package {return false}
         if _storage._dependency != other_storage._dependency {return false}
@@ -3142,7 +3144,9 @@ extension Google_Protobuf_DescriptorProto: SwiftProtobuf._MessageImplementationB
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._field != other_storage._field {return false}
         if _storage._extension != other_storage._extension {return false}
@@ -3243,7 +3247,9 @@ extension Google_Protobuf_FieldDescriptorProto: SwiftProtobuf._MessageImplementa
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FieldDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._number != other_storage._number {return false}
         if _storage._label != other_storage._label {return false}
@@ -3323,7 +3329,9 @@ extension Google_Protobuf_OneofDescriptorProto: SwiftProtobuf._MessageImplementa
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_OneofDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._options != other_storage._options {return false}
         return true
@@ -3367,7 +3375,9 @@ extension Google_Protobuf_EnumDescriptorProto: SwiftProtobuf._MessageImplementat
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._value != other_storage._value {return false}
         if _storage._options != other_storage._options {return false}
@@ -3412,7 +3422,9 @@ extension Google_Protobuf_EnumValueDescriptorProto: SwiftProtobuf._MessageImplem
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_EnumValueDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._number != other_storage._number {return false}
         if _storage._options != other_storage._options {return false}
@@ -3457,7 +3469,9 @@ extension Google_Protobuf_ServiceDescriptorProto: SwiftProtobuf._MessageImplemen
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ServiceDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._method != other_storage._method {return false}
         if _storage._options != other_storage._options {return false}
@@ -3511,7 +3525,9 @@ extension Google_Protobuf_MethodDescriptorProto: SwiftProtobuf._MessageImplement
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_MethodDescriptorProto) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._inputType != other_storage._inputType {return false}
         if _storage._outputType != other_storage._outputType {return false}
@@ -3604,7 +3620,9 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FileOptions) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._javaPackage != other_storage._javaPackage {return false}
         if _storage._javaOuterClassname != other_storage._javaOuterClassname {return false}
         if _storage._javaMultipleFiles != other_storage._javaMultipleFiles {return false}
