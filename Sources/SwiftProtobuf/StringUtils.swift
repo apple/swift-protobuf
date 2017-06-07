@@ -37,7 +37,7 @@ internal func utf8ToString(
 
 ///////////////////////////
 //
-// Swift 4 (all platforms)
+// MARK: - Swift 4 (all platforms)
 //
 ////////////////////////////
 
@@ -87,7 +87,7 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
 
 //////////////////////////////////
 //
-// Swift 3 (Apple platforms)
+// MARK: - Swift 3 (Apple platforms)
 //
 //////////////////////////////////
 
@@ -104,11 +104,11 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
     return nil
 }
 
-#else
+#elseif os(Linux)
 
 //////////////////////////////////
 //
-// Swift 3 (Linux)
+// MARK: - Swift 3 (Linux)
 //
 //////////////////////////////////
 
