@@ -39,7 +39,7 @@ private func printToFd(_ s: String, fd: Int32, appendNewLine: Bool = true) {
 
 class Stderr {
   static func print(_ s: String) {
-    let out = "protoc-gen-swift: " + s
+    let out = "\(CommandLine.programName): " + s
     printToFd(out, fd: 2)
   }
 }
@@ -54,18 +54,20 @@ class Stdout {
 }
 
 class Stdin {
-  static func readall() throws -> Data {
+  static func readall() -> Data? {
     let fd: Int32 = 0
-    let buffSize = 32
+    let buffSize = 1024
     var buff = [UInt8]()
+    var fragment = [UInt8](repeating: 0, count: buffSize)
     while true {
-      var fragment = [UInt8](repeating: 0, count: buffSize)
       let count = read(fd, &fragment, buffSize)
       if count < 0 {
-        throw GenerationError.readFailure
+        return nil
       }
       if count < buffSize {
-        buff += fragment[0..<count]
+        if count > 0 {
+          buff += fragment[0..<count]
+        }
         return Data(bytes: buff)
       }
       buff += fragment
@@ -75,13 +77,15 @@ class Stdin {
 
 
 func writeFileData(filename: String, data: [UInt8]) throws {
+  let url = URL(fileURLWithPath: filename)
   #if os(Linux)
-    _ = try NSData(bytes: data, length: data.count).write(to: URL(fileURLWithPath: filename))
+    _ = try NSData(bytes: data, length: data.count).write(to: url)
   #else
-    _ = try Data(bytes: data).write(to: URL(fileURLWithPath: filename))
+    _ = try Data(bytes: data).write(to: url)
   #endif
 }
 
 func readFileData(filename: String) throws -> Data {
-    return try Data(contentsOf:URL(fileURLWithPath: filename))
+    let url = URL(fileURLWithPath: filename)
+    return try Data(contentsOf: url)
 }
