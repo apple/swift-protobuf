@@ -131,9 +131,4 @@ internal struct HashVisitor: Visitor {
     mix(fieldNumber)
     mixMap(map: value)
   }
-
-  /// Called for each extension range.
-  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    try fields.traverse(visitor: &self, start: start, end: end)
-  }
 }

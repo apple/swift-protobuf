@@ -332,9 +332,4 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     }
     serializedSize += value.count * tagSize
   }
-
-  /// Called for each extension range.
-  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-    try fields.traverse(visitor: &self, start: start, end: end)
-  }
 }
