@@ -702,7 +702,9 @@ extension Google_Protobuf_Type: SwiftProtobuf._MessageImplementationBase, SwiftP
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Type) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._fields != other_storage._fields {return false}
         if _storage._oneofs != other_storage._oneofs {return false}
@@ -819,7 +821,9 @@ extension Google_Protobuf_Enum: SwiftProtobuf._MessageImplementationBase, SwiftP
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Enum) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._enumvalue != other_storage._enumvalue {return false}
         if _storage._options != other_storage._options {return false}
@@ -879,7 +883,9 @@ extension Google_Protobuf_Option: SwiftProtobuf._MessageImplementationBase, Swif
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Option) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._value != other_storage._value {return false}
         return true

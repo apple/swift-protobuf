@@ -361,7 +361,9 @@ extension SwiftUnittest_TestMessage: SwiftProtobuf._MessageImplementationBase, S
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_TestMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._oneofField != other_storage._oneofField {return false}
         return true
       }
@@ -417,7 +419,9 @@ extension SwiftUnittest_TestParsingMerge: SwiftProtobuf._MessageImplementationBa
 
   func _protobuf_generated_isEqualTo(other: SwiftUnittest_TestParsingMerge) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalMessage != other_storage._optionalMessage {return false}
         if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
         return true

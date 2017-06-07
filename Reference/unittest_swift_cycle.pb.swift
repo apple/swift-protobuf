@@ -306,7 +306,9 @@ extension ProtobufUnittest_CycleFoo: SwiftProtobuf._MessageImplementationBase, S
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleFoo) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._aFoo != other_storage._aFoo {return false}
         if _storage._aBar != other_storage._aBar {return false}
         if _storage._aBaz != other_storage._aBaz {return false}
@@ -351,7 +353,9 @@ extension ProtobufUnittest_CycleBar: SwiftProtobuf._MessageImplementationBase, S
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBar) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._aBar != other_storage._aBar {return false}
         if _storage._aBaz != other_storage._aBaz {return false}
         if _storage._aFoo != other_storage._aFoo {return false}
@@ -396,7 +400,9 @@ extension ProtobufUnittest_CycleBaz: SwiftProtobuf._MessageImplementationBase, S
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_CycleBaz) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._aBaz != other_storage._aBaz {return false}
         if _storage._aFoo != other_storage._aFoo {return false}
         if _storage._aBar != other_storage._aBar {return false}

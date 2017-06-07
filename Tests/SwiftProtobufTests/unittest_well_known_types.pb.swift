@@ -1200,7 +1200,9 @@ extension ProtobufUnittest_TestWellKnownTypes: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestWellKnownTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._anyField != other_storage._anyField {return false}
         if _storage._apiField != other_storage._apiField {return false}
         if _storage._durationField != other_storage._durationField {return false}
@@ -1306,7 +1308,9 @@ extension ProtobufUnittest_RepeatedWellKnownTypes: SwiftProtobuf._MessageImpleme
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_RepeatedWellKnownTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._anyField != other_storage._anyField {return false}
         if _storage._apiField != other_storage._apiField {return false}
         if _storage._durationField != other_storage._durationField {return false}
@@ -1377,7 +1381,9 @@ extension ProtobufUnittest_OneofWellKnownTypes: SwiftProtobuf._MessageImplementa
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_OneofWellKnownTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._oneofField != other_storage._oneofField {return false}
         return true
       }
@@ -1465,7 +1471,9 @@ extension ProtobufUnittest_MapWellKnownTypes: SwiftProtobuf._MessageImplementati
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_MapWellKnownTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._anyField != other_storage._anyField {return false}
         if _storage._apiField != other_storage._apiField {return false}
         if _storage._durationField != other_storage._durationField {return false}

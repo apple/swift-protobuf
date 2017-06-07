@@ -425,7 +425,9 @@ extension Google_Protobuf_Api: SwiftProtobuf._MessageImplementationBase, SwiftPr
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Api) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._name != other_storage._name {return false}
         if _storage._methods != other_storage._methods {return false}
         if _storage._options != other_storage._options {return false}

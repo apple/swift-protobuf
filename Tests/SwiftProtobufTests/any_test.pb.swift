@@ -151,7 +151,9 @@ extension ProtobufUnittest_TestAny: SwiftProtobuf._MessageImplementationBase, Sw
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAny) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._int32Value != other_storage._int32Value {return false}
         if _storage._anyValue != other_storage._anyValue {return false}
         if _storage._repeatedAnyValue != other_storage._repeatedAnyValue {return false}
