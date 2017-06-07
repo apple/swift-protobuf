@@ -9560,7 +9560,9 @@ extension ProtobufUnittest_TestAllTypes: SwiftProtobuf._MessageImplementationBas
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestAllTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         if _storage._optionalInt64 != other_storage._optionalInt64 {return false}
         if _storage._optionalUint32 != other_storage._optionalUint32 {return false}
@@ -9719,7 +9721,9 @@ extension ProtobufUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_NestedTestAllTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._child != other_storage._child {return false}
         if _storage._payload != other_storage._payload {return false}
         if _storage._repeatedChild != other_storage._repeatedChild {return false}
@@ -9941,7 +9945,9 @@ extension ProtobufUnittest_TestRequired: SwiftProtobuf._MessageImplementationBas
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequired) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._a != other_storage._a {return false}
         if _storage._dummy2 != other_storage._dummy2 {return false}
         if _storage._b != other_storage._b {return false}
@@ -10016,7 +10022,9 @@ extension ProtobufUnittest_TestRequiredForeign: SwiftProtobuf._MessageImplementa
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredForeign) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalMessage != other_storage._optionalMessage {return false}
         if _storage._repeatedMessage != other_storage._repeatedMessage {return false}
         if _storage._dummy != other_storage._dummy {return false}
@@ -10055,7 +10063,9 @@ extension ProtobufUnittest_TestForeignNested: SwiftProtobuf._MessageImplementati
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestForeignNested) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._foreignNested != other_storage._foreignNested {return false}
         return true
       }
@@ -10138,7 +10148,9 @@ extension ProtobufUnittest_TestRecursiveMessage: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRecursiveMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._a != other_storage._a {return false}
         if _storage._i != other_storage._i {return false}
         return true
@@ -10179,7 +10191,9 @@ extension ProtobufUnittest_TestMutualRecursionA: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._bb != other_storage._bb {return false}
         if _storage._subGroup != other_storage._subGroup {return false}
         return true
@@ -10217,7 +10231,9 @@ extension ProtobufUnittest_TestMutualRecursionA.SubMessage: SwiftProtobuf._Messa
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA.SubMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._b != other_storage._b {return false}
         return true
       }
@@ -10257,7 +10273,9 @@ extension ProtobufUnittest_TestMutualRecursionA.SubGroup: SwiftProtobuf._Message
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionA.SubGroup) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._subMessage != other_storage._subMessage {return false}
         if _storage._notInThisScc != other_storage._notInThisScc {return false}
         return true
@@ -10298,7 +10316,9 @@ extension ProtobufUnittest_TestMutualRecursionB: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestMutualRecursionB) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._a != other_storage._a {return false}
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         return true
@@ -10336,7 +10356,9 @@ extension ProtobufUnittest_TestIsInitialized: SwiftProtobuf._MessageImplementati
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIsInitialized) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._subMessage != other_storage._subMessage {return false}
         return true
       }
@@ -10373,7 +10395,9 @@ extension ProtobufUnittest_TestIsInitialized.SubMessage: SwiftProtobuf._MessageI
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestIsInitialized.SubMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._subGroup != other_storage._subGroup {return false}
         return true
       }
@@ -10428,7 +10452,9 @@ extension ProtobufUnittest_TestDupFieldNumber: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDupFieldNumber) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._a != other_storage._a {return false}
         if _storage._foo != other_storage._foo {return false}
         if _storage._bar != other_storage._bar {return false}
@@ -10491,7 +10517,9 @@ extension ProtobufUnittest_TestEagerMessage: SwiftProtobuf._MessageImplementatio
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestEagerMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._subMessage != other_storage._subMessage {return false}
         return true
       }
@@ -10528,7 +10556,9 @@ extension ProtobufUnittest_TestLazyMessage: SwiftProtobuf._MessageImplementation
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestLazyMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._subMessage != other_storage._subMessage {return false}
         return true
       }
@@ -10565,7 +10595,9 @@ extension ProtobufUnittest_TestNestedMessageHasBits: SwiftProtobuf._MessageImple
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestNestedMessageHasBits) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalNestedMessage != other_storage._optionalNestedMessage {return false}
         return true
       }
@@ -10649,7 +10681,9 @@ extension ProtobufUnittest_TestCamelCaseFieldNames: SwiftProtobuf._MessageImplem
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestCamelCaseFieldNames) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._primitiveField != other_storage._primitiveField {return false}
         if _storage._stringField != other_storage._stringField {return false}
         if _storage._enumField != other_storage._enumField {return false}
@@ -10706,7 +10740,9 @@ extension ProtobufUnittest_TestFieldOrderings: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestFieldOrderings) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._myString != other_storage._myString {return false}
         if _storage._myInt != other_storage._myInt {return false}
         if _storage._myFloat != other_storage._myFloat {return false}
@@ -10839,7 +10875,9 @@ extension ProtobufUnittest_TestExtremeDefaultValues: SwiftProtobuf._MessageImple
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestExtremeDefaultValues) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._escapedBytes != other_storage._escapedBytes {return false}
         if _storage._largeUint32 != other_storage._largeUint32 {return false}
         if _storage._largeUint64 != other_storage._largeUint64 {return false}
@@ -11025,7 +11063,9 @@ extension ProtobufUnittest_TestOneof: SwiftProtobuf._MessageImplementationBase, 
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneof) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._foo != other_storage._foo {return false}
         return true
       }
@@ -11085,7 +11125,9 @@ extension ProtobufUnittest_TestOneofBackwardsCompatible: SwiftProtobuf._MessageI
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneofBackwardsCompatible) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._fooInt != other_storage._fooInt {return false}
         if _storage._fooString != other_storage._fooString {return false}
         if _storage._fooMessage != other_storage._fooMessage {return false}
@@ -11161,7 +11203,9 @@ extension ProtobufUnittest_TestOneof2: SwiftProtobuf._MessageImplementationBase,
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneof2) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._foo != other_storage._foo {return false}
         if _storage._bar != other_storage._bar {return false}
         if _storage._bazInt != other_storage._bazInt {return false}
@@ -11239,7 +11283,9 @@ extension ProtobufUnittest_TestRequiredOneof: SwiftProtobuf._MessageImplementati
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestRequiredOneof) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._foo != other_storage._foo {return false}
         return true
       }
@@ -11402,7 +11448,9 @@ extension ProtobufUnittest_TestDynamicExtensions: SwiftProtobuf._MessageImplemen
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestDynamicExtensions) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._scalarExtension != other_storage._scalarExtension {return false}
         if _storage._enumExtension != other_storage._enumExtension {return false}
         if _storage._dynamicEnumExtension != other_storage._dynamicEnumExtension {return false}
@@ -11499,7 +11547,9 @@ extension ProtobufUnittest_TestParsingMerge: SwiftProtobuf._MessageImplementatio
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._requiredAllTypes != other_storage._requiredAllTypes {return false}
         if _storage._optionalAllTypes != other_storage._optionalAllTypes {return false}
         if _storage._repeatedAllTypes != other_storage._repeatedAllTypes {return false}
@@ -11565,7 +11615,9 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1: Swif
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group1) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._field1 != other_storage._field1 {return false}
         return true
       }
@@ -11602,7 +11654,9 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2: Swif
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedFieldsGenerator.Group2) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._field1 != other_storage._field1 {return false}
         return true
       }
@@ -11639,7 +11693,9 @@ extension ProtobufUnittest_TestParsingMerge.OptionalGroup: SwiftProtobuf._Messag
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.OptionalGroup) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalGroupAllTypes != other_storage._optionalGroupAllTypes {return false}
         return true
       }
@@ -11676,7 +11732,9 @@ extension ProtobufUnittest_TestParsingMerge.RepeatedGroup: SwiftProtobuf._Messag
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestParsingMerge.RepeatedGroup) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._repeatedGroupAllTypes != other_storage._repeatedGroupAllTypes {return false}
         return true
       }
@@ -11834,7 +11892,9 @@ extension ProtobufUnittest_TestHugeFieldNumbers: SwiftProtobuf._MessageImplement
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestHugeFieldNumbers) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         if _storage._fixed32 != other_storage._fixed32 {return false}
         if _storage._repeatedInt32 != other_storage._repeatedInt32 {return false}

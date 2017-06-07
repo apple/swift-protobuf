@@ -183,7 +183,9 @@ extension ProtobufUnittest_LazyImports_ImportedMessage: SwiftProtobuf._MessageIm
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_LazyImports_ImportedMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._lazyMessage != other_storage._lazyMessage {return false}
         return true
       }

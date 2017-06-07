@@ -52,6 +52,7 @@ message GeneratedSwiftReservedMessages {
   message clearSourceContext { int32 clearSourceContext = 1; }
   message clearValue { int32 clearValue = 1; }
   message Collection { int32 Collection = 1; }
+  message com { int32 com = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
   message customCodable { int32 customCodable = 1; }
@@ -111,6 +112,7 @@ message GeneratedSwiftReservedMessages {
   message decodeSingularUInt32Field { int32 decodeSingularUInt32Field = 1; }
   message decodeSingularUInt64Field { int32 decodeSingularUInt64Field = 1; }
   message decodeTextFormat { int32 decodeTextFormat = 1; }
+  message defaultAnyTypeURLPrefix { int32 defaultAnyTypeURLPrefix = 1; }
   message defaultValue { int32 defaultValue = 1; }
   message description { int32 description = 1; }
   message Dictionary { int32 Dictionary = 1; }
@@ -195,6 +197,7 @@ message GeneratedSwiftReservedMessages {
   message G { int32 G = 1; }
   message get { int32 get = 1; }
   message getExtensionValue { int32 getExtensionValue = 1; }
+  message googleapis { int32 googleapis = 1; }
   message Google_Protobuf_Any { int32 Google_Protobuf_Any = 1; }
   message Google_Protobuf_Api { int32 Google_Protobuf_Api = 1; }
   message Google_Protobuf_BoolValue { int32 Google_Protobuf_BoolValue = 1; }

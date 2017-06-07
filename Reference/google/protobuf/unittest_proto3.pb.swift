@@ -2606,7 +2606,9 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
 
   func _protobuf_generated_isEqualTo(other: Proto3TestAllTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._singleInt32 != other_storage._singleInt32 {return false}
         if _storage._singleInt64 != other_storage._singleInt64 {return false}
         if _storage._singleUint32 != other_storage._singleUint32 {return false}
@@ -2715,7 +2717,9 @@ extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, Sw
 
   func _protobuf_generated_isEqualTo(other: Proto3NestedTestAllTypes) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._child != other_storage._child {return false}
         if _storage._payload != other_storage._payload {return false}
         if _storage._repeatedChild != other_storage._repeatedChild {return false}
@@ -2787,7 +2791,9 @@ extension Proto3TestForeignNested: SwiftProtobuf._MessageImplementationBase, Swi
 
   func _protobuf_generated_isEqualTo(other: Proto3TestForeignNested) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._foreignNested != other_storage._foreignNested {return false}
         return true
       }
@@ -2841,7 +2847,9 @@ extension Proto3TestRecursiveMessage: SwiftProtobuf._MessageImplementationBase, 
 
   func _protobuf_generated_isEqualTo(other: Proto3TestRecursiveMessage) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._a != other_storage._a {return false}
         if _storage._i != other_storage._i {return false}
         return true
@@ -2879,7 +2887,9 @@ extension Proto3TestMutualRecursionA: SwiftProtobuf._MessageImplementationBase, 
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMutualRecursionA) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._bb != other_storage._bb {return false}
         return true
       }
@@ -2919,7 +2929,9 @@ extension Proto3TestMutualRecursionB: SwiftProtobuf._MessageImplementationBase, 
 
   func _protobuf_generated_isEqualTo(other: Proto3TestMutualRecursionB) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._a != other_storage._a {return false}
         if _storage._optionalInt32 != other_storage._optionalInt32 {return false}
         return true
@@ -2990,7 +3002,9 @@ extension Proto3TestCamelCaseFieldNames: SwiftProtobuf._MessageImplementationBas
 
   func _protobuf_generated_isEqualTo(other: Proto3TestCamelCaseFieldNames) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._primitiveField != other_storage._primitiveField {return false}
         if _storage._stringField != other_storage._stringField {return false}
         if _storage._enumField != other_storage._enumField {return false}
@@ -3043,7 +3057,9 @@ extension Proto3TestFieldOrderings: SwiftProtobuf._MessageImplementationBase, Sw
 
   func _protobuf_generated_isEqualTo(other: Proto3TestFieldOrderings) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._myString != other_storage._myString {return false}
         if _storage._myInt != other_storage._myInt {return false}
         if _storage._myFloat != other_storage._myFloat {return false}
@@ -3219,7 +3235,9 @@ extension Proto3TestOneof: SwiftProtobuf._MessageImplementationBase, SwiftProtob
 
   func _protobuf_generated_isEqualTo(other: Proto3TestOneof) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._foo != other_storage._foo {return false}
         return true
       }

@@ -495,7 +495,9 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
 
   func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._fileToGenerate != other_storage._fileToGenerate {return false}
         if _storage._parameter != other_storage._parameter {return false}
         if _storage._protoFile != other_storage._protoFile {return false}

@@ -2631,7 +2631,9 @@ extension ProtobufUnittest_ComplexOptionType2: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType2) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._bar != other_storage._bar {return false}
         if _storage._baz != other_storage._baz {return false}
         if _storage._fred != other_storage._fred {return false}
@@ -2687,7 +2689,9 @@ extension ProtobufUnittest_ComplexOptionType3: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_ComplexOptionType3) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._qux != other_storage._qux {return false}
         if _storage._complexOptionType5 != other_storage._complexOptionType5 {return false}
         return true
@@ -2792,7 +2796,9 @@ extension ProtobufUnittest_Aggregate: SwiftProtobuf._MessageImplementationBase, 
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Aggregate) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._i != other_storage._i {return false}
         if _storage._s != other_storage._s {return false}
         if _storage._sub != other_storage._sub {return false}

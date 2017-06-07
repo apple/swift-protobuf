@@ -52,6 +52,7 @@ message GeneratedSwiftReservedEnums {
   enum clearSourceContext { NONE_clearSourceContext = 0; }
   enum clearValue { NONE_clearValue = 0; }
   enum Collection { NONE_Collection = 0; }
+  enum com { NONE_com = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
   enum customCodable { NONE_customCodable = 0; }
@@ -111,6 +112,7 @@ message GeneratedSwiftReservedEnums {
   enum decodeSingularUInt32Field { NONE_decodeSingularUInt32Field = 0; }
   enum decodeSingularUInt64Field { NONE_decodeSingularUInt64Field = 0; }
   enum decodeTextFormat { NONE_decodeTextFormat = 0; }
+  enum defaultAnyTypeURLPrefix { NONE_defaultAnyTypeURLPrefix = 0; }
   enum defaultValue { NONE_defaultValue = 0; }
   enum description { NONE_description = 0; }
   enum Dictionary { NONE_Dictionary = 0; }
@@ -195,6 +197,7 @@ message GeneratedSwiftReservedEnums {
   enum G { NONE_G = 0; }
   enum get { NONE_get = 0; }
   enum getExtensionValue { NONE_getExtensionValue = 0; }
+  enum googleapis { NONE_googleapis = 0; }
   enum Google_Protobuf_Any { NONE_Google_Protobuf_Any = 0; }
   enum Google_Protobuf_Api { NONE_Google_Protobuf_Api = 0; }
   enum Google_Protobuf_BoolValue { NONE_Google_Protobuf_BoolValue = 0; }

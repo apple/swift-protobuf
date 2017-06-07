@@ -541,7 +541,9 @@ extension ProtobufUnittest_TestSubmessageMaps: SwiftProtobuf._MessageImplementat
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestSubmessageMaps) -> Bool {
     if _storage !== other._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_storage, other_storage) in
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
         if _storage._m != other_storage._m {return false}
         return true
       }
