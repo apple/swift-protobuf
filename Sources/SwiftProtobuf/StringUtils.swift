@@ -57,30 +57,30 @@ internal func utf8ToString(
 // slower than on macOS, so this is a much bigger
 // win there.
 internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
-    if count == 0 {
-        return String()
-    }
-    let codeUnits = UnsafeBufferPointer<UInt8>(start: bytes, count: count)
-    let sourceEncoding = Unicode.UTF8.self
+  if count == 0 {
+    return String()
+  }
+  let codeUnits = UnsafeBufferPointer<UInt8>(start: bytes, count: count)
+  let sourceEncoding = Unicode.UTF8.self
 
-    // Verify that the UTF-8 is valid.
-    var p = sourceEncoding.ForwardParser()
-    var i = codeUnits.makeIterator()
+  // Verify that the UTF-8 is valid.
+  var p = sourceEncoding.ForwardParser()
+  var i = codeUnits.makeIterator()
   Loop:
-    while true {
-      switch p.parseScalar(from: &i) {
-      case .valid(_):
-        break
-      case .error:
-        return nil
-      case .emptyInput:
-        break Loop
-      }
+  while true {
+    switch p.parseScalar(from: &i) {
+    case .valid(_):
+      break
+    case .error:
+      return nil
+    case .emptyInput:
+      break Loop
     }
+  }
 
-    // This initializer is fast but does not reject broken
-    // UTF-8 (which is why we validate the UTF-8 above).
-    return String(decoding: codeUnits, as: sourceEncoding)
+  // This initializer is fast but does not reject broken
+  // UTF-8 (which is why we validate the UTF-8 above).
+  return String(decoding: codeUnits, as: sourceEncoding)
  }
 
 #elseif os(OSX) || os(tvOS) || os(watchOS) || os(iOS)
@@ -92,16 +92,16 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
 //////////////////////////////////
 
 internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
-    if count == 0 {
-        return String()
-    }
-    // On Apple platforms, the Swift 3 version of Foundation has a String
-    // initializer that works for us:
-    let s = NSString(bytes: bytes, length: count, encoding: String.Encoding.utf8.rawValue)
-    if let s = s {
-        return String._unconditionallyBridgeFromObjectiveC(s)
-    }
-    return nil
+  if count == 0 {
+    return String()
+  }
+  // On Apple platforms, the Swift 3 version of Foundation has a String
+  // initializer that works for us:
+  let s = NSString(bytes: bytes, length: count, encoding: String.Encoding.utf8.rawValue)
+  if let s = s {
+    return String._unconditionallyBridgeFromObjectiveC(s)
+  }
+  return nil
 }
 
 #elseif os(Linux)
@@ -113,35 +113,35 @@ internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
 //////////////////////////////////
 
 internal func utf8ToString(bytes: UnsafePointer<UInt8>, count: Int) -> String? {
-    if count == 0 {
-        return String()
-    }
+  if count == 0 {
+    return String()
+  }
 #if swift(>=3.1)
-    // On Swift Linux 3.1, we can use Foundation as long
-    // as there isn't a zero byte:
-    //     https://bugs.swift.org/browse/SR-4216
-    if memchr(bytes, 0, count) == nil {
-        let s = NSString(bytes: bytes, length: count, encoding: String.Encoding.utf8.rawValue)
-        if let s = s {
-           return String._unconditionallyBridgeFromObjectiveC(s)
-        }
+  // On Swift Linux 3.1, we can use Foundation as long
+  // as there isn't a zero byte:
+  //     https://bugs.swift.org/browse/SR-4216
+  if memchr(bytes, 0, count) == nil {
+    let s = NSString(bytes: bytes, length: count, encoding: String.Encoding.utf8.rawValue)
+    if let s = s {
+      return String._unconditionallyBridgeFromObjectiveC(s)
     }
+  }
 #endif
-    // If we can't use the Foundation version, use a slow
-    // manual conversion to get correct error handling:
-    let buffer = UnsafeBufferPointer(start: bytes, count: count)
-    var it = buffer.makeIterator()
-    var utf8Codec = UTF8()
-    var output = String.UnicodeScalarView()
-    output.reserveCapacity(count)
+  // If we can't use the Foundation version, use a slow
+  // manual conversion to get correct error handling:
+  let buffer = UnsafeBufferPointer(start: bytes, count: count)
+  var it = buffer.makeIterator()
+  var utf8Codec = UTF8()
+  var output = String.UnicodeScalarView()
+  output.reserveCapacity(count)
 
-    while true {
-        switch utf8Codec.decode(&it) {
-        case .scalarValue(let scalar): output.append(scalar)
-        case .emptyInput: return String(output)
-        case .error: return nil
-        }
+  while true {
+    switch utf8Codec.decode(&it) {
+    case .scalarValue(let scalar): output.append(scalar)
+    case .emptyInput: return String(output)
+    case .error: return nil
     }
+  }
 }
 
 #endif
