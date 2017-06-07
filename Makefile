@@ -251,7 +251,7 @@ all: build
 # (Someday, 'swift test' will learn how to auto-discover test cases on Linux,
 # at which time this will no longer be needed.)
 build:
-	@${AWK} -f CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
+	@${AWK} -f DevTools/CollectTests.awk Tests/*/Test_*.swift > Tests/LinuxMain.swift.new
 	@if ! cmp -s Tests/LinuxMain.swift.new Tests/LinuxMain.swift; then \
 		cp Tests/LinuxMain.swift.new Tests/LinuxMain.swift; \
 		echo "FYI: Tests/LinuxMain.swift Updated"; \
@@ -282,7 +282,9 @@ install: build
 clean:
 	-swift build --clean
 	-swift package clean
-	rm -rf .build _test ${PROTOC_GEN_SWIFT}
+	rm -rf .build _test ${PROTOC_GEN_SWIFT} DescriptorTestData.bin \
+	  Performance/_generated Performance/_results Protos/mined_words.txt \
+	  docs build
 	find . -name '*~' | xargs rm -f
 
 # Build a local copy of the API documentation, using the same process used
@@ -537,12 +539,12 @@ update-proto-files: check-for-protobuf-checkout
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/map_unittest_proto3.proto
 
 # Runs the conformance tests.
-test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) failure_list_swift.txt
+test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt
 	( \
 		ABS_PBDIR=`cd ${GOOGLE_PROTOBUF_CHECKOUT}; pwd`; \
 		$${ABS_PBDIR}/conformance/conformance-test-runner \
 		  --enforce_recommended \
-		  --failure_list failure_list_swift.txt \
+		  --failure_list Sources/Conformance/failure_list_swift.txt \
 		  $(SWIFT_CONFORMANCE_PLUGIN); \
 	)
 
