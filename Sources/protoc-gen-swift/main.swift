@@ -146,12 +146,8 @@ struct GeneratorPlugin {
     }
 
     auditProtoCVersion(request: request)
-
     let response = generate(request: request)
-    if !sendReply(response: response) {
-      return 1
-    }
-
+    guard sendReply(response: response) else { return 1 }
     return 0
   }
 
