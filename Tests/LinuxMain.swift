@@ -766,6 +766,7 @@ extension Test_Merge {
 extension Test_MessageSet {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
+            ("testSerialize", {try run_test(test:($0 as! Test_MessageSet).testSerialize)}),
             ("testTextFormat_Serialize", {try run_test(test:($0 as! Test_MessageSet).testTextFormat_Serialize)}),
             ("testTextFormat_Parse", {try run_test(test:($0 as! Test_MessageSet).testTextFormat_Parse)})
         ]

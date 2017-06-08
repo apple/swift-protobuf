@@ -18,6 +18,48 @@ import SwiftProtobuf
 
 class Test_MessageSet: XCTestCase {
 
+  // wireformat_unittest.cc: TEST(WireFormatTest, SerializeMessageSet)
+  func testSerialize() throws {
+    let msg = Proto2WireformatUnittest_TestMessageSet.with {
+      $0.ProtobufUnittest_TestMessageSetExtension1_messageSetExtension.i = 123
+      $0.ProtobufUnittest_TestMessageSetExtension2_messageSetExtension.str = "foo"
+    }
+
+    let serialized: Data
+    do {
+      serialized = try msg.serializedData()
+    } catch let e {
+      XCTFail("Failed to serialize: \(e)")
+      return
+    }
+
+    // Read it back in with the RawMessageSet to validate it.
+
+    let raw: ProtobufUnittest_RawMessageSet
+    do {
+      raw = try ProtobufUnittest_RawMessageSet(serializedData: serialized)
+    } catch let e {
+      XCTFail("Failed to parse: \(e)")
+      return
+    }
+
+    XCTAssertTrue(raw.unknownFields.data.isEmpty)
+
+    XCTAssertEqual(raw.item.count, 2)
+
+    XCTAssertEqual(Int(raw.item[0].typeID),
+                   ProtobufUnittest_TestMessageSetExtension1.Extensions.message_set_extension.fieldNumber)
+    XCTAssertEqual(Int(raw.item[1].typeID),
+                   ProtobufUnittest_TestMessageSetExtension2.Extensions.message_set_extension.fieldNumber)
+
+    let extMsg1 = try ProtobufUnittest_TestMessageSetExtension1(serializedData: raw.item[0].message)
+    XCTAssertEqual(extMsg1.i, 123)
+    XCTAssertTrue(extMsg1.unknownFields.data.isEmpty)
+    let extMsg2 = try ProtobufUnittest_TestMessageSetExtension2(serializedData: raw.item[1].message)
+    XCTAssertEqual(extMsg2.str, "foo")
+    XCTAssertTrue(extMsg2.unknownFields.data.isEmpty)
+  }
+
   static let canonicalTextFormat: String = (
     "message_set {\n" +
       "  [protobuf_unittest.TestMessageSetExtension1] {\n" +

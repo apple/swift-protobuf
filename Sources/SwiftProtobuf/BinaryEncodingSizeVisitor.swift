@@ -332,4 +332,38 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     }
     serializedSize += value.count * tagSize
   }
+
+  mutating func visitExtensionFieldsAsMessageSet(
+    fields: ExtensionFieldValueSet,
+    start: Int,
+    end: Int
+  ) throws {
+    var sizer = BinaryEncodingMessageSetSizeVisitor()
+    try fields.traverse(visitor: &sizer, start: start, end: end)
+    serializedSize += sizer.serializedSize
+  }
+}
+
+internal extension BinaryEncodingSizeVisitor {
+
+  // Helper Visitor to compute the sizes when writing out the extensions as MessageSets.
+  internal struct BinaryEncodingMessageSetSizeVisitor: SelectiveVisitor {
+    var serializedSize: Int = 0
+
+    init() {}
+
+    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+      var groupSize = WireFormat.MessageSet.itemTagsEncodedSize
+
+      groupSize += Varint.encodedSize(of: Int32(fieldNumber))
+
+      let messageSize = try value.serializedDataSize()
+      groupSize += Varint.encodedSize(of: UInt64(messageSize)) + messageSize
+
+      serializedSize += groupSize
+    }
+
+    // SelectiveVisitor handles the rest.
+  }
+
 }
