@@ -435,7 +435,7 @@ public protocol Visitor {
   /// Called for each extension range.
   mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws
 
-  /// Called with the raw bytes that represent any proto2 unknown fields.
+  /// Called with the raw bytes that represent any unknown fields.
   mutating func visitUnknown(bytes: Data) throws
 }
 
