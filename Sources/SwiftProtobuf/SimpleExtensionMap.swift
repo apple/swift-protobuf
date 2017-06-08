@@ -43,8 +43,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         // TODO: Make this faster...
         for (_, list) in fields {
             for (t, e) in list {
-                let extensionName = e.fieldName.description
-                if extensionName == protoFieldName && t == messageType {
+                if e.fieldName == protoFieldName && t == messageType {
                     return e.fieldNumber
                 }
             }
@@ -88,8 +87,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         var names = [String]()
         for (_, list) in fields {
             for (_, e) in list {
-                let extensionName = e.fieldName
-                names.append("\(extensionName)(\(e.fieldNumber))")
+                names.append("\(e.fieldName)(\(e.fieldNumber))")
             }
         }
         let d = names.joined(separator: ",")
