@@ -293,3 +293,72 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         }
     }
 }
+
+/// Protocol to help write visitor for testing.  It provides default implementaions
+/// that will cause a failure if anything gets called.  This way specific tests can
+/// just hook the methods they intend to validate.
+protocol PBTestVisitor: Visitor {
+  // Adds nothing.
+}
+
+extension PBTestVisitor {
+  mutating func visitUnknown(bytes: Data) throws {
+    XCTFail("Unexpected unknowns: \(bytes)")
+  }
+
+  mutating func visitSingularBoolField(value: Bool, fieldNumber: Int) throws {
+    XCTFail("Unexpected bool: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularBytesField(value: Data, fieldNumber: Int) throws {
+    XCTFail("Unexpected bytes: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
+    XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
+    XCTFail("Unexpected Enum: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularInt64Field(value: Int64, fieldNumber: Int) throws {
+    XCTFail("Unexpected Int64: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+    XCTFail("Unexpected Message: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularStringField(value: String, fieldNumber: Int) throws {
+    XCTFail("Unexpected String: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitSingularUInt64Field(value: UInt64, fieldNumber: Int) throws {
+    XCTFail("Unexpected UInt64: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitMapField<KeyType, ValueType: MapValueType>(
+    fieldType: _ProtobufMap<KeyType, ValueType>.Type,
+    value: _ProtobufMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws {
+    XCTFail("Unexpected map<*, *>: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitMapField<KeyType, ValueType>(
+    fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
+    value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws where ValueType.RawValue == Int {
+    XCTFail("Unexpected map<*, Enum>: \(fieldNumber) = \(value)")
+  }
+
+  mutating func visitMapField<KeyType, ValueType>(
+    fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
+    value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
+    fieldNumber: Int
+  ) throws {
+    XCTFail("Unexpected map<*, Message>: \(fieldNumber) = \(value)")
+  }
+}
