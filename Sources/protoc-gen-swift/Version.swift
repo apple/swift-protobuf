@@ -25,7 +25,7 @@ struct Version {
     // library) should not be updated for *every* version of Swift Protobuf,
     // but only for those that introduce breaking changes (either behavioral
     // or API-changing).
-    static let compatibilityVersion = 2
+    static let compatibilityVersion = 3
 
     static let name = "protoc-gen-swift"
     static let versionedName = "protoc-gen-swift \(SwiftProtobuf.Version.versionString)"
