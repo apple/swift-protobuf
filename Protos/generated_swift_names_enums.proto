@@ -51,6 +51,7 @@ message GeneratedSwiftReservedEnums {
   enum clearExtensionValue { NONE_clearExtensionValue = 0; }
   enum clearSourceContext { NONE_clearSourceContext = 0; }
   enum clearValue { NONE_clearValue = 0; }
+  enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
@@ -186,6 +187,7 @@ message GeneratedSwiftReservedEnums {
   enum forMessageName { NONE_forMessageName = 0; }
   enum forReadingFrom { NONE_forReadingFrom = 0; }
   enum forTypeURL { NONE_forTypeURL = 0; }
+  enum ForwardParser { NONE_ForwardParser = 0; }
   enum forWritingInto { NONE_forWritingInto = 0; }
   enum from { NONE_from = 0; }
   enum fromAscii2 { NONE_fromAscii2 = 0; }
@@ -432,6 +434,7 @@ message GeneratedSwiftReservedEnums {
   enum sizer { NONE_sizer = 0; }
   enum source { NONE_source = 0; }
   enum sourceContext { NONE_sourceContext = 0; }
+  enum sourceEncoding { NONE_sourceEncoding = 0; }
   enum split { NONE_split = 0; }
   enum start { NONE_start = 0; }
   enum startArray { NONE_startArray = 0; }
