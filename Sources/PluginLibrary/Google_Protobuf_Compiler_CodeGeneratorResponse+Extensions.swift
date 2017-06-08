@@ -18,6 +18,12 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse {
     self.init()
     self.error = error
   }
+
+  /// Helper to make a response with a set of files
+  public init(files: [Google_Protobuf_Compiler_CodeGeneratorResponse.File]) {
+    self.init()
+    self.file = files
+  }
 }
 
 extension Google_Protobuf_Compiler_CodeGeneratorResponse.File {

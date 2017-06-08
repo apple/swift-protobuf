@@ -9,8 +9,6 @@
 // -----------------------------------------------------------------------------
 
 enum GenerationError: Error {
-  /// Raised for any errors reading the input
-  case readFailure
   /// Raised when parsing the parameter string and found an unknown key
   case unknownParameter(name: String)
   /// Raised when a parameter was giving an invalid value
