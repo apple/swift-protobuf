@@ -47,7 +47,9 @@ class FileGenerator {
                                    protoFileToModuleMappings: generatorOptions.protoToModuleMappings)
     }
 
-    func generateOutputFile(printer p: inout CodePrinter) {
+    /// Generate, if `errorString` gets filled in, then report error instead of using
+    /// what written into `printer`.
+    func generateOutputFile(printer p: inout CodePrinter, errorString: inout String?) {
         p.print(
             "// DO NOT EDIT.\n",
             "//\n",
@@ -118,7 +120,7 @@ class FileGenerator {
         }
 
         for m in messages {
-            m.generateMainStruct(printer: &p, parent: nil)
+            m.generateMainStruct(printer: &p, parent: nil, errorString: &errorString)
         }
 
         if !extensionSet.isEmpty {

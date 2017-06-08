@@ -90,7 +90,32 @@ class MessageGenerator {
     }
   }
 
-  func generateMainStruct(printer p: inout CodePrinter, parent: MessageGenerator?) {
+  func generateMainStruct(
+    printer p: inout CodePrinter,
+    parent: MessageGenerator?,
+    errorString: inout String?
+  ) {
+    // protoc does this validation; this is just here as a safety net because what is
+    // generated and how the runtime works assumes this.
+    if descriptor.useMessageSetWireFormat {
+      guard fields.isEmpty else {
+        errorString = "\(descriptor.fullName) has the option message_set_wire_format but it also has fields."
+        return
+      }
+    }
+    for e in descriptor.extensions {
+      guard e.containingType.useMessageSetWireFormat else { continue }
+
+      guard e.type == .message else {
+        errorString = "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is a non message extension field."
+        return
+      }
+      guard e.label == .optional else {
+        errorString = "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is not a \"optional\" extension field."
+        return
+      }
+    }
+
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
@@ -127,7 +152,7 @@ class MessageGenerator {
 
     // Nested messages
     for m in messages {
-      m.generateMainStruct(printer: &p, parent: self)
+      m.generateMainStruct(printer: &p, parent: self, errorString: &errorString)
     }
 
     // Generate the default initializer. If we don't, Swift seems to sometimes
