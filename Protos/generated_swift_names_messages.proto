@@ -51,6 +51,7 @@ message GeneratedSwiftReservedMessages {
   message clearExtensionValue { int32 clearExtensionValue = 1; }
   message clearSourceContext { int32 clearSourceContext = 1; }
   message clearValue { int32 clearValue = 1; }
+  message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
@@ -186,6 +187,7 @@ message GeneratedSwiftReservedMessages {
   message forMessageName { int32 forMessageName = 1; }
   message forReadingFrom { int32 forReadingFrom = 1; }
   message forTypeURL { int32 forTypeURL = 1; }
+  message ForwardParser { int32 ForwardParser = 1; }
   message forWritingInto { int32 forWritingInto = 1; }
   message from { int32 from = 1; }
   message fromAscii2 { int32 fromAscii2 = 1; }
@@ -432,6 +434,7 @@ message GeneratedSwiftReservedMessages {
   message sizer { int32 sizer = 1; }
   message source { int32 source = 1; }
   message sourceContext { int32 sourceContext = 1; }
+  message sourceEncoding { int32 sourceEncoding = 1; }
   message split { int32 split = 1; }
   message start { int32 start = 1; }
   message startArray { int32 startArray = 1; }
