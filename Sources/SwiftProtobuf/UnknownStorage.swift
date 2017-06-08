@@ -37,6 +37,8 @@ public struct UnknownStorage: Equatable {
   }
 
   public func traverse<V: Visitor>(visitor: inout V) throws {
-    try visitor.visitUnknown(bytes: data)
+    if !data.isEmpty {
+      try visitor.visitUnknown(bytes: data)
+    }
   }
 }

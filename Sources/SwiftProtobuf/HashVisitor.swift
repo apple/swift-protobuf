@@ -47,9 +47,7 @@ internal struct HashVisitor: Visitor {
   init() {}
 
   mutating func visitUnknown(bytes: Data) throws {
-    if bytes.count > 0 { // Workaround for Linux Foundation bug
-      mix(bytes.hashValue)
-    }
+    mix(bytes.hashValue)
   }
 
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
