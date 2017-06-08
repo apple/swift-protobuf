@@ -664,4 +664,13 @@ extension Visitor {
                                                   fieldNumber: Int) throws {
     try visitSingularMessageField(value: value, fieldNumber: fieldNumber)
   }
+
+  // Default handling for Extensions is to forward the traverse to
+  // the ExtensionFieldValueSet. Formats that don't care about extensions
+  // can override to avoid it.
+
+  /// Called for each extension range.
+  public mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
+    try fields.traverse(visitor: &self, start: start, end: end)
+  }
 }
