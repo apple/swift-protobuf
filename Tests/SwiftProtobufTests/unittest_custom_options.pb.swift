@@ -2410,7 +2410,7 @@ extension ProtobufUnittest_AggregateMessageSetElement {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_AggregateMessageSetElement>, ProtobufUnittest_AggregateMessageSet>(
       _protobuf_fieldNumber: 15447542,
-      fieldName: "protobuf_unittest.AggregateMessageSetElement.message_set_extension"
+      fieldName: "protobuf_unittest.AggregateMessageSetElement"
     )
   }
 }

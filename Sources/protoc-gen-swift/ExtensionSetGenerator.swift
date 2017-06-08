@@ -66,7 +66,15 @@ class ExtensionSetGenerator {
             let traitsType = fieldDescriptor.traitsType(namer: namer)
             let swiftRelativeExtensionName = namer.relativeName(extensionField: fieldDescriptor)
 
-            var fieldNamePath = fieldDescriptor.fullName
+            var fieldNamePath: String
+            if fieldDescriptor.containingType.useMessageSetWireFormat &&
+                fieldDescriptor.type == .message &&
+                fieldDescriptor.label == .optional &&
+                fieldDescriptor.messageType === fieldDescriptor.extensionScope {
+                fieldNamePath = fieldDescriptor.messageType.fullName
+            } else {
+                fieldNamePath = fieldDescriptor.fullName
+            }
             assert(fieldNamePath.hasPrefix("."))
             fieldNamePath.remove(at: fieldNamePath.startIndex)  // Remove the leading '.'
 
