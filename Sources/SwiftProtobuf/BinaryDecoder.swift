@@ -1071,29 +1071,184 @@ internal struct BinaryDecoder: Decoder {
         consumed = true
     }
 
-    internal mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws {
+    internal mutating func decodeExtensionField(
+      values: inout ExtensionFieldValueSet,
+      messageType: Message.Type,
+      fieldNumber: Int
+    ) throws {
         if let ext = extensions?[messageType, fieldNumber] {
-            assert(!consumed)
-            var fieldValue = values[fieldNumber]
-            // Message/Group extensions both will call back into the matching
-            // decode methods, so the recursion depth will be tracked there.
+            try decodeExtensionField(values: &values,
+                                     messageType: messageType,
+                                     fieldNumber: fieldNumber,
+                                     messageExtension: ext)
+        }
+    }
+
+    /// Helper to reuse between Extension decoding and MessageSet Extension decoding.
+    private mutating func decodeExtensionField(
+      values: inout ExtensionFieldValueSet,
+      messageType: Message.Type,
+      fieldNumber: Int,
+      messageExtension ext: AnyMessageExtension
+    ) throws {
+        assert(!consumed)
+        assert(fieldNumber == ext.fieldNumber)
+        var fieldValue = values[fieldNumber]
+        // Message/Group extensions both will call back into the matching
+        // decode methods, so the recursion depth will be tracked there.
+        if fieldValue != nil {
+            try fieldValue!.decodeExtensionField(decoder: &self)
+        } else {
+            fieldValue = try ext._protobuf_newField(decoder: &self)
+        }
+        if consumed {
             if fieldValue != nil {
-                try fieldValue!.decodeExtensionField(decoder: &self)
+                values[fieldNumber] = fieldValue
             } else {
-                fieldValue = try ext._protobuf_newField(decoder: &self)
-            }
-            if consumed {
-                if fieldValue != nil {
-                    values[fieldNumber] = fieldValue
-                } else {
-                    // Really things should never get here, if the decoder says
-                    // the bytes were consumed, then there should have been a
-                    // field that consumed them (existing or created). This
-                    // specific error result is to allow this to be more detectable.
-                    throw BinaryDecodingError.internalExtensionError
-                }
+                // Really things should never get here, if the decoder says
+                // the bytes were consumed, then there should have been a
+                // field that consumed them (existing or created). This
+                // specific error result is to allow this to be more detectable.
+                throw BinaryDecodingError.internalExtensionError
             }
         }
+    }
+
+    internal mutating func decodeExtensionFieldsAsMessageSet(
+      values: inout ExtensionFieldValueSet,
+      messageType: Message.Type
+    ) throws {
+        // Spin looking for the Item group, everything else will end up in unknown fields.
+        while let fieldNumber = try self.nextFieldNumber() {
+            guard fieldNumber == WireFormat.MessageSet.FieldNumbers.item &&
+              fieldWireFormat == WireFormat.startGroup else {
+                continue
+            }
+
+            // This is similiar to decodeFullGroup
+
+            try incrementRecursionDepth()
+            var subDecoder = self
+            subDecoder.groupFieldNumber = fieldNumber
+            subDecoder.consumed = true
+
+            let itemResult = try subDecoder.decodeMessageSetItem(values: &values,
+                                                                 messageType: messageType)
+            switch itemResult {
+            case .success:
+              // Advance over what was parsed.
+              consume(length: available - subDecoder.available)
+              consumed = true
+            case .handleAsUnknown:
+              // Nothing to do.
+              break
+
+            case .malformed:
+              throw BinaryDecodingError.malformedProtobuf
+            }
+
+            assert(recursionBudget == subDecoder.recursionBudget)
+            decrementRecursionDepth()
+        }
+    }
+
+    private enum DecodeMessageSetItemResult {
+      case success
+      case handleAsUnknown
+      case malformed
+    }
+
+    private mutating func decodeMessageSetItem(
+      values: inout ExtensionFieldValueSet,
+      messageType: Message.Type
+    ) throws -> DecodeMessageSetItemResult {
+        // This is loosely based on the C++:
+        //   ExtensionSet::ParseMessageSetItem()
+        //   WireFormat::ParseAndMergeMessageSetItem()
+        // (yes, there have two versions that are almost the same)
+
+        var msgExtension: AnyMessageExtension?
+        var fieldData: Data?
+
+        // In this loop, if wire types are wrong, things don't decode,
+        // just bail instead of letting things go into unknown fields.
+        // Wrongly formed MessageSets don't seem don't have real
+        // spelled out behaviors.
+        while let fieldNumber = try self.nextFieldNumber() {
+            switch fieldNumber {
+            case WireFormat.MessageSet.FieldNumbers.typeId:
+                var extensionFieldNumber: Int32 = 0
+                try decodeSingularInt32Field(value: &extensionFieldNumber)
+                if extensionFieldNumber == 0 { return .malformed }
+                guard let ext = extensions?[messageType, Int(extensionFieldNumber)] else {
+                    return .handleAsUnknown  // Unknown extension.
+                }
+                msgExtension = ext
+
+                // If there already was fieldData, decode it.
+                if let data = fieldData {
+                    var wasDecoded = false
+                    try data.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) in
+                        var extDecoder = BinaryDecoder(forReadingFrom: pointer,
+                                                       count: data.count,
+                                                       parent: self)
+                        // Prime the decode to be correct.
+                        extDecoder.consumed = false
+                        extDecoder.fieldWireFormat = .lengthDelimited
+                        try extDecoder.decodeExtensionField(values: &values,
+                                                            messageType: messageType,
+                                                            fieldNumber: fieldNumber,
+                                                            messageExtension: ext)
+                        wasDecoded = extDecoder.consumed
+                    }
+                    if !wasDecoded {
+                        return .malformed
+                    }
+                    fieldData = nil
+                }
+
+            case WireFormat.MessageSet.FieldNumbers.message:
+                if let ext = msgExtension {
+                    assert(consumed == false)
+                    try decodeExtensionField(values: &values,
+                                             messageType: messageType,
+                                             fieldNumber: ext.fieldNumber,
+                                             messageExtension: ext)
+                    if !consumed {
+                        return .malformed
+                    }
+                } else {
+                    // The C++ references ends up appending the blocks together as length
+                    // delimited blocks, but the parsing will only use the first block.
+                    // So just capture a block, and then skip any others that happen to
+                    // be found.
+                    if fieldData == nil {
+                        var d: Data?
+                        try decodeSingularBytesField(value: &d)
+                        guard let data = d else { return .malformed }
+                        // Save it as length delimited
+                        let payloadSize = Varint.encodedSize(of: Int64(data.count)) + data.count
+                        var payload = Data(count: payloadSize)
+                        payload.withUnsafeMutableBytes { (pointer: UnsafeMutablePointer<UInt8>) in
+                            var encoder = BinaryEncoder(forWritingInto: pointer)
+                            encoder.putBytesValue(value: data)
+                        }
+                        fieldData = payload
+                    } else {
+                        guard fieldWireFormat == .lengthDelimited else { return .malformed }
+                        try skip()
+                        consumed = true
+                    }
+                }
+
+            default:
+                // Skip everything else
+                try skip()
+                consumed = true
+            }
+        }
+
+        return .success
     }
 
     //

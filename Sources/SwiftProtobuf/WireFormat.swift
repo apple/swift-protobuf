@@ -41,8 +41,9 @@ extension WireFormat {
   /// how the message also goes out). While the C++ is parsing, where the
   /// unknowns fall in the flow of the group, sorta decides what happens.
   /// Since it is ill defined, currently SwiftProtobuf will reflect out
-  /// anything set in the unknownStorage.
-  /// TODO: document what happens on unknowns when parsing when that is writtin
+  /// anything set in the unknownStorage.  During parsing, unknowns on the
+  /// message are preserved, but unknowns within the group are dropped (like
+  /// map items).
   internal enum MessageSet {
 
     enum FieldNumbers {
