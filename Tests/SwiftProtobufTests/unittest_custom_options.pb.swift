@@ -920,11 +920,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (4 <= fieldNumber && fieldNumber < 2147483647) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self, fieldNumber: fieldNumber)
-      }
-    }
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self)
   }
 
   /// Used by the encoding methods of the SwiftProtobuf library, not generally

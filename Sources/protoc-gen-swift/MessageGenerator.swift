@@ -254,41 +254,55 @@ class MessageGenerator {
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")
     }
-    let varName: String
-    if fields.isEmpty && !isExtensible {
-      varName = "_"
+
+    // protoc allows message_set_wire_format without any extension ranges; no clue what that
+    // actually would mean (since message_set_wire_format can't have fields), but make sure
+    // there are extensions ranges as that is what provides the extension support in the
+    // rest of the generation.
+    if descriptor.useMessageSetWireFormat && isExtensible {
+
+      // MessageSet hands off the decode to the decoder to do the custom logic into the extensions.
+      p.print("try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self)\n")
+
     } else {
-      varName = "fieldNumber"
-    }
-    generateWithLifetimeExtension(printer: &p, throws: true) { p in
-      p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
-      p.indent()
-      if !fields.isEmpty {
-        p.print("switch fieldNumber {\n")
-        for f in fieldsSortedByNumber {
-          f.generateDecodeFieldCase(printer: &p)
-        }
-        if isExtensible {
-          p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+
+      let varName: String
+      if fields.isEmpty && !isExtensible {
+        varName = "_"
+      } else {
+        varName = "fieldNumber"
+      }
+      generateWithLifetimeExtension(printer: &p, throws: true) { p in
+        p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
+        p.indent()
+        if !fields.isEmpty {
+          p.print("switch fieldNumber {\n")
+          for f in fieldsSortedByNumber {
+            f.generateDecodeFieldCase(printer: &p)
+          }
+          if isExtensible {
+            p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+            p.indent()
+            p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+            p.outdent()
+          }
+          p.print("default: break\n")
+        } else if isExtensible {
+          // Just output a simple if-statement if the message had no fields of its
+          // own but we still need to generate a decode statement for extensions.
+          p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
           p.indent()
           p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
           p.outdent()
+          p.print("}\n")
         }
-        p.print("default: break\n")
-      } else if isExtensible {
-        // Just output a simple if-statement if the message had no fields of its
-        // own but we still need to generate a decode statement for extensions.
-        p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
-        p.indent()
-        p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        if !fields.isEmpty {
+          p.print("}\n")
+        }
         p.outdent()
         p.print("}\n")
       }
-      if !fields.isEmpty {
-        p.print("}\n")
-      }
-      p.outdent()
-      p.print("}\n")
+
     }
     p.outdent()
     p.print("}\n")
