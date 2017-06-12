@@ -35,7 +35,7 @@ extension WireFormat {
   ///  Where the field number is the type_id, and the message is serilaized
   ///  into the bytes.
   ///
-  /// The handing of unknown fields is ill defined. In proto1, they were
+  /// The handling of unknown fields is ill defined. In proto1, they were
   /// dropped. In the C++ for proto2, since it stores them in the unknowns
   /// storage, if preserves any that are length delimited data (since that's
   /// how the message also goes out). While the C++ is parsing, where the
@@ -43,7 +43,9 @@ extension WireFormat {
   /// Since it is ill defined, currently SwiftProtobuf will reflect out
   /// anything set in the unknownStorage.  During parsing, unknowns on the
   /// message are preserved, but unknowns within the group are dropped (like
-  /// map items).
+  /// map items).  Any extension in the MessageSet that isn't in the Regisry
+  /// being used at parse time will remain in a group and go into the
+  /// Messages's unknown fields (this way it reflects back out correctly).
   internal enum MessageSet {
 
     enum FieldNumbers {
