@@ -168,6 +168,8 @@ public final class Descriptor {
     return proto.extensionRange
   }
 
+  public var useMessageSetWireFormat: Bool { return proto.options.messageSetWireFormat }
+
   fileprivate init(proto: Google_Protobuf_DescriptorProto,
                    index: Int,
                    registry: Registry,

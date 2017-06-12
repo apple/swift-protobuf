@@ -211,14 +211,18 @@ struct GeneratorPlugin {
 
     let descriptorSet = DescriptorSet(protos: request.protoFile)
 
+    var errorString: String? = nil
     var responseFiles: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
     for name in request.fileToGenerate {
       let fileDescriptor = descriptorSet.lookupFileDescriptor(protoName: name)
       let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
       var printer = CodePrinter()
-      // TODO(thomasvl): Go to a model where this can throw or return an error which can be
-      // sent back in the response's error (including the input file name that caused it).
-      fileGenerator.generateOutputFile(printer: &printer)
+      fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
+      if let errorString = errorString {
+        // If generating multiple files, scope the message with the file that triggered it.
+        let fullError = request.fileToGenerate.count > 1 ? "\(name): \(errorString)" : errorString
+        return Google_Protobuf_Compiler_CodeGeneratorResponse(error: fullError)
+      }
       responseFiles.append(
         Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                             content: printer.content))

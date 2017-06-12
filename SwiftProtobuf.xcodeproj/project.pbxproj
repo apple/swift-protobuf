@@ -488,6 +488,9 @@
 		F4584DB51EDDCA8800803AB6 /* Test_JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4584DB21EDDC9D400803AB6 /* Test_JSONDecodingOptions.swift */; };
 		F4584DB61EDDCA8900803AB6 /* Test_JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4584DB21EDDC9D400803AB6 /* Test_JSONDecodingOptions.swift */; };
 		F4584DB81EDDCAD600803AB6 /* JSONDecodingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4584DB71EDDCAD600803AB6 /* JSONDecodingOptions.swift */; };
+		F45D73FD1EE9984A00E0A231 /* Test_MessageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D73FB1EE994C700E0A231 /* Test_MessageSet.swift */; };
+		F45D73FE1EE9984B00E0A231 /* Test_MessageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D73FB1EE994C700E0A231 /* Test_MessageSet.swift */; };
+		F45D73FF1EE9984C00E0A231 /* Test_MessageSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F45D73FB1EE994C700E0A231 /* Test_MessageSet.swift */; };
 		F47138961E4E56AC00C8492C /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47138951E4E56AC00C8492C /* Internal.swift */; };
 		F47138971E4E56AC00C8492C /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47138951E4E56AC00C8492C /* Internal.swift */; };
 		F47138981E4E56AC00C8492C /* Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47138951E4E56AC00C8492C /* Internal.swift */; };
@@ -527,6 +530,10 @@
 		F4D315541DECA0EA005D4A80 /* unittest_swift_extension4.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D315521DECA0E5005D4A80 /* unittest_swift_extension4.pb.swift */; };
 		F4D315551DECA0EA005D4A80 /* unittest_swift_extension4.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D315521DECA0E5005D4A80 /* unittest_swift_extension4.pb.swift */; };
 		F4D315561DECA0EB005D4A80 /* unittest_swift_extension4.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D315521DECA0E5005D4A80 /* unittest_swift_extension4.pb.swift */; };
+		F4E852B61EE9D83C00AE837E /* SelectiveVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */; };
+		F4E852B71EE9D84800AE837E /* SelectiveVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */; };
+		F4E852B81EE9D84900AE837E /* SelectiveVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */; };
+		F4E852B91EE9D84A00AE837E /* SelectiveVisitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */; };
 		F4F4F1181E5633E7006C6CAD /* Test_Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */; };
 		F4F4F1191E5633E8006C6CAD /* Test_Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */; };
 		F4F4F11A1E5633EA006C6CAD /* Test_Naming.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */; };
@@ -739,6 +746,7 @@
 		F4584D391ECA4FB400803AB6 /* unittest_swift_oneof_merging.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_oneof_merging.pb.swift; sourceTree = "<group>"; };
 		F4584DB21EDDC9D400803AB6 /* Test_JSONDecodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_JSONDecodingOptions.swift; sourceTree = "<group>"; };
 		F4584DB71EDDCAD600803AB6 /* JSONDecodingOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecodingOptions.swift; sourceTree = "<group>"; };
+		F45D73FB1EE994C700E0A231 /* Test_MessageSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_MessageSet.swift; sourceTree = "<group>"; };
 		F47138951E4E56AC00C8492C /* Internal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Internal.swift; sourceTree = "<group>"; };
 		F482B6771E856D1700A25EF8 /* unittest_swift_reserved_ext.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_reserved_ext.pb.swift; sourceTree = "<group>"; };
 		F482B6911E857BBC00A25EF8 /* unittest_swift_naming_no_prefix.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_naming_no_prefix.pb.swift; sourceTree = "<group>"; };
@@ -749,6 +757,7 @@
 		F4D315431DEC8110005D4A80 /* unittest_swift_extension2.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_extension2.pb.swift; sourceTree = "<group>"; };
 		F4D315441DEC8110005D4A80 /* unittest_swift_extension3.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_extension3.pb.swift; sourceTree = "<group>"; };
 		F4D315521DECA0E5005D4A80 /* unittest_swift_extension4.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = unittest_swift_extension4.pb.swift; sourceTree = "<group>"; };
+		F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectiveVisitor.swift; sourceTree = "<group>"; };
 		F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Naming.swift; sourceTree = "<group>"; };
 		__PBXFileRef_Package.swift /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		__PBXFileRef_ProtobufTestSuite_Info.plist /* ProtobufTestSuite_Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ProtobufTestSuite_Info.plist; path = SwiftProtobuf.xcodeproj/ProtobufTestSuite_Info.plist; sourceTree = SOURCE_ROOT; };
@@ -985,6 +994,7 @@
 				AAABA40A1E4A42CD00365CDF /* ProtobufAPIVersionCheck.swift */,
 				9C75F8A21DDD44A1005CCFF2 /* ProtobufMap.swift */,
 				AAF2ED3E1DEF4D94007B510F /* ProtoNameProviding.swift */,
+				F4E852B51EE9D83C00AE837E /* SelectiveVisitor.swift */,
 				9C75F8841DDD3045005CCFF2 /* SimpleExtensionMap.swift */,
 				__PBXFileRef_Sources/Protobuf/source_context.pb.swift /* source_context.pb.swift */,
 				9CA424411E286D4E00C0E5B4 /* StringUtils.swift */,
@@ -1051,6 +1061,7 @@
 				F44F944B1DBFF8D000BC5B85 /* Test_MapFields_Access_Proto3.swift */,
 				AA3640951E60EBB0000C3CF4 /* Test_Merge.swift */,
 				F4A07B2A1E4A3E500035678A /* test_messages_proto3.pb.swift */,
+				F45D73FB1EE994C700E0A231 /* Test_MessageSet.swift */,
 				F4F4F1161E5633E3006C6CAD /* Test_Naming.swift */,
 				F44F943D1DBFC2CF00BC5B85 /* Test_OneofFields_Access_Proto2.swift */,
 				F44F94411DBFE0BA00BC5B85 /* Test_OneofFields_Access_Proto3.swift */,
@@ -1375,6 +1386,7 @@
 				9C8CDA4A1D7A28F600E207CA /* unittest_import_lite.pb.swift in Sources */,
 				AA3640971E60EBB0000C3CF4 /* Test_Merge.swift in Sources */,
 				9C8CDA4B1D7A28F600E207CA /* unittest_import_proto3.pb.swift in Sources */,
+				F45D73FE1EE9984B00E0A231 /* Test_MessageSet.swift in Sources */,
 				9C8CDA4C1D7A28F600E207CA /* unittest_import_public.pb.swift in Sources */,
 				9C8CDA4D1D7A28F600E207CA /* unittest_import_public_lite.pb.swift in Sources */,
 				9C8CDA4E1D7A28F600E207CA /* unittest_import_public_proto3.pb.swift in Sources */,
@@ -1442,6 +1454,7 @@
 				9C2F23851D7780D1008524F2 /* BinaryDecoder.swift in Sources */,
 				AA3640921E60D592000C3CF4 /* struct.pb.swift in Sources */,
 				9C2F23861D7780D1008524F2 /* BinaryEncoder.swift in Sources */,
+				F4E852B71EE9D84800AE837E /* SelectiveVisitor.swift in Sources */,
 				F41BA4431E7B35C6004F6E95 /* AnyMessageStorage.swift in Sources */,
 				9C2F23871D7780D1008524F2 /* Message+BinaryAdditions.swift in Sources */,
 				9C2F23891D7780D1008524F2 /* Enum.swift in Sources */,
@@ -1524,6 +1537,7 @@
 				9CA424421E286D4E00C0E5B4 /* StringUtils.swift in Sources */,
 				AA05BF4F1DAEB7E800619042 /* FieldTag.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/ProtobufTypes.swift /* FieldTypes.swift in Sources */,
+				F4E852B61EE9D83C00AE837E /* SelectiveVisitor.swift in Sources */,
 				AA3640911E60D043000C3CF4 /* struct.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/field_mask.pb.swift /* field_mask.pb.swift in Sources */,
 				__src_cc_ref_Sources/Protobuf/Google_Protobuf_Duration_Extensions.swift /* Google_Protobuf_Duration+Extensions.swift in Sources */,
@@ -1654,6 +1668,7 @@
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_lite.pb.swift /* unittest_import_lite.pb.swift in Sources */,
 				AA3640961E60EBB0000C3CF4 /* Test_Merge.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_proto3.pb.swift /* unittest_import_proto3.pb.swift in Sources */,
+				F45D73FD1EE9984A00E0A231 /* Test_MessageSet.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public.pb.swift /* unittest_import_public.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_lite.pb.swift /* unittest_import_public_lite.pb.swift in Sources */,
 				__src_cc_ref_Tests/ProtobufTests/unittest_import_public_proto3.pb.swift /* unittest_import_public_proto3.pb.swift in Sources */,
@@ -1721,6 +1736,7 @@
 				F44F93861DAEA76700BC5B85 /* Enum.swift in Sources */,
 				F44F938A1DAEA76700BC5B85 /* Decoder.swift in Sources */,
 				AA3640931E60D593000C3CF4 /* struct.pb.swift in Sources */,
+				F4E852B81EE9D84900AE837E /* SelectiveVisitor.swift in Sources */,
 				F41BA4441E7B35C7004F6E95 /* AnyMessageStorage.swift in Sources */,
 				F44F938D1DAEA76700BC5B85 /* JSONEncoder.swift in Sources */,
 				F44F938B1DAEA76700BC5B85 /* HashVisitor.swift in Sources */,
@@ -1851,6 +1867,7 @@
 				F44F943C1DBFBB7700BC5B85 /* Test_BasicFields_Access_Proto3.swift in Sources */,
 				F44F93DB1DAEA8C900BC5B85 /* unittest_import.pb.swift in Sources */,
 				AA3640981E60EBB0000C3CF4 /* Test_Merge.swift in Sources */,
+				F45D73FF1EE9984C00E0A231 /* Test_MessageSet.swift in Sources */,
 				F44F93D91DAEA8C900BC5B85 /* unittest_import_public_proto3.pb.swift in Sources */,
 				F44F93BC1DAEA8C900BC5B85 /* Test_FieldMask.swift in Sources */,
 				F4D3154C1DEC811C005D4A80 /* unittest_swift_extension3.pb.swift in Sources */,
@@ -1918,6 +1935,7 @@
 				F44F94221DAEB23500BC5B85 /* FieldTypes.swift in Sources */,
 				F44F94091DAEB23500BC5B85 /* field_mask.pb.swift in Sources */,
 				AA3640941E60D593000C3CF4 /* struct.pb.swift in Sources */,
+				F4E852B91EE9D84A00AE837E /* SelectiveVisitor.swift in Sources */,
 				F41BA4451E7B35C8004F6E95 /* AnyMessageStorage.swift in Sources */,
 				F44F940B1DAEB23500BC5B85 /* Google_Protobuf_Duration+Extensions.swift in Sources */,
 				F44F940C1DAEB23500BC5B85 /* Google_Protobuf_FieldMask+Extensions.swift in Sources */,

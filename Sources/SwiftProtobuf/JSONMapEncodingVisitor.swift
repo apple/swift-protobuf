@@ -20,7 +20,7 @@ import Foundation
 /// map.  It only accepts singular values.  Keys should be identified
 /// as `fieldNumber:1`, values should be identified as `fieldNumber:2`
 ///
-internal struct JSONMapEncodingVisitor: Visitor {
+internal struct JSONMapEncodingVisitor: SelectiveVisitor {
   private var separator: StaticString?
   internal var encoder: JSONEncoder
 
@@ -38,10 +38,6 @@ internal struct JSONMapEncodingVisitor: Visitor {
 
   private mutating func startValue() {
       encoder.append(staticText: ":")
-  }
-
-  mutating func visitUnknown(bytes: Data) throws {
-      assert(false)
   }
 
   mutating func visitSingularDoubleField(value: Double, fieldNumber: Int) throws {
@@ -135,159 +131,11 @@ internal struct JSONMapEncodingVisitor: Visitor {
       encoder.append(text: json)
   }
 
-  mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
-      // protoc does not permit group-valued maps
-      assert(false)
-  }
-
-  // Repeated values are not supported in maps.
-
-  mutating func visitRepeatedFloatField(value: [Float], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedDoubleField(value: [Double], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedInt32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedInt64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedSInt32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedSInt64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedBoolField(value: [Bool], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedStringField(value: [String], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedBytesField(value: [Data], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedMessageField<M: Message>(value: [M], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitRepeatedGroupField<G: Message>(value: [G], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  // Packed values are not supported in maps.
-
-  mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedSInt32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedSInt64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedFixed32Field(value: [UInt32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedFixed64Field(value: [UInt64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedSFixed32Field(value: [Int32], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedSFixed64Field(value: [Int64], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  // Maps cannot directly appear in other maps
-
-  mutating func visitMapField<KeyType, ValueType: MapValueType>(fieldType: _ProtobufMap<KeyType, ValueType>.Type, value: _ProtobufMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type, value: _ProtobufEnumMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws  where ValueType.RawValue == Int {
-      assert(false)
-  }
-
-  mutating func visitMapField<KeyType, ValueType>(fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type, value: _ProtobufMessageMap<KeyType, ValueType>.BaseType, fieldNumber: Int) throws {
-      assert(false)
-  }
-
-  // Extensions cannot appear in maps
-  mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws {
-      assert(false)
-  }
+  // SelectiveVisitor will block:
+  // - single Groups
+  // - everything repeated
+  // - everything packed
+  // - all maps
+  // - unknown fields
+  // - extensions
 }

@@ -90,7 +90,32 @@ class MessageGenerator {
     }
   }
 
-  func generateMainStruct(printer p: inout CodePrinter, parent: MessageGenerator?) {
+  func generateMainStruct(
+    printer p: inout CodePrinter,
+    parent: MessageGenerator?,
+    errorString: inout String?
+  ) {
+    // protoc does this validation; this is just here as a safety net because what is
+    // generated and how the runtime works assumes this.
+    if descriptor.useMessageSetWireFormat {
+      guard fields.isEmpty else {
+        errorString = "\(descriptor.fullName) has the option message_set_wire_format but it also has fields."
+        return
+      }
+    }
+    for e in descriptor.extensions {
+      guard e.containingType.useMessageSetWireFormat else { continue }
+
+      guard e.type == .message else {
+        errorString = "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is a non message extension field."
+        return
+      }
+      guard e.label == .optional else {
+        errorString = "\(e.containingType.fullName) has the option message_set_wire_format but \(e.fullName) is not a \"optional\" extension field."
+        return
+      }
+    }
+
     var conformance: [String] = ["SwiftProtobuf.Message"]
     if isExtensible {
       conformance.append("SwiftProtobuf.ExtensibleMessage")
@@ -127,7 +152,7 @@ class MessageGenerator {
 
     // Nested messages
     for m in messages {
-      m.generateMainStruct(printer: &p, parent: self)
+      m.generateMainStruct(printer: &p, parent: self, errorString: &errorString)
     }
 
     // Generate the default initializer. If we don't, Swift seems to sometimes
@@ -229,41 +254,55 @@ class MessageGenerator {
     if storage != nil {
       p.print("_ = _uniqueStorage()\n")
     }
-    let varName: String
-    if fields.isEmpty && !isExtensible {
-      varName = "_"
+
+    // protoc allows message_set_wire_format without any extension ranges; no clue what that
+    // actually would mean (since message_set_wire_format can't have fields), but make sure
+    // there are extensions ranges as that is what provides the extension support in the
+    // rest of the generation.
+    if descriptor.useMessageSetWireFormat && isExtensible {
+
+      // MessageSet hands off the decode to the decoder to do the custom logic into the extensions.
+      p.print("try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self)\n")
+
     } else {
-      varName = "fieldNumber"
-    }
-    generateWithLifetimeExtension(printer: &p, throws: true) { p in
-      p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
-      p.indent()
-      if !fields.isEmpty {
-        p.print("switch fieldNumber {\n")
-        for f in fieldsSortedByNumber {
-          f.generateDecodeFieldCase(printer: &p)
-        }
-        if isExtensible {
-          p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+
+      let varName: String
+      if fields.isEmpty && !isExtensible {
+        varName = "_"
+      } else {
+        varName = "fieldNumber"
+      }
+      generateWithLifetimeExtension(printer: &p, throws: true) { p in
+        p.print("while let \(varName) = try decoder.nextFieldNumber() {\n")
+        p.indent()
+        if !fields.isEmpty {
+          p.print("switch fieldNumber {\n")
+          for f in fieldsSortedByNumber {
+            f.generateDecodeFieldCase(printer: &p)
+          }
+          if isExtensible {
+            p.print("case \(descriptor.swiftExtensionRangeExpressions):\n")
+            p.indent()
+            p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+            p.outdent()
+          }
+          p.print("default: break\n")
+        } else if isExtensible {
+          // Just output a simple if-statement if the message had no fields of its
+          // own but we still need to generate a decode statement for extensions.
+          p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
           p.indent()
           p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
           p.outdent()
+          p.print("}\n")
         }
-        p.print("default: break\n")
-      } else if isExtensible {
-        // Just output a simple if-statement if the message had no fields of its
-        // own but we still need to generate a decode statement for extensions.
-        p.print("if \(descriptor.swiftExtensionRangeBooleanExpression(variable: "fieldNumber")) {\n")
-        p.indent()
-        p.print("try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: \(swiftRelativeName).self, fieldNumber: fieldNumber)\n")
+        if !fields.isEmpty {
+          p.print("}\n")
+        }
         p.outdent()
         p.print("}\n")
       }
-      if !fields.isEmpty {
-        p.print("}\n")
-      }
-      p.outdent()
-      p.print("}\n")
+
     }
     p.outdent()
     p.print("}\n")
@@ -284,17 +323,21 @@ class MessageGenerator {
       if let storage = storage {
         storage.generatePreTraverse(printer: &p)
       }
+
+      let visitExtensionsName =
+        descriptor.useMessageSetWireFormat ? "visitExtensionFieldsAsMessageSet" : "visitExtensionFields"
+
       var ranges = descriptor.extensionRanges.makeIterator()
       var nextRange = ranges.next()
       for f in fieldsSortedByNumber {
         while nextRange != nil && Int(nextRange!.start) < f.number {
-          p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+          p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
           nextRange = ranges.next()
         }
         f.generateTraverse(printer: &p)
       }
       while nextRange != nil {
-        p.print("try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
+        p.print("try visitor.\(visitExtensionsName)(fields: _protobuf_extensionFieldValues, start: \(nextRange!.start), end: \(nextRange!.end))\n")
         nextRange = ranges.next()
       }
     }

@@ -309,4 +309,45 @@ internal struct BinaryEncodingVisitor: Visitor {
       try visitSingularMessageField(value: v, fieldNumber: 2)
     }
   }
+
+  mutating func visitExtensionFieldsAsMessageSet(
+    fields: ExtensionFieldValueSet,
+    start: Int,
+    end: Int
+  ) throws {
+    var subVisitor = BinaryEncodingMessageSetVisitor(encoder: encoder)
+    try fields.traverse(visitor: &subVisitor, start: start, end: end)
+    encoder = subVisitor.encoder
+  }
+}
+
+internal extension BinaryEncodingVisitor {
+
+  // Helper Visitor to when writing out the extensions as MessageSets.
+  internal struct BinaryEncodingMessageSetVisitor: SelectiveVisitor {
+    var encoder: BinaryEncoder
+
+    init(encoder: BinaryEncoder) {
+      self.encoder = encoder
+    }
+
+    mutating func visitSingularMessageField<M: Message>(value: M, fieldNumber: Int) throws {
+      encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.itemStart.rawValue))
+
+      encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.typeId.rawValue))
+      encoder.putVarInt(value: fieldNumber)
+
+      encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.message.rawValue))
+
+      // Can force partial to true here because the parent message would have
+      // already recursed for the isInitialized check if it was needed.
+      let payload = try value.serializedData(partial: true)
+      encoder.putBytesValue(value: payload)
+
+      encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.itemEnd.rawValue))
+    }
+
+    // SelectiveVisitor handles the rest.
+  }
+
 }

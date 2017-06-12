@@ -127,4 +127,24 @@ public protocol Decoder {
 
   // Decode extension fields
   mutating func decodeExtensionField(values: inout ExtensionFieldValueSet, messageType: Message.Type, fieldNumber: Int) throws
+
+  // Run a decode loop decoding the MessageSet format for Extensions.
+  mutating func decodeExtensionFieldsAsMessageSet(values: inout ExtensionFieldValueSet,
+                                                  messageType: Message.Type) throws
+}
+
+/// Most Decoders won't care about Extension handing as in MessageSet
+/// format, so provide a default implementation simply looping on the
+/// fieldNumbers and feeding through to extension decoding.
+extension Decoder {
+  public mutating func decodeExtensionFieldsAsMessageSet(
+    values: inout ExtensionFieldValueSet,
+    messageType: Message.Type
+  ) throws {
+    while let fieldNumber = try self.nextFieldNumber() {
+      try self.decodeExtensionField(values: &values,
+                                    messageType: messageType,
+                                    fieldNumber: fieldNumber)
+    }
+  }
 }
