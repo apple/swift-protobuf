@@ -348,6 +348,7 @@ message GeneratedSwiftReservedMessages {
   message OptionalMessageExtensionField { int32 OptionalMessageExtensionField = 1; }
   message options { int32 options = 1; }
   message other { int32 other = 1; }
+  message others { int32 others = 1; }
   message out { int32 out = 1; }
   message output { int32 output = 1; }
   message p { int32 p = 1; }

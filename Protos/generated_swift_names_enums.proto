@@ -348,6 +348,7 @@ message GeneratedSwiftReservedEnums {
   enum OptionalMessageExtensionField { NONE_OptionalMessageExtensionField = 0; }
   enum options { NONE_options = 0; }
   enum other { NONE_other = 0; }
+  enum others { NONE_others = 0; }
   enum out { NONE_out = 0; }
   enum output { NONE_output = 0; }
   enum p { NONE_p = 0; }

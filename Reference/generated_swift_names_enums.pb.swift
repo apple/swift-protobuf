@@ -8628,6 +8628,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum others: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneOthers // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOthers
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOthers
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOthers: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum out: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneOut // = 0
@@ -16822,6 +16847,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.options: SwiftProtobuf._P
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.other: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_other"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.others: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_others"),
   ]
 }
 
