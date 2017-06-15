@@ -183,8 +183,8 @@ message GeneratedSwiftReservedMessages {
   message fieldType { int32 fieldType = 1; }
   message fieldValue { int32 fieldValue = 1; }
   message fileName { int32 fileName = 1; }
+  message filter { int32 filter = 1; }
   message firstItem { int32 firstItem = 1; }
-  message flatMap { int32 flatMap = 1; }
   message float { int32 float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
   message FloatLiteralType { int32 FloatLiteralType = 1; }
@@ -291,6 +291,7 @@ message GeneratedSwiftReservedMessages {
   message length { int32 length = 1; }
   message let { int32 let = 1; }
   message lhs { int32 lhs = 1; }
+  message list { int32 list = 1; }
   message listOfMessages { int32 listOfMessages = 1; }
   message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
@@ -330,6 +331,7 @@ message GeneratedSwiftReservedMessages {
   message nativeBytes { int32 nativeBytes = 1; }
   message nativeEndianBytes { int32 nativeEndianBytes = 1; }
   message newL { int32 newL = 1; }
+  message newList { int32 newList = 1; }
   message newValue { int32 newValue = 1; }
   message nextFieldNumber { int32 nextFieldNumber = 1; }
   message nil { int32 nil = 1; }

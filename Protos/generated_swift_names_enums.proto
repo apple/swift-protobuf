@@ -183,8 +183,8 @@ message GeneratedSwiftReservedEnums {
   enum fieldType { NONE_fieldType = 0; }
   enum fieldValue { NONE_fieldValue = 0; }
   enum fileName { NONE_fileName = 0; }
+  enum filter { NONE_filter = 0; }
   enum firstItem { NONE_firstItem = 0; }
-  enum flatMap { NONE_flatMap = 0; }
   enum float { NONE_float = 0; }
   enum floatLiteral { NONE_floatLiteral = 0; }
   enum FloatLiteralType { NONE_FloatLiteralType = 0; }
@@ -291,6 +291,7 @@ message GeneratedSwiftReservedEnums {
   enum length { NONE_length = 0; }
   enum let { NONE_let = 0; }
   enum lhs { NONE_lhs = 0; }
+  enum list { NONE_list = 0; }
   enum listOfMessages { NONE_listOfMessages = 0; }
   enum listValue { NONE_listValue = 0; }
   enum littleEndian { NONE_littleEndian = 0; }
@@ -330,6 +331,7 @@ message GeneratedSwiftReservedEnums {
   enum nativeBytes { NONE_nativeBytes = 0; }
   enum nativeEndianBytes { NONE_nativeEndianBytes = 0; }
   enum newL { NONE_newL = 0; }
+  enum newList { NONE_newList = 0; }
   enum newValue { NONE_newValue = 0; }
   enum nextFieldNumber { NONE_nextFieldNumber = 0; }
   enum nil { NONE_nil = 0; }
