@@ -76,9 +76,18 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
     }
 
     public mutating func formUnion(_ other: SimpleExtensionMap) {
-        for (_, list) in other.fields {
-            for e in list {
-                insert(e)
+        for (fieldNumber, otherList) in other.fields {
+            if let list = fields[fieldNumber] {
+                var newList = list.filter {
+                    for o in otherList {
+                        if $0.messageType == o.messageType { return false }
+                    }
+                    return true
+                }
+                newList.append(contentsOf: otherList)
+                fields[fieldNumber] = newList
+            } else {
+                fields[fieldNumber] = otherList
             }
         }
     }
