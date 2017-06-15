@@ -92,7 +92,7 @@ supports an option to control the generated file names, the option is
 given as part of the `--swift_out` argument like this:
 
 ```
-$ protoc --swift_opt=FileNaming=[value]: --swift_out=. foo/bar/*.proto mumble/*.proto
+$ protoc --swift_opt=FileNaming=[value] --swift_out=. foo/bar/*.proto mumble/*.proto
 ```
 
 The possible values for `FileNaming` are:
