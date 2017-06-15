@@ -26,6 +26,12 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         insert(contentsOf: arrayLiteral)
     }
 
+    public init(_ others: SimpleExtensionMap...) {
+      for other in others {
+        formUnion(other)
+      }
+    }
+
     public subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? {
         get {
             if let l = fields[fieldNumber] {
