@@ -18,7 +18,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
     public typealias Element = AnyMessageExtension
 
     // Since type objects aren't Hashable, we can't do much better than this...
-    internal var fields = [Int: Array<(Message.Type, AnyMessageExtension)>]()
+    internal var fields = [Int: Array<AnyMessageExtension>]()
 
     public init() {}
 
@@ -35,8 +35,8 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
     public subscript(messageType: Message.Type, fieldNumber: Int) -> AnyMessageExtension? {
         get {
             if let l = fields[fieldNumber] {
-                for (t, e) in l {
-                    if t == messageType {
+                for e in l {
+                    if messageType == e.messageType {
                         return e
                     }
                 }
@@ -48,8 +48,8 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
     public func fieldNumberForProto(messageType: Message.Type, protoFieldName: String) -> Int? {
         // TODO: Make this faster...
         for (_, list) in fields {
-            for (t, e) in list {
-                if e.fieldName == protoFieldName && t == messageType {
+            for e in list {
+                if e.fieldName == protoFieldName && e.messageType == messageType {
                     return e.fieldNumber
                 }
             }
@@ -58,18 +58,14 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
     }
 
     public mutating func insert(_ newValue: Element) {
-        let messageType = newValue.messageType
         let fieldNumber = newValue.fieldNumber
         if let l = fields[fieldNumber] {
-            var newL = l.flatMap {
-                pair -> (Message.Type, AnyMessageExtension)? in
-                if pair.0 == messageType { return nil }
-                else { return pair }
-            }
-            newL.append((messageType, newValue))
+            let messageType = newValue.messageType
+            var newL = l.filter { return $0.messageType != messageType }
+            newL.append(newValue)
             fields[fieldNumber] = newL
         } else {
-            fields[fieldNumber] = [(messageType, newValue)]
+            fields[fieldNumber] = [newValue]
         }
     }
 
@@ -81,7 +77,7 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
 
     public mutating func formUnion(_ other: SimpleExtensionMap) {
         for (_, list) in other.fields {
-            for (_, e) in list {
+            for e in list {
                 insert(e)
             }
         }
@@ -96,8 +92,8 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
     public var debugDescription: String {
         var names = [String]()
         for (_, list) in fields {
-            for (_, e) in list {
-                names.append("\(e.fieldName)(\(e.fieldNumber))")
+            for e in list {
+                names.append("\(e.fieldName):(\(e.fieldNumber))")
             }
         }
         let d = names.joined(separator: ",")

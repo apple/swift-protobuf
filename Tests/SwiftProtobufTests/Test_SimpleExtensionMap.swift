@@ -55,7 +55,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     // Extact what it constaings.
     var includes = [AnyMessageExtension]()
     for (_, l) in map.fields {
-      for (_, e) in l {
+      for e in l {
         includes.append(e)
       }
     }
