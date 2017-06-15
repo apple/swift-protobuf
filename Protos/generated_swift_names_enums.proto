@@ -191,6 +191,7 @@ message GeneratedSwiftReservedEnums {
   enum floatToUtf8 { NONE_floatToUtf8 = 0; }
   enum FloatValue { NONE_FloatValue = 0; }
   enum forMessageName { NONE_forMessageName = 0; }
+  enum formUnion { NONE_formUnion = 0; }
   enum forReadingFrom { NONE_forReadingFrom = 0; }
   enum forTypeURL { NONE_forTypeURL = 0; }
   enum ForwardParser { NONE_ForwardParser = 0; }
