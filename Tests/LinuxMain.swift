@@ -947,6 +947,21 @@ extension Test_Reserved {
     }
 }
 
+extension Test_SimpleExtensionMap {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testInsert", {try run_test(test:($0 as! Test_SimpleExtensionMap).testInsert)}),
+            ("testInsert_contentsOf", {try run_test(test:($0 as! Test_SimpleExtensionMap).testInsert_contentsOf)}),
+            ("testInitialize_list", {try run_test(test:($0 as! Test_SimpleExtensionMap).testInitialize_list)}),
+            ("testFormUnion", {try run_test(test:($0 as! Test_SimpleExtensionMap).testFormUnion)}),
+            ("testUnion", {try run_test(test:($0 as! Test_SimpleExtensionMap).testUnion)}),
+            ("testInitialize_union", {try run_test(test:($0 as! Test_SimpleExtensionMap).testInitialize_union)}),
+            ("testSubscript", {try run_test(test:($0 as! Test_SimpleExtensionMap).testSubscript)}),
+            ("testFieldNumberForProto", {try run_test(test:($0 as! Test_SimpleExtensionMap).testFieldNumberForProto)})
+        ]
+    }
+}
+
 extension Test_Struct {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1245,6 +1260,7 @@ XCTMain(
         (testCaseClass: Test_Required.self, allTests: Test_Required.allTests),
         (testCaseClass: Test_SmallRequired.self, allTests: Test_SmallRequired.allTests),
         (testCaseClass: Test_Reserved.self, allTests: Test_Reserved.allTests),
+        (testCaseClass: Test_SimpleExtensionMap.self, allTests: Test_SimpleExtensionMap.allTests),
         (testCaseClass: Test_Struct.self, allTests: Test_Struct.allTests),
         (testCaseClass: Test_JSON_ListValue.self, allTests: Test_JSON_ListValue.allTests),
         (testCaseClass: Test_Value.self, allTests: Test_Value.allTests),
