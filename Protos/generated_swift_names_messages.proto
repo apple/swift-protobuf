@@ -191,6 +191,7 @@ message GeneratedSwiftReservedMessages {
   message floatToUtf8 { int32 floatToUtf8 = 1; }
   message FloatValue { int32 FloatValue = 1; }
   message forMessageName { int32 forMessageName = 1; }
+  message formUnion { int32 formUnion = 1; }
   message forReadingFrom { int32 forReadingFrom = 1; }
   message forTypeURL { int32 forTypeURL = 1; }
   message ForwardParser { int32 ForwardParser = 1; }

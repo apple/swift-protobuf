@@ -4703,6 +4703,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum formUnion: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFormUnion // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFormUnion
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFormUnion
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFormUnion: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum forReadingFrom: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneForReadingFrom // = 0
@@ -15855,6 +15880,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.FloatValue: SwiftProtobuf
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.forMessageName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_forMessageName"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.formUnion: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_formUnion"),
   ]
 }
 
