@@ -74,7 +74,7 @@ class Test_Extensions: XCTestCase, PBTestHelpers {
         // Start with all the extensions from the unittest.proto file:
         extensions = ProtobufUnittest_Unittest_Extensions
         // Append another file's worth:
-        extensions = extensions.union(ProtobufUnittest_UnittestCustomOptions_Extensions)
+        extensions.formUnion(ProtobufUnittest_UnittestCustomOptions_Extensions)
         // Append an array of extensions
         extensions.insert(contentsOf:
             [

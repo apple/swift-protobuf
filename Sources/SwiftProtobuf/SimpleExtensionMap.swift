@@ -73,13 +73,17 @@ public struct SimpleExtensionMap: ExtensionMap, ExpressibleByArrayLiteral, Custo
         }
     }
 
-    public mutating func union(_ other: SimpleExtensionMap) -> SimpleExtensionMap {
-        var out = self
+    public mutating func formUnion(_ other: SimpleExtensionMap) {
         for (_, list) in other.fields {
             for (_, e) in list {
-                out.insert(e)
+                insert(e)
             }
         }
+    }
+
+    public func union(_ other: SimpleExtensionMap) -> SimpleExtensionMap {
+        var out = self
+        out.formUnion(other)
         return out
     }
 
