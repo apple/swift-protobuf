@@ -439,6 +439,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertRoundTripJSON {$0.singleFloat = 0.0001}
         assertRoundTripJSON {$0.singleFloat = 0.00001}
         assertRoundTripJSON {$0.singleFloat = 0.000001}
+        assertRoundTripJSON {$0.singleFloat = 1.00000075e-36}
         assertRoundTripJSON {$0.singleFloat = 1e-10}
         assertRoundTripJSON {$0.singleFloat = 1e-20}
         assertRoundTripJSON {$0.singleFloat = 1e-30}
@@ -478,6 +479,20 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             XCTAssert(o2.singleFloat.isNaN == .some(true))
         } catch let e {
             XCTFail("Couldn't decode: \(e) -- \(encoded)")
+        }
+    }
+
+    func testSingleDouble_roundtrip() throws {
+        for _ in 0..<10000 {
+            let d = drand48()
+            assertRoundTripJSON {$0.singleDouble = d}
+        }
+    }
+
+    func testSingleFloat_roundtrip() throws {
+        for _ in 0..<10000 {
+            let f = Float(drand48())
+            assertRoundTripJSON {$0.singleFloat = f}
         }
     }
 

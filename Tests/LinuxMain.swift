@@ -577,6 +577,8 @@ extension Test_JSON {
             ("testSingleFloat", {try run_test(test:($0 as! Test_JSON).testSingleFloat)}),
             ("testSingleDouble_NaN", {try run_test(test:($0 as! Test_JSON).testSingleDouble_NaN)}),
             ("testSingleFloat_NaN", {try run_test(test:($0 as! Test_JSON).testSingleFloat_NaN)}),
+            ("testSingleDouble_roundtrip", {try run_test(test:($0 as! Test_JSON).testSingleDouble_roundtrip)}),
+            ("testSingleFloat_roundtrip", {try run_test(test:($0 as! Test_JSON).testSingleFloat_roundtrip)}),
             ("testSingleBool", {try run_test(test:($0 as! Test_JSON).testSingleBool)}),
             ("testSingleString", {try run_test(test:($0 as! Test_JSON).testSingleString)}),
             ("testSingleString_controlCharacters", {try run_test(test:($0 as! Test_JSON).testSingleString_controlCharacters)}),
