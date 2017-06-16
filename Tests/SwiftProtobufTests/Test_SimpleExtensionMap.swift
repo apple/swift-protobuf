@@ -96,6 +96,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     map.insert(ext3)
     assert(map: map, contains: [ext3, ext2, ext1])
 
+    // ext4 has the same message and number as ext2, so should replace it.
     map.insert(ext4)
     assert(map: map, contains: [ext4, ext1, ext3])
   }
@@ -107,6 +108,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     map.insert(contentsOf: [ext1, ext2])
     assert(map: map, contains: [ext1, ext2])
 
+    // ext4 has the same message and number as ext2, so should replace it.
     map.insert(contentsOf: [ext3, ext4])
     assert(map: map, contains: [ext1, ext4, ext3])
   }
@@ -127,6 +129,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     map1.formUnion(map2)
     assert(map: map1, contains: [ext1, ext2])
 
+    // ext4 has the same message and number as ext2, so should replace it.
     map1.formUnion(map3)
     assert(map: map1, contains: [ext1, ext3, ext4])
   }
@@ -139,6 +142,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     let map4 = map1.union(map2)
     assert(map: map4, contains: [ext1, ext2])
 
+    // ext4 has the same message and number as ext2, so should replace it.
     let map5 = map4.union(map3)
     assert(map: map5, contains: [ext1, ext3, ext4])
   }
@@ -151,6 +155,7 @@ class Test_SimpleExtensionMap: XCTestCase {
     let map4 = SimpleExtensionMap(map1, map2)
     assert(map: map4, contains: [ext1, ext2])
 
+    // ext4 has the same message and number as ext2, so should replace it.
     let map5 = SimpleExtensionMap(map1, map2, map3)
     assert(map: map5, contains: [ext1, ext3, ext4])
   }
