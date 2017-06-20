@@ -3103,6 +3103,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum distance: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDistance // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDistance
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDistance
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDistance: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum double: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneDouble // = 0
@@ -15571,6 +15596,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.discardableResult: SwiftP
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.discardUnknownFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_discardUnknownFields"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.distance: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_distance"),
   ]
 }
 
