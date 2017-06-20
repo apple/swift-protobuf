@@ -127,6 +127,7 @@ message GeneratedSwiftReservedEnums {
   enum digitValue { NONE_digitValue = 0; }
   enum discardableResult { NONE_discardableResult = 0; }
   enum discardUnknownFields { NONE_discardUnknownFields = 0; }
+  enum distance { NONE_distance = 0; }
   enum double { NONE_double = 0; }
   enum doubleToUtf8 { NONE_doubleToUtf8 = 0; }
   enum DoubleValue { NONE_DoubleValue = 0; }
