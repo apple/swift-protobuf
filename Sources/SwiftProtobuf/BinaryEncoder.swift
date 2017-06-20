@@ -42,6 +42,10 @@ internal struct BinaryEncoder {
         pointer = pointer.advanced(by: count)
     }
 
+    func distance(pointer: UnsafeMutablePointer<UInt8>) -> Int {
+        return pointer.distance(to: self.pointer)
+    }
+
     mutating func appendUnknown(data: Data) {
         append(contentsOf: data)
     }
