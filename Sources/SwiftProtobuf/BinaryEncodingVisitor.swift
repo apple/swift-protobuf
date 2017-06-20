@@ -18,7 +18,7 @@ import Foundation
 /// Visitor that encodes a message graph in the protobuf binary wire format.
 internal struct BinaryEncodingVisitor: Visitor {
 
-  private var encoder: BinaryEncoder
+  var encoder: BinaryEncoder
 
   /// Creates a new visitor that writes the binary-coded message into the memory
   /// at the given pointer.
@@ -28,6 +28,10 @@ internal struct BinaryEncodingVisitor: Visitor {
   ///   reasons, the encoder does not make any attempts to verify this.
   init(forWritingInto pointer: UnsafeMutablePointer<UInt8>) {
     encoder = BinaryEncoder(forWritingInto: pointer)
+  }
+
+  init(encoder: BinaryEncoder) {
+    self.encoder = encoder
   }
 
   mutating func visitUnknown(bytes: Data) throws {
@@ -101,11 +105,10 @@ internal struct BinaryEncodingVisitor: Visitor {
 
   mutating func visitSingularMessageField<M: Message>(value: M,
                                              fieldNumber: Int) throws {
-    // Can force partial to true here because the parent message would have
-    // already recursed for the isInitialized check if it was needed.
-    let t = try value.serializedData(partial: true)
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
-    encoder.putBytesValue(value: t)
+    let length = try value.serializedDataSize()
+    encoder.putVarInt(value: length)
+    try value.traverse(visitor: &self)
   }
 
   mutating func visitSingularGroupField<G: Message>(value: G, fieldNumber: Int) throws {
@@ -339,10 +342,14 @@ internal extension BinaryEncodingVisitor {
 
       encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.message.rawValue))
 
-      // Can force partial to true here because the parent message would have
-      // already recursed for the isInitialized check if it was needed.
-      let payload = try value.serializedData(partial: true)
-      encoder.putBytesValue(value: payload)
+      // Use a normal BinaryEncodingVisitor so any message fields end up in the
+      // normal wire format (instead of MessageSet format).
+      let length = try value.serializedDataSize()
+      encoder.putVarInt(value: length)
+      // Create the sub encoder after writing the length.
+      var subVisitor = BinaryEncodingVisitor(encoder: encoder)
+      try value.traverse(visitor: &subVisitor)
+      encoder = subVisitor.encoder
 
       encoder.putVarInt(value: Int64(WireFormat.MessageSet.Tags.itemEnd.rawValue))
     }
