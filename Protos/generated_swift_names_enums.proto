@@ -5,6 +5,7 @@ syntax = "proto3";
 package protobuf_unittest;
 message GeneratedSwiftReservedEnums {
   enum adjusted { NONE_adjusted = 0; }
+  enum allocate { NONE_allocate = 0; }
   enum any { NONE_any = 0; }
   enum AnyExtensionField { NONE_AnyExtensionField = 0; }
   enum AnyMessageExtension { NONE_AnyMessageExtension = 0; }
@@ -28,6 +29,7 @@ message GeneratedSwiftReservedEnums {
   enum BinaryDecoder { NONE_BinaryDecoder = 0; }
   enum BinaryDecodingError { NONE_BinaryDecodingError = 0; }
   enum BinaryDecodingOptions { NONE_BinaryDecodingOptions = 0; }
+  enum BinaryDelimited { NONE_BinaryDelimited = 0; }
   enum BinaryEncoder { NONE_BinaryEncoder = 0; }
   enum BinaryEncodingError { NONE_BinaryEncodingError = 0; }
   enum BinaryEncodingMessageSetSizeVisitor { NONE_BinaryEncodingMessageSetSizeVisitor = 0; }
@@ -42,8 +44,10 @@ message GeneratedSwiftReservedEnums {
   enum buffer { NONE_buffer = 0; }
   enum bytes { NONE_bytes = 0; }
   enum bytesInGroup { NONE_bytesInGroup = 0; }
+  enum bytesRead { NONE_bytesRead = 0; }
   enum BytesValue { NONE_BytesValue = 0; }
   enum c { NONE_c = 0; }
+  enum capacity { NONE_capacity = 0; }
   enum capitalizeNext { NONE_capitalizeNext = 0; }
   enum cardinality { NONE_cardinality = 0; }
   enum Character { NONE_Character = 0; }
@@ -334,6 +338,7 @@ message GeneratedSwiftReservedEnums {
   enum newL { NONE_newL = 0; }
   enum newList { NONE_newList = 0; }
   enum newValue { NONE_newValue = 0; }
+  enum nextByte { NONE_nextByte = 0; }
   enum nextFieldNumber { NONE_nextFieldNumber = 0; }
   enum nil { NONE_nil = 0; }
   enum nilLiteral { NONE_nilLiteral = 0; }
@@ -361,6 +366,7 @@ message GeneratedSwiftReservedEnums {
   enum packedSize { NONE_packedSize = 0; }
   enum padding { NONE_padding = 0; }
   enum parent { NONE_parent = 0; }
+  enum parse { NONE_parse = 0; }
   enum partial { NONE_partial = 0; }
   enum path { NONE_path = 0; }
   enum paths { NONE_paths = 0; }
@@ -421,6 +427,7 @@ message GeneratedSwiftReservedEnums {
   enum rawChars { NONE_rawChars = 0; }
   enum RawRepresentable { NONE_RawRepresentable = 0; }
   enum RawValue { NONE_RawValue = 0; }
+  enum readBuffer { NONE_readBuffer = 0; }
   enum register { NONE_register = 0; }
   enum RepeatedEnumExtensionField { NONE_RepeatedEnumExtensionField = 0; }
   enum RepeatedExtensionField { NONE_RepeatedExtensionField = 0; }
@@ -442,6 +449,7 @@ message GeneratedSwiftReservedEnums {
   enum seconds { NONE_seconds = 0; }
   enum self { NONE_self = 0; }
   enum separator { NONE_separator = 0; }
+  enum serialize { NONE_serialize = 0; }
   enum serializedData { NONE_serializedData = 0; }
   enum serializedSize { NONE_serializedSize = 0; }
   enum set { NONE_set = 0; }
@@ -474,6 +482,7 @@ message GeneratedSwiftReservedEnums {
   enum subDecoder { NONE_subDecoder = 0; }
   enum subscript { NONE_subscript = 0; }
   enum subVisitor { NONE_subVisitor = 0; }
+  enum Swift { NONE_Swift = 0; }
   enum SwiftProtobuf { NONE_SwiftProtobuf = 0; }
   enum syntax { NONE_syntax = 0; }
   enum T { NONE_T = 0; }
@@ -492,6 +501,7 @@ message GeneratedSwiftReservedEnums {
   enum timeIntervalSinceReferenceDate { NONE_timeIntervalSinceReferenceDate = 0; }
   enum Timestamp { NONE_Timestamp = 0; }
   enum total { NONE_total = 0; }
+  enum totalSize { NONE_totalSize = 0; }
   enum traverse { NONE_traverse = 0; }
   enum true { NONE_true = 0; }
   enum try { NONE_try = 0; }
@@ -595,5 +605,6 @@ message GeneratedSwiftReservedEnums {
   enum wireFormat { NONE_wireFormat = 0; }
   enum with { NONE_with = 0; }
   enum WrappedType { NONE_WrappedType = 0; }
+  enum written { NONE_written = 0; }
   enum yday { NONE_yday = 0; }
 }

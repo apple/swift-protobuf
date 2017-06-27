@@ -5,6 +5,7 @@ syntax = "proto3";
 package protobuf_unittest;
 message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
+  message allocate { int32 allocate = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
   message AnyMessageExtension { int32 AnyMessageExtension = 1; }
@@ -28,6 +29,7 @@ message GeneratedSwiftReservedMessages {
   message BinaryDecoder { int32 BinaryDecoder = 1; }
   message BinaryDecodingError { int32 BinaryDecodingError = 1; }
   message BinaryDecodingOptions { int32 BinaryDecodingOptions = 1; }
+  message BinaryDelimited { int32 BinaryDelimited = 1; }
   message BinaryEncoder { int32 BinaryEncoder = 1; }
   message BinaryEncodingError { int32 BinaryEncodingError = 1; }
   message BinaryEncodingMessageSetSizeVisitor { int32 BinaryEncodingMessageSetSizeVisitor = 1; }
@@ -42,8 +44,10 @@ message GeneratedSwiftReservedMessages {
   message buffer { int32 buffer = 1; }
   message bytes { int32 bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
+  message bytesRead { int32 bytesRead = 1; }
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
+  message capacity { int32 capacity = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
   message cardinality { int32 cardinality = 1; }
   message Character { int32 Character = 1; }
@@ -334,6 +338,7 @@ message GeneratedSwiftReservedMessages {
   message newL { int32 newL = 1; }
   message newList { int32 newList = 1; }
   message newValue { int32 newValue = 1; }
+  message nextByte { int32 nextByte = 1; }
   message nextFieldNumber { int32 nextFieldNumber = 1; }
   message nil { int32 nil = 1; }
   message nilLiteral { int32 nilLiteral = 1; }
@@ -361,6 +366,7 @@ message GeneratedSwiftReservedMessages {
   message packedSize { int32 packedSize = 1; }
   message padding { int32 padding = 1; }
   message parent { int32 parent = 1; }
+  message parse { int32 parse = 1; }
   message partial { int32 partial = 1; }
   message path { int32 path = 1; }
   message paths { int32 paths = 1; }
@@ -421,6 +427,7 @@ message GeneratedSwiftReservedMessages {
   message rawChars { int32 rawChars = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
+  message readBuffer { int32 readBuffer = 1; }
   message register { int32 register = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
@@ -442,6 +449,7 @@ message GeneratedSwiftReservedMessages {
   message seconds { int32 seconds = 1; }
   message self { int32 self = 1; }
   message separator { int32 separator = 1; }
+  message serialize { int32 serialize = 1; }
   message serializedData { int32 serializedData = 1; }
   message serializedSize { int32 serializedSize = 1; }
   message set { int32 set = 1; }
@@ -474,6 +482,7 @@ message GeneratedSwiftReservedMessages {
   message subDecoder { int32 subDecoder = 1; }
   message subscript { int32 subscript = 1; }
   message subVisitor { int32 subVisitor = 1; }
+  message Swift { int32 Swift = 1; }
   message SwiftProtobuf { int32 SwiftProtobuf = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
@@ -492,6 +501,7 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
   message total { int32 total = 1; }
+  message totalSize { int32 totalSize = 1; }
   message traverse { int32 traverse = 1; }
   message true { int32 true = 1; }
   message try { int32 try = 1; }
@@ -595,5 +605,6 @@ message GeneratedSwiftReservedMessages {
   message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
   message WrappedType { int32 WrappedType = 1; }
+  message written { int32 written = 1; }
   message yday { int32 yday = 1; }
 }

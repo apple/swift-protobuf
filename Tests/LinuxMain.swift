@@ -408,6 +408,14 @@ extension Test_BinaryDecodingOptions {
     }
 }
 
+extension Test_BinaryDelimited {
+    static var allTests: [(String, (XCTestCase) throws -> ())] {
+        return [
+            ("testEverything", {try run_test(test:($0 as! Test_BinaryDelimited).testEverything)})
+        ]
+    }
+}
+
 extension Test_Conformance {
     static var allTests: [(String, (XCTestCase) throws -> ())] {
         return [
@@ -1225,6 +1233,7 @@ XCTMain(
         (testCaseClass: Test_BasicFields_Access_Proto2.self, allTests: Test_BasicFields_Access_Proto2.allTests),
         (testCaseClass: Test_BasicFields_Access_Proto3.self, allTests: Test_BasicFields_Access_Proto3.allTests),
         (testCaseClass: Test_BinaryDecodingOptions.self, allTests: Test_BinaryDecodingOptions.allTests),
+        (testCaseClass: Test_BinaryDelimited.self, allTests: Test_BinaryDelimited.allTests),
         (testCaseClass: Test_Conformance.self, allTests: Test_Conformance.allTests),
         (testCaseClass: Test_Duration.self, allTests: Test_Duration.allTests),
         (testCaseClass: Test_Empty.self, allTests: Test_Empty.allTests),
