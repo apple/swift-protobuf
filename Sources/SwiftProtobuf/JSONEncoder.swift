@@ -306,19 +306,19 @@ internal struct JSONEncoder {
                 data.append(hexDigits[Int(c.value / 16)])
                 data.append(hexDigits[Int(c.value & 15)])
             case 23...126:
-                data.append(UInt8(truncatingBitPattern: c.value))
+                data.append(uint8(truncating: c.value))
             case 0x80...0x7ff:
-                data.append(0xc0 + UInt8(truncatingBitPattern: c.value >> 6))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xc0 + uint8(truncating: c.value >> 6))
+                data.append(0x80 + uint8(truncating: c.value & 0x3f))
             case 0x800...0xffff:
-                data.append(0xe0 + UInt8(truncatingBitPattern: c.value >> 12))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xe0 + uint8(truncating: c.value >> 12))
+                data.append(0x80 + uint8(truncating: (c.value >> 6) & 0x3f))
+                data.append(0x80 + uint8(truncating: c.value & 0x3f))
             default:
-                data.append(0xf0 + UInt8(truncatingBitPattern: c.value >> 18))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 12) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xf0 + uint8(truncating: c.value >> 18))
+                data.append(0x80 + uint8(truncating: (c.value >> 12) & 0x3f))
+                data.append(0x80 + uint8(truncating: (c.value >> 6) & 0x3f))
+                data.append(0x80 + uint8(truncating: c.value & 0x3f))
             }
         }
         data.append(asciiDoubleQuote)
