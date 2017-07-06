@@ -314,315 +314,6 @@ private func decodeString(_ s: String) -> String? {
   return String(out)
 }
 
-// Parse the leading UInt64 from the provided utf8 bytes.
-//
-// This usually does a direct conversion of utf8 to UInt64.  It is
-// called for both unquoted numbers and for numbers stored in quoted
-// strings.  In the latter case, the caller is responsible for
-// consuming the leading quote and verifying the trailing quote.
-//
-// If the number is in floating-point format, this uses a slower
-// and less accurate approach: it identifies a substring comprising
-// a float, and then uses Double() and UInt64() to convert that
-// string to an unsigned intger.
-//
-// If it encounters a "\" backslash character, it returns a nil.  This
-// is used by callers that are parsing quoted numbers.  See nextSInt()
-// and nextUInt() below.
-private func parseBareUInt(
-  source: UnsafeBufferPointer<UInt8>,
-  index: inout UnsafeBufferPointer<UInt8>.Index,
-  end: UnsafeBufferPointer<UInt8>.Index
-) throws -> UInt64? {
-  let start = index
-  let c = source[index]
-  source.formIndex(after: &index)
-  switch c {
-  case asciiZero: // 0
-    if index != end {
-      let after = source[index]
-      switch after {
-      case asciiZero...asciiNine: // 0...9
-        // leading '0' forbidden unless it is the only digit
-        throw JSONDecodingError.leadingZero
-      case asciiPeriod, asciiLowerE, asciiUpperE: // . e
-        // Slow path: JSON numbers can be written in floating-point notation
-        index = start
-        if let s = try parseBareFloatString(source: source,
-                                            index: &index,
-                                            end: end) {
-          if let d = Double(s) {
-            if let u = UInt64(exactly: d) {
-              return u
-            }
-          }
-        }
-        throw JSONDecodingError.malformedNumber
-      case asciiBackslash:
-        return nil
-      default:
-        return 0
-      }
-    }
-    return 0
-  case asciiOne...asciiNine: // 1...9
-    var n = UInt64(c - 48)
-    while index != end {
-      let digit = source[index]
-      switch digit {
-      case asciiZero...asciiNine: // 0...9
-        let val = UInt64(digit - asciiZero)
-        if n >= UInt64.max / 10 {
-          if n > UInt64.max / 10 || val > UInt64.max % 10 {
-            throw JSONDecodingError.numberRange
-          }
-        }
-        source.formIndex(after: &index)
-        n = n * 10 + val
-      case asciiPeriod, asciiLowerE, asciiUpperE: // . e
-        // Slow path: JSON allows floating-point notation for integers
-        index = start
-        if let s = try parseBareFloatString(source: source,
-                                            index: &index,
-                                            end: end) {
-          if let d = Double(s) {
-            if let u = UInt64(exactly: d) {
-              return u
-            }
-          }
-        }
-        throw JSONDecodingError.malformedNumber
-      case asciiBackslash:
-        return nil
-      default:
-        return n
-      }
-    }
-    return n
-  case asciiBackslash:
-    return nil
-  default:
-    throw JSONDecodingError.malformedNumber
-  }
-}
-
-// Parse the leading Int64 from the provided utf8.
-//
-// This uses parseBareUInt() to do the heavy lifting;
-// we just check for a leading minus and negate the result
-// as necessary.
-//
-// As with parseBareUInt(), if it encounters a "\" backslash
-// character, it returns a nil.  This is used by callers that are
-// parsing quoted numbers.  See nextSInt() and nextUInt() below.
-
-private func parseBareSInt(
-  source: UnsafeBufferPointer<UInt8>,
-  index: inout UnsafeBufferPointer<UInt8>.Index,
-  end: UnsafeBufferPointer<UInt8>.Index
-) throws -> Int64? {
-  if index == end {
-    throw JSONDecodingError.truncated
-  }
-  let c = source[index]
-  if c == asciiMinus { // -
-    source.formIndex(after: &index)
-    // character after '-' must be digit
-    let digit = source[index]
-    if digit < asciiZero || digit > asciiNine {
-      throw JSONDecodingError.malformedNumber
-    }
-    if let n = try parseBareUInt(source: source, index: &index, end: end) {
-      let limit: UInt64 = 0x8000000000000000 // -Int64.min
-      if n >= limit {
-        if n > limit {
-          // Too large negative number
-          throw JSONDecodingError.numberRange
-        } else {
-          return Int64.min // Special case for Int64.min
-        }
-      }
-      return -Int64(bitPattern: n)
-    } else {
-      return nil
-    }
-  } else if let n = try parseBareUInt(source: source, index: &index, end: end) {
-    if n > UInt64(bitPattern: Int64.max) {
-      throw JSONDecodingError.numberRange
-    }
-    return Int64(bitPattern: n)
-  } else {
-    return nil
-  }
-}
-
-// Identify a floating-point token in the upcoming UTF8 bytes.
-//
-// This implements the full grammar defined by the JSON RFC 7159.
-// Note that Swift's string-to-number conversions are much more
-// lenient, so this is necessary if we want to accurately reject
-// malformed JSON numbers.
-//
-// This is used by nextDouble() and nextFloat() to parse double and
-// floating-point values, including values that happen to be in quotes.
-// It's also used by the slow path in parseBareSInt() and parseBareUInt()
-// above to handle integer values that are written in float-point notation.
-private func parseBareFloatString(
-  source: UnsafeBufferPointer<UInt8>,
-  index: inout UnsafeBufferPointer<UInt8>.Index,
-  end: UnsafeBufferPointer<UInt8>.Index
-) throws -> String? {
-  // RFC 7159 defines the grammar for JSON numbers as:
-  // number = [ minus ] int [ frac ] [ exp ]
-  let start = index
-  var c = source[index]
-  if c == asciiBackslash {
-    return nil
-  }
-
-  // Optional leading minus sign
-  if c == asciiMinus { // -
-    source.formIndex(after: &index)
-    if index == end {
-      index = start
-      throw JSONDecodingError.truncated
-    }
-    c = source[index]
-    if c == asciiBackslash {
-      return nil
-    }
-  } else if c == asciiUpperN { // Maybe NaN?
-    // Return nil, let the caller deal with it.
-    return nil
-  }
-
-  if c == asciiUpperI { // Maybe Infinity, Inf, -Infinity, or -Inf ?
-    // Return nil, let the caller deal with it.
-    return nil
-  }
-
-  // Integer part can be zero or a series of digits not starting with zero
-  // int = zero / (digit1-9 *DIGIT)
-  switch c {
-  case asciiZero:
-    // First digit can be zero only if not followed by a digit
-    source.formIndex(after: &index)
-    if index == end {
-      if let s = utf8ToString(bytes: source, start: start, end: index) {
-        return s
-      } else {
-        throw JSONDecodingError.invalidUTF8
-      }
-    }
-    c = source[index]
-    if c == asciiBackslash {
-      return nil
-    }
-    if c >= asciiZero && c <= asciiNine {
-      throw JSONDecodingError.leadingZero
-    }
-  case asciiOne...asciiNine:
-    while c >= asciiZero && c <= asciiNine {
-      source.formIndex(after: &index)
-      if index == end {
-        if let s = utf8ToString(bytes: source, start: start, end: index) {
-          return s
-        } else {
-          throw JSONDecodingError.invalidUTF8
-        }
-      }
-      c = source[index]
-      if c == asciiBackslash {
-        return nil
-      }
-    }
-  default:
-    // Integer part cannot be empty
-    throw JSONDecodingError.malformedNumber
-  }
-
-  // frac = decimal-point 1*DIGIT
-  if c == asciiPeriod {
-    source.formIndex(after: &index)
-    if index == end {
-      // decimal point must have a following digit
-      throw JSONDecodingError.truncated
-    }
-    c = source[index]
-    switch c {
-    case asciiZero...asciiNine: // 0...9
-      while c >= asciiZero && c <= asciiNine {
-        source.formIndex(after: &index)
-        if index == end {
-          if let s = utf8ToString(bytes: source, start: start, end: index) {
-            return s
-          } else {
-            throw JSONDecodingError.invalidUTF8
-          }
-        }
-        c = source[index]
-        if c == asciiBackslash {
-          return nil
-        }
-      }
-    case asciiBackslash:
-      return nil
-    default:
-      // decimal point must be followed by at least one digit
-      throw JSONDecodingError.malformedNumber
-    }
-  }
-
-  // exp = e [ minus / plus ] 1*DIGIT
-  if c == asciiLowerE || c == asciiUpperE {
-    source.formIndex(after: &index)
-    if index == end {
-      // "e" must be followed by +,-, or digit
-      throw JSONDecodingError.truncated
-    }
-    c = source[index]
-    if c == asciiBackslash {
-      return nil
-    }
-    if c == asciiPlus || c == asciiMinus { // + -
-      source.formIndex(after: &index)
-      if index == end {
-        // must be at least one digit in exponent
-        throw JSONDecodingError.truncated
-      }
-      c = source[index]
-      if c == asciiBackslash {
-        return nil
-      }
-    }
-    switch c {
-    case asciiZero...asciiNine:
-      while c >= asciiZero && c <= asciiNine {
-        source.formIndex(after: &index)
-        if index == end {
-          if let s = utf8ToString(bytes: source, start: start, end: index) {
-            return s
-          } else {
-            throw JSONDecodingError.invalidUTF8
-          }
-        }
-        c = source[index]
-        if c == asciiBackslash {
-          return nil
-        }
-      }
-    default:
-      // must be at least one digit in exponent
-      throw JSONDecodingError.malformedNumber
-    }
-  }
-  if let s = utf8ToString(bytes: source, start: start, end: index) {
-    return s
-  } else {
-    throw JSONDecodingError.invalidUTF8
-  }
-}
-
 ///
 /// The basic scanner support is entirely private
 ///
@@ -631,6 +322,7 @@ private func parseBareFloatString(
 internal struct JSONScanner {
   private let source: UnsafeBufferPointer<UInt8>
   private var index: UnsafeBufferPointer<UInt8>.Index
+  private var numberFormatter = DoubleFormatter()
   internal var recursionLimit: Int
   internal var recursionBudget: Int
 
@@ -704,6 +396,311 @@ internal struct JSONScanner {
       throw JSONDecodingError.truncated
     }
     return Character(UnicodeScalar(UInt32(currentByte))!)
+  }
+
+  // Parse the leading UInt64 from the provided utf8 bytes.
+  //
+  // This usually does a direct conversion of utf8 to UInt64.  It is
+  // called for both unquoted numbers and for numbers stored in quoted
+  // strings.  In the latter case, the caller is responsible for
+  // consuming the leading quote and verifying the trailing quote.
+  //
+  // If the number is in floating-point format, this uses a slower
+  // and less accurate approach: it identifies a substring comprising
+  // a float, and then uses Double() and UInt64() to convert that
+  // string to an unsigned intger.
+  //
+  // If it encounters a "\" backslash character, it returns a nil.  This
+  // is used by callers that are parsing quoted numbers.  See nextSInt()
+  // and nextUInt() below.
+  private func parseBareUInt(
+    source: UnsafeBufferPointer<UInt8>,
+    index: inout UnsafeBufferPointer<UInt8>.Index,
+    end: UnsafeBufferPointer<UInt8>.Index
+  ) throws -> UInt64? {
+    let start = index
+    let c = source[index]
+    source.formIndex(after: &index)
+    switch c {
+    case asciiZero: // 0
+      if index != end {
+        let after = source[index]
+        switch after {
+        case asciiZero...asciiNine: // 0...9
+          // leading '0' forbidden unless it is the only digit
+          throw JSONDecodingError.leadingZero
+        case asciiPeriod, asciiLowerE, asciiUpperE: // . e
+          // Slow path: JSON numbers can be written in floating-point notation
+          index = start
+          if let d = try parseBareDouble(source: source,
+                                         index: &index,
+                                         end: end) {
+            if let u = UInt64(exactly: d) {
+              return u
+            }
+          }
+          throw JSONDecodingError.malformedNumber
+        case asciiBackslash:
+          return nil
+        default:
+          return 0
+        }
+      }
+      return 0
+    case asciiOne...asciiNine: // 1...9
+      var n = UInt64(c - 48)
+      while index != end {
+        let digit = source[index]
+        switch digit {
+        case asciiZero...asciiNine: // 0...9
+          let val = UInt64(digit - asciiZero)
+          if n >= UInt64.max / 10 {
+            if n > UInt64.max / 10 || val > UInt64.max % 10 {
+              throw JSONDecodingError.numberRange
+            }
+          }
+          source.formIndex(after: &index)
+          n = n * 10 + val
+        case asciiPeriod, asciiLowerE, asciiUpperE: // . e
+          // Slow path: JSON allows floating-point notation for integers
+          index = start
+          if let d = try parseBareDouble(source: source,
+                                         index: &index,
+                                         end: end) {
+            if let u = UInt64(exactly: d) {
+              return u
+            }
+          }
+          throw JSONDecodingError.malformedNumber
+        case asciiBackslash:
+          return nil
+        default:
+          return n
+        }
+      }
+      return n
+    case asciiBackslash:
+      return nil
+    default:
+      throw JSONDecodingError.malformedNumber
+    }
+  }
+
+  // Parse the leading Int64 from the provided utf8.
+  //
+  // This uses parseBareUInt() to do the heavy lifting;
+  // we just check for a leading minus and negate the result
+  // as necessary.
+  //
+  // As with parseBareUInt(), if it encounters a "\" backslash
+  // character, it returns a nil.  This is used by callers that are
+  // parsing quoted numbers.  See nextSInt() and nextUInt() below.
+
+  private func parseBareSInt(
+    source: UnsafeBufferPointer<UInt8>,
+    index: inout UnsafeBufferPointer<UInt8>.Index,
+    end: UnsafeBufferPointer<UInt8>.Index
+  ) throws -> Int64? {
+    if index == end {
+      throw JSONDecodingError.truncated
+    }
+    let c = source[index]
+    if c == asciiMinus { // -
+      source.formIndex(after: &index)
+      // character after '-' must be digit
+      let digit = source[index]
+      if digit < asciiZero || digit > asciiNine {
+        throw JSONDecodingError.malformedNumber
+      }
+      if let n = try parseBareUInt(source: source, index: &index, end: end) {
+        let limit: UInt64 = 0x8000000000000000 // -Int64.min
+        if n >= limit {
+          if n > limit {
+            // Too large negative number
+            throw JSONDecodingError.numberRange
+          } else {
+            return Int64.min // Special case for Int64.min
+          }
+        }
+        return -Int64(bitPattern: n)
+      } else {
+        return nil
+      }
+    } else if let n = try parseBareUInt(source: source, index: &index, end: end) {
+      if n > UInt64(bitPattern: Int64.max) {
+        throw JSONDecodingError.numberRange
+      }
+      return Int64(bitPattern: n)
+    } else {
+      return nil
+    }
+  }
+
+  // Identify a floating-point token in the upcoming UTF8 bytes.
+  //
+  // This implements the full grammar defined by the JSON RFC 7159.
+  // Note that Swift's string-to-number conversions are much more
+  // lenient, so this is necessary if we want to accurately reject
+  // malformed JSON numbers.
+  //
+  // This is used by nextDouble() and nextFloat() to parse double and
+  // floating-point values, including values that happen to be in quotes.
+  // It's also used by the slow path in parseBareSInt() and parseBareUInt()
+  // above to handle integer values that are written in float-point notation.
+  private func parseBareDouble(
+    source: UnsafeBufferPointer<UInt8>,
+    index: inout UnsafeBufferPointer<UInt8>.Index,
+    end: UnsafeBufferPointer<UInt8>.Index
+  ) throws -> Double? {
+    // RFC 7159 defines the grammar for JSON numbers as:
+    // number = [ minus ] int [ frac ] [ exp ]
+    let start = index
+    var c = source[index]
+    if c == asciiBackslash {
+      return nil
+    }
+
+    // Optional leading minus sign
+    if c == asciiMinus { // -
+      source.formIndex(after: &index)
+      if index == end {
+        index = start
+        throw JSONDecodingError.truncated
+      }
+      c = source[index]
+      if c == asciiBackslash {
+        return nil
+      }
+    } else if c == asciiUpperN { // Maybe NaN?
+      // Return nil, let the caller deal with it.
+      return nil
+    }
+
+    if c == asciiUpperI { // Maybe Infinity, Inf, -Infinity, or -Inf ?
+      // Return nil, let the caller deal with it.
+      return nil
+    }
+
+    // Integer part can be zero or a series of digits not starting with zero
+    // int = zero / (digit1-9 *DIGIT)
+    switch c {
+    case asciiZero:
+      // First digit can be zero only if not followed by a digit
+      source.formIndex(after: &index)
+      if index == end {
+        if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+          return d
+        } else {
+          throw JSONDecodingError.invalidUTF8
+        }
+      }
+      c = source[index]
+      if c == asciiBackslash {
+        return nil
+      }
+      if c >= asciiZero && c <= asciiNine {
+        throw JSONDecodingError.leadingZero
+      }
+    case asciiOne...asciiNine:
+      while c >= asciiZero && c <= asciiNine {
+        source.formIndex(after: &index)
+        if index == end {
+          if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+            return d
+          } else {
+            throw JSONDecodingError.invalidUTF8
+          }
+        }
+        c = source[index]
+        if c == asciiBackslash {
+          return nil
+        }
+      }
+    default:
+      // Integer part cannot be empty
+      throw JSONDecodingError.malformedNumber
+    }
+
+    // frac = decimal-point 1*DIGIT
+    if c == asciiPeriod {
+      source.formIndex(after: &index)
+      if index == end {
+        // decimal point must have a following digit
+        throw JSONDecodingError.truncated
+      }
+      c = source[index]
+      switch c {
+      case asciiZero...asciiNine: // 0...9
+        while c >= asciiZero && c <= asciiNine {
+          source.formIndex(after: &index)
+          if index == end {
+            if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+              return d
+            } else {
+              throw JSONDecodingError.invalidUTF8
+            }
+          }
+          c = source[index]
+          if c == asciiBackslash {
+            return nil
+          }
+        }
+      case asciiBackslash:
+        return nil
+      default:
+        // decimal point must be followed by at least one digit
+        throw JSONDecodingError.malformedNumber
+      }
+    }
+
+    // exp = e [ minus / plus ] 1*DIGIT
+    if c == asciiLowerE || c == asciiUpperE {
+      source.formIndex(after: &index)
+      if index == end {
+        // "e" must be followed by +,-, or digit
+        throw JSONDecodingError.truncated
+      }
+      c = source[index]
+      if c == asciiBackslash {
+        return nil
+      }
+      if c == asciiPlus || c == asciiMinus { // + -
+        source.formIndex(after: &index)
+        if index == end {
+          // must be at least one digit in exponent
+          throw JSONDecodingError.truncated
+        }
+        c = source[index]
+        if c == asciiBackslash {
+          return nil
+        }
+      }
+      switch c {
+      case asciiZero...asciiNine:
+        while c >= asciiZero && c <= asciiNine {
+          source.formIndex(after: &index)
+          if index == end {
+            if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+              return d
+            } else {
+              throw JSONDecodingError.invalidUTF8
+            }
+          }
+          c = source[index]
+          if c == asciiBackslash {
+            return nil
+          }
+        }
+      default:
+        // must be at least one digit in exponent
+        throw JSONDecodingError.malformedNumber
+      }
+    }
+    if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
+      return d
+    } else {
+      throw JSONDecodingError.invalidUTF8
+    }
   }
 
   /// Returns a fully-parsed string with all backslash escapes
@@ -874,9 +871,9 @@ internal struct JSONScanner {
     if c == asciiDoubleQuote { // "
       let start = index
       advance()
-      if let s = try parseBareFloatString(source: source,
-                                          index: &index,
-                                          end: source.endIndex) {
+      if let d = try parseBareDouble(source: source,
+                                     index: &index,
+                                     end: source.endIndex) {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -884,13 +881,11 @@ internal struct JSONScanner {
           throw JSONDecodingError.malformedNumber
         }
         advance()
-        if let f = Float(s) {
-          return f
-        }
+        return Float(d)
       } else {
-        // Slow Path: parseBareFloatString returned nil: It might be
+        // Slow Path: parseBareDouble returned nil: It might be
         // a valid float, but had something that
-        // parseBareFloatString cannot directly handle.  So we reset,
+        // parseBareDouble cannot directly handle.  So we reset,
         // try a full string parse, then examine the result:
         index = start
         let s = try nextQuotedString()
@@ -907,11 +902,12 @@ internal struct JSONScanner {
             let buffer = UnsafeBufferPointer(start: bytes, count: raw.count)
             var index = buffer.startIndex
             let end = buffer.endIndex
-            if let s = try parseBareFloatString(source: buffer,
-                                                index: &index,
-                                                end: end) {
-              if index == end {
-                return Float(s)
+            if let d = try parseBareDouble(source: buffer,
+                                           index: &index,
+                                           end: end) {
+              let f = Float(d)
+              if index == end && f.isFinite {
+                return f
               }
             }
             return nil
@@ -922,11 +918,13 @@ internal struct JSONScanner {
         }
       }
     } else {
-      if let s = try parseBareFloatString(source: source,
-                                          index: &index,
-                                          end: source.endIndex),
-        let n = Float(s) {
-        return n
+      if let d = try parseBareDouble(source: source,
+                                     index: &index,
+                                     end: source.endIndex) {
+        let f = Float(d)
+        if f.isFinite {
+          return f
+        }
       }
     }
     throw JSONDecodingError.malformedNumber
@@ -944,9 +942,9 @@ internal struct JSONScanner {
     if c == asciiDoubleQuote { // "
       let start = index
       advance()
-      if let s = try parseBareFloatString(source: source,
-                                          index: &index,
-                                          end: source.endIndex) {
+      if let d = try parseBareDouble(source: source,
+                                     index: &index,
+                                     end: source.endIndex) {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -954,13 +952,11 @@ internal struct JSONScanner {
           throw JSONDecodingError.malformedNumber
         }
         advance()
-        if let f = Double(s) {
-          return f
-        }
+        return d
       } else {
-        // Slow Path: parseBareFloatString returned nil: It might be
+        // Slow Path: parseBareDouble returned nil: It might be
         // a valid float, but had something that
-        // parseBareFloatString cannot directly handle.  So we reset,
+        // parseBareDouble cannot directly handle.  So we reset,
         // try a full string parse, then examine the result:
         index = start
         let s = try nextQuotedString()
@@ -977,11 +973,11 @@ internal struct JSONScanner {
             let buffer = UnsafeBufferPointer(start: bytes, count: raw.count)
             var index = buffer.startIndex
             let end = buffer.endIndex
-            if let s = try parseBareFloatString(source: buffer,
-                                                index: &index,
-                                                end: end) {
+            if let d = try parseBareDouble(source: buffer,
+                                           index: &index,
+                                           end: end) {
               if index == end {
-                return Double(s)
+                return d
               }
             }
             return nil
@@ -992,11 +988,10 @@ internal struct JSONScanner {
         }
       }
     } else {
-      if let s = try parseBareFloatString(source: source,
-                                          index: &index,
-                                          end: source.endIndex),
-        let n = Double(s) {
-        return n
+      if let d = try parseBareDouble(source: source,
+                                     index: &index,
+                                     end: source.endIndex) {
+        return d
       }
     }
     throw JSONDecodingError.malformedNumber

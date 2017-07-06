@@ -51,6 +51,12 @@ internal class DoubleFormatter {
         doubleFormatString.deallocate()
     }
 
+    func utf8ToDouble(bytes: UnsafeBufferPointer<UInt8>,
+                      start: UnsafeBufferPointer<UInt8>.Index,
+                      end: UnsafeBufferPointer<UInt8>.Index) -> Double? {
+        return utf8ToDouble(bytes: bytes.baseAddress! + start, count: end - start)
+    }
+
     func utf8ToDouble(bytes: UnsafePointer<UInt8>, count: Int) -> Double? {
         // Reject unreasonably large UTF8 number
         if work.count <= count {
