@@ -417,11 +417,9 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         let t1 = Google_Protobuf_Timestamp(seconds: 12345678, nanos: 12345678)
         XCTAssertEqual(t1.seconds, 12345678)
         XCTAssertEqual(t1.nanos, 12345678)
-        // There is a lot of double arithmetic here. These values are not going
-        // to be exact, of course.
-        XCTAssertEqualWithAccuracy(t1.timeIntervalSince1970, 12345678.012345678, accuracy: 1e-30)
-        XCTAssertEqualWithAccuracy(t1.timeIntervalSinceReferenceDate, -965961521.987654322, accuracy: 1e-30)
+        XCTAssertEqual(t1.timeIntervalSince1970, 12345678.012345678)
+        XCTAssertEqual(t1.timeIntervalSinceReferenceDate, -965961521.987654322)
         let d = t1.date
-        XCTAssertEqualWithAccuracy(d.timeIntervalSinceReferenceDate, -965961521.987654322, accuracy: 1e-30)
+        XCTAssertEqual(d.timeIntervalSinceReferenceDate, -965961521.987654322)
     }
 }
