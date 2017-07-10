@@ -250,9 +250,9 @@ class Test_Duration: XCTestCase, PBTestHelpers {
 
     func testGetters() throws {
         let t1 = Google_Protobuf_Duration(seconds: -123, nanos: -123456789)
-        XCTAssertEqualWithAccuracy(t1.timeInterval, -123.123456789, accuracy: 1e-30)
+        XCTAssertEqual(t1.timeInterval, -123.123456789)
 
         let t2 = Google_Protobuf_Duration(seconds: 123, nanos: 123456789)
-        XCTAssertEqualWithAccuracy(t2.timeInterval, 123.123456789, accuracy: 1e-30)
+        XCTAssertEqual(t2.timeInterval, 123.123456789)
     }
 }
