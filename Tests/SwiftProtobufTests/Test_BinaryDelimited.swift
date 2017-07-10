@@ -42,7 +42,8 @@ class Test_BinaryDelimited: XCTestCase {
     XCTAssertNoThrow(try BinaryDelimited.serialize(message: msg2, to: stream1))
 
     stream1.close()
-    let data = stream1.property(forKey: .dataWrittenToMemoryStreamKey) as! Data
+    let nsData = stream1.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
+    let data = Data(referencing: nsData)
     let stream2 = InputStream(data: data)
     stream2.open()
 
