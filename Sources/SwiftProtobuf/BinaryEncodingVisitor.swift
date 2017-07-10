@@ -254,7 +254,7 @@ internal struct BinaryEncodingVisitor: Visitor {
     encoder.startField(fieldNumber: fieldNumber, wireFormat: .lengthDelimited)
     var packedSize = 0
     for v in value {
-      packedSize += Varint.encodedSize(of: int32(truncating: v.rawValue))
+      packedSize += Varint.encodedSize(of: Int32(extendingOrTruncating: v.rawValue))
     }
     encoder.putVarInt(value: packedSize)
     for v in value {

@@ -211,7 +211,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     let tagSize = FieldTag(fieldNumber: fieldNumber,
                            wireFormat: .varint).encodedSize
     serializedSize += tagSize
-    let dataSize = Varint.encodedSize(of: int32(truncating: value.rawValue))
+    let dataSize = Varint.encodedSize(of: Int32(extendingOrTruncating: value.rawValue))
     serializedSize += dataSize
   }
 
@@ -221,7 +221,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
                            wireFormat: .varint).encodedSize
     serializedSize += value.count * tagSize
     for v in value {
-      let dataSize = Varint.encodedSize(of: int32(truncating: v.rawValue))
+      let dataSize = Varint.encodedSize(of: Int32(extendingOrTruncating: v.rawValue))
       serializedSize += dataSize
     }
   }
@@ -237,7 +237,7 @@ internal struct BinaryEncodingSizeVisitor: Visitor {
     serializedSize += tagSize
     var dataSize = 0
     for v in value {
-      dataSize += Varint.encodedSize(of: int32(truncating: v.rawValue))
+      dataSize += Varint.encodedSize(of: Int32(extendingOrTruncating: v.rawValue))
     }
     serializedSize += Varint.encodedSize(of: Int64(dataSize)) + dataSize
   }
