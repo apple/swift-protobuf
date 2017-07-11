@@ -32,8 +32,6 @@ internal func typeName(fromMessage message: Message) -> String {
   return messageType.protoMessageName
 }
 
-internal let defaultAnyTypeURLPrefix: String = "type.googleapis.com"
-
 internal func typeName(fromURL s: String) -> String {
   var typeStart = s.startIndex
   var i = typeStart
