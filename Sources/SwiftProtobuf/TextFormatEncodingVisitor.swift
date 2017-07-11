@@ -465,9 +465,11 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
+    var tempEncoder = encoder
     try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: E) in
-      encoder.putEnumValue(value: v)
+      tempEncoder.putEnumValue(value: v)
     }
+    encoder = tempEncoder
   }
 
   /// Helper to encapsulate the common structure of iterating over a map
