@@ -15,7 +15,7 @@ import SwiftProtobuf
 class Test_BinaryDelimited: XCTestCase {
 
   func testEverything() {
-#if swift(>=3.1)
+#if swift(>=3.1) || os(OSX) || os(iOS)
     // Don't need to test encode/decode since there are plenty of tests specific to that,
     // just test the delimited behaviors.
 
@@ -43,6 +43,7 @@ class Test_BinaryDelimited: XCTestCase {
     XCTAssertNoThrow(try BinaryDelimited.serialize(message: msg2, to: stream1))
 
     stream1.close()
+    // See https://bugs.swift.org/browse/SR-5404
     let nsData = stream1.property(forKey: .dataWrittenToMemoryStreamKey) as! NSData
     let data = Data(referencing: nsData)
     let stream2 = InputStream(data: data)
