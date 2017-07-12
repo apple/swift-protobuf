@@ -86,6 +86,9 @@ struct GeneratorPlugin {
     showVersion()
     print(Version.copyright)
     print("")
+    
+    let version = SwiftProtobuf.Version
+    let packageVersion = "\(version.major),\(version.minor),\(version.revision)"
 
     let help = (
       "Note:  This is a plugin for protoc and should not normally be run\n"
@@ -106,7 +109,7 @@ struct GeneratorPlugin {
         + "\n"
         + "   dependencies: [\n"
         + "     .Package(url: \"https://github.com/apple/swift-protobuf\",\n"
-        + "              Version(\(SwiftProtobuf.Version.versionString))\n"
+        + "              Version(\(packageVersion)))\n"
         + "   ]\n"
         + "\n"
         + "\n"
