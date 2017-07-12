@@ -106,7 +106,7 @@ struct GeneratorPlugin {
         + "\n"
         + "   dependencies: [\n"
         + "     .Package(url: \"https://github.com/apple/swift-protobuf\",\n"
-        + "              Version(\(SwiftProtobuf.Version.versionString))\n"
+        + "              Version(\(SwiftProtobuf.Version.versionString)))\n"
         + "   ]\n"
         + "\n"
         + "\n"
