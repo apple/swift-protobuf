@@ -246,7 +246,7 @@ internal extension SelectiveVisitor {
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) {
+  ) throws {
     assert(false)
   }
 

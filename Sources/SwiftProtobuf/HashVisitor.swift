@@ -105,7 +105,7 @@ internal struct HashVisitor: Visitor {
     fieldType: _ProtobufMap<KeyType, ValueType>.Type,
     value: _ProtobufMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) {
+  ) throws {
     mix(fieldNumber)
     mixMap(map: value)
   }
@@ -115,7 +115,7 @@ internal struct HashVisitor: Visitor {
     fieldType: _ProtobufEnumMap<KeyType, ValueType>.Type,
     value: _ProtobufEnumMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) where ValueType.RawValue == Int {
+  ) throws where ValueType.RawValue == Int {
     mix(fieldNumber)
     mixMap(map: value)
   }
@@ -125,7 +125,7 @@ internal struct HashVisitor: Visitor {
     fieldType: _ProtobufMessageMap<KeyType, ValueType>.Type,
     value: _ProtobufMessageMap<KeyType, ValueType>.BaseType,
     fieldNumber: Int
-  ) {
+  ) throws {
     mix(fieldNumber)
     mixMap(map: value)
   }
