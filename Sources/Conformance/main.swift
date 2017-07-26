@@ -60,32 +60,35 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         return response
     }
 
-    let parsed: ProtobufTestMessages_Proto3_TestAllTypesProto3?
+    var msgType: SwiftProtobuf.Message.Type
+    switch request.messageType {
+    case ProtobufTestMessages_Proto3_TestAllTypesProto3.protoMessageName:
+        msgType = ProtobufTestMessages_Proto3_TestAllTypesProto3.self
+    case ProtobufTestMessages_Proto2_TestAllTypesProto2.protoMessageName:
+        msgType = ProtobufTestMessages_Proto2_TestAllTypesProto2.self
+    default:
+        response.runtimeError = "Unexpected message type: \(request.messageType)"
+        return response
+    }
+
+    let testMessage: SwiftProtobuf.Message
     switch request.payload {
     case .protobufPayload(let data)?:
         do {
-            parsed = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedData: data)
+            testMessage = try msgType.init(serializedData: data)
         } catch let e {
             response.parseError = "Protobuf failed to parse: \(e)"
             return response
         }
     case .jsonPayload(let json)?:
         do {
-            parsed = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json)
+            testMessage = try msgType.init(jsonString: json)
         } catch let e {
             response.parseError = "JSON failed to parse: \(e)"
             return response
         }
-    default:
-        assert(false)
-	return response
-    }
-
-    let testMessage: ProtobufTestMessages_Proto3_TestAllTypesProto3
-    if let parsed = parsed {
-        testMessage = parsed
-    } else {
-        response.parseError = "Failed to parse"
+    case nil:
+        response.runtimeError = "No payload in request:\n\(request.textFormatString())"
         return response
     }
 
@@ -102,8 +105,10 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         } catch let e {
             response.serializeError = "Failed to serialize: \(e)"
         }
-    default:
-        assert(false)
+    case .unspecified:
+        response.runtimeError = "Request asked for the 'unspecified' result, that isn't valid."
+    case .UNRECOGNIZED(let v):
+        response.runtimeError = "Unknown output format: \(v)"
     }
     return response
 }

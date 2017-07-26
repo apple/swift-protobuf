@@ -163,6 +163,7 @@ PLUGIN_PROTOS= \
 # Protos that are used by the conformance test runner.
 CONFORMANCE_PROTOS= \
 	Protos/conformance/conformance.proto \
+	Protos/google/protobuf/test_messages_proto2.proto \
 	Protos/google/protobuf/test_messages_proto3.proto
 
 SWIFT_DESCRIPTOR_TEST_PROTOS= \
