@@ -62,6 +62,10 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
 
     var msgType: SwiftProtobuf.Message.Type
     switch request.messageType {
+    case "":
+        // Note: This case is here to cover using a old version of the conformance test
+        // runner that don't know about this field, and it is thus implicit.
+        fallthrough
     case ProtobufTestMessages_Proto3_TestAllTypesProto3.protoMessageName:
         msgType = ProtobufTestMessages_Proto3_TestAllTypesProto3.self
     case ProtobufTestMessages_Proto2_TestAllTypesProto2.protoMessageName:
