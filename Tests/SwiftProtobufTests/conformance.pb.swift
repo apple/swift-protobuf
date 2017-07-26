@@ -116,6 +116,11 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
   /// Which format should the testee serialize its message to?
   var requestedOutputFormat: Conformance_WireFormat = .unspecified
 
+  /// The full name for the test message to use; for the moment, either:
+  /// protobuf_test_messages.proto3.TestAllTypesProto3 or
+  /// protobuf_test_messages.proto2.TestAllTypesProto2.
+  var messageType: String = String()
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// The payload (whether protobuf of JSON) is always for a
@@ -158,6 +163,7 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
         try decoder.decodeSingularStringField(value: &v)
         if let v = v {self.payload = .jsonPayload(v)}
       case 3: try decoder.decodeSingularEnumField(value: &self.requestedOutputFormat)
+      case 4: try decoder.decodeSingularStringField(value: &self.messageType)
       default: break
       }
     }
@@ -177,6 +183,9 @@ struct Conformance_ConformanceRequest: SwiftProtobuf.Message {
     }
     if self.requestedOutputFormat != .unspecified {
       try visitor.visitSingularEnumField(value: self.requestedOutputFormat, fieldNumber: 3)
+    }
+    if !self.messageType.isEmpty {
+      try visitor.visitSingularStringField(value: self.messageType, fieldNumber: 4)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
@@ -378,11 +387,13 @@ extension Conformance_ConformanceRequest: SwiftProtobuf._MessageImplementationBa
     1: .standard(proto: "protobuf_payload"),
     2: .standard(proto: "json_payload"),
     3: .standard(proto: "requested_output_format"),
+    4: .standard(proto: "message_type"),
   ]
 
   func _protobuf_generated_isEqualTo(other: Conformance_ConformanceRequest) -> Bool {
     if self.payload != other.payload {return false}
     if self.requestedOutputFormat != other.requestedOutputFormat {return false}
+    if self.messageType != other.messageType {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }

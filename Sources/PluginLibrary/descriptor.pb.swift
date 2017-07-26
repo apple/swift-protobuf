@@ -1437,6 +1437,15 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
   /// Clears the value of `pyGenericServices`. Subsequent reads from it will return its default value.
   public mutating func clearPyGenericServices() {_storage._pyGenericServices = nil}
 
+  public var phpGenericServices: Bool {
+    get {return _storage._phpGenericServices ?? false}
+    set {_uniqueStorage()._phpGenericServices = newValue}
+  }
+  /// Returns true if `phpGenericServices` has been explicitly set.
+  public var hasPhpGenericServices: Bool {return _storage._phpGenericServices != nil}
+  /// Clears the value of `phpGenericServices`. Subsequent reads from it will return its default value.
+  public mutating func clearPhpGenericServices() {_storage._phpGenericServices = nil}
+
   /// Is this file deprecated?
   /// Depending on the target platform, this can emit Deprecated annotations
   /// for everything in the file, or it will be completely ignored; in the very
@@ -1589,6 +1598,7 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
         case 16: try decoder.decodeSingularBoolField(value: &_storage._ccGenericServices)
         case 17: try decoder.decodeSingularBoolField(value: &_storage._javaGenericServices)
         case 18: try decoder.decodeSingularBoolField(value: &_storage._pyGenericServices)
+        case 19: try decoder.decodeSingularBoolField(value: &_storage._phpGenericServices)
         case 20: try decoder.decodeSingularBoolField(value: &_storage._javaGenerateEqualsAndHash)
         case 23: try decoder.decodeSingularBoolField(value: &_storage._deprecated)
         case 27: try decoder.decodeSingularBoolField(value: &_storage._javaStringCheckUtf8)
@@ -1636,6 +1646,9 @@ public struct Google_Protobuf_FileOptions: SwiftProtobuf.Message, SwiftProtobuf.
       }
       if let v = _storage._pyGenericServices {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 18)
+      }
+      if let v = _storage._phpGenericServices {
+        try visitor.visitSingularBoolField(value: v, fieldNumber: 19)
       }
       if let v = _storage._javaGenerateEqualsAndHash {
         try visitor.visitSingularBoolField(value: v, fieldNumber: 20)
@@ -3555,6 +3568,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     16: .standard(proto: "cc_generic_services"),
     17: .standard(proto: "java_generic_services"),
     18: .standard(proto: "py_generic_services"),
+    19: .standard(proto: "php_generic_services"),
     23: .same(proto: "deprecated"),
     31: .standard(proto: "cc_enable_arenas"),
     36: .standard(proto: "objc_class_prefix"),
@@ -3576,6 +3590,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
     var _ccGenericServices: Bool? = nil
     var _javaGenericServices: Bool? = nil
     var _pyGenericServices: Bool? = nil
+    var _phpGenericServices: Bool? = nil
     var _deprecated: Bool? = nil
     var _ccEnableArenas: Bool? = nil
     var _objcClassPrefix: String? = nil
@@ -3600,6 +3615,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
       _ccGenericServices = source._ccGenericServices
       _javaGenericServices = source._javaGenericServices
       _pyGenericServices = source._pyGenericServices
+      _phpGenericServices = source._phpGenericServices
       _deprecated = source._deprecated
       _ccEnableArenas = source._ccEnableArenas
       _objcClassPrefix = source._objcClassPrefix
@@ -3633,6 +3649,7 @@ extension Google_Protobuf_FileOptions: SwiftProtobuf._MessageImplementationBase,
         if _storage._ccGenericServices != other_storage._ccGenericServices {return false}
         if _storage._javaGenericServices != other_storage._javaGenericServices {return false}
         if _storage._pyGenericServices != other_storage._pyGenericServices {return false}
+        if _storage._phpGenericServices != other_storage._phpGenericServices {return false}
         if _storage._deprecated != other_storage._deprecated {return false}
         if _storage._ccEnableArenas != other_storage._ccEnableArenas {return false}
         if _storage._objcClassPrefix != other_storage._objcClassPrefix {return false}
