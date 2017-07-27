@@ -60,7 +60,7 @@ func buildResponse(serializedData: Data) -> Conformance_ConformanceResponse {
         return response
     }
 
-    var msgType: SwiftProtobuf.Message.Type
+    let msgType: SwiftProtobuf.Message.Type
     switch request.messageType {
     case "":
         // Note: This case is here to cover using a old version of the conformance test
