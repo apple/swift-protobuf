@@ -136,6 +136,24 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode(expected, configure: configureLargeObject)
     }
 
+
+    // See if we can crash the JSON parser by trying every possible
+    // truncation of the large message above.
+    func testTruncation() throws {
+        var m = MessageTestType()
+        configureLargeObject(&m)
+        let s = try m.jsonString()
+        var truncated = ""
+        for c in s.characters {
+            truncated.append(c)
+            do {
+                _ = try MessageTestType(jsonString: truncated)
+            } catch _ {
+                continue
+            }
+        }
+    }
+
     func testSingleInt32() {
         assertJSONEncode("{\"singleInt32\":1}") {(o: inout MessageTestType) in
             o.singleInt32 = 1
@@ -205,6 +223,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleInt32\":0.1")
         assertJSONDecodeFails("{\"singleInt32\":0.")
         assertJSONDecodeFails("{\"singleInt32\":1")
+        assertJSONDecodeFails("{\"singleInt32\":\"")
+        assertJSONDecodeFails("{\"singleInt32\":\"1")
+        assertJSONDecodeFails("{\"singleInt32\":\"1\"")
         assertJSONDecodeFails("{\"singleInt32\":1.")
         assertJSONDecodeFails("{\"singleInt32\":1e")
         assertJSONDecodeFails("{\"singleInt32\":1e1")
@@ -240,6 +261,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleUint32\":1.0}") {$0.singleUint32 == 1}
         assertJSONDecodeSucceeds("{\"singleUint32\":1.000000e2}") {$0.singleUint32 == 100}
         assertJSONDecodeFails("{\"singleUint32\":1e-3}")
+        assertJSONDecodeFails("{\"singleUint32\":1")
+        assertJSONDecodeFails("{\"singleUint32\":\"")
+        assertJSONDecodeFails("{\"singleUint32\":\"1")
+        assertJSONDecodeFails("{\"singleUint32\":\"1\"")
         assertJSONDecodeFails("{\"singleUint32\":1.11e1}")
         // Reject malformed input
         assertJSONDecodeFails("{\"singleUint32\":true}")
@@ -266,6 +291,9 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
         assertJSONEncode("{\"singleInt64\":\"9223372036854775807\"}") {(o: inout MessageTestType) in
             o.singleInt64 = Int64.max
+        }
+        assertJSONEncode("{\"singleInt64\":\"-9223372036854775808\"}") {(o: inout MessageTestType) in
+            o.singleInt64 = Int64.min
         }
         assertJSONEncode("{\"singleInt64\":\"1\"}") {(o: inout MessageTestType) in
             o.singleInt64 = 1
@@ -299,6 +327,67 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleInt64\":null}") {$0.singleInt64 == 0}
         assertJSONDecodeSucceeds("{\"singleInt64\":2147483648}") {$0.singleInt64 == 2147483648}
         assertJSONDecodeSucceeds("{\"singleInt64\":2147483648}") {$0.singleInt64 == 2147483648}
+
+        assertJSONDecodeFails("{\"singleInt64\":1")
+        assertJSONDecodeFails("{\"singleInt64\":\"")
+        assertJSONDecodeFails("{\"singleInt64\":\"1")
+        assertJSONDecodeFails("{\"singleInt64\":\"1\"")
+    }
+
+    func testSingleUInt64() {
+        assertJSONEncode("{\"singleUint64\":\"1\"}") {(o: inout MessageTestType) in
+            o.singleUint64 = 1
+        }
+        assertJSONEncode("{\"singleUint64\":\"4294967295\"}") {(o: inout MessageTestType) in
+            o.singleUint64 = UInt64(UInt32.max)
+        }
+        assertJSONEncode("{\"singleUint64\":\"18446744073709551615\"}") {(o: inout MessageTestType) in
+            o.singleUint64 = UInt64.max
+        }
+        // Parse unquoted 64-bit integers
+        assertJSONDecodeSucceeds("{\"singleUint64\":18446744073709551615}") {$0.singleUint64 == UInt64.max}
+        // Accept quoted 64-bit integers with backslash escapes in them
+        assertJSONDecodeSucceeds("{\"singleUint64\":\"184467\\u00344073709551615\"}") {$0.singleUint64 == UInt64.max}
+        // Reject unquoted 64-bit integers with backslash escapes
+        assertJSONDecodeFails("{\"singleUint64\":184467\\u00344073709551615}")
+        // Reject out-of-range integers, whether or not quoted
+        assertJSONDecodeFails("{\"singleUint64\":\"18446744073709551616\"}")
+        assertJSONDecodeFails("{\"singleUint64\":18446744073709551616}")
+        assertJSONDecodeFails("{\"singleUint64\":\"184467440737095516109\"}")
+        assertJSONDecodeFails("{\"singleUint64\":184467440737095516109}")
+
+        // Explicit 'null' is permitted, decodes to default
+        assertJSONDecodeSucceeds("{\"singleUint64\":null}") {$0.singleUint64 == 0}
+        // Quoted or unquoted numbers, positive or zero
+        assertJSONDecodeSucceeds("{\"singleUint64\":1}") {$0.singleUint64 == 1}
+        assertJSONDecodeSucceeds("{\"singleUint64\":\"1\"}") {$0.singleUint64 == 1}
+        assertJSONDecodeSucceeds("{\"singleUint64\":0}") {$0.singleUint64 == 0}
+        assertJSONDecodeSucceeds("{\"singleUint64\":\"0\"}") {$0.singleUint64 == 0}
+        // Protobuf JSON does not accept leading zeros
+        assertJSONDecodeFails("{\"singleUint64\":01}")
+        assertJSONDecodeFails("{\"singleUint64\":\"01\"}")
+        // But it does accept exponential (as long as result is integral)
+        assertJSONDecodeSucceeds("{\"singleUint64\":4.294967295e9}") {$0.singleUint64 == UInt32.max}
+        assertJSONDecodeSucceeds("{\"singleUint64\":1e3}") {$0.singleUint64 == 1000}
+        assertJSONDecodeSucceeds("{\"singleUint64\":1.2e3}") {$0.singleUint64 == 1200}
+        assertJSONDecodeSucceeds("{\"singleUint64\":1000e-2}") {$0.singleUint64 == 10}
+        assertJSONDecodeSucceeds("{\"singleUint64\":1.0}") {$0.singleUint64 == 1}
+        assertJSONDecodeSucceeds("{\"singleUint64\":1.000000e2}") {$0.singleUint64 == 100}
+        assertJSONDecodeFails("{\"singleUint64\":1e-3}")
+        assertJSONDecodeFails("{\"singleUint64\":1.11e1}")
+        // Reject truncated JSON (ending at the beginning, end, or middle of the number
+        assertJSONDecodeFails("{\"singleUint64\":")
+        assertJSONDecodeFails("{\"singleUint64\":1")
+        assertJSONDecodeFails("{\"singleUint64\":\"")
+        assertJSONDecodeFails("{\"singleUint64\":\"1")
+        assertJSONDecodeFails("{\"singleUint64\":\"1\"")
+        // Reject malformed input
+        assertJSONDecodeFails("{\"singleUint64\":true}")
+        assertJSONDecodeFails("{\"singleUint64\":-1}")
+        assertJSONDecodeFails("{\"singleUint64\":\"-1\"}")
+        assertJSONDecodeFails("{\"singleUint64\":0x102}")
+        assertJSONDecodeFails("{\"singleUint64\":{}}")
+        assertJSONDecodeFails("{\"singleUint64\":[]}")
     }
 
     private func assertRoundTripJSON(file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
@@ -342,6 +431,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e+1\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"15e-1\"}") {$0.singleDouble == 1.5}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0e0\"}") {$0.singleDouble == 1.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"-0\"}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"0\"}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":-0}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":0}") {$0.singleDouble == 0.0}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"singleDouble\":Infinity}")
         assertJSONDecodeFails("{\"singleDouble\":-Infinity}") // Must be quoted
@@ -410,6 +503,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleFloat\":\"15e-1\"}") {$0.singleFloat == 1.5}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.0e0\"}") {$0.singleFloat == 1.0}
         assertJSONDecodeSucceeds("{\"singleFloat\":1.0e0}") {$0.singleFloat == 1.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"0\"}") {$0.singleFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":0}") {$0.singleFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"-0\"}") {$0.singleFloat == -0.0 && $0.singleFloat.sign == .minus}
+        assertJSONDecodeSucceeds("{\"singleFloat\":-0}") {$0.singleFloat == 0 && $0.singleFloat.sign == .minus}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"singleFloat\":Infinity}")
         assertJSONDecodeFails("{\"singleFloat\":-Infinity}") // Must be quoted
@@ -421,6 +518,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleFloat\":\"00.1\"}")
         assertJSONDecodeFails("{\"singleFloat\":.1}")
         assertJSONDecodeFails("{\"singleFloat\":\".1\"}")
+        assertJSONDecodeFails("{\"singleFloat\":\"1")
+        assertJSONDecodeFails("{\"singleFloat\":\"")
+        assertJSONDecodeFails("{\"singleFloat\":1")
+        assertJSONDecodeFails("{\"singleFloat\":1.")
         assertJSONDecodeFails("{\"singleFloat\":1.}")
         assertJSONDecodeFails("{\"singleFloat\":\"1.\"}")
         assertJSONDecodeFails("{\"singleFloat\":1e}")
