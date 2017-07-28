@@ -69,4 +69,12 @@ extension Enum {
     }
     self.init(rawValue: number)
   }
+
+  internal init?(rawUTF8: UnsafeBufferPointer<UInt8>) {
+    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
+      let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8) else {
+      return nil
+    }
+    self.init(rawValue: number)
+  }
 }

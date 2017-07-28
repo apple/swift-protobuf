@@ -431,7 +431,7 @@ internal struct TextFormatDecoder: Decoder {
 
     private mutating func decodeEnum<E: Enum>() throws -> E where E.RawValue == Int {
         if let name = try scanner.nextOptionalEnumName() {
-            if let b = E(name: name) {
+            if let b = E(rawUTF8: name) {
                 return b
             } else {
                 throw TextFormatDecodingError.unrecognizedEnumValue

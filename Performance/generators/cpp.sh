@@ -31,6 +31,11 @@ function print_cpp_set_field() {
       echo "    message.add_field$num(std::string(20, (char)$((num))));"
       echo "  }"
       ;;
+    repeated\ enum)
+      echo "  for (auto i = 0; i < repeated_count; i++) {"
+      echo "    message.add_field$num(PerfMessage::FOO);"
+      echo "  }"
+      ;;
     repeated\ *)
       echo "  for (auto i = 0; i < repeated_count; i++) {"
       echo "    message.add_field$num($((200+num)));"
@@ -41,6 +46,9 @@ function print_cpp_set_field() {
       ;;
     bytes)
       echo "  message.set_field$num(std::string(20, (char)$((num))));"
+      ;;
+    enum)
+      echo "  message.set_field$num(PerfMessage::FOO);"
       ;;
     *)
       echo "  message.set_field$num($((200+num)));"

@@ -94,6 +94,12 @@ internal struct JSONEncoder {
         data.append(contentsOf: name.utf8Buffer)
     }
 
+    internal mutating func appendQuoted(name: _NameMap.Name) {
+        data.append(asciiDoubleQuote)
+        data.append(contentsOf: name.utf8Buffer)
+        data.append(asciiDoubleQuote)
+    }
+
     /// Append a `String` to the JSON text.
     internal mutating func append(text: String) {
         data.append(contentsOf: text.utf8)
@@ -109,10 +115,8 @@ internal struct JSONEncoder {
         if let s = separator {
             data.append(s)
         }
-        data.append(asciiDoubleQuote)
-        // Append the StaticString's utf8 contents directly
-        append(name: name)
-        append(staticText: "\":")
+        appendQuoted(name: name)
+        data.append(asciiColon)
         separator = asciiComma
     }
 
@@ -139,6 +143,11 @@ internal struct JSONEncoder {
     internal mutating func endArray() {
         data.append(asciiCloseSquareBracket)
         separator = asciiComma
+    }
+
+    /// Append a comma `,` to the JSON.
+    internal mutating func comma() {
+        data.append(asciiComma)
     }
 
     /// Append an open curly brace `{` to the JSON.

@@ -216,6 +216,25 @@ internal struct TextFormatScanner {
         }
     }
 
+    private mutating func parseUTF8Identifier() -> UnsafeBufferPointer<UInt8>? {
+        let start = p
+        loop: while p != end {
+            let c = p[0]
+            switch c {
+            case asciiLowerA...asciiLowerZ,
+                 asciiUpperA...asciiUpperZ,
+                 asciiZero...asciiNine,
+                 asciiUnderscore:
+                p += 1
+            default:
+                break loop
+            }
+        }
+        let s = UnsafeBufferPointer(start: start, count: p - start)
+        skipWhitespace()
+        return s
+    }
+
     private mutating func parseIdentifier() -> String? {
         let start = p
         loop: while p != end {
@@ -826,7 +845,7 @@ internal struct TextFormatScanner {
         throw TextFormatDecodingError.malformedText
     }
 
-    internal mutating func nextOptionalEnumName() throws -> String? {
+    internal mutating func nextOptionalEnumName() throws -> UnsafeBufferPointer<UInt8>? {
         skipWhitespace()
         if p == end {
             throw TextFormatDecodingError.malformedText
@@ -835,7 +854,7 @@ internal struct TextFormatScanner {
         let start = p
         switch c {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
-            if let s = parseIdentifier() {
+            if let s = parseUTF8Identifier() {
                 return s
             }
         default:

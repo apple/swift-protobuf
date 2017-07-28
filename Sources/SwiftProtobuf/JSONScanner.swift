@@ -1151,7 +1151,7 @@ internal struct JSONScanner {
       throw JSONDecodingError.truncated
     }
     if currentByte != asciiDoubleQuote {
-      throw JSONDecodingError.malformedString
+      return nil
     }
     advance()
     let nameStart = index
@@ -1199,6 +1199,23 @@ internal struct JSONScanner {
       }
       try skipRequiredComma()
     }
+  }
+
+  internal mutating func nextOptionalStringEnum<E: Enum>() throws -> E? {
+    skipWhitespace()
+    if currentByte != asciiDoubleQuote {
+      return nil
+    }
+    if let name = try nextBareKey() {
+      if let e = E(rawUTF8: name) {
+        return e
+      }
+    } else if let name = parseOptionalQuotedString() {
+      if let e = E(name: name) {
+        return e
+      }
+    }
+    throw JSONDecodingError.unrecognizedEnumValue
   }
 
   /// Helper for skipping a single-character token.

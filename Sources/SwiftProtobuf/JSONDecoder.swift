@@ -458,17 +458,14 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
-
   mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
       value = nil
       return
-    } else if let name = try scanner.nextOptionalQuotedString() {
-      if let v = E(name: name) {
-        value = v
-        return
-      }
+    } else if let e: E = try scanner.nextOptionalStringEnum() {
+      value = e
+      return
     } else {
       let n = try scanner.nextSInt()
       if let i = Int(exactly: n) {
@@ -484,11 +481,9 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalNull() {
       value = E()
       return
-    } else if let name = try scanner.nextOptionalQuotedString() {
-      if let v = E(name: name) {
-        value = v
-        return
-      }
+    } else if let e: E = try scanner.nextOptionalStringEnum() {
+      value = e
+      return
     } else {
       let n = try scanner.nextSInt()
       if let i = Int(exactly: n) {
@@ -511,12 +506,8 @@ internal struct JSONDecoder: Decoder {
       return
     }
     while true {
-      if let name = try scanner.nextOptionalQuotedString() {
-        if let v = E(name: name) {
-          value.append(v)
-        } else {
-          throw JSONDecodingError.unrecognizedEnumValue
-        }
+      if let e: E = try scanner.nextOptionalStringEnum() {
+        value.append(e)
       } else {
         let n = try scanner.nextSInt()
         if let i = Int(exactly: n) {
