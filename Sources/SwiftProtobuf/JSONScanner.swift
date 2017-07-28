@@ -400,20 +400,32 @@ internal struct JSONScanner {
 
   // Parse the leading UInt64 from the provided utf8 bytes.
   //
-  // This usually does a direct conversion of utf8 to UInt64.  It is
-  // called for both unquoted numbers and for numbers stored in quoted
-  // strings.  In the latter case, the caller is responsible for
-  // consuming the leading quote and verifying the trailing quote.
+  // This is called in three different situations:
   //
-  // If the number is in floating-point format, this uses a slower
-  // and less accurate approach: it identifies a substring comprising
-  // a float, and then uses Double() and UInt64() to convert that
-  // string to an unsigned intger.
+  // * Unquoted number.
+  //
+  // * Simple quoted number.  If a number is quoted but has no
+  //   backslashes, the caller can use this directly on the UTF8 by
+  //   just verifying the quote marks.  This code returns `nil` if it
+  //   sees a backslash, in which case the caller will need to handle ...
+  //
+  // * Complex quoted number.  In this case, the caller must parse the
+  //   quoted value as a string, then convert the string to utf8 and
+  //   use this to parse the result.  This is slow but fortunately
+  //   rare.
+  //
+  // In the common case where the number is written in integer form,
+  // this code does a simple straight conversion.  If the number is in
+  // floating-point format, this uses a slower and less accurate
+  // approach: it identifies a substring comprising a float, and then
+  // uses Double() and UInt64() to convert that string to an unsigned
+  // integer.  In particular, it cannot preserve full 64-bit integer
+  // values when they are written in floating-point format.
   //
   // If it encounters a "\" backslash character, it returns a nil.  This
   // is used by callers that are parsing quoted numbers.  See nextSInt()
   // and nextUInt() below.
-  private func parseBareUInt(
+  private func parseBareUInt64(
     source: UnsafeBufferPointer<UInt8>,
     index: inout UnsafeBufferPointer<UInt8>.Index,
     end: UnsafeBufferPointer<UInt8>.Index
@@ -488,15 +500,16 @@ internal struct JSONScanner {
 
   // Parse the leading Int64 from the provided utf8.
   //
-  // This uses parseBareUInt() to do the heavy lifting;
+  // This uses parseBareUInt64() to do the heavy lifting;
   // we just check for a leading minus and negate the result
   // as necessary.
   //
-  // As with parseBareUInt(), if it encounters a "\" backslash
-  // character, it returns a nil.  This is used by callers that are
-  // parsing quoted numbers.  See nextSInt() and nextUInt() below.
-
-  private func parseBareSInt(
+  // As with parseBareUInt64(), if it encounters a "\" backslash
+  // character, it returns a nil.  This allows callers to use this to
+  // do a "fast-path" decode of simple quoted numbers by parsing the
+  // UTF8 directly, only falling back to a full String decode when
+  // absolutely necessary.
+  private func parseBareSInt64(
     source: UnsafeBufferPointer<UInt8>,
     index: inout UnsafeBufferPointer<UInt8>.Index,
     end: UnsafeBufferPointer<UInt8>.Index
@@ -512,7 +525,7 @@ internal struct JSONScanner {
       if digit < asciiZero || digit > asciiNine {
         throw JSONDecodingError.malformedNumber
       }
-      if let n = try parseBareUInt(source: source, index: &index, end: end) {
+      if let n = try parseBareUInt64(source: source, index: &index, end: end) {
         let limit: UInt64 = 0x8000000000000000 // -Int64.min
         if n >= limit {
           if n > limit {
@@ -526,7 +539,7 @@ internal struct JSONScanner {
       } else {
         return nil
       }
-    } else if let n = try parseBareUInt(source: source, index: &index, end: end) {
+    } else if let n = try parseBareUInt64(source: source, index: &index, end: end) {
       if n > UInt64(bitPattern: Int64.max) {
         throw JSONDecodingError.numberRange
       }
@@ -545,7 +558,7 @@ internal struct JSONScanner {
   //
   // This is used by nextDouble() and nextFloat() to parse double and
   // floating-point values, including values that happen to be in quotes.
-  // It's also used by the slow path in parseBareSInt() and parseBareUInt()
+  // It's also used by the slow path in parseBareSInt64() and parseBareUInt64()
   // above to handle integer values that are written in float-point notation.
   private func parseBareDouble(
     source: UnsafeBufferPointer<UInt8>,
@@ -756,9 +769,9 @@ internal struct JSONScanner {
     if c == asciiDoubleQuote {
       let start = index
       advance()
-      if let u = try parseBareUInt(source: source,
-                                   index: &index,
-                                   end: source.endIndex) {
+      if let u = try parseBareUInt64(source: source,
+                                     index: &index,
+                                     end: source.endIndex) {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -779,9 +792,9 @@ internal struct JSONScanner {
           let buffer = UnsafeBufferPointer(start: bytes, count: raw.count)
           var index = buffer.startIndex
           let end = buffer.endIndex
-          if let u = try parseBareUInt(source: buffer,
-                                       index: &index,
-                                       end: end) {
+          if let u = try parseBareUInt64(source: buffer,
+                                         index: &index,
+                                         end: end) {
             if index == end {
               return u
             }
@@ -792,9 +805,9 @@ internal struct JSONScanner {
           return n
         }
       }
-    } else if let u = try parseBareUInt(source: source,
-                                        index: &index,
-                                        end: source.endIndex) {
+    } else if let u = try parseBareUInt64(source: source,
+                                          index: &index,
+                                          end: source.endIndex) {
       return u
     }
     throw JSONDecodingError.malformedNumber
@@ -815,9 +828,9 @@ internal struct JSONScanner {
     if c == asciiDoubleQuote {
       let start = index
       advance()
-      if let s = try parseBareSInt(source: source,
-                                   index: &index,
-                                   end: source.endIndex) {
+      if let s = try parseBareSInt64(source: source,
+                                     index: &index,
+                                     end: source.endIndex) {
         guard hasMoreContent else {
           throw JSONDecodingError.truncated
         }
@@ -838,9 +851,9 @@ internal struct JSONScanner {
           let buffer = UnsafeBufferPointer(start: bytes, count: raw.count)
           var index = buffer.startIndex
           let end = buffer.endIndex
-          if let s = try parseBareSInt(source: buffer,
-                                       index: &index,
-                                       end: end) {
+          if let s = try parseBareSInt64(source: buffer,
+                                         index: &index,
+                                         end: end) {
             if index == end {
               return s
             }
@@ -851,9 +864,9 @@ internal struct JSONScanner {
           return n
         }
       }
-    } else if let s = try parseBareSInt(source: source,
-                                        index: &index,
-                                        end: source.endIndex) {
+    } else if let s = try parseBareSInt64(source: source,
+                                          index: &index,
+                                          end: source.endIndex) {
       return s
     }
     throw JSONDecodingError.malformedNumber
