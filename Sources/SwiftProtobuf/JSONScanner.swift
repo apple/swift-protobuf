@@ -569,6 +569,9 @@ internal struct JSONScanner {
   ) throws -> Double? {
     // RFC 7159 defines the grammar for JSON numbers as:
     // number = [ minus ] int [ frac ] [ exp ]
+    if index == end {
+      throw JSONDecodingError.truncated
+    }
     let start = index
     var c = source[index]
     if c == asciiBackslash {
