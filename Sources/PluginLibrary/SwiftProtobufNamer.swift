@@ -16,6 +16,7 @@ import Foundation
 
 public final class SwiftProtobufNamer {
   var filePrefixCache = [String:String]()
+  var enumValueRelativeNameCache = [String:String]()
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
 
@@ -81,18 +82,32 @@ public final class SwiftProtobufNamer {
     return fullName(message: containingType) + "." + relativeName
   }
 
+  /// Compute the short names to use for the values of this enum.
+  private func computeRelativeNames(enum e: EnumDescriptor) {
+    for enumValue in e.values {
+      let baseName = enumValue.name
+      if let stripped = NamingUtils.strip(protoPrefix: enumValue.enumType.name, from: baseName) {
+        let camelCased = NamingUtils.toLowerCamelCase(stripped)
+        if isValidSwiftIdentifier(camelCased) {
+          enumValueRelativeNameCache[enumValue.fullName] =
+            NamingUtils.sanitize(enumCaseName: camelCased)
+          continue
+        }
+      }
+
+      let camelCased = NamingUtils.toLowerCamelCase(baseName)
+      enumValueRelativeNameCache[enumValue.fullName] =
+        NamingUtils.sanitize(enumCaseName: camelCased)
+    }
+  }
+
   /// Calculate the relative name for the given enum value.
   public func relativeName(enumValue: EnumValueDescriptor) -> String {
-    let baseName = enumValue.name
-    if let stripped = NamingUtils.strip(protoPrefix: enumValue.enumType.name, from: baseName) {
-      let camelCased = NamingUtils.toLowerCamelCase(stripped)
-      if isValidSwiftIdentifier(camelCased) {
-        return NamingUtils.sanitize(enumCaseName: camelCased)
-      }
+    if let name = enumValueRelativeNameCache[enumValue.fullName] {
+      return name
     }
-
-    let camelCased = NamingUtils.toLowerCamelCase(baseName)
-    return NamingUtils.sanitize(enumCaseName: camelCased)
+    computeRelativeNames(enum: enumValue.enumType)
+    return enumValueRelativeNameCache[enumValue.fullName]!
   }
 
   /// Calculate the full name for the given enum value.

@@ -272,6 +272,7 @@ public final class EnumValueDescriptor {
   public weak var file: FileDescriptor! { return enumType.file }
 
   public var name: String { return proto.name }
+  public var fullName: String
   public var number: Int32 { return proto.number }
 
   public private(set) weak var aliasOf: EnumValueDescriptor?
@@ -285,6 +286,9 @@ public final class EnumValueDescriptor {
     self.index = index
     self.enumType = enumType
     aliasOf = aliasing
+
+    let fullName = "\(enumType.fullName).\(proto.name)"
+    self.fullName = fullName
   }
 }
 
