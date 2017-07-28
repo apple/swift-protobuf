@@ -519,10 +519,8 @@ internal struct TextFormatScanner {
                     return n // not a digit
                 }
                 let val = UInt64(digit - asciiZero)
-                if n >= UInt64.max / 10 {
-                    if n > UInt64.max / 10 || val > UInt64.max % 10 {
-                        throw TextFormatDecodingError.malformedNumber
-                    }
+                if n > UInt64.max / 10 || n * 10 > UInt64.max - val {
+                    throw TextFormatDecodingError.malformedNumber
                 }
                 p += 1
                 n = n * 10 + val
