@@ -21,7 +21,7 @@ extension Test_Descriptor {
 extension Test_NamingUtils {
     static var allTests = [
         ("testTypePrefix", testTypePrefix),
-        ("testStrip_protoPrefix", testStrip_protoPrefix),
+        ("testPrefixStripper_strip", testPrefixStripper_strip),
         ("testSanitize_messageName", testSanitize_messageName),
         ("testSanitize_enumName", testSanitize_enumName),
         ("testSanitize_oneofName", testSanitize_oneofName),

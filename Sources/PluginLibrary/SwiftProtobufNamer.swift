@@ -84,9 +84,10 @@ public final class SwiftProtobufNamer {
 
   /// Compute the short names to use for the values of this enum.
   private func computeRelativeNames(enum e: EnumDescriptor) {
+    let stripper = NamingUtils.PrefixStripper(prefix: e.name)
     for enumValue in e.values {
       let baseName = enumValue.name
-      if let stripped = NamingUtils.strip(protoPrefix: enumValue.enumType.name, from: baseName) {
+      if let stripped = stripper.strip(from: baseName) {
         let camelCased = NamingUtils.toLowerCamelCase(stripped)
         if isValidSwiftIdentifier(camelCased) {
           enumValueRelativeNameCache[enumValue.fullName] =
