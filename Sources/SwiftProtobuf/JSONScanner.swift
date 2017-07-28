@@ -430,11 +430,14 @@ internal struct JSONScanner {
     index: inout UnsafeBufferPointer<UInt8>.Index,
     end: UnsafeBufferPointer<UInt8>.Index
   ) throws -> UInt64? {
+    if index == end {
+      throw JSONDecodingError.truncated
+    }
     let start = index
     let c = source[index]
-    source.formIndex(after: &index)
     switch c {
     case asciiZero: // 0
+      source.formIndex(after: &index)
       if index != end {
         let after = source[index]
         switch after {
@@ -460,7 +463,7 @@ internal struct JSONScanner {
       }
       return 0
     case asciiOne...asciiNine: // 1...9
-      var n = UInt64(c - 48)
+      var n = 0 as UInt64
       while index != end {
         let digit = source[index]
         switch digit {
