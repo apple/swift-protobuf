@@ -522,9 +522,11 @@ extension Test_GroupWithinGroup {
 extension Test_JSON {
     static var allTests = [
         ("testMultipleFields", testMultipleFields),
+        ("testTruncation", testTruncation),
         ("testSingleInt32", testSingleInt32),
         ("testSingleUInt32", testSingleUInt32),
         ("testSingleInt64", testSingleInt64),
+        ("testSingleUInt64", testSingleUInt64),
         ("testSingleDouble", testSingleDouble),
         ("testSingleFloat", testSingleFloat),
         ("testSingleDouble_NaN", testSingleDouble_NaN),
