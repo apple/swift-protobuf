@@ -521,6 +521,9 @@ internal struct JSONScanner {
     let c = source[index]
     if c == asciiMinus { // -
       source.formIndex(after: &index)
+      if index == end {
+        throw JSONDecodingError.truncated
+      }
       // character after '-' must be digit
       let digit = source[index]
       if digit < asciiZero || digit > asciiNine {

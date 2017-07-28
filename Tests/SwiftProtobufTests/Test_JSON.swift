@@ -136,6 +136,24 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONEncode(expected, configure: configureLargeObject)
     }
 
+
+    // See if we can crash the JSON parser by trying every possible
+    // truncation of the large message above.
+    func testTruncation() throws {
+        var m = MessageTestType()
+        configureLargeObject(&m)
+        let s = try m.jsonString()
+        var truncated = ""
+        for c in s.characters {
+            truncated.append(c)
+            do {
+                _ = try MessageTestType(jsonString: truncated)
+            } catch _ {
+                continue
+            }
+        }
+    }
+
     func testSingleInt32() {
         assertJSONEncode("{\"singleInt32\":1}") {(o: inout MessageTestType) in
             o.singleInt32 = 1
