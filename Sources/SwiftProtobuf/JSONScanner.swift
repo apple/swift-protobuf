@@ -469,10 +469,9 @@ internal struct JSONScanner {
         switch digit {
         case asciiZero...asciiNine: // 0...9
           let val = UInt64(digit - asciiZero)
-          if n >= UInt64.max / 10 {
-            if n > UInt64.max / 10 || val > UInt64.max % 10 {
-              throw JSONDecodingError.numberRange
-            }
+          if (n > UInt64.max / 10
+              || (n == UInt64.max / 10 && val > UInt64.max % 10)) {
+            throw JSONDecodingError.numberRange
           }
           source.formIndex(after: &index)
           n = n * 10 + val
