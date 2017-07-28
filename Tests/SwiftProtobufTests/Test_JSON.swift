@@ -413,6 +413,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e+1\"}") {$0.singleDouble == 15}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"15e-1\"}") {$0.singleDouble == 1.5}
         assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0e0\"}") {$0.singleDouble == 1.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"-0\"}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":\"0\"}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":-0}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"singleDouble\":0}") {$0.singleDouble == 0.0}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"singleDouble\":Infinity}")
         assertJSONDecodeFails("{\"singleDouble\":-Infinity}") // Must be quoted
@@ -481,6 +485,10 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeSucceeds("{\"singleFloat\":\"15e-1\"}") {$0.singleFloat == 1.5}
         assertJSONDecodeSucceeds("{\"singleFloat\":\"1.0e0\"}") {$0.singleFloat == 1.0}
         assertJSONDecodeSucceeds("{\"singleFloat\":1.0e0}") {$0.singleFloat == 1.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"0\"}") {$0.singleFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":0}") {$0.singleFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"singleFloat\":\"-0\"}") {$0.singleFloat == -0.0 && $0.singleFloat.sign == .minus}
+        assertJSONDecodeSucceeds("{\"singleFloat\":-0}") {$0.singleFloat == 0 && $0.singleFloat.sign == .minus}
         // Malformed numbers should fail
         assertJSONDecodeFails("{\"singleFloat\":Infinity}")
         assertJSONDecodeFails("{\"singleFloat\":-Infinity}") // Must be quoted

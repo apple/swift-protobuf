@@ -606,11 +606,7 @@ internal struct JSONScanner {
       // First digit can be zero only if not followed by a digit
       source.formIndex(after: &index)
       if index == end {
-        if let d = numberFormatter.utf8ToDouble(bytes: source, start: start, end: index) {
-          return d
-        } else {
-          throw JSONDecodingError.invalidUTF8
-        }
+        return 0.0
       }
       c = source[index]
       if c == asciiBackslash {
