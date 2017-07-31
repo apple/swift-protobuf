@@ -86,14 +86,10 @@ internal struct JSONEncoder {
         data.append(contentsOf: buff)
     }
 
-    /// Append a `_NameMap.Name` to the JSON text.  As with
-    /// StaticString above, a `_NameMap.Name` provides pre-converted
+    /// Append a `_NameMap.Name` to the JSON text surrounded by quotes.
+    /// As with StaticString above, a `_NameMap.Name` provides pre-converted
     /// UTF8 bytes, so this is much faster than appending a regular
     /// `String`.
-    internal mutating func append(name: _NameMap.Name) {
-        data.append(contentsOf: name.utf8Buffer)
-    }
-
     internal mutating func appendQuoted(name: _NameMap.Name) {
         data.append(asciiDoubleQuote)
         data.append(contentsOf: name.utf8Buffer)
