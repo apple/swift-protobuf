@@ -86,8 +86,8 @@ struct GeneratorPlugin {
     showVersion()
     print(Version.copyright)
     print("")
-    
-    let version = SwiftProtobuf.Version
+
+    let version = SwiftProtobuf.Version.self
     let packageVersion = "\(version.major),\(version.minor),\(version.revision)"
 
     let help = (
