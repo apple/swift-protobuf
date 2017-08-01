@@ -136,20 +136,22 @@ internal struct JSONEncodingVisitor: Visitor {
 
   private mutating func _visitRepeated<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
     try startField(for: fieldNumber)
-    var arraySeparator = String()
-    encoder.append(text: "[")
+    var comma = false
+    encoder.startArray()
     for v in value {
-      encoder.append(text: arraySeparator)
+      if comma {
+          encoder.comma()
+      }
+      comma = true
       encode(v)
-      arraySeparator = ","
     }
-    encoder.append(text: "]")
+    encoder.endArray()
   }
 
   mutating func visitSingularEnumField<E: Enum>(value: E, fieldNumber: Int) throws {
     try startField(for: fieldNumber)
     if let n = value.name {
-      encoder.putStringValue(value: String(describing: n))
+      encoder.appendQuoted(name: n)
     } else {
       encoder.putEnumInt(value: value.rawValue)
     }
@@ -250,7 +252,7 @@ internal struct JSONEncodingVisitor: Visitor {
     for v in value {
       encoder.append(text: arraySeparator)
       if let n = v.name {
-        encoder.putStringValue(value: String(describing: n))
+        encoder.appendQuoted(name: n)
       } else {
         encoder.putEnumInt(value: v.rawValue)
       }

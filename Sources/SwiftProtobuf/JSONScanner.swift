@@ -1155,14 +1155,14 @@ internal struct JSONScanner {
   /// Returns pointer/count spanning the UTF8 bytes of the next regular
   /// key or nil if the key contains a backslash (and therefore requires
   /// the full string-parsing logic to properly parse).
-  private mutating func nextBareKey() throws -> UnsafeBufferPointer<UInt8>? {
+  private mutating func nextOptionalKey() throws -> UnsafeBufferPointer<UInt8>? {
     skipWhitespace()
     let stringStart = index
     guard hasMoreContent else {
       throw JSONDecodingError.truncated
     }
     if currentByte != asciiDoubleQuote {
-      throw JSONDecodingError.malformedString
+      return nil
     }
     advance()
     let nameStart = index
@@ -1191,12 +1191,14 @@ internal struct JSONScanner {
   /// the value and looks at the following field name.
   internal mutating func nextFieldNumber(names: _NameMap) throws -> Int? {
     while true {
-      if let key = try nextBareKey() {
+      if let key = try nextOptionalKey() {
+        // Fast path:  We parsed it as UTF8 bytes...
         try skipRequiredCharacter(asciiColon) // :
         if let fieldNumber = names.number(forJSONName: key) {
           return fieldNumber
         }
       } else {
+        // Slow path:  We parsed a String; lookups from String are slower.
         let key = try nextQuotedString()
         try skipRequiredCharacter(asciiColon) // :
         if let fieldNumber = names.number(forJSONName: key) {
@@ -1209,6 +1211,42 @@ internal struct JSONScanner {
         return nil
       }
       try skipRequiredComma()
+    }
+  }
+
+  /// Parse the next token as a string or numeric enum value.  Throws
+  /// unrecognizedEnumValue if the string/number can't initialize the
+  /// enum.  Will throw other errors if the JSON is malformed.
+  internal mutating func nextEnumValue<E: Enum>() throws -> E {
+    skipWhitespace()
+    guard hasMoreContent else {
+        throw JSONDecodingError.truncated
+    }
+    if currentByte == asciiDoubleQuote {
+      if let name = try nextOptionalKey() {
+        if let e = E(rawUTF8: name) {
+          return e
+        } else {
+          throw JSONDecodingError.unrecognizedEnumValue
+        }
+      }
+      let name = try nextQuotedString()
+      if let e = E(name: name) {
+        return e
+      } else {
+        throw JSONDecodingError.unrecognizedEnumValue
+      }
+    } else {
+      let n = try nextSInt()
+      if let i = Int(exactly: n) {
+        if let e = E(rawValue: i) {
+          return e
+        } else {
+          throw JSONDecodingError.unrecognizedEnumValue
+        }
+      } else {
+        throw JSONDecodingError.numberRange
+      }
     }
   }
 
