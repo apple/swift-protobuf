@@ -99,7 +99,7 @@ public final class SwiftProtobufNamer {
       return NamingUtils.toLowerCamelCase(baseName)
     }
 
-    // Bucked based on canidate names to check for duplicates.
+    // Bucketed based on candidate names to check for duplicates.
     var canidates = [String:[EnumValueDescriptor]]()
     for enumValue in e.values {
       let canidate = canidateName(enumValue)
@@ -122,7 +122,7 @@ public final class SwiftProtobufNamer {
       }
 
       // There are two possible cases:
-      // 1. There is the main entry and then all aliase for it that
+      // 1. There is the main entry and then all aliases for it that
       //    happen to be the same after the prefix was stripped.
       // 2. There are atleast two values (there could also be aliases).
       //
