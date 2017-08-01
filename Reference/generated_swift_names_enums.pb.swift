@@ -1428,6 +1428,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum comma: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneComma // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneComma
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneComma
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneComma: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum contentsOf: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneContentsOf // = 0
@@ -15544,6 +15569,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.Collection: SwiftProtobuf
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.com: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_com"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.comma: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_comma"),
   ]
 }
 
