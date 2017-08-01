@@ -11,14 +11,6 @@
 import XCTest
 @testable import PluginLibrary
 
-extension Google_Protobuf_EnumValueDescriptorProto {
-  fileprivate init(name: String, number: Int32) {
-    self.init()
-    self.name = name
-    self.number = number
-  }
-}
-
 class Test_NamingUtils: XCTestCase {
 
   func testTypePrefix() throws {
