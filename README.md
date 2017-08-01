@@ -100,9 +100,10 @@ your project as explained below.
 
 To use Swift with Protocol buffers, you'll need:
 
-* A recent Swift 3 compiler that includes the Swift Package Manager.  The Swift
-protobuf project is being developed and tested against the latest release version of
-Swift available from [Swift.org](https://swift.org)
+* A Swift 3.0.1 or later compiler (Xcode 8.1 or later).  Support is included
+for the Swift Package Manager; or using the included Xcode project. The Swift
+protobuf project is being developed and tested against the latest release
+version of Swift available from [Swift.org](https://swift.org)
 
 * Google's protoc compiler.  The Swift protoc plugin is being actively
 developed and tested against the latest protobuf sources.
