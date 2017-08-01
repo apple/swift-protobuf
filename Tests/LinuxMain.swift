@@ -48,6 +48,14 @@ extension Test_SwiftLanguage {
     ]
 }
 
+extension Test_SwiftProtobufNamer {
+    static var allTests = [
+        ("testRelativeName_enumValue_AliasNameMatches", testRelativeName_enumValue_AliasNameMatches),
+        ("testRelativeName_enumValue_NameCollisions", testRelativeName_enumValue_NameCollisions),
+        ("testRelativeName_enumValue_NameCollisionsAndAliasMatches", testRelativeName_enumValue_NameCollisionsAndAliasMatches)
+    ]
+}
+
 extension Test_AllTypes {
     static var allTests = [
         ("testEncoding_unknown", testEncoding_unknown),
@@ -1087,6 +1095,7 @@ XCTMain(
         testCase(Test_NamingUtils.allTests),
         testCase(Test_ProtoFileToModuleMappings.allTests),
         testCase(Test_SwiftLanguage.allTests),
+        testCase(Test_SwiftProtobufNamer.allTests),
         testCase(Test_AllTypes.allTests),
         testCase(Test_AllTypes_Proto3.allTests),
         testCase(Test_Any.allTests),

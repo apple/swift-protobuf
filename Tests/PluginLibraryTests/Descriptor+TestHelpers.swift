@@ -16,6 +16,21 @@ extension Google_Protobuf_FileDescriptorProto {
     self.name = name
     dependency = dependencies
   }
+  init(textFormatStrings: [String]) throws {
+    let s = textFormatStrings.joined(separator: "\n") + "\n"
+    try self.init(textFormatString: s)
+  }
+}
+
+extension Google_Protobuf_FileDescriptorSet {
+  init(files: [Google_Protobuf_FileDescriptorProto]) {
+    self.init()
+    file = files
+  }
+  init(file: Google_Protobuf_FileDescriptorProto) {
+    self.init()
+    self.file = [file]
+  }
 }
 
 extension Google_Protobuf_EnumValueDescriptorProto {
