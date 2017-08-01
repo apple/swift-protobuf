@@ -161,22 +161,7 @@ want to override the default generated behavior for any reason:
 Proto enums are translated to Swift enums in a fairly straightforward manner.
 The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which extends
 `RawRepresentable` with a `RawValue` of `Int`.
-
-The name of the Swift enum is copied directly from the name in the proto file,
-prefixed with the package name or the name from `option swift_prefix`
-as documented above for messages.
-If that name would cause problems for the generated code, the word `Enum` will
-be appended to the name.
-
-Proto2 enums simply have a case for each enum value.
-Enum case names are converted from `UPPER_SNAKE_CASE` conventions
-in the proto file to `lowerCamelCase` in the Swift code.
-
-Note: In most cases where the resulting name would cause a problem in
-the generated Swift, the code generator will protect the enum case name by
-surrounding it with backticks.
-Sometimes, this is insufficient and the code generator will append
-an underscore `_` to the converted name.
+The generated Swift enum will have a case for each enum value in the proto file.
 
 If deserialization encounters an unknown value, that value is either
 ignored (JSON) or handled as an unknown field (protobuf binary),
@@ -213,6 +198,61 @@ public enum MyEnum: SwiftProtobuf.Enum {
     public var debugDescription: String
 }
 ```
+
+### Enum and enum case naming
+
+The name of the Swift enum is copied directly from the name in the proto file,
+prefixed with the package name or the name from `option swift_prefix`
+as documented above for messages.
+If that name would conflict with a Swift reserved word or otherwise
+cause problems for the generated code, the word `Enum` will
+be appended to the name.
+
+Enum case names are converted from `UPPER_SNAKE_CASE` conventions
+in the proto file to `lowerCamelCase` in the Swift code.
+
+If the enum case name includes the enum name as a prefix (ignoring case
+and underscore characters), that prefix is stripped.
+If the stripped name would conflict with another entry in the
+same enum, the conflicting cases will have their respective numeric values
+appended to ensure the results are unique.
+For example:
+```protobuf
+syntax = "proto3";
+enum TestEnum {
+    TEST_ENUM_FOO = 0;
+    TESTENUM_BAR = 1;
+    BAZ = 2;
+    BAR = -3;
+}
+```
+becomes
+```swift
+enum TestEnum {
+  case foo = 0
+  case bar_1 = 1
+  case baz = 2
+  case bar_n3 = -3 // 'n' for "negative"
+}
+```
+
+Note #1: As explained in the protobuf language guide,
+negative enum values are encoded less efficiently than
+positive values and are therefore not recommended.
+
+Note #2: Enum aliases can potentially result in conflicting names
+even after appending the case numeric value.
+Since aliases are only supported to provide alternate names for
+the same underlying numeric value, SwiftProtobuf simply drops
+the alias in such cases.
+See the protobuf documentation for `allow_alias` for more information
+about enum case aliases.
+
+Note #3: In most cases where an enum case name might conflict with a
+Swift reserved word, or otherwise cause problems, the code generator
+will protect the enum case name by surrounding it with backticks.
+In the few cases where this is insufficient, the code generator
+will append an additional underscore `_` to the converted name.
 
 ## Message Fields
 
