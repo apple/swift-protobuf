@@ -50,9 +50,9 @@ extension Test_SwiftLanguage {
 
 extension Test_SwiftProtobufNamer {
     static var allTests = [
-        ("testRelativeName_enumValue_AliasNameMatches", testRelativeName_enumValue_AliasNameMatches),
-        ("testRelativeName_enumValue_NameCollisions", testRelativeName_enumValue_NameCollisions),
-        ("testRelativeName_enumValue_NameCollisionsAndAliasMatches", testRelativeName_enumValue_NameCollisionsAndAliasMatches)
+        ("testEnumValueHandling_AliasNameMatches", testEnumValueHandling_AliasNameMatches),
+        ("testEnumValueHandling_NameCollisions", testEnumValueHandling_NameCollisions),
+        ("testEnumValueHandling_NameCollisionsAndAliasMatches", testEnumValueHandling_NameCollisionsAndAliasMatches)
     ]
 }
 

@@ -13,7 +13,7 @@ import PluginLibrary
 
 class Test_SwiftProtobufNamer: XCTestCase {
 
-  func testRelativeName_enumValue_AliasNameMatches() throws {
+  func testEnumValueHandling_AliasNameMatches() throws {
     let txt = [
       "name: \"test.proto\"",
       "syntax: \"proto2\"",
@@ -66,15 +66,29 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let values = e.values
     XCTAssertEqual(values.count, 6)
 
+    // Test relativeName(enumValue:)
+
     XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo")
     XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
     XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo")
     XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo")
     XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo")
     XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
+
+    // Test uniquelyNamedValues(enum:)
+
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 3)
+
+    XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
+    XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
+    XCTAssertEqual(filtered[2].name, "TEST_ENUM_ALIAS")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "alias")
   }
 
-  func testRelativeName_enumValue_NameCollisions() {
+  func testEnumValueHandling_NameCollisions() {
     let txt = [
       "name: \"test.proto\"",
       "syntax: \"proto2\"",
@@ -116,13 +130,29 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let values = e.values
     XCTAssertEqual(values.count, 4)
 
+    // Test relativeName(enumValue:)
+
     XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
     XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
     XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_n1")
+
+    // Test uniquelyNamedValues(enum:)
+
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 4)
+
+    XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
+    XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
+    XCTAssertEqual(filtered[2].name, "TESTENUM_FOO")
+    XCTAssertEqual(filtered[3].name, "_FOO")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo_0")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "foo_2")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "foo_n1")
   }
 
-  func testRelativeName_enumValue_NameCollisionsAndAliasMatches() {
+  func testEnumValueHandling_NameCollisionsAndAliasMatches() {
     let txt = [
       "name: \"test.proto\"",
       "syntax: \"proto2\"",
@@ -175,11 +205,27 @@ class Test_SwiftProtobufNamer: XCTestCase {
     let values = e.values
     XCTAssertEqual(values.count, 6)
 
+    // Test relativeName(enumValue:)
+
     XCTAssertEqual(namer.relativeName(enumValue: values[0]), "foo_0")
     XCTAssertEqual(namer.relativeName(enumValue: values[1]), "bar")
     XCTAssertEqual(namer.relativeName(enumValue: values[2]), "foo_0")
     XCTAssertEqual(namer.relativeName(enumValue: values[3]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: values[4]), "foo_2")
     XCTAssertEqual(namer.relativeName(enumValue: values[5]), "alias")
+
+    // Test uniquelyNamedValues(enum:)
+
+    let filtered = namer.uniquelyNamedValues(enum: e)
+    XCTAssertEqual(filtered.count, 4)
+
+    XCTAssertEqual(filtered[0].name, "TEST_ENUM_FOO")
+    XCTAssertEqual(filtered[1].name, "TEST_ENUM_BAR")
+    XCTAssertEqual(filtered[2].name, "_FOO")
+    XCTAssertEqual(filtered[3].name, "TEST_ENUM_ALIAS")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[0]), "foo_0")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[1]), "bar")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[2]), "foo_2")
+    XCTAssertEqual(namer.relativeName(enumValue: filtered[3]), "alias")
   }
 }
