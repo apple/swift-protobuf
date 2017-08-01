@@ -70,10 +70,10 @@ private func fromHexDigit(_ c: UInt8) -> UInt8? {
     return c - asciiZero
   }
   if c >= asciiUpperA && c <= asciiUpperF {
-      return c - asciiUpperA + 10
+      return c - asciiUpperA + UInt8(10)
   }
   if c >= asciiLowerA && c <= asciiLowerF {
-      return c - asciiLowerA + 10
+      return c - asciiLowerA + UInt8(10)
   }
   return nil
 }

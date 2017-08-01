@@ -65,7 +65,7 @@ private let asciiUpperZ = UInt8(ascii: "Z")
 private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
   let n = c.value
   if n >= 48 && n <= 57 {
-    return n - 48
+    return UInt32(n - 48)
   }
   switch n {
   case 65, 97: return 10
