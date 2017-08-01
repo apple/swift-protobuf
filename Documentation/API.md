@@ -93,10 +93,46 @@ public struct Example: SwiftProtobuf.Message {
 func ==(lhs: Example, rhs: Example) -> Bool
 ```
 
-The name of the generated struct is usually copied from the name of
-the message in the proto file.
-If that name would cause a problem with the generated Swift code,
-the word `Message` will be appended to the name.
+### Generated struct name
+
+The name of generated struct is based on the name of the
+message in the proto file.
+
+For top-level messages, the name is prefixed with the proto package
+name as specified in any `package` statements.  The name is converted
+to camel case with underscore separators to preserve the structure.
+
+For example,
+```protobuf
+   syntax = "proto3";
+   package my_company.cool_project;
+   message FooBar {
+      ...
+      message Baz {
+         ...
+      }
+   }
+```
+will by default generate a struct named `MyCompany_CoolProject_FooBar`
+with another `Baz` struct nested inside it.
+Note that `Baz` is not prefixed.
+
+You can change the prefix with the `option swift_prefix` statement
+in your proto file:
+```protobuf
+   syntax = "proto3";
+   package my_company.cool_project;
+   option swift_prefix="My";
+   message VeryImportant {
+      ...
+   }
+```
+will generate a struct named `MyFooBar`.
+(Note: `swift_prefix` is only supported by protoc 3.2 or later.)
+
+If the resulting name would collide with a Swift reserved word
+or would otherwise cause problems in the generated code,
+then the word `Message` is appended to the name.
 For example, a `message Int` in the proto file will cause the
 generator to emit a `struct IntMessage` to the generated Swift file.
 
@@ -125,7 +161,10 @@ want to override the default generated behavior for any reason:
 Proto enums are translated to Swift enums in a fairly straightforward manner.
 The resulting Swift enums conform to the `SwiftProtobuf.Enum` protocol which extends
 `RawRepresentable` with a `RawValue` of `Int`.
-The name of the Swift enum is copied directly from the name in the proto file.
+
+The name of the Swift enum is copied directly from the name in the proto file,
+prefixed with the package name or the name from `option swift_prefix`
+as documented above for messages.
 If that name would cause problems for the generated code, the word `Enum` will
 be appended to the name.
 
