@@ -565,7 +565,7 @@ with non-protobuf JSON implementations, but means that you
 cannot translate between binary and JSON encodings without
 having the type information available.
 If you need to translate objects between binary and JSON
-encodings, you should carefully read to documentation
+encodings, you should carefully read the documentation
 comments for `Google_Protobuf_Any.register()` which explains
 how to make your custom types available to the decode/encode machinery
 for this purpose.
