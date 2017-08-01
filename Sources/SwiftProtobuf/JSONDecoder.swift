@@ -464,7 +464,7 @@ internal struct JSONDecoder: Decoder {
       value = nil
       return
     }
-    value = try scanner.nextEnumValue()
+    value = try scanner.nextEnumValue() as E
   }
 
   mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws
