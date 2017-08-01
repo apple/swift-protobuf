@@ -367,7 +367,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         assertJSONDecodeFails("{\"singleUint64\":01}")
         assertJSONDecodeFails("{\"singleUint64\":\"01\"}")
         // But it does accept exponential (as long as result is integral)
-        assertJSONDecodeSucceeds("{\"singleUint64\":4.294967295e9}") {$0.singleUint64 == UInt32.max}
+        assertJSONDecodeSucceeds("{\"singleUint64\":4.294967295e9}") {$0.singleUint64 == UInt64(UInt32.max)}
         assertJSONDecodeSucceeds("{\"singleUint64\":1e3}") {$0.singleUint64 == 1000}
         assertJSONDecodeSucceeds("{\"singleUint64\":1.2e3}") {$0.singleUint64 == 1200}
         assertJSONDecodeSucceeds("{\"singleUint64\":1000e-2}") {$0.singleUint64 == 10}
