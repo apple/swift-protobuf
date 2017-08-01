@@ -123,7 +123,7 @@ in your proto file:
    syntax = "proto3";
    package my_company.cool_project;
    option swift_prefix="My";
-   message VeryImportant {
+   message FooBar {
       ...
    }
 ```
