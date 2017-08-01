@@ -12,6 +12,22 @@ import Foundation
 import XCTest
 import SwiftProtobuf
 
+#if !swift(>=3.1)
+// Xcode 8.1 had Swift 3.0, and that version of XCTest doesn't have
+// XCTAssertNoThrow, so shim it so the tests can build/run there.
+fileprivate func XCTAssertNoThrow(
+  _ expression: @autoclosure () throws -> Void,
+  file: StaticString = #file,
+  line: UInt = #line
+) {
+  do {
+    try expression()
+  } catch let e {
+    XCTFail("Should not have thrown: \(e)", file: file, line: line)
+  }
+}
+#endif
+
 class Test_BinaryDelimited: XCTestCase {
 
   func testEverything() {
