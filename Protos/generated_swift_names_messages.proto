@@ -60,6 +60,7 @@ message GeneratedSwiftReservedMessages {
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
   message com { int32 com = 1; }
+  message comma { int32 comma = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
   message customCodable { int32 customCodable = 1; }

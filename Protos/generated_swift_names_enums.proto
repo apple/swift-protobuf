@@ -60,6 +60,7 @@ message GeneratedSwiftReservedEnums {
   enum codeUnits { NONE_codeUnits = 0; }
   enum Collection { NONE_Collection = 0; }
   enum com { NONE_com = 0; }
+  enum comma { NONE_comma = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
   enum customCodable { NONE_customCodable = 0; }

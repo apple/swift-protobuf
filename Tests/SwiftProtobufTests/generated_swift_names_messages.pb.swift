@@ -1932,6 +1932,40 @@ struct ProtobufUnittest_GeneratedSwiftReservedMessages: SwiftProtobuf.Message {
     }
   }
 
+  struct comma: SwiftProtobuf.Message {
+    static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".comma"
+
+    var comma: Int32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+    /// initializers are defined in the SwiftProtobuf library. See the Message and
+    /// Message+*Additions` files.
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &self.comma)
+        default: break
+        }
+      }
+    }
+
+    /// Used by the encoding methods of the SwiftProtobuf library, not generally
+    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+    /// other serializer methods are defined in the SwiftProtobuf library. See the
+    /// `Message` and `Message+*Additions` files.
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+      if self.comma != 0 {
+        try visitor.visitSingularInt32Field(value: self.comma, fieldNumber: 1)
+      }
+      try unknownFields.traverse(visitor: &visitor)
+    }
+  }
+
   struct contentsOf: SwiftProtobuf.Message {
     static let protoMessageName: String = ProtobufUnittest_GeneratedSwiftReservedMessages.protoMessageName + ".contentsOf"
 
@@ -21332,6 +21366,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedMessages.com: SwiftProtobuf._Me
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.com) -> Bool {
     if self.com != other.com {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedMessages.comma: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "comma"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedMessages.comma) -> Bool {
+    if self.comma != other.comma {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
