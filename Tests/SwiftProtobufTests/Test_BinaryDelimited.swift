@@ -15,7 +15,7 @@ import SwiftProtobuf
 class Test_BinaryDelimited: XCTestCase {
 
   func testEverything() {
-#if swift(>=3.1) || os(OSX) || os(iOS)
+#if swift(>=3.1)
     // Don't need to test encode/decode since there are plenty of tests specific to that,
     // just test the delimited behaviors.
 
