@@ -838,12 +838,10 @@ internal struct TextFormatScanner {
         if p == end {
             throw TextFormatDecodingError.malformedText
         }
-        let start = p
         switch p[0] {
         case asciiLowerA...asciiLowerZ, asciiUpperA...asciiUpperZ:
             return parseUTF8Identifier()
         default:
-            p = start
             return nil
         }
     }
