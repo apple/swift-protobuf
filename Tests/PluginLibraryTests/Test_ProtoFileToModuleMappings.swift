@@ -26,15 +26,7 @@ extension ProtoFileToModuleMappings.LoadError: Equatable {
 
 // Helpers to make test cases.
 
-typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
-
-extension Google_Protobuf_FileDescriptorProto {
-  init(name: String, dependencies: [String] = []) {
-    self.init()
-    self.name = name
-    dependency = dependencies
-  }
-}
+fileprivate typealias FileDescriptorProto = Google_Protobuf_FileDescriptorProto
 
 class Test_ProtoFileToModuleMappings: XCTestCase {
 

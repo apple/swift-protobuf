@@ -326,63 +326,61 @@ public enum NamingUtils {
     return prefix + "_"
   }
 
-  /// Remove the proto prefix from the given string.  A proto prefix means
-  /// underscores and letter case are ignored.
-  ///
-  /// - Precodition: The two strings must only be 7bit ascii.
-  ///
-  /// - Returns: nil if nothing can be stripped, otherwise returns the stripping
-  ///            string.
-  static func strip(protoPrefix prefix: String, from: String) -> String? {
-    let prefixChars = prefix.lowercased().unicodeScalars
-    precondition(prefixChars.count == prefix.lengthOfBytes(using: .ascii))
-    var prefixIndex = prefixChars.startIndex
-    let prefixEnd = prefixChars.endIndex
+  /// Helper a proto prefix from strings.  A proto prefix means underscores
+  /// and letter case are ignored.
+  struct PrefixStripper {
+    private let prefixChars: String.UnicodeScalarView
 
-    let fromChars = from.lowercased().unicodeScalars
-    precondition(fromChars.count == from.lengthOfBytes(using: .ascii))
-    var fromIndex = fromChars.startIndex
-    let fromEnd = fromChars.endIndex
+    init(prefix: String) {
+      self.prefixChars = prefix.lowercased().replacingOccurrences(of: "_", with: "").unicodeScalars
+    }
 
-    while (prefixIndex != prefixEnd) {
-      if (fromIndex == fromEnd) {
-        // Reached the end of the string while still having prefix to go
-        // nothing to strip.
-        return nil
-      }
+    /// Strip the prefix and return the result, or return nil if it can't
+    /// be stripped.
+    func strip(from: String) -> String? {
+      var prefixIndex = prefixChars.startIndex
+      let prefixEnd = prefixChars.endIndex
 
-      if prefixChars[prefixIndex] == "_" {
+      let fromChars = from.lowercased().unicodeScalars
+      precondition(fromChars.count == from.lengthOfBytes(using: .ascii))
+      var fromIndex = fromChars.startIndex
+      let fromEnd = fromChars.endIndex
+
+      while (prefixIndex != prefixEnd) {
+        if (fromIndex == fromEnd) {
+          // Reached the end of the string while still having prefix to go
+          // nothing to strip.
+          return nil
+        }
+
+        if fromChars[fromIndex] == "_" {
+          fromIndex = fromChars.index(after: fromIndex)
+          continue
+        }
+
+        if prefixChars[prefixIndex] != fromChars[fromIndex] {
+          // They differed before the end of the prefix, can't drop.
+          return nil
+        }
+
         prefixIndex = prefixChars.index(after: prefixIndex)
-        continue
-      }
-
-      if fromChars[fromIndex] == "_" {
         fromIndex = fromChars.index(after: fromIndex)
-        continue
       }
 
-      if prefixChars[prefixIndex] != fromChars[fromIndex] {
-        // They differed before the end of the prefix, can't drop.
+      // Remove any more underscores.
+      while fromIndex != fromEnd && fromChars[fromIndex] == "_" {
+        fromIndex = fromChars.index(after: fromIndex)
+      }
+
+      if fromIndex == fromEnd {
+        // They matched, can't strip.
         return nil
       }
 
-      prefixIndex = prefixChars.index(after: prefixIndex)
-      fromIndex = fromChars.index(after: fromIndex)
+      let count = fromChars.distance(from: fromChars.startIndex, to: fromIndex)
+      let idx = from.index(from.startIndex, offsetBy: count)
+      return from[idx..<from.endIndex]
     }
-
-    // Remove any more underscores.
-    while fromIndex != fromEnd && fromChars[fromIndex] == "_" {
-      fromIndex = fromChars.index(after: fromIndex)
-    }
-
-    if fromIndex == fromEnd {
-      // They matched, can't strip.
-      return nil
-    }
-
-    let count = fromChars.distance(from: fromChars.startIndex, to: fromIndex)
-    let idx = from.index(from.startIndex, offsetBy: count)
-    return from[idx..<from.endIndex]
   }
 
   static func sanitize(messageName s: String) -> String {

@@ -21,7 +21,7 @@ extension Test_Descriptor {
 extension Test_NamingUtils {
     static var allTests = [
         ("testTypePrefix", testTypePrefix),
-        ("testStrip_protoPrefix", testStrip_protoPrefix),
+        ("testPrefixStripper_strip", testPrefixStripper_strip),
         ("testSanitize_messageName", testSanitize_messageName),
         ("testSanitize_enumName", testSanitize_enumName),
         ("testSanitize_oneofName", testSanitize_oneofName),
@@ -45,6 +45,14 @@ extension Test_SwiftLanguage {
     static var allTests = [
         ("testIsValidSwiftIdentifier", testIsValidSwiftIdentifier),
         ("testIsNotValidSwiftIdentifier", testIsNotValidSwiftIdentifier)
+    ]
+}
+
+extension Test_SwiftProtobufNamer {
+    static var allTests = [
+        ("testEnumValueHandling_AliasNameMatches", testEnumValueHandling_AliasNameMatches),
+        ("testEnumValueHandling_NameCollisions", testEnumValueHandling_NameCollisions),
+        ("testEnumValueHandling_NameCollisionsAndAliasMatches", testEnumValueHandling_NameCollisionsAndAliasMatches)
     ]
 }
 
@@ -1089,6 +1097,7 @@ XCTMain(
         testCase(Test_NamingUtils.allTests),
         testCase(Test_ProtoFileToModuleMappings.allTests),
         testCase(Test_SwiftLanguage.allTests),
+        testCase(Test_SwiftProtobufNamer.allTests),
         testCase(Test_AllTypes.allTests),
         testCase(Test_AllTypes_Proto3.allTests),
         testCase(Test_Any.allTests),
