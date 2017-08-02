@@ -54,8 +54,10 @@ private let asciiUpperE = UInt8(ascii: "E")
 private let asciiLowerF = UInt8(ascii: "f")
 private let asciiUpperF = UInt8(ascii: "F")
 private let asciiLowerI = UInt8(ascii: "i")
+private let asciiLowerL = UInt8(ascii: "l")
 private let asciiLowerN = UInt8(ascii: "n")
 private let asciiLowerR = UInt8(ascii: "r")
+private let asciiLowerS = UInt8(ascii: "s")
 private let asciiLowerT = UInt8(ascii: "t")
 private let asciiUpperT = UInt8(ascii: "T")
 private let asciiLowerU = UInt8(ascii: "u")
@@ -720,6 +722,28 @@ internal struct TextFormatScanner {
         return d
     }
 
+    private mutating func skipOptionalKeywordCaseSensitive(bytes: [UInt8]) -> Bool {
+        let start = p
+        for b in bytes {
+            if p == end || p[0] != b{
+                p = start
+                return false
+            }
+            p += 1
+        }
+        if p == end {
+            return true
+        }
+        let c = p[0]
+        if ((c >= asciiUpperA && c <= asciiUpperZ)
+            || (c >= asciiLowerA && c <= asciiLowerZ)) {
+            p = start
+            return false
+        }
+        skipWhitespace()
+        return true
+    }
+
     private mutating func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
         let start = p
         for b in bytes {
@@ -817,15 +841,27 @@ internal struct TextFormatScanner {
             throw TextFormatDecodingError.malformedText
         }
         let c = p[0]
+        p += 1
         switch c {
-        case asciiZero, asciiOne, asciiLowerF, asciiUpperF, asciiLowerT, asciiUpperT:
-            switch parseIdentifier() {
-            case "0", "f", "false", "False":
+        case asciiZero:
+            return false
+        case asciiOne:
+            return true
+        case asciiLowerF, asciiUpperF:
+            let alse = [asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE]
+            if p == end
+               || skipOptionalKeywordCaseSensitive(bytes: alse)
+               || ((p[0] < asciiUpperA || p[0] > asciiUpperZ)
+                   && (p[0] < asciiLowerA || p[0] > asciiLowerZ)) {
                 return false
-            case "1", "t", "true", "True":
+            }
+        case asciiLowerT, asciiUpperT:
+            let rue = [asciiLowerR, asciiLowerU, asciiLowerE]
+            if p == end
+               || skipOptionalKeywordCaseSensitive(bytes: rue)
+               || ((p[0] < asciiUpperA || p[0] > asciiUpperZ)
+                   && (p[0] < asciiLowerA || p[0] > asciiLowerZ)) {
                 return true
-            default:
-                break
             }
         default:
             break
