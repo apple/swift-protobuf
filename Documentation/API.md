@@ -236,11 +236,7 @@ enum TestEnum {
 }
 ```
 
-Note #1: As explained in the protobuf language guide,
-negative enum values are encoded less efficiently than
-positive values and are therefore not recommended.
-
-Note #2: Enum aliases can potentially result in conflicting names
+Note #1: Enum aliases can potentially result in conflicting names
 even after appending the case numeric value.
 Since aliases are only supported to provide alternate names for
 the same underlying numeric value, SwiftProtobuf simply drops
@@ -248,7 +244,7 @@ the alias in such cases.
 See the protobuf documentation for `allow_alias` for more information
 about enum case aliases.
 
-Note #3: In most cases where an enum case name might conflict with a
+Note #2: In most cases where an enum case name might conflict with a
 Swift reserved word, or otherwise cause problems, the code generator
 will protect the enum case name by surrounding it with backticks.
 In the few cases where this is insufficient, the code generator
