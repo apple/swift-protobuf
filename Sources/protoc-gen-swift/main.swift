@@ -140,6 +140,18 @@ struct GeneratorPlugin {
       return 1
     }
 
+    // Support for loggin the request. Useful when protoc/protoc-gen-swift are
+    // being invoked from some build system/script. protoc-gen-swift supports
+    // loading a request as a command line argument to simplify debugging/etc.
+    if let dumpPath = ProcessInfo.processInfo.environment["PROTOC_GEN_SWIFT_LOG_REQUEST"], !dumpPath.isEmpty {
+      let dumpURL = URL(fileURLWithPath: dumpPath)
+      do {
+        try requestData.write(to: dumpURL)
+      } catch let e {
+        Stderr.print("Failed to write request to '\(dumpPath)', \(e)")
+      }
+    }
+
     let request: Google_Protobuf_Compiler_CodeGeneratorRequest
     do {
       request = try Google_Protobuf_Compiler_CodeGeneratorRequest(serializedData: requestData)
