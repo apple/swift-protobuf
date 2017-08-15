@@ -11,10 +11,12 @@
 import PluginLibrary
 
 extension Google_Protobuf_FileDescriptorProto {
-  init(name: String, dependencies: [String] = []) {
+  init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = []) {
+    for idx in publicDependencies { precondition(Int(idx) <= dependencies.count) }
     self.init()
     self.name = name
     dependency = dependencies
+    publicDependency = publicDependencies
   }
   init(textFormatStrings: [String]) throws {
     let s = textFormatStrings.joined(separator: "\n") + "\n"

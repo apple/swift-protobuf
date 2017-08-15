@@ -79,9 +79,9 @@ public final class FileDescriptor {
 
   public let syntax: Syntax
 
-  public var dependencies: [String] { return proto.dependency }
-  public var publicDependencies: [String] { return proto.publicDependency.map { dependencies[Int($0)] } }
-  public var weakDependencies: [String] { return proto.weakDependency.map { dependencies[Int($0)] } }
+  public let dependencies: [FileDescriptor]
+  public var publicDependencies: [FileDescriptor] { return proto.publicDependency.map { dependencies[Int($0)] } }
+  public var weakDependencies: [FileDescriptor] { return proto.weakDependency.map { dependencies[Int($0)] } }
 
   public let enums: [EnumDescriptor]
   public let messages: [Descriptor]
@@ -115,6 +115,11 @@ public final class FileDescriptor {
     self.services = proto.service.enumeratedMap {
       return ServiceDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
+
+    // The compiler ensures there aren't cycles between a file and dependencies, so
+    // this doesn't run the risk of creating any retain cycles that would force these
+    // to have to be weak.
+    self.dependencies = proto.dependency.map { return registry.fileDescriptor(name: $0) }
 
     // Done initializing, register ourselves.
     registry.register(file: self)
