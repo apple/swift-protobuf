@@ -96,6 +96,28 @@ public struct ProtoFileToModuleMappings {
       }
     }
 
+    // Protocol Buffers has the concept of "public imports", these are imports
+    // into a file that expose everything from within the file to the new
+    // context. From the docs -
+    // https://developers.google.com/protocol-buffers/docs/proto#importing-definitions
+    //   `import public` dependencies can be transitively relied upon by anyone
+    //    importing the proto containing the import public statement.
+    // To properly expose the types for use, it means in each file, the public imports
+    // from the dependencies have to be hoisted and also imported.
+    var visited = Set<String>()
+    var toScan = file.dependencies
+    while let dep = toScan.popLast() {
+      for pubDep in dep.publicDependencies {
+        let pubDepName = pubDep.name
+        if visited.contains(pubDepName) { continue }
+        visited.insert(pubDepName)
+        toScan.append(pubDep)
+        if let pubDepModule = mappings[pubDepName] {
+          collector.insert(pubDepModule)
+        }
+      }
+    }
+
     if let moduleForThisFile = mappings[file.name] {
       collector.remove(moduleForThisFile)
     }

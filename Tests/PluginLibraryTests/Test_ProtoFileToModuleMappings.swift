@@ -207,4 +207,99 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
     }
   }
 
+  func test_neededModules_forFile_PublicImports() {
+    // See the note in neededModules(forFile:) about how public import complicate things.
+
+    // Given:
+    //
+    //  + File: a.proto
+    //    message A {}
+    //
+    //  + File: imports_a_publicly.proto
+    //    import public "a.proto";
+    //
+    //    message ImportsAPublicly {
+    //      A a = 1;
+    //    }
+    //
+    //  + File: imports_imports_a_publicly.proto
+    //    import public "imports_a_publicly.proto";
+    //
+    //    message ImportsImportsAPublicly {
+    //      A a = 1;
+    //    }
+    //
+    //  + File: uses_a_transitively.proto
+    //    import "imports_a_publicly.proto";
+    //
+    //    message UsesATransitively {
+    //      A a = 1;
+    //    }
+    //
+    //  + File: uses_a_transitively2.proto
+    //    import "imports_imports_a_publicly.proto";
+    //
+    //    message UsesATransitively2 {
+    //      A a = 1;
+    //    }
+    //
+    // With a mapping file of:
+    //
+    //    mapping {
+    //      module_name: "A"
+    //      proto_file_path: "a.proto"
+    //    }
+    //    mapping {
+    //      module_name: "ImportsAPublicly"
+    //      proto_file_path: "imports_a_publicly.proto"
+    //    }
+    //    mapping {
+    //      module_name: "ImportsImportsAPublicly"
+    //      proto_file_path: "imports_imports_a_publicly.proto"
+    //    }
+
+    let configText = [
+      "mapping { module_name: \"A\", proto_file_path: \"a.proto\" }",
+      "mapping { module_name: \"ImportsAPublicly\", proto_file_path: \"imports_a_publicly.proto\" }",
+      "mapping { module_name: \"ImportsImportsAPublicly\", proto_file_path: \"imports_imports_a_publicly.proto\" }",
+    ].joined(separator: "\n")
+
+    let config = try! SwiftProtobuf_GenSwift_ModuleMappings(textFormatString: configText)
+    let mapper = try! ProtoFileToModuleMappings(moduleMappingsProto: config)
+
+    let fileProtos = [
+      FileDescriptorProto(name: "a.proto"),
+      FileDescriptorProto(name: "imports_a_publicly.proto",
+                          dependencies: ["a.proto"],
+                          publicDependencies: [0]),
+      FileDescriptorProto(name: "imports_imports_a_publicly.proto",
+                          dependencies: ["imports_a_publicly.proto"],
+                          publicDependencies: [0]),
+      FileDescriptorProto(name: "uses_a_transitively.proto",
+                          dependencies: ["imports_a_publicly.proto"]),
+      FileDescriptorProto(name: "uses_a_transitively2.proto",
+                          dependencies: ["imports_imports_a_publicly.proto"]),
+    ]
+    let descSet = DescriptorSet(protos: fileProtos)
+
+    // ( filename, [deps] )
+    let tests: [(String, [String]?)] = [
+      ( "a.proto", nil ),
+      ( "imports_a_publicly.proto", ["A"] ),
+      ( "imports_imports_a_publicly.proto", ["A", "ImportsAPublicly"] ),
+      ( "uses_a_transitively.proto", ["A", "ImportsAPublicly"] ),
+      ( "uses_a_transitively2.proto", ["A", "ImportsAPublicly", "ImportsImportsAPublicly"] ),
+      ]
+
+    for (name, expected) in tests {
+      let fileDesc = descSet.files.filter{ $0.name == name }.first!
+      let result = mapper.neededModules(forFile: fileDesc)
+      if let expected = expected {
+        XCTAssertEqual(result!, expected, "Looking for \(name)")
+      } else {
+        XCTAssertNil(result, "Looking for \(name)")
+      }
+    }
+  }
+
 }
