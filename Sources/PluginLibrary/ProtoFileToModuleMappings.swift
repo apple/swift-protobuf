@@ -90,8 +90,8 @@ public struct ProtoFileToModuleMappings {
 
     var collector = Set<String>()
 
-    for dependencyName in file.dependencies {
-      if let depModule = mappings[dependencyName] {
+    for dependency in file.dependencies {
+      if let depModule = mappings[dependency.name] {
         collector.insert(depModule)
       }
     }

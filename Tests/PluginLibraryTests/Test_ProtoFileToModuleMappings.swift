@@ -179,6 +179,7 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
 
     let fileProtos = [
       FileDescriptorProto(name: "file"),
+      FileDescriptorProto(name: "google/protobuf/any.proto"),
       FileDescriptorProto(name: "dir1/file", dependencies: ["file"]),
       FileDescriptorProto(name: "dir2/file", dependencies: ["google/protobuf/any.proto"]),
       FileDescriptorProto(name: "file4", dependencies: ["dir2/file", "dir1/file", "file"]),
