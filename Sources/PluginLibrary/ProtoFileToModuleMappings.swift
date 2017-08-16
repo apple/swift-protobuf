@@ -62,11 +62,15 @@ public struct ProtoFileToModuleMappings {
       }
       for path in mapping.protoFilePath {
         if let existing = builder[path] {
-          throw LoadError.duplicateProtoPathMapping(path: path,
-                                                    firstModule: existing,
-                                                    secondModule: mapping.moduleName)
+          if existing != mapping.moduleName {
+            throw LoadError.duplicateProtoPathMapping(path: path,
+                                                      firstModule: existing,
+                                                      secondModule: mapping.moduleName)
+          }
+          // Was a repeat, just allow it.
+        } else {
+          builder[path] = mapping.moduleName
         }
-        builder[path] = mapping.moduleName
       }
     }
     self.mappings = builder

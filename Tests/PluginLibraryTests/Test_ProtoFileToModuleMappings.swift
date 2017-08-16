@@ -51,6 +51,14 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
       // Two mapping {}, different modules.
       ("mapping { module_name: \"one\", proto_file_path: \"a\" }\n" +
        "mapping { module_name: \"two\", proto_file_path: \"b\" }", 2, 2),
+
+      // Same file listed twice; odd, but ok since no conflict.
+      ("mapping { module_name: \"foo\", proto_file_path: [\"abc\", \"abc\"] }", 1, 1),
+
+      // Same module/file listing; odd, but ok since no conflict.
+      ("mapping { module_name: \"foo\", proto_file_path: [\"mno\", \"abc\"] }\n" +
+       "mapping { module_name: \"foo\", proto_file_path: [\"abc\", \"xyz\"] }", 3, 1),
+
     ]
 
     for (idx, (configText, expectMappings, expectedModules)) in tests.enumerated() {
@@ -101,16 +109,9 @@ class Test_ProtoFileToModuleMappings: XCTestCase {
 
       // Duplicates
 
-      ("mapping { module_name: \"foo\", proto_file_path: [\"abc\", \"abc\"] }",
-       .duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "foo")),
-
       ("mapping { module_name: \"foo\", proto_file_path: \"abc\" }\n" +
        "mapping { module_name: \"bar\", proto_file_path: \"abc\" }",
        .duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "bar")),
-
-      ("mapping { module_name: \"foo\", proto_file_path: \"abc\" }\n" +
-       "mapping { module_name: \"foo\", proto_file_path: \"abc\" }",
-       .duplicateProtoPathMapping(path: "abc", firstModule: "foo", secondModule: "foo")),
 
       ("mapping { module_name: \"foo\", proto_file_path: \"abc\" }\n" +
        "mapping { module_name: \"bar\", proto_file_path: \"xyz\" }\n" +
