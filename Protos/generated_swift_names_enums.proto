@@ -63,6 +63,7 @@ message GeneratedSwiftReservedEnums {
   enum comma { NONE_comma = 0; }
   enum contentsOf { NONE_contentsOf = 0; }
   enum count { NONE_count = 0; }
+  enum countVarintsInBuffer { NONE_countVarintsInBuffer = 0; }
   enum customCodable { NONE_customCodable = 0; }
   enum CustomDebugStringConvertible { NONE_CustomDebugStringConvertible = 0; }
   enum d { NONE_d = 0; }
@@ -269,6 +270,7 @@ message GeneratedSwiftReservedEnums {
   enum intern { NONE_intern = 0; }
   enum Internal { NONE_Internal = 0; }
   enum InternalState { NONE_InternalState = 0; }
+  enum ints { NONE_ints = 0; }
   enum isA { NONE_isA = 0; }
   enum isEqual { NONE_isEqual = 0; }
   enum isEqualTo { NONE_isEqualTo = 0; }
