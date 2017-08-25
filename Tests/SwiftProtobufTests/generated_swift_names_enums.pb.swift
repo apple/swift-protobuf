@@ -1503,6 +1503,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum countVarintsInBuffer: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneCountVarintsInBuffer // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCountVarintsInBuffer
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCountVarintsInBuffer
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCountVarintsInBuffer: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum customCodable: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneCustomCodable // = 0
@@ -6647,6 +6672,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneInternalState: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum ints: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneInts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneInts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneInts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneInts: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -15590,6 +15640,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.count: SwiftProtobuf._Pro
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.countVarintsInBuffer: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_countVarintsInBuffer"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.customCodable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_customCodable"),
@@ -16823,6 +16879,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.Internal: SwiftProtobuf._
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.InternalState: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_InternalState"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.ints: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ints"),
   ]
 }
 
