@@ -477,4 +477,23 @@ public enum NamingUtils {
     return s.replacingOccurrences(of: ".", with: "_")
   }
 
+  /// This must be exactly the same as the corresponding code in the
+  /// SwiftProtobuf library.  Changing it will break compatibility of
+  /// the generated code with old library version.
+  public static func toJsonFieldName(_ s: String) -> String {
+    var result = String.UnicodeScalarView()
+    var capitalizeNext = false
+
+    for c in s.unicodeScalars {
+      if c == "_" {
+        capitalizeNext = true
+      } else if capitalizeNext {
+        result.append(c.uppercased())
+        capitalizeNext = false
+      } else {
+        result.append(c)
+      }
+    }
+    return String(result)
+  }
 }
