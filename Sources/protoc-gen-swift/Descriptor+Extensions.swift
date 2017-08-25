@@ -105,7 +105,7 @@ extension FieldDescriptor {
     if label == .repeated {  // Covers both Arrays and Maps
       return false
     }
-    if oneof != nil {
+    if oneofIndex != nil {
       // When in a oneof, no presence is provided.
       return false
     }
