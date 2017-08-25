@@ -356,37 +356,57 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     public static let protoMessageName: String = Google_Protobuf_DescriptorProto.protoMessageName + ".ExtensionRange"
 
     public var start: Int32 {
-      get {return _start ?? 0}
-      set {_start = newValue}
+      get {return _storage._start ?? 0}
+      set {_uniqueStorage()._start = newValue}
     }
     /// Returns true if `start` has been explicitly set.
-    public var hasStart: Bool {return self._start != nil}
+    public var hasStart: Bool {return _storage._start != nil}
     /// Clears the value of `start`. Subsequent reads from it will return its default value.
-    public mutating func clearStart() {self._start = nil}
+    public mutating func clearStart() {_storage._start = nil}
 
     public var end: Int32 {
-      get {return _end ?? 0}
-      set {_end = newValue}
+      get {return _storage._end ?? 0}
+      set {_uniqueStorage()._end = newValue}
     }
     /// Returns true if `end` has been explicitly set.
-    public var hasEnd: Bool {return self._end != nil}
+    public var hasEnd: Bool {return _storage._end != nil}
     /// Clears the value of `end`. Subsequent reads from it will return its default value.
-    public mutating func clearEnd() {self._end = nil}
+    public mutating func clearEnd() {_storage._end = nil}
+
+    public var options: Google_Protobuf_ExtensionRangeOptions {
+      get {return _storage._options ?? Google_Protobuf_ExtensionRangeOptions()}
+      set {_uniqueStorage()._options = newValue}
+    }
+    /// Returns true if `options` has been explicitly set.
+    public var hasOptions: Bool {return _storage._options != nil}
+    /// Clears the value of `options`. Subsequent reads from it will return its default value.
+    public mutating func clearOptions() {_storage._options = nil}
 
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
+
+    public var isInitialized: Bool {
+      return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._options, !v.isInitialized {return false}
+        return true
+      }
+    }
 
     /// Used by the decoding initializers in the SwiftProtobuf library, not generally
     /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
     /// initializers are defined in the SwiftProtobuf library. See the Message and
     /// Message+*Additions` files.
     public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularInt32Field(value: &self._start)
-        case 2: try decoder.decodeSingularInt32Field(value: &self._end)
-        default: break
+      _ = _uniqueStorage()
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        while let fieldNumber = try decoder.nextFieldNumber() {
+          switch fieldNumber {
+          case 1: try decoder.decodeSingularInt32Field(value: &_storage._start)
+          case 2: try decoder.decodeSingularInt32Field(value: &_storage._end)
+          case 3: try decoder.decodeSingularMessageField(value: &_storage._options)
+          default: break
+          }
         }
       }
     }
@@ -396,17 +416,21 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
     /// other serializer methods are defined in the SwiftProtobuf library. See the
     /// `Message` and `Message+*Additions` files.
     public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._start {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-      }
-      if let v = self._end {
-        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+        if let v = _storage._start {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+        }
+        if let v = _storage._end {
+          try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+        }
+        if let v = _storage._options {
+          try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+        }
       }
       try unknownFields.traverse(visitor: &visitor)
     }
 
-    fileprivate var _start: Int32? = nil
-    fileprivate var _end: Int32? = nil
+    fileprivate var _storage = _StorageClass.defaultInstance
   }
 
   /// Range of reserved tag numbers. Reserved tag numbers may not be used by
@@ -479,6 +503,7 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._extension) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._nestedType) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._enumType) {return false}
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._extensionRange) {return false}
       if !SwiftProtobuf.Internal.areAllInitialized(_storage._oneofDecl) {return false}
       if let v = _storage._options, !v.isInitialized {return false}
       return true
@@ -551,6 +576,52 @@ public struct Google_Protobuf_DescriptorProto: SwiftProtobuf.Message {
   }
 
   fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+public struct Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf.Message, SwiftProtobuf.ExtensibleMessage {
+  public static let protoMessageName: String = _protobuf_package + ".ExtensionRangeOptions"
+
+  /// The parser stores options it doesn't recognize here. See above.
+  public var uninterpretedOption: [Google_Protobuf_UninterpretedOption] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  public var isInitialized: Bool {
+    if !_protobuf_extensionFieldValues.isInitialized {return false}
+    if !SwiftProtobuf.Internal.areAllInitialized(self.uninterpretedOption) {return false}
+    return true
+  }
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 999: try decoder.decodeRepeatedMessageField(value: &self.uninterpretedOption)
+      case 1000..<536870912:
+        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: Google_Protobuf_ExtensionRangeOptions.self, fieldNumber: fieldNumber)
+      default: break
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.uninterpretedOption.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.uninterpretedOption, fieldNumber: 999)
+    }
+    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 1000, end: 536870912)
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public var _protobuf_extensionFieldValues = SwiftProtobuf.ExtensionFieldValueSet()
 }
 
 /// Describes a field within a message.
@@ -1869,13 +1940,15 @@ public struct Google_Protobuf_FieldOptions: SwiftProtobuf.Message, SwiftProtobuf
 
   /// The jstype option determines the JavaScript type used for values of the
   /// field.  The option is permitted only for 64 bit integral and fixed types
-  /// (int64, uint64, sint64, fixed64, sfixed64).  By default these types are
-  /// represented as JavaScript strings.  This avoids loss of precision that can
-  /// happen when a large value is converted to a floating point JavaScript
-  /// numbers.  Specifying JS_NUMBER for the jstype causes the generated
-  /// JavaScript code to use the JavaScript "number" type instead of strings.
-  /// This option is an enum to permit additional types to be added,
-  /// e.g. goog.math.Integer.
+  /// (int64, uint64, sint64, fixed64, sfixed64).  A field with jstype JS_STRING
+  /// is represented as JavaScript string, which avoids loss of precision that
+  /// can happen when a large value is converted to a floating point JavaScript.
+  /// Specifying JS_NUMBER for the jstype causes the generated JavaScript code to
+  /// use the JavaScript "number" type.  The behavior of the default option
+  /// JS_NORMAL is implementation dependent.
+  ///
+  /// This option is an enum to permit additional types to be added, e.g.
+  /// goog.math.Integer.
   public var jstype: Google_Protobuf_FieldOptions.JSType {
     get {return _jstype ?? .jsNormal}
     set {_jstype = newValue}
@@ -3183,11 +3256,44 @@ extension Google_Protobuf_DescriptorProto.ExtensionRange: SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "start"),
     2: .same(proto: "end"),
+    3: .same(proto: "options"),
   ]
 
+  fileprivate class _StorageClass {
+    var _start: Int32? = nil
+    var _end: Int32? = nil
+    var _options: Google_Protobuf_ExtensionRangeOptions? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _start = source._start
+      _end = source._end
+      _options = source._options
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DescriptorProto.ExtensionRange) -> Bool {
-    if self._start != other._start {return false}
-    if self._end != other._end {return false}
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
+        if _storage._start != other_storage._start {return false}
+        if _storage._end != other_storage._end {return false}
+        if _storage._options != other_storage._options {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if unknownFields != other.unknownFields {return false}
     return true
   }
@@ -3203,6 +3309,19 @@ extension Google_Protobuf_DescriptorProto.ReservedRange: SwiftProtobuf._MessageI
     if self._start != other._start {return false}
     if self._end != other._end {return false}
     if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension Google_Protobuf_ExtensionRangeOptions: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    999: .standard(proto: "uninterpreted_option"),
+  ]
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_ExtensionRangeOptions) -> Bool {
+    if self.uninterpretedOption != other.uninterpretedOption {return false}
+    if unknownFields != other.unknownFields {return false}
+    if _protobuf_extensionFieldValues != other._protobuf_extensionFieldValues {return false}
     return true
   }
 }

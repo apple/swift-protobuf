@@ -668,18 +668,18 @@ class Test_Any: XCTestCase {
 
     func test_Any_Registery() {
       // Registering the same type multiple times is ok.
-      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))
-      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittest_TestAllTypes.self))
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittestImport_ImportMessage.self))
+      XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittestImport_ImportMessage.self))
 
       // Registering a different type with the same messageName will fail.
-      XCTAssertFalse(Google_Protobuf_Any.register(messageType: Proto3TestAllTypes.self))
+      XCTAssertFalse(Google_Protobuf_Any.register(messageType: Proto3ImportMessage.self))
 
       // Sanity check that the .proto files weren't changed, and they do have the same name.
-      XCTAssertEqual(Proto3TestAllTypes.protoMessageName, ProtobufUnittest_TestAllTypes.protoMessageName)
+      XCTAssertEqual(Proto3ImportMessage.protoMessageName, ProtobufUnittestImport_ImportMessage.protoMessageName)
 
       // Lookup
-      XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestAllTypes.protoMessageName) == ProtobufUnittest_TestAllTypes.self)
-      XCTAssertNil(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestAllTypes.OptionalGroup.protoMessageName))
+      XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittestImport_ImportMessage.protoMessageName) == ProtobufUnittestImport_ImportMessage.self)
+      XCTAssertNil(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittest_TestMap.protoMessageName))
 
       // All the WKTs should be registered.
       let wkts: [Message.Type] = [
