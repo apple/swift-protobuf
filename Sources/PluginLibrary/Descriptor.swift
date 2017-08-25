@@ -385,14 +385,16 @@ public final class FieldDescriptor {
   public private(set) weak var extensionScope: Descriptor?
 
   /// The index in a oneof this field is in.
-  public var oneofIndex: Int32? {
-    if proto.hasOneofIndex {
-      return proto.oneofIndex
+  public let oneofIndex: Int32?
+
+  /// The oneof this field is a member of.
+  public var oneof: OneofDescriptor? {
+    if let oneofIndex = oneofIndex {
+      assert(!isExtension)
+      return containingType!.oneofs[Int(oneofIndex)]
     }
     return nil
   }
-  /// The oneof this field is a member of.
-  public private(set) weak var oneof: OneofDescriptor?
 
   /// When this is a message field, the message's desciptor.
   public private(set) weak var messageType: Descriptor!
@@ -429,6 +431,13 @@ public final class FieldDescriptor {
     self.proto = proto
     self.index = index
     self.isExtension = isExtension
+    if proto.hasOneofIndex {
+      assert(!isExtension)
+      oneofIndex = proto.oneofIndex
+    } else {
+      oneofIndex = nil
+    }
+
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
@@ -449,10 +458,6 @@ public final class FieldDescriptor {
       enumType = registry.enumDescriptor(name: proto.typeName)
     default:
       break
-    }
-
-    if let oneofIndex = oneofIndex {
-      oneof = containingType?.oneofs[Int(oneofIndex)]
     }
   }
 }
