@@ -37,7 +37,8 @@ extension Test_ProtoFileToModuleMappings {
         ("test_Initialization", test_Initialization),
         ("test_Initialization_InvalidConfigs", test_Initialization_InvalidConfigs),
         ("test_moduleName_forFile", test_moduleName_forFile),
-        ("test_neededModules_forFile", test_neededModules_forFile)
+        ("test_neededModules_forFile", test_neededModules_forFile),
+        ("test_neededModules_forFile_PublicImports", test_neededModules_forFile_PublicImports)
     ]
 }
 
