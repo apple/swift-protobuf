@@ -174,6 +174,11 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message {
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
 
+  var mapInt32AllTypes: Dictionary<Int32,ProtobufUnittest_TestAllTypes> {
+    get {return _storage._mapInt32AllTypes}
+    set {_uniqueStorage()._mapInt32AllTypes = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -205,6 +210,7 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message {
         case 16: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_MapEnum>.self, value: &_storage._mapInt32Enum)
         case 17: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_ForeignMessage>.self, value: &_storage._mapInt32ForeignMessage)
         case 18: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_ForeignMessage>.self, value: &_storage._mapStringForeignMessage)
+        case 19: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: &_storage._mapInt32AllTypes)
         default: break
         }
       }
@@ -270,6 +276,9 @@ struct ProtobufUnittest_TestMap: SwiftProtobuf.Message {
       }
       if !_storage._mapStringForeignMessage.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufUnittest_ForeignMessage>.self, value: _storage._mapStringForeignMessage, fieldNumber: 18)
+      }
+      if !_storage._mapInt32AllTypes.isEmpty {
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufInt32,ProtobufUnittest_TestAllTypes>.self, value: _storage._mapInt32AllTypes, fieldNumber: 19)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -800,6 +809,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
     16: .standard(proto: "map_int32_enum"),
     17: .standard(proto: "map_int32_foreign_message"),
     18: .standard(proto: "map_string_foreign_message"),
+    19: .standard(proto: "map_int32_all_types"),
   ]
 
   fileprivate class _StorageClass {
@@ -821,6 +831,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
     var _mapInt32Enum: Dictionary<Int32,ProtobufUnittest_MapEnum> = [:]
     var _mapInt32ForeignMessage: Dictionary<Int32,ProtobufUnittest_ForeignMessage> = [:]
     var _mapStringForeignMessage: Dictionary<String,ProtobufUnittest_ForeignMessage> = [:]
+    var _mapInt32AllTypes: Dictionary<Int32,ProtobufUnittest_TestAllTypes> = [:]
 
     static let defaultInstance = _StorageClass()
 
@@ -845,6 +856,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
       _mapInt32Enum = source._mapInt32Enum
       _mapInt32ForeignMessage = source._mapInt32ForeignMessage
       _mapStringForeignMessage = source._mapStringForeignMessage
+      _mapInt32AllTypes = source._mapInt32AllTypes
     }
   }
 
@@ -878,6 +890,7 @@ extension ProtobufUnittest_TestMap: SwiftProtobuf._MessageImplementationBase, Sw
         if _storage._mapInt32Enum != other_storage._mapInt32Enum {return false}
         if _storage._mapInt32ForeignMessage != other_storage._mapInt32ForeignMessage {return false}
         if _storage._mapStringForeignMessage != other_storage._mapStringForeignMessage {return false}
+        if _storage._mapInt32AllTypes != other_storage._mapInt32AllTypes {return false}
         return true
       }
       if !storagesAreEqual {return false}

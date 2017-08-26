@@ -164,7 +164,7 @@ extension PBTestHelpers where MessageTestType: SwiftProtobuf.Message & Equatable
         XCTAssert(configured != empty, "Object should not be equal to empty object", file: file, line: line)
         let encoded = configured.textFormatString()
 
-        XCTAssert(expected == encoded, "Did not encode correctly: got \(encoded)", file: file, line: line)
+        XCTAssertEqual(expected, encoded, "Did not encode correctly", file: file, line: line)
         do {
             let decoded = try MessageTestType(textFormatString: encoded, extensions: extensions)
             XCTAssert(decoded == configured, "Encode/decode cycle should generate equal object: \(decoded) != \(configured)", file: file, line: line)

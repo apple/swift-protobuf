@@ -21,17 +21,17 @@ class Test_Enum: XCTestCase, PBTestHelpers {
     typealias MessageTestType = Proto3TestAllTypes
 
     func testEqual() {
-        XCTAssertEqual(Proto3TestEnumWithDupValue.foo1, Proto3TestEnumWithDupValue.foo2)
-        XCTAssertNotEqual(Proto3TestEnumWithDupValue.foo1, Proto3TestEnumWithDupValue.bar1)
+        XCTAssertEqual(ProtobufUnittest_TestEnumWithDupValue.foo1, ProtobufUnittest_TestEnumWithDupValue.foo2)
+        XCTAssertNotEqual(ProtobufUnittest_TestEnumWithDupValue.foo1, ProtobufUnittest_TestEnumWithDupValue.bar1)
     }
 
     func testJSONsingular() {
-        assertJSONEncode("{\"singleNestedEnum\":\"FOO\"}") { (m: inout MessageTestType) in
-            m.singleNestedEnum = Proto3TestAllTypes.NestedEnum.foo
+        assertJSONEncode("{\"optionalNestedEnum\":\"FOO\"}") { (m: inout MessageTestType) in
+            m.optionalNestedEnum = Proto3TestAllTypes.NestedEnum.foo
         }
 
-        assertJSONEncode("{\"singleNestedEnum\":777}") { (m: inout MessageTestType) in
-            m.singleNestedEnum = .UNRECOGNIZED(777)
+        assertJSONEncode("{\"optionalNestedEnum\":777}") { (m: inout MessageTestType) in
+            m.optionalNestedEnum = .UNRECOGNIZED(777)
         }
     }
 

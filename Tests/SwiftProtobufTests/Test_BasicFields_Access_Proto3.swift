@@ -26,168 +26,161 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
 
   func testOptionalInt32() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleInt32, 0)
-    msg.singleInt32 = 1
-    XCTAssertEqual(msg.singleInt32, 1)
+    XCTAssertEqual(msg.optionalInt32, 0)
+    msg.optionalInt32 = 1
+    XCTAssertEqual(msg.optionalInt32, 1)
   }
 
   func testOptionalInt64() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleInt64, 0)
-    msg.singleInt64 = 2
-    XCTAssertEqual(msg.singleInt64, 2)
+    XCTAssertEqual(msg.optionalInt64, 0)
+    msg.optionalInt64 = 2
+    XCTAssertEqual(msg.optionalInt64, 2)
   }
 
   func testOptionalUint32() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleUint32, 0)
-    msg.singleUint32 = 3
-    XCTAssertEqual(msg.singleUint32, 3)
+    XCTAssertEqual(msg.optionalUint32, 0)
+    msg.optionalUint32 = 3
+    XCTAssertEqual(msg.optionalUint32, 3)
   }
 
   func testOptionalUint64() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleUint64, 0)
-    msg.singleUint64 = 4
-    XCTAssertEqual(msg.singleUint64, 4)
+    XCTAssertEqual(msg.optionalUint64, 0)
+    msg.optionalUint64 = 4
+    XCTAssertEqual(msg.optionalUint64, 4)
   }
 
   func testOptionalSint32() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleSint32, 0)
-    msg.singleSint32 = 5
-    XCTAssertEqual(msg.singleSint32, 5)
+    XCTAssertEqual(msg.optionalSint32, 0)
+    msg.optionalSint32 = 5
+    XCTAssertEqual(msg.optionalSint32, 5)
   }
 
   func testOptionalSint64() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleSint64, 0)
-    msg.singleSint64 = 6
-    XCTAssertEqual(msg.singleSint64, 6)
+    XCTAssertEqual(msg.optionalSint64, 0)
+    msg.optionalSint64 = 6
+    XCTAssertEqual(msg.optionalSint64, 6)
   }
 
   func testOptionalFixed32() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleFixed32, 0)
-    msg.singleFixed32 = 7
-    XCTAssertEqual(msg.singleFixed32, 7)
+    XCTAssertEqual(msg.optionalFixed32, 0)
+    msg.optionalFixed32 = 7
+    XCTAssertEqual(msg.optionalFixed32, 7)
   }
 
   func testOptionalFixed64() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleFixed64, 0)
-    msg.singleFixed64 = 8
-    XCTAssertEqual(msg.singleFixed64, 8)
+    XCTAssertEqual(msg.optionalFixed64, 0)
+    msg.optionalFixed64 = 8
+    XCTAssertEqual(msg.optionalFixed64, 8)
   }
 
   func testOptionalSfixed32() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleSfixed32, 0)
-    msg.singleSfixed32 = 9
-    XCTAssertEqual(msg.singleSfixed32, 9)
+    XCTAssertEqual(msg.optionalSfixed32, 0)
+    msg.optionalSfixed32 = 9
+    XCTAssertEqual(msg.optionalSfixed32, 9)
   }
 
   func testOptionalSfixed64() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleSfixed64, 0)
-    msg.singleSfixed64 = 10
-    XCTAssertEqual(msg.singleSfixed64, 10)
+    XCTAssertEqual(msg.optionalSfixed64, 0)
+    msg.optionalSfixed64 = 10
+    XCTAssertEqual(msg.optionalSfixed64, 10)
   }
 
   func testOptionalFloat() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleFloat, 0.0)
-    msg.singleFloat = 11.0
-    XCTAssertEqual(msg.singleFloat, 11.0)
+    XCTAssertEqual(msg.optionalFloat, 0.0)
+    msg.optionalFloat = 11.0
+    XCTAssertEqual(msg.optionalFloat, 11.0)
   }
 
   func testOptionalDouble() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleDouble, 0.0)
-    msg.singleDouble = 12.0
-    XCTAssertEqual(msg.singleDouble, 12.0)
+    XCTAssertEqual(msg.optionalDouble, 0.0)
+    msg.optionalDouble = 12.0
+    XCTAssertEqual(msg.optionalDouble, 12.0)
   }
 
   func testOptionalBool() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleBool, false)
-    msg.singleBool = true
-    XCTAssertEqual(msg.singleBool, true)
+    XCTAssertEqual(msg.optionalBool, false)
+    msg.optionalBool = true
+    XCTAssertEqual(msg.optionalBool, true)
   }
 
   func testOptionalString() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleString, "")
-    msg.singleString = "14"
-    XCTAssertEqual(msg.singleString, "14")
+    XCTAssertEqual(msg.optionalString, "")
+    msg.optionalString = "14"
+    XCTAssertEqual(msg.optionalString, "14")
   }
 
   func testOptionalBytes() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleBytes, Data())
-    msg.singleBytes = Data([15])
-    XCTAssertEqual(msg.singleBytes, Data([15]))
+    XCTAssertEqual(msg.optionalBytes, Data())
+    msg.optionalBytes = Data([15])
+    XCTAssertEqual(msg.optionalBytes, Data([15]))
   }
 
   func testOptionalNestedMessage() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleNestedMessage.bb, 0)
+    XCTAssertEqual(msg.optionalNestedMessage.bb, 0)
     var nestedMsg = Proto3TestAllTypes.NestedMessage()
     nestedMsg.bb = 18
-    msg.singleNestedMessage = nestedMsg
-    XCTAssertEqual(msg.singleNestedMessage.bb, 18)
-    XCTAssertEqual(msg.singleNestedMessage, nestedMsg)
+    msg.optionalNestedMessage = nestedMsg
+    XCTAssertEqual(msg.optionalNestedMessage.bb, 18)
+    XCTAssertEqual(msg.optionalNestedMessage, nestedMsg)
   }
 
   func testOptionalForeignMessage() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleForeignMessage.c, 0)
+    XCTAssertEqual(msg.optionalForeignMessage.c, 0)
     var foreignMsg = Proto3ForeignMessage()
     foreignMsg.c = 19
-    msg.singleForeignMessage = foreignMsg
-    XCTAssertEqual(msg.singleForeignMessage.c, 19)
-    XCTAssertEqual(msg.singleForeignMessage, foreignMsg)
+    msg.optionalForeignMessage = foreignMsg
+    XCTAssertEqual(msg.optionalForeignMessage.c, 19)
+    XCTAssertEqual(msg.optionalForeignMessage, foreignMsg)
   }
 
   func testOptionalImportMessage() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleImportMessage.d, 0)
-    var importedMsg = Proto3ImportMessage()
+    XCTAssertEqual(msg.optionalImportMessage.d, 0)
+    var importedMsg = ProtobufUnittestImport_ImportMessage()
     importedMsg.d = 20
-    msg.singleImportMessage = importedMsg
-    XCTAssertEqual(msg.singleImportMessage.d, 20)
-    XCTAssertEqual(msg.singleImportMessage, importedMsg)
+    msg.optionalImportMessage = importedMsg
+    XCTAssertEqual(msg.optionalImportMessage.d, 20)
+    XCTAssertEqual(msg.optionalImportMessage, importedMsg)
   }
 
   func testOptionalNestedEnum() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleNestedEnum, .unspecified)
-    msg.singleNestedEnum = .bar
-    XCTAssertEqual(msg.singleNestedEnum, .bar)
+    XCTAssertEqual(msg.optionalNestedEnum, .zero)
+    msg.optionalNestedEnum = .bar
+    XCTAssertEqual(msg.optionalNestedEnum, .bar)
   }
 
   func testOptionalForeignEnum() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleForeignEnum, .foreignUnspecified)
-    msg.singleForeignEnum = .foreignBar
-    XCTAssertEqual(msg.singleForeignEnum, .foreignBar)
-  }
-
-  func testOptionalImportEnum() {
-    var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singleImportEnum, .unspecified)
-    msg.singleImportEnum = .importBar
-    XCTAssertEqual(msg.singleImportEnum, .importBar)
+    XCTAssertEqual(msg.optionalForeignEnum, .foreignZero)
+    msg.optionalForeignEnum = .foreignBar
+    XCTAssertEqual(msg.optionalForeignEnum, .foreignBar)
   }
 
   func testOptionalPublicImportMessage() {
     var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.singlePublicImportMessage.e, 0)
-    var pubImportedMsg = Proto3PublicImportMessage()
+    XCTAssertEqual(msg.optionalPublicImportMessage.e, 0)
+    var pubImportedMsg = ProtobufUnittestImport_PublicImportMessage()
     pubImportedMsg.e = 26
-    msg.singlePublicImportMessage = pubImportedMsg
-    XCTAssertEqual(msg.singlePublicImportMessage.e, 26)
-    XCTAssertEqual(msg.singlePublicImportMessage, pubImportedMsg)
+    msg.optionalPublicImportMessage = pubImportedMsg
+    XCTAssertEqual(msg.optionalPublicImportMessage.e, 26)
+    XCTAssertEqual(msg.optionalPublicImportMessage, pubImportedMsg)
   }
 
   // Repeated
@@ -366,13 +359,13 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
   func testRepeatedImportMessage() {
     var msg = Proto3TestAllTypes()
     XCTAssertEqual(msg.repeatedImportMessage, [])
-    var importedMsg = Proto3ImportMessage()
+    var importedMsg = ProtobufUnittestImport_ImportMessage()
     importedMsg.d = 50
     msg.repeatedImportMessage = [importedMsg]
     XCTAssertEqual(msg.repeatedImportMessage.count, 1)
     XCTAssertEqual(msg.repeatedImportMessage[0].d, 50)
     XCTAssertEqual(msg.repeatedImportMessage, [importedMsg])
-    var importedMsg2 = Proto3ImportMessage()
+    var importedMsg2 = ProtobufUnittestImport_ImportMessage()
     importedMsg2.d = 150
     msg.repeatedImportMessage.append(importedMsg2)
     XCTAssertEqual(msg.repeatedImportMessage.count, 2)
@@ -397,15 +390,6 @@ class Test_BasicFields_Access_Proto3: XCTestCase {
     XCTAssertEqual(msg.repeatedForeignEnum, [.foreignBar])
     msg.repeatedForeignEnum.append(.foreignBaz)
     XCTAssertEqual(msg.repeatedForeignEnum, [.foreignBar, .foreignBaz])
-  }
-
-  func testRepeatedImportEnum() {
-    var msg = Proto3TestAllTypes()
-    XCTAssertEqual(msg.repeatedImportEnum, [])
-    msg.repeatedImportEnum = [.importBar]
-    XCTAssertEqual(msg.repeatedImportEnum, [.importBar])
-    msg.repeatedImportEnum.append(.importBaz)
-    XCTAssertEqual(msg.repeatedImportEnum, [.importBar, .importBaz])
   }
 
 }
