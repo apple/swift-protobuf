@@ -97,10 +97,8 @@ TEST_PROTOS= \
 	Protos/google/protobuf/unittest_empty.proto \
 	Protos/google/protobuf/unittest_import.proto \
 	Protos/google/protobuf/unittest_import_lite.proto \
-	Protos/google/protobuf/unittest_import_proto3.proto \
 	Protos/google/protobuf/unittest_import_public.proto \
 	Protos/google/protobuf/unittest_import_public_lite.proto \
-	Protos/google/protobuf/unittest_import_public_proto3.proto \
 	Protos/google/protobuf/unittest_lite.proto \
 	Protos/google/protobuf/unittest_lite_imports_nonlite.proto \
 	Protos/google/protobuf/unittest_mset.proto \
@@ -396,12 +394,10 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 # can't be done in a single protoc/proto-gen-swift invoke and have to be done
 # one at a time instead.
 regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_enums.proto Protos/generated_swift_names_enum_cases.proto Protos/generated_swift_names_fields.proto Protos/generated_swift_names_messages.proto
-	for t in ${TEST_PROTOS}; do \
-		${GENERATE_SRCS} \
-			--tfiws_opt=FileNaming=DropPath \
-			--tfiws_out=Tests/SwiftProtobufTests \
-			$$t || exit 1; \
-	done
+	${GENERATE_SRCS} \
+		--tfiws_opt=FileNaming=DropPath \
+		--tfiws_out=Tests/SwiftProtobufTests \
+		${TEST_PROTOS}
 
 Tests/PluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
 	@${PROTOC} \
@@ -534,10 +530,6 @@ update-proto-files: check-for-protobuf-checkout
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
 	# This file doesn't generate in google/protobuf, appears to be stale/unused.
 	@rm Protos/google/protobuf/map_unittest_proto3.proto
-	# It would be nice to get these added to google/protobuf instead of
-	# applying them locally.
-	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_proto3.proto
-	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
 
 # Runs the conformance tests.
 test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt

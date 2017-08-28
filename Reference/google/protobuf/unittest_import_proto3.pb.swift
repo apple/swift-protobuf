@@ -55,7 +55,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Proto3ImportEnum: SwiftProtobuf.Enum {
+enum ProtobufUnittestImport_ImportEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case unspecified // = 0
   case importFoo // = 7
@@ -89,7 +89,7 @@ enum Proto3ImportEnum: SwiftProtobuf.Enum {
 
 }
 
-struct Proto3ImportMessage: SwiftProtobuf.Message {
+struct ProtobufUnittestImport_ImportMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ImportMessage"
 
   var d: Int32 = 0
@@ -127,7 +127,7 @@ struct Proto3ImportMessage: SwiftProtobuf.Message {
 
 fileprivate let _protobuf_package = "protobuf_unittest_import"
 
-extension Proto3ImportEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestImport_ImportEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "IMPORT_ENUM_UNSPECIFIED"),
     7: .same(proto: "IMPORT_FOO"),
@@ -136,12 +136,12 @@ extension Proto3ImportEnum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension Proto3ImportMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestImport_ImportMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "d"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Proto3ImportMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittestImport_ImportMessage) -> Bool {
     if self.d != other.d {return false}
     if unknownFields != other.unknownFields {return false}
     return true
