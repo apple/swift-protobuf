@@ -219,6 +219,9 @@ fileprivate func makeUnicodeScalarView(
 fileprivate func splitIdentifier(_ s: String) -> [String] {
   var out: [String.UnicodeScalarView] = []
   var current = String.UnicodeScalarView()
+  // The exact value used to seed this doesn't matter (as long as it's not an
+  // underscore); we use it to avoid an extra optional unwrap in every loop
+  // iteration.
   var last: UnicodeScalar = "\0"
   var lastIsUpper = false
   var lastIsLower = false
