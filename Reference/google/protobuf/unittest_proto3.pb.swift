@@ -49,7 +49,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Proto3ForeignEnum: SwiftProtobuf.Enum {
+enum Proto3Unittest_ForeignEnum: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignZero // = 0
   case foreignFoo // = 4
@@ -85,7 +85,7 @@ enum Proto3ForeignEnum: SwiftProtobuf.Enum {
 
 /// This proto includes every type of field in both singular and repeated
 /// forms.
-struct Proto3TestAllTypes: SwiftProtobuf.Message {
+struct Proto3Unittest_TestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestAllTypes"
 
   /// Singular
@@ -164,8 +164,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._optionalBytes = newValue}
   }
 
-  var optionalNestedMessage: Proto3TestAllTypes.NestedMessage {
-    get {return _storage._optionalNestedMessage ?? Proto3TestAllTypes.NestedMessage()}
+  var optionalNestedMessage: Proto3Unittest_TestAllTypes.NestedMessage {
+    get {return _storage._optionalNestedMessage ?? Proto3Unittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalNestedMessage = newValue}
   }
   /// Returns true if `optionalNestedMessage` has been explicitly set.
@@ -173,8 +173,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
 
-  var optionalForeignMessage: Proto3ForeignMessage {
-    get {return _storage._optionalForeignMessage ?? Proto3ForeignMessage()}
+  var optionalForeignMessage: Proto3Unittest_ForeignMessage {
+    get {return _storage._optionalForeignMessage ?? Proto3Unittest_ForeignMessage()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -191,12 +191,12 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalImportMessage() {_storage._optionalImportMessage = nil}
 
-  var optionalNestedEnum: Proto3TestAllTypes.NestedEnum {
+  var optionalNestedEnum: Proto3Unittest_TestAllTypes.NestedEnum {
     get {return _storage._optionalNestedEnum}
     set {_uniqueStorage()._optionalNestedEnum = newValue}
   }
 
-  var optionalForeignEnum: Proto3ForeignEnum {
+  var optionalForeignEnum: Proto3Unittest_ForeignEnum {
     get {return _storage._optionalForeignEnum}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
@@ -221,8 +221,8 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `optionalPublicImportMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalPublicImportMessage() {_storage._optionalPublicImportMessage = nil}
 
-  var optionalLazyMessage: Proto3TestAllTypes.NestedMessage {
-    get {return _storage._optionalLazyMessage ?? Proto3TestAllTypes.NestedMessage()}
+  var optionalLazyMessage: Proto3Unittest_TestAllTypes.NestedMessage {
+    get {return _storage._optionalLazyMessage ?? Proto3Unittest_TestAllTypes.NestedMessage()}
     set {_uniqueStorage()._optionalLazyMessage = newValue}
   }
   /// Returns true if `optionalLazyMessage` has been explicitly set.
@@ -315,12 +315,12 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedBytes = newValue}
   }
 
-  var repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] {
+  var repeatedNestedMessage: [Proto3Unittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedNestedMessage}
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  var repeatedForeignMessage: [Proto3ForeignMessage] {
+  var repeatedForeignMessage: [Proto3Unittest_ForeignMessage] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
@@ -330,12 +330,12 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedImportMessage = newValue}
   }
 
-  var repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] {
+  var repeatedNestedEnum: [Proto3Unittest_TestAllTypes.NestedEnum] {
     get {return _storage._repeatedNestedEnum}
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  var repeatedForeignEnum: [Proto3ForeignEnum] {
+  var repeatedForeignEnum: [Proto3Unittest_ForeignEnum] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
@@ -350,7 +350,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._repeatedCord = newValue}
   }
 
-  var repeatedLazyMessage: [Proto3TestAllTypes.NestedMessage] {
+  var repeatedLazyMessage: [Proto3Unittest_TestAllTypes.NestedMessage] {
     get {return _storage._repeatedLazyMessage}
     set {_uniqueStorage()._repeatedLazyMessage = newValue}
   }
@@ -368,10 +368,10 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
     set {_uniqueStorage()._oneofField = .oneofUint32(newValue)}
   }
 
-  var oneofNestedMessage: Proto3TestAllTypes.NestedMessage {
+  var oneofNestedMessage: Proto3Unittest_TestAllTypes.NestedMessage {
     get {
       if case .oneofNestedMessage(let v)? = _storage._oneofField {return v}
-      return Proto3TestAllTypes.NestedMessage()
+      return Proto3Unittest_TestAllTypes.NestedMessage()
     }
     set {_uniqueStorage()._oneofField = .oneofNestedMessage(newValue)}
   }
@@ -396,11 +396,11 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
 
   enum OneOf_OneofField: Equatable {
     case oneofUint32(UInt32)
-    case oneofNestedMessage(Proto3TestAllTypes.NestedMessage)
+    case oneofNestedMessage(Proto3Unittest_TestAllTypes.NestedMessage)
     case oneofString(String)
     case oneofBytes(Data)
 
-    static func ==(lhs: Proto3TestAllTypes.OneOf_OneofField, rhs: Proto3TestAllTypes.OneOf_OneofField) -> Bool {
+    static func ==(lhs: Proto3Unittest_TestAllTypes.OneOf_OneofField, rhs: Proto3Unittest_TestAllTypes.OneOf_OneofField) -> Bool {
       switch (lhs, rhs) {
       case (.oneofUint32(let l), .oneofUint32(let r)): return l == r
       case (.oneofNestedMessage(let l), .oneofNestedMessage(let r)): return l == r
@@ -451,7 +451,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   }
 
   struct NestedMessage: SwiftProtobuf.Message {
-    static let protoMessageName: String = Proto3TestAllTypes.protoMessageName + ".NestedMessage"
+    static let protoMessageName: String = Proto3Unittest_TestAllTypes.protoMessageName + ".NestedMessage"
 
     /// The field name "b" fails to compile in proto1 because it conflicts with
     /// a local variable named "b" in one of the generated methods.  Doh.
@@ -551,7 +551,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
           try decoder.decodeSingularUInt32Field(value: &v)
           if let v = v {_storage._oneofField = .oneofUint32(v)}
         case 112:
-          var v: Proto3TestAllTypes.NestedMessage?
+          var v: Proto3Unittest_TestAllTypes.NestedMessage?
           if let current = _storage._oneofField {
             try decoder.handleConflictingOneOf()
             if case .oneofNestedMessage(let m) = current {v = m}
@@ -743,7 +743,7 @@ struct Proto3TestAllTypes: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Proto3TestPackedTypes: SwiftProtobuf.Message {
+struct Proto3Unittest_TestPackedTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestPackedTypes"
 
   var packedInt32: [Int32] = []
@@ -772,7 +772,7 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Message {
 
   var packedBool: [Bool] = []
 
-  var packedEnum: [Proto3ForeignEnum] = []
+  var packedEnum: [Proto3Unittest_ForeignEnum] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -856,7 +856,7 @@ struct Proto3TestPackedTypes: SwiftProtobuf.Message {
 }
 
 /// Explicitly set packed to false
-struct Proto3TestUnpackedTypes: SwiftProtobuf.Message {
+struct Proto3Unittest_TestUnpackedTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestUnpackedTypes"
 
   var repeatedInt32: [Int32] = []
@@ -885,7 +885,7 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Message {
 
   var repeatedBool: [Bool] = []
 
-  var repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] = []
+  var repeatedNestedEnum: [Proto3Unittest_TestAllTypes.NestedEnum] = []
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -969,11 +969,11 @@ struct Proto3TestUnpackedTypes: SwiftProtobuf.Message {
 }
 
 /// This proto includes a recusively nested message.
-struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
+struct Proto3Unittest_NestedTestAllTypes: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".NestedTestAllTypes"
 
-  var child: Proto3NestedTestAllTypes {
-    get {return _storage._child ?? Proto3NestedTestAllTypes()}
+  var child: Proto3Unittest_NestedTestAllTypes {
+    get {return _storage._child ?? Proto3Unittest_NestedTestAllTypes()}
     set {_uniqueStorage()._child = newValue}
   }
   /// Returns true if `child` has been explicitly set.
@@ -981,8 +981,8 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `child`. Subsequent reads from it will return its default value.
   mutating func clearChild() {_storage._child = nil}
 
-  var payload: Proto3TestAllTypes {
-    get {return _storage._payload ?? Proto3TestAllTypes()}
+  var payload: Proto3Unittest_TestAllTypes {
+    get {return _storage._payload ?? Proto3Unittest_TestAllTypes()}
     set {_uniqueStorage()._payload = newValue}
   }
   /// Returns true if `payload` has been explicitly set.
@@ -1032,7 +1032,7 @@ struct Proto3NestedTestAllTypes: SwiftProtobuf.Message {
 
 /// Define these after TestAllTypes to make sure the compiler can handle
 /// that.
-struct Proto3ForeignMessage: SwiftProtobuf.Message {
+struct Proto3Unittest_ForeignMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
 
   var c: Int32 = 0
@@ -1067,7 +1067,7 @@ struct Proto3ForeignMessage: SwiftProtobuf.Message {
 }
 
 /// TestEmptyMessage is used to test behavior of unknown fields.
-struct Proto3TestEmptyMessage: SwiftProtobuf.Message {
+struct Proto3Unittest_TestEmptyMessage: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".TestEmptyMessage"
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -1096,7 +1096,7 @@ struct Proto3TestEmptyMessage: SwiftProtobuf.Message {
 
 fileprivate let _protobuf_package = "proto3_unittest"
 
-extension Proto3ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FOREIGN_ZERO"),
     4: .same(proto: "FOREIGN_FOO"),
@@ -1105,7 +1105,7 @@ extension Proto3ForeignEnum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "optional_int32"),
     2: .standard(proto: "optional_int64"),
@@ -1177,15 +1177,15 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     var _optionalBool: Bool = false
     var _optionalString: String = String()
     var _optionalBytes: Data = SwiftProtobuf.Internal.emptyData
-    var _optionalNestedMessage: Proto3TestAllTypes.NestedMessage? = nil
-    var _optionalForeignMessage: Proto3ForeignMessage? = nil
+    var _optionalNestedMessage: Proto3Unittest_TestAllTypes.NestedMessage? = nil
+    var _optionalForeignMessage: Proto3Unittest_ForeignMessage? = nil
     var _optionalImportMessage: ProtobufUnittestImport_ImportMessage? = nil
-    var _optionalNestedEnum: Proto3TestAllTypes.NestedEnum = .zero
-    var _optionalForeignEnum: Proto3ForeignEnum = .foreignZero
+    var _optionalNestedEnum: Proto3Unittest_TestAllTypes.NestedEnum = .zero
+    var _optionalForeignEnum: Proto3Unittest_ForeignEnum = .foreignZero
     var _optionalStringPiece: String = String()
     var _optionalCord: String = String()
     var _optionalPublicImportMessage: ProtobufUnittestImport_PublicImportMessage? = nil
-    var _optionalLazyMessage: Proto3TestAllTypes.NestedMessage? = nil
+    var _optionalLazyMessage: Proto3Unittest_TestAllTypes.NestedMessage? = nil
     var _optionalLazyImportMessage: ProtobufUnittestImport_ImportMessage? = nil
     var _repeatedInt32: [Int32] = []
     var _repeatedInt64: [Int64] = []
@@ -1202,15 +1202,15 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     var _repeatedBool: [Bool] = []
     var _repeatedString: [String] = []
     var _repeatedBytes: [Data] = []
-    var _repeatedNestedMessage: [Proto3TestAllTypes.NestedMessage] = []
-    var _repeatedForeignMessage: [Proto3ForeignMessage] = []
+    var _repeatedNestedMessage: [Proto3Unittest_TestAllTypes.NestedMessage] = []
+    var _repeatedForeignMessage: [Proto3Unittest_ForeignMessage] = []
     var _repeatedImportMessage: [ProtobufUnittestImport_ImportMessage] = []
-    var _repeatedNestedEnum: [Proto3TestAllTypes.NestedEnum] = []
-    var _repeatedForeignEnum: [Proto3ForeignEnum] = []
+    var _repeatedNestedEnum: [Proto3Unittest_TestAllTypes.NestedEnum] = []
+    var _repeatedForeignEnum: [Proto3Unittest_ForeignEnum] = []
     var _repeatedStringPiece: [String] = []
     var _repeatedCord: [String] = []
-    var _repeatedLazyMessage: [Proto3TestAllTypes.NestedMessage] = []
-    var _oneofField: Proto3TestAllTypes.OneOf_OneofField?
+    var _repeatedLazyMessage: [Proto3Unittest_TestAllTypes.NestedMessage] = []
+    var _oneofField: Proto3Unittest_TestAllTypes.OneOf_OneofField?
 
     static let defaultInstance = _StorageClass()
 
@@ -1276,7 +1276,7 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto3TestAllTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_TestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1339,7 +1339,7 @@ extension Proto3TestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftPro
   }
 }
 
-extension Proto3TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -1: .same(proto: "NEG"),
     0: .same(proto: "ZERO"),
@@ -1349,19 +1349,19 @@ extension Proto3TestAllTypes.NestedEnum: SwiftProtobuf._ProtoNameProviding {
   ]
 }
 
-extension Proto3TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_TestAllTypes.NestedMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bb"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Proto3TestAllTypes.NestedMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_TestAllTypes.NestedMessage) -> Bool {
     if self.bb != other.bb {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Proto3TestPackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_TestPackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     90: .standard(proto: "packed_int32"),
     91: .standard(proto: "packed_int64"),
@@ -1379,7 +1379,7 @@ extension Proto3TestPackedTypes: SwiftProtobuf._MessageImplementationBase, Swift
     103: .standard(proto: "packed_enum"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Proto3TestPackedTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_TestPackedTypes) -> Bool {
     if self.packedInt32 != other.packedInt32 {return false}
     if self.packedInt64 != other.packedInt64 {return false}
     if self.packedUint32 != other.packedUint32 {return false}
@@ -1399,7 +1399,7 @@ extension Proto3TestPackedTypes: SwiftProtobuf._MessageImplementationBase, Swift
   }
 }
 
-extension Proto3TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "repeated_int32"),
     2: .standard(proto: "repeated_int64"),
@@ -1417,7 +1417,7 @@ extension Proto3TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, Swi
     14: .standard(proto: "repeated_nested_enum"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Proto3TestUnpackedTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_TestUnpackedTypes) -> Bool {
     if self.repeatedInt32 != other.repeatedInt32 {return false}
     if self.repeatedInt64 != other.repeatedInt64 {return false}
     if self.repeatedUint32 != other.repeatedUint32 {return false}
@@ -1437,15 +1437,15 @@ extension Proto3TestUnpackedTypes: SwiftProtobuf._MessageImplementationBase, Swi
   }
 }
 
-extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
   ]
 
   fileprivate class _StorageClass {
-    var _child: Proto3NestedTestAllTypes? = nil
-    var _payload: Proto3TestAllTypes? = nil
+    var _child: Proto3Unittest_NestedTestAllTypes? = nil
+    var _payload: Proto3Unittest_TestAllTypes? = nil
 
     static let defaultInstance = _StorageClass()
 
@@ -1464,7 +1464,7 @@ extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, Sw
     return _storage
   }
 
-  func _protobuf_generated_isEqualTo(other: Proto3NestedTestAllTypes) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_NestedTestAllTypes) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1480,22 +1480,22 @@ extension Proto3NestedTestAllTypes: SwiftProtobuf._MessageImplementationBase, Sw
   }
 }
 
-extension Proto3ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: Proto3ForeignMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_ForeignMessage) -> Bool {
     if self.c != other.c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension Proto3TestEmptyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Proto3Unittest_TestEmptyMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  func _protobuf_generated_isEqualTo(other: Proto3TestEmptyMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: Proto3Unittest_TestEmptyMessage) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }

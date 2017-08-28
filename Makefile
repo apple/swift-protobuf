@@ -339,7 +339,7 @@ test-runtime: build
 test-plugin: build ${PROTOC_GEN_SWIFT}
 	@rm -rf _test && mkdir _test
 	for p in `find Protos/ -type f -name '*.proto'`; do \
-		${GENERATE_SRCS} --tfiws_out=_test $$p; \
+		${GENERATE_SRCS} --tfiws_out=_test $$p || exit 1; \
 	done
 	diff -ru _test Reference
 
@@ -356,7 +356,7 @@ test-plugin: build ${PROTOC_GEN_SWIFT}
 reference: build ${PROTOC_GEN_SWIFT}
 	@rm -rf Reference && mkdir Reference
 	for p in `find Protos/ -type f -name '*.proto'`; do \
-		${GENERATE_SRCS} --tfiws_out=Reference $$p; \
+		${GENERATE_SRCS} --tfiws_out=Reference $$p || exit 1; \
 	done
 
 #
@@ -400,7 +400,7 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_e
 		${GENERATE_SRCS} \
 			--tfiws_opt=FileNaming=DropPath \
 			--tfiws_out=Tests/SwiftProtobufTests \
-			$$t; \
+			$$t || exit 1; \
 	done
 
 Tests/PluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
@@ -532,12 +532,12 @@ update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
+	# This file doesn't generate in google/protobuf, appears to be stale/unused.
+	@rm Protos/google/protobuf/map_unittest_proto3.proto
 	# It would be nice to get these added to google/protobuf instead of
 	# applying them locally.
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_proto3.proto
 	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_import_public_proto3.proto
-	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/unittest_proto3.proto
-	@echo 'option swift_prefix = "Proto3";' >> Protos/google/protobuf/map_unittest_proto3.proto
 
 # Runs the conformance tests.
 test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt
