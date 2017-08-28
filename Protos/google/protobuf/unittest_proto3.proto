@@ -206,4 +206,3 @@ enum ForeignEnum {
 message TestEmptyMessage {
 }
 
-option swift_prefix = "Proto3";

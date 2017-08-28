@@ -19,7 +19,7 @@ import XCTest
 import SwiftProtobuf
 
 class Test_JSON_Array: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestAllTypes
+    typealias MessageTestType = Proto3Unittest_TestAllTypes
 
     private func configureTwoObjects(_ o: inout [MessageTestType]) {
         var o1 = MessageTestType()
@@ -41,7 +41,7 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
         o1.optionalNestedMessage = nested
-        var foreign = Proto3ForeignMessage()
+        var foreign = Proto3Unittest_ForeignMessage()
         foreign.c = 88
         o1.optionalForeignMessage = foreign
         var importMessage = ProtobufUnittestImport_ImportMessage()
@@ -138,15 +138,15 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
     func testRepeatedNestedMessage() {
         assertJSONArrayEncode("[{\"repeatedNestedMessage\":[{\"bb\":1}]},{\"repeatedNestedMessage\":[{\"bb\":1},{\"bb\":2}]}]") {(o: inout [MessageTestType]) in
             var o1 = MessageTestType()
-            var sub1 = Proto3TestAllTypes.NestedMessage()
+            var sub1 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub1.bb = 1
             o1.repeatedNestedMessage = [sub1]
             o.append(o1)
 
             var o2 = MessageTestType()
-            var sub2 = Proto3TestAllTypes.NestedMessage()
+            var sub2 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub2.bb = 1
-            var sub3 = Proto3TestAllTypes.NestedMessage()
+            var sub3 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub3.bb = 2
             o2.repeatedNestedMessage = [sub2, sub3]
             o.append(o2)

@@ -18,7 +18,7 @@ import Foundation
 import XCTest
 
 class Test_Enum: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestAllTypes
+    typealias MessageTestType = Proto3Unittest_TestAllTypes
 
     func testEqual() {
         XCTAssertEqual(ProtobufUnittest_TestEnumWithDupValue.foo1, ProtobufUnittest_TestEnumWithDupValue.foo2)
@@ -27,7 +27,7 @@ class Test_Enum: XCTestCase, PBTestHelpers {
 
     func testJSONsingular() {
         assertJSONEncode("{\"optionalNestedEnum\":\"FOO\"}") { (m: inout MessageTestType) in
-            m.optionalNestedEnum = Proto3TestAllTypes.NestedEnum.foo
+            m.optionalNestedEnum = Proto3Unittest_TestAllTypes.NestedEnum.foo
         }
 
         assertJSONEncode("{\"optionalNestedEnum\":777}") { (m: inout MessageTestType) in
