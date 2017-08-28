@@ -76,7 +76,7 @@ class FieldGeneratorBase {
       /// The proto and JSON names are identical:
       return ".same(proto: \"\(protoName)\")"
     } else {
-      let libraryGeneratedJsonName = toJsonFieldName(protoName)
+      let libraryGeneratedJsonName = NamingUtils.toJsonFieldName(protoName)
       if jsonName == libraryGeneratedJsonName {
         /// The library will generate the same thing protoc gave, so
         /// we can let the library recompute this:
@@ -93,25 +93,4 @@ class FieldGeneratorBase {
     number = Int(descriptor.number)
     fieldDescriptor = descriptor
   }
-}
-
-/// This must be exactly the same as the corresponding code in the
-/// SwiftProtobuf library.  Changing it will break compatibility of
-/// the generated code with old library version.
-///
-private func toJsonFieldName(_ s: String) -> String {
-  var result = ""
-  var capitalizeNext = false
-
-  for c in s.characters {
-    if c == "_" {
-      capitalizeNext = true
-    } else if capitalizeNext {
-      result.append(String(c).uppercased())
-      capitalizeNext = false
-    } else {
-      result.append(String(c))
-    }
-  }
-  return result;
 }
