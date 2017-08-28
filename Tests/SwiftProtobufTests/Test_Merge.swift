@@ -13,41 +13,41 @@ import XCTest
 import SwiftProtobuf
 
 class Test_Merge: XCTestCase, PBTestHelpers {
-  typealias MessageTestType = Proto3TestAllTypes
+  typealias MessageTestType = Proto3Unittest_TestAllTypes
 
   func testMergeSimple() throws {
-    var m1 = Proto3TestAllTypes()
-    m1.singleInt32 = 100
+    var m1 = Proto3Unittest_TestAllTypes()
+    m1.optionalInt32 = 100
 
-    var m2 = Proto3TestAllTypes()
-    m2.singleInt64 = 1000
+    var m2 = Proto3Unittest_TestAllTypes()
+    m2.optionalInt64 = 1000
 
     do {
       try m1.merge(serializedData: m2.serializedData())
-      XCTAssertEqual(m1.singleInt32, 100)
-      XCTAssertEqual(m1.singleInt64, 1000)
+      XCTAssertEqual(m1.optionalInt32, 100)
+      XCTAssertEqual(m1.optionalInt64, 1000)
     } catch let e {
       XCTFail("Merge should not have thrown, but it did: \(e)")
     }
   }
 
   func testMergePreservesValueSemantics() throws {
-    var original = Proto3TestAllTypes()
-    original.singleInt32 = 100
+    var original = Proto3Unittest_TestAllTypes()
+    original.optionalInt32 = 100
     let copied = original
 
-    var toMerge = Proto3TestAllTypes()
-    toMerge.singleInt64 = 1000
+    var toMerge = Proto3Unittest_TestAllTypes()
+    toMerge.optionalInt64 = 1000
 
     do {
       try original.merge(serializedData: toMerge.serializedData())
 
       // The original should have the value from the merged message...
-      XCTAssertEqual(original.singleInt32, 100)
-      XCTAssertEqual(original.singleInt64, 1000)
+      XCTAssertEqual(original.optionalInt32, 100)
+      XCTAssertEqual(original.optionalInt64, 1000)
       // ...but the older copy should not be affected.
-      XCTAssertEqual(copied.singleInt32, 100)
-      XCTAssertEqual(copied.singleInt64, 0)
+      XCTAssertEqual(copied.optionalInt32, 100)
+      XCTAssertEqual(copied.optionalInt64, 0)
     } catch let e {
       XCTFail("Merge should not have thrown, but it did: \(e)")
     }

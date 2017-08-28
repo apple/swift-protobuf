@@ -63,6 +63,7 @@ message GeneratedSwiftReservedMessages {
   message comma { int32 comma = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
+  message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message customCodable { int32 customCodable = 1; }
   message CustomDebugStringConvertible { int32 CustomDebugStringConvertible = 1; }
   message d { int32 d = 1; }
@@ -269,6 +270,7 @@ message GeneratedSwiftReservedMessages {
   message intern { int32 intern = 1; }
   message Internal { int32 Internal = 1; }
   message InternalState { int32 InternalState = 1; }
+  message ints { int32 ints = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }

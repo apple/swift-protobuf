@@ -19,39 +19,38 @@ import XCTest
 import SwiftProtobuf
 
 class Test_JSON: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestAllTypes
+    typealias MessageTestType = Proto3Unittest_TestAllTypes
 
     private func configureLargeObject(_ o: inout MessageTestType) {
-        o.singleInt32 = 1
-        o.singleInt64 = 2
-        o.singleUint32 = 3
-        o.singleUint64 = 4
-        o.singleSint32 = 5
-        o.singleSint64 = 6
-        o.singleFixed32 = 7
-        o.singleFixed64 = 8
-        o.singleSfixed32 = 9
-        o.singleSfixed64 = 10
-        o.singleFloat = 11
-        o.singleDouble = 12
-        o.singleBool = true
-        o.singleString = "abc"
-        o.singleBytes = Data(bytes: [65, 66])
+        o.optionalInt32 = 1
+        o.optionalInt64 = 2
+        o.optionalUint32 = 3
+        o.optionalUint64 = 4
+        o.optionalSint32 = 5
+        o.optionalSint64 = 6
+        o.optionalFixed32 = 7
+        o.optionalFixed64 = 8
+        o.optionalSfixed32 = 9
+        o.optionalSfixed64 = 10
+        o.optionalFloat = 11
+        o.optionalDouble = 12
+        o.optionalBool = true
+        o.optionalString = "abc"
+        o.optionalBytes = Data(bytes: [65, 66])
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
-        o.singleNestedMessage = nested
-        var foreign = Proto3ForeignMessage()
+        o.optionalNestedMessage = nested
+        var foreign = Proto3Unittest_ForeignMessage()
         foreign.c = 88
-        o.singleForeignMessage = foreign
-        var importMessage = Proto3ImportMessage()
+        o.optionalForeignMessage = foreign
+        var importMessage = ProtobufUnittestImport_ImportMessage()
         importMessage.d = -9
-        o.singleImportMessage = importMessage
-        o.singleNestedEnum = .baz
-        o.singleForeignEnum = .foreignBaz
-        o.singleImportEnum = .importBaz
-        var publicImportMessage = Proto3PublicImportMessage()
+        o.optionalImportMessage = importMessage
+        o.optionalNestedEnum = .baz
+        o.optionalForeignEnum = .foreignBaz
+        var publicImportMessage = ProtobufUnittestImport_PublicImportMessage()
         publicImportMessage.e = -999999
-        o.singlePublicImportMessage = publicImportMessage
+        o.optionalPublicImportMessage = publicImportMessage
         o.repeatedInt32 = [1, 2]
         o.repeatedInt64 = [3, 4]
         o.repeatedUint32 = [5, 6]
@@ -78,37 +77,34 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         o.repeatedImportMessage = [importMessage, importMessage2]
         o.repeatedNestedEnum = [.bar, .baz]
         o.repeatedForeignEnum = [.foreignBar, .foreignBaz]
-        o.repeatedImportEnum = [.importBar, .importBaz]
         var publicImportMessage2 = publicImportMessage
         publicImportMessage2.e = 999999
-        o.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2]
         o.oneofUint32 = 99
     }
 
     func testMultipleFields() {
         let expected: String = ("{"
-            + "\"singleInt32\":1,"
-            + "\"singleInt64\":\"2\","
-            + "\"singleUint32\":3,"
-            + "\"singleUint64\":\"4\","
-            + "\"singleSint32\":5,"
-            + "\"singleSint64\":\"6\","
-            + "\"singleFixed32\":7,"
-            + "\"singleFixed64\":\"8\","
-            + "\"singleSfixed32\":9,"
-            + "\"singleSfixed64\":\"10\","
-            + "\"singleFloat\":11,"
-            + "\"singleDouble\":12,"
-            + "\"singleBool\":true,"
-            + "\"singleString\":\"abc\","
-            + "\"singleBytes\":\"QUI=\","
-            + "\"singleNestedMessage\":{\"bb\":7},"
-            + "\"singleForeignMessage\":{\"c\":88},"
-            + "\"singleImportMessage\":{\"d\":-9},"
-            + "\"singleNestedEnum\":\"BAZ\","
-            + "\"singleForeignEnum\":\"FOREIGN_BAZ\","
-            + "\"singleImportEnum\":\"IMPORT_BAZ\","
-            + "\"singlePublicImportMessage\":{\"e\":-999999},"
+            + "\"optionalInt32\":1,"
+            + "\"optionalInt64\":\"2\","
+            + "\"optionalUint32\":3,"
+            + "\"optionalUint64\":\"4\","
+            + "\"optionalSint32\":5,"
+            + "\"optionalSint64\":\"6\","
+            + "\"optionalFixed32\":7,"
+            + "\"optionalFixed64\":\"8\","
+            + "\"optionalSfixed32\":9,"
+            + "\"optionalSfixed64\":\"10\","
+            + "\"optionalFloat\":11,"
+            + "\"optionalDouble\":12,"
+            + "\"optionalBool\":true,"
+            + "\"optionalString\":\"abc\","
+            + "\"optionalBytes\":\"QUI=\","
+            + "\"optionalNestedMessage\":{\"bb\":7},"
+            + "\"optionalForeignMessage\":{\"c\":88},"
+            + "\"optionalImportMessage\":{\"d\":-9},"
+            + "\"optionalNestedEnum\":\"BAZ\","
+            + "\"optionalForeignEnum\":\"FOREIGN_BAZ\","
+            + "\"optionalPublicImportMessage\":{\"e\":-999999},"
             + "\"repeatedInt32\":[1,2],"
             + "\"repeatedInt64\":[\"3\",\"4\"],"
             + "\"repeatedUint32\":[5,6],"
@@ -129,8 +125,6 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             + "\"repeatedImportMessage\":[{\"d\":-9},{\"d\":999999}],"
             + "\"repeatedNestedEnum\":[\"BAR\",\"BAZ\"],"
             + "\"repeatedForeignEnum\":[\"FOREIGN_BAR\",\"FOREIGN_BAZ\"],"
-            + "\"repeatedImportEnum\":[\"IMPORT_BAR\",\"IMPORT_BAZ\"],"
-            + "\"repeatedPublicImportMessage\":[{\"e\":-999999},{\"e\":999999}],"
             + "\"oneofUint32\":99"
             + "}")
         assertJSONEncode(expected, configure: configureLargeObject)
@@ -154,240 +148,240 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
-    func testSingleInt32() {
-        assertJSONEncode("{\"singleInt32\":1}") {(o: inout MessageTestType) in
-            o.singleInt32 = 1
+    func testOptionalInt32() {
+        assertJSONEncode("{\"optionalInt32\":1}") {(o: inout MessageTestType) in
+            o.optionalInt32 = 1
         }
-        assertJSONEncode("{\"singleInt32\":2147483647}") {(o: inout MessageTestType) in
-            o.singleInt32 = Int32.max
+        assertJSONEncode("{\"optionalInt32\":2147483647}") {(o: inout MessageTestType) in
+            o.optionalInt32 = Int32.max
         }
-        assertJSONEncode("{\"singleInt32\":-2147483648}") {(o: inout MessageTestType) in
-            o.singleInt32 = Int32.min
+        assertJSONEncode("{\"optionalInt32\":-2147483648}") {(o: inout MessageTestType) in
+            o.optionalInt32 = Int32.min
         }
         // 32-bit overflow
-        assertJSONDecodeFails("{\"singleInt32\":2147483648}")
+        assertJSONDecodeFails("{\"optionalInt32\":2147483648}")
         // Explicit 'null' is permitted, proto3 decodes it to default value
-        assertJSONDecodeSucceeds("{\"singleInt32\":null}") {(o:MessageTestType) in
-            o.singleInt32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":null}") {(o:MessageTestType) in
+            o.optionalInt32 == 0}
         // Quoted or unquoted numbers, positive, negative, or zero
-        assertJSONDecodeSucceeds("{\"singleInt32\":1}") {(o:MessageTestType) in
-            o.singleInt32 == 1}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"1\"}") {(o:MessageTestType) in
-            o.singleInt32 == 1}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"\\u0030\"}") {(o:MessageTestType) in
-            o.singleInt32 == 0}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"\\u0031\"}") {(o:MessageTestType) in
-            o.singleInt32 == 1}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"\\u00310\"}") {(o:MessageTestType) in
-            o.singleInt32 == 10}
-        assertJSONDecodeSucceeds("{\"singleInt32\":0}") {(o:MessageTestType) in
-            o.singleInt32 == 0}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"0\"}") {(o:MessageTestType) in
-            o.singleInt32 == 0}
-        assertJSONDecodeSucceeds("{\"singleInt32\":-0}") {(o:MessageTestType) in
-            o.singleInt32 == 0}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"-0\"}") {(o:MessageTestType) in
-            o.singleInt32 == 0}
-        assertJSONDecodeSucceeds("{\"singleInt32\":-1}") {(o:MessageTestType) in
-            o.singleInt32 == -1}
-        assertJSONDecodeSucceeds("{\"singleInt32\":\"-1\"}") {(o:MessageTestType) in
-            o.singleInt32 == -1}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":1}") {(o:MessageTestType) in
+            o.optionalInt32 == 1}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"1\"}") {(o:MessageTestType) in
+            o.optionalInt32 == 1}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"\\u0030\"}") {(o:MessageTestType) in
+            o.optionalInt32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"\\u0031\"}") {(o:MessageTestType) in
+            o.optionalInt32 == 1}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"\\u00310\"}") {(o:MessageTestType) in
+            o.optionalInt32 == 10}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":0}") {(o:MessageTestType) in
+            o.optionalInt32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"0\"}") {(o:MessageTestType) in
+            o.optionalInt32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":-0}") {(o:MessageTestType) in
+            o.optionalInt32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"-0\"}") {(o:MessageTestType) in
+            o.optionalInt32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":-1}") {(o:MessageTestType) in
+            o.optionalInt32 == -1}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":\"-1\"}") {(o:MessageTestType) in
+            o.optionalInt32 == -1}
         // JSON RFC does not accept leading zeros
-        assertJSONDecodeFails("{\"singleInt32\":00000000000000000000001}")
-        assertJSONDecodeFails("{\"singleInt32\":\"01\"}")
-        assertJSONDecodeFails("{\"singleInt32\":-01}")
-        assertJSONDecodeFails("{\"singleInt32\":\"-00000000000000000000001\"}")
+        assertJSONDecodeFails("{\"optionalInt32\":00000000000000000000001}")
+        assertJSONDecodeFails("{\"optionalInt32\":\"01\"}")
+        assertJSONDecodeFails("{\"optionalInt32\":-01}")
+        assertJSONDecodeFails("{\"optionalInt32\":\"-00000000000000000000001\"}")
         // Exponents are okay, as long as result is integer
-        assertJSONDecodeSucceeds("{\"singleInt32\":2.147483647e9}") {(o:MessageTestType) in
-            o.singleInt32 == Int32.max}
-        assertJSONDecodeSucceeds("{\"singleInt32\":-2.147483648e9}") {(o:MessageTestType) in
-            o.singleInt32 == Int32.min}
-        assertJSONDecodeSucceeds("{\"singleInt32\":1e3}") {(o:MessageTestType) in
-            o.singleInt32 == 1000}
-        assertJSONDecodeSucceeds("{\"singleInt32\":100e-2}") {(o:MessageTestType) in
-            o.singleInt32 == 1}
-        assertJSONDecodeFails("{\"singleInt32\":1e-1}")
+        assertJSONDecodeSucceeds("{\"optionalInt32\":2.147483647e9}") {(o:MessageTestType) in
+            o.optionalInt32 == Int32.max}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":-2.147483648e9}") {(o:MessageTestType) in
+            o.optionalInt32 == Int32.min}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":1e3}") {(o:MessageTestType) in
+            o.optionalInt32 == 1000}
+        assertJSONDecodeSucceeds("{\"optionalInt32\":100e-2}") {(o:MessageTestType) in
+            o.optionalInt32 == 1}
+        assertJSONDecodeFails("{\"optionalInt32\":1e-1}")
         // Reject malformed input
-        assertJSONDecodeFails("{\"singleInt32\":\\u0031}")
-        assertJSONDecodeFails("{\"singleInt32\":\"\\u0030\\u0030\"}")
-        assertJSONDecodeFails("{\"singleInt32\":\" 1\"}")
-        assertJSONDecodeFails("{\"singleInt32\":\"1 \"}")
-        assertJSONDecodeFails("{\"singleInt32\":\"01\"}")
-        assertJSONDecodeFails("{\"singleInt32\":true}")
-        assertJSONDecodeFails("{\"singleInt32\":0x102}")
-        assertJSONDecodeFails("{\"singleInt32\":{}}")
-        assertJSONDecodeFails("{\"singleInt32\":[]}")
+        assertJSONDecodeFails("{\"optionalInt32\":\\u0031}")
+        assertJSONDecodeFails("{\"optionalInt32\":\"\\u0030\\u0030\"}")
+        assertJSONDecodeFails("{\"optionalInt32\":\" 1\"}")
+        assertJSONDecodeFails("{\"optionalInt32\":\"1 \"}")
+        assertJSONDecodeFails("{\"optionalInt32\":\"01\"}")
+        assertJSONDecodeFails("{\"optionalInt32\":true}")
+        assertJSONDecodeFails("{\"optionalInt32\":0x102}")
+        assertJSONDecodeFails("{\"optionalInt32\":{}}")
+        assertJSONDecodeFails("{\"optionalInt32\":[]}")
         // Try to get the library to access past the end of the string...
-        assertJSONDecodeFails("{\"singleInt32\":0")
-        assertJSONDecodeFails("{\"singleInt32\":-0")
-        assertJSONDecodeFails("{\"singleInt32\":0.1")
-        assertJSONDecodeFails("{\"singleInt32\":0.")
-        assertJSONDecodeFails("{\"singleInt32\":1")
-        assertJSONDecodeFails("{\"singleInt32\":\"")
-        assertJSONDecodeFails("{\"singleInt32\":\"1")
-        assertJSONDecodeFails("{\"singleInt32\":\"1\"")
-        assertJSONDecodeFails("{\"singleInt32\":1.")
-        assertJSONDecodeFails("{\"singleInt32\":1e")
-        assertJSONDecodeFails("{\"singleInt32\":1e1")
-        assertJSONDecodeFails("{\"singleInt32\":-1")
-        assertJSONDecodeFails("{\"singleInt32\":123e")
-        assertJSONDecodeFails("{\"singleInt32\":123.")
-        assertJSONDecodeFails("{\"singleInt32\":123")
+        assertJSONDecodeFails("{\"optionalInt32\":0")
+        assertJSONDecodeFails("{\"optionalInt32\":-0")
+        assertJSONDecodeFails("{\"optionalInt32\":0.1")
+        assertJSONDecodeFails("{\"optionalInt32\":0.")
+        assertJSONDecodeFails("{\"optionalInt32\":1")
+        assertJSONDecodeFails("{\"optionalInt32\":\"")
+        assertJSONDecodeFails("{\"optionalInt32\":\"1")
+        assertJSONDecodeFails("{\"optionalInt32\":\"1\"")
+        assertJSONDecodeFails("{\"optionalInt32\":1.")
+        assertJSONDecodeFails("{\"optionalInt32\":1e")
+        assertJSONDecodeFails("{\"optionalInt32\":1e1")
+        assertJSONDecodeFails("{\"optionalInt32\":-1")
+        assertJSONDecodeFails("{\"optionalInt32\":123e")
+        assertJSONDecodeFails("{\"optionalInt32\":123.")
+        assertJSONDecodeFails("{\"optionalInt32\":123")
     }
 
-    func testSingleUInt32() {
-        assertJSONEncode("{\"singleUint32\":1}") {(o: inout MessageTestType) in
-            o.singleUint32 = 1
+    func testOptionalUInt32() {
+        assertJSONEncode("{\"optionalUint32\":1}") {(o: inout MessageTestType) in
+            o.optionalUint32 = 1
         }
-        assertJSONEncode("{\"singleUint32\":4294967295}") {(o: inout MessageTestType) in
-            o.singleUint32 = UInt32.max
+        assertJSONEncode("{\"optionalUint32\":4294967295}") {(o: inout MessageTestType) in
+            o.optionalUint32 = UInt32.max
         }
-        assertJSONDecodeFails("{\"singleUint32\":4294967296}")
+        assertJSONDecodeFails("{\"optionalUint32\":4294967296}")
         // Explicit 'null' is permitted, decodes to default
-        assertJSONDecodeSucceeds("{\"singleUint32\":null}") {$0.singleUint32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":null}") {$0.optionalUint32 == 0}
         // Quoted or unquoted numbers, positive, negative, or zero
-        assertJSONDecodeSucceeds("{\"singleUint32\":1}") {$0.singleUint32 == 1}
-        assertJSONDecodeSucceeds("{\"singleUint32\":\"1\"}") {$0.singleUint32 == 1}
-        assertJSONDecodeSucceeds("{\"singleUint32\":0}") {$0.singleUint32 == 0}
-        assertJSONDecodeSucceeds("{\"singleUint32\":\"0\"}") {$0.singleUint32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":1}") {$0.optionalUint32 == 1}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":\"1\"}") {$0.optionalUint32 == 1}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":0}") {$0.optionalUint32 == 0}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":\"0\"}") {$0.optionalUint32 == 0}
         // Protobuf JSON does not accept leading zeros
-        assertJSONDecodeFails("{\"singleUint32\":01}")
-        assertJSONDecodeFails("{\"singleUint32\":\"01\"}")
+        assertJSONDecodeFails("{\"optionalUint32\":01}")
+        assertJSONDecodeFails("{\"optionalUint32\":\"01\"}")
         // But it does accept exponential (as long as result is integral)
-        assertJSONDecodeSucceeds("{\"singleUint32\":4.294967295e9}") {$0.singleUint32 == UInt32.max}
-        assertJSONDecodeSucceeds("{\"singleUint32\":1e3}") {$0.singleUint32 == 1000}
-        assertJSONDecodeSucceeds("{\"singleUint32\":1.2e3}") {$0.singleUint32 == 1200}
-        assertJSONDecodeSucceeds("{\"singleUint32\":1000e-2}") {$0.singleUint32 == 10}
-        assertJSONDecodeSucceeds("{\"singleUint32\":1.0}") {$0.singleUint32 == 1}
-        assertJSONDecodeSucceeds("{\"singleUint32\":1.000000e2}") {$0.singleUint32 == 100}
-        assertJSONDecodeFails("{\"singleUint32\":1e-3}")
-        assertJSONDecodeFails("{\"singleUint32\":1")
-        assertJSONDecodeFails("{\"singleUint32\":\"")
-        assertJSONDecodeFails("{\"singleUint32\":\"1")
-        assertJSONDecodeFails("{\"singleUint32\":\"1\"")
-        assertJSONDecodeFails("{\"singleUint32\":1.11e1}")
+        assertJSONDecodeSucceeds("{\"optionalUint32\":4.294967295e9}") {$0.optionalUint32 == UInt32.max}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":1e3}") {$0.optionalUint32 == 1000}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":1.2e3}") {$0.optionalUint32 == 1200}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":1000e-2}") {$0.optionalUint32 == 10}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":1.0}") {$0.optionalUint32 == 1}
+        assertJSONDecodeSucceeds("{\"optionalUint32\":1.000000e2}") {$0.optionalUint32 == 100}
+        assertJSONDecodeFails("{\"optionalUint32\":1e-3}")
+        assertJSONDecodeFails("{\"optionalUint32\":1")
+        assertJSONDecodeFails("{\"optionalUint32\":\"")
+        assertJSONDecodeFails("{\"optionalUint32\":\"1")
+        assertJSONDecodeFails("{\"optionalUint32\":\"1\"")
+        assertJSONDecodeFails("{\"optionalUint32\":1.11e1}")
         // Reject malformed input
-        assertJSONDecodeFails("{\"singleUint32\":true}")
-        assertJSONDecodeFails("{\"singleUint32\":-1}")
-        assertJSONDecodeFails("{\"singleUint32\":\"-1\"}")
-        assertJSONDecodeFails("{\"singleUint32\":0x102}")
-        assertJSONDecodeFails("{\"singleUint32\":{}}")
-        assertJSONDecodeFails("{\"singleUint32\":[]}")
+        assertJSONDecodeFails("{\"optionalUint32\":true}")
+        assertJSONDecodeFails("{\"optionalUint32\":-1}")
+        assertJSONDecodeFails("{\"optionalUint32\":\"-1\"}")
+        assertJSONDecodeFails("{\"optionalUint32\":0x102}")
+        assertJSONDecodeFails("{\"optionalUint32\":{}}")
+        assertJSONDecodeFails("{\"optionalUint32\":[]}")
     }
 
-    func testSingleInt64() throws {
+    func testOptionalInt64() throws {
         // Protoc JSON always quotes Int64 values
-        assertJSONEncode("{\"singleInt64\":\"9007199254740992\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = 0x20000000000000
+        assertJSONEncode("{\"optionalInt64\":\"9007199254740992\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = 0x20000000000000
         }
-        assertJSONEncode("{\"singleInt64\":\"9007199254740991\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = 0x1fffffffffffff
+        assertJSONEncode("{\"optionalInt64\":\"9007199254740991\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = 0x1fffffffffffff
         }
-        assertJSONEncode("{\"singleInt64\":\"-9007199254740992\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = -0x20000000000000
+        assertJSONEncode("{\"optionalInt64\":\"-9007199254740992\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = -0x20000000000000
         }
-        assertJSONEncode("{\"singleInt64\":\"-9007199254740991\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = -0x1fffffffffffff
+        assertJSONEncode("{\"optionalInt64\":\"-9007199254740991\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = -0x1fffffffffffff
         }
-        assertJSONEncode("{\"singleInt64\":\"9223372036854775807\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = Int64.max
+        assertJSONEncode("{\"optionalInt64\":\"9223372036854775807\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = Int64.max
         }
-        assertJSONEncode("{\"singleInt64\":\"-9223372036854775808\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = Int64.min
+        assertJSONEncode("{\"optionalInt64\":\"-9223372036854775808\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = Int64.min
         }
-        assertJSONEncode("{\"singleInt64\":\"1\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = 1
+        assertJSONEncode("{\"optionalInt64\":\"1\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = 1
         }
-        assertJSONEncode("{\"singleInt64\":\"-1\"}") {(o: inout MessageTestType) in
-            o.singleInt64 = -1
+        assertJSONEncode("{\"optionalInt64\":\"-1\"}") {(o: inout MessageTestType) in
+            o.optionalInt64 = -1
         }
 
         // 0 is default, so proto3 omits it
         var a = MessageTestType()
-        a.singleInt64 = 0
+        a.optionalInt64 = 0
         XCTAssertEqual(try a.jsonString(), "{}")
 
         // Decode should work even with unquoted large numbers
-        assertJSONDecodeSucceeds("{\"singleInt64\":9223372036854775807}") {$0.singleInt64 == Int64.max}
-        assertJSONDecodeFails("{\"singleInt64\":9223372036854775808}")
-        assertJSONDecodeSucceeds("{\"singleInt64\":-9223372036854775808}") {$0.singleInt64 == Int64.min}
-        assertJSONDecodeFails("{\"singleInt64\":-9223372036854775809}")
+        assertJSONDecodeSucceeds("{\"optionalInt64\":9223372036854775807}") {$0.optionalInt64 == Int64.max}
+        assertJSONDecodeFails("{\"optionalInt64\":9223372036854775808}")
+        assertJSONDecodeSucceeds("{\"optionalInt64\":-9223372036854775808}") {$0.optionalInt64 == Int64.min}
+        assertJSONDecodeFails("{\"optionalInt64\":-9223372036854775809}")
         // Protobuf JSON does not accept leading zeros
-        assertJSONDecodeFails("{\"singleInt64\": \"01\" }")
-        assertJSONDecodeSucceeds("{\"singleInt64\": \"1\" }") {$0.singleInt64 == 1}
-        assertJSONDecodeFails("{\"singleInt64\": \"-01\" }")
-        assertJSONDecodeSucceeds("{\"singleInt64\": \"-1\" }") {$0.singleInt64 == -1}
-        assertJSONDecodeSucceeds("{\"singleInt64\": \"0\" }") {$0.singleInt64 == 0}
+        assertJSONDecodeFails("{\"optionalInt64\": \"01\" }")
+        assertJSONDecodeSucceeds("{\"optionalInt64\": \"1\" }") {$0.optionalInt64 == 1}
+        assertJSONDecodeFails("{\"optionalInt64\": \"-01\" }")
+        assertJSONDecodeSucceeds("{\"optionalInt64\": \"-1\" }") {$0.optionalInt64 == -1}
+        assertJSONDecodeSucceeds("{\"optionalInt64\": \"0\" }") {$0.optionalInt64 == 0}
         // Protobuf JSON does accept exponential format for integer fields
-        assertJSONDecodeSucceeds("{\"singleInt64\":1e3}") {$0.singleInt64 == 1000}
-        assertJSONDecodeSucceeds("{\"singleInt64\":\"9223372036854775807\"}") {$0.singleInt64 == Int64.max}
-        assertJSONDecodeSucceeds("{\"singleInt64\":-9.223372036854775808e18}") {$0.singleInt64 == Int64.min}
-        assertJSONDecodeFails("{\"singleInt64\":9.223372036854775808e18}") // Out of range
+        assertJSONDecodeSucceeds("{\"optionalInt64\":1e3}") {$0.optionalInt64 == 1000}
+        assertJSONDecodeSucceeds("{\"optionalInt64\":\"9223372036854775807\"}") {$0.optionalInt64 == Int64.max}
+        assertJSONDecodeSucceeds("{\"optionalInt64\":-9.223372036854775808e18}") {$0.optionalInt64 == Int64.min}
+        assertJSONDecodeFails("{\"optionalInt64\":9.223372036854775808e18}") // Out of range
         // Explicit 'null' is permitted, decodes to default (in proto3)
-        assertJSONDecodeSucceeds("{\"singleInt64\":null}") {$0.singleInt64 == 0}
-        assertJSONDecodeSucceeds("{\"singleInt64\":2147483648}") {$0.singleInt64 == 2147483648}
-        assertJSONDecodeSucceeds("{\"singleInt64\":2147483648}") {$0.singleInt64 == 2147483648}
+        assertJSONDecodeSucceeds("{\"optionalInt64\":null}") {$0.optionalInt64 == 0}
+        assertJSONDecodeSucceeds("{\"optionalInt64\":2147483648}") {$0.optionalInt64 == 2147483648}
+        assertJSONDecodeSucceeds("{\"optionalInt64\":2147483648}") {$0.optionalInt64 == 2147483648}
 
-        assertJSONDecodeFails("{\"singleInt64\":1")
-        assertJSONDecodeFails("{\"singleInt64\":\"")
-        assertJSONDecodeFails("{\"singleInt64\":\"1")
-        assertJSONDecodeFails("{\"singleInt64\":\"1\"")
+        assertJSONDecodeFails("{\"optionalInt64\":1")
+        assertJSONDecodeFails("{\"optionalInt64\":\"")
+        assertJSONDecodeFails("{\"optionalInt64\":\"1")
+        assertJSONDecodeFails("{\"optionalInt64\":\"1\"")
     }
 
-    func testSingleUInt64() {
-        assertJSONEncode("{\"singleUint64\":\"1\"}") {(o: inout MessageTestType) in
-            o.singleUint64 = 1
+    func testOptionalUInt64() {
+        assertJSONEncode("{\"optionalUint64\":\"1\"}") {(o: inout MessageTestType) in
+            o.optionalUint64 = 1
         }
-        assertJSONEncode("{\"singleUint64\":\"4294967295\"}") {(o: inout MessageTestType) in
-            o.singleUint64 = UInt64(UInt32.max)
+        assertJSONEncode("{\"optionalUint64\":\"4294967295\"}") {(o: inout MessageTestType) in
+            o.optionalUint64 = UInt64(UInt32.max)
         }
-        assertJSONEncode("{\"singleUint64\":\"18446744073709551615\"}") {(o: inout MessageTestType) in
-            o.singleUint64 = UInt64.max
+        assertJSONEncode("{\"optionalUint64\":\"18446744073709551615\"}") {(o: inout MessageTestType) in
+            o.optionalUint64 = UInt64.max
         }
         // Parse unquoted 64-bit integers
-        assertJSONDecodeSucceeds("{\"singleUint64\":18446744073709551615}") {$0.singleUint64 == UInt64.max}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":18446744073709551615}") {$0.optionalUint64 == UInt64.max}
         // Accept quoted 64-bit integers with backslash escapes in them
-        assertJSONDecodeSucceeds("{\"singleUint64\":\"184467\\u00344073709551615\"}") {$0.singleUint64 == UInt64.max}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":\"184467\\u00344073709551615\"}") {$0.optionalUint64 == UInt64.max}
         // Reject unquoted 64-bit integers with backslash escapes
-        assertJSONDecodeFails("{\"singleUint64\":184467\\u00344073709551615}")
+        assertJSONDecodeFails("{\"optionalUint64\":184467\\u00344073709551615}")
         // Reject out-of-range integers, whether or not quoted
-        assertJSONDecodeFails("{\"singleUint64\":\"18446744073709551616\"}")
-        assertJSONDecodeFails("{\"singleUint64\":18446744073709551616}")
-        assertJSONDecodeFails("{\"singleUint64\":\"184467440737095516109\"}")
-        assertJSONDecodeFails("{\"singleUint64\":184467440737095516109}")
+        assertJSONDecodeFails("{\"optionalUint64\":\"18446744073709551616\"}")
+        assertJSONDecodeFails("{\"optionalUint64\":18446744073709551616}")
+        assertJSONDecodeFails("{\"optionalUint64\":\"184467440737095516109\"}")
+        assertJSONDecodeFails("{\"optionalUint64\":184467440737095516109}")
 
         // Explicit 'null' is permitted, decodes to default
-        assertJSONDecodeSucceeds("{\"singleUint64\":null}") {$0.singleUint64 == 0}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":null}") {$0.optionalUint64 == 0}
         // Quoted or unquoted numbers, positive or zero
-        assertJSONDecodeSucceeds("{\"singleUint64\":1}") {$0.singleUint64 == 1}
-        assertJSONDecodeSucceeds("{\"singleUint64\":\"1\"}") {$0.singleUint64 == 1}
-        assertJSONDecodeSucceeds("{\"singleUint64\":0}") {$0.singleUint64 == 0}
-        assertJSONDecodeSucceeds("{\"singleUint64\":\"0\"}") {$0.singleUint64 == 0}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":1}") {$0.optionalUint64 == 1}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":\"1\"}") {$0.optionalUint64 == 1}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":0}") {$0.optionalUint64 == 0}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":\"0\"}") {$0.optionalUint64 == 0}
         // Protobuf JSON does not accept leading zeros
-        assertJSONDecodeFails("{\"singleUint64\":01}")
-        assertJSONDecodeFails("{\"singleUint64\":\"01\"}")
+        assertJSONDecodeFails("{\"optionalUint64\":01}")
+        assertJSONDecodeFails("{\"optionalUint64\":\"01\"}")
         // But it does accept exponential (as long as result is integral)
-        assertJSONDecodeSucceeds("{\"singleUint64\":4.294967295e9}") {$0.singleUint64 == UInt64(UInt32.max)}
-        assertJSONDecodeSucceeds("{\"singleUint64\":1e3}") {$0.singleUint64 == 1000}
-        assertJSONDecodeSucceeds("{\"singleUint64\":1.2e3}") {$0.singleUint64 == 1200}
-        assertJSONDecodeSucceeds("{\"singleUint64\":1000e-2}") {$0.singleUint64 == 10}
-        assertJSONDecodeSucceeds("{\"singleUint64\":1.0}") {$0.singleUint64 == 1}
-        assertJSONDecodeSucceeds("{\"singleUint64\":1.000000e2}") {$0.singleUint64 == 100}
-        assertJSONDecodeFails("{\"singleUint64\":1e-3}")
-        assertJSONDecodeFails("{\"singleUint64\":1.11e1}")
+        assertJSONDecodeSucceeds("{\"optionalUint64\":4.294967295e9}") {$0.optionalUint64 == UInt64(UInt32.max)}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":1e3}") {$0.optionalUint64 == 1000}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":1.2e3}") {$0.optionalUint64 == 1200}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":1000e-2}") {$0.optionalUint64 == 10}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":1.0}") {$0.optionalUint64 == 1}
+        assertJSONDecodeSucceeds("{\"optionalUint64\":1.000000e2}") {$0.optionalUint64 == 100}
+        assertJSONDecodeFails("{\"optionalUint64\":1e-3}")
+        assertJSONDecodeFails("{\"optionalUint64\":1.11e1}")
         // Reject truncated JSON (ending at the beginning, end, or middle of the number
-        assertJSONDecodeFails("{\"singleUint64\":")
-        assertJSONDecodeFails("{\"singleUint64\":1")
-        assertJSONDecodeFails("{\"singleUint64\":\"")
-        assertJSONDecodeFails("{\"singleUint64\":\"1")
-        assertJSONDecodeFails("{\"singleUint64\":\"1\"")
+        assertJSONDecodeFails("{\"optionalUint64\":")
+        assertJSONDecodeFails("{\"optionalUint64\":1")
+        assertJSONDecodeFails("{\"optionalUint64\":\"")
+        assertJSONDecodeFails("{\"optionalUint64\":\"1")
+        assertJSONDecodeFails("{\"optionalUint64\":\"1\"")
         // Reject malformed input
-        assertJSONDecodeFails("{\"singleUint64\":true}")
-        assertJSONDecodeFails("{\"singleUint64\":-1}")
-        assertJSONDecodeFails("{\"singleUint64\":\"-1\"}")
-        assertJSONDecodeFails("{\"singleUint64\":0x102}")
-        assertJSONDecodeFails("{\"singleUint64\":{}}")
-        assertJSONDecodeFails("{\"singleUint64\":[]}")
+        assertJSONDecodeFails("{\"optionalUint64\":true}")
+        assertJSONDecodeFails("{\"optionalUint64\":-1}")
+        assertJSONDecodeFails("{\"optionalUint64\":\"-1\"}")
+        assertJSONDecodeFails("{\"optionalUint64\":0x102}")
+        assertJSONDecodeFails("{\"optionalUint64\":{}}")
+        assertJSONDecodeFails("{\"optionalUint64\":[]}")
     }
 
     private func assertRoundTripJSON(file: XCTestFileArgType = #file, line: UInt = #line, configure: (inout MessageTestType) -> Void) {
@@ -406,347 +400,347 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         }
     }
 
-    func testSingleDouble() throws {
-        assertJSONEncode("{\"singleDouble\":1}") {(o: inout MessageTestType) in
-            o.singleDouble = 1.0
+    func testOptionalDouble() throws {
+        assertJSONEncode("{\"optionalDouble\":1}") {(o: inout MessageTestType) in
+            o.optionalDouble = 1.0
         }
-        assertJSONEncode("{\"singleDouble\":\"Infinity\"}") {(o: inout MessageTestType) in
-            o.singleDouble = Double.infinity
+        assertJSONEncode("{\"optionalDouble\":\"Infinity\"}") {(o: inout MessageTestType) in
+            o.optionalDouble = Double.infinity
         }
-        assertJSONEncode("{\"singleDouble\":\"-Infinity\"}") {(o: inout MessageTestType) in
-            o.singleDouble = -Double.infinity
+        assertJSONEncode("{\"optionalDouble\":\"-Infinity\"}") {(o: inout MessageTestType) in
+            o.optionalDouble = -Double.infinity
         }
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"Inf\"}") {$0.singleDouble == Double.infinity}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"-Inf\"}") {$0.singleDouble == -Double.infinity}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1\"}") {$0.singleDouble == 1}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0\"}") {$0.singleDouble == 1.0}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5\"}") {$0.singleDouble == 1.5}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e1\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5E1\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1\\u002e5e1\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.\\u0035e1\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5\\u00651\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e\\u002b1\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e+\\u0031\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.5e+1\"}") {$0.singleDouble == 15}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"15e-1\"}") {$0.singleDouble == 1.5}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"1.0e0\"}") {$0.singleDouble == 1.0}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"-0\"}") {$0.singleDouble == 0.0}
-        assertJSONDecodeSucceeds("{\"singleDouble\":\"0\"}") {$0.singleDouble == 0.0}
-        assertJSONDecodeSucceeds("{\"singleDouble\":-0}") {$0.singleDouble == 0.0}
-        assertJSONDecodeSucceeds("{\"singleDouble\":0}") {$0.singleDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"Inf\"}") {$0.optionalDouble == Double.infinity}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"-Inf\"}") {$0.optionalDouble == -Double.infinity}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1\"}") {$0.optionalDouble == 1}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.0\"}") {$0.optionalDouble == 1.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5\"}") {$0.optionalDouble == 1.5}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5e1\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5E1\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1\\u002e5e1\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.\\u0035e1\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5\\u00651\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5e\\u002b1\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5e+\\u0031\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.5e+1\"}") {$0.optionalDouble == 15}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"15e-1\"}") {$0.optionalDouble == 1.5}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"1.0e0\"}") {$0.optionalDouble == 1.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"-0\"}") {$0.optionalDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":\"0\"}") {$0.optionalDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":-0}") {$0.optionalDouble == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalDouble\":0}") {$0.optionalDouble == 0.0}
         // Malformed numbers should fail
-        assertJSONDecodeFails("{\"singleDouble\":Infinity}")
-        assertJSONDecodeFails("{\"singleDouble\":-Infinity}") // Must be quoted
-        assertJSONDecodeFails("{\"singleDouble\":\"inf\"}")
-        assertJSONDecodeFails("{\"singleDouble\":\"-inf\"}")
-        assertJSONDecodeFails("{\"singleDouble\":NaN}")
-        assertJSONDecodeFails("{\"singleDouble\":\"nan\"}")
-        assertJSONDecodeFails("{\"singleDouble\":\"1.0.0\"}")
-        assertJSONDecodeFails("{\"singleDouble\":00.1}")
-        assertJSONDecodeFails("{\"singleDouble\":\"00.1\"}")
-        assertJSONDecodeFails("{\"singleDouble\":.1}")
-        assertJSONDecodeFails("{\"singleDouble\":\".1\"}")
-        assertJSONDecodeFails("{\"singleDouble\":1.}")
-        assertJSONDecodeFails("{\"singleDouble\":\"1.\"}")
-        assertJSONDecodeFails("{\"singleDouble\":1e}")
-        assertJSONDecodeFails("{\"singleDouble\":\"1e\"}")
-        assertJSONDecodeFails("{\"singleDouble\":1e+}")
-        assertJSONDecodeFails("{\"singleDouble\":\"1e+\"}")
-        assertJSONDecodeFails("{\"singleDouble\":1e3.2}")
-        assertJSONDecodeFails("{\"singleDouble\":\"1e3.2\"}")
-        assertJSONDecodeFails("{\"singleDouble\":1.0.0}")
+        assertJSONDecodeFails("{\"optionalDouble\":Infinity}")
+        assertJSONDecodeFails("{\"optionalDouble\":-Infinity}") // Must be quoted
+        assertJSONDecodeFails("{\"optionalDouble\":\"inf\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"-inf\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":NaN}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"nan\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"1.0.0\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":00.1}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"00.1\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":.1}")
+        assertJSONDecodeFails("{\"optionalDouble\":\".1\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":1.}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"1.\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":1e}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"1e\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":1e+}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"1e+\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":1e3.2}")
+        assertJSONDecodeFails("{\"optionalDouble\":\"1e3.2\"}")
+        assertJSONDecodeFails("{\"optionalDouble\":1.0.0}")
 
         // A wide range of numbers should exactly round-trip
-        assertRoundTripJSON {$0.singleDouble = 0.1}
-        assertRoundTripJSON {$0.singleDouble = 0.01}
-        assertRoundTripJSON {$0.singleDouble = 0.001}
-        assertRoundTripJSON {$0.singleDouble = 0.0001}
-        assertRoundTripJSON {$0.singleDouble = 0.00001}
-        assertRoundTripJSON {$0.singleDouble = 0.000001}
-        assertRoundTripJSON {$0.singleDouble = 1e-10}
-        assertRoundTripJSON {$0.singleDouble = 1e-20}
-        assertRoundTripJSON {$0.singleDouble = 1e-30}
-        assertRoundTripJSON {$0.singleDouble = 1e-40}
-        assertRoundTripJSON {$0.singleDouble = 1e-50}
-        assertRoundTripJSON {$0.singleDouble = 1e-60}
-        assertRoundTripJSON {$0.singleDouble = 1e-100}
-        assertRoundTripJSON {$0.singleDouble = 1e-200}
-        assertRoundTripJSON {$0.singleDouble = Double.pi}
-        assertRoundTripJSON {$0.singleDouble = 123456.789123456789123}
-        assertRoundTripJSON {$0.singleDouble = 1.7976931348623157e+308}
-        assertRoundTripJSON {$0.singleDouble = 2.22507385850720138309e-308}
+        assertRoundTripJSON {$0.optionalDouble = 0.1}
+        assertRoundTripJSON {$0.optionalDouble = 0.01}
+        assertRoundTripJSON {$0.optionalDouble = 0.001}
+        assertRoundTripJSON {$0.optionalDouble = 0.0001}
+        assertRoundTripJSON {$0.optionalDouble = 0.00001}
+        assertRoundTripJSON {$0.optionalDouble = 0.000001}
+        assertRoundTripJSON {$0.optionalDouble = 1e-10}
+        assertRoundTripJSON {$0.optionalDouble = 1e-20}
+        assertRoundTripJSON {$0.optionalDouble = 1e-30}
+        assertRoundTripJSON {$0.optionalDouble = 1e-40}
+        assertRoundTripJSON {$0.optionalDouble = 1e-50}
+        assertRoundTripJSON {$0.optionalDouble = 1e-60}
+        assertRoundTripJSON {$0.optionalDouble = 1e-100}
+        assertRoundTripJSON {$0.optionalDouble = 1e-200}
+        assertRoundTripJSON {$0.optionalDouble = Double.pi}
+        assertRoundTripJSON {$0.optionalDouble = 123456.789123456789123}
+        assertRoundTripJSON {$0.optionalDouble = 1.7976931348623157e+308}
+        assertRoundTripJSON {$0.optionalDouble = 2.22507385850720138309e-308}
     }
 
-    func testSingleFloat() {
-        assertJSONEncode("{\"singleFloat\":1}") {(o: inout MessageTestType) in
-            o.singleFloat = 1.0
+    func testOptionalFloat() {
+        assertJSONEncode("{\"optionalFloat\":1}") {(o: inout MessageTestType) in
+            o.optionalFloat = 1.0
         }
-        assertJSONEncode("{\"singleFloat\":\"Infinity\"}") {(o: inout MessageTestType) in
-            o.singleFloat = Float.infinity
+        assertJSONEncode("{\"optionalFloat\":\"Infinity\"}") {(o: inout MessageTestType) in
+            o.optionalFloat = Float.infinity
         }
-        assertJSONEncode("{\"singleFloat\":\"-Infinity\"}") {(o: inout MessageTestType) in
-            o.singleFloat = -Float.infinity
+        assertJSONEncode("{\"optionalFloat\":\"-Infinity\"}") {(o: inout MessageTestType) in
+            o.optionalFloat = -Float.infinity
         }
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"Inf\"}") {$0.singleFloat == Float.infinity}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"-Inf\"}") {$0.singleFloat == -Float.infinity}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1\"}") {$0.singleFloat == 1}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.0\"}") {$0.singleFloat == 1.0}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5\"}") {$0.singleFloat == 1.5}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e1\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1\\u002e5e1\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.\\u0035e1\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5\\u00651\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e\\u002b1\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e+\\u0031\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.5e+1\"}") {$0.singleFloat == 15}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"15e-1\"}") {$0.singleFloat == 1.5}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"1.0e0\"}") {$0.singleFloat == 1.0}
-        assertJSONDecodeSucceeds("{\"singleFloat\":1.0e0}") {$0.singleFloat == 1.0}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"0\"}") {$0.singleFloat == 0.0}
-        assertJSONDecodeSucceeds("{\"singleFloat\":0}") {$0.singleFloat == 0.0}
-        assertJSONDecodeSucceeds("{\"singleFloat\":\"-0\"}") {$0.singleFloat == -0.0 && $0.singleFloat.sign == .minus}
-        assertJSONDecodeSucceeds("{\"singleFloat\":-0}") {$0.singleFloat == 0 && $0.singleFloat.sign == .minus}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"Inf\"}") {$0.optionalFloat == Float.infinity}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"-Inf\"}") {$0.optionalFloat == -Float.infinity}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1\"}") {$0.optionalFloat == 1}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.0\"}") {$0.optionalFloat == 1.0}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5\"}") {$0.optionalFloat == 1.5}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5e1\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1\\u002e5e1\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.\\u0035e1\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5\\u00651\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5e\\u002b1\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5e+\\u0031\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.5e+1\"}") {$0.optionalFloat == 15}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"15e-1\"}") {$0.optionalFloat == 1.5}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"1.0e0\"}") {$0.optionalFloat == 1.0}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":1.0e0}") {$0.optionalFloat == 1.0}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"0\"}") {$0.optionalFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":0}") {$0.optionalFloat == 0.0}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":\"-0\"}") {$0.optionalFloat == -0.0 && $0.optionalFloat.sign == .minus}
+        assertJSONDecodeSucceeds("{\"optionalFloat\":-0}") {$0.optionalFloat == 0 && $0.optionalFloat.sign == .minus}
         // Malformed numbers should fail
-        assertJSONDecodeFails("{\"singleFloat\":Infinity}")
-        assertJSONDecodeFails("{\"singleFloat\":-Infinity}") // Must be quoted
-        assertJSONDecodeFails("{\"singleFloat\":NaN}")
-        assertJSONDecodeFails("{\"singleFloat\":\"nan\"}")
-        assertJSONDecodeFails("{\"singleFloat\":\"1.0.0\"}")
-        assertJSONDecodeFails("{\"singleFloat\":1.0.0}")
-        assertJSONDecodeFails("{\"singleFloat\":00.1}")
-        assertJSONDecodeFails("{\"singleFloat\":\"00.1\"}")
-        assertJSONDecodeFails("{\"singleFloat\":.1}")
-        assertJSONDecodeFails("{\"singleFloat\":\".1\"}")
-        assertJSONDecodeFails("{\"singleFloat\":\"1")
-        assertJSONDecodeFails("{\"singleFloat\":\"")
-        assertJSONDecodeFails("{\"singleFloat\":1")
-        assertJSONDecodeFails("{\"singleFloat\":1.")
-        assertJSONDecodeFails("{\"singleFloat\":1.}")
-        assertJSONDecodeFails("{\"singleFloat\":\"1.\"}")
-        assertJSONDecodeFails("{\"singleFloat\":1e}")
-        assertJSONDecodeFails("{\"singleFloat\":\"1e\"}")
-        assertJSONDecodeFails("{\"singleFloat\":1e+}")
-        assertJSONDecodeFails("{\"singleFloat\":\"1e+\"}")
-        assertJSONDecodeFails("{\"singleFloat\":1e3.2}")
-        assertJSONDecodeFails("{\"singleFloat\":\"1e3.2\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":Infinity}")
+        assertJSONDecodeFails("{\"optionalFloat\":-Infinity}") // Must be quoted
+        assertJSONDecodeFails("{\"optionalFloat\":NaN}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"nan\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"1.0.0\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":1.0.0}")
+        assertJSONDecodeFails("{\"optionalFloat\":00.1}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"00.1\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":.1}")
+        assertJSONDecodeFails("{\"optionalFloat\":\".1\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"1")
+        assertJSONDecodeFails("{\"optionalFloat\":\"")
+        assertJSONDecodeFails("{\"optionalFloat\":1")
+        assertJSONDecodeFails("{\"optionalFloat\":1.")
+        assertJSONDecodeFails("{\"optionalFloat\":1.}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"1.\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":1e}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"1e\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":1e+}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"1e+\"}")
+        assertJSONDecodeFails("{\"optionalFloat\":1e3.2}")
+        assertJSONDecodeFails("{\"optionalFloat\":\"1e3.2\"}")
         // Out-of-range numbers should fail
-        assertJSONDecodeFails("{\"singleFloat\":1e39}")
+        assertJSONDecodeFails("{\"optionalFloat\":1e39}")
 
         // A wide range of numbers should exactly round-trip
-        assertRoundTripJSON {$0.singleFloat = 0.1}
-        assertRoundTripJSON {$0.singleFloat = 0.01}
-        assertRoundTripJSON {$0.singleFloat = 0.001}
-        assertRoundTripJSON {$0.singleFloat = 0.0001}
-        assertRoundTripJSON {$0.singleFloat = 0.00001}
-        assertRoundTripJSON {$0.singleFloat = 0.000001}
-        assertRoundTripJSON {$0.singleFloat = 1.00000075e-36}
-        assertRoundTripJSON {$0.singleFloat = 1e-10}
-        assertRoundTripJSON {$0.singleFloat = 1e-20}
-        assertRoundTripJSON {$0.singleFloat = 1e-30}
-        assertRoundTripJSON {$0.singleFloat = 1e-40}
-        assertRoundTripJSON {$0.singleFloat = 1e-50}
-        assertRoundTripJSON {$0.singleFloat = 1e-60}
-        assertRoundTripJSON {$0.singleFloat = 1e-100}
-        assertRoundTripJSON {$0.singleFloat = 1e-200}
-        assertRoundTripJSON {$0.singleFloat = Float.pi}
-        assertRoundTripJSON {$0.singleFloat = 123456.789123456789123}
-        assertRoundTripJSON {$0.singleFloat = 1999.9999999999}
-        assertRoundTripJSON {$0.singleFloat = 1999.9}
-        assertRoundTripJSON {$0.singleFloat = 1999.99}
-        assertRoundTripJSON {$0.singleFloat = 1999.99}
-        assertRoundTripJSON {$0.singleFloat = 3.402823567e+38}
-        assertRoundTripJSON {$0.singleFloat = 1.1754944e-38}
+        assertRoundTripJSON {$0.optionalFloat = 0.1}
+        assertRoundTripJSON {$0.optionalFloat = 0.01}
+        assertRoundTripJSON {$0.optionalFloat = 0.001}
+        assertRoundTripJSON {$0.optionalFloat = 0.0001}
+        assertRoundTripJSON {$0.optionalFloat = 0.00001}
+        assertRoundTripJSON {$0.optionalFloat = 0.000001}
+        assertRoundTripJSON {$0.optionalFloat = 1.00000075e-36}
+        assertRoundTripJSON {$0.optionalFloat = 1e-10}
+        assertRoundTripJSON {$0.optionalFloat = 1e-20}
+        assertRoundTripJSON {$0.optionalFloat = 1e-30}
+        assertRoundTripJSON {$0.optionalFloat = 1e-40}
+        assertRoundTripJSON {$0.optionalFloat = 1e-50}
+        assertRoundTripJSON {$0.optionalFloat = 1e-60}
+        assertRoundTripJSON {$0.optionalFloat = 1e-100}
+        assertRoundTripJSON {$0.optionalFloat = 1e-200}
+        assertRoundTripJSON {$0.optionalFloat = Float.pi}
+        assertRoundTripJSON {$0.optionalFloat = 123456.789123456789123}
+        assertRoundTripJSON {$0.optionalFloat = 1999.9999999999}
+        assertRoundTripJSON {$0.optionalFloat = 1999.9}
+        assertRoundTripJSON {$0.optionalFloat = 1999.99}
+        assertRoundTripJSON {$0.optionalFloat = 1999.99}
+        assertRoundTripJSON {$0.optionalFloat = 3.402823567e+38}
+        assertRoundTripJSON {$0.optionalFloat = 1.1754944e-38}
     }
 
-    func testSingleDouble_NaN() throws {
+    func testOptionalDouble_NaN() throws {
         // The helper functions don't work with NaN because NaN != NaN
-        var o = Proto3TestAllTypes()
-        o.singleDouble = Double.nan
+        var o = Proto3Unittest_TestAllTypes()
+        o.optionalDouble = Double.nan
         let encoded = try o.jsonString()
-        XCTAssertEqual(encoded, "{\"singleDouble\":\"NaN\"}")
-        let o2 = try Proto3TestAllTypes(jsonString: encoded)
-        XCTAssert(o2.singleDouble.isNaN == .some(true))
+        XCTAssertEqual(encoded, "{\"optionalDouble\":\"NaN\"}")
+        let o2 = try Proto3Unittest_TestAllTypes(jsonString: encoded)
+        XCTAssert(o2.optionalDouble.isNaN == .some(true))
     }
 
-    func testSingleFloat_NaN() throws {
+    func testOptionalFloat_NaN() throws {
         // The helper functions don't work with NaN because NaN != NaN
-        var o = Proto3TestAllTypes()
-        o.singleFloat = Float.nan
+        var o = Proto3Unittest_TestAllTypes()
+        o.optionalFloat = Float.nan
         let encoded = try o.jsonString()
-        XCTAssertEqual(encoded, "{\"singleFloat\":\"NaN\"}")
+        XCTAssertEqual(encoded, "{\"optionalFloat\":\"NaN\"}")
         do {
-            let o2 = try Proto3TestAllTypes(jsonString: encoded)
-            XCTAssert(o2.singleFloat.isNaN == .some(true))
+            let o2 = try Proto3Unittest_TestAllTypes(jsonString: encoded)
+            XCTAssert(o2.optionalFloat.isNaN == .some(true))
         } catch let e {
             XCTFail("Couldn't decode: \(e) -- \(encoded)")
         }
     }
 
-    func testSingleDouble_roundtrip() throws {
+    func testOptionalDouble_roundtrip() throws {
         for _ in 0..<10000 {
             let d = drand48()
-            assertRoundTripJSON {$0.singleDouble = d}
+            assertRoundTripJSON {$0.optionalDouble = d}
         }
     }
 
-    func testSingleFloat_roundtrip() throws {
+    func testOptionalFloat_roundtrip() throws {
         for _ in 0..<10000 {
             let f = Float(drand48())
-            assertRoundTripJSON {$0.singleFloat = f}
+            assertRoundTripJSON {$0.optionalFloat = f}
         }
     }
 
-    func testSingleBool() throws {
-        assertJSONEncode("{\"singleBool\":true}") {(o: inout MessageTestType) in
-            o.singleBool = true
+    func testOptionalBool() throws {
+        assertJSONEncode("{\"optionalBool\":true}") {(o: inout MessageTestType) in
+            o.optionalBool = true
         }
 
         // False is default, so should not serialize in proto3
         var o = MessageTestType()
-        o.singleBool = false
+        o.optionalBool = false
         XCTAssertEqual(try o.jsonString(), "{}")
     }
 
-    func testSingleString() {
-        assertJSONEncode("{\"singleString\":\"hello\"}") {(o: inout MessageTestType) in
-            o.singleString = "hello"
+    func testOptionalString() {
+        assertJSONEncode("{\"optionalString\":\"hello\"}") {(o: inout MessageTestType) in
+            o.optionalString = "hello"
         }
         // Start of the C1 range
-        assertJSONEncode("{\"singleString\":\"~\\u007F\\u0080\\u0081\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{7e}\u{7f}\u{80}\u{81}"
+        assertJSONEncode("{\"optionalString\":\"~\\u007F\\u0080\\u0081\"}") {(o: inout MessageTestType) in
+            o.optionalString = "\u{7e}\u{7f}\u{80}\u{81}"
         }
         // End of the C1 range
-        assertJSONEncode("{\"singleString\":\"\\u009E\\u009F ¡¢£\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{9e}\u{9f}\u{a0}\u{a1}\u{a2}\u{a3}"
+        assertJSONEncode("{\"optionalString\":\"\\u009E\\u009F ¡¢£\"}") {(o: inout MessageTestType) in
+            o.optionalString = "\u{9e}\u{9f}\u{a0}\u{a1}\u{a2}\u{a3}"
         }
 
         // Empty string is default, so proto3 omits it
         var a = MessageTestType()
-        a.singleString = ""
+        a.optionalString = ""
         XCTAssertEqual(try a.jsonString(), "{}")
 
         // Example from RFC 7159:  G clef coded as escaped surrogate pair
-        assertJSONDecodeSucceeds("{\"singleString\":\"\\uD834\\uDD1E\"}") {$0.singleString == "𝄞"}
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\uD834\\uDD1E\"}") {$0.optionalString == "𝄞"}
         // Ditto, with lowercase hex
-        assertJSONDecodeSucceeds("{\"singleString\":\"\\ud834\\udd1e\"}") {$0.singleString == "𝄞"}
+        assertJSONDecodeSucceeds("{\"optionalString\":\"\\ud834\\udd1e\"}") {$0.optionalString == "𝄞"}
         // Same character represented directly
-        assertJSONDecodeSucceeds("{\"singleString\":\"𝄞\"}") {$0.singleString == "𝄞"}
+        assertJSONDecodeSucceeds("{\"optionalString\":\"𝄞\"}") {$0.optionalString == "𝄞"}
         // Various broken surrogate forms
-        assertJSONDecodeFails("{\"singleString\":\"\\uDD1E\\uD834\"}")
-        assertJSONDecodeFails("{\"singleString\":\"\\uDD1E\"}")
-        assertJSONDecodeFails("{\"singleString\":\"\\uD834\"}")
-        assertJSONDecodeFails("{\"singleString\":\"\\uDD1E\\u1234\"}")
+        assertJSONDecodeFails("{\"optionalString\":\"\\uDD1E\\uD834\"}")
+        assertJSONDecodeFails("{\"optionalString\":\"\\uDD1E\"}")
+        assertJSONDecodeFails("{\"optionalString\":\"\\uD834\"}")
+        assertJSONDecodeFails("{\"optionalString\":\"\\uDD1E\\u1234\"}")
     }
 
-    func testSingleString_controlCharacters() {
+    func testOptionalString_controlCharacters() {
         // This is known to fail on Swift Linux 4.0 and earlier,
         // so skip it there.
         // See https://bugs.swift.org/browse/SR-4218 for details.
 #if !os(Linux) || swift(>=4.1)
         // Verify that all C0 controls are correctly escaped
-        assertJSONEncode("{\"singleString\":\"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
+        assertJSONEncode("{\"optionalString\":\"\\u0000\\u0001\\u0002\\u0003\\u0004\\u0005\\u0006\\u0007\"}") {(o: inout MessageTestType) in
+            o.optionalString = "\u{00}\u{01}\u{02}\u{03}\u{04}\u{05}\u{06}\u{07}"
         }
-        assertJSONEncode("{\"singleString\":\"\\b\\t\\n\\u000B\\f\\r\\u000E\\u000F\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
+        assertJSONEncode("{\"optionalString\":\"\\b\\t\\n\\u000B\\f\\r\\u000E\\u000F\"}") {(o: inout MessageTestType) in
+            o.optionalString = "\u{08}\u{09}\u{0a}\u{0b}\u{0c}\u{0d}\u{0e}\u{0f}"
         }
-        assertJSONEncode("{\"singleString\":\"\\u0010\\u0011\\u0012\\u0013\\u0014\\u0015\\u0016\\u0017\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
+        assertJSONEncode("{\"optionalString\":\"\\u0010\\u0011\\u0012\\u0013\\u0014\\u0015\\u0016\\u0017\"}") {(o: inout MessageTestType) in
+            o.optionalString = "\u{10}\u{11}\u{12}\u{13}\u{14}\u{15}\u{16}\u{17}"
         }
-        assertJSONEncode("{\"singleString\":\"\\u0018\\u0019\\u001A\\u001B\\u001C\\u001D\\u001E\\u001F\"}") {(o: inout MessageTestType) in
-            o.singleString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
+        assertJSONEncode("{\"optionalString\":\"\\u0018\\u0019\\u001A\\u001B\\u001C\\u001D\\u001E\\u001F\"}") {(o: inout MessageTestType) in
+            o.optionalString = "\u{18}\u{19}\u{1a}\u{1b}\u{1c}\u{1d}\u{1e}\u{1f}"
         }
 #endif
     }
 
-    func testSingleBytes() throws {
+    func testOptionalBytes() throws {
         // Empty bytes is default, so proto3 omits it
         var a = MessageTestType()
-        a.singleBytes = Data()
+        a.optionalBytes = Data()
         XCTAssertEqual(try a.jsonString(), "{}")
 
-        assertJSONEncode("{\"singleBytes\":\"AA==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [0])
+        assertJSONEncode("{\"optionalBytes\":\"AA==\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [0])
         }
-        assertJSONEncode("{\"singleBytes\":\"AAA=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [0, 0])
+        assertJSONEncode("{\"optionalBytes\":\"AAA=\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [0, 0])
         }
-        assertJSONEncode("{\"singleBytes\":\"AAAA\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [0, 0, 0])
+        assertJSONEncode("{\"optionalBytes\":\"AAAA\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [0, 0, 0])
         }
-        assertJSONEncode("{\"singleBytes\":\"/w==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [255])
+        assertJSONEncode("{\"optionalBytes\":\"/w==\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [255])
         }
-        assertJSONEncode("{\"singleBytes\":\"//8=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [255, 255])
+        assertJSONEncode("{\"optionalBytes\":\"//8=\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [255, 255])
         }
-        assertJSONEncode("{\"singleBytes\":\"////\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [255, 255, 255])
+        assertJSONEncode("{\"optionalBytes\":\"////\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [255, 255, 255])
         }
-        assertJSONEncode("{\"singleBytes\":\"QQ==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [65])
+        assertJSONEncode("{\"optionalBytes\":\"QQ==\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [65])
         }
-        assertJSONDecodeFails("{\"singleBytes\":\"QQ=\"}")
-        assertJSONDecodeFails("{\"singleBytes\":\"QQ\"}")
-        assertJSONEncode("{\"singleBytes\":\"QUI=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [65, 66])
+        assertJSONDecodeFails("{\"optionalBytes\":\"QQ=\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"QQ\"}")
+        assertJSONEncode("{\"optionalBytes\":\"QUI=\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [65, 66])
         }
-        assertJSONDecodeFails("{\"singleBytes\":\"QUI\"}")
-        assertJSONEncode("{\"singleBytes\":\"QUJD\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [65, 66, 67])
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUI\"}")
+        assertJSONEncode("{\"optionalBytes\":\"QUJD\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [65, 66, 67])
         }
-        assertJSONEncode("{\"singleBytes\":\"QUJDRA==\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [65, 66, 67, 68])
+        assertJSONEncode("{\"optionalBytes\":\"QUJDRA==\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [65, 66, 67, 68])
         }
-        assertJSONDecodeFails("{\"singleBytes\":\"QUJDRA=\"}")
-        assertJSONDecodeFails("{\"singleBytes\":\"QUJDRA\"}")
-        assertJSONEncode("{\"singleBytes\":\"QUJDREU=\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [65, 66, 67, 68, 69])
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA=\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA\"}")
+        assertJSONEncode("{\"optionalBytes\":\"QUJDREU=\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [65, 66, 67, 68, 69])
         }
-        assertJSONDecodeFails("{\"singleBytes\":\"QUJDREU\"}")
-        assertJSONEncode("{\"singleBytes\":\"QUJDREVG\"}") {(o: inout MessageTestType) in
-            o.singleBytes = Data(bytes: [65, 66, 67, 68, 69, 70])
-        }
-    }
-
-    func testSingleBytes2() {
-        assertJSONDecodeSucceeds("{\"singleBytes\":\"QUJD\"}") {
-            $0.singleBytes == Data(bytes: [65, 66, 67])
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREU\"}")
+        assertJSONEncode("{\"optionalBytes\":\"QUJDREVG\"}") {(o: inout MessageTestType) in
+            o.optionalBytes = Data(bytes: [65, 66, 67, 68, 69, 70])
         }
     }
 
-    func testSingleBytes_roundtrip() throws {
+    func testOptionalBytes2() {
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUJD\"}") {
+            $0.optionalBytes == Data(bytes: [65, 66, 67])
+        }
+    }
+
+    func testOptionalBytes_roundtrip() throws {
         for i in UInt8(0)...UInt8(255) {
             let d = Data(bytes: [i])
-            let message = Proto3TestAllTypes.with { $0.singleBytes = d }
+            let message = Proto3Unittest_TestAllTypes.with { $0.optionalBytes = d }
             let text = try message.jsonString()
-            let decoded = try Proto3TestAllTypes(jsonString: text)
+            let decoded = try Proto3Unittest_TestAllTypes(jsonString: text)
             XCTAssertEqual(decoded, message)
-            XCTAssertEqual(message.singleBytes[0], i)
+            XCTAssertEqual(message.optionalBytes[0], i)
         }
     }
 
-    func testSingleNestedMessage() {
-        assertJSONEncode("{\"singleNestedMessage\":{\"bb\":1}}") {(o: inout MessageTestType) in
-            var sub = Proto3TestAllTypes.NestedMessage()
+    func testOptionalNestedMessage() {
+        assertJSONEncode("{\"optionalNestedMessage\":{\"bb\":1}}") {(o: inout MessageTestType) in
+            var sub = Proto3Unittest_TestAllTypes.NestedMessage()
             sub.bb = 1
-            o.singleNestedMessage = sub
+            o.optionalNestedMessage = sub
         }
     }
 
-    func testSingleNestedEnum() {
-        assertJSONEncode("{\"singleNestedEnum\":\"FOO\"}") {(o: inout MessageTestType) in
-            o.singleNestedEnum = Proto3TestAllTypes.NestedEnum.foo
+    func testOptionalNestedEnum() {
+        assertJSONEncode("{\"optionalNestedEnum\":\"FOO\"}") {(o: inout MessageTestType) in
+            o.optionalNestedEnum = Proto3Unittest_TestAllTypes.NestedEnum.foo
         }
-        assertJSONDecodeSucceeds("{\"singleNestedEnum\":1}") {$0.singleNestedEnum == .foo}
+        assertJSONDecodeSucceeds("{\"optionalNestedEnum\":1}") {$0.optionalNestedEnum == .foo}
         // Out-of-range values should be serialized to an int
-        assertJSONEncode("{\"singleNestedEnum\":123}") {(o: inout MessageTestType) in
-            o.singleNestedEnum = .UNRECOGNIZED(123)
+        assertJSONEncode("{\"optionalNestedEnum\":123}") {(o: inout MessageTestType) in
+            o.optionalNestedEnum = .UNRECOGNIZED(123)
         }
         // TODO: Check whether Google's spec agrees that unknown Enum tags
         // should fail to parse
-        assertJSONDecodeFails("{\"singleNestedEnum\":\"UNKNOWN\"}")
+        assertJSONDecodeFails("{\"optionalNestedEnum\":\"UNKNOWN\"}")
     }
 
     func testRepeatedInt32() {
@@ -783,14 +777,14 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
     func testRepeatedNestedMessage() {
         assertJSONEncode("{\"repeatedNestedMessage\":[{\"bb\":1}]}") {(o: inout MessageTestType) in
-            var sub = Proto3TestAllTypes.NestedMessage()
+            var sub = Proto3Unittest_TestAllTypes.NestedMessage()
             sub.bb = 1
             o.repeatedNestedMessage = [sub]
         }
         assertJSONEncode("{\"repeatedNestedMessage\":[{\"bb\":1},{\"bb\":2}]}") {(o: inout MessageTestType) in
-            var sub1 = Proto3TestAllTypes.NestedMessage()
+            var sub1 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub1.bb = 1
-            var sub2 = Proto3TestAllTypes.NestedMessage()
+            var sub2 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub2.bb = 2
             o.repeatedNestedMessage = [sub1, sub2]
         }
@@ -810,7 +804,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.oneofString = "abc"
         }
         assertJSONEncode("{\"oneofNestedMessage\":{\"bb\":1}}") {(o: inout MessageTestType) in
-            var sub = Proto3TestAllTypes.NestedMessage()
+            var sub = Proto3Unittest_TestAllTypes.NestedMessage()
             sub.bb = 1
             o.oneofNestedMessage = sub
         }
@@ -822,7 +816,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
 
 
 class Test_JSONPacked: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestPackedTypes
+    typealias MessageTestType = Proto3Unittest_TestPackedTypes
 
     func testPackedFloat() {
         assertJSONEncode("{\"packedFloat\":[1]}") {(o: inout MessageTestType) in
@@ -1033,23 +1027,23 @@ class Test_JSONPacked: XCTestCase, PBTestHelpers {
     }
 }
 
-class Test_JSONUnpacked: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestUnpackedTypes
+class Test_JSONrepeated: XCTestCase, PBTestHelpers {
+    typealias MessageTestType = Proto3Unittest_TestUnpackedTypes
 
     func testPackedInt32() {
-        assertJSONEncode("{\"unpackedInt32\":[1]}") {(o: inout MessageTestType) in
-            o.unpackedInt32 = [1]
+        assertJSONEncode("{\"repeatedInt32\":[1]}") {(o: inout MessageTestType) in
+            o.repeatedInt32 = [1]
         }
-        assertJSONEncode("{\"unpackedInt32\":[1,2]}") {(o: inout MessageTestType) in
-            o.unpackedInt32 = [1, 2]
+        assertJSONEncode("{\"repeatedInt32\":[1,2]}") {(o: inout MessageTestType) in
+            o.repeatedInt32 = [1, 2]
         }
-        assertEncode([208, 5, 1, 208, 5, 2]) {(o: inout MessageTestType) in
-            o.unpackedInt32 = [1, 2]
+        assertEncode([8, 1, 8, 2]) {(o: inout MessageTestType) in
+            o.repeatedInt32 = [1, 2]
         }
 
-        assertJSONDecodeSucceeds("{\"unpackedInt32\":null}") {$0.unpackedInt32 == []}
-        assertJSONDecodeSucceeds("{\"unpackedInt32\":[]}") {$0.unpackedInt32 == []}
-        assertJSONDecodeSucceeds("{\"unpackedInt32\":[1]}") {$0.unpackedInt32 == [1]}
-        assertJSONDecodeSucceeds("{\"unpackedInt32\":[1,2]}") {$0.unpackedInt32 == [1, 2]}
+        assertJSONDecodeSucceeds("{\"repeatedInt32\":null}") {$0.repeatedInt32 == []}
+        assertJSONDecodeSucceeds("{\"repeatedInt32\":[]}") {$0.repeatedInt32 == []}
+        assertJSONDecodeSucceeds("{\"repeatedInt32\":[1]}") {$0.repeatedInt32 == [1]}
+        assertJSONDecodeSucceeds("{\"repeatedInt32\":[1,2]}") {$0.repeatedInt32 == [1, 2]}
     }
 }

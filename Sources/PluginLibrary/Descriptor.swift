@@ -79,9 +79,9 @@ public final class FileDescriptor {
 
   public let syntax: Syntax
 
-  public var dependencies: [String] { return proto.dependency }
-  public var publicDependencies: [String] { return proto.publicDependency.map { dependencies[Int($0)] } }
-  public var weakDependencies: [String] { return proto.weakDependency.map { dependencies[Int($0)] } }
+  public let dependencies: [FileDescriptor]
+  public var publicDependencies: [FileDescriptor] { return proto.publicDependency.map { dependencies[Int($0)] } }
+  public var weakDependencies: [FileDescriptor] { return proto.weakDependency.map { dependencies[Int($0)] } }
 
   public let enums: [EnumDescriptor]
   public let messages: [Descriptor]
@@ -115,6 +115,11 @@ public final class FileDescriptor {
     self.services = proto.service.enumeratedMap {
       return ServiceDescriptor(proto: $1, index: $0, registry: registry, fullNamePrefix: prefix)
     }
+
+    // The compiler ensures there aren't cycles between a file and dependencies, so
+    // this doesn't run the risk of creating any retain cycles that would force these
+    // to have to be weak.
+    self.dependencies = proto.dependency.map { return registry.fileDescriptor(name: $0) }
 
     // Done initializing, register ourselves.
     registry.register(file: self)
@@ -380,14 +385,16 @@ public final class FieldDescriptor {
   public private(set) weak var extensionScope: Descriptor?
 
   /// The index in a oneof this field is in.
-  public var oneofIndex: Int32? {
-    if proto.hasOneofIndex {
-      return proto.oneofIndex
+  public let oneofIndex: Int32?
+
+  /// The oneof this field is a member of.
+  public var oneof: OneofDescriptor? {
+    if let oneofIndex = oneofIndex {
+      assert(!isExtension)
+      return containingType!.oneofs[Int(oneofIndex)]
     }
     return nil
   }
-  /// The oneof this field is a member of.
-  public private(set) weak var oneof: OneofDescriptor?
 
   /// When this is a message field, the message's desciptor.
   public private(set) weak var messageType: Descriptor!
@@ -424,6 +431,13 @@ public final class FieldDescriptor {
     self.proto = proto
     self.index = index
     self.isExtension = isExtension
+    if proto.hasOneofIndex {
+      assert(!isExtension)
+      oneofIndex = proto.oneofIndex
+    } else {
+      oneofIndex = nil
+    }
+
   }
 
   fileprivate func bind(file: FileDescriptor, registry: Registry, containingType: Descriptor?) {
@@ -444,10 +458,6 @@ public final class FieldDescriptor {
       enumType = registry.enumDescriptor(name: proto.typeName)
     default:
       break
-    }
-
-    if let oneofIndex = oneofIndex {
-      oneof = containingType?.oneofs[Int(oneofIndex)]
     }
   }
 }

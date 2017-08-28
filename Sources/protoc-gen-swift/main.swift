@@ -140,6 +140,18 @@ struct GeneratorPlugin {
       return 1
     }
 
+    // Support for loggin the request. Useful when protoc/protoc-gen-swift are
+    // being invoked from some build system/script. protoc-gen-swift supports
+    // loading a request as a command line argument to simplify debugging/etc.
+    if let dumpPath = ProcessInfo.processInfo.environment["PROTOC_GEN_SWIFT_LOG_REQUEST"], !dumpPath.isEmpty {
+      let dumpURL = URL(fileURLWithPath: dumpPath)
+      do {
+        try requestData.write(to: dumpURL)
+      } catch let e {
+        Stderr.print("Failed to write request to '\(dumpPath)', \(e)")
+      }
+    }
+
     let request: Google_Protobuf_Compiler_CodeGeneratorRequest
     do {
       request = try Google_Protobuf_Compiler_CodeGeneratorRequest(serializedData: requestData)
@@ -238,16 +250,9 @@ struct GeneratorPlugin {
       Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
       return
     }
-    let compilerVersion = request.compilerVersion
-
-    // Expect 3.1.x or 3.3.x - Yes we have to rev this with new release, but
-    // that seems like the best thing at the moment.
-    let isExpectedVersion = (compilerVersion.major == 3) &&
-      (compilerVersion.minor >= 1) &&
-      (compilerVersion.minor <= 3)
-    if !isExpectedVersion {
-      Stderr.print("WARNING: untested version of protoc (\(compilerVersion.versionString)).")
-    }
+    // 3.2.x is what added the compiler_version, so there is no need to
+    // ensure that the version of protoc being used is newer, if the field
+    // is there, the JSON support should be good.
   }
 
   private func sendReply(response: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
