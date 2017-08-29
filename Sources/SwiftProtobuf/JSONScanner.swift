@@ -35,6 +35,7 @@ private let asciiSingleQuote = UInt8(ascii: "\'")
 private let asciiBackslash = UInt8(ascii: "\\")
 private let asciiForwardSlash = UInt8(ascii: "/")
 private let asciiHash = UInt8(ascii: "#")
+private let asciiEqualSign = UInt8(ascii: "=")
 private let asciiUnderscore = UInt8(ascii: "_")
 private let asciiQuestionMark = UInt8(ascii: "?")
 private let asciiSpace = UInt8(ascii: " ")
@@ -79,14 +80,15 @@ private func fromHexDigit(_ c: UnicodeScalar) -> UInt32? {
   }
 }
 
-// Decode the RFC 4648 section 4 Base 64 encoding.
+// Decode both the RFC 4648 section 4 Base 64 encoding and the
+// RFC 4648 section 5 Base 64 variant.
 let base64Values: [Int] = [
 /* 0x00 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 /* 0x10 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-/* 0x20 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63,
+/* 0x20 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63,
 /* 0x30 */ 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,
 /* 0x40 */ -1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14,
-/* 0x50 */ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1,
+/* 0x50 */ 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63,
 /* 0x60 */ -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
 /* 0x70 */ 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1,
 /* 0x80 */ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -107,12 +109,9 @@ let base64Values: [Int] = [
 ///    mixed in with the base-64 characters
 ///  * Google's C++ implementation ignores missing '=' characters
 ///    but if present, there must be the exact correct number of them.
+///  * The conformance test requires us to accept both standard RFC4648
+///    Base 64 encoding and the "URL and Filename Safe Alphabet" variant.
 ///
-/// Note: Google's C++ code seems to allow many base-64 extensions
-/// (including websafe and '.' as padding), but the Java version just
-/// uses uses Guava's BaseEncoding.base64() (which only supports the
-/// RFC4648 standard encoding) and the conformance test explicitly
-/// requires us to reject '-' and '_' characters.
 private func parseBytes(
   source: UnsafeBufferPointer<UInt8>,
   index: inout UnsafeBufferPointer<UInt8>.Index,
@@ -125,12 +124,20 @@ private func parseBytes(
     source.formIndex(after: &index)
 
     // Count the base-64 digits
+    // Ignore unrecognized characters in this first pass,
+    // stop at the closing double quote.
     let digitsStart = index
     var rawChars = 0
+    var sawSection4Characters = false
+    var sawSection5Characters = false
     while index != end {
         let digit = source[index]
         if digit == asciiDoubleQuote {
             break
+        } else if digit == asciiPlus || digit == asciiForwardSlash {
+            sawSection4Characters = true
+        } else if digit == asciiMinus || digit == asciiUnderscore {
+            sawSection5Characters = true
         }
         let k = base64Values[Int(digit)]
         if k >= 0 {
@@ -143,11 +150,19 @@ private func parseBytes(
     if index == end {
         throw JSONDecodingError.malformedString
     }
+    // Reject mixed encodings.
+    if sawSection4Characters && sawSection5Characters {
+        throw JSONDecodingError.malformedString
+    }
 
     // Allocate a Data object of exactly the right size
     var value = Data(count: rawChars * 3 / 4)
 
-    // Scan the digits again and populate the Data object
+    // Scan the digits again and populate the Data object.
+    // In this pass, we check for (and fail) if there are
+    // unexpected characters.  But we don't check for end-of-input,
+    // because the loop above already verified that there was
+    // a closing double quote.
     index = digitsStart
     try value.withUnsafeMutableBytes {
         (dataPointer: UnsafeMutablePointer<UInt8>) in
@@ -177,7 +192,7 @@ private func parseBytes(
                     break digits
                 case asciiSpace:
                     break
-                case 61: // Count padding
+                case asciiEqualSign: // Count padding
                     while true {
                         switch source[index] {
                         case asciiDoubleQuote:
@@ -202,12 +217,12 @@ private func parseBytes(
         case 3:
             p[0] = UInt8(extendingOrTruncating: n >> 10)
             p[1] = UInt8(extendingOrTruncating: n >> 2)
-            if padding == 1 {
+            if padding == 1 || padding == 0 {
                 return
             }
         case 2:
             p[0] = UInt8(extendingOrTruncating: n >> 4)
-            if padding == 2 {
+            if padding == 2 || padding == 0 {
                 return
             }
         case 0:
