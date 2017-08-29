@@ -672,10 +672,10 @@ class Test_Any: XCTestCase {
       XCTAssertTrue(Google_Protobuf_Any.register(messageType: ProtobufUnittestImport_ImportMessage.self))
 
       // Registering a different type with the same messageName will fail.
-      XCTAssertFalse(Google_Protobuf_Any.register(messageType: Proto3ImportMessage.self))
+      XCTAssertFalse(Google_Protobuf_Any.register(messageType: ConflictingImportMessage.self))
 
       // Sanity check that the .proto files weren't changed, and they do have the same name.
-      XCTAssertEqual(Proto3ImportMessage.protoMessageName, ProtobufUnittestImport_ImportMessage.protoMessageName)
+      XCTAssertEqual(ConflictingImportMessage.protoMessageName, ProtobufUnittestImport_ImportMessage.protoMessageName)
 
       // Lookup
       XCTAssertTrue(Google_Protobuf_Any.messageType(forMessageName: ProtobufUnittestImport_ImportMessage.protoMessageName) == ProtobufUnittestImport_ImportMessage.self)
@@ -706,4 +706,33 @@ class Test_Any: XCTestCase {
                       "Looking up \(t.protoMessageName)")
       }
     }
+}
+
+// Dump message class to test registration conflicts
+
+struct ConflictingImportMessage:
+    SwiftProtobuf.Message,
+    SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "protobuf_unittest_import.ImportMessage"
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [:]
+
+  func _protobuf_generated_isEqualTo(other: ConflictingImportMessage) -> Bool {
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
