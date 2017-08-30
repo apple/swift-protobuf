@@ -682,26 +682,48 @@ class Test_JSON: XCTestCase, PBTestHelpers {
             o.optionalBytes = Data(bytes: [65])
         }
         assertJSONDecodeFails("{\"optionalBytes\":\"QQ=\"}")
-        assertJSONDecodeFails("{\"optionalBytes\":\"QQ\"}")
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"QQ\"}") {
+            $0.optionalBytes == Data(bytes: [65])
+        }
         assertJSONEncode("{\"optionalBytes\":\"QUI=\"}") {(o: inout MessageTestType) in
             o.optionalBytes = Data(bytes: [65, 66])
         }
-        assertJSONDecodeFails("{\"optionalBytes\":\"QUI\"}")
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUI\"}") {
+            $0.optionalBytes == Data(bytes: [65, 66])
+        }
         assertJSONEncode("{\"optionalBytes\":\"QUJD\"}") {(o: inout MessageTestType) in
             o.optionalBytes = Data(bytes: [65, 66, 67])
         }
         assertJSONEncode("{\"optionalBytes\":\"QUJDRA==\"}") {(o: inout MessageTestType) in
             o.optionalBytes = Data(bytes: [65, 66, 67, 68])
         }
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA===\"}")
         assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA=\"}")
-        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDRA\"}")
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUJDRA\"}") {
+            $0.optionalBytes == Data(bytes: [65, 66, 67, 68])
+        }
         assertJSONEncode("{\"optionalBytes\":\"QUJDREU=\"}") {(o: inout MessageTestType) in
             o.optionalBytes = Data(bytes: [65, 66, 67, 68, 69])
         }
-        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREU\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREU==\"}")
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"QUJDREU\"}") {
+            $0.optionalBytes == Data(bytes: [65, 66, 67, 68, 69])
+        }
         assertJSONEncode("{\"optionalBytes\":\"QUJDREVG\"}") {(o: inout MessageTestType) in
             o.optionalBytes = Data(bytes: [65, 66, 67, 68, 69, 70])
         }
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG=\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG==\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG===\"}")
+        assertJSONDecodeFails("{\"optionalBytes\":\"QUJDREVG====\"}")
+        // Accept both RFC4648 Section 4 and Section 5 base64 variants, but reject mixed coding:
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"-_-_\"}") {
+            $0.optionalBytes == Data(bytes: [251, 255, 191])
+        }
+        assertJSONDecodeSucceeds("{\"optionalBytes\":\"+/+/\"}") {
+            $0.optionalBytes == Data(bytes: [251, 255, 191])
+        }
+        assertJSONDecodeFails("{\"optionalBytes\":\"-_+/\"}")
     }
 
     func testOptionalBytes2() {
