@@ -38,3 +38,52 @@ internal func div<T : SignedInteger>(_ a: T, _ b: T) -> T {
     assert(b > 0)
     return a >= 0 ? a / b : (a + 1) / b - 1
 }
+
+#if !swift(>=4.0)
+//
+// Swift 3 called this initializer "truncatingBitPattern";
+// Swift 4 (prerelease) changed this initializer to
+// "extendingOrTruncating".
+//
+extension UInt8 {
+     internal init(extendingOrTruncating value: UInt32) {
+         self.init(truncatingBitPattern: value)
+     }
+     internal init(extendingOrTruncating value: Int) {
+         self.init(truncatingBitPattern: value)
+     }
+     internal init(extendingOrTruncating value: UInt64) {
+         self.init(truncatingBitPattern: value)
+     }
+}
+
+extension UInt32 {
+     internal init(extendingOrTruncating value: UInt64) {
+         self.init(truncatingBitPattern: value)
+     }
+     internal init(extendingOrTruncating value: Int) {
+         self.init(truncatingBitPattern: value)
+     }
+}
+
+extension Int32 {
+     internal init(extendingOrTruncating value: UInt64) {
+         self.init(truncatingBitPattern: value)
+     }
+     internal init(extendingOrTruncating value: Int64) {
+         self.init(truncatingBitPattern: value)
+     }
+     internal init(extendingOrTruncating value: Int) {
+         self.init(truncatingBitPattern: value)
+     }
+}
+
+extension Int {
+     internal init(extendingOrTruncating value: Int64) {
+         self.init(truncatingBitPattern: value)
+     }
+     internal init(extendingOrTruncating value: UInt64) {
+         self.init(truncatingBitPattern: value)
+     }
+}
+#endif

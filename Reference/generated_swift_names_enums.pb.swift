@@ -53,6 +53,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum allocate: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneAllocate // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneAllocate
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneAllocate
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneAllocate: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum any: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneAny // = 0
@@ -628,6 +653,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum BinaryDelimited: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBinaryDelimited // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBinaryDelimited
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBinaryDelimited
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBinaryDelimited: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum BinaryEncoder: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneBinaryEncoder // = 0
@@ -672,6 +722,56 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneBinaryEncodingError: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBinaryEncodingMessageSetSizeVisitor // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBinaryEncodingMessageSetSizeVisitor
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBinaryEncodingMessageSetSizeVisitor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBinaryEncodingMessageSetSizeVisitor: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum BinaryEncodingMessageSetVisitor: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBinaryEncodingMessageSetVisitor // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBinaryEncodingMessageSetVisitor
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBinaryEncodingMessageSetVisitor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBinaryEncodingMessageSetVisitor: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -928,6 +1028,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum bytesRead: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneBytesRead // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneBytesRead
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneBytesRead
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneBytesRead: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum BytesValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneBytesValue // = 0
@@ -972,6 +1097,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneC: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum capacity: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneCapacity // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCapacity
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCapacity
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCapacity: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -1253,6 +1403,56 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum com: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneCom // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCom
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCom
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCom: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum comma: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneComma // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneComma
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneComma
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneComma: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum contentsOf: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneContentsOf // = 0
@@ -1297,6 +1497,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneCount: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum countVarintsInBuffer: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneCountVarintsInBuffer // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneCountVarintsInBuffer
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneCountVarintsInBuffer
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneCountVarintsInBuffer: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -1647,6 +1872,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneDecodeExtensionField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum decodeExtensionFieldsAsMessageSet: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDecodeExtensionFieldsAsMessageSet // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDecodeExtensionFieldsAsMessageSet
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDecodeExtensionFieldsAsMessageSet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDecodeExtensionFieldsAsMessageSet: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -2728,6 +2978,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum defaultAnyTypeURLPrefix: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDefaultAnyTypeUrlprefix // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDefaultAnyTypeUrlprefix
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDefaultAnyTypeUrlprefix
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDefaultAnyTypeUrlprefix: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum defaultValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneDefaultValue // = 0
@@ -3022,6 +3297,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneDiscardUnknownFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum distance: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneDistance // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneDistance
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneDistance
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneDistance: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -3753,6 +4053,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum extDecoder: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneExtDecoder // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneExtDecoder
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneExtDecoder
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneExtDecoder: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum extendedGraphemeClusterLiteral: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneExtendedGraphemeClusterLiteral // = 0
@@ -3872,6 +4197,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneExtensionField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum extensionFieldNumber: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneExtensionFieldNumber // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneExtensionFieldNumber
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneExtensionFieldNumber
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneExtensionFieldNumber: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -4047,6 +4397,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneField: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum fieldData: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFieldData // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFieldData
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFieldData
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFieldData: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -4353,6 +4728,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum filter: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFilter // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFilter
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFilter
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFilter: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum firstItem: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneFirstItem // = 0
@@ -4372,31 +4772,6 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneFirstItem: return 0
-      case .UNRECOGNIZED(let i): return i
-      }
-    }
-
-  }
-
-  enum flatMap: SwiftProtobuf.Enum {
-    typealias RawValue = Int
-    case noneFlatMap // = 0
-    case UNRECOGNIZED(Int)
-
-    init() {
-      self = .noneFlatMap
-    }
-
-    init?(rawValue: Int) {
-      switch rawValue {
-      case 0: self = .noneFlatMap
-      default: self = .UNRECOGNIZED(rawValue)
-      }
-    }
-
-    var rawValue: Int {
-      switch self {
-      case .noneFlatMap: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -4547,6 +4922,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneForMessageName: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum formUnion: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneFormUnion // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneFormUnion
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneFormUnion
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneFormUnion: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -4847,6 +5247,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneGetExtensionValue: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum googleapis: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneGoogleapis // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneGoogleapis
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneGoogleapis
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneGoogleapis: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -5578,6 +6003,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum groupSize: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneGroupSize // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneGroupSize
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneGroupSize
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneGroupSize: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum h: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneH // = 0
@@ -6228,6 +6678,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum ints: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneInts // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneInts
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneInts
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneInts: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum isA: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneIsA // = 0
@@ -6347,6 +6822,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneIt: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum itemTagsEncodedSize: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneItemTagsEncodedSize // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneItemTagsEncodedSize
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneItemTagsEncodedSize
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneItemTagsEncodedSize: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -6978,6 +7478,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum list: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneList // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneList
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneList
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneList: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum listOfMessages: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneListOfMessages // = 0
@@ -7453,6 +7978,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum MessageSet: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneMessageSet // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMessageSet
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMessageSet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMessageSet: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum messageType: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneMessageType // = 0
@@ -7622,6 +8172,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneMonth: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum msgExtension: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneMsgExtension // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneMsgExtension
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneMsgExtension
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneMsgExtension: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -7903,6 +8478,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum newList: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneNewList // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneNewList
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneNewList
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneNewList: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum newValue: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneNewValue // = 0
@@ -7922,6 +8522,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneNewValue: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum nextByte: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneNextByte // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneNextByte
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneNextByte
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneNextByte: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -8353,6 +8978,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum others: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneOthers // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneOthers
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneOthers
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneOthers: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum out: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneOut // = 0
@@ -8578,6 +9228,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum parse: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneParse // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneParse
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneParse
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneParse: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum partial: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case nonePartial // = 0
@@ -8647,6 +9322,56 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .nonePaths: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum payload: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePayload // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePayload
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePayload
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePayload: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum payloadSize: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case nonePayloadSize // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .nonePayloadSize
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .nonePayloadSize
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .nonePayloadSize: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -10028,6 +10753,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum readBuffer: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneReadBuffer // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneReadBuffer
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneReadBuffer
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneReadBuffer: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum register: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneRegister // = 0
@@ -10547,6 +11297,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneSeparator: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum serialize: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSerialize // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSerialize
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSerialize
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSerialize: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -11328,6 +12103,56 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum subVisitor: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSubVisitor // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSubVisitor
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSubVisitor
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSubVisitor: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum Swift: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSwift // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSwift
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSwift
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSwift: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum SwiftProtobufEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneSwiftProtobuf // = 0
@@ -11772,6 +12597,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneTotal: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum totalSize: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneTotalSize // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneTotalSize
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneTotalSize
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneTotalSize: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -12797,6 +13647,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
     var rawValue: Int {
       switch self {
       case .noneVisitExtensionFields: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum visitExtensionFieldsAsMessageSet: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneVisitExtensionFieldsAsMessageSet // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneVisitExtensionFieldsAsMessageSet
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneVisitExtensionFieldsAsMessageSet
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneVisitExtensionFieldsAsMessageSet: return 0
       case .UNRECOGNIZED(let i): return i
       }
     }
@@ -14203,6 +15078,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum wasDecoded: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneWasDecoded // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWasDecoded
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWasDecoded
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWasDecoded: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum whereEnum: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneWhere // = 0
@@ -14303,6 +15203,31 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum written: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneWritten // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneWritten
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneWritten
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneWritten: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum yday: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneYday // = 0
@@ -14364,6 +15289,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf._MessageIm
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.adjusted: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_adjusted"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.allocate: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_allocate"),
   ]
 }
 
@@ -14505,6 +15436,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryDecodingOptions: Sw
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryDelimited: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_BinaryDelimited"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncoder"),
@@ -14514,6 +15451,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncoder: SwiftProto
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingError"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_BinaryEncodingMessageSetSizeVisitor"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_BinaryEncodingMessageSetVisitor"),
   ]
 }
 
@@ -14577,6 +15526,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.bytesInGroup: SwiftProtob
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.bytesRead: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_bytesRead"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.BytesValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BytesValue"),
@@ -14586,6 +15541,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.BytesValue: SwiftProtobuf
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.c: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_c"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.capacity: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_capacity"),
   ]
 }
 
@@ -14655,6 +15616,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.Collection: SwiftProtobuf
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.com: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_com"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.comma: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_comma"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.contentsOf: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_contentsOf"),
@@ -14664,6 +15637,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.contentsOf: SwiftProtobuf
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.count: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_count"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.countVarintsInBuffer: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_countVarintsInBuffer"),
   ]
 }
 
@@ -14748,6 +15727,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodedFromJSONNull: Swif
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeExtensionField"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeExtensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_decodeExtensionFieldsAsMessageSet"),
   ]
 }
 
@@ -15009,6 +15994,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeTextFormat: SwiftPr
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.defaultAnyTypeURLPrefix: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_defaultAnyTypeURLPrefix"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.defaultValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_defaultValue"),
@@ -15078,6 +16069,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.discardableResult: SwiftP
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.discardUnknownFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_discardUnknownFields"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.distance: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_distance"),
   ]
 }
 
@@ -15255,6 +16252,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.ext: SwiftProtobuf._Proto
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.extDecoder: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_extDecoder"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.extendedGraphemeClusterLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extendedGraphemeClusterLiteral"),
@@ -15282,6 +16285,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.extensionEnum: SwiftProto
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExtensionField"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.extensionFieldNumber: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_extensionFieldNumber"),
   ]
 }
 
@@ -15324,6 +16333,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.falseEnum: SwiftProtobuf.
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_field"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldData: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_fieldData"),
   ]
 }
 
@@ -15399,15 +16414,15 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.fileName: SwiftProtobuf._
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.firstItem: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.filter: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_firstItem"),
+    0: .same(proto: "NONE_filter"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.flatMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.firstItem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "NONE_flatMap"),
+    0: .same(proto: "NONE_firstItem"),
   ]
 }
 
@@ -15444,6 +16459,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.FloatValue: SwiftProtobuf
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.forMessageName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_forMessageName"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.formUnion: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_formUnion"),
   ]
 }
 
@@ -15516,6 +16537,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.get: SwiftProtobuf._Proto
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.getExtensionValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_getExtensionValue"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.googleapis: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_googleapis"),
   ]
 }
 
@@ -15693,6 +16720,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.group: SwiftProtobuf._Pro
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.groupSize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_groupSize"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.h: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_h"),
@@ -15849,6 +16882,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.InternalState: SwiftProto
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.ints: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_ints"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.isA: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isA"),
@@ -15876,6 +16915,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.isInitializedEnum: SwiftP
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.it: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_it"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.itemTagsEncodedSize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_itemTagsEncodedSize"),
   ]
 }
 
@@ -16029,6 +17074,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.lhs: SwiftProtobuf._Proto
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.list: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_list"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.listOfMessages: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_listOfMessages"),
@@ -16143,6 +17194,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageImplementationBase
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageSet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_MessageSet"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.messageType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_messageType"),
@@ -16182,6 +17239,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.mixins: SwiftProtobuf._Pr
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.month: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_month"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.msgExtension: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_msgExtension"),
   ]
 }
 
@@ -16251,9 +17314,21 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.newL: SwiftProtobuf._Prot
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.newList: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_newList"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.newValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_newValue"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.nextByte: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_nextByte"),
   ]
 }
 
@@ -16359,6 +17434,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.other: SwiftProtobuf._Pro
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.others: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_others"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.out: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_out"),
@@ -16413,6 +17494,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.parent: SwiftProtobuf._Pr
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.parse: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_parse"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.partial: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_partial"),
@@ -16428,6 +17515,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.path: SwiftProtobuf._Prot
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.paths: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_paths"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.payload: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_payload"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.payloadSize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_payloadSize"),
   ]
 }
 
@@ -16761,6 +17860,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.RawValue: SwiftProtobuf._
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.readBuffer: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_readBuffer"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.register: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_register"),
@@ -16884,6 +17989,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.selfEnum: SwiftProtobuf._
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.separator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_separator"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.serialize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_serialize"),
   ]
 }
 
@@ -17073,6 +18184,18 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.subscriptEnum: SwiftProto
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.subVisitor: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_subVisitor"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.Swift: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_Swift"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.SwiftProtobufEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_SwiftProtobuf"),
@@ -17178,6 +18301,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.Timestamp: SwiftProtobuf.
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.total: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_total"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.totalSize: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_totalSize"),
   ]
 }
 
@@ -17424,6 +18553,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.versionString: SwiftProto
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitExtensionFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitExtensionFields"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitExtensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_visitExtensionFieldsAsMessageSet"),
   ]
 }
 
@@ -17763,6 +18898,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitUnknown: SwiftProtob
   ]
 }
 
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.wasDecoded: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_wasDecoded"),
+  ]
+}
+
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.whereEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_where"),
@@ -17784,6 +18925,12 @@ extension ProtobufUnittest_GeneratedSwiftReservedEnums.with: SwiftProtobuf._Prot
 extension ProtobufUnittest_GeneratedSwiftReservedEnums.WrappedType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_WrappedType"),
+  ]
+}
+
+extension ProtobufUnittest_GeneratedSwiftReservedEnums.written: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_written"),
   ]
 }
 

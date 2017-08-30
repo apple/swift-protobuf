@@ -66,4 +66,3 @@ enum ImportEnum {
   IMPORT_BAZ = 9;
 }
 
-option swift_prefix = "Proto3";

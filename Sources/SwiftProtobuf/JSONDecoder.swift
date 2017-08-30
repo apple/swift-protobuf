@@ -127,7 +127,7 @@ internal struct JSONDecoder: Decoder {
     if n > Int64(Int32.max) || n < Int64(Int32.min) {
       throw JSONDecodingError.numberRange
     }
-    value = Int32(truncatingBitPattern: n)
+    value = Int32(extendingOrTruncating: n)
   }
 
   mutating func decodeSingularInt32Field(value: inout Int32?) throws {
@@ -139,7 +139,7 @@ internal struct JSONDecoder: Decoder {
     if n > Int64(Int32.max) || n < Int64(Int32.min) {
       throw JSONDecodingError.numberRange
     }
-    value = Int32(truncatingBitPattern: n)
+    value = Int32(extendingOrTruncating: n)
   }
 
   mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
@@ -155,7 +155,7 @@ internal struct JSONDecoder: Decoder {
       if n > Int64(Int32.max) || n < Int64(Int32.min) {
         throw JSONDecodingError.numberRange
       }
-      value.append(Int32(truncatingBitPattern: n))
+      value.append(Int32(extendingOrTruncating: n))
       if scanner.skipOptionalArrayEnd() {
         return
       }
@@ -206,7 +206,7 @@ internal struct JSONDecoder: Decoder {
     if n > UInt64(UInt32.max) {
       throw JSONDecodingError.numberRange
     }
-    value = UInt32(truncatingBitPattern: n)
+    value = UInt32(extendingOrTruncating: n)
   }
 
   mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
@@ -218,7 +218,7 @@ internal struct JSONDecoder: Decoder {
     if n > UInt64(UInt32.max) {
       throw JSONDecodingError.numberRange
     }
-    value = UInt32(truncatingBitPattern: n)
+    value = UInt32(extendingOrTruncating: n)
   }
 
   mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
@@ -234,7 +234,7 @@ internal struct JSONDecoder: Decoder {
       if n > UInt64(UInt32.max) {
         throw JSONDecodingError.numberRange
       }
-      value.append(UInt32(truncatingBitPattern: n))
+      value.append(UInt32(extendingOrTruncating: n))
       if scanner.skipOptionalArrayEnd() {
         return
       }
@@ -458,25 +458,13 @@ internal struct JSONDecoder: Decoder {
     }
   }
 
-
   mutating func decodeSingularEnumField<E: Enum>(value: inout E?) throws
   where E.RawValue == Int {
     if scanner.skipOptionalNull() {
       value = nil
       return
-    } else if let name = try scanner.nextOptionalQuotedString() {
-      if let v = E(name: name) {
-        value = v
-        return
-      }
-    } else {
-      let n = try scanner.nextSInt()
-      if let i = Int(exactly: n) {
-        value = E(rawValue: i)
-        return
-      }
     }
-    throw JSONDecodingError.unrecognizedEnumValue
+    value = try scanner.nextEnumValue() as E
   }
 
   mutating func decodeSingularEnumField<E: Enum>(value: inout E) throws
@@ -484,21 +472,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalNull() {
       value = E()
       return
-    } else if let name = try scanner.nextOptionalQuotedString() {
-      if let v = E(name: name) {
-        value = v
-        return
-      }
-    } else {
-      let n = try scanner.nextSInt()
-      if let i = Int(exactly: n) {
-        if let v = E(rawValue: i) {
-          value = v
-          return
-        }
-      }
     }
-    throw JSONDecodingError.unrecognizedEnumValue
+    value = try scanner.nextEnumValue()
   }
 
   mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws
@@ -511,24 +486,8 @@ internal struct JSONDecoder: Decoder {
       return
     }
     while true {
-      if let name = try scanner.nextOptionalQuotedString() {
-        if let v = E(name: name) {
-          value.append(v)
-        } else {
-          throw JSONDecodingError.unrecognizedEnumValue
-        }
-      } else {
-        let n = try scanner.nextSInt()
-        if let i = Int(exactly: n) {
-          if let v = E(rawValue: i) {
-            value.append(v)
-          } else {
-            throw JSONDecodingError.unrecognizedEnumValue
-          }
-        } else {
-          throw JSONDecodingError.numberRange
-        }
-      }
+      let e: E = try scanner.nextEnumValue()
+      value.append(e)
       if scanner.skipOptionalArrayEnd() {
         return
       }

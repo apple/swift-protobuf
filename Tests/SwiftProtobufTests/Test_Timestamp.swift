@@ -235,24 +235,24 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
     func testJSON_timestampField() throws {
         do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}")
+            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00Z\"}")
             XCTAssertEqual(valid.optionalTimestamp, Google_Protobuf_Timestamp(seconds: -62135596800))
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
 
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"10000-01-01T00:00:00Z\"}"))
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00\"}"))
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01 00:00:00Z\"}"))
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00z\"}"))
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalTimestamp\": \"0001-01-01t00:00:00Z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"10000-01-01T00:00:00Z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01 00:00:00Z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01T00:00:00z\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalTimestamp\": \"0001-01-01t00:00:00Z\"}"))
     }
 
     // A couple more test cases transcribed from conformance test
     func testJSON_conformance() throws {
         let t1 = Google_Protobuf_Timestamp(seconds: 0, nanos: 10000000)
-        var m1 = ProtobufTestMessages_Proto3_TestAllTypes()
+        var m1 = ProtobufTestMessages_Proto3_TestAllTypesProto3()
         m1.optionalTimestamp = t1
         let expected1 = "{\"optionalTimestamp\":\"1970-01-01T00:00:00.010Z\"}"
         XCTAssertEqual(try m1.jsonString(), expected1)
@@ -260,7 +260,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         let json2 = "{\"optionalTimestamp\": \"1970-01-01T00:00:00.010000000Z\"}"
         let expected2 = "{\"optionalTimestamp\":\"1970-01-01T00:00:00.010Z\"}"
         do {
-            let m2 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json2)
+            let m2 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json2)
             do {
                 let recoded2 = try m2.jsonString()
                 XCTAssertEqual(recoded2, expected2)
@@ -273,7 +273,7 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
 
         // Extra spaces around all the tokens.
         let json3 = " { \"repeatedTimestamp\" : [ \"0001-01-01T00:00:00Z\" , \"9999-12-31T23:59:59.999999999Z\" ] } "
-        let m3 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json3)
+        let m3 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json3)
         let expected3 = [Google_Protobuf_Timestamp(seconds: -62135596800),
                 Google_Protobuf_Timestamp(seconds: 253402300799, nanos: 999999999)]
         XCTAssertEqual(m3.repeatedTimestamp, expected3)
@@ -417,11 +417,9 @@ class Test_Timestamp: XCTestCase, PBTestHelpers {
         let t1 = Google_Protobuf_Timestamp(seconds: 12345678, nanos: 12345678)
         XCTAssertEqual(t1.seconds, 12345678)
         XCTAssertEqual(t1.nanos, 12345678)
-        // There is a lot of double arithmetic here. These values are not going
-        // to be exact, of course.
-        XCTAssertEqualWithAccuracy(t1.timeIntervalSince1970, 12345678.012345678, accuracy: 1e-30)
-        XCTAssertEqualWithAccuracy(t1.timeIntervalSinceReferenceDate, -965961521.987654322, accuracy: 1e-30)
+        XCTAssertEqual(t1.timeIntervalSince1970, 12345678.012345678)
+        XCTAssertEqual(t1.timeIntervalSinceReferenceDate, -965961521.987654322)
         let d = t1.date
-        XCTAssertEqualWithAccuracy(d.timeIntervalSinceReferenceDate, -965961521.987654322, accuracy: 1e-30)
+        XCTAssertEqual(d.timeIntervalSinceReferenceDate, -965961521.987654322)
     }
 }

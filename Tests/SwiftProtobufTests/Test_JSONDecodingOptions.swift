@@ -41,7 +41,7 @@ class Test_JSONDecodingOptions: XCTestCase {
                 do {
                     var options = JSONDecodingOptions()
                     options.messageDepthLimit = limit
-                    let _ = try Proto3TestRecursiveMessage(jsonString: jsonInput, options: options)
+                    let _ = try ProtobufUnittest_TestRecursiveMessage(jsonString: jsonInput, options: options)
                     if !expectSuccess {
                         XCTFail("Should not have succeed, pass: \(i), limit: \(limit)")
                     }

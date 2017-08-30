@@ -43,11 +43,11 @@ class Test_Descriptor: XCTestCase {
     let descriptorFileDescriptor = descriptorSet.files[0]
 
     XCTAssertEqual(descriptorFileDescriptor.enums.count, 0)
-    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums.count, 2)
-    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums[0].fullName, ".google.protobuf.FieldDescriptorProto.Type")
-    XCTAssertTrue(descriptorFileDescriptor.messages[3].enums[0].containingType === descriptorFileDescriptor.messages[3])
-    XCTAssertEqual(descriptorFileDescriptor.messages[3].enums[1].fullName, ".google.protobuf.FieldDescriptorProto.Label")
-    XCTAssertTrue(descriptorFileDescriptor.messages[3].enums[1].containingType === descriptorFileDescriptor.messages[3])
+    XCTAssertEqual(descriptorFileDescriptor.messages[4].enums.count, 2)
+    XCTAssertEqual(descriptorFileDescriptor.messages[4].enums[0].fullName, ".google.protobuf.FieldDescriptorProto.Type")
+    XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[0].containingType === descriptorFileDescriptor.messages[4])
+    XCTAssertEqual(descriptorFileDescriptor.messages[4].enums[1].fullName, ".google.protobuf.FieldDescriptorProto.Label")
+    XCTAssertTrue(descriptorFileDescriptor.messages[4].enums[1].containingType === descriptorFileDescriptor.messages[4])
 
     let testFileDesciptor = descriptorSet.files[2]
 
@@ -84,8 +84,8 @@ class Test_Descriptor: XCTestCase {
     XCTAssertTrue(descriptorSet.lookupDescriptor(protoName: ".google.protobuf.DescriptorProto") === descriptorSet.files[0].messages[2])
     XCTAssertTrue(descriptorSet.lookupDescriptor(protoName: ".google.protobuf.DescriptorProto.ExtensionRange") === descriptorSet.files[0].messages[2].messages[0])
 
-    XCTAssertTrue(descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Type") === descriptorSet.files[0].messages[3].enums[0])
-    XCTAssertTrue(descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Label") === descriptorSet.files[0].messages[3].enums[1])
+    XCTAssertTrue(descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Type") === descriptorSet.files[0].messages[4].enums[0])
+    XCTAssertTrue(descriptorSet.lookupEnumDescriptor(protoName: ".google.protobuf.FieldDescriptorProto.Label") === descriptorSet.files[0].messages[4].enums[1])
 
     XCTAssertTrue(descriptorSet.lookupServiceDescriptor(protoName: ".swift_descriptor_test.SomeService") === descriptorSet.files[2].services[0])
   }

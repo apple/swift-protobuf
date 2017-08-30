@@ -94,51 +94,51 @@ class Test_Duration: XCTestCase, PBTestHelpers {
     // Make sure durations work correctly when stored in a field
     func testJSON_durationField() throws {
         do {
-            let valid = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalDuration\": \"1.001s\"}")
+            let valid = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalDuration\": \"1.001s\"}")
             XCTAssertEqual(valid.optionalDuration, Google_Protobuf_Duration(seconds: 1, nanos: 1000000))
         } catch {
             XCTFail("Should have decoded correctly")
         }
 
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalDuration\": \"-315576000001.000000000s\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalDuration\": \"-315576000001.000000000s\"}"))
 
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalDuration\": \"315576000001.000000000s\"}"))
-        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: "{\"optionalDuration\": \"1.001\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalDuration\": \"315576000001.000000000s\"}"))
+        XCTAssertThrowsError(try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: "{\"optionalDuration\": \"1.001\"}"))
     }
 
     func testFieldMember() throws {
         // Verify behavior when a duration appears as a field on a larger object
         let json1 = "{\"optionalDuration\": \"-315576000000.999999999s\"}"
-        let m1 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json1)
+        let m1 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json1)
         XCTAssertEqual(m1.optionalDuration.seconds, -315576000000)
         XCTAssertEqual(m1.optionalDuration.nanos, -999999999)
 
         let json2 = "{\"repeatedDuration\": [\"1.5s\", \"-1.5s\"]}"
         let expected2 = [Google_Protobuf_Duration(seconds:1, nanos:500000000), Google_Protobuf_Duration(seconds:-1, nanos:-500000000)]
-        let actual2 = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: json2)
+        let actual2 = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: json2)
         XCTAssertEqual(actual2.repeatedDuration, expected2)
     }
 
     func testTranscode() throws {
         let jsonMax = "{\"optionalDuration\": \"315576000000.999999999s\"}"
-        let parsedMax = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: jsonMax)
+        let parsedMax = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: jsonMax)
         XCTAssertEqual(parsedMax.optionalDuration.seconds, 315576000000)
         XCTAssertEqual(parsedMax.optionalDuration.nanos, 999999999)
         XCTAssertEqual(try parsedMax.serializedData(), Data(bytes:[234, 18, 13, 8, 128, 188, 174, 206, 151, 9, 16, 255, 147, 235, 220, 3]))
         let jsonMin = "{\"optionalDuration\": \"-315576000000.999999999s\"}"
-        let parsedMin = try ProtobufTestMessages_Proto3_TestAllTypes(jsonString: jsonMin)
+        let parsedMin = try ProtobufTestMessages_Proto3_TestAllTypesProto3(jsonString: jsonMin)
         XCTAssertEqual(parsedMin.optionalDuration.seconds, -315576000000)
         XCTAssertEqual(parsedMin.optionalDuration.nanos, -999999999)
         XCTAssertEqual(try parsedMin.serializedData(), Data(bytes:[234, 18, 22, 8, 128, 196, 209, 177, 232, 246, 255, 255, 255, 1, 16, 129, 236, 148, 163, 252, 255, 255, 255, 255, 1]))
     }
 
     func testConformance() throws {
-        let tooSmall = try ProtobufTestMessages_Proto3_TestAllTypes(serializedData: Data(bytes: [234, 18, 11, 8, 255, 195, 209, 177, 232, 246, 255, 255, 255, 1]))
+        let tooSmall = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedData: Data(bytes: [234, 18, 11, 8, 255, 195, 209, 177, 232, 246, 255, 255, 255, 1]))
         XCTAssertEqual(tooSmall.optionalDuration.seconds, -315576000001)
         XCTAssertEqual(tooSmall.optionalDuration.nanos, 0)
         XCTAssertThrowsError(try tooSmall.jsonString())
 
-        let tooBig = try ProtobufTestMessages_Proto3_TestAllTypes(serializedData: Data(bytes: [234, 18, 7, 8, 129, 188, 174, 206, 151, 9]))
+        let tooBig = try ProtobufTestMessages_Proto3_TestAllTypesProto3(serializedData: Data(bytes: [234, 18, 7, 8, 129, 188, 174, 206, 151, 9]))
         XCTAssertEqual(tooBig.optionalDuration.seconds, 315576000001)
         XCTAssertEqual(tooBig.optionalDuration.nanos, 0)
         XCTAssertThrowsError(try tooBig.jsonString())
@@ -196,7 +196,7 @@ class Test_Duration: XCTestCase, PBTestHelpers {
         a = 1.9999999999
         XCTAssertEqual(a, Google_Protobuf_Duration(seconds: 2, nanos: 0))
 
-        var c = ProtobufTestMessages_Proto3_TestAllTypes()
+        var c = ProtobufTestMessages_Proto3_TestAllTypesProto3()
         c.optionalDuration = 100.000000001
         XCTAssertEqual(Data(bytes: [234, 18, 4, 8, 100, 16, 1]), try c.serializedData())
         XCTAssertEqual("{\"optionalDuration\":\"100.000000001s\"}", try c.jsonString())
@@ -250,9 +250,9 @@ class Test_Duration: XCTestCase, PBTestHelpers {
 
     func testGetters() throws {
         let t1 = Google_Protobuf_Duration(seconds: -123, nanos: -123456789)
-        XCTAssertEqualWithAccuracy(t1.timeInterval, -123.123456789, accuracy: 1e-30)
+        XCTAssertEqual(t1.timeInterval, -123.123456789)
 
         let t2 = Google_Protobuf_Duration(seconds: 123, nanos: 123456789)
-        XCTAssertEqualWithAccuracy(t2.timeInterval, 123.123456789, accuracy: 1e-30)
+        XCTAssertEqual(t2.timeInterval, 123.123456789)
     }
 }

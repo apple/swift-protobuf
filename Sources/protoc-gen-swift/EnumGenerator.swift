@@ -96,7 +96,7 @@ class EnumGenerator {
   /// - Parameter p: The code printer.
   private func generateCasesOrAliases(printer p: inout CodePrinter) {
     let visibility = generatorOptions.visibilitySourceSnippet
-    for enumValueDescriptor in enumDescriptor.values {
+    for enumValueDescriptor in namer.uniquelyNamedValues(enum: enumDescriptor) {
       let comments = enumValueDescriptor.protoSourceComments()
       if !comments.isEmpty {
         p.print("\n", comments)

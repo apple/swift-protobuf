@@ -435,7 +435,13 @@ public protocol Visitor {
   /// Called for each extension range.
   mutating func visitExtensionFields(fields: ExtensionFieldValueSet, start: Int, end: Int) throws
 
-  /// Called with the raw bytes that represent any proto2 unknown fields.
+  /// Called for each extension range.
+  mutating func visitExtensionFieldsAsMessageSet(
+    fields: ExtensionFieldValueSet,
+    start: Int,
+    end: Int) throws
+
+  /// Called with the raw bytes that represent any unknown fields.
   mutating func visitUnknown(bytes: Data) throws
 }
 
@@ -663,6 +669,17 @@ extension Visitor {
   public mutating func visitSingularGroupField<G: Message>(value: G,
                                                   fieldNumber: Int) throws {
     try visitSingularMessageField(value: value, fieldNumber: fieldNumber)
+  }
+
+  // Default handling of Extensions as a MessageSet to handing them just
+  // as plain extensions. Formats that what custom behavior can override
+  // it.
+
+  public mutating func visitExtensionFieldsAsMessageSet(
+    fields: ExtensionFieldValueSet,
+    start: Int,
+    end: Int) throws {
+    try visitExtensionFields(fields: fields, start: start, end: end)
   }
 
   // Default handling for Extensions is to forward the traverse to

@@ -382,7 +382,10 @@ internal struct TextFormatEncodingVisitor: Visitor {
   // fields (including proto3's default use of packed) without
   // introducing the baggage of a separate option.
 
-  private mutating func _visitPacked<T>(value: [T], fieldNumber: Int, encode: (T) -> ()) throws {
+  private mutating func _visitPacked<T>(
+    value: [T], fieldNumber: Int,
+    encode: (T, inout TextFormatEncoder) -> ()
+  ) throws {
       emitFieldName(lookingUp: fieldNumber)
       encoder.startRegularField()
       var firstItem = true
@@ -391,7 +394,7 @@ internal struct TextFormatEncodingVisitor: Visitor {
           if !firstItem {
               encoder.arraySeparator()
           }
-          encode(v)
+          encode(v, &encoder)
           firstItem = false
       }
       encoder.endArray()
@@ -399,37 +402,43 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitPackedFloatField(value: [Float], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Float) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: Float, encoder: inout TextFormatEncoder) in
       encoder.putFloatValue(value: v)
     }
   }
 
   mutating func visitPackedDoubleField(value: [Double], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Double) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: Double, encoder: inout TextFormatEncoder) in
       encoder.putDoubleValue(value: v)
     }
   }
 
   mutating func visitPackedInt32Field(value: [Int32], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Int32) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: Int32, encoder: inout TextFormatEncoder) in
       encoder.putInt64(value: Int64(v))
     }
   }
 
   mutating func visitPackedInt64Field(value: [Int64], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Int64) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: Int64, encoder: inout TextFormatEncoder) in
       encoder.putInt64(value: v)
     }
   }
 
   mutating func visitPackedUInt32Field(value: [UInt32], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: UInt32) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: UInt32, encoder: inout TextFormatEncoder) in
       encoder.putUInt64(value: UInt64(v))
     }
   }
 
   mutating func visitPackedUInt64Field(value: [UInt64], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: UInt64) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: UInt64, encoder: inout TextFormatEncoder) in
       encoder.putUInt64(value: v)
     }
   }
@@ -459,13 +468,15 @@ internal struct TextFormatEncodingVisitor: Visitor {
   }
 
   mutating func visitPackedBoolField(value: [Bool], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: Bool) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: Bool, encoder: inout TextFormatEncoder) in
       encoder.putBoolValue(value: v)
     }
   }
 
   mutating func visitPackedEnumField<E: Enum>(value: [E], fieldNumber: Int) throws {
-    try _visitPacked(value: value, fieldNumber: fieldNumber) { (v: E) in
+    try _visitPacked(value: value, fieldNumber: fieldNumber) {
+      (v: E, encoder: inout TextFormatEncoder) in
       encoder.putEnumValue(value: v)
     }
   }

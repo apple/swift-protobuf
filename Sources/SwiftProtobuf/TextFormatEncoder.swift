@@ -203,7 +203,7 @@ internal struct TextFormatEncoder {
             append(staticText: "0x")
         } else {
             appendUIntHex(value: value >> 4, digits: digits - 1)
-            let d = UInt8(truncatingBitPattern: value % 16)
+            let d = UInt8(extendingOrTruncating: value % 16)
             data.append(d < 10 ? asciiZero + d : asciiUpperA + d - 10)
         }
     }
@@ -243,19 +243,19 @@ internal struct TextFormatEncoder {
                 data.append(asciiZero + UInt8(c.value / 8 % 8))
                 data.append(asciiZero + UInt8(c.value % 8))
             case 0...127:  // ASCII
-                data.append(UInt8(truncatingBitPattern: c.value))
+                data.append(UInt8(extendingOrTruncating: c.value))
             case 0x80...0x7ff:
                 data.append(0xc0 + UInt8(c.value / 64))
                 data.append(0x80 + UInt8(c.value % 64))
             case 0x800...0xffff:
-                data.append(0xe0 + UInt8(truncatingBitPattern: c.value >> 12))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xe0 + UInt8(extendingOrTruncating: c.value >> 12))
+                data.append(0x80 + UInt8(extendingOrTruncating: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(extendingOrTruncating: c.value & 0x3f))
             default:
-                data.append(0xf0 + UInt8(truncatingBitPattern: c.value >> 18))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 12) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xf0 + UInt8(extendingOrTruncating: c.value >> 18))
+                data.append(0x80 + UInt8(extendingOrTruncating: (c.value >> 12) & 0x3f))
+                data.append(0x80 + UInt8(extendingOrTruncating: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(extendingOrTruncating: c.value & 0x3f))
             }
         }
         data.append(asciiDoubleQuote)

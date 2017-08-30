@@ -87,6 +87,9 @@ struct GeneratorPlugin {
     print(Version.copyright)
     print("")
 
+    let version = SwiftProtobuf.Version.self
+    let packageVersion = "\(version.major),\(version.minor),\(version.revision)"
+
     let help = (
       "Note:  This is a plugin for protoc and should not normally be run\n"
         + "directly.\n"
@@ -106,7 +109,7 @@ struct GeneratorPlugin {
         + "\n"
         + "   dependencies: [\n"
         + "     .Package(url: \"https://github.com/apple/swift-protobuf\",\n"
-        + "              Version(\(SwiftProtobuf.Version.versionString))\n"
+        + "              Version(\(packageVersion)))\n"
         + "   ]\n"
         + "\n"
         + "\n"
@@ -135,6 +138,18 @@ struct GeneratorPlugin {
     guard let requestData = Stdin.readall() else {
       Stderr.print("Failed to read request")
       return 1
+    }
+
+    // Support for loggin the request. Useful when protoc/protoc-gen-swift are
+    // being invoked from some build system/script. protoc-gen-swift supports
+    // loading a request as a command line argument to simplify debugging/etc.
+    if let dumpPath = ProcessInfo.processInfo.environment["PROTOC_GEN_SWIFT_LOG_REQUEST"], !dumpPath.isEmpty {
+      let dumpURL = URL(fileURLWithPath: dumpPath)
+      do {
+        try requestData.write(to: dumpURL)
+      } catch let e {
+        Stderr.print("Failed to write request to '\(dumpPath)', \(e)")
+      }
     }
 
     let request: Google_Protobuf_Compiler_CodeGeneratorRequest
@@ -211,14 +226,18 @@ struct GeneratorPlugin {
 
     let descriptorSet = DescriptorSet(protos: request.protoFile)
 
+    var errorString: String? = nil
     var responseFiles: [Google_Protobuf_Compiler_CodeGeneratorResponse.File] = []
     for name in request.fileToGenerate {
       let fileDescriptor = descriptorSet.lookupFileDescriptor(protoName: name)
       let fileGenerator = FileGenerator(fileDescriptor: fileDescriptor, generatorOptions: options)
       var printer = CodePrinter()
-      // TODO(thomasvl): Go to a model where this can throw or return an error which can be
-      // sent back in the response's error (including the input file name that caused it).
-      fileGenerator.generateOutputFile(printer: &printer)
+      fileGenerator.generateOutputFile(printer: &printer, errorString: &errorString)
+      if let errorString = errorString {
+        // If generating multiple files, scope the message with the file that triggered it.
+        let fullError = request.fileToGenerate.count > 1 ? "\(name): \(errorString)" : errorString
+        return Google_Protobuf_Compiler_CodeGeneratorResponse(error: fullError)
+      }
       responseFiles.append(
         Google_Protobuf_Compiler_CodeGeneratorResponse.File(name: fileGenerator.outputFilename,
                                                             content: printer.content))
@@ -231,16 +250,9 @@ struct GeneratorPlugin {
       Stderr.print("WARNING: unknown version of protoc, use 3.2.x or later to ensure JSON support is correct.")
       return
     }
-    let compilerVersion = request.compilerVersion
-
-    // Expect 3.1.x or 3.3.x - Yes we have to rev this with new release, but
-    // that seems like the best thing at the moment.
-    let isExpectedVersion = (compilerVersion.major == 3) &&
-      (compilerVersion.minor >= 1) &&
-      (compilerVersion.minor <= 3)
-    if !isExpectedVersion {
-      Stderr.print("WARNING: untested version of protoc (\(compilerVersion.versionString)).")
-    }
+    // 3.2.x is what added the compiler_version, so there is no need to
+    // ensure that the version of protoc being used is newer, if the field
+    // is there, the JSON support should be good.
   }
 
   private func sendReply(response: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {

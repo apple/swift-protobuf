@@ -41,7 +41,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual("1", try m.jsonString())
         XCTAssertEqual([9,0,0,0,0,0,0,240,63], try m.serializedBytes())
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalDoubleWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalDoubleWrapper)
 
@@ -79,7 +79,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual("1", try m.jsonString())
         XCTAssertEqual([13,0,0,128,63], try m.serializedBytes())
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalFloatWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalFloatWrapper)
 
@@ -123,7 +123,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalInt64Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalInt64Wrapper)
 
@@ -142,7 +142,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalUInt64Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalUint64Wrapper)
 
@@ -161,7 +161,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalInt32Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalInt32Wrapper)
 
@@ -180,7 +180,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([8,137,6], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalUInt32Wrapper\":null}")
         XCTAssertFalse(mw.hasOptionalUint32Wrapper)
 
@@ -199,7 +199,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([8,1], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalBoolWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalBoolWrapper)
 
@@ -218,7 +218,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([10,3,97,98,99], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalStringWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalStringWrapper)
 
@@ -241,7 +241,7 @@ class Test_Wrappers: XCTestCase {
         XCTAssertEqual([10,3,0,1,2], try m.serializedBytes())
         // TODO: More
 
-        let mw = try ProtobufTestMessages_Proto3_TestAllTypes(
+        let mw = try ProtobufTestMessages_Proto3_TestAllTypesProto3(
           jsonString: "{\"optionalBytesWrapper\":null}")
         XCTAssertFalse(mw.hasOptionalBytesWrapper)
 

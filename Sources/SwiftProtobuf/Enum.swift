@@ -69,4 +69,19 @@ extension Enum {
     }
     self.init(rawValue: number)
   }
+
+  /// Internal convenience initializer that returns the enum value with the
+  /// given name, if it provides names.
+  ///
+  /// Since the text format and JSON names are always identical, we don't need
+  /// to distinguish them.
+  ///
+  /// - Parameter name: Buffer holding the UTF-8 bytes of the desired name.
+  internal init?(rawUTF8: UnsafeBufferPointer<UInt8>) {
+    guard let nameProviding = Self.self as? _ProtoNameProviding.Type,
+      let number = nameProviding._protobuf_nameMap.number(forJSONName: rawUTF8) else {
+      return nil
+    }
+    self.init(rawValue: number)
+  }
 }

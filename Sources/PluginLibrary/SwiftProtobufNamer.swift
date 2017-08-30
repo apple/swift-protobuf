@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/SwiftProtobufNamer - A helper that generates SwiftProtobuf names.
+// Sources/PluginLibrary/SwiftProtobufNamer.swift - A helper that generates SwiftProtobuf names.
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -16,6 +16,7 @@ import Foundation
 
 public final class SwiftProtobufNamer {
   var filePrefixCache = [String:String]()
+  var enumValueRelativeNameCache = [String:String]()
   var mappings: ProtoFileToModuleMappings
   var targetModule: String
 
@@ -81,18 +82,84 @@ public final class SwiftProtobufNamer {
     return fullName(message: containingType) + "." + relativeName
   }
 
-  /// Calculate the relative name for the given enum value.
-  public func relativeName(enumValue: EnumValueDescriptor) -> String {
-    let baseName = enumValue.name
-    if let stripped = NamingUtils.strip(protoPrefix: enumValue.enumType.name, from: baseName) {
-      let camelCased = NamingUtils.toLowerCamelCase(stripped)
-      if isValidSwiftIdentifier(camelCased) {
-        return NamingUtils.sanitize(enumCaseName: camelCased)
+  /// Compute the short names to use for the values of this enum.
+  private func computeRelativeNames(enum e: EnumDescriptor) {
+    let stripper = NamingUtils.PrefixStripper(prefix: e.name)
+
+    /// Determine the initial canidate name for the name before
+    /// doing duplicate checks.
+    func canidateName(_ enumValue: EnumValueDescriptor) -> String {
+      let baseName = enumValue.name
+      if let stripped = stripper.strip(from: baseName) {
+        let camelCased = NamingUtils.toLowerCamelCase(stripped)
+        if isValidSwiftIdentifier(camelCased) {
+          return camelCased
+        }
       }
+      return NamingUtils.toLowerCamelCase(baseName)
     }
 
-    let camelCased = NamingUtils.toLowerCamelCase(baseName)
-    return NamingUtils.sanitize(enumCaseName: camelCased)
+    // Bucketed based on candidate names to check for duplicates.
+    var canidates = [String:[EnumValueDescriptor]]()
+    for enumValue in e.values {
+      let canidate = canidateName(enumValue)
+
+      if var existing = canidates[canidate] {
+        existing.append(enumValue)
+        canidates[canidate] = existing
+      } else {
+        canidates[canidate] = [enumValue]
+      }
+
+    }
+
+    for (camelCased, enumValues) in canidates {
+      // If there is only one, sanitize and cache it.
+      guard enumValues.count > 1 else {
+        enumValueRelativeNameCache[enumValues.first!.fullName] =
+          NamingUtils.sanitize(enumCaseName: camelCased)
+        continue
+      }
+
+      // There are two possible cases:
+      // 1. There is the main entry and then all aliases for it that
+      //    happen to be the same after the prefix was stripped.
+      // 2. There are atleast two values (there could also be aliases).
+      //
+      // For the first case, there's no need to do anything, we'll go
+      // with just one Swift version. For the second, append "_#" to
+      // the names to help make the different Swift versions clear
+      // which they are.
+      let firstValue = enumValues.first!.number
+      let hasMultipleValues = enumValues.contains(where: { return $0.number != firstValue })
+
+      guard hasMultipleValues else {
+        // Was the first case, all one value, just aliases that mapped
+        // to the same name.
+        let name = NamingUtils.sanitize(enumCaseName: camelCased)
+        for e in enumValues {
+          enumValueRelativeNameCache[e.fullName] = name
+        }
+        continue
+      }
+
+      for e in enumValues {
+        // Can't put a negative size, so use "n" and make the number
+        // positive.
+        let suffix = e.number >= 0 ? "_\(e.number)" : "_n\(-e.number)"
+        enumValueRelativeNameCache[e.fullName] =
+          NamingUtils.sanitize(enumCaseName: camelCased + suffix)
+      }
+    }
+  }
+
+  /// Calculate the relative name for the given enum value.
+  public func relativeName(enumValue: EnumValueDescriptor) -> String {
+    if let name = enumValueRelativeNameCache[enumValue.fullName] {
+      return name
+    }
+    computeRelativeNames(enum: enumValue.enumType)
+    return enumValueRelativeNameCache[enumValue.fullName]!
   }
 
   /// Calculate the full name for the given enum value.
@@ -105,6 +172,19 @@ public final class SwiftProtobufNamer {
   public func dottedRelativeName(enumValue: EnumValueDescriptor) -> String {
     let relativeName = self.relativeName(enumValue: enumValue)
     return "." + NamingUtils.trimBackticks(relativeName)
+  }
+
+  /// Filters the Enum's values to those that will have unique Swift
+  /// names. Only poorly named proto enum alias values get filtered
+  /// away, so the assumption is they aren't really needed from an
+  /// api pov.
+  public func uniquelyNamedValues(enum e: EnumDescriptor) -> [EnumValueDescriptor] {
+    return e.values.filter {
+      guard let aliasOf = $0.aliasOf else { return true }
+      let relativeName = self.relativeName(enumValue: $0)
+      let aliasOfRelativeName = self.relativeName(enumValue: aliasOf)
+      return relativeName != aliasOfRelativeName
+    }
   }
 
   /// Calculate the relative name for the given oneof.

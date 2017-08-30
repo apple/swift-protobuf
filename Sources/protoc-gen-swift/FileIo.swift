@@ -76,15 +76,6 @@ class Stdin {
 }
 
 
-func writeFileData(filename: String, data: [UInt8]) throws {
-  let url = URL(fileURLWithPath: filename)
-  #if os(Linux)
-    _ = try NSData(bytes: data, length: data.count).write(to: url)
-  #else
-    _ = try Data(bytes: data).write(to: url)
-  #endif
-}
-
 func readFileData(filename: String) throws -> Data {
     let url = URL(fileURLWithPath: filename)
     return try Data(contentsOf: url)

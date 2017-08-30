@@ -86,12 +86,14 @@ internal struct JSONEncoder {
         data.append(contentsOf: buff)
     }
 
-    /// Append a `_NameMap.Name` to the JSON text.  As with
-    /// StaticString above, a `_NameMap.Name` provides pre-converted
+    /// Append a `_NameMap.Name` to the JSON text surrounded by quotes.
+    /// As with StaticString above, a `_NameMap.Name` provides pre-converted
     /// UTF8 bytes, so this is much faster than appending a regular
     /// `String`.
-    internal mutating func append(name: _NameMap.Name) {
+    internal mutating func appendQuoted(name: _NameMap.Name) {
+        data.append(asciiDoubleQuote)
         data.append(contentsOf: name.utf8Buffer)
+        data.append(asciiDoubleQuote)
     }
 
     /// Append a `String` to the JSON text.
@@ -109,10 +111,8 @@ internal struct JSONEncoder {
         if let s = separator {
             data.append(s)
         }
-        data.append(asciiDoubleQuote)
-        // Append the StaticString's utf8 contents directly
-        append(name: name)
-        append(staticText: "\":")
+        appendQuoted(name: name)
+        data.append(asciiColon)
         separator = asciiComma
     }
 
@@ -139,6 +139,11 @@ internal struct JSONEncoder {
     internal mutating func endArray() {
         data.append(asciiCloseSquareBracket)
         separator = asciiComma
+    }
+
+    /// Append a comma `,` to the JSON.
+    internal mutating func comma() {
+        data.append(asciiComma)
     }
 
     /// Append an open curly brace `{` to the JSON.
@@ -306,19 +311,19 @@ internal struct JSONEncoder {
                 data.append(hexDigits[Int(c.value / 16)])
                 data.append(hexDigits[Int(c.value & 15)])
             case 23...126:
-                data.append(UInt8(truncatingBitPattern: c.value))
+                data.append(UInt8(extendingOrTruncating: c.value))
             case 0x80...0x7ff:
-                data.append(0xc0 + UInt8(truncatingBitPattern: c.value >> 6))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xc0 + UInt8(extendingOrTruncating: c.value >> 6))
+                data.append(0x80 + UInt8(extendingOrTruncating: c.value & 0x3f))
             case 0x800...0xffff:
-                data.append(0xe0 + UInt8(truncatingBitPattern: c.value >> 12))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xe0 + UInt8(extendingOrTruncating: c.value >> 12))
+                data.append(0x80 + UInt8(extendingOrTruncating: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(extendingOrTruncating: c.value & 0x3f))
             default:
-                data.append(0xf0 + UInt8(truncatingBitPattern: c.value >> 18))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 12) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: (c.value >> 6) & 0x3f))
-                data.append(0x80 + UInt8(truncatingBitPattern: c.value & 0x3f))
+                data.append(0xf0 + UInt8(extendingOrTruncating: c.value >> 18))
+                data.append(0x80 + UInt8(extendingOrTruncating: (c.value >> 12) & 0x3f))
+                data.append(0x80 + UInt8(extendingOrTruncating: (c.value >> 6) & 0x3f))
+                data.append(0x80 + UInt8(extendingOrTruncating: c.value & 0x3f))
             }
         }
         data.append(asciiDoubleQuote)

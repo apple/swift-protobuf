@@ -5,6 +5,7 @@ syntax = "proto3";
 package protobuf_unittest;
 message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
+  message allocate { int32 allocate = 1; }
   message any { int32 any = 1; }
   message AnyExtensionField { int32 AnyExtensionField = 1; }
   message AnyMessageExtension { int32 AnyMessageExtension = 1; }
@@ -28,8 +29,11 @@ message GeneratedSwiftReservedMessages {
   message BinaryDecoder { int32 BinaryDecoder = 1; }
   message BinaryDecodingError { int32 BinaryDecodingError = 1; }
   message BinaryDecodingOptions { int32 BinaryDecodingOptions = 1; }
+  message BinaryDelimited { int32 BinaryDelimited = 1; }
   message BinaryEncoder { int32 BinaryEncoder = 1; }
   message BinaryEncodingError { int32 BinaryEncodingError = 1; }
+  message BinaryEncodingMessageSetSizeVisitor { int32 BinaryEncodingMessageSetSizeVisitor = 1; }
+  message BinaryEncodingMessageSetVisitor { int32 BinaryEncodingMessageSetVisitor = 1; }
   message BinaryEncodingSizeVisitor { int32 BinaryEncodingSizeVisitor = 1; }
   message BinaryEncodingVisitor { int32 BinaryEncodingVisitor = 1; }
   message bodySize { int32 bodySize = 1; }
@@ -40,8 +44,10 @@ message GeneratedSwiftReservedMessages {
   message buffer { int32 buffer = 1; }
   message bytes { int32 bytes = 1; }
   message bytesInGroup { int32 bytesInGroup = 1; }
+  message bytesRead { int32 bytesRead = 1; }
   message BytesValue { int32 BytesValue = 1; }
   message c { int32 c = 1; }
+  message capacity { int32 capacity = 1; }
   message capitalizeNext { int32 capitalizeNext = 1; }
   message cardinality { int32 cardinality = 1; }
   message Character { int32 Character = 1; }
@@ -53,8 +59,11 @@ message GeneratedSwiftReservedMessages {
   message clearValue { int32 clearValue = 1; }
   message codeUnits { int32 codeUnits = 1; }
   message Collection { int32 Collection = 1; }
+  message com { int32 com = 1; }
+  message comma { int32 comma = 1; }
   message contentsOf { int32 contentsOf = 1; }
   message count { int32 count = 1; }
+  message countVarintsInBuffer { int32 countVarintsInBuffer = 1; }
   message customCodable { int32 customCodable = 1; }
   message CustomDebugStringConvertible { int32 CustomDebugStringConvertible = 1; }
   message d { int32 d = 1; }
@@ -69,6 +78,7 @@ message GeneratedSwiftReservedMessages {
   message decoded { int32 decoded = 1; }
   message decodedFromJSONNull { int32 decodedFromJSONNull = 1; }
   message decodeExtensionField { int32 decodeExtensionField = 1; }
+  message decodeExtensionFieldsAsMessageSet { int32 decodeExtensionFieldsAsMessageSet = 1; }
   message decodeJSON { int32 decodeJSON = 1; }
   message decodeMapField { int32 decodeMapField = 1; }
   message decodeMessage { int32 decodeMessage = 1; }
@@ -112,6 +122,7 @@ message GeneratedSwiftReservedMessages {
   message decodeSingularUInt32Field { int32 decodeSingularUInt32Field = 1; }
   message decodeSingularUInt64Field { int32 decodeSingularUInt64Field = 1; }
   message decodeTextFormat { int32 decodeTextFormat = 1; }
+  message defaultAnyTypeURLPrefix { int32 defaultAnyTypeURLPrefix = 1; }
   message defaultValue { int32 defaultValue = 1; }
   message description { int32 description = 1; }
   message Dictionary { int32 Dictionary = 1; }
@@ -124,6 +135,7 @@ message GeneratedSwiftReservedMessages {
   message digitValue { int32 digitValue = 1; }
   message discardableResult { int32 discardableResult = 1; }
   message discardUnknownFields { int32 discardUnknownFields = 1; }
+  message distance { int32 distance = 1; }
   message double { int32 double = 1; }
   message doubleToUtf8 { int32 doubleToUtf8 = 1; }
   message DoubleValue { int32 DoubleValue = 1; }
@@ -153,11 +165,13 @@ message GeneratedSwiftReservedMessages {
   message ExpressibleByArrayLiteral { int32 ExpressibleByArrayLiteral = 1; }
   message ExpressibleByDictionaryLiteral { int32 ExpressibleByDictionaryLiteral = 1; }
   message ext { int32 ext = 1; }
+  message extDecoder { int32 extDecoder = 1; }
   message extendedGraphemeClusterLiteral { int32 extendedGraphemeClusterLiteral = 1; }
   message ExtendedGraphemeClusterLiteralType { int32 ExtendedGraphemeClusterLiteralType = 1; }
   message ExtensibleMessage { int32 ExtensibleMessage = 1; }
   message extension { int32 extension = 1; }
   message ExtensionField { int32 ExtensionField = 1; }
+  message extensionFieldNumber { int32 extensionFieldNumber = 1; }
   message ExtensionFieldValueSet { int32 ExtensionFieldValueSet = 1; }
   message ExtensionMap { int32 ExtensionMap = 1; }
   message extensions { int32 extensions = 1; }
@@ -165,6 +179,7 @@ message GeneratedSwiftReservedMessages {
   message f { int32 f = 1; }
   message false { int32 false = 1; }
   message field { int32 field = 1; }
+  message fieldData { int32 fieldData = 1; }
   message FieldMask { int32 FieldMask = 1; }
   message fieldName { int32 fieldName = 1; }
   message fieldNameCount { int32 fieldNameCount = 1; }
@@ -177,14 +192,15 @@ message GeneratedSwiftReservedMessages {
   message fieldType { int32 fieldType = 1; }
   message fieldValue { int32 fieldValue = 1; }
   message fileName { int32 fileName = 1; }
+  message filter { int32 filter = 1; }
   message firstItem { int32 firstItem = 1; }
-  message flatMap { int32 flatMap = 1; }
   message float { int32 float = 1; }
   message floatLiteral { int32 floatLiteral = 1; }
   message FloatLiteralType { int32 FloatLiteralType = 1; }
   message floatToUtf8 { int32 floatToUtf8 = 1; }
   message FloatValue { int32 FloatValue = 1; }
   message forMessageName { int32 forMessageName = 1; }
+  message formUnion { int32 formUnion = 1; }
   message forReadingFrom { int32 forReadingFrom = 1; }
   message forTypeURL { int32 forTypeURL = 1; }
   message ForwardParser { int32 ForwardParser = 1; }
@@ -197,6 +213,7 @@ message GeneratedSwiftReservedMessages {
   message G { int32 G = 1; }
   message get { int32 get = 1; }
   message getExtensionValue { int32 getExtensionValue = 1; }
+  message googleapis { int32 googleapis = 1; }
   message Google_Protobuf_Any { int32 Google_Protobuf_Any = 1; }
   message Google_Protobuf_Api { int32 Google_Protobuf_Api = 1; }
   message Google_Protobuf_BoolValue { int32 Google_Protobuf_BoolValue = 1; }
@@ -226,6 +243,7 @@ message GeneratedSwiftReservedMessages {
   message Google_Protobuf_UInt64Value { int32 Google_Protobuf_UInt64Value = 1; }
   message Google_Protobuf_Value { int32 Google_Protobuf_Value = 1; }
   message group { int32 group = 1; }
+  message groupSize { int32 groupSize = 1; }
   message h { int32 h = 1; }
   message handleConflictingOneOf { int32 handleConflictingOneOf = 1; }
   message hasExtensionValue { int32 hasExtensionValue = 1; }
@@ -252,11 +270,13 @@ message GeneratedSwiftReservedMessages {
   message intern { int32 intern = 1; }
   message Internal { int32 Internal = 1; }
   message InternalState { int32 InternalState = 1; }
+  message ints { int32 ints = 1; }
   message isA { int32 isA = 1; }
   message isEqual { int32 isEqual = 1; }
   message isEqualTo { int32 isEqualTo = 1; }
   message isInitialized { int32 isInitialized = 1; }
   message it { int32 it = 1; }
+  message itemTagsEncodedSize { int32 itemTagsEncodedSize = 1; }
   message Iterator { int32 Iterator = 1; }
   message i_2166136261 { int32 i_2166136261 = 1; }
   message JSONDecoder { int32 JSONDecoder = 1; }
@@ -282,6 +302,7 @@ message GeneratedSwiftReservedMessages {
   message length { int32 length = 1; }
   message let { int32 let = 1; }
   message lhs { int32 lhs = 1; }
+  message list { int32 list = 1; }
   message listOfMessages { int32 listOfMessages = 1; }
   message listValue { int32 listValue = 1; }
   message littleEndian { int32 littleEndian = 1; }
@@ -301,6 +322,7 @@ message GeneratedSwiftReservedMessages {
   message messageDepthLimit { int32 messageDepthLimit = 1; }
   message MessageExtension { int32 MessageExtension = 1; }
   message MessageImplementationBase { int32 MessageImplementationBase = 1; }
+  message MessageSet { int32 MessageSet = 1; }
   message messageType { int32 messageType = 1; }
   message Method { int32 Method = 1; }
   message methods { int32 methods = 1; }
@@ -308,6 +330,7 @@ message GeneratedSwiftReservedMessages {
   message Mixin { int32 Mixin = 1; }
   message mixins { int32 mixins = 1; }
   message month { int32 month = 1; }
+  message msgExtension { int32 msgExtension = 1; }
   message mutating { int32 mutating = 1; }
   message n { int32 n = 1; }
   message name { int32 name = 1; }
@@ -319,7 +342,9 @@ message GeneratedSwiftReservedMessages {
   message nativeBytes { int32 nativeBytes = 1; }
   message nativeEndianBytes { int32 nativeEndianBytes = 1; }
   message newL { int32 newL = 1; }
+  message newList { int32 newList = 1; }
   message newValue { int32 newValue = 1; }
+  message nextByte { int32 nextByte = 1; }
   message nextFieldNumber { int32 nextFieldNumber = 1; }
   message nil { int32 nil = 1; }
   message nilLiteral { int32 nilLiteral = 1; }
@@ -337,6 +362,7 @@ message GeneratedSwiftReservedMessages {
   message OptionalMessageExtensionField { int32 OptionalMessageExtensionField = 1; }
   message options { int32 options = 1; }
   message other { int32 other = 1; }
+  message others { int32 others = 1; }
   message out { int32 out = 1; }
   message output { int32 output = 1; }
   message p { int32 p = 1; }
@@ -346,9 +372,12 @@ message GeneratedSwiftReservedMessages {
   message packedSize { int32 packedSize = 1; }
   message padding { int32 padding = 1; }
   message parent { int32 parent = 1; }
+  message parse { int32 parse = 1; }
   message partial { int32 partial = 1; }
   message path { int32 path = 1; }
   message paths { int32 paths = 1; }
+  message payload { int32 payload = 1; }
+  message payloadSize { int32 payloadSize = 1; }
   message pointer { int32 pointer = 1; }
   message pos { int32 pos = 1; }
   message prefix { int32 prefix = 1; }
@@ -404,6 +433,7 @@ message GeneratedSwiftReservedMessages {
   message rawChars { int32 rawChars = 1; }
   message RawRepresentable { int32 RawRepresentable = 1; }
   message RawValue { int32 RawValue = 1; }
+  message readBuffer { int32 readBuffer = 1; }
   message register { int32 register = 1; }
   message RepeatedEnumExtensionField { int32 RepeatedEnumExtensionField = 1; }
   message RepeatedExtensionField { int32 RepeatedExtensionField = 1; }
@@ -425,6 +455,7 @@ message GeneratedSwiftReservedMessages {
   message seconds { int32 seconds = 1; }
   message self { int32 self = 1; }
   message separator { int32 separator = 1; }
+  message serialize { int32 serialize = 1; }
   message serializedData { int32 serializedData = 1; }
   message serializedSize { int32 serializedSize = 1; }
   message set { int32 set = 1; }
@@ -456,6 +487,8 @@ message GeneratedSwiftReservedMessages {
   message structValue { int32 structValue = 1; }
   message subDecoder { int32 subDecoder = 1; }
   message subscript { int32 subscript = 1; }
+  message subVisitor { int32 subVisitor = 1; }
+  message Swift { int32 Swift = 1; }
   message SwiftProtobuf { int32 SwiftProtobuf = 1; }
   message syntax { int32 syntax = 1; }
   message T { int32 T = 1; }
@@ -474,6 +507,7 @@ message GeneratedSwiftReservedMessages {
   message timeIntervalSinceReferenceDate { int32 timeIntervalSinceReferenceDate = 1; }
   message Timestamp { int32 Timestamp = 1; }
   message total { int32 total = 1; }
+  message totalSize { int32 totalSize = 1; }
   message traverse { int32 traverse = 1; }
   message true { int32 true = 1; }
   message try { int32 try = 1; }
@@ -515,6 +549,7 @@ message GeneratedSwiftReservedMessages {
   message Version { int32 Version = 1; }
   message versionString { int32 versionString = 1; }
   message visitExtensionFields { int32 visitExtensionFields = 1; }
+  message visitExtensionFieldsAsMessageSet { int32 visitExtensionFieldsAsMessageSet = 1; }
   message visitMapField { int32 visitMapField = 1; }
   message visitor { int32 visitor = 1; }
   message visitPacked { int32 visitPacked = 1; }
@@ -571,9 +606,11 @@ message GeneratedSwiftReservedMessages {
   message visitSingularUInt32Field { int32 visitSingularUInt32Field = 1; }
   message visitSingularUInt64Field { int32 visitSingularUInt64Field = 1; }
   message visitUnknown { int32 visitUnknown = 1; }
+  message wasDecoded { int32 wasDecoded = 1; }
   message where { int32 where = 1; }
   message wireFormat { int32 wireFormat = 1; }
   message with { int32 with = 1; }
   message WrappedType { int32 WrappedType = 1; }
+  message written { int32 written = 1; }
   message yday { int32 yday = 1; }
 }

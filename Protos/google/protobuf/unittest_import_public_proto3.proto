@@ -40,4 +40,3 @@ option csharp_namespace = "Google.Protobuf.TestProtos";
 message PublicImportMessage {
  int32 e = 1;
 }
-option swift_prefix = "Proto3";

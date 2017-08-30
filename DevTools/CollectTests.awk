@@ -40,32 +40,21 @@ BEGIN {
     printf("@testable import SwiftProtobufTests\n")
     printf("@testable import PluginLibraryTests\n")
     printf("\n")
-    printf("private func run_test(test:() -> ()) throws {\n")
-    printf("    test()\n")
-    printf("}\n")
-    printf("\n")
-    printf("private func run_test(test:() throws -> ()) throws {\n")
-    printf("    try test()\n")
-    printf("}\n")
-    printf("\n")
-    printf("\n")
 }
 
 /class .*:.* XCTestCase/ {
     if (CLASS != "") {
-	printf("\n        ]\n")
-	printf("    }\n")
+	printf("\n    ]\n")
 	printf("}\n")
     }
     split($0, a, ":")
     split(a[1], words, " ")
     CLASS=words[2]
-    TESTCASES = TESTCASES TESTCASE_separator "\n" "        (testCaseClass: " CLASS ".self, allTests: " CLASS ".allTests)"
+    TESTCASES = TESTCASES TESTCASE_separator "\n" "        testCase(" CLASS ".allTests)"
     TESTCASE_separator = ","
     printf("\n")
     printf("extension %s {\n", CLASS)
-    printf("    static var allTests: [(String, (XCTestCase) throws -> ())] {\n")
-    printf("        return [")
+    printf("    static var allTests = [")
     FUNC_separator=""
 }
 
@@ -75,14 +64,13 @@ BEGIN {
     split(a[1], words, " ")
     FUNC=words[2]
     printf("")
-    printf("%s\n            (\"%s\", {try run_test(test:($0 as! %s).%s)})", FUNC_separator, FUNC, CLASS, FUNC)
+    printf("%s\n        (\"%s\", %s)", FUNC_separator, FUNC, FUNC)
     FUNC_separator = ","
 }
 
 END {
     if (CLASS != "") {
-	printf("\n        ]\n")
-	printf("    }\n")
+	printf("\n    ]\n")
 	printf("}\n")
     }
     printf("\n")

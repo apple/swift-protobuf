@@ -171,7 +171,7 @@ fileprivate func isAllUnderscore(_ s: String) -> Bool {
   if s.isEmpty {
     return false
   }
-  for c in s.characters {
+  for c in s.unicodeScalars {
     if c != "_" {return false}
   }
   return true
@@ -198,90 +198,77 @@ fileprivate func sanitizeTypeName(_ s: String, disambiguator: String) -> String 
 }
 
 fileprivate func isCharacterUppercase(_ s: String, index: Int) -> Bool {
-  let start = s.index(s.startIndex, offsetBy: index)
-  if start == s.endIndex {
+  let scalars = s.unicodeScalars
+  let start = scalars.index(scalars.startIndex, offsetBy: index)
+  if start == scalars.endIndex {
     // it ended, so just say the next character wasn't uppercase.
     return false
   }
-  let end = s.index(after: start)
-  let sub = s[start..<end]
-  return sub != sub.lowercased()
+  return scalars[start].isUppercase
 }
 
-fileprivate let digits: Set<String> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+fileprivate func makeUnicodeScalarView(
+  from unicodeScalar: UnicodeScalar
+) -> String.UnicodeScalarView {
+  var view = String.UnicodeScalarView()
+  view.append(unicodeScalar)
+  return view
+}
+
 
 fileprivate func splitIdentifier(_ s: String) -> [String] {
-  var out = [String]()
-  var current = ""
-  var last = ""
+  var out: [String.UnicodeScalarView] = []
+  var current = String.UnicodeScalarView()
+  // The exact value used to seed this doesn't matter (as long as it's not an
+  // underscore); we use it to avoid an extra optional unwrap in every loop
+  // iteration.
+  var last: UnicodeScalar = "\0"
   var lastIsUpper = false
   var lastIsLower = false
 
-  for _c in s.characters {
-    let c = String(_c)
-    let cIsUpper = (c != c.lowercased())
-    let cIsLower = (c != c.uppercased())
-    if digits.contains(c) {
-      if digits.contains(last) {
-        current += c
+  for scalar in s.unicodeScalars {
+    let isUpper = scalar.isUppercase
+    let isLower = scalar.isLowercase
+
+    if scalar.isDigit {
+      if last.isDigit {
+        current.append(scalar)
       } else {
         out.append(current)
-        current = c
+        current = makeUnicodeScalarView(from: scalar)
       }
-    } else if cIsUpper {
+    } else if isUpper {
       if lastIsUpper {
-        current += c.lowercased()
+        current.append(scalar.lowercased())
       } else {
         out.append(current)
-        current = c.lowercased()
+        current = makeUnicodeScalarView(from: scalar.lowercased())
       }
-    } else if cIsLower {
+    } else if isLower {
       if lastIsLower || lastIsUpper {
-        current += c
+        current.append(scalar)
       } else {
         out.append(current)
-        current = c
+        current = makeUnicodeScalarView(from: scalar)
       }
-    } else {
-      if last == "_" {
-        out.append(current)
-        current = last
-      }
-      if c != "_" {
-        out.append(current)
-        current = c
-      }
+    } else if last == "_" {
+      out.append(current)
+      current = makeUnicodeScalarView(from: last)
     }
-    last = c
-    lastIsUpper = cIsUpper
-    lastIsLower = cIsLower
+
+    last = scalar
+    lastIsUpper = isUpper
+    lastIsLower = isLower
   }
+
   out.append(current)
   if last == "_" {
-    out.append(last)
+    out.append(makeUnicodeScalarView(from: last))
   }
-  // An empty string will always get inserted first, so drop it.
-  return [String](out.dropFirst(1))
-}
 
-/// Only allow ASCII alphanumerics and underscore.
-fileprivate func basicSanitize(_ s: String) -> String {
-  var out = ""
-  for c in s.characters {
-    switch c {
-    case "A"..."Z": // A-Z
-      out.append(c)
-    case "a"..."z": // a-z
-      out.append(c)
-    case "0"..."9": // 0-9
-      out.append(c)
-    case "_":
-      out.append(c)
-    default:
-      break
-    }
-  }
-  return out
+  // An empty string will always get inserted first, so drop it.
+  let slice = out.dropFirst(1)
+  return slice.map(String.init)
 }
 
 fileprivate let upperInitials: Set<String> = ["url", "http", "https", "id"]
@@ -326,63 +313,61 @@ public enum NamingUtils {
     return prefix + "_"
   }
 
-  /// Remove the proto prefix from the given string.  A proto prefix means
-  /// underscores and letter case are ignored.
-  ///
-  /// - Precodition: The two strings must only be 7bit ascii.
-  ///
-  /// - Returns: nil if nothing can be stripped, otherwise returns the stripping
-  ///            string.
-  static func strip(protoPrefix prefix: String, from: String) -> String? {
-    let prefixChars = prefix.lowercased().unicodeScalars
-    precondition(prefixChars.count == prefix.lengthOfBytes(using: .ascii))
-    var prefixIndex = prefixChars.startIndex
-    let prefixEnd = prefixChars.endIndex
+  /// Helper a proto prefix from strings.  A proto prefix means underscores
+  /// and letter case are ignored.
+  struct PrefixStripper {
+    private let prefixChars: String.UnicodeScalarView
 
-    let fromChars = from.lowercased().unicodeScalars
-    precondition(fromChars.count == from.lengthOfBytes(using: .ascii))
-    var fromIndex = fromChars.startIndex
-    let fromEnd = fromChars.endIndex
+    init(prefix: String) {
+      self.prefixChars = prefix.lowercased().replacingOccurrences(of: "_", with: "").unicodeScalars
+    }
 
-    while (prefixIndex != prefixEnd) {
-      if (fromIndex == fromEnd) {
-        // Reached the end of the string while still having prefix to go
-        // nothing to strip.
-        return nil
-      }
+    /// Strip the prefix and return the result, or return nil if it can't
+    /// be stripped.
+    func strip(from: String) -> String? {
+      var prefixIndex = prefixChars.startIndex
+      let prefixEnd = prefixChars.endIndex
 
-      if prefixChars[prefixIndex] == "_" {
+      let fromChars = from.lowercased().unicodeScalars
+      precondition(fromChars.count == from.lengthOfBytes(using: .ascii))
+      var fromIndex = fromChars.startIndex
+      let fromEnd = fromChars.endIndex
+
+      while (prefixIndex != prefixEnd) {
+        if (fromIndex == fromEnd) {
+          // Reached the end of the string while still having prefix to go
+          // nothing to strip.
+          return nil
+        }
+
+        if fromChars[fromIndex] == "_" {
+          fromIndex = fromChars.index(after: fromIndex)
+          continue
+        }
+
+        if prefixChars[prefixIndex] != fromChars[fromIndex] {
+          // They differed before the end of the prefix, can't drop.
+          return nil
+        }
+
         prefixIndex = prefixChars.index(after: prefixIndex)
-        continue
-      }
-
-      if fromChars[fromIndex] == "_" {
         fromIndex = fromChars.index(after: fromIndex)
-        continue
       }
 
-      if prefixChars[prefixIndex] != fromChars[fromIndex] {
-        // They differed before the end of the prefix, can't drop.
+      // Remove any more underscores.
+      while fromIndex != fromEnd && fromChars[fromIndex] == "_" {
+        fromIndex = fromChars.index(after: fromIndex)
+      }
+
+      if fromIndex == fromEnd {
+        // They matched, can't strip.
         return nil
       }
 
-      prefixIndex = prefixChars.index(after: prefixIndex)
-      fromIndex = fromChars.index(after: fromIndex)
+      let count = fromChars.distance(from: fromChars.startIndex, to: fromIndex)
+      let idx = from.index(from.startIndex, offsetBy: count)
+      return from[idx..<from.endIndex]
     }
-
-    // Remove any more underscores.
-    while fromIndex != fromEnd && fromChars[fromIndex] == "_" {
-      fromIndex = fromChars.index(after: fromIndex)
-    }
-
-    if fromIndex == fromEnd {
-      // They matched, can't strip.
-      return nil
-    }
-
-    let count = fromChars.distance(from: fromChars.startIndex, to: fromIndex)
-    let idx = from.index(from.startIndex, offsetBy: count)
-    return from[idx..<from.endIndex]
   }
 
   static func sanitize(messageName s: String) -> String {
@@ -445,9 +430,12 @@ public enum NamingUtils {
 
   /// Use toUpperCamelCase() to get leading "HTTP", "URL", etc. correct.
   static func uppercaseFirstCharacter(_ s: String) -> String {
-    var out = s.characters
-    if let first = out.popFirst() {
-      return String(first).uppercased() + String(out)
+    let out = s.unicodeScalars
+    if let first = out.first {
+      var result = makeUnicodeScalarView(from: first.uppercased())
+      result.append(
+        contentsOf: out[out.index(after: out.startIndex)..<out.endIndex])
+      return String(result)
     } else {
       return s
     }
@@ -460,7 +448,7 @@ public enum NamingUtils {
       if upperInitials.contains(word) {
         out.append(word.uppercased())
       } else {
-        out.append(uppercaseFirstCharacter(basicSanitize(word)))
+        out.append(uppercaseFirstCharacter(word))
       }
     }
     return out
@@ -473,11 +461,11 @@ public enum NamingUtils {
     var forceLower = true
     for word in t {
       if forceLower {
-        out.append(basicSanitize(word).lowercased())
+        out.append(word.lowercased())
       } else if upperInitials.contains(word) {
         out.append(word.uppercased())
       } else {
-        out.append(uppercaseFirstCharacter(basicSanitize(word)))
+        out.append(uppercaseFirstCharacter(word))
       }
       forceLower = false
     }
@@ -492,4 +480,23 @@ public enum NamingUtils {
     return s.replacingOccurrences(of: ".", with: "_")
   }
 
+  /// This must be exactly the same as the corresponding code in the
+  /// SwiftProtobuf library.  Changing it will break compatibility of
+  /// the generated code with old library version.
+  public static func toJsonFieldName(_ s: String) -> String {
+    var result = String.UnicodeScalarView()
+    var capitalizeNext = false
+
+    for c in s.unicodeScalars {
+      if c == "_" {
+        capitalizeNext = true
+      } else if capitalizeNext {
+        result.append(c.uppercased())
+        capitalizeNext = false
+      } else {
+        result.append(c)
+      }
+    }
+    return String(result)
+  }
 }

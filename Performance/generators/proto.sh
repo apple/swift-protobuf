@@ -18,11 +18,12 @@
 
 function print_proto_field() {
   num="$1"
+  _type=`echo $2 | sed -e 's/enum/PerfEnum/'`
 
   if [[ "$proto_syntax" == "2" ]] && [[ "$field_type" != repeated* ]]; then
-    type="optional $2"
+    type="optional $_type"
   else
-    type="$2"
+    type="$_type"
   fi
 
   if [[ -n "$packed" ]]; then
@@ -38,6 +39,13 @@ function generate_homogeneous_test_proto() {
 syntax = "proto$proto_syntax";
 
 message PerfMessage {
+  enum PerfEnum {
+    ZERO = 0;
+    FOO = 1;
+    BAR = 2;
+    BAZ = 3;
+    NEG = -1;
+  }
 EOF
 
   for field_number in $(seq 1 "$field_count"); do

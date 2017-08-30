@@ -19,40 +19,40 @@ import XCTest
 import SwiftProtobuf
 
 class Test_JSON_Array: XCTestCase, PBTestHelpers {
-    typealias MessageTestType = Proto3TestAllTypes
+    typealias MessageTestType = Proto3Unittest_TestAllTypes
 
     private func configureTwoObjects(_ o: inout [MessageTestType]) {
         var o1 = MessageTestType()
-        o1.singleInt32 = 1
-        o1.singleInt64 = 2
-        o1.singleUint32 = 3
-        o1.singleUint64 = 4
-        o1.singleSint32 = 5
-        o1.singleSint64 = 6
-        o1.singleFixed32 = 7
-        o1.singleFixed64 = 8
-        o1.singleSfixed32 = 9
-        o1.singleSfixed64 = 10
-        o1.singleFloat = 11
-        o1.singleDouble = 12
-        o1.singleBool = true
-        o1.singleString = "abc"
-        o1.singleBytes = Data(bytes: [65, 66])
+        o1.optionalInt32 = 1
+        o1.optionalInt64 = 2
+        o1.optionalUint32 = 3
+        o1.optionalUint64 = 4
+        o1.optionalSint32 = 5
+        o1.optionalSint64 = 6
+        o1.optionalFixed32 = 7
+        o1.optionalFixed64 = 8
+        o1.optionalSfixed32 = 9
+        o1.optionalSfixed64 = 10
+        o1.optionalFloat = 11
+        o1.optionalDouble = 12
+        o1.optionalBool = true
+        o1.optionalString = "abc"
+        o1.optionalBytes = Data(bytes: [65, 66])
         var nested = MessageTestType.NestedMessage()
         nested.bb = 7
-        o1.singleNestedMessage = nested
-        var foreign = Proto3ForeignMessage()
+        o1.optionalNestedMessage = nested
+        var foreign = Proto3Unittest_ForeignMessage()
         foreign.c = 88
-        o1.singleForeignMessage = foreign
-        var importMessage = Proto3ImportMessage()
+        o1.optionalForeignMessage = foreign
+        var importMessage = ProtobufUnittestImport_ImportMessage()
         importMessage.d = -9
-        o1.singleImportMessage = importMessage
-        o1.singleNestedEnum = .baz
-        o1.singleForeignEnum = .foreignBaz
-        o1.singleImportEnum = .importBaz
-        var publicImportMessage = Proto3PublicImportMessage()
+        o1.optionalImportMessage = importMessage
+        o1.optionalNestedEnum = .baz
+        o1.optionalForeignEnum = .foreignBaz
+//        o1.optionalImportEnum = .importBaz
+        var publicImportMessage = ProtobufUnittestImport_PublicImportMessage()
         publicImportMessage.e = -999999
-        o1.singlePublicImportMessage = publicImportMessage
+        o1.optionalPublicImportMessage = publicImportMessage
         o1.repeatedInt32 = [1, 2]
         o1.repeatedInt64 = [3, 4]
         o1.repeatedUint32 = [5, 6]
@@ -76,13 +76,10 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
         o1.repeatedForeignMessage = [foreign, foreign2]
         var importMessage2 = importMessage
         importMessage2.d = 999999
-        o1.repeatedImportMessage = [importMessage, importMessage2]
         o1.repeatedNestedEnum = [.bar, .baz]
         o1.repeatedForeignEnum = [.foreignBar, .foreignBaz]
-        o1.repeatedImportEnum = [.importBar, .importBaz]
         var publicImportMessage2 = publicImportMessage
         publicImportMessage2.e = 999999
-        o1.repeatedPublicImportMessage = [publicImportMessage, publicImportMessage2]
         o1.oneofUint32 = 99
         o.append(o1)
 
@@ -92,28 +89,28 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
 
     func testTwoObjectsWithMultipleFields() {
         let expected: String = ("[{"
-            + "\"singleInt32\":1,"
-            + "\"singleInt64\":\"2\","
-            + "\"singleUint32\":3,"
-            + "\"singleUint64\":\"4\","
-            + "\"singleSint32\":5,"
-            + "\"singleSint64\":\"6\","
-            + "\"singleFixed32\":7,"
-            + "\"singleFixed64\":\"8\","
-            + "\"singleSfixed32\":9,"
-            + "\"singleSfixed64\":\"10\","
-            + "\"singleFloat\":11,"
-            + "\"singleDouble\":12,"
-            + "\"singleBool\":true,"
-            + "\"singleString\":\"abc\","
-            + "\"singleBytes\":\"QUI=\","
-            + "\"singleNestedMessage\":{\"bb\":7},"
-            + "\"singleForeignMessage\":{\"c\":88},"
-            + "\"singleImportMessage\":{\"d\":-9},"
-            + "\"singleNestedEnum\":\"BAZ\","
-            + "\"singleForeignEnum\":\"FOREIGN_BAZ\","
-            + "\"singleImportEnum\":\"IMPORT_BAZ\","
-            + "\"singlePublicImportMessage\":{\"e\":-999999},"
+            + "\"optionalInt32\":1,"
+            + "\"optionalInt64\":\"2\","
+            + "\"optionalUint32\":3,"
+            + "\"optionalUint64\":\"4\","
+            + "\"optionalSint32\":5,"
+            + "\"optionalSint64\":\"6\","
+            + "\"optionalFixed32\":7,"
+            + "\"optionalFixed64\":\"8\","
+            + "\"optionalSfixed32\":9,"
+            + "\"optionalSfixed64\":\"10\","
+            + "\"optionalFloat\":11,"
+            + "\"optionalDouble\":12,"
+            + "\"optionalBool\":true,"
+            + "\"optionalString\":\"abc\","
+            + "\"optionalBytes\":\"QUI=\","
+            + "\"optionalNestedMessage\":{\"bb\":7},"
+            + "\"optionalForeignMessage\":{\"c\":88},"
+            + "\"optionalImportMessage\":{\"d\":-9},"
+            + "\"optionalNestedEnum\":\"BAZ\","
+            + "\"optionalForeignEnum\":\"FOREIGN_BAZ\","
+//            + "\"optionalImportEnum\":\"IMPORT_BAZ\","
+            + "\"optionalPublicImportMessage\":{\"e\":-999999},"
             + "\"repeatedInt32\":[1,2],"
             + "\"repeatedInt64\":[\"3\",\"4\"],"
             + "\"repeatedUint32\":[5,6],"
@@ -131,11 +128,8 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
             + "\"repeatedBytes\":[\"\",\"QUI=\"],"
             + "\"repeatedNestedMessage\":[{\"bb\":7},{\"bb\":-7}],"
             + "\"repeatedForeignMessage\":[{\"c\":88},{\"c\":-88}],"
-            + "\"repeatedImportMessage\":[{\"d\":-9},{\"d\":999999}],"
             + "\"repeatedNestedEnum\":[\"BAR\",\"BAZ\"],"
             + "\"repeatedForeignEnum\":[\"FOREIGN_BAR\",\"FOREIGN_BAZ\"],"
-            + "\"repeatedImportEnum\":[\"IMPORT_BAR\",\"IMPORT_BAZ\"],"
-            + "\"repeatedPublicImportMessage\":[{\"e\":-999999},{\"e\":999999}],"
             + "\"oneofUint32\":99"
             + "},{}]")
         assertJSONArrayEncode(expected, configure: configureTwoObjects)
@@ -144,15 +138,15 @@ class Test_JSON_Array: XCTestCase, PBTestHelpers {
     func testRepeatedNestedMessage() {
         assertJSONArrayEncode("[{\"repeatedNestedMessage\":[{\"bb\":1}]},{\"repeatedNestedMessage\":[{\"bb\":1},{\"bb\":2}]}]") {(o: inout [MessageTestType]) in
             var o1 = MessageTestType()
-            var sub1 = Proto3TestAllTypes.NestedMessage()
+            var sub1 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub1.bb = 1
             o1.repeatedNestedMessage = [sub1]
             o.append(o1)
 
             var o2 = MessageTestType()
-            var sub2 = Proto3TestAllTypes.NestedMessage()
+            var sub2 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub2.bb = 1
-            var sub3 = Proto3TestAllTypes.NestedMessage()
+            var sub3 = Proto3Unittest_TestAllTypes.NestedMessage()
             sub3.bb = 2
             o2.repeatedNestedMessage = [sub2, sub3]
             o.append(o2)

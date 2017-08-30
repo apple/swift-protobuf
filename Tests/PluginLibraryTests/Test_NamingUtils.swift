@@ -11,14 +11,6 @@
 import XCTest
 @testable import PluginLibrary
 
-extension Google_Protobuf_EnumValueDescriptorProto {
-  fileprivate init(name: String, number: Int32) {
-    self.init()
-    self.name = name
-    self.number = number
-  }
-}
-
 class Test_NamingUtils: XCTestCase {
 
   func testTypePrefix() throws {
@@ -57,7 +49,7 @@ class Test_NamingUtils: XCTestCase {
     }
   }
 
-  func testStrip_protoPrefix() {
+  func testPrefixStripper_strip() {
     // prefix, string, expected
     let tests: [(String, String, String?)] = [
       ( "", "", nil ),
@@ -88,7 +80,8 @@ class Test_NamingUtils: XCTestCase {
       ( "foo__bar_", "_foo_bar__baz", "baz" ),
     ]
     for (prefix, str, expected) in tests {
-      let result = NamingUtils.strip(protoPrefix: prefix, from: str)
+      let stripper = NamingUtils.PrefixStripper(prefix: prefix)
+      let result = stripper.strip(from: str)
       XCTAssertEqual(result, expected, "Prefix: \(prefix), Input: \(str)")
     }
   }

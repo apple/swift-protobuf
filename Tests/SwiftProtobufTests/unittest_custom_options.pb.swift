@@ -920,11 +920,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
   /// initializers are defined in the SwiftProtobuf library. See the Message and
   /// Message+*Additions` files.
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      if (4 <= fieldNumber && fieldNumber < 2147483647) {
-        try decoder.decodeExtensionField(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self, fieldNumber: fieldNumber)
-      }
-    }
+    try decoder.decodeExtensionFieldsAsMessageSet(values: &_protobuf_extensionFieldValues, messageType: ProtobufUnittest_AggregateMessageSet.self)
   }
 
   /// Used by the encoding methods of the SwiftProtobuf library, not generally
@@ -932,7 +928,7 @@ struct ProtobufUnittest_AggregateMessageSet: SwiftProtobuf.Message, SwiftProtobu
   /// other serializer methods are defined in the SwiftProtobuf library. See the
   /// `Message` and `Message+*Additions` files.
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try visitor.visitExtensionFields(fields: _protobuf_extensionFieldValues, start: 4, end: 2147483647)
+    try visitor.visitExtensionFieldsAsMessageSet(fields: _protobuf_extensionFieldValues, start: 4, end: 2147483647)
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -2410,7 +2406,7 @@ extension ProtobufUnittest_AggregateMessageSetElement {
   enum Extensions {
     static let message_set_extension = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalMessageExtensionField<ProtobufUnittest_AggregateMessageSetElement>, ProtobufUnittest_AggregateMessageSet>(
       _protobuf_fieldNumber: 15447542,
-      fieldName: "protobuf_unittest.AggregateMessageSetElement.message_set_extension"
+      fieldName: "protobuf_unittest.AggregateMessageSetElement"
     )
   }
 }

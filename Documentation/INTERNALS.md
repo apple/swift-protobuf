@@ -15,6 +15,19 @@ As a result, this document is probably already out of date;
 pull requests that correct this document to better match the actual
 behavior are always appreciated.
 
+## Swift Language Support
+
+The goal is to always support "one full major version”, which basically
+means if the current official release of Swift is `X.Y`, the library will
+support back to `X-1.Y`.  That is, when Swift 4.1 gets released, the minimum
+for support gets moved up to 3.1.
+
+When the minimum Swift version gets updated, update:
+- The `README.md` in the root of the project
+- Audit all the `#if` directives in the code and tests that use at
+  `swift(...)` to check the version being compiled against, and
+  remove the ones that are no longer needed.
+
 ## Field Storage
 
 The generated message structs follow one of several different patterns

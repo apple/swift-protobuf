@@ -14,13 +14,6 @@
 
 import Foundation
 
-#if os(Linux)
-// Linux doesn't seem to define these by default.
-// https://bugs.swift.org/browse/SR-4198
-internal let FLT_DIG: Int32 = 6
-internal let DBL_DIG: Int32 = 15
-#endif
-
 // TODO: Experiment with other approaches for formatting float/double.
 // Profiling shows that the `CVarArg` and `withVaList` glue consumes
 // about 50% of the total run time just marshalling the arguments.
@@ -58,6 +51,12 @@ internal class DoubleFormatter {
         doubleFormatString.deallocate()
     }
 
+    func utf8ToDouble(bytes: UnsafeBufferPointer<UInt8>,
+                      start: UnsafeBufferPointer<UInt8>.Index,
+                      end: UnsafeBufferPointer<UInt8>.Index) -> Double? {
+        return utf8ToDouble(bytes: bytes.baseAddress! + start, count: end - start)
+    }
+
     func utf8ToDouble(bytes: UnsafePointer<UInt8>, count: Int) -> Double? {
         // Reject unreasonably large UTF8 number
         if work.count <= count {
@@ -82,11 +81,15 @@ internal class DoubleFormatter {
     }
 
     func floatToUtf8(_ f: Float) -> UnsafeBufferPointer<UInt8> {
-        return _doubleToUtf8(Double(f), digits: FLT_DIG + 2)
+        // This many digits suffices for any IEEE754 single-precision number.
+        let floatDigitsToPrint: Int32 = 9
+        return _doubleToUtf8(Double(f), digits: floatDigitsToPrint)
     }
 
     func doubleToUtf8(_ d: Double) -> UnsafeBufferPointer<UInt8> {
-        return _doubleToUtf8(d, digits: DBL_DIG + 2)
+        // This many digits suffices for any IEEE754 double-precision number.
+        let doubleDigitsToPrint: Int32 = 17
+        return _doubleToUtf8(d, digits: doubleDigitsToPrint)
     }
 
     private func _doubleToUtf8(_ d: Double, digits: Int32) -> UnsafeBufferPointer<UInt8> {

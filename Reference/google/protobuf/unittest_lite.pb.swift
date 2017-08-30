@@ -2521,6 +2521,214 @@ struct ProtobufUnittest_TestHugeFieldNumbersLite: SwiftProtobuf.Message, SwiftPr
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+struct ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".TestOneofParsingLite"
+
+  var oneofField: OneOf_OneofField? {
+    get {return _storage._oneofField}
+    set {_uniqueStorage()._oneofField = newValue}
+  }
+
+  var oneofInt32: Int32 {
+    get {
+      if case .oneofInt32(let v)? = _storage._oneofField {return v}
+      return 0
+    }
+    set {_uniqueStorage()._oneofField = .oneofInt32(newValue)}
+  }
+
+  var oneofSubmessage: ProtobufUnittest_TestAllTypesLite {
+    get {
+      if case .oneofSubmessage(let v)? = _storage._oneofField {return v}
+      return ProtobufUnittest_TestAllTypesLite()
+    }
+    set {_uniqueStorage()._oneofField = .oneofSubmessage(newValue)}
+  }
+
+  var oneofString: String {
+    get {
+      if case .oneofString(let v)? = _storage._oneofField {return v}
+      return String()
+    }
+    set {_uniqueStorage()._oneofField = .oneofString(newValue)}
+  }
+
+  var oneofBytes: Data {
+    get {
+      if case .oneofBytes(let v)? = _storage._oneofField {return v}
+      return Data(bytes: [100, 101, 102, 97, 117, 108, 116, 32, 98, 121, 116, 101, 115])
+    }
+    set {_uniqueStorage()._oneofField = .oneofBytes(newValue)}
+  }
+
+  var oneofStringCord: String {
+    get {
+      if case .oneofStringCord(let v)? = _storage._oneofField {return v}
+      return "default Cord"
+    }
+    set {_uniqueStorage()._oneofField = .oneofStringCord(newValue)}
+  }
+
+  var oneofBytesCord: Data {
+    get {
+      if case .oneofBytesCord(let v)? = _storage._oneofField {return v}
+      return SwiftProtobuf.Internal.emptyData
+    }
+    set {_uniqueStorage()._oneofField = .oneofBytesCord(newValue)}
+  }
+
+  var oneofStringStringPiece: String {
+    get {
+      if case .oneofStringStringPiece(let v)? = _storage._oneofField {return v}
+      return String()
+    }
+    set {_uniqueStorage()._oneofField = .oneofStringStringPiece(newValue)}
+  }
+
+  var oneofBytesStringPiece: Data {
+    get {
+      if case .oneofBytesStringPiece(let v)? = _storage._oneofField {return v}
+      return Data(bytes: [100, 101, 102, 97, 117, 108, 116, 32, 83, 116, 114, 105, 110, 103, 80, 105, 101, 99, 101])
+    }
+    set {_uniqueStorage()._oneofField = .oneofBytesStringPiece(newValue)}
+  }
+
+  var oneofEnum: ProtobufUnittest_V2EnumLite {
+    get {
+      if case .oneofEnum(let v)? = _storage._oneofField {return v}
+      return .v2First
+    }
+    set {_uniqueStorage()._oneofField = .oneofEnum(newValue)}
+  }
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  enum OneOf_OneofField: Equatable {
+    case oneofInt32(Int32)
+    case oneofSubmessage(ProtobufUnittest_TestAllTypesLite)
+    case oneofString(String)
+    case oneofBytes(Data)
+    case oneofStringCord(String)
+    case oneofBytesCord(Data)
+    case oneofStringStringPiece(String)
+    case oneofBytesStringPiece(Data)
+    case oneofEnum(ProtobufUnittest_V2EnumLite)
+
+    static func ==(lhs: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField, rhs: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField) -> Bool {
+      switch (lhs, rhs) {
+      case (.oneofInt32(let l), .oneofInt32(let r)): return l == r
+      case (.oneofSubmessage(let l), .oneofSubmessage(let r)): return l == r
+      case (.oneofString(let l), .oneofString(let r)): return l == r
+      case (.oneofBytes(let l), .oneofBytes(let r)): return l == r
+      case (.oneofStringCord(let l), .oneofStringCord(let r)): return l == r
+      case (.oneofBytesCord(let l), .oneofBytesCord(let r)): return l == r
+      case (.oneofStringStringPiece(let l), .oneofStringStringPiece(let r)): return l == r
+      case (.oneofBytesStringPiece(let l), .oneofBytesStringPiece(let r)): return l == r
+      case (.oneofEnum(let l), .oneofEnum(let r)): return l == r
+      default: return false
+      }
+    }
+  }
+
+  init() {}
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Int32?
+          try decoder.decodeSingularInt32Field(value: &v)
+          if let v = v {_storage._oneofField = .oneofInt32(v)}
+        case 2:
+          var v: ProtobufUnittest_TestAllTypesLite?
+          if let current = _storage._oneofField {
+            try decoder.handleConflictingOneOf()
+            if case .oneofSubmessage(let m) = current {v = m}
+          }
+          try decoder.decodeSingularMessageField(value: &v)
+          if let v = v {_storage._oneofField = .oneofSubmessage(v)}
+        case 3:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._oneofField = .oneofString(v)}
+        case 4:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Data?
+          try decoder.decodeSingularBytesField(value: &v)
+          if let v = v {_storage._oneofField = .oneofBytes(v)}
+        case 5:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._oneofField = .oneofStringCord(v)}
+        case 6:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Data?
+          try decoder.decodeSingularBytesField(value: &v)
+          if let v = v {_storage._oneofField = .oneofBytesCord(v)}
+        case 7:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: String?
+          try decoder.decodeSingularStringField(value: &v)
+          if let v = v {_storage._oneofField = .oneofStringStringPiece(v)}
+        case 8:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: Data?
+          try decoder.decodeSingularBytesField(value: &v)
+          if let v = v {_storage._oneofField = .oneofBytesStringPiece(v)}
+        case 9:
+          if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
+          var v: ProtobufUnittest_V2EnumLite?
+          try decoder.decodeSingularEnumField(value: &v)
+          if let v = v {_storage._oneofField = .oneofEnum(v)}
+        default: break
+        }
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      switch _storage._oneofField {
+      case .oneofInt32(let v)?:
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      case .oneofSubmessage(let v)?:
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      case .oneofString(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 3)
+      case .oneofBytes(let v)?:
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 4)
+      case .oneofStringCord(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 5)
+      case .oneofBytesCord(let v)?:
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 6)
+      case .oneofStringStringPiece(let v)?:
+        try visitor.visitSingularStringField(value: v, fieldNumber: 7)
+      case .oneofBytesStringPiece(let v)?:
+        try visitor.visitSingularBytesField(value: v, fieldNumber: 8)
+      case .oneofEnum(let v)?:
+        try visitor.visitSingularEnumField(value: v, fieldNumber: 9)
+      case nil: break
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Extension support defined in unittest_lite.proto.
 
 extension ProtobufUnittest_TestAllExtensionsLite {
@@ -5402,6 +5610,53 @@ extension ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup: SwiftProtobuf
 
   func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestHugeFieldNumbersLite.OptionalGroup) -> Bool {
     if self._groupA != other._groupA {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_TestOneofParsingLite: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "oneof_int32"),
+    2: .standard(proto: "oneof_submessage"),
+    3: .standard(proto: "oneof_string"),
+    4: .standard(proto: "oneof_bytes"),
+    5: .standard(proto: "oneof_string_cord"),
+    6: .standard(proto: "oneof_bytes_cord"),
+    7: .standard(proto: "oneof_string_string_piece"),
+    8: .standard(proto: "oneof_bytes_string_piece"),
+    9: .standard(proto: "oneof_enum"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _oneofField: ProtobufUnittest_TestOneofParsingLite.OneOf_OneofField?
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _oneofField = source._oneofField
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_TestOneofParsingLite) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
+        if _storage._oneofField != other_storage._oneofField {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if unknownFields != other.unknownFields {return false}
     return true
   }
