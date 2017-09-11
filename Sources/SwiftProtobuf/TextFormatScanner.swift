@@ -725,7 +725,7 @@ internal struct TextFormatScanner {
     private mutating func skipOptionalKeywordCaseSensitive(bytes: [UInt8]) -> Bool {
         let start = p
         for b in bytes {
-            if p == end || p[0] != b{
+            if p == end || p[0] != b {
                 p = start
                 return false
             }
