@@ -394,6 +394,12 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         let b = Proto3Unittest_TestAllTypes.with {$0.optionalDouble = Double.nan}
         XCTAssertEqual("optional_double: nan\n", b.textFormatString())
 
+        assertTextFormatDecodeSucceeds("optional_double: 1.0\n") {(o: MessageTestType) in
+            return o.optionalDouble == 1.0
+        }
+        assertTextFormatDecodeSucceeds("12: 1.0\n") {(o: MessageTestType) in
+            return o.optionalDouble == 1.0
+        }
         assertTextFormatDecodeSucceeds("optional_double: INFINITY\n") {(o: MessageTestType) in
             return o.optionalDouble == Double.infinity
         }
@@ -475,8 +481,17 @@ class Test_TextFormat_proto3: XCTestCase, PBTestHelpers {
         assertTextFormatDecodeSucceeds("optional_bool:0\n ") {(o: MessageTestType) in
             return o.optionalBool == false
         }
+        assertTextFormatDecodeSucceeds("13:0\n ") {(o: MessageTestType) in
+            return o.optionalBool == false
+        }
+        assertTextFormatDecodeSucceeds("13:1\n ") {(o: MessageTestType) in
+            return o.optionalBool == true
+        }
 
         assertTextFormatDecodeFails("optional_bool: 10\n")
+        assertTextFormatDecodeFails("optional_bool: 1optional_double: 1.0\n")
+        assertTextFormatDecodeFails("optional_bool: t12: 1.0\n")
+        assertTextFormatDecodeFails("optional_bool: true12: 1.0\n")
         assertTextFormatDecodeFails("optional_bool: tRue\n")
         assertTextFormatDecodeFails("optional_bool: tr\n")
         assertTextFormatDecodeFails("optional_bool: tru\n")

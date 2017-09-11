@@ -722,28 +722,20 @@ internal struct TextFormatScanner {
         return d
     }
 
-    private mutating func skipOptionalKeywordCaseSensitive(bytes: [UInt8]) -> Bool {
+    // Skip specified characters if they all match
+    private mutating func skipOptionalCharacters(bytes: [UInt8]) {
         let start = p
         for b in bytes {
             if p == end || p[0] != b {
                 p = start
-                return false
+                return
             }
             p += 1
         }
-        if p == end {
-            return true
-        }
-        let c = p[0]
-        if ((c >= asciiUpperA && c <= asciiUpperZ)
-            || (c >= asciiLowerA && c <= asciiLowerZ)) {
-            p = start
-            return false
-        }
-        skipWhitespace()
-        return true
     }
 
+    // Skip following keyword if it matches (case-insensitively)
+    // the given keyword (specified as a series of bytes).
     private mutating func skipOptionalKeyword(bytes: [UInt8]) -> Bool {
         let start = p
         for b in bytes {
@@ -842,31 +834,46 @@ internal struct TextFormatScanner {
         }
         let c = p[0]
         p += 1
+        let result: Bool
         switch c {
         case asciiZero:
-            return false
+            result = false
         case asciiOne:
-            return true
+            result = true
         case asciiLowerF, asciiUpperF:
-            let alse = [asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE]
-            if p == end
-               || skipOptionalKeywordCaseSensitive(bytes: alse)
-               || ((p[0] < asciiUpperA || p[0] > asciiUpperZ)
-                   && (p[0] < asciiLowerA || p[0] > asciiLowerZ)) {
-                return false
+            if p != end {
+                let alse = [asciiLowerA, asciiLowerL, asciiLowerS, asciiLowerE]
+                skipOptionalCharacters(bytes: alse)
             }
+            result = false
         case asciiLowerT, asciiUpperT:
-            let rue = [asciiLowerR, asciiLowerU, asciiLowerE]
-            if p == end
-               || skipOptionalKeywordCaseSensitive(bytes: rue)
-               || ((p[0] < asciiUpperA || p[0] > asciiUpperZ)
-                   && (p[0] < asciiLowerA || p[0] > asciiLowerZ)) {
-                return true
+            if p != end {
+                let rue = [asciiLowerR, asciiLowerU, asciiLowerE]
+                skipOptionalCharacters(bytes: rue)
             }
+            result = true
         default:
-            break
+            throw TextFormatDecodingError.malformedText
         }
-        throw TextFormatDecodingError.malformedText
+        if p == end {
+            return result
+        }
+        switch p[0] {
+        case asciiSpace,
+             asciiTab,
+             asciiNewLine,
+             asciiCarriageReturn,
+             asciiHash,
+             asciiComma,
+             asciiSemicolon,
+             asciiCloseSquareBracket,
+             asciiCloseCurlyBracket,
+             asciiCloseAngleBracket:
+            skipWhitespace()
+            return result
+        default:
+            throw TextFormatDecodingError.malformedText
+        }
     }
 
     internal mutating func nextOptionalEnumName() throws -> UnsafeBufferPointer<UInt8>? {
