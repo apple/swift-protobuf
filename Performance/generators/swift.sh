@@ -27,7 +27,9 @@ function print_swift_set_field() {
       echo "    }"
       ;;
     repeated\ bool)
-      echo "    message.field$num = [true, false, true, false, true, false, true, false]"
+      echo "    for _ in 0..<repeatedCount {"
+      echo "      message.field$num.append(true)"
+      echo "    }"
       ;;
     repeated\ string)
       echo "    for _ in 0..<repeatedCount {"
