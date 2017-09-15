@@ -1,2 +1,1 @@
-Recommended.Proto3.JsonInput.BytesFieldBase64Url.JsonOutput
-Recommended.Proto3.JsonInput.BytesFieldBase64Url.ProtobufOutput
+# No known failures
