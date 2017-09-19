@@ -63,7 +63,7 @@ internal struct FieldTag: RawRepresentable {
 
   /// Creates a new tag by composing the given field number and wire format.
   init(fieldNumber: Int, wireFormat: WireFormat) {
-    self.rawValue = UInt32(extendingOrTruncating: fieldNumber) << 3 |
+    self.rawValue = UInt32(truncatingIfNeeded: fieldNumber) << 3 |
       UInt32(wireFormat.rawValue)
   }
 }

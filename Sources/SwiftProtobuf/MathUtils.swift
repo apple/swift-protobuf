@@ -42,47 +42,46 @@ internal func div<T : SignedInteger>(_ a: T, _ b: T) -> T {
 #if !swift(>=4.0)
 //
 // Swift 3 called this initializer "truncatingBitPattern";
-// Swift 4 (prerelease) changed this initializer to
-// "extendingOrTruncating".
+// Swift 4 changed this initializer to "truncatingIfNeeded".
 //
 extension UInt8 {
-     internal init(extendingOrTruncating value: UInt32) {
+     internal init(truncatingIfNeeded value: UInt32) {
          self.init(truncatingBitPattern: value)
      }
-     internal init(extendingOrTruncating value: Int) {
+     internal init(truncatingIfNeeded value: Int) {
          self.init(truncatingBitPattern: value)
      }
-     internal init(extendingOrTruncating value: UInt64) {
+     internal init(truncatingIfNeeded value: UInt64) {
          self.init(truncatingBitPattern: value)
      }
 }
 
 extension UInt32 {
-     internal init(extendingOrTruncating value: UInt64) {
+     internal init(truncatingIfNeeded value: UInt64) {
          self.init(truncatingBitPattern: value)
      }
-     internal init(extendingOrTruncating value: Int) {
+     internal init(truncatingIfNeeded value: Int) {
          self.init(truncatingBitPattern: value)
      }
 }
 
 extension Int32 {
-     internal init(extendingOrTruncating value: UInt64) {
+     internal init(truncatingIfNeeded value: UInt64) {
          self.init(truncatingBitPattern: value)
      }
-     internal init(extendingOrTruncating value: Int64) {
+     internal init(truncatingIfNeeded value: Int64) {
          self.init(truncatingBitPattern: value)
      }
-     internal init(extendingOrTruncating value: Int) {
+     internal init(truncatingIfNeeded value: Int) {
          self.init(truncatingBitPattern: value)
      }
 }
 
 extension Int {
-     internal init(extendingOrTruncating value: Int64) {
+     internal init(truncatingIfNeeded value: Int64) {
          self.init(truncatingBitPattern: value)
      }
-     internal init(extendingOrTruncating value: UInt64) {
+     internal init(truncatingIfNeeded value: UInt64) {
          self.init(truncatingBitPattern: value)
      }
 }
