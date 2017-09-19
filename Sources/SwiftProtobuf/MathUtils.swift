@@ -42,8 +42,7 @@ internal func div<T : SignedInteger>(_ a: T, _ b: T) -> T {
 #if !swift(>=4.0)
 //
 // Swift 3 called this initializer "truncatingBitPattern";
-// Swift 4 (prerelease) changed this initializer to
-// "truncatingIfNeeded".
+// Swift 4 changed this initializer to "truncatingIfNeeded".
 //
 extension UInt8 {
      internal init(truncatingIfNeeded value: UInt32) {
