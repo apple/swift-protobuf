@@ -86,4 +86,46 @@ extension Int {
          self.init(truncatingBitPattern: value)
      }
 }
+#else
+    extension UInt8 {
+        internal init(extendingOrTruncating value: UInt32) {
+            self.init(truncatingIfNeeded: value)
+        }
+        internal init(extendingOrTruncating value: Int) {
+            self.init(truncatingIfNeeded: value)
+        }
+        internal init(extendingOrTruncating value: UInt64) {
+            self.init(truncatingIfNeeded: value)
+        }
+    }
+    
+    extension UInt32 {
+        internal init(extendingOrTruncating value: UInt64) {
+            self.init(truncatingIfNeeded: value)
+        }
+        internal init(extendingOrTruncating value: Int) {
+            self.init(truncatingIfNeeded: value)
+        }
+    }
+    
+    extension Int32 {
+        internal init(extendingOrTruncating value: UInt64) {
+            self.init(truncatingIfNeeded: value)
+        }
+        internal init(extendingOrTruncating value: Int64) {
+            self.init(truncatingIfNeeded: value)
+        }
+        internal init(extendingOrTruncating value: Int) {
+            self.init(truncatingIfNeeded: value)
+        }
+    }
+    
+    extension Int {
+        internal init(extendingOrTruncating value: Int64) {
+            self.init(truncatingIfNeeded: value)
+        }
+        internal init(extendingOrTruncating value: UInt64) {
+            self.init(truncatingIfNeeded: value)
+        }
+    }
 #endif

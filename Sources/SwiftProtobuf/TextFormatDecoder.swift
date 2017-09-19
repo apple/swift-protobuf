@@ -149,7 +149,7 @@ internal struct TextFormatDecoder: Decoder {
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
             throw TextFormatDecodingError.malformedNumber
         }
-        value = Int32(truncatingIfNeeded: n)
+        value = Int32(extendingOrTruncating: n)
     }
     mutating func decodeSingularInt32Field(value: inout Int32?) throws {
         try scanner.skipRequiredColon()
@@ -157,7 +157,7 @@ internal struct TextFormatDecoder: Decoder {
         if n > Int64(Int32.max) || n < Int64(Int32.min) {
             throw TextFormatDecodingError.malformedNumber
         }
-        value = Int32(truncatingIfNeeded: n)
+        value = Int32(extendingOrTruncating: n)
     }
     mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
         try scanner.skipRequiredColon()
@@ -176,14 +176,14 @@ internal struct TextFormatDecoder: Decoder {
                 if n > Int64(Int32.max) || n < Int64(Int32.min) {
                     throw TextFormatDecodingError.malformedNumber
                 }
-                value.append(Int32(truncatingIfNeeded: n))
+                value.append(Int32(extendingOrTruncating: n))
             }
         } else {
             let n = try scanner.nextSInt()
             if n > Int64(Int32.max) || n < Int64(Int32.min) {
                 throw TextFormatDecodingError.malformedNumber
             }
-            value.append(Int32(truncatingIfNeeded: n))
+            value.append(Int32(extendingOrTruncating: n))
         }
     }
     mutating func decodeSingularInt64Field(value: inout Int64) throws {
@@ -221,7 +221,7 @@ internal struct TextFormatDecoder: Decoder {
         if n > UInt64(UInt32.max) {
             throw TextFormatDecodingError.malformedNumber
         }
-        value = UInt32(truncatingIfNeeded: n)
+        value = UInt32(extendingOrTruncating: n)
     }
     mutating func decodeSingularUInt32Field(value: inout UInt32?) throws {
         try scanner.skipRequiredColon()
@@ -229,7 +229,7 @@ internal struct TextFormatDecoder: Decoder {
         if n > UInt64(UInt32.max) {
             throw TextFormatDecodingError.malformedNumber
         }
-        value = UInt32(truncatingIfNeeded: n)
+        value = UInt32(extendingOrTruncating: n)
     }
     mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
         try scanner.skipRequiredColon()
@@ -248,14 +248,14 @@ internal struct TextFormatDecoder: Decoder {
                 if n > UInt64(UInt32.max) {
                     throw TextFormatDecodingError.malformedNumber
                 }
-                value.append(UInt32(truncatingIfNeeded: n))
+                value.append(UInt32(extendingOrTruncating: n))
             }
         } else {
             let n = try scanner.nextUInt()
             if n > UInt64(UInt32.max) {
                 throw TextFormatDecodingError.malformedNumber
             }
-            value.append(UInt32(truncatingIfNeeded: n))
+            value.append(UInt32(extendingOrTruncating: n))
         }
     }
     mutating func decodeSingularUInt64Field(value: inout UInt64) throws {
@@ -439,7 +439,7 @@ internal struct TextFormatDecoder: Decoder {
         }
         let number = try scanner.nextSInt()
         if number >= Int64(Int32.min) && number <= Int64(Int32.max) {
-            let n = Int32(truncatingIfNeeded: number)
+            let n = Int32(extendingOrTruncating: number)
             if let e = E(rawValue: Int(n)) {
                 return e
             } else {

@@ -178,9 +178,9 @@ private func parseBytes(
                 n |= k
                 chars += 1
                 if chars == 4 {
-                    p[0] = UInt8(truncatingIfNeeded: n >> 16)
-                    p[1] = UInt8(truncatingIfNeeded: n >> 8)
-                    p[2] = UInt8(truncatingIfNeeded: n)
+                    p[0] = UInt8(extendingOrTruncating: n >> 16)
+                    p[1] = UInt8(extendingOrTruncating: n >> 8)
+                    p[2] = UInt8(extendingOrTruncating: n)
                     p += 3
                     chars = 0
                     n = 0
@@ -215,13 +215,13 @@ private func parseBytes(
         }
         switch chars {
         case 3:
-            p[0] = UInt8(truncatingIfNeeded: n >> 10)
-            p[1] = UInt8(truncatingIfNeeded: n >> 2)
+            p[0] = UInt8(extendingOrTruncating: n >> 10)
+            p[1] = UInt8(extendingOrTruncating: n >> 2)
             if padding == 1 || padding == 0 {
                 return
             }
         case 2:
-            p[0] = UInt8(truncatingIfNeeded: n >> 4)
+            p[0] = UInt8(extendingOrTruncating: n >> 4)
             if padding == 2 || padding == 0 {
                 return
             }
