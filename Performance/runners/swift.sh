@@ -39,16 +39,18 @@ function run_swift_harness() {
     # TODO: Make the dylib a product again in the package manifest and just use
     # that.
     echo "Building SwiftProtobuf dynamic library..."
-    xcrun -sdk macosx swiftc -emit-library -emit-module -O -wmo \
+    ${SWIFT_EXEC:-swiftc} -emit-library -emit-module -O -wmo \
         -o "$perf_dir/_generated/libSwiftProtobuf.dylib" \
+        ${OTHER_SWIFT_FLAGS:-} \
         "$perf_dir/../Sources/SwiftProtobuf/"*.swift
 
     echo "Building Swift test harness..."
-    time ( xcrun -sdk macosx swiftc -O \
+    time ( ${SWIFT_EXEC:-swiftc} -O \
         -o "$harness" \
         -I "$perf_dir/_generated" \
         -L "$perf_dir/_generated" \
         -lSwiftProtobuf \
+        ${OTHER_SWIFT_FLAGS:-} \
         "$gen_harness_path" \
         "$perf_dir/Harness.swift" \
         "$perf_dir/_generated/message.pb.swift" \
