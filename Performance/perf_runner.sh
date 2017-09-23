@@ -183,7 +183,7 @@ function build_swift_packages() {
     echo "Building runtime and plug-in with Swift Package Manager..."
 
     cd "$workdir" >/dev/null
-    ${SWIFT} build -c release >/dev/null
+    "${SWIFT}" build -c release >/dev/null
     cp .build/release/protoc-gen-swift \
         ".build/release/protoc-gen-swift${plugin_suffix}"
   )

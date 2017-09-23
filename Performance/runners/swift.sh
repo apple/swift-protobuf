@@ -17,12 +17,15 @@
 # -----------------------------------------------------------------------------
 
 # Use xcrun if it's present (macOS) or omit it if it's not (Linux)
+# Note: In practice, xcrun will always be in /usr/bin/xcrun,
+# so we don't bother trying to handle paths with spaces here.
 XCRUN=`which xcrun`
 if [ -n "${XCRUN:-}" ]; then
     XCRUN="${XCRUN} -sdk macosx"
 fi
 # How to run 'swiftc': Use SWIFT_EXEC if it's set or just plain "swiftc"
-SWIFTC=${SWIFT_EXEC:-swiftc}
+# Swift path could contain spaces, so we use quotes here.
+SWIFTC="${SWIFT_EXEC:-swiftc}"
 
 function run_swift_harness() {
   # Wrapped in a subshell to prevent state from leaking out (important since
@@ -47,13 +50,13 @@ function run_swift_harness() {
     # TODO: Make the dylib a product again in the package manifest and just use
     # that.
     echo "Building SwiftProtobuf dynamic library..."
-    ${XCRUN} ${SWIFTC} -emit-library -emit-module -O -wmo \
+    ${XCRUN} "${SWIFTC}" -emit-library -emit-module -O -wmo \
         -o "$perf_dir/_generated/libSwiftProtobuf.dylib" \
         ${OTHER_SWIFT_FLAGS:-} \
         "$perf_dir/../Sources/SwiftProtobuf/"*.swift
 
     echo "Building Swift test harness..."
-    time ( ${XCRUN} ${SWIFTC} -O \
+    time ( ${XCRUN} "${SWIFTC}" -O \
         -o "$harness" \
         -I "$perf_dir/_generated" \
         -L "$perf_dir/_generated" \
