@@ -2,7 +2,7 @@
 // Protoc errors imply this file is being generated incorrectly
 // Swift compile errors are probably bugs in protoc-gen-swift
 syntax = "proto3";
-package protobuf_unittest;
+package protobuf_unittest_generated;
 message GeneratedSwiftReservedMessages {
   message adjusted { int32 adjusted = 1; }
   message allocate { int32 allocate = 1; }
@@ -451,6 +451,8 @@ message GeneratedSwiftReservedMessages {
   message root { int32 root = 1; }
   message s { int32 s = 1; }
   message sawBackslash { int32 sawBackslash = 1; }
+  message sawSection4Characters { int32 sawSection4Characters = 1; }
+  message sawSection5Characters { int32 sawSection5Characters = 1; }
   message scanner { int32 scanner = 1; }
   message seconds { int32 seconds = 1; }
   message self { int32 self = 1; }

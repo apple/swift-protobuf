@@ -23,7 +23,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
+struct ProtobufUnittestGenerated_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
   static let protoMessageName: String = _protobuf_package + ".GeneratedSwiftReservedEnums"
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -11203,6 +11203,56 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
   }
 
+  enum sawSection4Characters: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSawSection4Characters // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSawSection4Characters
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSawSection4Characters
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSawSection4Characters: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
+  enum sawSection5Characters: SwiftProtobuf.Enum {
+    typealias RawValue = Int
+    case noneSawSection5Characters // = 0
+    case UNRECOGNIZED(Int)
+
+    init() {
+      self = .noneSawSection5Characters
+    }
+
+    init?(rawValue: Int) {
+      switch rawValue {
+      case 0: self = .noneSawSection5Characters
+      default: self = .UNRECOGNIZED(rawValue)
+      }
+    }
+
+    var rawValue: Int {
+      switch self {
+      case .noneSawSection5Characters: return 0
+      case .UNRECOGNIZED(let i): return i
+      }
+    }
+
+  }
+
   enum scanner: SwiftProtobuf.Enum {
     typealias RawValue = Int
     case noneScanner // = 0
@@ -15275,3666 +15325,3678 @@ struct ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf.Message {
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "protobuf_unittest"
+fileprivate let _protobuf_package = "protobuf_unittest_generated"
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_GeneratedSwiftReservedEnums) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittestGenerated_GeneratedSwiftReservedEnums) -> Bool {
     if unknownFields != other.unknownFields {return false}
     return true
   }
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.adjusted: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.adjusted: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_adjusted"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.allocate: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.allocate: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_allocate"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.any: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.any: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_any"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_AnyExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyMessageExtension: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyMessageExtension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_AnyMessageExtension"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyMessageStorage: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyMessageStorage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_AnyMessageStorage"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.AnyUnpackError: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.AnyUnpackError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_AnyUnpackError"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Api: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Api: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Api"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.appended: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appended: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_appended"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.appendUIntHex: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appendUIntHex: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_appendUIntHex"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.appendUnknown: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.appendUnknown: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_appendUnknown"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.areAllInitialized: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.areAllInitialized: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_areAllInitialized"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.array: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.array: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_array"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.arrayLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arrayLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_arrayLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.arraySeparator: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.arraySeparator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_arraySeparator"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.asEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_as"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.asciiOpenCurlyBracket: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asciiOpenCurlyBracket: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_asciiOpenCurlyBracket"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.asciiZero: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.asciiZero: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_asciiZero"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.available: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.available: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_available"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.b: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.b: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_b"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BaseType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BaseType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BaseType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.binary: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.binary: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_binary"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryDecodingError: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryDecodingError"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryDecodingOptions: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDecodingOptions: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryDecodingOptions"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryDelimited: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryDelimited: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryDelimited"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingError: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingError"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetSizeVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingMessageSetSizeVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingMessageSetVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingMessageSetVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingSizeVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingSizeVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingSizeVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BinaryEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BinaryEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BinaryEncodingVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.bodySize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bodySize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_bodySize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BoolEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BoolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Bool"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.booleanLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.booleanLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_booleanLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BooleanLiteralType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BooleanLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BooleanLiteralType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.boolValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.boolValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_boolValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.buffer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.buffer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_buffer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.bytes: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_bytes"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.bytesInGroup: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesInGroup: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_bytesInGroup"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.bytesRead: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.bytesRead: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_bytesRead"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.BytesValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.BytesValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_BytesValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.c: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.c: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_c"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.capacity: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.capacity: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_capacity"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.capitalizeNext: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.capitalizeNext: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_capitalizeNext"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.cardinality: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.cardinality: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_cardinality"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Character: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Character: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Character"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.characters: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.characters: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_characters"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.chars: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.chars: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_chars"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.classEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.classEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_class"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.clearExtensionValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearExtensionValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearExtensionValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.clearSourceContext: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearSourceContext: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearSourceContext"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.clearValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.clearValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_clearValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.codeUnits: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.codeUnits: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_codeUnits"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Collection: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Collection: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Collection"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.com: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.com: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_com"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.comma: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.comma: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_comma"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.contentsOf: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.contentsOf: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_contentsOf"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.count: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.count: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_count"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.countVarintsInBuffer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.countVarintsInBuffer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_countVarintsInBuffer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.customCodable: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.customCodable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_customCodable"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.CustomDebugStringConvertible: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.CustomDebugStringConvertible: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_CustomDebugStringConvertible"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.d: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.d: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_d"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.DataEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DataEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Data"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.dataPointer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dataPointer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_dataPointer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.dataResult: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dataResult: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_dataResult"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.dataSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dataSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_dataSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.date: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.date: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_date"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.daySec: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daySec: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_daySec"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.daysSinceEpoch: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.daysSinceEpoch: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_daysSinceEpoch"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.debugDescriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_debugDescription"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decoded: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoded: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decoded"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodedFromJSONNull: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodedFromJSONNull: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodedFromJSONNull"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeExtensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeExtensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeExtensionFieldsAsMessageSet"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeJSON: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeJSON: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeJSON"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeMapField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeMapField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeMapField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeMessageEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeMessageEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeMessage"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeated: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeated"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedBoolField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedBoolField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedBoolField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedBytesField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedBytesField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedBytesField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedDoubleField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedDoubleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedDoubleField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedEnumField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedEnumField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedEnumField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedFloatField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedFloatField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedFloatField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedGroupField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedGroupField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedGroupField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedMessageField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedMessageField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedMessageField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedSFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedSFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedSFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedSFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedSInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedSInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedSInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedSInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedSInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedStringField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedStringField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedStringField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedUInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedUInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedUInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeRepeatedUInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeRepeatedUInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeRepeatedUInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingular: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingular: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingular"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularBoolField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularBoolField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularBoolField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularBytesField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularBytesField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularBytesField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularDoubleField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularDoubleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularDoubleField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularEnumField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularEnumField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularEnumField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularFloatField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularFloatField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularFloatField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularGroupField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularGroupField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularGroupField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularMessageField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularMessageField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularMessageField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularSFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularSFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularSFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularSFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularSInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularSInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularSInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularSInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularSInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularStringField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularStringField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularStringField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularUInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularUInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularUInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeSingularUInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeSingularUInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeSingularUInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.decodeTextFormat: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.decodeTextFormat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_decodeTextFormat"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.defaultAnyTypeURLPrefix: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultAnyTypeURLPrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_defaultAnyTypeURLPrefix"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.defaultValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.defaultValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_defaultValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.descriptionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_description"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Dictionary: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Dictionary: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Dictionary"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.dictionaryLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.dictionaryLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_dictionaryLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.digit: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_digit"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.digit0: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit0: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_digit0"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.digit1: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digit1: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_digit1"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.digitCount: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digitCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_digitCount"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.digits: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digits: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_digits"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.digitValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.digitValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_digitValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.discardableResult: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.discardableResult: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_discardableResult"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.discardUnknownFields: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.discardUnknownFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_discardUnknownFields"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.distance: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.distance: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_distance"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.double: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.double: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_double"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.doubleToUtf8: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.doubleToUtf8: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_doubleToUtf8"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.DoubleValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.DoubleValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_DoubleValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Duration: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Duration: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Duration"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.E: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.E: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_E"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Element: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Element: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Element"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.elements: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.elements: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_elements"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.emitExtensionFieldName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitExtensionFieldName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_emitExtensionFieldName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.emitFieldName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitFieldName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_emitFieldName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.emitFieldNumber: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emitFieldNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_emitFieldNumber"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Empty: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Empty: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Empty"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.emptyData: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.emptyData: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_emptyData"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.encoded: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoded: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encoded"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.encodedJSONString: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodedJSONString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encodedJSONString"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.encodedSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encodedSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.encodeField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encodeField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encodeField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.encoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.encoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_encoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.end: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.end: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_end"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.endArray: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endArray: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_endArray"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.endMessageField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endMessageField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_endMessageField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.endObject: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endObject: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_endObject"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.endRegularField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.endRegularField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_endRegularField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.enumEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_enum"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.enumvalue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.enumvalue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_enumvalue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Equatable: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Equatable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Equatable"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Error: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Error: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Error"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByArrayLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExpressibleByArrayLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExpressibleByDictionaryLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExpressibleByDictionaryLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExpressibleByDictionaryLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ext: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ext: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ext"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.extDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.extendedGraphemeClusterLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extendedGraphemeClusterLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extendedGraphemeClusterLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExtendedGraphemeClusterLiteralType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtendedGraphemeClusterLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExtendedGraphemeClusterLiteralType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExtensibleMessage: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensibleMessage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExtensibleMessage"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.extensionEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extension"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.extensionFieldNumber: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensionFieldNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extensionFieldNumber"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExtensionFieldValueSet: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionFieldValueSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExtensionFieldValueSet"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ExtensionMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ExtensionMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ExtensionMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.extensions: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extensions: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extensions"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.extras: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.extras: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_extras"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.f: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.f: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_f"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.falseEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.falseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_false"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldData: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldData: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldData"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.FieldMask: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldMask: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_FieldMask"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldNameCount: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNameCount: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldNameCount"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldNum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldNum"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldNumber: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldNumber"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldNumberForProto: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldNumberForProto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldNumberForProto"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fields: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fields"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.FieldTag: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FieldTag: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_FieldTag"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fieldValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fieldValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fieldValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fileName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fileName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fileName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.filter: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.filter: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_filter"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.firstItem: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.firstItem: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_firstItem"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.float: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.float: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_float"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.floatLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_floatLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.FloatLiteralType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_FloatLiteralType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.floatToUtf8: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.floatToUtf8: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_floatToUtf8"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.FloatValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.FloatValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_FloatValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.forMessageName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forMessageName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_forMessageName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.formUnion: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.formUnion: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_formUnion"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.forReadingFrom: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forReadingFrom: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_forReadingFrom"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.forTypeURL: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forTypeURL: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_forTypeURL"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ForwardParser: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ForwardParser: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ForwardParser"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.forWritingInto: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.forWritingInto: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_forWritingInto"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.from: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.from: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_from"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fromAscii2: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromAscii2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fromAscii2"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fromAscii4: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromAscii4: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fromAscii4"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.fromHexDigit: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.fromHexDigit: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_fromHexDigit"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.funcEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.funcEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_func"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.G: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.G: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_G"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.get: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.get: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_get"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.getExtensionValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.getExtensionValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_getExtensionValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.googleapis: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.googleapis: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_googleapis"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Any: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Any: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Any"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Api: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Api: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Api"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_BoolValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_BoolValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_BoolValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_BytesValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_BytesValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_BytesValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_DoubleValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_DoubleValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_DoubleValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Duration: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Duration: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Duration"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Empty: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Empty: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Empty"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Enum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Enum"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_EnumValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_EnumValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_FieldMask: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FieldMask: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_FieldMask"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_FloatValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_FloatValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_FloatValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Int32Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Int32Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Int32Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Int64Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Int64Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Int64Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_ListValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_ListValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_ListValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Method: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Method: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Method"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Mixin: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Mixin: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Mixin"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_NullValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_NullValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_NullValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Option: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Option: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Option"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_SourceContext: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_SourceContext: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_SourceContext"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_StringValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_StringValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_StringValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Struct: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Struct: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Struct"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Syntax: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Syntax: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Syntax"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Timestamp: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Timestamp: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Timestamp"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Type: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Type: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Type"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_UInt32Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UInt32Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_UInt32Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_UInt64Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_UInt64Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_UInt64Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Google_Protobuf_Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Google_Protobuf_Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Google_Protobuf_Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.group: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.group: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_group"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.groupSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.groupSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_groupSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.h: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.h: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_h"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.handleConflictingOneOf: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.handleConflictingOneOf: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_handleConflictingOneOf"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.hasExtensionValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasExtensionValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasExtensionValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.hash: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hash"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Hashable: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Hashable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Hashable"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hashValueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hashValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.HashVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.HashVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_HashVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.hasSourceContext: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasSourceContext: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasSourceContext"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.hasValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hasValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hasValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.hour: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.hour: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_hour"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.i: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_i"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.index: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.index: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_index"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.initEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.initEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_init"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.inoutEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.inoutEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_inout"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.insert: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.insert: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_insert"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.IntEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IntEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Int"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Int32Enum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int32Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Int32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Int32Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int32Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Int32Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Int64Enum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int64Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Int64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Int64Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int64Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Int64Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Int8: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Int8: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Int8"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.integerLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.integerLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_integerLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.IntegerLiteralType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.IntegerLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_IntegerLiteralType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.intern: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.intern: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_intern"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Internal: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Internal: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Internal"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.InternalState: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.InternalState: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_InternalState"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ints: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ints: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ints"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.isA: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isA: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isA"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.isEqual: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isEqual: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isEqual"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.isEqualTo: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isEqualTo: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isEqualTo"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.isInitializedEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_isInitialized"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.it: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.it: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_it"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.itemTagsEncodedSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.itemTagsEncodedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_itemTagsEncodedSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Iterator: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Iterator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Iterator"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.i_2166136261: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.i_2166136261: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_i_2166136261"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONDecodingError: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONDecodingError"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONDecodingOptions: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONDecodingOptions: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONDecodingOptions"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonEncoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonEncoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonEncoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONEncodingError: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONEncodingError"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONEncodingVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONMapEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONMapEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONMapEncodingVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonPath: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonPath: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonPath"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonPaths: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonPaths: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonPaths"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.JSONScanner: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.JSONScanner: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_JSONScanner"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonString: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonString"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonText: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonText: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonText"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.jsonUTF8Data: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.jsonUTF8Data: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_jsonUTF8Data"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.k: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.k: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_k"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Key: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Key: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Key"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.keyField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.keyField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_keyField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.KeyType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.KeyType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_KeyType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.kind: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.kind: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_kind"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.l: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.l: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_l"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.length: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.length: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_length"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.letEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.letEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_let"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.lhs: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.lhs: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_lhs"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.list: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.list: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_list"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.listOfMessages: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.listOfMessages: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_listOfMessages"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.listValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.listValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_listValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.littleEndian: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndian: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_littleEndian"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.littleEndianBytes: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.littleEndianBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_littleEndianBytes"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.M: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.M: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_M"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.major: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.major: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_major"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.makeIterator: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.makeIterator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_makeIterator"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mapHash: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapHash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapHash"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MapKeyType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapKeyType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_MapKeyType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mapNameResolver: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapNameResolver: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapNameResolver"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mapToMessages: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapToMessages: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapToMessages"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MapValueType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MapValueType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_MapValueType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mapVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mapVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mapVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mdayStart: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mdayStart: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mdayStart"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.merge: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.merge: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_merge"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.message: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.message: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_message"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.messageDepthLimit: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageDepthLimit: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_messageDepthLimit"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageExtension: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageExtension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_MessageExtension"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageImplementationBase: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageImplementationBase: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_MessageImplementationBase"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.MessageSet: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.MessageSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_MessageSet"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.messageType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.messageType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_messageType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Method: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Method: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Method"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.methods: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.methods: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_methods"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.minor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.minor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_minor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Mixin: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Mixin: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Mixin"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mixins: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mixins: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mixins"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.month: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.month: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_month"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.msgExtension: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.msgExtension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_msgExtension"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.mutating: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.mutating: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_mutating"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.n: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.n: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_n"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.name: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.name: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_name"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.NameDescription: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameDescription: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_NameDescription"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.NameMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.NameMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_NameMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nameResolver: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nameResolver: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nameResolver"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.names: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.names: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_names"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nanos: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nanos: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nanos"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nativeBytes: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nativeBytes"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nativeEndianBytes: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nativeEndianBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nativeEndianBytes"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.newL: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newL: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_newL"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.newList: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newList: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_newList"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.newValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.newValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_newValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nextByte: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nextByte: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nextByte"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nextFieldNumber: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nextFieldNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nextFieldNumber"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nilEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nilEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nil"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nilLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nilLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nilLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.nullValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.nullValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_nullValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.number: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.number: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_number"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.numberValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.numberValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_numberValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.of: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.of: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_of"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.oneofIndex: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofIndex: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_oneofIndex"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.oneofs: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.oneofs: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_oneofs"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.OneOf_Kind: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OneOf_Kind: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_OneOf_Kind"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Option: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Option: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Option"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.OptionalEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_OptionalEnumExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.OptionalExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_OptionalExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.OptionalGroupExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalGroupExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_OptionalGroupExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.OptionalMessageExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.OptionalMessageExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_OptionalMessageExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.options: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.options: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_options"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.other: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.other: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_other"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.others: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.others: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_others"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.out: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.out: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_out"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.output: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.output: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_output"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.p: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.p: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_p"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.packed: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.packed: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_packed"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.PackedEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.PackedEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_PackedEnumExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.PackedExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.PackedExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_PackedExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.packedSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.packedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_packedSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.padding: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.padding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_padding"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.parent: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.parent: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_parent"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.parse: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.parse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_parse"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.partial: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.partial: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_partial"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.path: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.path: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_path"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.paths: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.paths: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_paths"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.payload: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payload: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_payload"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.payloadSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.payloadSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_payloadSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.pointer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pointer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_pointer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.pos: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.pos: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_pos"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.prefix: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.prefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_prefix"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.preTraverse: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.preTraverse: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_preTraverse"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.proto2: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_proto2"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.proto3DefaultValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.proto3DefaultValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_proto3DefaultValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufAPIVersionCheck: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufAPIVersionCheck"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufAPIVersion_2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufAPIVersion_2"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufBool: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufBool: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufBool"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufBytes: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufBytes: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufBytes"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufDouble: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufDouble: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufDouble"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufEnumMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufEnumMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufEnumMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobufExtension: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobufExtension: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobufExtension"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufFixed32: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFixed32: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufFixed32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufFixed64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFixed64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufFixed64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufFloat: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufFloat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufFloat"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufInt32: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufInt32: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufInt32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufInt64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufInt64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufMessageMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufMessageMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufMessageMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufSFixed32: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSFixed32: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufSFixed32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufSFixed64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSFixed64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufSFixed64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufSInt32: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSInt32: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufSInt32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufSInt64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufSInt64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufSInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufString: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufString"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufUInt32: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufUInt32: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufUInt32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtobufUInt64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtobufUInt64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtobufUInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_extensionFieldValues: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_extensionFieldValues: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_extensionFieldValues"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_fieldNumber: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_fieldNumber: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_fieldNumber"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_generated_isEqualTo: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_generated_isEqualTo: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_generated_isEqualTo"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_nameMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_nameMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_nameMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_newField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_newField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_newField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protobuf_package: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protobuf_package: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protobuf_package"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protocolEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protocolEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protocol"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protoFieldName: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoFieldName: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protoFieldName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protoMessageNameEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoMessageNameEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protoMessageName"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ProtoNameProviding: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ProtoNameProviding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ProtoNameProviding"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.protoPaths: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.protoPaths: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_protoPaths"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.publicEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.publicEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_public"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putBoolValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putBoolValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putBoolValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putBytesValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putBytesValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putBytesValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putDoubleValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putDoubleValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putDoubleValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putEnumValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putEnumValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putEnumValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putFixedUInt32: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFixedUInt32: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putFixedUInt32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putFixedUInt64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFixedUInt64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putFixedUInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putFloatValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putFloatValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putFloatValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putInt64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putInt64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putStringValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putStringValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putStringValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putUInt64: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putUInt64: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putUInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putUInt64Hex: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putUInt64Hex: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putUInt64Hex"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putVarInt: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putVarInt: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putVarInt"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.putZigZagVarInt: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.putZigZagVarInt: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_putZigZagVarInt"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.rawChars: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rawChars: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_rawChars"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.RawRepresentable: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RawRepresentable: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RawRepresentable"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.RawValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RawValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RawValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.readBuffer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.readBuffer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_readBuffer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.register: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.register: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_register"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.RepeatedEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedEnumExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedEnumExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.RepeatedExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.RepeatedGroupExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedGroupExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedGroupExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.RepeatedMessageExtensionField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.RepeatedMessageExtensionField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_RepeatedMessageExtensionField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.requestStreaming: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestStreaming: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_requestStreaming"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.requestTypeURL: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requestTypeURL: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_requestTypeURL"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.requiredSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.requiredSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_requiredSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.responseStreaming: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseStreaming: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_responseStreaming"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.responseTypeURL: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.responseTypeURL: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_responseTypeURL"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.result: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.result: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_result"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.returnEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.returnEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_return"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.revision: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.revision: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_revision"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.rhs: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.rhs: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_rhs"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.root: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.root: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_root"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.s: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.s: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_s"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.sawBackslash: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawBackslash: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_sawBackslash"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.scanner: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawSection4Characters: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_sawSection4Characters"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sawSection5Characters: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "NONE_sawSection5Characters"),
+  ]
+}
+
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.scanner: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_scanner"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.seconds: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.seconds: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_seconds"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.selfEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.selfEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_self"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.separator: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.separator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_separator"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.serialize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serialize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_serialize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.serializedData: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedData: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_serializedData"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.serializedSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.serializedSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_serializedSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.set: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.set: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_set"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.setExtensionValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.setExtensionValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_setExtensionValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.shift: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.shift: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_shift"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.SimpleExtensionMap: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SimpleExtensionMap: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_SimpleExtensionMap"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.sizer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sizer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_sizer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.source: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.source: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_source"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.sourceContext: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceContext: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_sourceContext"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.sourceEncoding: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.sourceEncoding: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_sourceEncoding"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.split: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.split: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_split"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.start: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.start: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_start"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.startArray: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startArray: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_startArray"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.startField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_startField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.startIndex: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startIndex: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_startIndex"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.startMessageField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startMessageField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_startMessageField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.startObject: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startObject: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_startObject"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.startRegularField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.startRegularField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_startRegularField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.state: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.state: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_state"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.staticEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.staticEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_static"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.StaticString: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StaticString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_StaticString"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.storage: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.storage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_storage"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.StringEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StringEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_String"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.stringLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_stringLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.StringLiteralType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.StringLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_StringLiteralType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.stringResult: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringResult: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_stringResult"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.stringValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.stringValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_stringValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.structEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_struct"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.structValue: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.structValue: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_structValue"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.subDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_subDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subscriptEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_subscript"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.subVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.subVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_subVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Swift: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Swift: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Swift"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.SwiftProtobufEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.SwiftProtobufEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_SwiftProtobuf"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.syntax: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.syntax: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_syntax"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.T: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.T: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_T"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.tag: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tag: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_tag"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.terminator: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.terminator: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_terminator"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.testDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.testDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_testDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.text: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.text: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_text"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.textDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_textDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.TextFormatDecoder: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecoder: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_TextFormatDecoder"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.TextFormatDecodingError: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatDecodingError: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_TextFormatDecodingError"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.TextFormatEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.TextFormatEncodingVisitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_TextFormatEncodingVisitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.textFormatString: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.textFormatString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_textFormatString"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.throwsEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.throwsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_throws"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.timeInterval: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeInterval: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_timeInterval"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.timeIntervalSince1970: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSince1970: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_timeIntervalSince1970"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.timeIntervalSinceReferenceDate: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.timeIntervalSinceReferenceDate: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_timeIntervalSinceReferenceDate"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Timestamp: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Timestamp: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Timestamp"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.total: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.total: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_total"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.totalSize: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.totalSize: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_totalSize"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.traverseEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.traverseEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_traverse"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.trueEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.trueEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_true"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.tryEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.tryEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_try"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.type: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.type: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_type"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typealiasEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_typealias"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.typePrefix: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typePrefix: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_typePrefix"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.typeStart: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeStart: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_typeStart"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.typeUnknown: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeUnknown: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_typeUnknown"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.typeURL: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.typeURL: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_typeURL"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UInt32Enum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt32Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UInt32"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UInt32Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt32Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UInt32Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UInt64Enum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt64Enum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UInt64"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UInt64Value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt64Value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UInt64Value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UInt8: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UInt8: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UInt8"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.unicodeScalarLiteral: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unicodeScalarLiteral: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unicodeScalarLiteral"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UnicodeScalarLiteralType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarLiteralType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnicodeScalarLiteralType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.unicodeScalars: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unicodeScalars: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unicodeScalars"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UnicodeScalarView: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnicodeScalarView: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnicodeScalarView"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.union: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.union: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_union"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.unknown: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknown: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unknown"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unknownFieldsEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unknownFields"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UnknownStorage: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnknownStorage: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnknownStorage"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.unpackTo: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.unpackTo: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_unpackTo"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UnsafeBufferPointer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeBufferPointer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnsafeBufferPointer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UnsafeMutablePointer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafeMutablePointer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnsafeMutablePointer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UnsafePointer: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UnsafePointer: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UnsafePointer"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.updatedOptions: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.updatedOptions: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_updatedOptions"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.url: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.url: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_url"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.utf8: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_utf8"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.utf8Codec: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8Codec: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_utf8Codec"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.utf8ToDouble: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.utf8ToDouble: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_utf8ToDouble"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.UTF8View: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.UTF8View: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_UTF8View"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.v: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.v: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_v"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.value: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.value: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_value"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.valueField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.valueField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_valueField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.values: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.values: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_values"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.ValueType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.ValueType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_ValueType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.varEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.varEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_var"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.Version: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.Version: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_Version"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.versionString: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.versionString: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_versionString"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitExtensionFields: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitExtensionFields: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitExtensionFields"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitExtensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitExtensionFieldsAsMessageSet: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitExtensionFieldsAsMessageSet"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitMapField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitMapField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitMapField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitor: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitor: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitor"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPacked: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPacked: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPacked"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedBoolField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedBoolField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedBoolField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedDoubleField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedDoubleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedDoubleField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedEnumField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedEnumField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedEnumField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedFloatField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedFloatField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedFloatField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedSFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedSFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedSFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedSFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedSInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedSInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedSInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedSInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedSInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedUInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedUInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedUInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitPackedUInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitPackedUInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitPackedUInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeated: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeated: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeated"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedBoolField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedBoolField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedBoolField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedBytesField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedBytesField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedBytesField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedDoubleField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedDoubleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedDoubleField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedEnumField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedEnumField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedEnumField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedFloatField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedFloatField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedFloatField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedGroupField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedGroupField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedGroupField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedMessageField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedMessageField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedMessageField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedSFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedSFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedSFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedSFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedSInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedSInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedSInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedSInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedSInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedStringField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedStringField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedStringField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedUInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedUInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedUInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitRepeatedUInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitRepeatedUInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitRepeatedUInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingular: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingular: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingular"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularBoolField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularBoolField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularBoolField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularBytesField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularBytesField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularBytesField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularDoubleField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularDoubleField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularDoubleField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularEnumField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularEnumField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularEnumField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularFloatField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularFloatField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularFloatField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularGroupField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularGroupField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularGroupField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularMessageField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularMessageField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularMessageField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularSFixed32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSFixed32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularSFixed32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularSFixed64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSFixed64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularSFixed64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularSInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularSInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularSInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularSInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularSInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularStringField: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularStringField: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularStringField"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularUInt32Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularUInt32Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularUInt32Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitSingularUInt64Field: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitSingularUInt64Field: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitSingularUInt64Field"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.visitUnknown: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.visitUnknown: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_visitUnknown"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.wasDecoded: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wasDecoded: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_wasDecoded"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.whereEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.whereEnum: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_where"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.wireFormat: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.wireFormat: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_wireFormat"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.with: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.with: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_with"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.WrappedType: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.WrappedType: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_WrappedType"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.written: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.written: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_written"),
   ]
 }
 
-extension ProtobufUnittest_GeneratedSwiftReservedEnums.yday: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufUnittestGenerated_GeneratedSwiftReservedEnums.yday: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NONE_yday"),
   ]
