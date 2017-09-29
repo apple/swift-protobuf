@@ -96,18 +96,18 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedFloatField(value: inout [Float]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
+                let n = try scanner.nextFloat()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextFloat()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextFloat()
@@ -125,18 +125,18 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedDoubleField(value: inout [Double]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
+                let n = try scanner.nextDouble()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextDouble()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextDouble()
@@ -162,21 +162,21 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedInt32Field(value: inout [Int32]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
-                if scanner.skipOptionalEndArray() {
-                    return
-                }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
                 let n = try scanner.nextSInt()
                 if n > Int64(Int32.max) || n < Int64(Int32.min) {
                     throw TextFormatDecodingError.malformedNumber
                 }
                 value.append(Int32(truncatingIfNeeded: n))
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextSInt()
@@ -197,18 +197,18 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedInt64Field(value: inout [Int64]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
+                let n = try scanner.nextSInt()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextSInt()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextSInt()
@@ -234,21 +234,21 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedUInt32Field(value: inout [UInt32]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
-                if scanner.skipOptionalEndArray() {
-                    return
-                }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
                 let n = try scanner.nextUInt()
                 if n > UInt64(UInt32.max) {
                     throw TextFormatDecodingError.malformedNumber
                 }
                 value.append(UInt32(truncatingIfNeeded: n))
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextUInt()
@@ -269,18 +269,18 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedUInt64Field(value: inout [UInt64]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
+                let n = try scanner.nextUInt()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextUInt()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextUInt()
@@ -352,18 +352,18 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedBoolField(value: inout [Bool]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
+                let n = try scanner.nextBool()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextBool()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextBool()
@@ -381,18 +381,16 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedStringField(value: inout [String]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
             while true {
+                let n = try scanner.nextStringValue()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextStringValue()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextStringValue()
@@ -410,18 +408,16 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedBytesField(value: inout [Data]) throws {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
             while true {
+                let n = try scanner.nextBytesValue()
+                value.append(n)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let n = try scanner.nextBytesValue()
-                value.append(n)
+                try scanner.skipRequiredComma()
             }
         } else {
             let n = try scanner.nextBytesValue()
@@ -465,18 +461,18 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedEnumField<E: Enum>(value: inout [E]) throws where E.RawValue == Int {
         try scanner.skipRequiredColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
+            let count = try scanner.countArrayElementsQuickly()
+            value.reserveCapacity(count + value.count)
             while true {
+                let e: E = try decodeEnum()
+                value.append(e)
                 if scanner.skipOptionalEndArray() {
                     return
                 }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
-                let e: E = try decodeEnum()
-                value.append(e)
+                try scanner.skipRequiredComma()
             }
         } else {
             let e: E = try decodeEnum()
@@ -504,16 +500,10 @@ internal struct TextFormatDecoder: Decoder {
     mutating func decodeRepeatedMessageField<M: Message>(value: inout [M]) throws {
         _ = scanner.skipOptionalColon()
         if scanner.skipOptionalBeginArray() {
-            var firstItem = true
+            if scanner.skipOptionalEndArray() {
+                return
+            }
             while true {
-                if scanner.skipOptionalEndArray() {
-                    return
-                }
-                if firstItem {
-                    firstItem = false
-                } else {
-                    try scanner.skipRequiredComma()
-                }
                 let terminator = try scanner.skipObjectStart()
                 var subDecoder = try TextFormatDecoder(messageType: M.self,scanner: scanner, terminator: terminator)
                 if M.self == Google_Protobuf_Any.self {
@@ -526,6 +516,10 @@ internal struct TextFormatDecoder: Decoder {
                     value.append(message)
                 }
                 scanner = subDecoder.scanner
+                if scanner.skipOptionalEndArray() {
+                    return
+                }
+                try scanner.skipRequiredComma()
             }
         } else {
             let terminator = try scanner.skipObjectStart()

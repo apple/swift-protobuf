@@ -1076,4 +1076,25 @@ internal struct TextFormatScanner {
         }
         throw TextFormatDecodingError.malformedText
     }
+
+    // This is fast, but only safe for arrays where the
+    // elements never have stray commas or close square brackets.
+    // In particular, never use this for arrays of strings!
+    internal mutating func countArrayElementsQuickly() throws -> Int {
+        let start = p
+        var count = 0
+        while p != end {
+            switch p[0] {
+            case asciiCloseSquareBracket:
+                p = start
+                return count
+            case asciiComma:
+                count += 1
+            default:
+                break
+            }
+            p += 1
+        }
+        throw TextFormatDecodingError.malformedText
+    }
 }

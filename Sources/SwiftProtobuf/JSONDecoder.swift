@@ -74,6 +74,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextFloat()
       value.append(n)
@@ -108,6 +110,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextDouble()
       value.append(n)
@@ -150,6 +154,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextSInt()
       if n > Int64(Int32.max) || n < Int64(Int32.min) {
@@ -187,6 +193,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextSInt()
       value.append(n)
@@ -229,6 +237,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextUInt()
       if n > UInt64(UInt32.max) {
@@ -266,6 +276,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextUInt()
       value.append(n)
@@ -356,6 +368,9 @@ internal struct JSONDecoder: Decoder {
     if isMapKey {
       value = try scanner.nextQuotedBool()
     } else {
+      // Unlike other types, booleans are *only* quoted
+      // as map keys.  Reject quoted booleans when we're
+      // not looking for a map key.
       value = try scanner.nextBool()
     }
   }
@@ -380,6 +395,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsQuickly()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextBool()
       value.append(n)
@@ -414,6 +431,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsCarefully()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextQuotedString()
       value.append(n)
@@ -448,6 +467,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsCarefully()
+    value.reserveCapacity(count)
     while true {
       let n = try scanner.nextBytesValue()
       value.append(n)
@@ -485,6 +506,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsCarefully()
+    value.reserveCapacity(count)
     while true {
       let e: E = try scanner.nextEnumValue()
       value.append(e)
@@ -543,6 +566,8 @@ internal struct JSONDecoder: Decoder {
     if scanner.skipOptionalArrayEnd() {
       return
     }
+    let count = try scanner.countArrayElementsCarefully()
+    value.reserveCapacity(count)
     while true {
       if scanner.skipOptionalNull() {
         var appended = false
