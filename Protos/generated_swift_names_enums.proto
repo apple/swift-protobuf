@@ -2,7 +2,7 @@
 // Protoc errors imply this file is being generated incorrectly
 // Swift compile errors are probably bugs in protoc-gen-swift
 syntax = "proto3";
-package protobuf_unittest;
+package protobuf_unittest_generated;
 message GeneratedSwiftReservedEnums {
   enum adjusted { NONE_adjusted = 0; }
   enum allocate { NONE_allocate = 0; }
@@ -451,6 +451,8 @@ message GeneratedSwiftReservedEnums {
   enum root { NONE_root = 0; }
   enum s { NONE_s = 0; }
   enum sawBackslash { NONE_sawBackslash = 0; }
+  enum sawSection4Characters { NONE_sawSection4Characters = 0; }
+  enum sawSection5Characters { NONE_sawSection5Characters = 0; }
   enum scanner { NONE_scanner = 0; }
   enum seconds { NONE_seconds = 0; }
   enum self { NONE_self = 0; }
