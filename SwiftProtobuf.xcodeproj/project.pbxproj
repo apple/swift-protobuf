@@ -1275,10 +1275,12 @@
 				TargetAttributes = {
 					9C8CDA111D7A288E00E207CA = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					BD12FD351D767BA0001815C7 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Manual;
 					};
 					F44F936E1DAEA53900BC5B85 = {
@@ -2034,7 +2036,8 @@
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2049,7 +2052,8 @@
 				PRODUCT_MODULE_NAME = SwiftProtobufTests;
 				PRODUCT_NAME = SwiftProtobufTests;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2065,7 +2069,8 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2081,7 +2086,8 @@
 				PRODUCT_NAME = SwiftProtobuf;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -2090,6 +2096,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
@@ -2106,6 +2113,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
@@ -2152,6 +2160,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
@@ -2168,6 +2177,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				INFOPLIST_FILE = SwiftProtobuf.xcodeproj/Protobuf_Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = org.swift.protobuf.SwiftProtobuf;
