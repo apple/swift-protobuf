@@ -2,16 +2,6 @@
 
 # Swift Protobuf
 
----
->
-> Status: We are converging on a 1.0 release.  The current 0.9.903 tag should
-> meet all of our goals for 1.0.  Please try it and let us know!
->
-> (Note: There is a very small chance of further API breakage, which is why
-> we're not yet calling this `1.0RC`.)
->
----
-
 **Welcome to Swift Protobuf!**
 
 [Apple's Swift programming language](https://swift.org/) is a perfect
@@ -182,7 +172,7 @@ you used to build the plugin above:
 
 ```swift
 dependencies: [
-        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(0,9,903))
+        .Package(url: "https://github.com/apple/swift-protobuf.git", Version(1,0,0))
 ]
 ```
 
@@ -201,7 +191,7 @@ If you're using CocoaPods, add this to your `Podfile` adjusting the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', '~> 0.9.903'
+pod 'SwiftProtobuf', '~> 1.0.0'
 ```
 
 And run `pod install`.
@@ -213,7 +203,7 @@ And run `pod install`.
 If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-github "apple/swift-protobuf" "0.9.903"
+github "apple/swift-protobuf" "1.0.0"
 ```
 
 Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
