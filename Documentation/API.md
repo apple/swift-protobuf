@@ -153,7 +153,7 @@ want to override the default generated behavior for any reason:
   // so that you can easily override the implementation.
   // You may override this method, but you should never call it directly.
   // The default generated implementation compares every field for equality.
-  public var isEqual(other: Example) -> Bool
+  public func isEqualTo(message: Example) -> Bool
 ```
 
 ## Enum API
