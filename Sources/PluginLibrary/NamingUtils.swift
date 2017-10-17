@@ -370,11 +370,7 @@ public enum NamingUtils {
 
       let count = fromChars.distance(from: fromChars.startIndex, to: fromIndex)
       let idx = from.index(from.startIndex, offsetBy: count)
-      #if swift(>=4.0)
-        return String(from[idx..<from.endIndex])
-      #else
-        return from[idx..<from.endIndex]
-      #endif
+      return String(from[idx..<from.endIndex])
     }
   }
 
