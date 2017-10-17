@@ -190,7 +190,11 @@ fileprivate func sanitizeTypeName(_ s: String, disambiguator: String) -> String 
     // the disambiguator, sanitizing the root, then re-adding the
     // disambiguator:
     let e = s.index(s.endIndex, offsetBy: -disambiguator.characters.count)
-    let truncated = s.substring(to: e)
+    #if swift(>=4.0)
+      let truncated = String(s[..<e])
+    #else
+      let truncated = s.substring(to: e)
+    #endif
     return sanitizeTypeName(truncated, disambiguator: disambiguator) + disambiguator
   } else {
     return s
@@ -366,7 +370,11 @@ public enum NamingUtils {
 
       let count = fromChars.distance(from: fromChars.startIndex, to: fromIndex)
       let idx = from.index(from.startIndex, offsetBy: count)
-      return from[idx..<from.endIndex]
+      #if swift(>=4.0)
+        return String(from[idx..<from.endIndex])
+      #else
+        return from[idx..<from.endIndex]
+      #endif
     }
   }
 

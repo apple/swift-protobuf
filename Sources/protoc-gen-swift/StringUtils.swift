@@ -38,7 +38,12 @@ func partition(string: String, atFirstOccurrenceOf substring: String) -> (String
   guard let index = string.range(of: substring)?.lowerBound else {
     return (string, "")
   }
-  return (string.substring(to: index), string.substring(from: string.index(after: index)))
+  #if swift(>=4.0)
+    return (String(string[..<index]),
+            String(string[string.index(after: index)...]))
+  #else
+    return (string.substring(to: index), string.substring(from: string.index(after: index)))
+  #endif
 }
 
 func parseParameter(string: String?) -> [(key:String, value:String)] {
