@@ -23,7 +23,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
   var digits = [Character]()
   var digitCount = 0
   var total = 0
-  var chars = text.characters.makeIterator()
+  var chars = text.makeIterator()
   var seconds: Int64?
   var nanos: Int32 = 0
   while let c = chars.next() {

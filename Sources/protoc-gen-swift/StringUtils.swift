@@ -15,7 +15,7 @@ func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
   var base = ""
   var suffix = ""
 
-  for c in pathname.characters {
+  for c in pathname {
     if c == "/" {
       dir += base + suffix + String(c)
       base = ""
@@ -27,7 +27,7 @@ func splitPath(pathname: String) -> (dir:String, base:String, suffix:String) {
       suffix += String(c)
     }
   }
-  if suffix.characters.first != "." {
+  if suffix.first != "." {
     base += suffix
     suffix = ""
   }
@@ -47,7 +47,7 @@ func partition(string: String, atFirstOccurrenceOf substring: String) -> (String
 }
 
 func parseParameter(string: String?) -> [(key:String, value:String)] {
-  guard let string = string, string.characters.count > 0 else {
+  guard let string = string, string.count > 0 else {
     return []
   }
   let parts = string.components(separatedBy: ",")
