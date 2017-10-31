@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
 
   s.cocoapods_version = '>= 1.1.0'
 
-  s.source_files = 'Sources/SwiftProtobuf/**/*.swift', 'Sources/PluginLibrary/**/*.swift'
+  s.source_files = 'Sources/SwiftProtobuf/**/*.swift', 'Sources/PluginLibrary/descriptor.pb.swift'
 end
