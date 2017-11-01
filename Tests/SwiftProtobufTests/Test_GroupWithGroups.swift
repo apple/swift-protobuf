@@ -50,10 +50,10 @@ class Test_GroupWithinGroup: XCTestCase, PBTestHelpers {
         $0.subGroup3[0].subGroup4[0].sub4A == 1
     }
     // Empty group
-    assertDecodeSucceeds([27, 19, 20, 28]) {
-      $0.subGroup3.count == 1 &&
-        $0.subGroup3[0].subGroup4.count == 1 &&
-        $0.subGroup3[0].subGroup4[0] == MessageTestType.SubGroup3.SubGroup4()
+    assertDecodeSucceeds([27, 19, 20, 28]) { (o: MessageTestType) -> Bool in
+      o.subGroup3.count == 1 &&
+        o.subGroup3[0].subGroup4.count == 1 &&
+        o.subGroup3[0].subGroup4[0] == MessageTestType.SubGroup3.SubGroup4()
     }
     assertDecodeFails([8, 4, 27, 8, 5, 19, 8, 6, 20]) // End group missing.
     assertDecodeFails([8, 4, 27, 8, 5, 19, 8, 6, 28, 20]) // Wrong end groups (reversed).
