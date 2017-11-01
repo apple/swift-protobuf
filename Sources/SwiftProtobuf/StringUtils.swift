@@ -29,6 +29,21 @@ internal func utf8ToString(
   return utf8ToString(bytes: bytes.baseAddress! + start, count: end - start)
 }
 
+// Swift deprecated `String.CharacterView`
+// The following allows building with Swift >= 4.0.2 and >= 3.2.2
+// and keeps backwards compatibility
+internal extension String {
+  #if swift(>=3.2)
+  var chars: String {
+    return self
+  }
+  #else
+  var chars: String.CharacterView {
+    return self.characters
+  }
+  #endif
+}
+
 // Swift's support for working with UTF8 bytes directly has
 // evolved over time.  The following tries to choose the
 // best option depending on the version of Swift you're using.
