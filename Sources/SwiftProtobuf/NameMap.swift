@@ -24,7 +24,7 @@ private func toJsonFieldName(_ s: String) -> String {
     var result = String()
     var capitalizeNext = false
 
-    for c in s.characters {
+    for c in s {
         if c == "_" {
             capitalizeNext = true
         } else if capitalizeNext {
