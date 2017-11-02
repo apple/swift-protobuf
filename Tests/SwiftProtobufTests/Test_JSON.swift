@@ -137,7 +137,7 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         configureLargeObject(&m)
         let s = try m.jsonString()
-#if swift(>=4.0)
+#if swift(>=3.2)
         let chars = s
 #else
 	let chars = s.characters

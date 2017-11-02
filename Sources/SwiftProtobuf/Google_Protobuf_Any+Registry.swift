@@ -21,7 +21,7 @@ import Dispatch
 
 internal func buildTypeURL(forMessage message: Message, typePrefix: String) -> String {
   var url = typePrefix
-#if swift(>=4.0)
+#if swift(>=3.2)
   let needsSlash = typePrefix.isEmpty || typePrefix.last != "/"
 #else
   let needsSlash = typePrefix.isEmpty || typePrefix.characters.last != "/"

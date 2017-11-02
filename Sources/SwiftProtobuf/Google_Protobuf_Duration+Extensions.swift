@@ -23,7 +23,7 @@ private func parseDuration(text: String) throws -> (Int64, Int32) {
   var digits = [Character]()
   var digitCount = 0
   var total = 0
-#if swift(>=4.0)
+#if swift(>=3.2)
   var chars = text.makeIterator()
 #else
   var chars = text.characters.makeIterator()

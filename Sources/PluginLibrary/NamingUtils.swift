@@ -189,7 +189,7 @@ fileprivate func sanitizeTypeName(_ s: String, disambiguator: String) -> String 
     // conflict.  This can be resolved recursively by stripping
     // the disambiguator, sanitizing the root, then re-adding the
     // disambiguator:
-    #if swift(>=4.0)
+    #if swift(>=3.2)
       let e = s.index(s.endIndex, offsetBy: -disambiguator.count)
       let truncated = String(s[..<e])
     #else
@@ -301,7 +301,7 @@ public enum NamingUtils {
     //  "pacakge.some_name" -> "Package_SomeName"
     var makeUpper = true
     var prefix = ""
-#if swift(>=4.0)
+#if swift(>=3.2)
     let protoPackageChars = protoPackage
 #else
     let protoPackageChars = protoPackage.characters

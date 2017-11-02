@@ -23,7 +23,7 @@
 private func toJsonFieldName(_ s: String) -> String {
     var result = String()
     var capitalizeNext = false
-#if swift(>=4.0)
+#if swift(>=3.2)
     let chars = s
 #else
     let chars = s.characters
