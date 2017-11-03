@@ -7,7 +7,7 @@ When doing a release:
 1. Examine what has changed
 
    Github's compare UI does a reasonable job here.  [Open that UI](https://github.com/apple/swift-protobuf/compare)
-   and set the _base_ to be the previous tag (_vX.Y.Z_), and the _compare_ can be left at _master_
+   and set the _base_ to be the previous tag (_X.Y.Z_), and the _compare_ can be left at _master_
    since that is what the release is cut off of.
 
    It usually works best to open the links for each commit you want to look at in a new browser
@@ -42,7 +42,7 @@ When doing a release:
    Top left of the [project's releases page](https://github.com/apple/swift-protobuf/releases)
    is _Draft a new release_.
 
-   The tag should be `v[a.b.c]` where the number *exactly* matches one you examined in
+   The tag should be `[a.b.c]` where the number *exactly* matches one you examined in
    `Sources/SwiftProtobuf/Version.swift`.
 
    For the description call out any major things in that release.  Usually a short summary and
