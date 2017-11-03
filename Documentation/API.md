@@ -79,9 +79,9 @@ public struct Example: SwiftProtobuf.Message {
   func jsonString() throws -> String
   init(jsonString: String) throws
 
-  // Messages can be serialized or deserialized to Protobuf text format:
-  func serializedText() -> String
-  init(serializedText: String) throws
+  // Messages can be serialized or deserialized to Protobuf TextFormat:
+  func textFormatString() -> String
+  init(textFormatString: String) throws
 
   // These are the generated methods used internally by the
   // serialization and deserialization mechanisms.
