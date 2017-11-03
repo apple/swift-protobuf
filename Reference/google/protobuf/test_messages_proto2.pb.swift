@@ -53,7 +53,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum ProtobufTestMessages_Proto2_ForeignEnum: SwiftProtobuf.Enum {
+enum ProtobufTestMessages_Proto2_ForeignEnumProto2: SwiftProtobuf.Enum {
   typealias RawValue = Int
   case foreignFoo // = 0
   case foreignBar // = 1
@@ -237,8 +237,8 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
   /// Clears the value of `optionalNestedMessage`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedMessage() {_storage._optionalNestedMessage = nil}
 
-  var optionalForeignMessage: ProtobufTestMessages_Proto2_ForeignMessage {
-    get {return _storage._optionalForeignMessage ?? ProtobufTestMessages_Proto2_ForeignMessage()}
+  var optionalForeignMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2 {
+    get {return _storage._optionalForeignMessage ?? ProtobufTestMessages_Proto2_ForeignMessageProto2()}
     set {_uniqueStorage()._optionalForeignMessage = newValue}
   }
   /// Returns true if `optionalForeignMessage` has been explicitly set.
@@ -255,7 +255,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
   /// Clears the value of `optionalNestedEnum`. Subsequent reads from it will return its default value.
   mutating func clearOptionalNestedEnum() {_storage._optionalNestedEnum = nil}
 
-  var optionalForeignEnum: ProtobufTestMessages_Proto2_ForeignEnum {
+  var optionalForeignEnum: ProtobufTestMessages_Proto2_ForeignEnumProto2 {
     get {return _storage._optionalForeignEnum ?? .foreignFoo}
     set {_uniqueStorage()._optionalForeignEnum = newValue}
   }
@@ -372,7 +372,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
     set {_uniqueStorage()._repeatedNestedMessage = newValue}
   }
 
-  var repeatedForeignMessage: [ProtobufTestMessages_Proto2_ForeignMessage] {
+  var repeatedForeignMessage: [ProtobufTestMessages_Proto2_ForeignMessageProto2] {
     get {return _storage._repeatedForeignMessage}
     set {_uniqueStorage()._repeatedForeignMessage = newValue}
   }
@@ -382,7 +382,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
     set {_uniqueStorage()._repeatedNestedEnum = newValue}
   }
 
-  var repeatedForeignEnum: [ProtobufTestMessages_Proto2_ForeignEnum] {
+  var repeatedForeignEnum: [ProtobufTestMessages_Proto2_ForeignEnumProto2] {
     get {return _storage._repeatedForeignEnum}
     set {_uniqueStorage()._repeatedForeignEnum = newValue}
   }
@@ -478,7 +478,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
     set {_uniqueStorage()._mapStringNestedMessage = newValue}
   }
 
-  var mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Proto2_ForeignMessage> {
+  var mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Proto2_ForeignMessageProto2> {
     get {return _storage._mapStringForeignMessage}
     set {_uniqueStorage()._mapStringForeignMessage = newValue}
   }
@@ -488,7 +488,7 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
     set {_uniqueStorage()._mapStringNestedEnum = newValue}
   }
 
-  var mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto2_ForeignEnum> {
+  var mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto2_ForeignEnumProto2> {
     get {return _storage._mapStringForeignEnum}
     set {_uniqueStorage()._mapStringForeignEnum = newValue}
   }
@@ -1133,9 +1133,9 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
         case 69: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufString>.self, value: &_storage._mapStringString)
         case 70: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMap<SwiftProtobuf.ProtobufString,SwiftProtobuf.ProtobufBytes>.self, value: &_storage._mapStringBytes)
         case 71: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage>.self, value: &_storage._mapStringNestedMessage)
-        case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignMessage>.self, value: &_storage._mapStringForeignMessage)
+        case 72: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignMessageProto2>.self, value: &_storage._mapStringForeignMessage)
         case 73: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum>.self, value: &_storage._mapStringNestedEnum)
-        case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignEnum>.self, value: &_storage._mapStringForeignEnum)
+        case 74: try decoder.decodeMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignEnumProto2>.self, value: &_storage._mapStringForeignEnum)
         case 111:
           if _storage._oneofField != nil {try decoder.handleConflictingOneOf()}
           var v: UInt32?
@@ -1395,13 +1395,13 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage>.self, value: _storage._mapStringNestedMessage, fieldNumber: 71)
       }
       if !_storage._mapStringForeignMessage.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignMessage>.self, value: _storage._mapStringForeignMessage, fieldNumber: 72)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufMessageMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignMessageProto2>.self, value: _storage._mapStringForeignMessage, fieldNumber: 72)
       }
       if !_storage._mapStringNestedEnum.isEmpty {
         try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum>.self, value: _storage._mapStringNestedEnum, fieldNumber: 73)
       }
       if !_storage._mapStringForeignEnum.isEmpty {
-        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignEnum>.self, value: _storage._mapStringForeignEnum, fieldNumber: 74)
+        try visitor.visitMapField(fieldType: SwiftProtobuf._ProtobufEnumMap<SwiftProtobuf.ProtobufString,ProtobufTestMessages_Proto2_ForeignEnumProto2>.self, value: _storage._mapStringForeignEnum, fieldNumber: 74)
       }
       switch _storage._oneofField {
       case .oneofUint32(let v)?:
@@ -1490,8 +1490,8 @@ struct ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf.Message, Sw
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct ProtobufTestMessages_Proto2_ForeignMessage: SwiftProtobuf.Message {
-  static let protoMessageName: String = _protobuf_package + ".ForeignMessage"
+struct ProtobufTestMessages_Proto2_ForeignMessageProto2: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".ForeignMessageProto2"
 
   var c: Int32 {
     get {return _c ?? 0}
@@ -1624,7 +1624,7 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
 
 fileprivate let _protobuf_package = "protobuf_test_messages.proto2"
 
-extension ProtobufTestMessages_Proto2_ForeignEnum: SwiftProtobuf._ProtoNameProviding {
+extension ProtobufTestMessages_Proto2_ForeignEnumProto2: SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "FOREIGN_FOO"),
     1: .same(proto: "FOREIGN_BAR"),
@@ -1743,9 +1743,9 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf._Message
     var _optionalString: String? = nil
     var _optionalBytes: Data? = nil
     var _optionalNestedMessage: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage? = nil
-    var _optionalForeignMessage: ProtobufTestMessages_Proto2_ForeignMessage? = nil
+    var _optionalForeignMessage: ProtobufTestMessages_Proto2_ForeignMessageProto2? = nil
     var _optionalNestedEnum: ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum? = nil
-    var _optionalForeignEnum: ProtobufTestMessages_Proto2_ForeignEnum? = nil
+    var _optionalForeignEnum: ProtobufTestMessages_Proto2_ForeignEnumProto2? = nil
     var _optionalStringPiece: String? = nil
     var _optionalCord: String? = nil
     var _recursiveMessage: ProtobufTestMessages_Proto2_TestAllTypesProto2? = nil
@@ -1765,9 +1765,9 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf._Message
     var _repeatedString: [String] = []
     var _repeatedBytes: [Data] = []
     var _repeatedNestedMessage: [ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage] = []
-    var _repeatedForeignMessage: [ProtobufTestMessages_Proto2_ForeignMessage] = []
+    var _repeatedForeignMessage: [ProtobufTestMessages_Proto2_ForeignMessageProto2] = []
     var _repeatedNestedEnum: [ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum] = []
-    var _repeatedForeignEnum: [ProtobufTestMessages_Proto2_ForeignEnum] = []
+    var _repeatedForeignEnum: [ProtobufTestMessages_Proto2_ForeignEnumProto2] = []
     var _repeatedStringPiece: [String] = []
     var _repeatedCord: [String] = []
     var _mapInt32Int32: Dictionary<Int32,Int32> = [:]
@@ -1786,9 +1786,9 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2: SwiftProtobuf._Message
     var _mapStringString: Dictionary<String,String> = [:]
     var _mapStringBytes: Dictionary<String,Data> = [:]
     var _mapStringNestedMessage: Dictionary<String,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedMessage> = [:]
-    var _mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Proto2_ForeignMessage> = [:]
+    var _mapStringForeignMessage: Dictionary<String,ProtobufTestMessages_Proto2_ForeignMessageProto2> = [:]
     var _mapStringNestedEnum: Dictionary<String,ProtobufTestMessages_Proto2_TestAllTypesProto2.NestedEnum> = [:]
-    var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto2_ForeignEnum> = [:]
+    var _mapStringForeignEnum: Dictionary<String,ProtobufTestMessages_Proto2_ForeignEnumProto2> = [:]
     var _oneofField: ProtobufTestMessages_Proto2_TestAllTypesProto2.OneOf_OneofField?
     var _data: ProtobufTestMessages_Proto2_TestAllTypesProto2.DataMessage? = nil
     var _fieldname1: Int32? = nil
@@ -2104,12 +2104,12 @@ extension ProtobufTestMessages_Proto2_TestAllTypesProto2.MessageSetCorrectExtens
   }
 }
 
-extension ProtobufTestMessages_Proto2_ForeignMessage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension ProtobufTestMessages_Proto2_ForeignMessageProto2: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "c"),
   ]
 
-  func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto2_ForeignMessage) -> Bool {
+  func _protobuf_generated_isEqualTo(other: ProtobufTestMessages_Proto2_ForeignMessageProto2) -> Bool {
     if self._c != other._c {return false}
     if unknownFields != other.unknownFields {return false}
     return true
