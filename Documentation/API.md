@@ -679,6 +679,24 @@ public protocol ExtensionMap {
 }
 ```
 
+## Descriptors
+
+Some other languages expose _Descriptor_ objects for messages, enums, fields,
+and oneof, but not all languages. The `.proto` language also allows developers
+to add options to messages, fields, etc. that can be looked up at runtime in
+those descriptors.
+
+Support for descriptors ends up requiring some amount of code, but more
+importantly it requires capturing a large binary blob of data for every
+message, enum, oneof, etc. That data has two potenial issues, it bloats the
+binaries, and it is something that can be extracted from the binary to help
+reverse engineer details about the binary.
+
+For these reasons, SwiftProtobuf does not current support anything like the
+Descriptor objects. It is something that could get revisited in the future,
+but will need careful consideration; the bloat/size issues is of the most
+concern because of Swift's common use for mobile applications.
+
 ## Aside:  proto2 vs. proto3
 
 The terms *proto2* and *proto3* refer to two different dialects of the proto
