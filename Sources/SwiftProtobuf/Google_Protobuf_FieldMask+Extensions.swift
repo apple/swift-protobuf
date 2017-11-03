@@ -18,7 +18,11 @@
 
 private func ProtoToJSON(name: String) -> String? {
   var jsonPath = String()
+#if swift(>=3.2)
+  var chars = name.makeIterator()
+#else
   var chars = name.characters.makeIterator()
+#endif
   while let c = chars.next() {
     switch c {
     case "_":
@@ -43,7 +47,12 @@ private func ProtoToJSON(name: String) -> String? {
 
 private func JSONToProto(name: String) -> String? {
   var path = String()
-  for c in name.characters {
+#if swift(>=3.2)
+  let chars = name
+#else
+  let chars = name.characters
+#endif
+  for c in chars {
     switch c {
     case "_":
       return nil
@@ -61,7 +70,12 @@ private func parseJSONFieldNames(names: String) -> [String]? {
   var fieldNameCount = 0
   var fieldName = String()
   var split = [String]()
-  for c: Character in names.characters {
+#if swift(>=3.2)
+  let namesChars = names
+#else
+  let namesChars = names.characters
+#endif
+  for c: Character in namesChars {
     switch c {
     case ",":
       if fieldNameCount == 0 {

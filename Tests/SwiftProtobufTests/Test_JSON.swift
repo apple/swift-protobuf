@@ -137,8 +137,13 @@ class Test_JSON: XCTestCase, PBTestHelpers {
         var m = MessageTestType()
         configureLargeObject(&m)
         let s = try m.jsonString()
+#if swift(>=3.2)
+        let chars = s
+#else
+	let chars = s.characters
+#endif
         var truncated = ""
-        for c in s.characters {
+        for c in chars {
             truncated.append(c)
             do {
                 _ = try MessageTestType(jsonString: truncated)
