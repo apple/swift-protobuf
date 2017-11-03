@@ -191,7 +191,7 @@ If you're using CocoaPods, add this to your `Podfile` adjusting the `:tag` to
 match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-pod 'SwiftProtobuf', '~> 1.0.1'
+pod 'SwiftProtobuf', '~> 1.0'
 ```
 
 And run `pod install`.
@@ -203,7 +203,7 @@ And run `pod install`.
 If you're using Carthage, add this to your `Cartfile` but adjust the tag to match the `[tag_name]` you used to build the plugin above:
 
 ```ruby
-github "apple/swift-protobuf" "1.0.1"
+github "apple/swift-protobuf" ~> 1.0
 ```
 
 Run `carthage update` and drag `SwiftProtobuf.framework` into your Xcode.project.
