@@ -990,6 +990,11 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
   /// Clears the value of `payload`. Subsequent reads from it will return its default value.
   mutating func clearPayload() {_storage._payload = nil}
 
+  var repeatedChild: [Proto3ArenaUnittest_NestedTestAllTypes] {
+    get {return _storage._repeatedChild}
+    set {_uniqueStorage()._repeatedChild = newValue}
+  }
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -1005,6 +1010,7 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
         switch fieldNumber {
         case 1: try decoder.decodeSingularMessageField(value: &_storage._child)
         case 2: try decoder.decodeSingularMessageField(value: &_storage._payload)
+        case 3: try decoder.decodeRepeatedMessageField(value: &_storage._repeatedChild)
         default: break
         }
       }
@@ -1022,6 +1028,9 @@ struct Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf.Message {
       }
       if let v = _storage._payload {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
+      if !_storage._repeatedChild.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._repeatedChild, fieldNumber: 3)
       }
     }
     try unknownFields.traverse(visitor: &visitor)
@@ -1441,11 +1450,13 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplemen
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "child"),
     2: .same(proto: "payload"),
+    3: .standard(proto: "repeated_child"),
   ]
 
   fileprivate class _StorageClass {
     var _child: Proto3ArenaUnittest_NestedTestAllTypes? = nil
     var _payload: Proto3ArenaUnittest_TestAllTypes? = nil
+    var _repeatedChild: [Proto3ArenaUnittest_NestedTestAllTypes] = []
 
     static let defaultInstance = _StorageClass()
 
@@ -1454,6 +1465,7 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplemen
     init(copying source: _StorageClass) {
       _child = source._child
       _payload = source._payload
+      _repeatedChild = source._repeatedChild
     }
   }
 
@@ -1471,6 +1483,7 @@ extension Proto3ArenaUnittest_NestedTestAllTypes: SwiftProtobuf._MessageImplemen
         let other_storage = _args.1
         if _storage._child != other_storage._child {return false}
         if _storage._payload != other_storage._payload {return false}
+        if _storage._repeatedChild != other_storage._repeatedChild {return false}
         return true
       }
       if !storagesAreEqual {return false}

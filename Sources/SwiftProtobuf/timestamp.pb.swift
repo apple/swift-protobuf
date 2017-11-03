@@ -122,7 +122,7 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// to this format using [`strftime`](https://docs.python.org/2/library/time.html#time.strftime)
 /// with the time format spec '%Y-%m-%dT%H:%M:%S.%fZ'. Likewise, in Java, one
 /// can use the Joda Time's [`ISODateTimeFormat.dateTime()`](
-/// http://joda-time.sourceforge.net/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime())
+/// http://www.joda.org/joda-time/apidocs/org/joda/time/format/ISODateTimeFormat.html#dateTime--)
 /// to obtain a formatter capable of generating timestamps in this format.
 public struct Google_Protobuf_Timestamp: SwiftProtobuf.Message {
   public static let protoMessageName: String = _protobuf_package + ".Timestamp"
