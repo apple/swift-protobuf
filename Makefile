@@ -529,8 +529,6 @@ update-proto-files: check-for-protobuf-checkout
 	@rm -rf Protos/google && mkdir -p Protos/google/protobuf/compiler
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/*.proto Protos/google/protobuf/
 	@cp -v "${GOOGLE_PROTOBUF_CHECKOUT}"/src/google/protobuf/compiler/*.proto Protos/google/protobuf/compiler/
-	# This file doesn't generate in google/protobuf, appears to be stale/unused.
-	@rm Protos/google/protobuf/map_unittest_proto3.proto
 
 # Runs the conformance tests.
 test-conformance: build check-for-protobuf-checkout $(CONFORMANCE_HOST) Sources/Conformance/failure_list_swift.txt
