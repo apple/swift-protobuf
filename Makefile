@@ -118,6 +118,7 @@ TEST_PROTOS= \
 	Protos/unittest_swift_cycle.proto \
 	Protos/unittest_swift_enum.proto \
 	Protos/unittest_swift_enum_optional_default.proto \
+	Protos/unittest_swift_enum_proto3.proto \
 	Protos/unittest_swift_extension.proto \
 	Protos/unittest_swift_extension2.proto \
 	Protos/unittest_swift_extension3.proto \
