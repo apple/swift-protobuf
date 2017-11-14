@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/Google_Protobuf_SourceCodeInfo+Extensions.swift - SourceCodeInfo Additions
+// Sources/SwiftProtobufPluginLibrary/Google_Protobuf_SourceCodeInfo+Extensions.swift - SourceCodeInfo Additions
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

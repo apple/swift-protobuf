@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/UnicodeScalar+Extensions.swift - Utilities for working with UnicodeScalars
+// Sources/SwiftProtobufPluginLibrary/UnicodeScalar+Extensions.swift - Utilities for working with UnicodeScalars
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

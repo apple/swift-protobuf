@@ -1,4 +1,4 @@
-// Tests/PluginLibraryTests/Test_SwiftLanguage.swift - Test language utilities
+// Tests/SwiftProtobufPluginLibraryTests/Test_SwiftLanguage.swift - Test language utilities
 //
 // Copyright (c) 2014 - 2016 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 
 class Test_SwiftLanguage: XCTestCase {
     func testIsValidSwiftIdentifier() {

@@ -16,20 +16,20 @@ let package = Package(
   products: [
     .executable(name: "protoc-gen-swift", targets: ["protoc-gen-swift"]),
     .library(name: "SwiftProtobuf", type: .static, targets: ["SwiftProtobuf"]),
-    .library(name: "SwiftProtobufPluginLibrary", targets: ["PluginLibrary"]),
+    .library(name: "SwiftProtobufPluginLibrary", targets: ["SwiftProtobufPluginLibrary"]),
   ],
   targets: [
     .target(name: "SwiftProtobuf"),
-    .target(name: "PluginLibrary",
+    .target(name: "SwiftProtobufPluginLibrary",
             dependencies: ["SwiftProtobuf"]),
     .target(name: "protoc-gen-swift",
-            dependencies: ["PluginLibrary", "SwiftProtobuf"]),
+            dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"]),
     .target(name: "Conformance",
             dependencies: ["SwiftProtobuf"]),
     .testTarget(name: "SwiftProtobufTests",
                 dependencies: ["SwiftProtobuf"]),
-    .testTarget(name: "PluginLibraryTests",
-                dependencies: ["PluginLibrary"]),
+    .testTarget(name: "SwiftProtobufPluginLibraryTests",
+                dependencies: ["SwiftProtobufPluginLibrary"]),
   ],
   swiftLanguageVersions: [3, 4]
 )

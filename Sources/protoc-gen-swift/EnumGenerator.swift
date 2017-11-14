@@ -13,7 +13,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 import SwiftProtobuf
 
 /// The name of the case used to represent unrecognized values in proto3.

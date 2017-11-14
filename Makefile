@@ -157,7 +157,7 @@ LIBRARY_PROTOS= \
 PLUGIN_PROTOS= \
 	Protos/google/protobuf/compiler/plugin.proto \
 	Protos/google/protobuf/descriptor.proto \
-	Protos/PluginLibrary/swift_protobuf_module_mappings.proto
+	Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto
 
 # Protos that are used by the conformance test runner.
 CONFORMANCE_PROTOS= \
@@ -372,7 +372,7 @@ regenerate: \
 	regenerate-plugin-protos \
 	regenerate-test-protos \
 	regenerate-conformance-protos \
-	Tests/PluginLibraryTests/DescriptorTestData.swift
+	Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift
 
 # Rebuild just the protos included in the runtime library
 regenerate-library-protos: build ${PROTOC_GEN_SWIFT}
@@ -387,7 +387,7 @@ regenerate-plugin-protos: build ${PROTOC_GEN_SWIFT}
 	${GENERATE_SRCS} \
 		--tfiws_opt=FileNaming=DropPath \
 		--tfiws_opt=Visibility=Public \
-		--tfiws_out=Sources/PluginLibrary \
+		--tfiws_out=Sources/SwiftProtobufPluginLibrary \
 		${PLUGIN_PROTOS}
 
 # Rebuild just the protos used by the runtime test suite
@@ -400,7 +400,7 @@ regenerate-test-protos: build ${PROTOC_GEN_SWIFT} Protos/generated_swift_names_e
 		--tfiws_out=Tests/SwiftProtobufTests \
 		${TEST_PROTOS}
 
-Tests/PluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
+Tests/SwiftProtobufPluginLibraryTests/DescriptorTestData.swift: build ${PROTOC_GEN_SWIFT} ${SWIFT_DESCRIPTOR_TEST_PROTOS}
 	@${PROTOC} \
 		--include_imports \
 		--descriptor_set_out=DescriptorTestData.bin \

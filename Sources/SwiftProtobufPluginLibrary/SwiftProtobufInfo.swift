@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/LibraryInfo.swift - Helpers info about the SwiftProtobuf library
+// Sources/SwiftProtobufPluginLibrary/LibraryInfo.swift - Helpers info about the SwiftProtobuf library
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

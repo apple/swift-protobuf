@@ -12,10 +12,10 @@ import PackageDescription
 let package = Package(
   name: "SwiftProtobuf",
   targets: [
-    Target(name: "PluginLibrary",
+    Target(name: "SwiftProtobufPluginLibrary",
            dependencies: ["SwiftProtobuf"]),
     Target(name: "protoc-gen-swift",
-           dependencies: ["PluginLibrary", "SwiftProtobuf"]),
+           dependencies: ["SwiftProtobufPluginLibrary", "SwiftProtobuf"]),
     Target(name: "Conformance",
            dependencies: ["SwiftProtobuf"]),
   ]

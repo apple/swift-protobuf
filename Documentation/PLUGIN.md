@@ -139,7 +139,7 @@ $ protoc --swift_opt=ProtoPathModuleMappings=[path.asciipb] --swift_out=. foo/ba
 ```
 
 The format of that mapping file is defined in
-[swift_protobuf_module_mappings.proto](../Protos/PluginLibrary/swift_protobuf_module_mappings.proto),
+[swift_protobuf_module_mappings.proto](../Protos/SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto),
 and files would look something like:
 
 ```
