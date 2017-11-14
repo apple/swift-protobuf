@@ -16,6 +16,7 @@ let package = Package(
   products: [
     .executable(name: "protoc-gen-swift", targets: ["protoc-gen-swift"]),
     .library(name: "SwiftProtobuf", type: .static, targets: ["SwiftProtobuf"]),
+    .library(name: "SwiftProtobufPluginLibrary", targets: ["PluginLibrary"]),
   ],
   targets: [
     .target(name: "SwiftProtobuf"),
