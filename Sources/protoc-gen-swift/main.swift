@@ -21,7 +21,7 @@
 
 import Foundation
 import SwiftProtobuf
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 
 extension Google_Protobuf_Compiler_Version {
   fileprivate var versionString: String {

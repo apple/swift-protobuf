@@ -1,4 +1,4 @@
-// Tests/PluginLibraryTests/Test_NamingUtils.swift - Test NamingUtils.swift
+// Tests/SwiftProtobufPluginLibraryTests/Test_NamingUtils.swift - Test NamingUtils.swift
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-@testable import PluginLibrary
+@testable import SwiftProtobufPluginLibrary
 
 class Test_NamingUtils: XCTestCase {
 

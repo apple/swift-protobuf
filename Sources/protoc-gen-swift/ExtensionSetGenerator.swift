@@ -15,7 +15,7 @@
 ///
 // -----------------------------------------------------------------------------
 import Foundation
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 import SwiftProtobuf
 
 /// Provides the generation for proto2 syntax extensions in a file.

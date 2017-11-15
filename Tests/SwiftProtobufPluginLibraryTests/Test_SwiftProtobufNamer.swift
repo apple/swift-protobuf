@@ -1,4 +1,4 @@
-// Tests/PluginLibraryTests/Test_SwiftProtobufNamer.swift - Test SwiftProtobufNamer.swift
+// Tests/SwiftProtobufPluginLibraryTests/Test_SwiftProtobufNamer.swift - Test SwiftProtobufNamer.swift
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 
 class Test_SwiftProtobufNamer: XCTestCase {
 

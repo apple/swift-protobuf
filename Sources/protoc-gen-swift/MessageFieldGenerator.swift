@@ -13,7 +13,7 @@
 ///
 // -----------------------------------------------------------------------------
 import Foundation
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 import SwiftProtobuf
 
 

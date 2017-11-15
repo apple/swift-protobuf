@@ -1,4 +1,4 @@
-// Tests/PluginLibraryTests/Test_Descriptor.swift - Test Descriptor.swift
+// Tests/SwiftProtobufPluginLibraryTests/Test_Descriptor.swift - Test Descriptor.swift
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 
 class Test_Descriptor: XCTestCase {
 
@@ -23,7 +23,7 @@ class Test_Descriptor: XCTestCase {
     XCTAssertEqual(descriptorSet.files[0].name, "google/protobuf/descriptor.proto")
     XCTAssertEqual(descriptorSet.files[1].name, "google/protobuf/compiler/plugin.proto")
     XCTAssertEqual(descriptorSet.files[2].name, "pluginlib_descriptor_test.proto")
-    XCTAssertEqual(descriptorSet.files[3].name, "PluginLibrary/swift_protobuf_module_mappings.proto")
+    XCTAssertEqual(descriptorSet.files[3].name, "SwiftProtobufPluginLibrary/swift_protobuf_module_mappings.proto")
 
     let pluginFileDescriptor = descriptorSet.files[1]
 

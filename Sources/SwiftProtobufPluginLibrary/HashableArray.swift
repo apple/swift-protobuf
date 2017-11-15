@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/HashableArray.swift - Wrapper array to support hashing
+// Sources/SwiftProtobufPluginLibrary/HashableArray.swift - Wrapper array to support hashing
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

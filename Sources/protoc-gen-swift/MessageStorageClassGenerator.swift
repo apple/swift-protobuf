@@ -14,7 +14,7 @@
 // -----------------------------------------------------------------------------
 
 import Foundation
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 import SwiftProtobuf
 
 /// Generates the `_StorageClass` used for messages that employ copy-on-write

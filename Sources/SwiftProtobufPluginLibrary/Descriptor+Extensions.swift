@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/Descriptor+Extensions.swift - Additions to Descriptor
+// Sources/SwiftProtobufPluginLibrary/Descriptor+Extensions.swift - Additions to Descriptor
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

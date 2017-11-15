@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 
-import PluginLibrary
+import SwiftProtobufPluginLibrary
 
 extension Google_Protobuf_FileDescriptorProto {
   init(name: String, dependencies: [String] = [], publicDependencies: [Int32] = []) {

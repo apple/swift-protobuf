@@ -1,4 +1,4 @@
-// Tests/PluginLibraryTests/Test_ProtoFileToModuleMappings.swift - Test ProtoFile to Modules helper
+// Tests/SwiftProtobufPluginLibraryTests/Test_ProtoFileToModuleMappings.swift - Test ProtoFile to Modules helper
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -9,7 +9,7 @@
 // -----------------------------------------------------------------------------
 
 import XCTest
-@testable import PluginLibrary
+@testable import SwiftProtobufPluginLibrary
 
 // Support equality to simplify testing of getting the correct errors.
 extension ProtoFileToModuleMappings.LoadError: Equatable {

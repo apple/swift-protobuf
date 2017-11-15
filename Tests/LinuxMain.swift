@@ -5,7 +5,7 @@
 
 import XCTest
 @testable import SwiftProtobufTests
-@testable import PluginLibraryTests
+@testable import SwiftProtobufPluginLibraryTests
 
 
 extension Test_Descriptor {

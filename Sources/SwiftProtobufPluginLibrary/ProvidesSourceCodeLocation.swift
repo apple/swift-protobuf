@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/ProvidesSourceCodeLocation.swift - SourceCodeInfo.Location provider
+// Sources/SwiftProtobufPluginLibrary/ProvidesSourceCodeLocation.swift - SourceCodeInfo.Location provider
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception

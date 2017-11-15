@@ -38,7 +38,7 @@ BEGIN {
     printf("\n")
     printf("import XCTest\n")
     printf("@testable import SwiftProtobufTests\n")
-    printf("@testable import PluginLibraryTests\n")
+    printf("@testable import SwiftProtobufPluginLibraryTests\n")
     printf("\n")
 }
 

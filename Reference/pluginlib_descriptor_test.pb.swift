@@ -18,7 +18,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Test proto for Tests/PluginLibraryTests/Test_Descriptor.swift
+/// Test proto for Tests/SwiftProtobufPluginLibraryTests/Test_Descriptor.swift
 ///
 // -----------------------------------------------------------------------------
 

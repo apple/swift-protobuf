@@ -1,4 +1,4 @@
-// Sources/PluginLibrary/FieldNumbers.swift - Proto Field numbers
+// Sources/SwiftProtobufPluginLibrary/FieldNumbers.swift - Proto Field numbers
 //
 // Copyright (c) 2014 - 2017 Apple Inc. and the project authors
 // Licensed under Apache License v2.0 with Runtime Library Exception
@@ -8,7 +8,7 @@
 //
 // -----------------------------------------------------------------------------
 ///
-/// Field numbers needed by PluginLibrary since they currently aren't generated.
+/// Field numbers needed by SwiftProtobufPluginLibrary since they currently aren't generated.
 ///
 // -----------------------------------------------------------------------------
 
