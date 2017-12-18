@@ -2351,7 +2351,7 @@
 				9C8CDA1C1D7A288E00E207CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		BD12FD3D1D767BA1001815C7 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_iOS" */ = {
 			isa = XCConfigurationList;
@@ -2360,7 +2360,7 @@
 				BD12FD3C1D767BA1001815C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		F44F93761DAEA53900BC5B85 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_tvOS" */ = {
 			isa = XCConfigurationList;
@@ -2369,7 +2369,7 @@
 				F44F93751DAEA53900BC5B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		F44F93A71DAEA7C500BC5B85 /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_tvOS" */ = {
 			isa = XCConfigurationList;
@@ -2378,7 +2378,7 @@
 				F44F93A91DAEA7C500BC5B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		F44F94051DAEB13F00BC5B85 /* Build configuration list for PBXNativeTarget "SwiftProtobuf_watchOS" */ = {
 			isa = XCConfigurationList;
@@ -2387,7 +2387,7 @@
 				F44F94041DAEB13F00BC5B85 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		"___RootConfs_" /* Build configuration list for PBXProject "SwiftProtobuf" */ = {
 			isa = XCConfigurationList;
@@ -2396,7 +2396,7 @@
 				"_____Release_" /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		"_______Confs_Protobuf" /* Build configuration list for PBXNativeTarget "SwiftProtobuf_macOS" */ = {
 			isa = XCConfigurationList;
@@ -2405,7 +2405,7 @@
 				_ReleaseConf_Protobuf /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 		"_______Confs_ProtobufTestSuite" /* Build configuration list for PBXNativeTarget "SwiftProtobufTestSuite_macOS" */ = {
 			isa = XCConfigurationList;
@@ -2414,7 +2414,7 @@
 				_ReleaseConf_ProtobufTestSuite /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
