@@ -135,6 +135,14 @@ directory.
 To install, just copy this one executable into a directory that is
 part of your `PATH` environment variable.
 
+### Alternatively install via Homebrew
+
+If you prefer using [Homebrew](https://brew.sh):
+
+```
+$ brew install swift-protobuf
+```
+
 ## Converting .proto files into Swift
 
 To generate Swift output for your .proto files, you run the `protoc` command as
