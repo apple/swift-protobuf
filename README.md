@@ -143,7 +143,7 @@ If you prefer using [Homebrew](https://brew.sh):
 $ brew install swift-protobuf
 ```
 
-This will install `protoc` compliler and Swift code generator plugin.
+This will install `protoc` compiler and Swift code generator plugin.
 
 ## Converting .proto files into Swift
 
