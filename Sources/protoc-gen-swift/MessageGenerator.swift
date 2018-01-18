@@ -209,7 +209,7 @@ class MessageGenerator {
       p.print("\n")
       storage.generateTypeDeclaration(printer: &p)
       p.print("\n")
-      storage.generateUniqueStroage(printer: &p)
+      storage.generateUniqueStorage(printer: &p)
     }
     p.print("\n")
     generateMessageImplementationBase(printer: &p)
