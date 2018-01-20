@@ -137,7 +137,7 @@ public extension Google_Protobuf_FieldMask {
   ///   defined using the JSON names for the fields.
   public init?(jsonPaths: String...) {
     // TODO: This should fail if any of the conversions from JSON fails
-    self.init(protoPaths: jsonPaths.flatMap(JSONToProto))
+    self.init(protoPaths: jsonPaths.compactMap(JSONToProto))
   }
 
   // It would be nice if to have an initializer that accepted Swift property

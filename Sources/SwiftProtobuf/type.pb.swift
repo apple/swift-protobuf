@@ -605,8 +605,7 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
     get {return _storage._value ?? Google_Protobuf_Any()}
     set {_uniqueStorage()._value = newValue}
   }
-  /// Returns true if `value` has been explicitly set.
-  public var hasValue: Bool {return _storage._value != nil}
+  
   /// Clears the value of `value`. Subsequent reads from it will return its default value.
   public mutating func clearValue() {_storage._value = nil}
 
@@ -648,6 +647,11 @@ public struct Google_Protobuf_Option: SwiftProtobuf.Message {
   }
 
   fileprivate var _storage = _StorageClass.defaultInstance
+}
+
+extension Google_Protobuf_Option {
+    /// Returns true if `value` has been explicitly set.
+    public var hasValue: Bool {return _storage._value != nil}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
