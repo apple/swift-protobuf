@@ -182,7 +182,11 @@ internal func decodeVarint(_ stream: InputStream) throws -> UInt64 {
 
   // Buffer to reuse within nextByte.
   var readBuffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 1)
-  defer { readBuffer.deallocate(capacity: 1) }
+  #if swift(>=4.1)
+    defer { readBuffer.deallocate() }
+  #else
+    defer { readBuffer.deallocate(capacity: 1) }
+  #endif
 
   func nextByte() throws -> UInt8 {
     let bytesRead = stream.read(readBuffer, maxLength: 1)
