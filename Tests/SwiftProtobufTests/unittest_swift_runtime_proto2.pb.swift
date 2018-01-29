@@ -1229,6 +1229,154 @@ struct ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf.Message {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// Names that match protocols - No Storage
+struct ProtobufUnittest_Msg2NamesNoStorage: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".Msg2NamesNoStorage"
+
+  var isInitialized_p: Int32 {
+    get {return _isInitialized_p ?? 0}
+    set {_isInitialized_p = newValue}
+  }
+  /// Returns true if `isInitialized_p` has been explicitly set.
+  var hasIsInitialized_p: Bool {return self._isInitialized_p != nil}
+  /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
+  mutating func clearIsInitialized_p() {self._isInitialized_p = nil}
+
+  var debugDescription_p: Int32 {
+    get {return _debugDescription_p ?? 0}
+    set {_debugDescription_p = newValue}
+  }
+  /// Returns true if `debugDescription_p` has been explicitly set.
+  var hasDebugDescription_p: Bool {return self._debugDescription_p != nil}
+  /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
+  mutating func clearDebugDescription_p() {self._debugDescription_p = nil}
+
+  var value: Int32 {
+    get {return _value ?? 0}
+    set {_value = newValue}
+  }
+  /// Returns true if `value` has been explicitly set.
+  var hasValue: Bool {return self._value != nil}
+  /// Clears the value of `value`. Subsequent reads from it will return its default value.
+  mutating func clearValue() {self._value = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._isInitialized_p)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._debugDescription_p)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._value)
+      default: break
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._isInitialized_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._debugDescription_p {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
+    if let v = self._value {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _isInitialized_p: Int32? = nil
+  fileprivate var _debugDescription_p: Int32? = nil
+  fileprivate var _value: Int32? = nil
+}
+
+/// Names that match protocols - Storage
+struct ProtobufUnittest_Msg2NamesUsesStorage: SwiftProtobuf.Message {
+  static let protoMessageName: String = _protobuf_package + ".Msg2NamesUsesStorage"
+
+  var isInitialized_p: Int32 {
+    get {return _storage._isInitialized_p ?? 0}
+    set {_uniqueStorage()._isInitialized_p = newValue}
+  }
+  /// Returns true if `isInitialized_p` has been explicitly set.
+  var hasIsInitialized_p: Bool {return _storage._isInitialized_p != nil}
+  /// Clears the value of `isInitialized_p`. Subsequent reads from it will return its default value.
+  mutating func clearIsInitialized_p() {_storage._isInitialized_p = nil}
+
+  var debugDescription_p: Int32 {
+    get {return _storage._debugDescription_p ?? 0}
+    set {_uniqueStorage()._debugDescription_p = newValue}
+  }
+  /// Returns true if `debugDescription_p` has been explicitly set.
+  var hasDebugDescription_p: Bool {return _storage._debugDescription_p != nil}
+  /// Clears the value of `debugDescription_p`. Subsequent reads from it will return its default value.
+  mutating func clearDebugDescription_p() {_storage._debugDescription_p = nil}
+
+  /// Recursive class, forces _StorageClass
+  var value: ProtobufUnittest_Msg2UsesStorage {
+    get {return _storage._value ?? ProtobufUnittest_Msg2UsesStorage()}
+    set {_uniqueStorage()._value = newValue}
+  }
+  /// Returns true if `value` has been explicitly set.
+  var hasValue: Bool {return _storage._value != nil}
+  /// Clears the value of `value`. Subsequent reads from it will return its default value.
+  mutating func clearValue() {_storage._value = nil}
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+
+  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
+  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
+  /// initializers are defined in the SwiftProtobuf library. See the Message and
+  /// Message+*Additions` files.
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeSingularInt32Field(value: &_storage._isInitialized_p)
+        case 2: try decoder.decodeSingularInt32Field(value: &_storage._debugDescription_p)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._value)
+        default: break
+        }
+      }
+    }
+  }
+
+  /// Used by the encoding methods of the SwiftProtobuf library, not generally
+  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
+  /// other serializer methods are defined in the SwiftProtobuf library. See the
+  /// `Message` and `Message+*Additions` files.
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._isInitialized_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._debugDescription_p {
+        try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+      }
+      if let v = _storage._value {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  fileprivate var _storage = _StorageClass.defaultInstance
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "protobuf_unittest"
@@ -1595,6 +1743,69 @@ extension ProtobufUnittest_Msg2UsesStorage: SwiftProtobuf._MessageImplementation
         let _storage = _args.0
         let other_storage = _args.1
         if _storage._y != other_storage._y {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Msg2NamesNoStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "is_initialized"),
+    2: .standard(proto: "debug_description"),
+    3: .same(proto: "value"),
+  ]
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Msg2NamesNoStorage) -> Bool {
+    if self._isInitialized_p != other._isInitialized_p {return false}
+    if self._debugDescription_p != other._debugDescription_p {return false}
+    if self._value != other._value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
+}
+
+extension ProtobufUnittest_Msg2NamesUsesStorage: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "is_initialized"),
+    2: .standard(proto: "debug_description"),
+    3: .same(proto: "value"),
+  ]
+
+  fileprivate class _StorageClass {
+    var _isInitialized_p: Int32? = nil
+    var _debugDescription_p: Int32? = nil
+    var _value: ProtobufUnittest_Msg2UsesStorage? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _isInitialized_p = source._isInitialized_p
+      _debugDescription_p = source._debugDescription_p
+      _value = source._value
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
+  func _protobuf_generated_isEqualTo(other: ProtobufUnittest_Msg2NamesUsesStorage) -> Bool {
+    if _storage !== other._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let other_storage = _args.1
+        if _storage._isInitialized_p != other_storage._isInitialized_p {return false}
+        if _storage._debugDescription_p != other_storage._debugDescription_p {return false}
+        if _storage._value != other_storage._value {return false}
         return true
       }
       if !storagesAreEqual {return false}
