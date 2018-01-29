@@ -130,3 +130,18 @@ message Msg3UsesStorage {
   // Recursive class (i.e. - can build a graph), forces _StorageClass.
   Msg3UsesStorage y = 999;
 }
+
+// Names that match protocols - No Storage
+message Msg3NamesNoStorage {
+  int32 is_initialized = 1;
+  int32 debug_description = 2;
+  int32 has_value = 3;
+}
+
+// Names that match protocols - No Storage
+message Msg3NamesUsesStorage {
+  int32 is_initialized = 1;
+  int32 debug_description = 2;
+  // Recursive class, forces _StorageClass
+  Msg3UsesStorage value = 3;
+}
