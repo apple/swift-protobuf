@@ -130,6 +130,11 @@ in your proto file:
 will generate a struct named `MyFooBar`.
 (Note: `swift_prefix` is only supported by protoc 3.2 or later.)
 
+:warning: The `swift_prefix` option has proven problematic in practice.
+Because it ignores the `package` directive, it can easily lead to name
+conflicts and other confusion as your shared proto definitions evolve over
+time.
+
 If the resulting name would collide with a Swift reserved word
 or would otherwise cause problems in the generated code,
 then the word `Message` is appended to the name.
