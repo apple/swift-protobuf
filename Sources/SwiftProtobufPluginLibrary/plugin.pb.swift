@@ -66,8 +66,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// The version number of protocol compiler.
-public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
-  public static let protoMessageName: String = _protobuf_package + ".Version"
+public struct Google_Protobuf_Compiler_Version {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   public var major: Int32 {
     get {return _major ?? 0}
@@ -111,42 +113,6 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
 
   public init() {}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self._major)
-      case 2: try decoder.decodeSingularInt32Field(value: &self._minor)
-      case 3: try decoder.decodeSingularInt32Field(value: &self._patch)
-      case 4: try decoder.decodeSingularStringField(value: &self._suffix)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._major {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
-    }
-    if let v = self._minor {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
-    }
-    if let v = self._patch {
-      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
-    }
-    if let v = self._suffix {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   fileprivate var _major: Int32? = nil
   fileprivate var _minor: Int32? = nil
   fileprivate var _patch: Int32? = nil
@@ -154,8 +120,10 @@ public struct Google_Protobuf_Compiler_Version: SwiftProtobuf.Message {
 }
 
 /// An encoded CodeGeneratorRequest is written to the plugin's stdin.
-public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message {
-  public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
+public struct Google_Protobuf_Compiler_CodeGeneratorRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// The .proto files that were explicitly listed on the command-line.  The
   /// code generator should generate code only for these files.  Each file's
@@ -208,60 +176,14 @@ public struct Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Messa
 
   public init() {}
 
-  public var isInitialized: Bool {
-    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !SwiftProtobuf.Internal.areAllInitialized(_storage._protoFile) {return false}
-      return true
-    }
-  }
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
-        case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
-        case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
-        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
-        default: break
-        }
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      if !_storage._fileToGenerate.isEmpty {
-        try visitor.visitRepeatedStringField(value: _storage._fileToGenerate, fieldNumber: 1)
-      }
-      if let v = _storage._parameter {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
-      if let v = _storage._compilerVersion {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      }
-      if !_storage._protoFile.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._protoFile, fieldNumber: 15)
-      }
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
-
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// The plugin writes an encoded CodeGeneratorResponse to stdout.
-public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message {
-  public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
+public struct Google_Protobuf_Compiler_CodeGeneratorResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// Error message.  If non-empty, code generation failed.  The plugin process
   /// should exit with status code zero even if it reports an error in this way.
@@ -285,8 +207,10 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Represents a single generated file.
-  public struct File: SwiftProtobuf.Message {
-    public static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
+  public struct File {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     /// The file name, relative to the output directory.  The name must not
     /// contain "." or ".." components and must be relative, not be absolute (so,
@@ -368,72 +292,12 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
 
     public init() {}
 
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self._name)
-        case 2: try decoder.decodeSingularStringField(value: &self._insertionPoint)
-        case 15: try decoder.decodeSingularStringField(value: &self._content)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if let v = self._name {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-      }
-      if let v = self._insertionPoint {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
-      }
-      if let v = self._content {
-        try visitor.visitSingularStringField(value: v, fieldNumber: 15)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
-
     fileprivate var _name: String? = nil
     fileprivate var _insertionPoint: String? = nil
     fileprivate var _content: String? = nil
   }
 
   public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
-  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      switch fieldNumber {
-      case 1: try decoder.decodeSingularStringField(value: &self._error)
-      case 15: try decoder.decodeRepeatedMessageField(value: &self.file)
-      default: break
-      }
-    }
-  }
-
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
-  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._error {
-      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
-    }
-    if !self.file.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 15)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
   fileprivate var _error: String? = nil
 }
@@ -442,13 +306,42 @@ public struct Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Mess
 
 fileprivate let _protobuf_package = "google.protobuf.compiler"
 
-extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Compiler_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Version"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "major"),
     2: .same(proto: "minor"),
     3: .same(proto: "patch"),
     4: .same(proto: "suffix"),
   ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self._major)
+      case 2: try decoder.decodeSingularInt32Field(value: &self._minor)
+      case 3: try decoder.decodeSingularInt32Field(value: &self._patch)
+      case 4: try decoder.decodeSingularStringField(value: &self._suffix)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._major {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 1)
+    }
+    if let v = self._minor {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 2)
+    }
+    if let v = self._patch {
+      try visitor.visitSingularInt32Field(value: v, fieldNumber: 3)
+    }
+    if let v = self._suffix {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_Version) -> Bool {
     if self._major != other._major {return false}
@@ -460,7 +353,8 @@ extension Google_Protobuf_Compiler_Version: SwiftProtobuf._MessageImplementation
   }
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorRequest"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "file_to_generate"),
     2: .same(proto: "parameter"),
@@ -493,6 +387,46 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
     return _storage
   }
 
+  public var isInitialized: Bool {
+    return withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !SwiftProtobuf.Internal.areAllInitialized(_storage._protoFile) {return false}
+      return true
+    }
+  }
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        switch fieldNumber {
+        case 1: try decoder.decodeRepeatedStringField(value: &_storage._fileToGenerate)
+        case 2: try decoder.decodeSingularStringField(value: &_storage._parameter)
+        case 3: try decoder.decodeSingularMessageField(value: &_storage._compilerVersion)
+        case 15: try decoder.decodeRepeatedMessageField(value: &_storage._protoFile)
+        default: break
+        }
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if !_storage._fileToGenerate.isEmpty {
+        try visitor.visitRepeatedStringField(value: _storage._fileToGenerate, fieldNumber: 1)
+      }
+      if let v = _storage._parameter {
+        try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+      }
+      if let v = _storage._compilerVersion {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+      }
+      if !_storage._protoFile.isEmpty {
+        try visitor.visitRepeatedMessageField(value: _storage._protoFile, fieldNumber: 15)
+      }
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorRequest) -> Bool {
     if _storage !== other._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((_storage, other._storage)) { (_args: (_StorageClass, _StorageClass)) in
@@ -511,11 +445,32 @@ extension Google_Protobuf_Compiler_CodeGeneratorRequest: SwiftProtobuf._MessageI
   }
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".CodeGeneratorResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "error"),
     15: .same(proto: "file"),
   ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self._error)
+      case 15: try decoder.decodeRepeatedMessageField(value: &self.file)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._error {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    if !self.file.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.file, fieldNumber: 15)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse) -> Bool {
     if self._error != other._error {return false}
@@ -525,12 +480,37 @@ extension Google_Protobuf_Compiler_CodeGeneratorResponse: SwiftProtobuf._Message
   }
 }
 
-extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Google_Protobuf_Compiler_CodeGeneratorResponse.File: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = Google_Protobuf_Compiler_CodeGeneratorResponse.protoMessageName + ".File"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "insertion_point"),
     15: .same(proto: "content"),
   ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self._name)
+      case 2: try decoder.decodeSingularStringField(value: &self._insertionPoint)
+      case 15: try decoder.decodeSingularStringField(value: &self._content)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._name {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 1)
+    }
+    if let v = self._insertionPoint {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 2)
+    }
+    if let v = self._content {
+      try visitor.visitSingularStringField(value: v, fieldNumber: 15)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Compiler_CodeGeneratorResponse.File) -> Bool {
     if self._name != other._name {return false}

@@ -106,8 +106,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// encoded in JSON format as "3s", while 3 seconds and 1 nanosecond should
 /// be expressed in JSON format as "3.000000001s", and 3 seconds and 1
 /// microsecond should be expressed in JSON format as "3.000001s".
-public struct Google_Protobuf_Duration: SwiftProtobuf.Message {
-  public static let protoMessageName: String = _protobuf_package + ".Duration"
+public struct Google_Protobuf_Duration {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// Signed seconds of the span of time. Must be from -315,576,000,000
   /// to +315,576,000,000 inclusive. Note: these bounds are computed from:
@@ -125,11 +127,19 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Message {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
+
+extension Google_Protobuf_Duration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Duration"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "seconds"),
+    2: .same(proto: "nanos"),
+  ]
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -140,10 +150,6 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seconds != 0 {
       try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
@@ -153,17 +159,6 @@ public struct Google_Protobuf_Duration: SwiftProtobuf.Message {
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-}
-
-// MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-fileprivate let _protobuf_package = "google.protobuf"
-
-extension Google_Protobuf_Duration: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "seconds"),
-    2: .same(proto: "nanos"),
-  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Duration) -> Bool {
     if self.seconds != other.seconds {return false}

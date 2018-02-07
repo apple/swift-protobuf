@@ -56,8 +56,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// Wrapper message for `double`.
 ///
 /// The JSON representation for `DoubleValue` is JSON number.
-public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message {
-  public static let protoMessageName: String = _protobuf_package + ".DoubleValue"
+public struct Google_Protobuf_DoubleValue {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// The double value.
   public var value: Double = 0
@@ -65,11 +67,146 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message {
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
+/// Wrapper message for `float`.
+///
+/// The JSON representation for `FloatValue` is JSON number.
+public struct Google_Protobuf_FloatValue {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The float value.
+  public var value: Float = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `int64`.
+///
+/// The JSON representation for `Int64Value` is JSON string.
+public struct Google_Protobuf_Int64Value {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The int64 value.
+  public var value: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `uint64`.
+///
+/// The JSON representation for `UInt64Value` is JSON string.
+public struct Google_Protobuf_UInt64Value {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The uint64 value.
+  public var value: UInt64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `int32`.
+///
+/// The JSON representation for `Int32Value` is JSON number.
+public struct Google_Protobuf_Int32Value {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The int32 value.
+  public var value: Int32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `uint32`.
+///
+/// The JSON representation for `UInt32Value` is JSON number.
+public struct Google_Protobuf_UInt32Value {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The uint32 value.
+  public var value: UInt32 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `bool`.
+///
+/// The JSON representation for `BoolValue` is JSON `true` and `false`.
+public struct Google_Protobuf_BoolValue {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The bool value.
+  public var value: Bool = false
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `string`.
+///
+/// The JSON representation for `StringValue` is JSON string.
+public struct Google_Protobuf_StringValue {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The string value.
+  public var value: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Wrapper message for `bytes`.
+///
+/// The JSON representation for `BytesValue` is JSON string.
+public struct Google_Protobuf_BytesValue {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// The bytes value.
+  public var value: Data = SwiftProtobuf.Internal.emptyData
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "google.protobuf"
+
+extension Google_Protobuf_DoubleValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DoubleValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -79,35 +216,26 @@ public struct Google_Protobuf_DoubleValue: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularDoubleField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `float`.
-///
-/// The JSON representation for `FloatValue` is JSON number.
-public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message {
+extension Google_Protobuf_FloatValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".FloatValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The float value.
-  public var value: Float = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -117,35 +245,26 @@ public struct Google_Protobuf_FloatValue: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularFloatField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `int64`.
-///
-/// The JSON representation for `Int64Value` is JSON string.
-public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message {
+extension Google_Protobuf_Int64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Int64Value"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The int64 value.
-  public var value: Int64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -155,35 +274,26 @@ public struct Google_Protobuf_Int64Value: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `uint64`.
-///
-/// The JSON representation for `UInt64Value` is JSON string.
-public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message {
+extension Google_Protobuf_UInt64Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UInt64Value"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The uint64 value.
-  public var value: UInt64 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -193,35 +303,26 @@ public struct Google_Protobuf_UInt64Value: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt64Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `int32`.
-///
-/// The JSON representation for `Int32Value` is JSON number.
-public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message {
+extension Google_Protobuf_Int32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".Int32Value"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The int32 value.
-  public var value: Int32 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -231,35 +332,26 @@ public struct Google_Protobuf_Int32Value: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `uint32`.
-///
-/// The JSON representation for `UInt32Value` is JSON number.
-public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message {
+extension Google_Protobuf_UInt32Value: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".UInt32Value"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The uint32 value.
-  public var value: UInt32 = 0
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -269,35 +361,26 @@ public struct Google_Protobuf_UInt32Value: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != 0 {
       try visitor.visitSingularUInt32Field(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `bool`.
-///
-/// The JSON representation for `BoolValue` is JSON `true` and `false`.
-public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message {
+extension Google_Protobuf_BoolValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".BoolValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The bool value.
-  public var value: Bool = false
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -307,35 +390,26 @@ public struct Google_Protobuf_BoolValue: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != false {
       try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `string`.
-///
-/// The JSON representation for `StringValue` is JSON string.
-public struct Google_Protobuf_StringValue: SwiftProtobuf.Message {
+extension Google_Protobuf_StringValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".StringValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The string value.
-  public var value: String = String()
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -345,35 +419,26 @@ public struct Google_Protobuf_StringValue: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
+
+  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
+    if self.value != other.value {return false}
+    if unknownFields != other.unknownFields {return false}
+    return true
+  }
 }
 
-/// Wrapper message for `bytes`.
-///
-/// The JSON representation for `BytesValue` is JSON string.
-public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message {
+extension Google_Protobuf_BytesValue: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".BytesValue"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "value"),
+  ]
 
-  /// The bytes value.
-  public var value: Data = SwiftProtobuf.Internal.emptyData
-
-  public var unknownFields = SwiftProtobuf.UnknownStorage()
-
-  public init() {}
-
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -383,122 +448,12 @@ public struct Google_Protobuf_BytesValue: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularBytesField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-}
-
-// MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-fileprivate let _protobuf_package = "google.protobuf"
-
-extension Google_Protobuf_DoubleValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_DoubleValue) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_FloatValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_FloatValue) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_Int64Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int64Value) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_UInt64Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt64Value) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_Int32Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_Int32Value) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_UInt32Value: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_UInt32Value) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_BoolValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_BoolValue) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_StringValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
-
-  public func _protobuf_generated_isEqualTo(other: Google_Protobuf_StringValue) -> Bool {
-    if self.value != other.value {return false}
-    if unknownFields != other.unknownFields {return false}
-    return true
-  }
-}
-
-extension Google_Protobuf_BytesValue: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-  ]
 
   public func _protobuf_generated_isEqualTo(other: Google_Protobuf_BytesValue) -> Bool {
     if self.value != other.value {return false}
