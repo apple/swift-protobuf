@@ -31,8 +31,10 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// Configuration used to define the mappings for generated proto files
 /// to the Swift module they will be included in.
-public struct SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
-  public static let protoMessageName: String = _protobuf_package + ".ModuleMappings"
+public struct SwiftProtobuf_GenSwift_ModuleMappings {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
 
   /// The mappings.
   public var mapping: [SwiftProtobuf_GenSwift_ModuleMappings.Entry] = []
@@ -41,8 +43,10 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
 
   /// Individual listing of the module name and the files that will go
   /// into it.
-  public struct Entry: SwiftProtobuf.Message {
-    public static let protoMessageName: String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
+  public struct Entry {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
     /// The Swift module name that will be imported and used to scope all
     /// the types from the given proto files.
@@ -57,42 +61,21 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
     public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     public init() {}
-
-    /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-    /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-    /// initializers are defined in the SwiftProtobuf library. See the Message and
-    /// Message+*Additions` files.
-    public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        switch fieldNumber {
-        case 1: try decoder.decodeSingularStringField(value: &self.moduleName)
-        case 2: try decoder.decodeRepeatedStringField(value: &self.protoFilePath)
-        default: break
-        }
-      }
-    }
-
-    /// Used by the encoding methods of the SwiftProtobuf library, not generally
-    /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-    /// other serializer methods are defined in the SwiftProtobuf library. See the
-    /// `Message` and `Message+*Additions` files.
-    public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-      if !self.moduleName.isEmpty {
-        try visitor.visitSingularStringField(value: self.moduleName, fieldNumber: 1)
-      }
-      if !self.protoFilePath.isEmpty {
-        try visitor.visitRepeatedStringField(value: self.protoFilePath, fieldNumber: 2)
-      }
-      try unknownFields.traverse(visitor: &visitor)
-    }
   }
 
   public init() {}
+}
 
-  /// Used by the decoding initializers in the SwiftProtobuf library, not generally
-  /// used directly. `init(serializedData:)`, `init(jsonUTF8Data:)`, and other decoding
-  /// initializers are defined in the SwiftProtobuf library. See the Message and
-  /// Message+*Additions` files.
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
+
+extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ModuleMappings"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "mapping"),
+  ]
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
@@ -102,26 +85,12 @@ public struct SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf.Message {
     }
   }
 
-  /// Used by the encoding methods of the SwiftProtobuf library, not generally
-  /// used directly. `Message.serializedData()`, `Message.jsonUTF8Data()`, and
-  /// other serializer methods are defined in the SwiftProtobuf library. See the
-  /// `Message` and `Message+*Additions` files.
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.mapping.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.mapping, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
-}
-
-// MARK: - Code below here is support for the SwiftProtobuf runtime.
-
-fileprivate let _protobuf_package = "swift_protobuf.gen_swift"
-
-extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "mapping"),
-  ]
 
   public func _protobuf_generated_isEqualTo(other: SwiftProtobuf_GenSwift_ModuleMappings) -> Bool {
     if self.mapping != other.mapping {return false}
@@ -130,11 +99,32 @@ extension SwiftProtobuf_GenSwift_ModuleMappings: SwiftProtobuf._MessageImplement
   }
 }
 
-extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension SwiftProtobuf_GenSwift_ModuleMappings.Entry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = SwiftProtobuf_GenSwift_ModuleMappings.protoMessageName + ".Entry"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "module_name"),
     2: .standard(proto: "proto_file_path"),
   ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularStringField(value: &self.moduleName)
+      case 2: try decoder.decodeRepeatedStringField(value: &self.protoFilePath)
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.moduleName.isEmpty {
+      try visitor.visitSingularStringField(value: self.moduleName, fieldNumber: 1)
+    }
+    if !self.protoFilePath.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.protoFilePath, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
 
   public func _protobuf_generated_isEqualTo(other: SwiftProtobuf_GenSwift_ModuleMappings.Entry) -> Bool {
     if self.moduleName != other.moduleName {return false}
